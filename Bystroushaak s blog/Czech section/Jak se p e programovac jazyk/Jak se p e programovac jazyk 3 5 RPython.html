@@ -1,0 +1,608 @@
+<html><head><title>Jak se píše programovací jazyk 3.5: RPython</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="de209ad1-cc28-4569-bfbe-bbb8d40f277d" class="page sans"><header><h1 class="page-title">Jak se píše programovací jazyk 3.5: RPython</h1></header><div class="page-body"><p id="ebfbab9d-0997-4d7e-9d2a-eff3a907de26"><time>@2019/02/24</time></p><p id="03fb45e0-8bc8-4110-8606-ae91131be017">Parser parsuje, testy procházejí a svítí zeleně. Co víc si přát. Snad jen .. Ve všemožných článcích psali, že je dobré provádět časté testy, zda jde kód přeložit RPythonem. Během psaní parseru to nemělo smysl, protože parser je obtížně dělitelný kus a moje soustředění mířilo směrem k projití unittesty. Řešit u toho ještě datové typy a všechna omezení RPythonu mi přišlo jako zbytečný masochismus, který by mohl způsobit, že projekt nikdy nedodělám.</p><p id="e64c2589-7e2f-439f-9776-6cd5c77c28f5">Normální unittesty pouštím scriptem <code>run_tests.sh</code>, který obsahuje následující kód:</p><pre id="40da81cb-6624-4131-a88c-9b6e62f3ea9c" class="code"><code>#! /usr/bin/env bash
+export PYTHONPATH=&quot;src/:$PYTHONPATH&quot;
+python2 -m py.test tests $@</code></pre><p id="7ae683d2-cbb0-4621-9f02-1d9b3b3e663c">Ten je následně pouštěn scriptem <a href="https://github.com/joh/when-changed">when-changed</a>, jenž detekuje změny na disku a při každé úpravě zdrojových kódů pustí testy:</p><pre id="a94b605e-385a-4ab3-a452-bf466659be1c" class="code"><code>when-changed -s -r src/tinySelf/*.py -r tests/*.py -c ./run_tests.sh -s</code></pre><p id="72928d2c-689a-440a-a5f4-e510cdd48e21">Parametr <code>-s</code> zachycuje stdout z testů. </p><figure id="81a6a1bb-d9c1-4dfb-8716-842f38073d43" class="image"><a href="Jak se p e programovac jazyk 3 5 RPython/passing_tests.png"><img style="width:600px" src="Jak se p e programovac jazyk 3 5 RPython/passing_tests.png"/></a></figure><h2 id="f8a46fe1-393f-4df1-8a39-5f828968ec6b">RPython testy</h2><p id="e4902ad1-02a4-437f-897d-524b32399029">RPython takto pouštět nemůžu, neboť se nejedná o unittesty, ale spíš test kompilace trvající na mém domácím počítači klidně minutu.</p><p id="8ec866bf-d7d3-4396-97c3-7fa490f42da8">Pro RPython jsem si do začátku napsal následující scriptík <code>run_rpython_test.sh</code>:</p><pre id="a89ab2b8-8c30-4254-bb70-aa2874844358" class="code"><code>#! /usr/bin/env bash
+$HOME/Plocha/tests/pypy/rpython/bin/rpython src/tinySelf/target.py</code></pre><h3 id="26f6065c-413a-45b5-b4c6-403839a5d1eb">Pypy</h3><p id="59551d7b-57cf-4390-817f-5d9dd6aa50bf">Jak je možné vidět, ten předpokládá, že v adresáři <code>$HOME/Plocha/tests</code> je naklonovaný repozitář projektu <a href="https://bitbucket.org/pypy/pypy">pypy</a>. To je možné udělat například příkazem:</p><pre id="e134e897-d2f5-479d-90b4-fb907109484e" class="code"><code>hg clone https://bitbucket.org/pypy/pypy</code></pre><p id="f4e35067-f77d-42a5-90d1-fac743bc0b73">ve složce <code>$HOME/Plocha/tests</code>.</p><p id="204967d1-fa29-4f85-b15c-63d8c4394917">Repozitář je možné zkompilovat a zajistit si tak nejnovější verzi pypy. Osobně to tak ale nedělám, protože to trvá dlouho, nejnovější revize repozitáře typicky obsahuje bugy a navíc kompilace má spoustu závislostí. Proto používám pypy z repozitáře (<code>sudo apt install pypy</code>) a využívám jen nejnovější <em>RPython toolkit</em>, který je s pypy distribuovaný.</p><p id="fb56c6c8-92d4-48aa-852c-8220432702c8">Jakmile mám pypy nainstalované, stáhnu si ještě PIP (python package manager) pro pypy (standardní funguje jen pro cpython):</p><pre id="5de25e4b-568a-499e-8abf-ff75bc9a1336" class="code"><code>curl https://bootstrap.pypa.io/get-pip.py | sudo pypy</code></pre><p id="8308f799-72b3-44eb-a6dd-6f151ed89215">Poté do pypy doinstaluji nejnovější verzi parsovacího balíku <a href="https://github.com/alex/rply">rply</a>:</p><pre id="9461fd58-0e54-4335-b7e1-733d49f312f5" class="code"><code>pypy -m pip install --user rply</code></pre><p id="935d4a2c-4387-44f2-a2f5-4f19f5539da0">V repozitáři debian based systémů se nachází balík pypy-rply, který ale nedoporučuji používat, protože může být zastaralý vůči PIPu (v době psaní článku je v debian repozitáři verze 0.7.4-3 a v pipu 0.7.5).</p><h1 id="6f10e555-8c51-40cd-a90a-07bd77dff1d9">target.py</h1><p id="11a1eba8-07b3-467d-848d-f27ee95c4728">Pouštěný script <a href="http://target.py"><code>target.py</code></a> definuje vstupní kompilační bod. V něm musí být minimálně dvě funkce - <code>target()</code> a poté funkce která slouží jako vstupní bod spuštěného programu. V podstatě se jedná o takové <code>meta-main()</code> známé z C jazyků, tedy funkci určující funkci main. Mám pocit, že na linuxu se k tomu pod libc <a href="https://stackoverflow.com/questions/15919356/c-program-start">běžně používá</a> __start.</p><p id="e6826aaf-91c6-47fa-8c4c-2cdb8aeac878">Obsah funkce <code>target()</code> se spouští v době překladu a proto je možné v něm provádět různé meta-programování, například volat funkce, které vygenerují funkce, které jsou poté zkompilovány.</p><p id="3fd1c62b-d739-487d-b1e4-e4e73070b668">Osobně jsem do začátku použil jen nejjednodušší target.py:</p><pre id="847fa0ba-2d70-4a30-ac5f-9c56a9758dee" class="code"><code>#! /usr/bin/env python2
+# -*- coding: utf-8 -*-
+from rpython.jit.codewriter.policy import JitPolicy
+from parser import lex_and_parse
+
+
+def main(argv):
+    print lex_and_parse(&quot;1&quot;)
+    return 1
+
+
+def target(driver, args):
+    return main, None
+
+
+def jitpolicy(driver):
+    return JitPolicy()
+
+
+def untranslated_main():
+    import sys
+    sys.exit(main(sys.argv))
+
+
+if __name__ == &#x27;__main__&#x27;:
+    untranslated_main()</code></pre><p id="f069e582-5bd6-4ecc-8ba0-ae65db0b7773">Jak je vidět, jen se pustí funkce <code>lex_and_parse(&quot;1&quot;)</code>, tedy pokus o zparsování zdrojového kódu obsahujícího jen číslo jedna.</p><p id="d5153cb7-9a19-47c0-8f98-8982ac6d1540">Pokud by vás zajímal princip fungování překladu na C kód, tak znovu doporučuji následující odkazy:</p><ul id="c7a4d905-0444-454c-ba72-0d4679b442fe" class="bulleted-list"><li><a href="https://www.root.cz/clanky/rpython-prekvapive-vykonny-dialekt-pythonu-na-nemz-je-zalozen-pypy/">RPython: překvapivě výkonný dialekt Pythonu, na němž je založen PyPy</a></li></ul><ul id="3de93987-2796-45c4-87c1-7a02b69a0ea4" class="bulleted-list"><li><a href="https://rpython.readthedocs.io/en/latest/translation.html">The RPython Toolchain</a></li></ul><p id="6861fdd3-e634-418d-ab69-123838d3bb26">Hezky to celé shrnuje následující graf:</p><figure id="b47eeec8-6d29-4e48-a7c7-f804da5eaf1f" class="image"><a href="https://rpython.readthedocs.io/en/latest/_images/translation-detail-0.9.png"><img src="https://rpython.readthedocs.io/en/latest/_images/translation-detail-0.9.png"/></a></figure><p id="4a636dd7-6d3b-46b7-b530-526a3d3920e2">Ve zkratce je vytvořen <em>flow graf</em> kódu, který je poté projit analyzátorem datových typů, jenž se snaží jednotlivým elementům přiřadit statické datové typy. Pokud se podaří, jsou aplikovány optimizace, případně přidán JIT, vyplivnut C kód a celé je to zkompilováno pomocí normálního C kompilátoru.</p><p id="bb7c31b9-73d6-4928-87be-86d01692d77a">To že jde o <em>flow graf</em> ovšem znamená, že části kódu, které nejsou volány nejsou překládány. Celé je možné si to představit jako kompilaci AST, i když ve skutečnosti se kód prvně kompiluje do pythonního bytecode a teprve ten se poté analyzuje a z něj se staví <a href="https://en.wikipedia.org/wiki/Control_flow_graph">control flow graph</a>.</p><p id="efe35440-7761-463b-92d1-99186d2a906f">Prakticky to znamená, že pokud máte v objektu metodu, kterou nejde přeložit, tak na to nepřijdete, dokud v kódu nebude někde místo, odkud se volá. Do té doby vůbec není součástí <em>flow grafu</em>.</p><h1 id="ea604512-a828-4918-ae67-a6bc8a112954">První puštění testů</h1><p id="303f23f5-b9c1-4d41-bb15-00b1f80f96ac">První puštění testů mi samozřejmě neprošlo:</p><figure id="ef1d019b-bb40-40d7-a67c-39d5ba6e67d5" class="image"><a href="Jak se p e programovac jazyk 3 5 RPython/rpython_first_fail.png"><img style="width:810px" src="Jak se p e programovac jazyk 3 5 RPython/rpython_first_fail.png"/></a></figure><p id="ee62a545-6863-47eb-8fb3-b13dcac8a3de">Žádné překvapení. Jak jsem psal, RPython používá silně omezenou verzi pythonu a můj kód nijak nešetří <em>list comprehensionama</em>, <em>closures</em> a dalšími „vysokoúrovňovými“ konstrukty.</p><p id="0d03be9d-25b0-4f55-8808-62c3c5e1cc7d">Kód je nyní zapotřebí <em>„zhloupit“</em> a přidat typové hinty, které RPythonu pomohou anotovat <em>flow graph</em> v místech, kde si je nedokáže odvodit sám.</p><h2 id="ec75f321-da4b-4abf-b46b-1babf9215362">Redukce na RPython</h2><p id="4cec8392-13ac-44e2-80f9-c581ae4cd3de">Nyní musím vzít dynamický a relativně vyskoúrovňový python a převést ho na staticky typovaný kód, který by se psal podobně jako třeba v Javě. To vše čistě v syntaxi pythonu.</p><p id="ea94e078-c1d1-4357-ae96-fb09574fc9b3">Část omezení je popsána v oficiální dokumentaci:</p><ul id="25287908-382c-491a-9bc4-086c00794a2c" class="bulleted-list"><li><a href="http://rpython.readthedocs.io/en/latest/rpython.html">RPython Language</a></li></ul><p id="b2245aa6-2444-4b41-a9c1-770c588f00b3">Mnohem lepší představu však dává článek</p><ul id="6dbd927b-3546-4571-8e4d-6e43695a5177" class="bulleted-list"><li><a href="https://refi64.com/posts/the-magic-of-rpython.html">The Magic of RPython</a> (<a href="http://web.archive.org/web/20180317140809/https://refi64.com/posts/the-magic-of-rpython.html">webarchive</a>)</li></ul><p id="03c8c121-24fe-409e-bf94-e7a01e2e1d91">Mezi významná omezení patří například omezení proměnných pouze na jeden datový typ v daném <em>scope</em>. To znamená, že do nich nemůžete přiřadit hodnotu s jiným datovým typem, jakmile je jednou použijete. Seznamy musí být celé tvořeny z jednoho datového typu. Closures nefungují vůbec. List comprehensions fungují, ale ne úplně tak jak by člověk čekal. Generátory jsou více/méně podporovány, ale nejdou s nimi dělat různé psí kusy, jako třeba kompozice.</p><p id="f76a9371-e624-4188-a449-4dd1a383006c">Otravně omezující je nutnost všech funkcí v parseru vracet stejný datový typ, resp. třídu odvozenou od stejného datového typu. <code>rply</code> k tomu nabízí <a href="https://github.com/alex/rply/blob/master/rply/token.py#L1">rply.token.BaseBox</a>, od které musí být poděděny všechny AST prvky. Navíc je však ale třeba přepsat i všechny parsovací funkce tak, aby nevracely <code>list</code>, <code>dict</code>, nebo jiné nativní typy, ale datový typ odvozený od <code>BaseBox</code>u.</p><p id="5a0ffda4-eb3a-4d68-a480-2d5ca8543316">Proto jsem byl nucen nadefinovat třídy <code>StrContainer</code>, <code>DictContainer</code>, <code>ListContainer</code> a <code>KwSlotContainer</code>, a používat je na místech, kde jsem dříve používal prostě jen <code>dict</code>, nebo <code>list</code>. Původně jsem chtěl použít jen Container, který by udržoval obecný datový typ, ale ukázalo se, že na něj taky platí omezení a pro jednu instanci je možné použít jen jeden datový typ. Do třídy ve stylu:</p><pre id="5cc5e5a0-0577-479e-9fde-89f87c5bf312" class="code"><code>class Container(object):
+  def __init__(self, data):
+    self.data = data</code></pre><p id="ce7de1d9-5e6b-4feb-bef9-9675de086509">není možné v různých instancích uložit různé datové typy. To je pro mě jakožto dlouhodobého programátora v pythonu docela nezvyk.</p><p id="6593d087-a9fc-4a71-aa6e-e881002758ab">Hezky je to vidět například na parsovací funkci <code>kw_slot_definition()</code>, která se proměnila z</p><pre id="7e98f4ef-ef69-48e2-9f68-ff90324b49b6" class="code"><code>@pg.production(&#x27;slot_definition : kw_slot_name ASSIGNMENT expression&#x27;)
+def kw_slot_definition(p):
+    assert isinstance(p[2], Object), &quot;Only objects are assignable to kw slots!&quot;
+
+    slot_name = p[0][0]
+    parameters = p[0][1]
+
+    obj = p[2]
+    obj.params.extend(parameters)
+
+    return {slot_name: obj}</code></pre><p id="8eb34dc5-8861-439d-a3c7-9d69c2554459">na</p><pre id="913b749f-2263-44c1-8c5b-391fda43ca59" class="code"><code>@pg.production(&#x27;slot_definition : kw_slot_name ASSIGNMENT expression&#x27;)
+def kw_slot_definition(p):
+    slot_info = p[0]
+    obj = p[2]
+
+    assert isinstance(slot_info, KwSlotContainer)
+    assert isinstance(obj, Object)
+
+    obj.params.extend(slot_info.parameters)
+
+    return DictContainer({slot_info.slot_name: obj})</code></pre><p id="e6dc9ff0-a859-4905-9d25-ccbb77562d79">Za povšimnutí stojí také několik použití <code>assert isinstance(..)</code>. V prvním případě používám <code>assert</code> tak, jak byl zamýšlen, tedy k ujištění se, že do funkce nepoleze datový typ jiný než objekt a pokud ano, tak vyhodím chybovou hlášku.</p><p id="6d9a221e-2a05-419e-ad6d-c135a2513e9b">Ve druhém případě <code>assert</code> nefunguje jako příkaz pro ujištění, ale jako <em>type hint</em> (<em>typová nápověda</em>) pro RPython, který mu říká, jakého datového typu jsou dané parametry. Pokud bych ho neuvedl, došlo by v době překladu k vyhození výjimky, která může vypadat například takto:</p><pre id="1891ff42-99c2-4cf5-b842-348dd417ecbc" class="code"><code>[translation:ERROR] NoSuchAttrError: 
+
+the attribute &#x27;params&#x27; goes here to &lt;ClassDef &#x27;rply.token.BaseBox&#x27;&gt;, but it is forbidden here
+
+
+    v0 = getattr(obj_0, (&#x27;params&#x27;))
+
+In &lt;FunctionGraph of (parser:453)kw_slot_definition at 0x55b7e3841cc8&gt;:
+Happened at file src/tinySelf/parser.py line 461
+
+        slot_info = p[0]
+        obj = p[2]
+    
+        # assert isinstance(slot_info, KwSlotContainer)
+        # assert isinstance(obj, Object)
+    
+==&gt;     obj.params.extend(slot_info.parameters)
+    
+        return DictContainer({slot_info.slot_name: obj})</code></pre><p id="49c65f87-61bb-4fc0-899a-07138ffe8af0">Z chyby je jasně vidět, že RPython nechápe, proč se snažím u neznámého objektu přistupovat k členské proměnné <code>params</code>.</p><p id="d9211181-94ee-458c-8da2-2a3dc4e55809">Na konci funkce pak vracím <code>DictContainer</code> čistě jen proto, že vrácené parsované hodnoty musí být všechny stejným datovým typem, nebo jeho potomky. To je způsobeno vnitřním fungováním parseru, který jednotlivé odekorované funkce zpracovává v různých kolekcích, ve kterých nemůžou být pod RPythonem různé datové typy.</p><p id="7238ea02-8f98-405a-a238-bd39742dde4b">Zajímavé jsou chyby <code>Blocked block -- operation cannot succeed</code>, které mi jeden večer docela zamotaly hlavu. Nakonec jsem však prohledáním konference zjistil, že se jedná o chybu když RPython type annotator prvně vleze do metody objektu a ještě neprošel <code>.__init__()</code> metodu. Pokud je v metodě přistoupeno k členským proměnným, tak dojde chybě, jelikož anotátor neví o tom že byly definovány. Řešení je docela prosté, stačí objekt prostě předtím někde použít, aby byla o-anotována <code>.__init__()</code> metoda.</p><h2 id="9a496d5f-10b9-4da6-8548-ab9f084c167c">Překlad</h2><p id="2fae3c5e-830a-43f3-b387-52b44fec2f00">Výše uvedené potíže jsou jen malá část toho, s čím se člověk setká. Osobně jsem postupoval tak, že jsem celý parser až na první pravidlo a poslední parsovací funkci <code>parse_and_lex()</code> zakomentoval a postupně převáděl jednotlivá pravidla. Tímhle postupem mi to trvalo poměrně dlouho, ale nakonec se dostavil výsledek:</p><figure id="ec340534-cd5a-4762-8984-d8ba71ea1ed5" class="image"><a href="Jak se p e programovac jazyk 3 5 RPython/compilation.gif"><img style="width:896px" src="Jak se p e programovac jazyk 3 5 RPython/compilation.gif"/></a></figure><p id="6b05db44-5d5b-4a62-98a3-9b29fe5f70cd"><em>(Kompilační fraktály v původní kvalitě: </em><em><a href="https://youtu.be/A_OhtmUH830">https://youtu.be/A_OhtmUH830</a></em><em>)</em></p><h1 id="ea87c7ac-48fb-4ba0-af65-7c044bf42bb0">Pokračování</h1><p id="090d3364-ee9f-48d2-a3bf-497ee5bf0195">Příště se podíváme na návrh rozložení a reprezentace objektů v paměti před tím, než přijde na řadu psaní virtuálního stroje a kompilátoru do bytecode.</p><h1 id="b1e1c147-14bb-4424-82bb-bdf222a7c238">Relevantní diskuze</h1><ul id="46b4620c-c297-4e75-926b-094e212b43ab" class="bulleted-list"><li><a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-3.5-rpython">Jak se píše programovací jazyk 3.5: RPython</a> (abclinuxu)</li></ul><p id="8b29ea42-1b6a-4753-90cc-41593cf8831a"></p></div></article></body></html>

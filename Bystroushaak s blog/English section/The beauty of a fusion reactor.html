@@ -1,0 +1,540 @@
+<html><head><title>The beauty of a fusion reactor</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b51f394d-ec0c-4450-af78-3049dd8a8536" class="page sans"><header><h1 class="page-title">The beauty of a fusion reactor</h1></header><div class="page-body"><p id="d225b1a3-6afb-484d-a635-a1064033cfef"><time>@2019/06/12</time></p><p id="cf1c6751-0f22-4e4b-8ce1-ede3aa2c6b80">I really love this picture of the <a href="https://en.wikipedia.org/wiki/Wendelstein_7-X">Wendelstein 7-X</a> experimental fusion reactor. Unlike <a href="https://en.wikipedia.org/wiki/ITER">ITER</a>, this is a different, not so common kind of fusion reactor called <a href="https://en.wikipedia.org/wiki/Stellarator">stellarator</a>. It is used to evaluate main components for a future fusion power plants. It was built in the Germany after decades of computer simulations and optimizations, which allowed more effective &quot;twisted&quot; design of the plasma channel.</p><figure id="bd06ab0b-0e24-470c-82e0-1c65df006001" class="image"><a href="The beauty of a fusion reactor/Untitled.png"><img style="width:1440px" src="The beauty of a fusion reactor/Untitled.png"/></a></figure><p id="65b2cdf0-8b03-4e7f-b397-6f3dac3d965b"><mark class="highlight-gray"><em>(Source: </em></mark><mark class="highlight-gray"><em><a href="https://arstechnica.com/science/2017/06/wibbly-wobbly-magnetic-fusion-stuff-the-return-of-the-stellarator/">Wibbly-wobbly magnetic fusion stuff: The return of the stellarator</a></em></mark><mark class="highlight-gray"><em>)</em></mark></p><p id="22a26f6f-53bf-480e-b96a-863498daf39c">Just look at the damn thing. You cannot hold it in your memory in its entirety. It is so complex, that it literally can&#x27;t be fully imagined without computers. All the angles and all the ports.</p><p id="a6c8e313-0a6c-4a6d-a00d-a72f47e439e7">And the magnets! At first, I thought they were fairly simple:</p><figure id="7b9bfe7f-00bb-4eb0-9f96-7179cfd988a5" class="image"><a href="The beauty of a fusion reactor/Untitled 1.png"><img style="width:1440px" src="The beauty of a fusion reactor/Untitled 1.png"/></a></figure><p id="ea545161-e6eb-4195-bef5-d69af6c804b8"><mark class="highlight-gray"><em>(Source: </em></mark><mark class="highlight-gray"><em><a href="https://arstechnica.com/science/2017/06/wibbly-wobbly-magnetic-fusion-stuff-the-return-of-the-stellarator/">Wibbly-wobbly magnetic fusion stuff: The return of the stellarator</a></em></mark><mark class="highlight-gray"><em>)</em></mark></p><p id="6f324b41-25f5-4e1c-81d7-d990ad606531">There is a pattern to it, right? Just coils looping around. But no, that&#x27;s just some of them. Others are twisted beyond anything describable by words:</p><figure id="01fe51d2-c174-41e9-8e7a-c2ddee35062b" class="image"><a href="The beauty of a fusion reactor/Untitled 2.png"><img style="width:1701px" src="The beauty of a fusion reactor/Untitled 2.png"/></a></figure><p id="58ac09c6-5ea7-400d-9000-a3e26493cf46"><mark class="highlight-gray"><em>(Source: </em></mark><mark class="highlight-gray"><em><a href="https://newenergyandfuel.com/http:/newenergyandfuel/com/2008/03/18/what-is-a-stellarator/">What is a Stellarator?</a></em></mark><mark class="highlight-gray"><em>)</em></mark></p><p id="d1e820fc-0eb4-4270-9d41-315f3c8a7c06">It is literally an inhumane design, created by software optimizations and simulations over more than twenty years of research, supercomputer simulation and optimization.</p><figure id="c0cf9952-2d98-4597-9513-0092a7dfc3d5" class="image"><a href="The beauty of a fusion reactor/Untitled 3.png"><img style="width:4256px" src="The beauty of a fusion reactor/Untitled 3.png"/></a></figure><p id="a566466f-d980-4d5d-a2ff-7740fc34551b">I like marvelling at the picture and <em>trying</em> to imagine it running;</p><p id="268dd9a6-d1a4-448f-a2a5-9f4d9adb39c6">At first, just the magnets. They are like strings in music. Imagine fifty non-planar and twenty planar superconducting magnetic coils lightning up, calibrating power of their twisted magnetic fields with exact precision. Imagine fifty players on strings and twenty on violin cellos just calibrating their tools.</p><figure id="31046de0-d482-44ee-923e-ad933a997a71" class="image"><a href="The beauty of a fusion reactor/Untitled 4.png"><img style="width:926px" src="The beauty of a fusion reactor/Untitled 4.png"/></a></figure><p id="ecab3dc2-f059-4e0f-a8f6-b4be442bc78d"><mark class="highlight-gray"><em>(Source: </em></mark><a href="https://www.nature.com/articles/ncomms13493"><mark class="highlight-gray"><em>Confirmation of the topology of the Wendelstein 7-X magnetic field to better than 1:100,000</em></mark></a><mark class="highlight-gray"><em>)</em></mark></p><p id="6d8bea3c-1fb4-4a4f-a4ea-fc75e08fb2a8">In your mind, add layers with wires, tubes, sensors, shielding and casing. Whole orchestra building.</p><figure id="17c30d7f-191e-42dd-8ed2-a1c61aacbd2d" class="image"><a href="The beauty of a fusion reactor/wendelstein_layers_1.png"><img style="width:2868px" src="The beauty of a fusion reactor/wendelstein_layers_1.png"/></a></figure><figure id="1f133fa2-3522-4b4e-a042-3c51a429ab85" class="image"><a href="The beauty of a fusion reactor/wendelstein_layers_2.png"><img style="width:3096px" src="The beauty of a fusion reactor/wendelstein_layers_2.png"/></a></figure><p id="7a0a8c4c-0a95-4096-b670-1b3c5887189c"><mark class="highlight-gray"><em>(Source: </em></mark><mark class="highlight-gray"><em><a href="https://imgur.com/gallery/eikBLMX">https://imgur.com/gallery/eikBLMX</a></em></mark><mark class="highlight-gray"><em>)</em></mark></p><p id="13315efa-441e-4dac-99cf-3b7859717a97">Different measuring apparatus performing exact measurements a hundred of thousand times every second. Hundreds of sensors, power readings and graphs to correlate. That&#x27;s the audience listening to synchronized music, which is suddenly appearing out of chaos.</p><div id="f449cae4-f80f-431c-9daf-bdcf55dcfb3d" class="column-list"><div id="9a4a41ad-fb8e-45eb-807f-c1325f9244c7" style="width:50%" class="column"><figure id="13d5fb57-c1a3-4ad8-ab0c-4bc100df8b61" class="image"><a href="The beauty of a fusion reactor/algo.png"><img style="width:814px" src="The beauty of a fusion reactor/algo.png"/></a></figure></div><div id="08b37134-34b8-43d5-9935-448be4e51d93" style="width:50%" class="column"><figure id="708f6b89-f27f-44e9-9d9d-79e927449ef2" class="image"><a href="The beauty of a fusion reactor/a-Overview-of-main-plasma-parameter-b-top-electron-temperature-measured-with-the-He.png"><img style="width:850px" src="The beauty of a fusion reactor/a-Overview-of-main-plasma-parameter-b-top-electron-temperature-measured-with-the-He.png"/></a></figure><figure id="0b63f8ac-e6c7-4053-9dc7-e4c6ee9a014d" class="image"><a href="The beauty of a fusion reactor/wendelstein_schema.png"><img style="width:1095px" src="The beauty of a fusion reactor/wendelstein_schema.png"/></a></figure></div></div><p id="8e6854db-bdaa-4157-9a3e-6b299290db33"><mark class="highlight-gray"><em>(Sources: </em></mark><mark class="highlight-gray"><em><a href="https://www.tandfonline.com/doi/full/10.1080/15361055.2017.1396860">1</a></em></mark><mark class="highlight-gray"><em>, </em></mark><mark class="highlight-gray"><em><a href="https://www.researchgate.net/figure/a-Poincare-plot-of-the-boundary-magnetic-vacuum-field-of-the-standard-divertor_fig1_333323634">2</a></em></mark><mark class="highlight-gray"><em>, </em></mark><mark class="highlight-gray"><em><a href="https://nucleus.iaea.org/sites/fusionportal/Shared%20Documents/Data%20Acquisition/8-05/Werner.pdf">3</a></em></mark><mark class="highlight-gray"><em>)</em></mark></p><p id="e9926025-c92f-4ab7-be21-116101d6732f">Then the deep sounds of the plasma injectors. And the software of control algorithm, listening to the music, correlating power readings and sensor values and conducting all players on the strings like the conductor of an orchestra. Making sure all the different parts work smoothly together like it is not even machinery, like it is a concerto of systems and subsystems playing wonderful music together; music of advanced engineering. Can you hear it?</p><p id="d978aa1d-2fd1-4a16-9c4a-73571a5c8273"></p><figure id="912d5cf4-f022-483c-aede-7b8dc6060cd5" class="image"><a href="The beauty of a fusion reactor/Untitled 5.png"><img style="width:850px" src="The beauty of a fusion reactor/Untitled 5.png"/></a></figure><p id="a8372d97-1036-49b6-9c2e-3be07fb0d6a3"><em><mark class="highlight-gray">(Source: </mark></em><em><mark class="highlight-gray"><a href="https://www.researchgate.net/publication/309362518_Performance_and_properties_of_the_first_plasmas_of_Wendelstein_7-X">Performance and properties of the first plasmas of Wendelstein 7-X</a></mark></em><em><mark class="highlight-gray">)</mark></em></p><hr id="a9249537-5593-4b5d-b3fa-4af51aaf4dbb"/><p id="60c4d634-6f07-4017-8057-c7c0e134ab1f">Did you enjoy this blog? Please, consider supporting me on the patreon. With your help, I can write even better stuff:</p><ul id="a4a65147-3f32-42a2-9355-29336f2aab31" class="bulleted-list"><li><a href="https://www.patreon.com/Bystroushaak">https://www.patreon.com/Bystroushaak</a></li></ul><hr id="5a4525ba-b48e-4e6c-83d3-ce4f561e1db8"/><h2 id="efb928c1-9c42-498f-bfca-e327cc1e0fb0">Relevant discussions</h2><ul id="cc60bf3d-7dfd-4b5f-b55f-37873e3144fa" class="bulleted-list"><li><a href="https://www.reddit.com/r/EngineeringPorn/comments/bzssnw/poetry_of_wendelstein_7x/">/r/EngineeringPorn</a></li></ul></div></article></body></html>

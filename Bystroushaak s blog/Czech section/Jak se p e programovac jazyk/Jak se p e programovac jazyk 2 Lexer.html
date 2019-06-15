@@ -1,0 +1,615 @@
+<html><head><title>Jak se píše programovací jazyk 2: Lexer</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9524512c-8edc-4049-b39e-5b512821d5ee" class="page sans"><header><h1 class="page-title">Jak se píše programovací jazyk 2: Lexer</h1></header><div class="page-body"><p id="c864860e-9b70-46e5-b852-41fd1131b488"><time>@2019/02/09</time></p><p id="5f2c0a54-ca38-440b-a5d9-69db0750c99a">V předchozí části (<a href="Jak se p e programovac jazyk 1 Motivace.html">Jak se píše programovací jazyk 1: Motivace</a>) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: <em>lexer</em>.</p><h1 id="8b20632d-d3a1-4428-9fba-071aee8b6a86">Self</h1><p id="35bfa657-671b-4658-b31f-e45f2fbdfe8c">Základní syntaxi Selfu dobře popisuje následující obrázek:</p><figure id="8772dd13-3403-4daa-bfde-5edbd6d41144" class="image"><a href="Jak se p e programovac jazyk 2 Lexer/self_syntax_overview.png"><img style="width:1640px" src="Jak se p e programovac jazyk 2 Lexer/self_syntax_overview.png"/></a></figure><p id="53b667d9-a548-42fd-a028-cef2344665c1">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../Seri l o Selfu.html"><span class="icon">📂</span>Seriál o Selfu</a>.</p><h1 id="0a6fd39f-fc58-4c70-9004-c0f8b81b7385">tinySelf</h1><p id="85b76b84-dddf-405a-9136-ff09dc65637e">tinySelf, jak jsem se kdysi nerozvážně (ukázalo se, že stejně pojmenovaný projekt už kdysi existoval) rozhodl můj jazyk nazvat, je v podstatě Self, i když trochu „vylepšený“ po stránce syntaxe.</p><p id="23ea7e83-9ed6-4c1f-997a-2bae013e0097">Například jsem přidal podporu pro kaskády, jak je používá Smalltalk. Nikdy jsem nechápal, proč v původním Selfu nejsou, když tam dokonale sednou. Taky jsem změnil <code>&quot;komentář&quot;</code> na <code># komentář</code>, protože uvozovky se podle mého názoru víc hodí na stringy, než na komentáře a také se lépe píšou na české klávesnici, než standardní Selfovské <code>&#x27;stringy&#x27;</code> psané jednoduchými uvozovkami. Pro stringy je nyní možné používat obojí, což člověku šetří escapování, pokud zrovna potřebuje napsat string s uvozovkami.</p><p id="d530fb48-2a2b-49fe-81c1-3b509a152291">Kromě toho jsem změnil i syntaxi objektů a bloků, kde jsem umožnil vynechání otevíracího <code>|</code>, takže je možné psát <code>(slot |)</code> místo <code>(| slot |)</code>. K parsování to stejně není zapotřebí a vždycky mi to přišlo jako zbytečný opruz. Chtěl jsem přidat i <code>(| code)</code>, ale ukázalo se, že to už parseru vadí hodně, takže je nutné zapisovat objekty bez slotů jako <code>(|| code)</code>.</p><p id="a70d23a9-f928-4c45-bb4b-7c44100ac5cf">Oproti Selfu také není podtržítko na začátku zprávy rezervované pro volání primitivních zpráv. <code>_s</code> je normálně použitelná unární zpráva. Primitivní zprávy (volání kódu interpretru) jsou implementované jako zprávy poslané objektu <code>primitive</code>. Primitivních zpráv je stejně v běžném kódu minimum, tak mi nikdy nebylo jasné, proč by pro ně měla být vyhrazená syntaxe.</p><h1 id="b5088aa4-3756-46a4-a4fe-dba95d964e61">Lexer</h1><p id="b967d2f3-3fc8-491b-ba3a-c8198a728852">Psaní jazyka začíná lexerem. Ten definuje, z jakých komponent se jazyk skládá rozřezáním zdrojového kódu na <em>tokeny</em>. Ve standardním imperativním jazyce to můžou být různé příkazy, definice funkce, if podmínky, klíčová slova a tak podobně. V tinySelfu je to vesměs definice objektů, slotů, bloků, nebo posílání zpráv mezi nimi.</p><p id="c591eed2-1cfb-4674-bbe9-e535edef102e">Lexer vám kód rozřeže na pole jednotlivých elementů. Z kódu jako:</p><pre id="f556fa7d-7fd3-40cb-b4e6-9504fd4cddbf" class="code"><code>(| asd = 1 | ^asd.)</code></pre><p id="eed70684-d623-4ab4-82f0-415229e1cabc">vám udělá pole ve stylu:</p><pre id="a0491164-811b-49ff-9b15-30ae5f383f1d" class="code"><code>[
+  Token(&quot;OBJ_START&quot;, &quot;(&quot;),
+  Token(&quot;SEPARATOR&quot;, &quot;|&quot;),
+  Token(&quot;IDENTIFIER&quot;, &quot;asd&quot;),
+  Token(&quot;ASSIGNMENT&quot;, &quot;=&quot;),
+  Token(&quot;NUMBER&quot;, &quot;1&quot;),
+  Token(&quot;SEPARATOR&quot;, &quot;|&quot;),
+  Token(&quot;RETURN&quot;, &quot;^&quot;),
+  Token(&quot;IDENTIFIER&quot;, &quot;asd&quot;),
+  Token(&quot;OBJ_END&quot;, &quot;)&quot;)
+]</code></pre><p id="6988b7fd-2227-4e54-b0b6-d1f3bc32bb66">Výstupem je plochá struktura, do které byl jen rozřezán vstupní řetězec a kde byly ke každé části přiřazeny typy tokenu.</p><p id="07be088b-1e29-45c9-939e-e38dbe0a1a2a">Lexer je možné si napsat ručně, formou stavového automatu, který v cyklu prochází kód znak po znaku a postupně ho rozřezává a analyzuje rozřezané kousky (<em>tokeny</em>), aby jim přisoudil typ. Kdysi jsem něco podobného z neznalosti a z nutnosti <a href="https://github.com/Bystroushaak/pyDHTMLParser/blob/master/src/dhtmlparser/__init__.py#L43">udělal</a> (tenkrát v D nebyl žádný lexer), když jsem si psal <a href="https://github.com/Bystroushaak/pyDHTMLParser">HTML parser</a>, proto mi věřte, když vám tento přístup <strong>DÚRAZNĚ NEDOPORUČÍM</strong>.</p><p id="96dce62b-2407-4d7b-96d3-2ec58ffb46dd">Jedná o nepružný, k chybám náchylný, na pochopení složitý a těžce udržitelný přístup. Až na některé velmi speciální případy, kdy přesně víte co děláte a proč, se vám vždy vyplatí použít nějakou knihovnu, kterou nakrmíte popisy tokenů a ona vám stavový automat na základě popisu vygeneruje.</p><p id="205b13b8-66bb-4fc4-aa0d-d8db05e899b6">V mém případě se jedná o knihovnu <a href="https://rply.readthedocs.io/">rply</a> (podrobnosti přinese příští díl), konkrétně část <a href="https://rply.readthedocs.io/en/latest/users-guide/lexers.html">rply.LexerGenerator</a>.</p><h2 id="7a092455-a136-4588-b1bc-a710628ebeeb">tinySelfové tokeny</h2><p id="be067035-9c53-4d35-918c-929c2c214ad8">tinySelf je tvořen následujícími tokeny:</p><h2 id="753ec819-5d46-4d5f-9826-cb51795b679e">SELF</h2><p id="95bf47e9-46db-4f62-8dbf-0f6129aa5e80">Klíčové slovo <code>self</code> tvoří token Self. Použití je podobné jako třeba v pythonu, či <code>this</code> v javě.</p><h2 id="6da31ed7-77cc-4825-a6a4-7f633529b25a">NUMBER</h2><p id="e712e7b6-a317-499b-9bd7-bd5244b77956">Čísla. <code>5</code> je číslo. <code>-5</code> je číslo. <code>4.32</code> je taky číslo, stejně jako <code>\xFF</code>.</p><h2 id="9c4ae08a-e2ab-49c4-a874-81427d1d398f">OBJ_START</h2><p id="f7519207-a16c-4a33-8597-f2654a468bca">Začátek definice objektu. Jedná se jednoduše o závorku <code>(</code> za níž následuje zbytek objektu.</p><h2 id="0d973a4b-623f-4228-8d84-8c636e52f04b">OBJ_END</h2><p id="09b83185-30d7-4478-b7d5-67c5dfaf09a7">Ukončovací závorka <code>)</code> značící konec objektu. Nejkratší (prázdný) objekt v Selfu je <code>()</code>.</p><h2 id="5d3b1b67-1097-4ec5-8f4d-33c3e9a0d1ba">BLOCK_START</h2><p id="293fdb5d-e7b4-40a5-a179-afbf36468b63">Začátek bloku <code>[</code>. Bloky jsou objekty, které mají <em>parenta</em> nadefinovaného na <em>lokální scope</em>, takže se chovají podobně jako lambda funkce.</p><h2 id="bbcac4bb-6d47-469e-8c34-65ffeb33bb53">BLOCK_END</h2><p id="79712cf1-cf03-4d20-a316-35d1dc96d500">Konec bloku <code>]</code>. Nejkratší blok vypadá takhle; <code>[]</code>.</p><h2 id="798e3a20-2ac9-4d61-b78c-e8389ba78cce">SINGLE_Q_STRING a DOUBLE_Q_STRING</h2><p id="22934ff7-b6b2-47f3-9648-399ec4069c1a">Definice stringů. Jak jsem zmiňoval, bere se ‘string’ a “string” se standardníma escape sekvencema.</p><h2 id="037650cd-5a6b-4006-bf34-25b1ea6de368">FIRST_KW</h2><p id="956ffdc7-49a4-4107-907a-4745f844cf41">V Selfu existují tři druhy zpráv objektům; unární, binární a <em>keyword</em>. Unární nepřijímá žádný parametr. Binární jeden, <em>keyword</em> pak libovolný počet.</p><p id="2be4ac3c-b7b5-4a2a-9987-48a7074d9dd6">Self přinesl oproti Smalltalku drobné vylepšení, kde <em>keyword</em> zprávy jsou jednoznačně parsovatelné prostým okem tím, že vynucuje každé následující klíčové slovo zprávy začínat velkým písmenem.</p><p id="8db8ad88-5df2-4337-a78c-609b3da1b28c">Ve Smalltalku může zpráva <code>at: 1 put: 2</code> znamenat buď <code>(at: 1) put: 2</code>, tedy poslání zprávy <code>at:</code> a následné poslání zprávy <code>put:</code> výsledku z prvního volání, nebo poslání zprávy <code>at:put:</code> se dvěma parametry <code>1</code> a <code>2</code>. V Selfu je nutné druhý popsaný případ zapsat jako <code>at: 1 Put: 2</code>, což jednoznačně identifikuje kde <em>keyword</em> zpráva začíná a končí. Proto taky lexer rozlišuje začátek <em>keyword</em> zprávy (string začínající malým písmenem s dvojtečkou na konci) a pokračování.</p><h2 id="47b4fb3b-7701-46f4-9cf6-8ac15bd3e90f">KEYWORD</h2><p id="4afa751c-fc37-49fa-b2fb-645baf5381d4">Zmiňované pokračování zprávy. String začínající velkým písmenem, s dvojtečkou na konci.</p><h2 id="52d75364-61cf-4bde-8dee-50775b16516e">IDENTIFIER</h2><p id="619b51c3-dd6e-4e89-acae-64dd5edb2cd1">String začínající malým či velkým písmenem, či podtržítkem následující tím samým, či číslicí. <code>asd</code>, <code>BSD</code>, <code>_A</code> či <code>_35</code> jsou validní identifikátory, respektive unární zprávy.</p><h2 id="16353b7e-bb0a-4845-a314-c6d7c81b78cc">OPERATOR</h2><p id="944f2249-c94b-424b-ae5c-6a7b0267378e">Jako operátor (binární zprávu) je možné použít znaky z množiny: <code>!@$%&amp;*-+~/?&lt;&gt;,</code> v libovolném počtu opakování. <code>@</code> je operátor, stejně jako <code>@@</code>.</p><p id="4a7f7a05-ec7c-4d41-9163-3314650a815d">Operátory vždy očekávají jeden parametr. <code>a + b</code> je binární zpráva oprerátoru <code>+</code> s parametrem <code>b</code> zaslaná objektu <code>a</code>.</p><h2 id="83da27ec-5146-4ae7-b966-7a5f058d56d2">ARGUMENT</h2><p id="af5e9b81-888b-4968-9726-11e51edd655f">Hlavně u bloků je potřeba napsat co za argumenty přijímají. Argumenty se zapisují jako identifikátory začínající dvojtečkou.</p><p id="cd7690aa-b983-42e2-b580-a09333e94018">Ukázky:</p><p id="cce17b42-6bd2-401b-8f38-2a2fd9ecc5e8"><code>:a</code></p><p id="2031c169-76a8-4870-9c91-bd2b10b8ad01"><code>:parameter</code></p><p id="0426728d-0e56-43fe-a07b-5ccf6c6f8531"><code>:_</code></p><p id="dee373ce-6fdf-440f-b6dc-af457a9b457d"><code>:_5OK</code></p><h2 id="230107dd-1f0c-42d8-9619-de7d4f3d426a">ASSIGNMENT</h2><p id="714a6f95-b883-4470-927b-5b28d387b80c">Speciální operátor přiřazení. Má význam v definici slotů, kde definuje sloty pouze ke čtení. Také je ho možné použít jako běžný operátor (binární zprávu). Zapisuje se jako znak pro rovná se (<code>=</code>).</p><h2 id="a391da66-4ccf-417d-a1b9-ab4a28815dfb">RW_ASSIGNMENT</h2><p id="b6874338-b77d-45fd-8843-9d399c3ba91b">Přiřazení do slotu ke čtení i zápisu. Takto jde přiřazovat pouze konstanty, nebo reference na jiné objekty, nikoliv metody.</p><p id="d6c99af6-1725-49a5-b148-f3fea8dd7b1c">Zapisuje se jako šipka do leva (<code>&lt;-</code>).</p><h2 id="078a79d8-8ac5-4b80-b775-eba8a111d1c8">RETURN</h2><p id="c8cdc9dc-6a85-482b-a70b-03954b4ff9be">Vrácení hodnoty z objektu / bloku. Zapisuje se jako stříška (<code>^</code>).</p><h2 id="0b8a4c07-48a4-489e-973e-d303d0e43288">END_OF_EXPR</h2><p id="fba1e9ba-e31b-407f-9082-8b922d444534">Konec výrazu. Odděluje řetězce zpráv. Zapisuje se stejně jako ve Smalltalku tečkou (<code>.</code>).</p><h2 id="d77d9cfc-80f0-495f-a861-fd2c4eaeae8f">SEPARATOR</h2><p id="f2074862-865a-4470-953e-0bdd7810ad80">Oddělovač slotů od kódu. Zapisuje se jako svislá čárka (<code>|</code>).</p><h2 id="b616fedf-4097-4b20-9c07-d26fcacd17de">CASCADE</h2><p id="d67732f0-d366-4dec-a741-e363fc388d4b">Vyhrazený operátor kaskády. Zapisuje se jako středník (<code>;</code>). Sděluje interpretru, že následující zpráva se posílá stejnému objektu jako předchozí.</p><h2 id="451df77c-70c1-457d-af0d-856221443d37">COMMENT</h2><p id="ca8fb076-fc00-42d4-a340-2886f55334c6">Komentář začínající <code>#</code>, končící koncem řádku.</p><h2 id="043f5e92-cbb7-4fa1-9e88-c1140e50ee46">Ještě k lexeru</h2><p id="c6cf9848-af5d-440a-8396-0269c5afd865">Může se zdát, že v lexeru je toho spousta, ale ve skutečnosti je celý jazyk dost jednoduchý a ukázka všeho co je v něm možné se vejde tak nějak na pohlednici:</p><pre id="bc1599af-2247-4fa3-87cb-5073515d9ba8" class="code"><code>()  # Prázdný objekt.
+(| |)  # Taky prázdný objekt, ale s definicí (prázdných) slotů.
+(| slot |)  # Objekt obsahující jeden slot (key/val storage, kde slot = nil.).
+
+# Objekt obsahující definice dvou slotů; read only ‚s‘ a zapisovatelného slotu ‚s2‘.
+# Ekvivalentní slovníku {&quot;s&quot;: None, &quot;s2&quot;: 1}, když pominu zapisovatelnost slotů.
+(| s = nil. s2 &lt;- 1 |)
+
+# Objekt obsahující slot ‚s‘, a taky kód, který tomuto slotu pošle unární zprávu ‚printLine‘. Poslední výraz je vždy vrácen, takže bude vrácena hodnota slotu ‚s‘.
+(s = 1 | s printLine. s)
+(| s = 1. | s printLine. ^s. )  # Totožný kód jako v předchozím případě s alternativní syntaxí slotů a explicitní return.
+
+[ ]  # prázdný blok
+[:a | a printLine. a]  # blok přijímající parametr ‚a‘, který vypíše posláním zprávy ‚printLine‘ a vrátí.
+[| :a | a printLine. exit: a.]  # totožný kód - return v bloku vrací z nadřazeného scope, nikoliv jen z bloku samotného!.
+
+# Komplexnější objekt obsahující asi všechny elementy jazyka.
+( a = 1. b &lt;- 2. c |
+  (a + b) &gt; 0
+    ifTrue: [c: a+b. ^c]
+    False: [self logger log: a; log b.].
+
+  logger log: &#x27;Vsechny zpravy se prvne resolvuji na Self&#x27;.
+  self logger log: &quot;Toto je tedy totozna zprava&quot;.
+
+  ^ (| output = &quot;vysledek&quot;. line &lt;- &quot;metody&quot; |)
+)</code></pre><p id="544b8f83-4919-4bff-90f9-ac89f91115d2">Celý kód lexeru se vejde na 40 řádek a jde jen o definici jednotlivých elementů jazyka pomocí regexpů:</p><pre id="ab9a968b-b114-4473-bb13-8025370d6874" class="code"><code># -*- coding: utf-8 -*-
+from rply import LexerGenerator
+
+
+lg = LexerGenerator()
+lg.ignore(r&#x27;\s+&#x27;)
+
+lg.add(&#x27;SELF&#x27;, r&#x27;self&#x27;)
+
+lg.add(&#x27;NUMBER&#x27;, r&#x27;(0x[0-9a-fA-F]+)|((\-)?\d+(\.\d)?)&#x27;)
+
+lg.add(&#x27;OBJ_START&#x27;, r&#x27;\(&#x27;)
+lg.add(&#x27;OBJ_END&#x27;, r&#x27;\)&#x27;)
+
+lg.add(&#x27;BLOCK_START&#x27;, r&#x27;\[&#x27;)
+lg.add(&#x27;BLOCK_END&#x27;, r&#x27;\]&#x27;)
+
+lg.add(&#x27;SINGLE_Q_STRING&#x27;, r&quot;&#x27;(?:\\.|[^&#x27;\\])*&#x27;&quot;)
+lg.add(&#x27;DOUBLE_Q_STRING&#x27;, r&#x27;&quot;(?:\\.|[^&quot;\\])*&quot;&#x27;)
+
+lg.add(&#x27;FIRST_KW&#x27;, r&#x27;([a-z_][a-zA-Z0-9_]*\.)*[a-z_]+[a-zA-Z0-9_]*:&#x27;)
+lg.add(&#x27;KEYWORD&#x27;, r&#x27;[A-Z]+[a-zA-Z0-9_]*:&#x27;)
+lg.add(&#x27;ARGUMENT&#x27;, r&#x27;:[a-zA-Z_]*[a-zA-Z0-9_]+&#x27;)
+
+lg.add(&#x27;RW_ASSIGNMENT&#x27;, r&#x27;\&lt;-&#x27;)
+
+lg.add(&#x27;OPERATOR&#x27;, r&#x27;[!@\$%&amp;\*\-\+~/?&lt;&gt;,]+|==+&#x27;)
+lg.add(&#x27;RETURN&#x27;, r&#x27;\^&#x27;)
+lg.add(&#x27;END_OF_EXPR&#x27;, r&#x27;\.&#x27;)
+lg.add(&#x27;SEPARATOR&#x27;, r&#x27;\|&#x27;)
+lg.add(&#x27;CASCADE&#x27;, r&#x27;\;&#x27;)
+
+lg.add(&#x27;IDENTIFIER&#x27;, r&#x27;([a-zA-Z_][a-zA-Z0-9_]*\.)*[a-zA-Z_]*[a-zA-Z0-9_\*]+&#x27;)
+
+lg.add(&#x27;ASSIGNMENT&#x27;, r&#x27;=&#x27;)
+
+lg.add(&#x27;COMMENT&#x27;, r&#x27;#.*[\n|$]?&#x27;)
+
+
+lexer = lg.build()</code></pre><h1 id="1583ad73-574e-45ec-abb1-961d09c57101">Pokračování</h1><p id="68d98e0a-9d17-47fc-8427-86b8e9a270d7">V příštím díle se podíváme na parser, který tokeny bere a sestavuje z nich AST - <a href="https://cs.wikipedia.org/wiki/Syntaktick%C3%BD_strom">abstraktní syntaktický strom</a>.</p><h1 id="18653535-6f1e-4db5-924a-13246757a5a2">Relevantní diskuze</h1><ul id="8e9b3cbf-e1b8-4784-a1d8-c42b17cd866c" class="bulleted-list"><li><a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-2-lexer">Jak se píše programovací jazyk 2: Lexer</a> (abclinuxu)</li></ul><p id="e830f99a-ad2b-4be8-af9a-4f96fee5965b"></p></div></article></body></html>
