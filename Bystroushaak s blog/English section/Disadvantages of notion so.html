@@ -1,540 +1,109 @@
-<html><head><title>Disadvantages of notion.so</title><style>
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	opacity: 0.5;
-}
-
-.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
-.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
-.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="4bc810ab-ee4d-4f18-b824-e9c398d156b5" class="page sans"><header><h1 class="page-title">Disadvantages of notion.so</h1></header><div class="page-body"><p id="122e29e7-cabf-4aeb-9de3-c1393bb4bdd5">Last update <time>@2019/05/05</time></p><hr id="1dfc2bc5-6089-494a-ad0d-38d7426b4a00"/><p id="d0aae412-d25c-48c6-8e6c-5431df591633">While I am trying to use this platform, lets compile list of disadvantages. This page is a work in progress and will be updated.</p><ul id="c218b3d0-6fab-4a4f-b9d7-4b42d7c893d9" class="bulleted-list"><li>Missing reflection of the system itself. For example, page with list of all templates.</li></ul><ul id="14c874bc-4ef3-4044-931a-f096ff705824" class="bulleted-list"><li>Missing (optional) edit bars for all kind of text (bold, italic, whatever).<ul id="f9b57371-16b5-4690-9a4d-8bba008ba269" class="bulleted-list"><li>I know that they are dynamically shown when you select piece of text, but I would like to see them in toolbar.</li></ul></li></ul><ul id="44c26243-406c-4ea2-9a2e-74174d8401d5" class="bulleted-list"><li><code>/commands</code> are really annoying in text, command pallete ala sublime would be imho much better / cleaner in UI.<ul id="dc9c338d-839c-411c-a404-385fdd8f16ad" class="bulleted-list"><li>Previous sentence triggered command popup. This makes typing regular / really annoying.</li></ul><ul id="9f9ca0c0-d776-4b4f-bc4e-5bc8b6cba1a7" class="bulleted-list"><li>Also I hate when I have to type <code>/turnintoquote</code> into middle of my text, then accidentally close the menu and then have to manually delete this slash-command from the text, because it can&#x27;t be triggered again only by typing (no key shortcut).</li></ul><ul id="f72a4dd7-f202-452b-bac0-c8e1dc1d95e9" class="bulleted-list"><li>Also they don&#x27;t work for selections of multiple lines / elements.</li></ul></li></ul><ul id="6ee5c9dd-6186-4575-848a-003a5c8c5453" class="bulleted-list"><li>Kind of strange way how to integrate data inside.<ul id="2ad7f6fe-f216-40ca-a672-280fc6a550bd" class="bulleted-list"><li>For example, how can I get all date data points creted in todo into the calendar view?</li></ul><ul id="6aaca555-9773-43a1-a475-850b49a743b8" class="bulleted-list"><li>Or all todo boxes in some sub-section into one aggregated page?</li></ul></li></ul><ul id="106fcdec-e51c-4a90-b197-e48599edfbf6" class="bulleted-list"><li>Inability to create multiple workspace views in the left menu bar<ul id="b4c12867-963b-4592-9c89-a0ed5f319c3d" class="bulleted-list"><li>Workspace view is nice, but I would like to see there several workspaces used for different stuff (team sharing, personal web, whatever).</li></ul></li></ul><ul id="90c6ee27-3046-48e1-9022-8b8e781f52b4" class="bulleted-list"><li>No RSS / Atom feeds.</li></ul><ul id="32958069-5aa3-489a-9a83-63a14ede6e54" class="bulleted-list"><li>No ability to create own objects.</li></ul><ul id="97655d01-3003-47e9-b23e-8b5987efd243" class="bulleted-list"><li>You don&#x27;t see public icon on public items.<ul id="194f02ba-87d0-4fb0-82cc-8ef355101e8d" class="bulleted-list"><li>Also no list of all public items in case you want to make something accidentally-made-public private.</li></ul></li></ul><ul id="00f58bbb-95e6-41fd-b36e-2e2d0fb8e6b1" class="bulleted-list"><li>Import of the .csv and .html fucking sucks ass. .csv is just some kind of basic parser and good luck getting the data into table. Tables in HTML are ignored completely.</li></ul><ul id="879dba87-d8df-4332-95af-99a9ad0bb68c" class="bulleted-list"><li>Quotations (<code>&lt;blockquote&gt;</code>) can&#x27;t contain advanced formatting (lists, checkboxes, whatever).</li></ul><ul id="5e0c7072-2c56-4102-93a1-515b6ddc9dc2" class="bulleted-list"><li>Only two levels of headers.</li></ul><ul id="544118af-d954-4c8b-8c33-9f8572962877" class="bulleted-list"><li>Breadcrumbs are broken for pages (symlinks?) present in multiple sections.<ul id="aaa5ff18-fb18-4be2-ba9b-ab06d5d4c1c4" class="bulleted-list"><li>For example if you see this public page, breacrumbs at the top of the page doesn&#x27;t work.</li></ul></li></ul><ul id="f22c3923-b750-4676-8057-bbb438e3b187" class="bulleted-list"><li>You can&#x27;t have private subpages of public pages. This is really annoying when you want to create some kind of private TODO.</li></ul><ul id="44fad110-a533-46a0-9f52-e7e680fd5104" class="bulleted-list"><li>@date fucking sux. I really hate how I have to manually change format of the date each time.<ul id="f899e475-3345-462b-864b-8f626bdb43af" class="bulleted-list"><li>Also there is no way how to get list of all my @date items? Wtf?</li></ul></li></ul><ul id="3feac8aa-1ae1-41cf-b26d-c90f968fc896" class="bulleted-list"><li>Notion has weird bugs under firefox.<ul id="710a217a-4572-4527-b28b-77089fa54966" class="bulleted-list"><li>Cursor keys don&#x27;t work in paragraphs same way as you expect and how they work in Chromium.</li></ul></li></ul><ul id="c69797d0-43d4-4973-bd3c-851ab6f458d8" class="bulleted-list"><li>No picture editor. At least basic drawing would be appreciated.</li></ul><ul id="37d7275e-a517-4fff-9d55-4e8877551e06" class="bulleted-list"><li>HTML import only works for one file at a time. This sux ass.</li></ul><ul id="0896a7bd-1e0b-422f-bd95-de462127d846" class="bulleted-list"><li>You can put sub-page directly to the kanban (board view), but you then can&#x27;t see the sub-page in the left menu.</li></ul><ul id="010dceb5-1407-4c4c-a158-cd3d1c3e78eb" class="bulleted-list"><li>Missing ability to change fonts / customize technical details.</li></ul><ul id="a6d76893-c0da-4d57-bf40-832c65678537" class="bulleted-list"><li>No ability to force logoff of all connected sessions.</li></ul><h1 id="645baaec-6255-496a-aeb1-5025a7e63338">Philosophical</h1><ul id="ae6c7366-2987-4331-a2de-255241880dc3" class="bulleted-list"><li>No scripting</li></ul><ul id="101bbf40-db60-45d6-83bb-d46ac6568ad6" class="bulleted-list"><li>No API so far<ul id="88aad41d-80f2-46af-bb3f-4ba0d575fd8e" class="bulleted-list"><li>No way to automatically backup your data → sux</li></ul></li></ul><ul id="d3f4af88-2f97-4bd9-b1de-219b9af75e6e" class="bulleted-list"><li>Close-sourcedness</li></ul><ul id="3ab7ff29-0867-45ca-b632-60180e9d5604" class="bulleted-list"><li>No self-hosting solution</li></ul><ul id="80cea2b7-d96d-4f43-99ed-ef89a06ad271" class="bulleted-list"><li>Requires periodic payments</li></ul><ul id="ab9a3b68-512f-42ac-919d-fccef5d542df" class="bulleted-list"><li>No ability to integrate itself<ul id="aea9d4ca-0aee-43e4-bd21-ea34cbe188e9" class="bulleted-list"><li>While it allows to integrate content from (absurdly few) content providers, there is no simpe way how to integrate content created here in other aps.</li></ul></li></ul><ul id="97b0b0e5-8fe1-43f9-a248-f50caf21bde7" class="bulleted-list"><li>It looks like &quot;databases&quot; created in-app are not really databases. Give me sql admin / API iterator for fucks sake.</li></ul><ul id="99bd9bc7-69c6-4fb1-828d-f9efb928b0d6" class="bulleted-list"><li>Fucking continuous-markup mode of editing known from word. I mean you make a word italic and then want to type something else, but you still type in italic. I hate this and I consider the mode used in CherryTree much better.</li></ul><ul id="37d2699c-8216-49bd-bd56-9f197ca5c25b" class="bulleted-list"><li>No user defined key shortcuts.</li></ul><p id="74df8d29-d545-4119-9cef-a762aef17f92"></p></div></article></body></html>
+<html>
+  <head>
+    <title>Disadvantages of notion.so</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <article id="4bc810ab-ee4d-4f18-b824-e9c398d156b5" class="page sans">
+      <header>
+        <h1 class="page-title">Disadvantages of notion.so</h1>
+      </header>
+      <div class="page-body">
+        <p id="122e29e7-cabf-4aeb-9de3-c1393bb4bdd5">Last update <time>@2019/05/05</time></p>
+        <hr id="1dfc2bc5-6089-494a-ad0d-38d7426b4a00" />
+        <p id="d0aae412-d25c-48c6-8e6c-5431df591633">While I am trying to use this platform, lets compile list of disadvantages. This page is a work in progress and will be updated.</p>
+        <ul id="c218b3d0-6fab-4a4f-b9d7-4b42d7c893d9" class="bulleted-list">
+          <li>Missing reflection of the system itself. For example, page with list of all templates.</li>
+        </ul>
+        <ul id="14c874bc-4ef3-4044-931a-f096ff705824" class="bulleted-list">
+          <li>Missing (optional) edit bars for all kind of text (bold, italic, whatever).<ul id="f9b57371-16b5-4690-9a4d-8bba008ba269" class="bulleted-list"><li>I know that they are dynamically shown when you select piece of text, but I would like to see them in toolbar.</li></ul></li>
+        </ul>
+        <ul id="44c26243-406c-4ea2-9a2e-74174d8401d5" class="bulleted-list">
+          <li><code>/commands</code> are really annoying in text, command pallete ala sublime would be imho much better / cleaner in UI.<ul id="dc9c338d-839c-411c-a404-385fdd8f16ad" class="bulleted-list"><li>Previous sentence triggered command popup. This makes typing regular / really annoying.</li></ul><ul id="9f9ca0c0-d776-4b4f-bc4e-5bc8b6cba1a7" class="bulleted-list"><li>Also I hate when I have to type <code>/turnintoquote</code> into middle of my text, then accidentally close the menu and then have to manually delete this slash-command from the text, because it can&#x27;t be triggered again only by typing (no key shortcut).</li></ul><ul id="f72a4dd7-f202-452b-bac0-c8e1dc1d95e9" class="bulleted-list"><li>Also they don&#x27;t work for selections of multiple lines / elements.</li></ul></li>
+        </ul>
+        <ul id="6ee5c9dd-6186-4575-848a-003a5c8c5453" class="bulleted-list">
+          <li>Kind of strange way how to integrate data inside.<ul id="2ad7f6fe-f216-40ca-a672-280fc6a550bd" class="bulleted-list"><li>For example, how can I get all date data points creted in todo into the calendar view?</li></ul><ul id="6aaca555-9773-43a1-a475-850b49a743b8" class="bulleted-list"><li>Or all todo boxes in some sub-section into one aggregated page?</li></ul></li>
+        </ul>
+        <ul id="106fcdec-e51c-4a90-b197-e48599edfbf6" class="bulleted-list">
+          <li>Inability to create multiple workspace views in the left menu bar<ul id="b4c12867-963b-4592-9c89-a0ed5f319c3d" class="bulleted-list"><li>Workspace view is nice, but I would like to see there several workspaces used for different stuff (team sharing, personal web, whatever).</li></ul></li>
+        </ul>
+        <ul id="90c6ee27-3046-48e1-9022-8b8e781f52b4" class="bulleted-list">
+          <li>No RSS / Atom feeds.</li>
+        </ul>
+        <ul id="32958069-5aa3-489a-9a83-63a14ede6e54" class="bulleted-list">
+          <li>No ability to create own objects.</li>
+        </ul>
+        <ul id="97655d01-3003-47e9-b23e-8b5987efd243" class="bulleted-list">
+          <li>You don&#x27;t see public icon on public items.<ul id="194f02ba-87d0-4fb0-82cc-8ef355101e8d" class="bulleted-list"><li>Also no list of all public items in case you want to make something accidentally-made-public private.</li></ul></li>
+        </ul>
+        <ul id="00f58bbb-95e6-41fd-b36e-2e2d0fb8e6b1" class="bulleted-list">
+          <li>Import of the .csv and .html fucking sucks ass. .csv is just some kind of basic parser and good luck getting the data into table. Tables in HTML are ignored completely.</li>
+        </ul>
+        <ul id="879dba87-d8df-4332-95af-99a9ad0bb68c" class="bulleted-list">
+          <li>Quotations (<code>&lt;blockquote&gt;</code>) can&#x27;t contain advanced formatting (lists, checkboxes, whatever).</li>
+        </ul>
+        <ul id="5e0c7072-2c56-4102-93a1-515b6ddc9dc2" class="bulleted-list">
+          <li>Only two levels of headers.</li>
+        </ul>
+        <ul id="544118af-d954-4c8b-8c33-9f8572962877" class="bulleted-list">
+          <li>Breadcrumbs are broken for pages (symlinks?) present in multiple sections.<ul id="aaa5ff18-fb18-4be2-ba9b-ab06d5d4c1c4" class="bulleted-list"><li>For example if you see this public page, breacrumbs at the top of the page doesn&#x27;t work.</li></ul></li>
+        </ul>
+        <ul id="f22c3923-b750-4676-8057-bbb438e3b187" class="bulleted-list">
+          <li>You can&#x27;t have private subpages of public pages. This is really annoying when you want to create some kind of private TODO.</li>
+        </ul>
+        <ul id="44fad110-a533-46a0-9f52-e7e680fd5104" class="bulleted-list">
+          <li>@date fucking sux. I really hate how I have to manually change format of the date each time.<ul id="f899e475-3345-462b-864b-8f626bdb43af" class="bulleted-list"><li>Also there is no way how to get list of all my @date items? Wtf?</li></ul></li>
+        </ul>
+        <ul id="3feac8aa-1ae1-41cf-b26d-c90f968fc896" class="bulleted-list">
+          <li>Notion has weird bugs under firefox.<ul id="710a217a-4572-4527-b28b-77089fa54966" class="bulleted-list"><li>Cursor keys don&#x27;t work in paragraphs same way as you expect and how they work in Chromium.</li></ul></li>
+        </ul>
+        <ul id="c69797d0-43d4-4973-bd3c-851ab6f458d8" class="bulleted-list">
+          <li>No picture editor. At least basic drawing would be appreciated.</li>
+        </ul>
+        <ul id="37d7275e-a517-4fff-9d55-4e8877551e06" class="bulleted-list">
+          <li>HTML import only works for one file at a time. This sux ass.</li>
+        </ul>
+        <ul id="0896a7bd-1e0b-422f-bd95-de462127d846" class="bulleted-list">
+          <li>You can put sub-page directly to the kanban (board view), but you then can&#x27;t see the sub-page in the left menu.</li>
+        </ul>
+        <ul id="010dceb5-1407-4c4c-a158-cd3d1c3e78eb" class="bulleted-list">
+          <li>Missing ability to change fonts / customize technical details.</li>
+        </ul>
+        <ul id="a6d76893-c0da-4d57-bf40-832c65678537" class="bulleted-list">
+          <li>No ability to force logoff of all connected sessions.</li>
+        </ul>
+        <h1 id="645baaec-6255-496a-aeb1-5025a7e63338">Philosophical</h1>
+        <ul id="ae6c7366-2987-4331-a2de-255241880dc3" class="bulleted-list">
+          <li>No scripting</li>
+        </ul>
+        <ul id="101bbf40-db60-45d6-83bb-d46ac6568ad6" class="bulleted-list">
+          <li>No API so far<ul id="88aad41d-80f2-46af-bb3f-4ba0d575fd8e" class="bulleted-list"><li>No way to automatically backup your data → sux</li></ul></li>
+        </ul>
+        <ul id="d3f4af88-2f97-4bd9-b1de-219b9af75e6e" class="bulleted-list">
+          <li>Close-sourcedness</li>
+        </ul>
+        <ul id="3ab7ff29-0867-45ca-b632-60180e9d5604" class="bulleted-list">
+          <li>No self-hosting solution</li>
+        </ul>
+        <ul id="80cea2b7-d96d-4f43-99ed-ef89a06ad271" class="bulleted-list">
+          <li>Requires periodic payments</li>
+        </ul>
+        <ul id="ab9a3b68-512f-42ac-919d-fccef5d542df" class="bulleted-list">
+          <li>No ability to integrate itself<ul id="aea9d4ca-0aee-43e4-bd21-ea34cbe188e9" class="bulleted-list"><li>While it allows to integrate content from (absurdly few) content providers, there is no simpe way how to integrate content created here in other aps.</li></ul></li>
+        </ul>
+        <ul id="97b0b0e5-8fe1-43f9-a248-f50caf21bde7" class="bulleted-list">
+          <li>It looks like &quot;databases&quot; created in-app are not really databases. Give me sql admin / API iterator for fucks sake.</li>
+        </ul>
+        <ul id="99bd9bc7-69c6-4fb1-828d-f9efb928b0d6" class="bulleted-list">
+          <li>Fucking continuous-markup mode of editing known from word. I mean you make a word italic and then want to type something else, but you still type in italic. I hate this and I consider the mode used in CherryTree much better.</li>
+        </ul>
+        <ul id="37d2699c-8216-49bd-bd56-9f197ca5c25b" class="bulleted-list">
+          <li>No user defined key shortcuts.</li>
+        </ul>
+        <p id="74df8d29-d545-4119-9cef-a762aef17f92">
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

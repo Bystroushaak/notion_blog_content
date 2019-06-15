@@ -1,544 +1,263 @@
-<html><head><title>Vypuštěné knihy</title><style>
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	opacity: 0.5;
-}
-
-.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
-.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
-.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="f1ff2186-1210-4dd3-b76b-e40e788f4798" class="page sans"><header><h1 class="page-title">Vypuštěné knihy</h1></header><div class="page-body"><p id="5a7ca158-e511-467f-93d7-0625127642f5">Zdravím,</p><p id="c5154923-7d4c-4719-ad23-02e16202ded0">sem dávám informace o knihách, které jsem vypustil do světa. Kanonická adresa je <a href="http://b.rfox.eu">http://b.rfox.eu</a>.</p><p id="0b8d3187-4188-4fd4-a394-f15ac2141f7c">Ideálem je inspirovat ostatní přidat se ke klanu <em>Distribuovaných knihovníků</em>;</p><blockquote id="92dc4b0e-97d7-45e2-a4b2-c86dc8499bfe">With books ready to be shared, everyone is a librarian. When everyone is librarian, library is everywhere.</blockquote><p id="2df26d0b-f3ef-4492-a4e6-5a26c30ddc3d">S Jánskými Lázněmi mám domluveno, že jim můžu posílat knihy do jejich knihovničky. Kdysi jsem si tam při svých dvou pobytech knihy půjčoval a vím jak krušný tam mají výběr pro teenagery, tak jsem se rozhodl je takto zasponzorovat.</p><div id="56186ccf-729b-41fb-b9c6-fca82b80bd40" class="column-list"><div id="b9d6cfca-086b-4f4b-bf0a-c0d49fef1ab4" style="width:12.5%" class="column"><p id="be32f686-71ca-4e58-b9da-fba8942f4706">Adresa je:</p><p id="43de1ee1-739b-4037-aea9-bd303b07ac16"></p></div><div id="31177b7d-82b2-4498-84c7-4e5260db76dd" style="width:87.5%" class="column"><p id="1177b83b-1fa2-4263-805a-eb57ddad0851">Libuše Pavlíková
+<html>
+  <head>
+    <title>Vypuštěné knihy</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <article id="f1ff2186-1210-4dd3-b76b-e40e788f4798" class="page sans">
+      <header>
+        <h1 class="page-title">Vypuštěné knihy</h1>
+      </header>
+      <div class="page-body">
+        <p id="5a7ca158-e511-467f-93d7-0625127642f5">Zdravím,</p>
+        <p id="c5154923-7d4c-4719-ad23-02e16202ded0">sem dávám informace o knihách, které jsem vypustil do světa. Kanonická adresa je <a href="http://b.rfox.eu">http://b.rfox.eu</a>.</p>
+        <p id="0b8d3187-4188-4fd4-a394-f15ac2141f7c">Ideálem je inspirovat ostatní přidat se ke klanu <em>Distribuovaných knihovníků</em>;</p>
+        <blockquote id="92dc4b0e-97d7-45e2-a4b2-c86dc8499bfe">With books ready to be shared, everyone is a librarian. When everyone is librarian, library is everywhere.</blockquote>
+        <p id="2df26d0b-f3ef-4492-a4e6-5a26c30ddc3d">S Jánskými Lázněmi mám domluveno, že jim můžu posílat knihy do jejich knihovničky. Kdysi jsem si tam při svých dvou pobytech knihy půjčoval a vím jak krušný tam mají výběr pro teenagery, tak jsem se rozhodl je takto zasponzorovat.</p>
+        <div id="56186ccf-729b-41fb-b9c6-fca82b80bd40" class="column-list">
+          <div id="b9d6cfca-086b-4f4b-bf0a-c0d49fef1ab4" style="width:12.5%" class="column">
+            <p id="be32f686-71ca-4e58-b9da-fba8942f4706">Adresa je:</p>
+            <p id="43de1ee1-739b-4037-aea9-bd303b07ac16">
+            </p>
+          </div>
+          <div id="31177b7d-82b2-4498-84c7-4e5260db76dd" style="width:87.5%" class="column">
+            <p id="1177b83b-1fa2-4263-805a-eb57ddad0851">Libuše Pavlíková
 DLL Vesna
 Horní promenáda 268
 Jánské Lázně
-542 25</p></div></div><figure id="3d5d11d9-0c07-4db7-9570-4a007928500c" class="link-to-page"><a href="Vypu t n knihy/Tabulka knih.html">Tabulka knih</a></figure><h1 id="68fd7ead-2a8d-4ad2-9939-f4920c7668bd">Vesna Jánské Lázně 2</h1><p id="fc302af3-9dac-46d5-a65e-fd1891983eb6"><time>@2019/05/03</time></p><figure id="bf63908e-aa9f-41bd-88a7-b8a4368679b7" class="image"><a href="Vypu t n knihy/2019-04-19_14.42.50.jpg"><img style="width:4032px" src="Vypu t n knihy/2019-04-19_14.42.50.jpg"/></a></figure><figure id="e3b78d3b-8d75-4c7f-b6ea-4afde06d2d97" class="image"><a href="Vypu t n knihy/2019-05-03_15.10.09.jpg"><img src="Vypu t n knihy/2019-05-03_15.10.09.jpg"/></a></figure><h1 id="c1f62709-45a3-4768-8fc9-e286ff4d7abe">Random schránka</h1><p id="b9006e92-4846-4e42-95dd-601132f9fc5b"><time>@2018/08/03</time></p><figure id="b937b895-e7af-47ad-bd48-df7e7f8b66e5" class="image"><a href="Vypu t n knihy/2018-08-03_12.49.38.jpg"><img src="Vypu t n knihy/2018-08-03_12.49.38.jpg"/></a></figure><figure id="1b67c49c-a794-4319-8d44-315351fbe95b" class="image"><a href="Vypu t n knihy/2018-08-03_12.52.35.jpg"><img style="width:3024px" src="Vypu t n knihy/2018-08-03_12.52.35.jpg"/></a></figure><h1 id="c6ebd72f-cf25-4dd9-bfeb-68be296519be">Vesna Jánské Lázně</h1><p id="94ec4d3d-5c8e-4c26-b0dd-ead128ee1449"><time>@2018/07/08</time></p><figure id="08bd13c8-53f6-49c0-a455-24f4dd8c5d9d" class="image"><a href="Vypu t n knihy/2018-07-08_15.57.41.jpg"><img style="width:4032px" src="Vypu t n knihy/2018-07-08_15.57.41.jpg"/></a></figure><figure id="55c9dc41-fa15-4d56-b4f6-69c22f69a740" class="image"><a href="Vypu t n knihy/2018-07-08_16.10.41.jpg"><img style="width:3024px" src="Vypu t n knihy/2018-07-08_16.10.41.jpg"/></a></figure><h1 id="a541371a-4960-4a68-92cf-d1c8e5e1e86d">Knihobudka Heroldovy sady 9</h1><p id="7e7fa51b-98fb-48ce-b263-68ac0c6c83b3"><time>@2017/10/31</time></p><figure id="43d066e3-7fdd-41e3-bf00-7b97526f57bc" class="image"><a href="Vypu t n knihy/2017-10-31_07.50.44.jpg"><img src="Vypu t n knihy/2017-10-31_07.50.44.jpg"/></a></figure><figure id="e8cf3a4f-c781-4306-a4d2-142c3f63626d" class="image"><a href="Vypu t n knihy/2017-10-31_07.52.38.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-10-31_07.52.38.jpg"/></a></figure><h1 id="0c2b18e3-75e9-4e1b-bfc5-74832175a15e">Knihobudka Heroldovy sady 8</h1><p id="b8306767-85de-4731-88e5-036f64bbd10c"><time>@2017/10/26</time></p><figure id="40ef35cc-d21c-4eea-9121-7bdd90877a16" class="image"><a href="Vypu t n knihy/2017-10-26_09.21.04.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-10-26_09.21.04.jpg"/></a></figure><figure id="58661368-6729-4f48-bf59-36dbb9afcec9" class="image"><a href="Vypu t n knihy/2017-10-26_09.22.02.jpg"><img style="width:4032px" src="Vypu t n knihy/2017-10-26_09.22.02.jpg"/></a></figure><h1 id="7336f474-9c91-4cd5-81aa-732d0947b114">Knihobudka Heroldovy sady 7</h1><p id="9ec0e995-e09e-43ac-af90-682d4a9541d7"><time>@2017/07/24</time></p><figure id="093b6512-761e-4eee-85ab-c4952f6a9748" class="image"><a href="Vypu t n knihy/2017-07-24_09.31.32.jpg"><img style="width:4032px" src="Vypu t n knihy/2017-07-24_09.31.32.jpg"/></a></figure><figure id="a2fb365f-2334-48e3-81b9-cf3399297c53" class="image"><a href="Vypu t n knihy/2017-07-24_09.32.36.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-07-24_09.32.36.jpg"/></a></figure><h1 id="cdd0a458-c5c6-479c-94d2-bdd42102ef59">Knihobudka Heroldovy sady 6</h1><p id="be75d655-6727-40a9-9b39-142204587ebb"><time>@2017/06/20</time></p><figure id="2388b33c-38e1-41f7-b6f3-13ab2022a1f7" class="image"><a href="Vypu t n knihy/2017-06-20_09.37.42.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-06-20_09.37.42.jpg"/></a></figure><figure id="f2296dbc-5fab-426c-a93d-ed9ea79af5ab" class="image"><a href="Vypu t n knihy/2017-06-20_09.37.47.jpg"><img style="width:4032px" src="Vypu t n knihy/2017-06-20_09.37.47.jpg"/></a></figure><h1 id="5ec93f68-34c6-41b2-8a8e-917fcbe75f3c">Knihobudka Heroldovy sady 5</h1><p id="7d856630-a46a-4e4e-b498-4d8ff3911008"><time>@2017/05/31</time></p><figure id="f725a68c-4cde-4691-bbc1-3eabeacac2a0" class="image"><a href="Vypu t n knihy/2017-05-31_09.28.17.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-31_09.28.17.jpg"/></a></figure><figure id="875e5b19-0078-4853-8943-4338f4867873" class="image"><a href="Vypu t n knihy/2017-05-31_09.28.55.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-31_09.28.55.jpg"/></a></figure><h1 id="c0eb18a8-446b-4d6e-abe4-f1f339e753c8">Knihobudka Heroldovy sady 4</h1><p id="2b242275-bfda-41e7-b713-7f327b9243aa"><time>@2017/05/24</time></p><figure id="fc6cf04b-22ea-4cd7-ba06-c5be4bef50d9" class="image"><a href="Vypu t n knihy/2017-05-24_09.34.22.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-24_09.34.22.jpg"/></a></figure><figure id="25922645-70ca-4ca5-abc2-37a4d649f200" class="image"><a href="Vypu t n knihy/2017-05-24_09.34.43.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-24_09.34.43.jpg"/></a></figure><figure id="ecaac669-dc66-45b1-8158-69f3cf201456" class="image"><a href="Vypu t n knihy/2017-05-24_09.35.05.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-24_09.35.05.jpg"/></a></figure><h1 id="51c03e38-868d-4afe-9a48-dd0b6b4745cb">Knihobudka Heroldovy sady 3</h1><p id="cb497579-0941-4ce5-a528-7ae20be61a3e"><time>@2017/05/04</time></p><figure id="838c85fe-7958-4046-a53e-4aa61afabc93" class="image"><a href="Vypu t n knihy/2017-05-04_09.29.36.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-04_09.29.36.jpg"/></a></figure><figure id="b57dc2e8-d1c2-4be6-aac4-034765093bc5" class="image"><a href="Vypu t n knihy/2017-05-04_09.29.59.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-05-04_09.29.59.jpg"/></a></figure><h1 id="3ff3e442-608c-4ec5-ad55-7bb4b8efff04">Knihobudka Heroldovy sady 2</h1><p id="ed6b2596-67c1-48ac-a53b-8060f0279e44"><time>@2017/04/22</time></p><figure id="de65e33f-f4a3-4e56-8601-3cf38da52a24" class="image"><a href="Vypu t n knihy/2017-04-22_14.12.03.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-04-22_14.12.03.jpg"/></a></figure><p id="ae2ac7da-1f34-4bc7-9da6-32f5925f8344">Vypuštěné knihy</p><figure id="7a03e4cb-52bd-464e-a24b-8f5555a2b7db" class="image"><a href="Vypu t n knihy/2017-04-22_14.12.29.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-04-22_14.12.29.jpg"/></a></figure><figure id="7f4d546d-c44f-434d-ab79-dbdb51ba4797" class="image"><a href="Vypu t n knihy/2017-04-22_14.12.33.jpg"><img style="width:1200px" src="Vypu t n knihy/2017-04-22_14.12.33.jpg"/></a></figure><h1 id="1cfe59fb-95cf-478b-b026-800060f80d93">Knihobudka Heroldovy sady</h1><p id="cd2095d0-15ad-426e-9f65-5b88c458105f"><time>@2017/03/21</time></p><figure id="f8ce9eb7-97f5-482d-9f1d-e30b9081f613" class="image"><a href="Vypu t n knihy/2017-03-21_11.30.29.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-03-21_11.30.29.jpg"/></a></figure><figure id="96c991cf-1709-4fbb-9e5a-bf49b9527465" class="image"><a href="Vypu t n knihy/2017-03-21_11.32.55.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-03-21_11.32.55.jpg"/></a></figure><figure id="74e28cbd-fe69-4fac-8fa2-1c9a45fa45b0" class="image"><a href="Vypu t n knihy/2017-03-21_11.33.01.jpg"><img style="width:3024px" src="Vypu t n knihy/2017-03-21_11.33.01.jpg"/></a></figure><h1 id="b86eb0b5-d10c-440a-bae3-d71b6ce78ca1">Metro Želivského</h1><p id="47579857-fdcf-4f90-8d66-44abc1ea6e13"><time>@2016/11/23</time></p><figure id="67af7fc8-a93b-4491-a237-f9836453c073" class="image"><a href="Vypu t n knihy/2016.11.23_metro_zelivskeho.jpg"><img style="width:3024px" src="Vypu t n knihy/2016.11.23_metro_zelivskeho.jpg"/></a></figure><h1 id="f6702d30-55a2-44f0-ae6a-171afecc111b">Metro Flora</h1><p id="768dd385-3e68-4c5a-bd9b-5adb05931df5"><time>@2016/10/11</time></p><figure id="c8587034-0880-402a-b4a4-ee2f8e478875" class="image"><a href="Vypu t n knihy/2016.10.11_metro_flora.jpg"><img style="width:3024px" src="Vypu t n knihy/2016.10.11_metro_flora.jpg"/></a></figure><h1 id="cccb2f53-8a89-40f2-922e-861663898a40">Knihobudka IKEM</h1><p id="61a75d19-6c62-4e40-b5fa-dbc544d2d7b2"><time>@2016/07/24</time></p><figure id="eb9dc85d-c987-4e20-adbe-1ac0e96c009d" class="image"><a href="Vypu t n knihy/2016.07.24_ikem_knihobudka.jpg"><img style="width:4032px" src="Vypu t n knihy/2016.07.24_ikem_knihobudka.jpg"/></a></figure><figure id="07ff7632-8fad-41e3-afb0-8e0366244fad" class="image"><a href="Vypu t n knihy/2016.07.24_ikem_knihobudka2.jpg"><img style="width:3024px" src="Vypu t n knihy/2016.07.24_ikem_knihobudka2.jpg"/></a></figure><h1 id="cc8c94bc-081e-4c56-9689-8706f8cbda80">Metro</h1><p id="3757aa99-9c44-484c-b3d2-01d55584d7af"><time>@2016/07/06</time></p><figure id="f6148372-3918-4115-9c34-240403a40bfc" class="image"><a href="Vypu t n knihy/2016.07.06_vypustene_knihy.jpg"><img style="width:3024px" src="Vypu t n knihy/2016.07.06_vypustene_knihy.jpg"/></a></figure></div></article></body></html>
+542 25</p>
+          </div>
+        </div>
+        <figure id="3d5d11d9-0c07-4db7-9570-4a007928500c" class="link-to-page">
+          <a href="Vypu t n knihy/Tabulka knih.html">Tabulka knih</a>
+        </figure>
+        <h1 id="68fd7ead-2a8d-4ad2-9939-f4920c7668bd">Vesna Jánské Lázně 2</h1>
+        <p id="fc302af3-9dac-46d5-a65e-fd1891983eb6">
+          <time>@2019/05/03</time>
+        </p>
+        <figure id="bf63908e-aa9f-41bd-88a7-b8a4368679b7" class="image">
+          <a href="Vypu t n knihy/2019-04-19_14.42.50.jpg">
+            <img style="width:4032px" src="Vypu t n knihy/2019-04-19_14.42.50.jpg" />
+          </a>
+        </figure>
+        <figure id="e3b78d3b-8d75-4c7f-b6ea-4afde06d2d97" class="image">
+          <a href="Vypu t n knihy/2019-05-03_15.10.09.jpg">
+            <img src="Vypu t n knihy/2019-05-03_15.10.09.jpg" />
+          </a>
+        </figure>
+        <h1 id="c1f62709-45a3-4768-8fc9-e286ff4d7abe">Random schránka</h1>
+        <p id="b9006e92-4846-4e42-95dd-601132f9fc5b">
+          <time>@2018/08/03</time>
+        </p>
+        <figure id="b937b895-e7af-47ad-bd48-df7e7f8b66e5" class="image">
+          <a href="Vypu t n knihy/2018-08-03_12.49.38.jpg">
+            <img src="Vypu t n knihy/2018-08-03_12.49.38.jpg" />
+          </a>
+        </figure>
+        <figure id="1b67c49c-a794-4319-8d44-315351fbe95b" class="image">
+          <a href="Vypu t n knihy/2018-08-03_12.52.35.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2018-08-03_12.52.35.jpg" />
+          </a>
+        </figure>
+        <h1 id="c6ebd72f-cf25-4dd9-bfeb-68be296519be">Vesna Jánské Lázně</h1>
+        <p id="94ec4d3d-5c8e-4c26-b0dd-ead128ee1449">
+          <time>@2018/07/08</time>
+        </p>
+        <figure id="08bd13c8-53f6-49c0-a455-24f4dd8c5d9d" class="image">
+          <a href="Vypu t n knihy/2018-07-08_15.57.41.jpg">
+            <img style="width:4032px" src="Vypu t n knihy/2018-07-08_15.57.41.jpg" />
+          </a>
+        </figure>
+        <figure id="55c9dc41-fa15-4d56-b4f6-69c22f69a740" class="image">
+          <a href="Vypu t n knihy/2018-07-08_16.10.41.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2018-07-08_16.10.41.jpg" />
+          </a>
+        </figure>
+        <h1 id="a541371a-4960-4a68-92cf-d1c8e5e1e86d">Knihobudka Heroldovy sady 9</h1>
+        <p id="7e7fa51b-98fb-48ce-b263-68ac0c6c83b3">
+          <time>@2017/10/31</time>
+        </p>
+        <figure id="43d066e3-7fdd-41e3-bf00-7b97526f57bc" class="image">
+          <a href="Vypu t n knihy/2017-10-31_07.50.44.jpg">
+            <img src="Vypu t n knihy/2017-10-31_07.50.44.jpg" />
+          </a>
+        </figure>
+        <figure id="e8cf3a4f-c781-4306-a4d2-142c3f63626d" class="image">
+          <a href="Vypu t n knihy/2017-10-31_07.52.38.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-10-31_07.52.38.jpg" />
+          </a>
+        </figure>
+        <h1 id="0c2b18e3-75e9-4e1b-bfc5-74832175a15e">Knihobudka Heroldovy sady 8</h1>
+        <p id="b8306767-85de-4731-88e5-036f64bbd10c">
+          <time>@2017/10/26</time>
+        </p>
+        <figure id="40ef35cc-d21c-4eea-9121-7bdd90877a16" class="image">
+          <a href="Vypu t n knihy/2017-10-26_09.21.04.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-10-26_09.21.04.jpg" />
+          </a>
+        </figure>
+        <figure id="58661368-6729-4f48-bf59-36dbb9afcec9" class="image">
+          <a href="Vypu t n knihy/2017-10-26_09.22.02.jpg">
+            <img style="width:4032px" src="Vypu t n knihy/2017-10-26_09.22.02.jpg" />
+          </a>
+        </figure>
+        <h1 id="7336f474-9c91-4cd5-81aa-732d0947b114">Knihobudka Heroldovy sady 7</h1>
+        <p id="9ec0e995-e09e-43ac-af90-682d4a9541d7">
+          <time>@2017/07/24</time>
+        </p>
+        <figure id="093b6512-761e-4eee-85ab-c4952f6a9748" class="image">
+          <a href="Vypu t n knihy/2017-07-24_09.31.32.jpg">
+            <img style="width:4032px" src="Vypu t n knihy/2017-07-24_09.31.32.jpg" />
+          </a>
+        </figure>
+        <figure id="a2fb365f-2334-48e3-81b9-cf3399297c53" class="image">
+          <a href="Vypu t n knihy/2017-07-24_09.32.36.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-07-24_09.32.36.jpg" />
+          </a>
+        </figure>
+        <h1 id="cdd0a458-c5c6-479c-94d2-bdd42102ef59">Knihobudka Heroldovy sady 6</h1>
+        <p id="be75d655-6727-40a9-9b39-142204587ebb">
+          <time>@2017/06/20</time>
+        </p>
+        <figure id="2388b33c-38e1-41f7-b6f3-13ab2022a1f7" class="image">
+          <a href="Vypu t n knihy/2017-06-20_09.37.42.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-06-20_09.37.42.jpg" />
+          </a>
+        </figure>
+        <figure id="f2296dbc-5fab-426c-a93d-ed9ea79af5ab" class="image">
+          <a href="Vypu t n knihy/2017-06-20_09.37.47.jpg">
+            <img style="width:4032px" src="Vypu t n knihy/2017-06-20_09.37.47.jpg" />
+          </a>
+        </figure>
+        <h1 id="5ec93f68-34c6-41b2-8a8e-917fcbe75f3c">Knihobudka Heroldovy sady 5</h1>
+        <p id="7d856630-a46a-4e4e-b498-4d8ff3911008">
+          <time>@2017/05/31</time>
+        </p>
+        <figure id="f725a68c-4cde-4691-bbc1-3eabeacac2a0" class="image">
+          <a href="Vypu t n knihy/2017-05-31_09.28.17.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-31_09.28.17.jpg" />
+          </a>
+        </figure>
+        <figure id="875e5b19-0078-4853-8943-4338f4867873" class="image">
+          <a href="Vypu t n knihy/2017-05-31_09.28.55.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-31_09.28.55.jpg" />
+          </a>
+        </figure>
+        <h1 id="c0eb18a8-446b-4d6e-abe4-f1f339e753c8">Knihobudka Heroldovy sady 4</h1>
+        <p id="2b242275-bfda-41e7-b713-7f327b9243aa">
+          <time>@2017/05/24</time>
+        </p>
+        <figure id="fc6cf04b-22ea-4cd7-ba06-c5be4bef50d9" class="image">
+          <a href="Vypu t n knihy/2017-05-24_09.34.22.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-24_09.34.22.jpg" />
+          </a>
+        </figure>
+        <figure id="25922645-70ca-4ca5-abc2-37a4d649f200" class="image">
+          <a href="Vypu t n knihy/2017-05-24_09.34.43.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-24_09.34.43.jpg" />
+          </a>
+        </figure>
+        <figure id="ecaac669-dc66-45b1-8158-69f3cf201456" class="image">
+          <a href="Vypu t n knihy/2017-05-24_09.35.05.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-24_09.35.05.jpg" />
+          </a>
+        </figure>
+        <h1 id="51c03e38-868d-4afe-9a48-dd0b6b4745cb">Knihobudka Heroldovy sady 3</h1>
+        <p id="cb497579-0941-4ce5-a528-7ae20be61a3e">
+          <time>@2017/05/04</time>
+        </p>
+        <figure id="838c85fe-7958-4046-a53e-4aa61afabc93" class="image">
+          <a href="Vypu t n knihy/2017-05-04_09.29.36.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-04_09.29.36.jpg" />
+          </a>
+        </figure>
+        <figure id="b57dc2e8-d1c2-4be6-aac4-034765093bc5" class="image">
+          <a href="Vypu t n knihy/2017-05-04_09.29.59.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-05-04_09.29.59.jpg" />
+          </a>
+        </figure>
+        <h1 id="3ff3e442-608c-4ec5-ad55-7bb4b8efff04">Knihobudka Heroldovy sady 2</h1>
+        <p id="ed6b2596-67c1-48ac-a53b-8060f0279e44">
+          <time>@2017/04/22</time>
+        </p>
+        <figure id="de65e33f-f4a3-4e56-8601-3cf38da52a24" class="image">
+          <a href="Vypu t n knihy/2017-04-22_14.12.03.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-04-22_14.12.03.jpg" />
+          </a>
+        </figure>
+        <p id="ae2ac7da-1f34-4bc7-9da6-32f5925f8344">Vypuštěné knihy</p>
+        <figure id="7a03e4cb-52bd-464e-a24b-8f5555a2b7db" class="image">
+          <a href="Vypu t n knihy/2017-04-22_14.12.29.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-04-22_14.12.29.jpg" />
+          </a>
+        </figure>
+        <figure id="7f4d546d-c44f-434d-ab79-dbdb51ba4797" class="image">
+          <a href="Vypu t n knihy/2017-04-22_14.12.33.jpg">
+            <img style="width:1200px" src="Vypu t n knihy/2017-04-22_14.12.33.jpg" />
+          </a>
+        </figure>
+        <h1 id="1cfe59fb-95cf-478b-b026-800060f80d93">Knihobudka Heroldovy sady</h1>
+        <p id="cd2095d0-15ad-426e-9f65-5b88c458105f">
+          <time>@2017/03/21</time>
+        </p>
+        <figure id="f8ce9eb7-97f5-482d-9f1d-e30b9081f613" class="image">
+          <a href="Vypu t n knihy/2017-03-21_11.30.29.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-03-21_11.30.29.jpg" />
+          </a>
+        </figure>
+        <figure id="96c991cf-1709-4fbb-9e5a-bf49b9527465" class="image">
+          <a href="Vypu t n knihy/2017-03-21_11.32.55.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-03-21_11.32.55.jpg" />
+          </a>
+        </figure>
+        <figure id="74e28cbd-fe69-4fac-8fa2-1c9a45fa45b0" class="image">
+          <a href="Vypu t n knihy/2017-03-21_11.33.01.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2017-03-21_11.33.01.jpg" />
+          </a>
+        </figure>
+        <h1 id="b86eb0b5-d10c-440a-bae3-d71b6ce78ca1">Metro Želivského</h1>
+        <p id="47579857-fdcf-4f90-8d66-44abc1ea6e13">
+          <time>@2016/11/23</time>
+        </p>
+        <figure id="67af7fc8-a93b-4491-a237-f9836453c073" class="image">
+          <a href="Vypu t n knihy/2016.11.23_metro_zelivskeho.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2016.11.23_metro_zelivskeho.jpg" />
+          </a>
+        </figure>
+        <h1 id="f6702d30-55a2-44f0-ae6a-171afecc111b">Metro Flora</h1>
+        <p id="768dd385-3e68-4c5a-bd9b-5adb05931df5">
+          <time>@2016/10/11</time>
+        </p>
+        <figure id="c8587034-0880-402a-b4a4-ee2f8e478875" class="image">
+          <a href="Vypu t n knihy/2016.10.11_metro_flora.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2016.10.11_metro_flora.jpg" />
+          </a>
+        </figure>
+        <h1 id="cccb2f53-8a89-40f2-922e-861663898a40">Knihobudka IKEM</h1>
+        <p id="61a75d19-6c62-4e40-b5fa-dbc544d2d7b2">
+          <time>@2016/07/24</time>
+        </p>
+        <figure id="eb9dc85d-c987-4e20-adbe-1ac0e96c009d" class="image">
+          <a href="Vypu t n knihy/2016.07.24_ikem_knihobudka.jpg">
+            <img style="width:4032px" src="Vypu t n knihy/2016.07.24_ikem_knihobudka.jpg" />
+          </a>
+        </figure>
+        <figure id="07ff7632-8fad-41e3-afb0-8e0366244fad" class="image">
+          <a href="Vypu t n knihy/2016.07.24_ikem_knihobudka2.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2016.07.24_ikem_knihobudka2.jpg" />
+          </a>
+        </figure>
+        <h1 id="cc8c94bc-081e-4c56-9689-8706f8cbda80">Metro</h1>
+        <p id="3757aa99-9c44-484c-b3d2-01d55584d7af">
+          <time>@2016/07/06</time>
+        </p>
+        <figure id="f6148372-3918-4115-9c34-240403a40bfc" class="image">
+          <a href="Vypu t n knihy/2016.07.06_vypustene_knihy.jpg">
+            <img style="width:3024px" src="Vypu t n knihy/2016.07.06_vypustene_knihy.jpg" />
+          </a>
+        </figure>
+      </div>
+    </article>
+  </body>
+</html>

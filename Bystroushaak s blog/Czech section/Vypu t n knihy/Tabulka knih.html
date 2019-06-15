@@ -1,540 +1,792 @@
-<html><head><title>Tabulka knih</title><style>
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	opacity: 0.5;
-}
-
-.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
-.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
-.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="3d5d11d9-0c07-4db7-9570-4a007928500c" class="page sans"><header><h1 class="page-title">Tabulka knih</h1></header><div class="page-body"><table class="collection-content"><thead><tr><th>Název</th><th>Datum</th><th> Autor</th><th> ISBN</th><th> Místo</th></tr></thead><tbody><tr id="cd98bf87-a1b2-4ff6-ac91-dfcbc28c3262"><td class="cell-title"><a href="Tabulka knih/Metal made flesh Vegeance.html"> Metal made flesh: Vegeance</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Aston, Biggs</td><td class="cell-GH+1"> 2370000535559</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="c46ccb38-b43d-4d4b-a4ad-cf973c0f5192"><td class="cell-title"><a href="Tabulka knih/Metal made flesh Blood and oil.html"> Metal made flesh: Blood and oil</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Aston, Biggs, Buckenham, Dethan, Erskine</td><td class="cell-GH+1"> 2370000321770</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="d5a5d2bc-a1fd-4bb6-a984-22575e0237c2"><td class="cell-title"><a href="Tabulka knih/Metal made flesh.html"> Metal made flesh</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Simeon Aston, Jeremy Biggs</td><td class="cell-GH+1"> 2370000303288</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="2d018a14-a7ee-4726-b8a1-e6cdf4216058"><td class="cell-title"><a href="Tabulka knih/K dla noci.html"> Křídla noci</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Robert Silverberg</td><td class="cell-GH+1"> 80-85911-18-3</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="1d724db6-3b42-4eee-8070-f7da7bcce17c"><td class="cell-title"><a href="Tabulka knih/Alej proklet.html"> Alej prokletí</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Roger Zelazny</td><td class="cell-GH+1"> 80-85601-77-X</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="ff386235-3e02-46b0-bf7a-db54e559be5a"><td class="cell-title"><a href="Tabulka knih/B l tes k.html"> Bílý tesák</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Jack London</td><td class="cell-GH+1"> 80-00-00189-6</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="03353c58-1dc3-4845-be8b-6ac39ef3a8e0"><td class="cell-title"><a href="Tabulka knih/Tesla.html"> Tesla</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Tad Wise</td><td class="cell-GH+1"> 80-8595-74-2</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="1ff58638-a4af-47d4-8324-e9274be704fc"><td class="cell-title"><a href="Tabulka knih/Jak poznat ps du i.html"> Jak poznat psí duši</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Rudolf Desenský, Jitka Škápíková</td><td class="cell-GH+1"> 978-80-7388-073-6</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="4e19088e-2fda-4e46-910c-d995d8b38ff3"><td class="cell-title"><a href="Tabulka knih/Pevnost Drakonis.html"> Pevnost Drakonis</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Michael A.Stackpole</td><td class="cell-GH+1"> 80-7254-488-8</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="b3506248-acc3-41ad-beda-579faeeb52fe"><td class="cell-title"><a href="Tabulka knih/Daemon.html"> Daemon</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Daniel Suarez</td><td class="cell-GH+1"> 978-80-7207-752-6</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="f72d07cf-b265-4ef9-a3f3-b5a675b29272"><td class="cell-title"><a href="Tabulka knih/Kniha o slech.html"> Kniha o číslech</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Peter J. Bentley</td><td class="cell-GH+1"> 978-80-255-0649-3</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="b19ac493-a557-4708-928b-c3220700a725"><td class="cell-title"><a href="Tabulka knih/Zakuti v oceli.html"> Zakuti v oceli</a></td><td class="cell-&#x27;pl~"><time>@2018/07/08</time></td><td class="cell-zW^4"> Miroslav Žamboch</td><td class="cell-GH+1"> 978-80-7553-175-9</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="fc55feb9-21be-46b0-af66-a86e968a9c90"><td class="cell-title"><a href="Tabulka knih/Sv tov n bo enstv taoismus.html"> Světová náboženství: taoismus</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4">Paula R. Hartz</td><td class="cell-GH+1">80-7106-185-9</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="d9066e96-7833-4bd9-8b92-7421d4c55849"><td class="cell-title"><a href="Tabulka knih/Po ta ov s t.html">Počítačové sítě</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4">Joe Habraken</td><td class="cell-GH+1">8024714221</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="211cb11a-4008-4016-8228-a5850e32aae8"><td class="cell-title"><a href="Tabulka knih/Um n programov n v Unixu.html"> Umění programování v Unixu</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4">Eric S. Raymond</td><td class="cell-GH+1">80-251-0225-4</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="7f74481f-43ce-4ffa-87eb-6cbefe4547e4"><td class="cell-title"><a href="Tabulka knih/Po ta ov viry.html"> Počítačové viry</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="94bfb100-e149-402d-96db-ca46042a51bc"><td class="cell-title"><a href="Tabulka knih/Kyberie.html"> Kyberie</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="b2de5abe-a9f7-4a62-9a8f-7030039ff3a7"><td class="cell-title"><a href="Tabulka knih/Unix V.html"> Unix V</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="ebb7e496-2a8f-445e-9ffb-241f343f2bc6"><td class="cell-title"><a href="Tabulka knih/Programovac jazyk C.html"> Programovací jazyk C</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="d3f93038-afa0-480f-8fb5-b06d0fa83ca8"><td class="cell-title"><a href="Tabulka knih/Evolu n hardware.html"> Evoluční hardware</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="2133bcd6-d1fe-4eb4-97d0-0447e7a17ccf"><td class="cell-title"><a href="Tabulka knih/Um l inteligence hrozba nebo nad je.html"> Umělá inteligence - hrozba nebo naděje</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="05364a6a-7892-481e-8aaf-e18f30ead8d0"><td class="cell-title"><a href="Tabulka knih/Assembler pro PC.html"> Assembler pro PC</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="37fd7010-76eb-409d-b101-a8b407a4a6c6"><td class="cell-title"><a href="Tabulka knih/Python.html"> Python</a></td><td class="cell-&#x27;pl~"><time>@2017/10/31</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="2bd71562-6cba-4f88-84d5-1d8d25c04fee"><td class="cell-title"><a href="Tabulka knih/V echno o nsk kuchyni.html"> Všechno o čínské kuchyni</a></td><td class="cell-&#x27;pl~"><time>@2017/10/26</time></td><td class="cell-zW^4">Uli Franz, Zihua Liu</td><td class="cell-GH+1">80-7237-764-7</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="3a300163-2f6f-4ed6-b70c-4d67baccb8c8"><td class="cell-title"><a href="Tabulka knih/Bod zlomu.html"> Bod zlomu</a></td><td class="cell-&#x27;pl~"><time>@2017/10/26</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="26f34187-8c5f-44de-a299-236365968202"><td class="cell-title"><a href="Tabulka knih/Daemon 1.html"> Daemon</a></td><td class="cell-&#x27;pl~"><time>@2017/10/26</time></td><td class="cell-zW^4">Daniel Suarez</td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="5e692d48-a3af-4359-982d-893fe2ef97e7"><td class="cell-title"><a href="Tabulka knih/Exil.html"> Exil</a></td><td class="cell-&#x27;pl~"><time>@2017/10/26</time></td><td class="cell-zW^4"></td><td class="cell-GH+1"></td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="b0f70295-3f99-4ad9-98e3-0546a7b4f254"><td class="cell-title"><a href="Tabulka knih/Cracking bez tajemstv.html"> Cracking bez tajemství</a></td><td class="cell-&#x27;pl~"><time>@2017/07/24</time></td><td class="cell-zW^4"> Jakub Zemánek</td><td class="cell-GH+1"> 80-7226-703-5</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="ec36c2ff-b83e-4383-b7b4-64c07cebf4b7"><td class="cell-title"><a href="Tabulka knih/Dokonal k d.html"> Dokonalý kód</a></td><td class="cell-&#x27;pl~"><time>@2017/07/24</time></td><td class="cell-zW^4"> Steve McConnell</td><td class="cell-GH+1"> 80-251-0849-X</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="8e40e320-0492-47c7-9602-8ed65bbda358"><td class="cell-title"><a href="Tabulka knih/Essential Grammar in Use.html"> Essential Grammar in Use</a></td><td class="cell-&#x27;pl~"><time>@2017/06/20</time></td><td class="cell-zW^4"> Murphy Raymond</td><td class="cell-GH+1"> 978-1-107-48053-7</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="ca2f61fd-5304-4fb3-b4a5-cce45a478d16"><td class="cell-title"><a href="Tabulka knih/Vocabulary practice.html"> Vocabulary practice</a></td><td class="cell-&#x27;pl~"><time>@2017/06/20</time></td><td class="cell-zW^4"> Belán J.</td><td class="cell-GH+1"> 80-7358-054-3</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="333d75b9-3879-4b01-9532-ba34fcb97e7a"><td class="cell-title"><a href="Tabulka knih/Eurolingua English 1.html"> Eurolingua English 1</a></td><td class="cell-&#x27;pl~"><time>@2017/06/20</time></td><td class="cell-zW^4"> Andrew Littlejohn, Svatava Heinlová</td><td class="cell-GH+1"> 80-7238-253-5</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="baca9a6f-32cb-4923-85da-42f41f4c981c"><td class="cell-title"><a href="Tabulka knih/Eurolingua English 2.html"> Eurolingua English 2</a></td><td class="cell-&#x27;pl~"><time>@2017/06/20</time></td><td class="cell-zW^4"> Andrew Littlejohn, Svatava Heinlová</td><td class="cell-GH+1"> 80-7238-062-1</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="151d6b48-a657-4919-9543-f657b17cef05"><td class="cell-title"><a href="Tabulka knih/Eurolingua English 3.html"> Eurolingua English 3</a></td><td class="cell-&#x27;pl~"><time>@2017/06/20</time></td><td class="cell-zW^4"> Andrew Littlejohn, Svatava Heinlová</td><td class="cell-GH+1"> 80-7238-113-X</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="b8a614fb-6255-4306-96f1-f1c497c8b266"><td class="cell-title"><a href="Tabulka knih/Self handbook.html"> Self handbook</a></td><td class="cell-&#x27;pl~"><time>@2017/05/31</time></td><td class="cell-zW^4"> Russel Allen</td><td class="cell-GH+1"> </td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="d0e15aa6-bf3d-4b35-ada4-5d6549f0d64f"><td class="cell-title"><a href="Tabulka knih/Pharo by example.html"> Pharo by example</a></td><td class="cell-&#x27;pl~"><time>@2017/05/31</time></td><td class="cell-zW^4"> kolektiv</td><td class="cell-GH+1"> 978-3-9523341-4-0</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="48abb11f-7437-4fa3-8b51-eb78e292371e"><td class="cell-title"><a href="Tabulka knih/Martin Eden.html"> Martin Eden</a></td><td class="cell-&#x27;pl~"><time>@2017/05/24</time></td><td class="cell-zW^4"> Jack London</td><td class="cell-GH+1"> 23-108-77</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="05e78134-e197-4715-b6de-f5d452773f0a"><td class="cell-title"><a href="Tabulka knih/Str nky sv ta.html"> Stránky světa</a></td><td class="cell-&#x27;pl~"><time>@2017/05/04</time></td><td class="cell-zW^4"> Kai Meyer</td><td class="cell-GH+1"> 978-80-7544-173-7</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="a403d81f-25fa-43e8-99de-bfd976098dc1"><td class="cell-title"><a href="Tabulka knih/Freedom.html"> Freedom</a></td><td class="cell-&#x27;pl~"><time>@2017/04/22</time></td><td class="cell-zW^4"> Daniel Suarez</td><td class="cell-GH+1"> 9780525951575</td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="b108e96a-fd93-46cf-aebf-e8584153acf9"><td class="cell-title"><a href="Tabulka knih/Lisp as the Maxwells equations of software.html"> Lisp as the Maxwells equations of software</a></td><td class="cell-&#x27;pl~"><time>@2017/03/21</time></td><td class="cell-zW^4"> </td><td class="cell-GH+1"> </td><td class="cell-u.N`"> Knihobudka Heroldovy sady</td></tr><tr id="1463ad99-b45c-41df-8007-cd74c44e5901"><td class="cell-title"><a href="Tabulka knih/Barevn matematika.html"> Barevná matematika</a></td><td class="cell-&#x27;pl~"><time>@2016/11/23</time></td><td class="cell-zW^4"> Tori Large</td><td class="cell-GH+1"> 80-00-01576-5</td><td class="cell-u.N`"> Metro Želivského</td></tr><tr id="91d28536-8585-4ad8-89c2-a17919fa0c10"><td class="cell-title"><a href="Tabulka knih/iv syn bd c ho.html"> Živý, syn bdícího</a></td><td class="cell-&#x27;pl~"><time>@2016/10/11</time></td><td class="cell-zW^4"> Ibn Tufajl</td><td class="cell-GH+1"> cnb000681621</td><td class="cell-u.N`"> Metro Flora</td></tr><tr id="5e71314b-59b5-43fb-ab7a-ea56617b63ce"><td class="cell-title"><a href="Tabulka knih/Pr ce na d lku.html"> Práce na dálku</a></td><td class="cell-&#x27;pl~"><time>@2016/07/24</time></td><td class="cell-zW^4"> Jason Fried</td><td class="cell-GH+1"> 978-80-87270-99-8</td><td class="cell-u.N`"> Knihobudka IKEM</td></tr><tr id="14f84098-0d06-4ed4-9ad9-6228e45fa1a0"><td class="cell-title"><a href="Tabulka knih/Mal bratr.html"> Malý bratr</a></td><td class="cell-&#x27;pl~"><time>@2016/07/24</time></td><td class="cell-zW^4"> Cory Doctorow</td><td class="cell-GH+1"> 978-80-7387-455-1</td><td class="cell-u.N`"> Knihobudka IKEM</td></tr><tr id="90b2c4d3-4e94-461d-a829-2d55a70e7b3a"><td class="cell-title"><a href="Tabulka knih/Ghost in the Shell 2 Innocence After the long good.html"> Ghost in the Shell 2: Innocence After the long goodbye</a></td><td class="cell-&#x27;pl~"><time>@2016/07/24</time></td><td class="cell-zW^4"> Masaki Yamada</td><td class="cell-GH+1"> 1-4215-0156-2</td><td class="cell-u.N`"> Knihobudka IKEM</td></tr><tr id="990be113-1d11-4c15-9f6a-bdd4e52a334b"><td class="cell-title"><a href="Tabulka knih/Vlkodlaci.html"> Vlkodlaci</a></td><td class="cell-&#x27;pl~"><time>@2016/07/24</time></td><td class="cell-zW^4"> Pavel Houser</td><td class="cell-GH+1"> ﻿80-7254-548-5</td><td class="cell-u.N`"> Knihobudka IKEM</td></tr><tr id="460593e1-b886-4953-ba7a-2373eb1589a8"><td class="cell-title"><a href="Tabulka knih/Daemon 2.html"> Daemon</a></td><td class="cell-&#x27;pl~"><time>@2016/07/24</time></td><td class="cell-zW^4"> Daniel Suarez</td><td class="cell-GH+1"> ﻿978-80-7207-752-6</td><td class="cell-u.N`"> Knihobudka IKEM</td></tr><tr id="c0fddace-8c01-470e-81cf-4a3e0bb14f95"><td class="cell-title"><a href="Tabulka knih/pinav pr ce.html"> Špinavá práce</a></td><td class="cell-&#x27;pl~"><time>@2016/07/06</time></td><td class="cell-zW^4"> Petr Schink</td><td class="cell-GH+1"> 80-239-6983-8</td><td class="cell-u.N`"> Nádraží veleslavín</td></tr><tr id="4026c37f-0812-4e03-9724-f56968b65069"><td class="cell-title"><a href="Tabulka knih/Vyl v n krve.html"> Vylévání krve</a></td><td class="cell-&#x27;pl~"><time>@2016/07/06</time></td><td class="cell-zW^4"> Petr Schink</td><td class="cell-GH+1"> ﻿978-80-7425-102-3</td><td class="cell-u.N`"> Nádraží veleslavín</td></tr><tr id="345a8e7f-df6e-4d3b-ade6-b079ccfabc03"><td class="cell-title"><a href="Tabulka knih/Self handbook 1.html"> Self handbook</a></td><td class="cell-&#x27;pl~"><time>@2016/04/20</time></td><td class="cell-zW^4"> Russel Allen</td><td class="cell-GH+1"> </td><td class="cell-u.N`"> Stojan na Můstku</td></tr><tr id="1bd3bd92-bd41-4c03-be87-13cc8f027b4a"><td class="cell-title"><a href="Tabulka knih/Mo nosti transgrese.html"> Možnosti transgrese</a></td><td class="cell-&#x27;pl~"><time>@2015/09/01</time></td><td class="cell-zW^4"> Marek Petrů</td><td class="cell-GH+1"> 80-7254-640-6</td><td class="cell-u.N`"> Knihobudka Dejvice</td></tr><tr id="03051ad9-fe41-45c5-ba5b-181cac5dd617"><td class="cell-title"><a href="Tabulka knih/Program tor.html"> Programátor</a></td><td class="cell-&#x27;pl~"><time>@2015/09/01</time></td><td class="cell-zW^4"> Alexandr Morozov</td><td class="cell-GH+1"> </td><td class="cell-u.N`"> Knihobudka Dejvice</td></tr><tr id="06e7f85f-3343-44c4-ad05-33084346f9e0"><td class="cell-title"><a href="Tabulka knih/V c ne est.html"> Víc než čest</a></td><td class="cell-&#x27;pl~"><time>@2015/05/11</time></td><td class="cell-zW^4"> David Weber, David Drake, S. M. Stirling</td><td class="cell-GH+1"> 80-7332-028-2</td><td class="cell-u.N`"> Ulice</td></tr><tr id="8e35fd32-0243-477b-8c86-1d63122c0d05"><td class="cell-title"><a href="Tabulka knih/Kedrigern I.html"> Kedrigern I</a></td><td class="cell-&#x27;pl~"><time>@2015/05/07</time></td><td class="cell-zW^4"> John Morressy</td><td class="cell-GH+1"> 80-85911-32-9</td><td class="cell-u.N`"> Ulice</td></tr><tr id="319b4c16-c67a-4519-9afa-b1dc75a804ca"><td class="cell-title"><a href="Tabulka knih/Logikomiks.html">Logikomiks</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Apostolos Doxiadis, Christos Harilaos Papadimitriou, Alecos Popadatos</td><td class="cell-GH+1">978-80-7363-401-8</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="d1982a01-1fbd-4988-a625-b7111aaf76c0"><td class="cell-title"><a href="Tabulka knih/St n korpiona.html">Stín škorpiona</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Neal Asher</td><td class="cell-GH+1">978-80-7332-202-1</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="469d5aab-7a1a-4932-92fa-f4d3189c363f"><td class="cell-title"><a href="Tabulka knih/Orbus.html">Orbus</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Neal Asher</td><td class="cell-GH+1">978-80-7332-190-1</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="7695e6bf-7650-46fe-a693-eb70d230f6ad"><td class="cell-title"><a href="Tabulka knih/V echny p rty zejt ka.html">Všechny párty zejtřka</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">William Gibson</td><td class="cell-GH+1">978-80-7193-322-9</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="37c25466-9639-45a0-ae38-e6571cd879b3"><td class="cell-title"><a href="Tabulka knih/Idoru.html">Idoru</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">William Gibson</td><td class="cell-GH+1">978-80-7193-297-0</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="591d524f-3cf4-4010-83dc-c7c2915a52af"><td class="cell-title"><a href="Tabulka knih/Virtu ln sv tlo.html">Virtuální světlo</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">William Gibson</td><td class="cell-GH+1">978-80-7193-274-1</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="37ced384-518a-40f4-905c-671cc6b8d5aa"><td class="cell-title"><a href="Tabulka knih/Zem sl dil.html">Země slídilů</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">William Gibson</td><td class="cell-GH+1">978-80-7193-357-1</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="46acdfd0-44b9-4657-8ab1-2bb5091a2621"><td class="cell-title"><a href="Tabulka knih/Rozpozn v n vzor.html">Rozpoznávání vzorů</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">William Gibson</td><td class="cell-GH+1">978-80-7193-326-7</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="8dbd312c-4d9a-4e80-9a64-3238060c5d98"><td class="cell-title"><a href="Tabulka knih/Technik.html">Technik</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Neal Asher</td><td class="cell-GH+1">978-80-7332-224-3</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="edcf0697-7600-486a-bf83-84e923531751"><td class="cell-title"><a href="Tabulka knih/Hrani n v lka.html">Hraniční válka</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Neal Asher</td><td class="cell-GH+1">978-80-7332-213-7</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="019d2406-78e8-472d-b8c0-063caf003327"><td class="cell-title"><a href="Tabulka knih/Agent du.html">Agent řádu</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Neal Asher</td><td class="cell-GH+1">978-80-7332-168-0</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="b13c8af6-b6d9-4aaf-9b10-81dc6b93ffaf"><td class="cell-title"><a href="Tabulka knih/V kosmonaut.html">Věž kosmonautů</a></td><td class="cell-&#x27;pl~"><time>@2019/05/03</time></td><td class="cell-zW^4">Ken MacLeod</td><td class="cell-GH+1">80-7193-267-3</td><td class="cell-u.N`"> Vesna Jánské Lázně</td></tr><tr id="3d3f35d8-3c4b-4b3f-83d0-59d8eb38dbf1"><td class="cell-title"><a href="Tabulka knih/D tstv.html">Dětství</a></td><td class="cell-&#x27;pl~"><time>@2018/08/03</time></td><td class="cell-zW^4">Jonáš Fink</td><td class="cell-GH+1">9788073885663</td><td class="cell-u.N`">Ulice</td></tr></tbody></table></div></article></body></html>
+<html>
+  <head>
+    <title>Tabulka knih</title>
+    <link rel="stylesheet" type="text/css" href="../../../style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <article id="3d5d11d9-0c07-4db7-9570-4a007928500c" class="page sans">
+      <header>
+        <h1 class="page-title">Tabulka knih</h1>
+      </header>
+      <div class="page-body">
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th>Název</th>
+              <th>Datum</th>
+              <th> Autor</th>
+              <th> ISBN</th>
+              <th> Místo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="cd98bf87-a1b2-4ff6-ac91-dfcbc28c3262">
+              <td class="cell-title">
+                <a href="Tabulka knih/Metal made flesh Vegeance.html"> Metal made flesh: Vegeance</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Aston, Biggs</td>
+              <td class="cell-GH+1"> 2370000535559</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="c46ccb38-b43d-4d4b-a4ad-cf973c0f5192">
+              <td class="cell-title">
+                <a href="Tabulka knih/Metal made flesh Blood and oil.html"> Metal made flesh: Blood and oil</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Aston, Biggs, Buckenham, Dethan, Erskine</td>
+              <td class="cell-GH+1"> 2370000321770</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="d5a5d2bc-a1fd-4bb6-a984-22575e0237c2">
+              <td class="cell-title">
+                <a href="Tabulka knih/Metal made flesh.html"> Metal made flesh</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Simeon Aston, Jeremy Biggs</td>
+              <td class="cell-GH+1"> 2370000303288</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="2d018a14-a7ee-4726-b8a1-e6cdf4216058">
+              <td class="cell-title">
+                <a href="Tabulka knih/K dla noci.html"> Křídla noci</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Robert Silverberg</td>
+              <td class="cell-GH+1"> 80-85911-18-3</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="1d724db6-3b42-4eee-8070-f7da7bcce17c">
+              <td class="cell-title">
+                <a href="Tabulka knih/Alej proklet.html"> Alej prokletí</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Roger Zelazny</td>
+              <td class="cell-GH+1"> 80-85601-77-X</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="ff386235-3e02-46b0-bf7a-db54e559be5a">
+              <td class="cell-title">
+                <a href="Tabulka knih/B l tes k.html"> Bílý tesák</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Jack London</td>
+              <td class="cell-GH+1"> 80-00-00189-6</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="03353c58-1dc3-4845-be8b-6ac39ef3a8e0">
+              <td class="cell-title">
+                <a href="Tabulka knih/Tesla.html"> Tesla</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Tad Wise</td>
+              <td class="cell-GH+1"> 80-8595-74-2</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="1ff58638-a4af-47d4-8324-e9274be704fc">
+              <td class="cell-title">
+                <a href="Tabulka knih/Jak poznat ps du i.html"> Jak poznat psí duši</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Rudolf Desenský, Jitka Škápíková</td>
+              <td class="cell-GH+1"> 978-80-7388-073-6</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="4e19088e-2fda-4e46-910c-d995d8b38ff3">
+              <td class="cell-title">
+                <a href="Tabulka knih/Pevnost Drakonis.html"> Pevnost Drakonis</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Michael A.Stackpole</td>
+              <td class="cell-GH+1"> 80-7254-488-8</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="b3506248-acc3-41ad-beda-579faeeb52fe">
+              <td class="cell-title">
+                <a href="Tabulka knih/Daemon.html"> Daemon</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Daniel Suarez</td>
+              <td class="cell-GH+1"> 978-80-7207-752-6</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="f72d07cf-b265-4ef9-a3f3-b5a675b29272">
+              <td class="cell-title">
+                <a href="Tabulka knih/Kniha o slech.html"> Kniha o číslech</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Peter J. Bentley</td>
+              <td class="cell-GH+1"> 978-80-255-0649-3</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="b19ac493-a557-4708-928b-c3220700a725">
+              <td class="cell-title">
+                <a href="Tabulka knih/Zakuti v oceli.html"> Zakuti v oceli</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/07/08</time>
+              </td>
+              <td class="cell-zW^4"> Miroslav Žamboch</td>
+              <td class="cell-GH+1"> 978-80-7553-175-9</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="fc55feb9-21be-46b0-af66-a86e968a9c90">
+              <td class="cell-title">
+                <a href="Tabulka knih/Sv tov n bo enstv taoismus.html"> Světová náboženství: taoismus</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">Paula R. Hartz</td>
+              <td class="cell-GH+1">80-7106-185-9</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="d9066e96-7833-4bd9-8b92-7421d4c55849">
+              <td class="cell-title">
+                <a href="Tabulka knih/Po ta ov s t.html">Počítačové sítě</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">Joe Habraken</td>
+              <td class="cell-GH+1">8024714221</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="211cb11a-4008-4016-8228-a5850e32aae8">
+              <td class="cell-title">
+                <a href="Tabulka knih/Um n programov n v Unixu.html"> Umění programování v Unixu</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">Eric S. Raymond</td>
+              <td class="cell-GH+1">80-251-0225-4</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="7f74481f-43ce-4ffa-87eb-6cbefe4547e4">
+              <td class="cell-title">
+                <a href="Tabulka knih/Po ta ov viry.html"> Počítačové viry</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="94bfb100-e149-402d-96db-ca46042a51bc">
+              <td class="cell-title">
+                <a href="Tabulka knih/Kyberie.html"> Kyberie</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="b2de5abe-a9f7-4a62-9a8f-7030039ff3a7">
+              <td class="cell-title">
+                <a href="Tabulka knih/Unix V.html"> Unix V</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="ebb7e496-2a8f-445e-9ffb-241f343f2bc6">
+              <td class="cell-title">
+                <a href="Tabulka knih/Programovac jazyk C.html"> Programovací jazyk C</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="d3f93038-afa0-480f-8fb5-b06d0fa83ca8">
+              <td class="cell-title">
+                <a href="Tabulka knih/Evolu n hardware.html"> Evoluční hardware</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="2133bcd6-d1fe-4eb4-97d0-0447e7a17ccf">
+              <td class="cell-title">
+                <a href="Tabulka knih/Um l inteligence hrozba nebo nad je.html"> Umělá inteligence - hrozba nebo naděje</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="05364a6a-7892-481e-8aaf-e18f30ead8d0">
+              <td class="cell-title">
+                <a href="Tabulka knih/Assembler pro PC.html"> Assembler pro PC</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="37fd7010-76eb-409d-b101-a8b407a4a6c6">
+              <td class="cell-title">
+                <a href="Tabulka knih/Python.html"> Python</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/31</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="2bd71562-6cba-4f88-84d5-1d8d25c04fee">
+              <td class="cell-title">
+                <a href="Tabulka knih/V echno o nsk kuchyni.html"> Všechno o čínské kuchyni</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/26</time>
+              </td>
+              <td class="cell-zW^4">Uli Franz, Zihua Liu</td>
+              <td class="cell-GH+1">80-7237-764-7</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="3a300163-2f6f-4ed6-b70c-4d67baccb8c8">
+              <td class="cell-title">
+                <a href="Tabulka knih/Bod zlomu.html"> Bod zlomu</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/26</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="26f34187-8c5f-44de-a299-236365968202">
+              <td class="cell-title">
+                <a href="Tabulka knih/Daemon 1.html"> Daemon</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/26</time>
+              </td>
+              <td class="cell-zW^4">Daniel Suarez</td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="5e692d48-a3af-4359-982d-893fe2ef97e7">
+              <td class="cell-title">
+                <a href="Tabulka knih/Exil.html"> Exil</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/10/26</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="b0f70295-3f99-4ad9-98e3-0546a7b4f254">
+              <td class="cell-title">
+                <a href="Tabulka knih/Cracking bez tajemstv.html"> Cracking bez tajemství</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Jakub Zemánek</td>
+              <td class="cell-GH+1"> 80-7226-703-5</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="ec36c2ff-b83e-4383-b7b4-64c07cebf4b7">
+              <td class="cell-title">
+                <a href="Tabulka knih/Dokonal k d.html"> Dokonalý kód</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Steve McConnell</td>
+              <td class="cell-GH+1"> 80-251-0849-X</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="8e40e320-0492-47c7-9602-8ed65bbda358">
+              <td class="cell-title">
+                <a href="Tabulka knih/Essential Grammar in Use.html"> Essential Grammar in Use</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/06/20</time>
+              </td>
+              <td class="cell-zW^4"> Murphy Raymond</td>
+              <td class="cell-GH+1"> 978-1-107-48053-7</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="ca2f61fd-5304-4fb3-b4a5-cce45a478d16">
+              <td class="cell-title">
+                <a href="Tabulka knih/Vocabulary practice.html"> Vocabulary practice</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/06/20</time>
+              </td>
+              <td class="cell-zW^4"> Belán J.</td>
+              <td class="cell-GH+1"> 80-7358-054-3</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="333d75b9-3879-4b01-9532-ba34fcb97e7a">
+              <td class="cell-title">
+                <a href="Tabulka knih/Eurolingua English 1.html"> Eurolingua English 1</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/06/20</time>
+              </td>
+              <td class="cell-zW^4"> Andrew Littlejohn, Svatava Heinlová</td>
+              <td class="cell-GH+1"> 80-7238-253-5</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="baca9a6f-32cb-4923-85da-42f41f4c981c">
+              <td class="cell-title">
+                <a href="Tabulka knih/Eurolingua English 2.html"> Eurolingua English 2</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/06/20</time>
+              </td>
+              <td class="cell-zW^4"> Andrew Littlejohn, Svatava Heinlová</td>
+              <td class="cell-GH+1"> 80-7238-062-1</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="151d6b48-a657-4919-9543-f657b17cef05">
+              <td class="cell-title">
+                <a href="Tabulka knih/Eurolingua English 3.html"> Eurolingua English 3</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/06/20</time>
+              </td>
+              <td class="cell-zW^4"> Andrew Littlejohn, Svatava Heinlová</td>
+              <td class="cell-GH+1"> 80-7238-113-X</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="b8a614fb-6255-4306-96f1-f1c497c8b266">
+              <td class="cell-title">
+                <a href="Tabulka knih/Self handbook.html"> Self handbook</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/05/31</time>
+              </td>
+              <td class="cell-zW^4"> Russel Allen</td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="d0e15aa6-bf3d-4b35-ada4-5d6549f0d64f">
+              <td class="cell-title">
+                <a href="Tabulka knih/Pharo by example.html"> Pharo by example</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/05/31</time>
+              </td>
+              <td class="cell-zW^4"> kolektiv</td>
+              <td class="cell-GH+1"> 978-3-9523341-4-0</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="48abb11f-7437-4fa3-8b51-eb78e292371e">
+              <td class="cell-title">
+                <a href="Tabulka knih/Martin Eden.html"> Martin Eden</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/05/24</time>
+              </td>
+              <td class="cell-zW^4"> Jack London</td>
+              <td class="cell-GH+1"> 23-108-77</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="05e78134-e197-4715-b6de-f5d452773f0a">
+              <td class="cell-title">
+                <a href="Tabulka knih/Str nky sv ta.html"> Stránky světa</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/05/04</time>
+              </td>
+              <td class="cell-zW^4"> Kai Meyer</td>
+              <td class="cell-GH+1"> 978-80-7544-173-7</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="a403d81f-25fa-43e8-99de-bfd976098dc1">
+              <td class="cell-title">
+                <a href="Tabulka knih/Freedom.html"> Freedom</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/04/22</time>
+              </td>
+              <td class="cell-zW^4"> Daniel Suarez</td>
+              <td class="cell-GH+1"> 9780525951575</td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="b108e96a-fd93-46cf-aebf-e8584153acf9">
+              <td class="cell-title">
+                <a href="Tabulka knih/Lisp as the Maxwells equations of software.html"> Lisp as the Maxwells equations of software</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2017/03/21</time>
+              </td>
+              <td class="cell-zW^4">
+              </td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Heroldovy sady</td>
+            </tr>
+            <tr id="1463ad99-b45c-41df-8007-cd74c44e5901">
+              <td class="cell-title">
+                <a href="Tabulka knih/Barevn matematika.html"> Barevná matematika</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/11/23</time>
+              </td>
+              <td class="cell-zW^4"> Tori Large</td>
+              <td class="cell-GH+1"> 80-00-01576-5</td>
+              <td class="cell-u.N`"> Metro Želivského</td>
+            </tr>
+            <tr id="91d28536-8585-4ad8-89c2-a17919fa0c10">
+              <td class="cell-title">
+                <a href="Tabulka knih/iv syn bd c ho.html"> Živý, syn bdícího</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/10/11</time>
+              </td>
+              <td class="cell-zW^4"> Ibn Tufajl</td>
+              <td class="cell-GH+1"> cnb000681621</td>
+              <td class="cell-u.N`"> Metro Flora</td>
+            </tr>
+            <tr id="5e71314b-59b5-43fb-ab7a-ea56617b63ce">
+              <td class="cell-title">
+                <a href="Tabulka knih/Pr ce na d lku.html"> Práce na dálku</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Jason Fried</td>
+              <td class="cell-GH+1"> 978-80-87270-99-8</td>
+              <td class="cell-u.N`"> Knihobudka IKEM</td>
+            </tr>
+            <tr id="14f84098-0d06-4ed4-9ad9-6228e45fa1a0">
+              <td class="cell-title">
+                <a href="Tabulka knih/Mal bratr.html"> Malý bratr</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Cory Doctorow</td>
+              <td class="cell-GH+1"> 978-80-7387-455-1</td>
+              <td class="cell-u.N`"> Knihobudka IKEM</td>
+            </tr>
+            <tr id="90b2c4d3-4e94-461d-a829-2d55a70e7b3a">
+              <td class="cell-title">
+                <a href="Tabulka knih/Ghost in the Shell 2 Innocence After the long good.html"> Ghost in the Shell 2: Innocence After the long goodbye</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Masaki Yamada</td>
+              <td class="cell-GH+1"> 1-4215-0156-2</td>
+              <td class="cell-u.N`"> Knihobudka IKEM</td>
+            </tr>
+            <tr id="990be113-1d11-4c15-9f6a-bdd4e52a334b">
+              <td class="cell-title">
+                <a href="Tabulka knih/Vlkodlaci.html"> Vlkodlaci</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Pavel Houser</td>
+              <td class="cell-GH+1"> ﻿80-7254-548-5</td>
+              <td class="cell-u.N`"> Knihobudka IKEM</td>
+            </tr>
+            <tr id="460593e1-b886-4953-ba7a-2373eb1589a8">
+              <td class="cell-title">
+                <a href="Tabulka knih/Daemon 2.html"> Daemon</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/24</time>
+              </td>
+              <td class="cell-zW^4"> Daniel Suarez</td>
+              <td class="cell-GH+1"> ﻿978-80-7207-752-6</td>
+              <td class="cell-u.N`"> Knihobudka IKEM</td>
+            </tr>
+            <tr id="c0fddace-8c01-470e-81cf-4a3e0bb14f95">
+              <td class="cell-title">
+                <a href="Tabulka knih/pinav pr ce.html"> Špinavá práce</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/06</time>
+              </td>
+              <td class="cell-zW^4"> Petr Schink</td>
+              <td class="cell-GH+1"> 80-239-6983-8</td>
+              <td class="cell-u.N`"> Nádraží veleslavín</td>
+            </tr>
+            <tr id="4026c37f-0812-4e03-9724-f56968b65069">
+              <td class="cell-title">
+                <a href="Tabulka knih/Vyl v n krve.html"> Vylévání krve</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/07/06</time>
+              </td>
+              <td class="cell-zW^4"> Petr Schink</td>
+              <td class="cell-GH+1"> ﻿978-80-7425-102-3</td>
+              <td class="cell-u.N`"> Nádraží veleslavín</td>
+            </tr>
+            <tr id="345a8e7f-df6e-4d3b-ade6-b079ccfabc03">
+              <td class="cell-title">
+                <a href="Tabulka knih/Self handbook 1.html"> Self handbook</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2016/04/20</time>
+              </td>
+              <td class="cell-zW^4"> Russel Allen</td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Stojan na Můstku</td>
+            </tr>
+            <tr id="1bd3bd92-bd41-4c03-be87-13cc8f027b4a">
+              <td class="cell-title">
+                <a href="Tabulka knih/Mo nosti transgrese.html"> Možnosti transgrese</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2015/09/01</time>
+              </td>
+              <td class="cell-zW^4"> Marek Petrů</td>
+              <td class="cell-GH+1"> 80-7254-640-6</td>
+              <td class="cell-u.N`"> Knihobudka Dejvice</td>
+            </tr>
+            <tr id="03051ad9-fe41-45c5-ba5b-181cac5dd617">
+              <td class="cell-title">
+                <a href="Tabulka knih/Program tor.html"> Programátor</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2015/09/01</time>
+              </td>
+              <td class="cell-zW^4"> Alexandr Morozov</td>
+              <td class="cell-GH+1">
+              </td>
+              <td class="cell-u.N`"> Knihobudka Dejvice</td>
+            </tr>
+            <tr id="06e7f85f-3343-44c4-ad05-33084346f9e0">
+              <td class="cell-title">
+                <a href="Tabulka knih/V c ne est.html"> Víc než čest</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2015/05/11</time>
+              </td>
+              <td class="cell-zW^4"> David Weber, David Drake, S. M. Stirling</td>
+              <td class="cell-GH+1"> 80-7332-028-2</td>
+              <td class="cell-u.N`"> Ulice</td>
+            </tr>
+            <tr id="8e35fd32-0243-477b-8c86-1d63122c0d05">
+              <td class="cell-title">
+                <a href="Tabulka knih/Kedrigern I.html"> Kedrigern I</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2015/05/07</time>
+              </td>
+              <td class="cell-zW^4"> John Morressy</td>
+              <td class="cell-GH+1"> 80-85911-32-9</td>
+              <td class="cell-u.N`"> Ulice</td>
+            </tr>
+            <tr id="319b4c16-c67a-4519-9afa-b1dc75a804ca">
+              <td class="cell-title">
+                <a href="Tabulka knih/Logikomiks.html">Logikomiks</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Apostolos Doxiadis, Christos Harilaos Papadimitriou, Alecos Popadatos</td>
+              <td class="cell-GH+1">978-80-7363-401-8</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="d1982a01-1fbd-4988-a625-b7111aaf76c0">
+              <td class="cell-title">
+                <a href="Tabulka knih/St n korpiona.html">Stín škorpiona</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Neal Asher</td>
+              <td class="cell-GH+1">978-80-7332-202-1</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="469d5aab-7a1a-4932-92fa-f4d3189c363f">
+              <td class="cell-title">
+                <a href="Tabulka knih/Orbus.html">Orbus</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Neal Asher</td>
+              <td class="cell-GH+1">978-80-7332-190-1</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="7695e6bf-7650-46fe-a693-eb70d230f6ad">
+              <td class="cell-title">
+                <a href="Tabulka knih/V echny p rty zejt ka.html">Všechny párty zejtřka</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">William Gibson</td>
+              <td class="cell-GH+1">978-80-7193-322-9</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="37c25466-9639-45a0-ae38-e6571cd879b3">
+              <td class="cell-title">
+                <a href="Tabulka knih/Idoru.html">Idoru</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">William Gibson</td>
+              <td class="cell-GH+1">978-80-7193-297-0</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="591d524f-3cf4-4010-83dc-c7c2915a52af">
+              <td class="cell-title">
+                <a href="Tabulka knih/Virtu ln sv tlo.html">Virtuální světlo</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">William Gibson</td>
+              <td class="cell-GH+1">978-80-7193-274-1</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="37ced384-518a-40f4-905c-671cc6b8d5aa">
+              <td class="cell-title">
+                <a href="Tabulka knih/Zem sl dil.html">Země slídilů</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">William Gibson</td>
+              <td class="cell-GH+1">978-80-7193-357-1</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="46acdfd0-44b9-4657-8ab1-2bb5091a2621">
+              <td class="cell-title">
+                <a href="Tabulka knih/Rozpozn v n vzor.html">Rozpoznávání vzorů</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">William Gibson</td>
+              <td class="cell-GH+1">978-80-7193-326-7</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="8dbd312c-4d9a-4e80-9a64-3238060c5d98">
+              <td class="cell-title">
+                <a href="Tabulka knih/Technik.html">Technik</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Neal Asher</td>
+              <td class="cell-GH+1">978-80-7332-224-3</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="edcf0697-7600-486a-bf83-84e923531751">
+              <td class="cell-title">
+                <a href="Tabulka knih/Hrani n v lka.html">Hraniční válka</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Neal Asher</td>
+              <td class="cell-GH+1">978-80-7332-213-7</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="019d2406-78e8-472d-b8c0-063caf003327">
+              <td class="cell-title">
+                <a href="Tabulka knih/Agent du.html">Agent řádu</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Neal Asher</td>
+              <td class="cell-GH+1">978-80-7332-168-0</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="b13c8af6-b6d9-4aaf-9b10-81dc6b93ffaf">
+              <td class="cell-title">
+                <a href="Tabulka knih/V kosmonaut.html">Věž kosmonautů</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2019/05/03</time>
+              </td>
+              <td class="cell-zW^4">Ken MacLeod</td>
+              <td class="cell-GH+1">80-7193-267-3</td>
+              <td class="cell-u.N`"> Vesna Jánské Lázně</td>
+            </tr>
+            <tr id="3d3f35d8-3c4b-4b3f-83d0-59d8eb38dbf1">
+              <td class="cell-title">
+                <a href="Tabulka knih/D tstv.html">Dětství</a>
+              </td>
+              <td class="cell-&#x27;pl~">
+                <time>@2018/08/03</time>
+              </td>
+              <td class="cell-zW^4">Jonáš Fink</td>
+              <td class="cell-GH+1">9788073885663</td>
+              <td class="cell-u.N`">Ulice</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </body>
+</html>

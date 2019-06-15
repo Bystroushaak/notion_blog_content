@@ -1,540 +1,240 @@
-<html><head><title>Jak se píše programovací jazyk 5: Bajtkód a literály</title><style>
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	opacity: 0.5;
-}
-
-.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
-.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
-.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="9532731e-b55e-4d24-81ff-fed23e1dc32e" class="page sans"><header><h1 class="page-title">Jak se píše programovací jazyk 5: Bajtkód a literály</h1></header><div class="page-body"><p id="8b9fcd90-6b9a-4352-8f35-f422f38d0a20"><time>@2019/04/18</time></p><p id="cf59ce1a-7bab-491e-a997-08176389c8ac">Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.</p><p id="fe8f0e0c-ba1e-485f-bf8c-2eb875637da5">Jak už jsem zmiňoval, nejsem ani v nejmenším odborník na tvorbu programovacích jazyků. Když jsem se pustil do psaní specifikace VM, byly mi známé následující přístupy:</p><ol id="353dfee0-f421-4e4b-aec7-cddb1a70a127" class="numbered-list" start="1"><li>Interpretace AST</li></ol><ol id="caa0fa03-8b5e-431d-8b40-ec10218f9f96" class="numbered-list" start="2"><li>Interpretace imperativního bajtkódu</li></ol><ol id="391fed5f-22de-410d-b933-bc884c289b04" class="numbered-list" start="3"><li>Interpretace <em>stack based</em> bajtkódu</li></ol><p id="6be00d3e-7afe-4daf-9a35-7b342b1aa181">Pavel Křivánek ve své bakalářské práci <a href="http://kitakitsune.org/ltas/resources/Podpora_beztridniho_programovani_ve_Squeak_Smalltalku.pdf">Podpora beztřídního programování ve Squeak Smalltalku</a> použil pro svůj Selfem inspirovaný jazyk Marvin <em>stack based</em> (na zásobníku založený) bajtkód ve stylu forthu.</p><p id="42a572a5-6ac4-4faf-8bd8-123397ca6b22">Oproti tomu <a href="https://pdfs.semanticscholar.org/7a9f/b345d1372f99c47f68fbcf5187f10af87704.pdf">The Design and Implementation of the Self Compiler, an Optimizing Compiler for Object-Oriented Programming Languages</a> (dále jen <em>DISCOCOOPL</em>) zmiňuje spíše imperativní bajtkód ve stylu assembleru.</p><p id="342482d0-1e71-4076-9c19-7f2415dd6725">V krátké výměně mailů, které jsem Pavlovi Křivánkovi poslal zmiňoval, abych zkusil zkombinovat první a druhý přístup.</p><p id="a82cb61f-3cd3-4870-863d-03869b85534a">Dále zde byly dva projekty <em>Smalltalků</em> napsaných v RPythonu:</p><ol id="2716b212-5e65-4e9b-8b95-937657314f29" class="numbered-list" start="1"><li><a href="https://github.com/SOM-st/RPySOM">https://github.com/SOM-st/RPySOM</a></li></ol><ol id="069d45b3-694c-43c9-bf65-c14363fbdb8f" class="numbered-list" start="2"><li><a href="https://github.com/hpi-swa/RSqueak">https://github.com/hpi-swa/RSqueak</a> (viz paper <a href="https://www.hpi.uni-potsdam.de/hirschfeld/publications/media/FelgentreffPapeReinHirschfeld_2016_HowToBuildAHighPerformanceVmForSqueakSmalltalkInYourSpareTimeAnExperienceReportOfUsingTheRPythonToolchain_AcmDL.pdf">How to Build a High-Performance VM for Squeak/Smalltalk in Your Spare Time</a>)</li></ol><p id="5616ac9d-946a-45db-9364-c78e7610d171">Oba dva sloužily jako lehká technická inpisrace při tvorbě interpretru.</p><h2 id="1a24d315-c343-4abb-b2df-e0272344b779">Souslednost</h2><p id="889ab8f9-f4ac-4f7d-88ad-ba40f16c4312">Za zmínku pravděpodobně stojí, že tato a následující dvě kapitoly byly psány až po dokončení většiny práce na bajtkódech, interpreteru a kompilátoru. Práce na těchto komponentách však probíhala zároveň a jednalo se do jisté míry o iterativní proces. Člověk přidá jeden parametr bajtkódu, upraví kompilátor a interpreter a hned vidí, že to ovlivnilo celkový obraz tak, že nyní není třeba kousek tady a je třeba přidat kousek támhle, což vede ke změnám v kompilátoru tady a támhle, díky čemuž není třeba v interpretru tohle a támhleto může fungovat jinak..</p><p id="0e322e3d-5b4f-4b67-91c4-e15b50e5f395">Vytvářet něco, kde se zároveň tři a více komponent ovlivňuje, a bez samotné implementace se dopředu těžko představuje, jak konkrétně by to mělo celé vypadat, je zajímavá zkušenost. Nyní při psaní zpětně vidím, jak se to celé podepsalo na celkové podobě interpretru a hned mě napadá, že by šlo upravit spoustu komponent trochu jinak.</p><p id="a722a6ab-a24f-4e31-807b-351d4a3dad84">Vývoj, a zde a v následujících kapitolách popsaná podoba, byla ovšem diktována snahou o co nejrychlejší bootstrapping, s tím že na optimalizace a úpravy bude dost času později, pokud projekt vyhodnotím jako hodný dalšího pokračování.</p><h2 id="2c49cd4a-eb8d-4bbe-b0cb-adf314b4e3ac">Literály</h2><p id="f88784d2-5b5d-46b4-9ab7-6ed96d1f6750">Bajtkód se neskládá pouze z jednotlivých instrukcí, skládá se také z tabulky literálů. V té jsou uloženy všechny konstantní hodnoty známé v době kompilace.</p><p id="02c6e1db-b51b-418d-b720-3d13ea300830">Mezi ně patří:</p><ul id="e161e116-54ef-45ca-b94e-8189536866ed" class="bulleted-list"><li>Řetězce</li></ul><ul id="043a27ef-775c-4c91-9f9d-d24782cc5343" class="bulleted-list"><li>Čísla</li></ul><ul id="85e14e6a-10e2-487d-9387-4f55d3480394" class="bulleted-list"><li>Nil</li></ul><ul id="0307f7bc-ebf1-40f0-9735-c59043945323" class="bulleted-list"><li>Object</li></ul><ul id="ac4d20ca-aac8-454d-89d2-92faba47353a" class="bulleted-list"><li>Block</li></ul><ul id="29e4a925-21d4-4915-bd9f-631b911b5907" class="bulleted-list"><li>Assignment primitive</li></ul><p id="eb6d7f2c-8cd4-47f5-9341-25d95095ce99">Když pak interpreter dojde na část kde je nutné použít nějaký literál, nemusí ho v tu chvíli rekonstruovat z bajtkódu, místo toho se jednoduše podívá do tabulky literálů na patřičný index a vytvoří podle něj objekt.</p><h2 id="aba5b2e7-deb0-43ff-a7a2-bc32f225a48e">Bytecodes</h2><p id="911f2b21-9ec9-4578-b72b-61015b965de0">Pavel Křivánek navrhoval pro Marvina následující bajtkódy:</p><ul id="d1baa76e-5ff7-4baa-8217-45a09016bbf7" class="bulleted-list"><li><strong>send:</strong> Zašle objektu na vrcholu zásobníku zprávu identifikovanou určitým selektorem.</li></ul><ul id="819a1d72-1ac9-4799-8df2-795ac4908554" class="bulleted-list"><li><strong>selfSend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem.</li></ul><ul id="224396a4-0b9f-491b-b04a-5a94208b6da2" class="bulleted-list"><li><strong>resend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem v kontextu předka.</li></ul><ul id="5a2403c9-d1c3-4299-9c0d-071001c4e3aa" class="bulleted-list"><li><strong>pushSelf</strong> Na vrchol zásobníku umístí příjemce zprávy.</li></ul><ul id="236e53bb-2097-440f-84eb-75e88e4b4b50" class="bulleted-list"><li><strong>pushLiteral:</strong> Na vrchol zásobníku umístí referenci na určený literál.</li></ul><ul id="954086f3-18ae-4af8-896e-1e855a027b6c" class="bulleted-list"><li><strong>pop</strong> Odebere jednu položku z vrcholu zásobnı́ku a získanou hodnotu zahodı́.</li></ul><ul id="31b9c96d-7c4e-4750-b2f0-b646576e6a0f" class="bulleted-list"><li><strong>returnTop</strong> Návrat z metody s vrcholem zásobnı́ku jako výsledkem.</li></ul><ul id="72294e5f-b2b8-4c79-8a80-147614b66f36" class="bulleted-list"><li><strong>returnImplicit</strong> Implicitní návrat z kontextu.</li></ul><p id="3c9b46b5-a2d3-4d70-aa39-e052de2c4e1a">Osobně jsem se tímto setem hodně inspiroval, nakonec jsem však pro některé nenašel použití a naopak, některé které v Marvinovi nebyly mi tam přišly jako užitečné.</p><p id="98aef4b6-7424-4156-8933-8807a6d5623f">Nakonec jsem skončil s následujícím setem:</p><ul id="018da1f3-eae3-4508-9d09-9f71a946eda2" class="bulleted-list"><li>SEND</li></ul><ul id="5fe76253-135b-4715-b888-156dcfa25d42" class="bulleted-list"><li>PUSH_SELF</li></ul><ul id="11dc9017-e233-4db6-b37c-a319f6fa9202" class="bulleted-list"><li>PUSH_LITERAL</li></ul><ul id="9287e5a0-de9e-40a2-8972-ab74d906e1f2" class="bulleted-list"><li>ADD_SLOT</li></ul><ul id="e9e10028-0acb-4cc6-a730-cb9225e99079" class="bulleted-list"><li>RETURN_TOP</li></ul><ul id="3228e19a-16b0-4f6d-9485-52330cb7982a" class="bulleted-list"><li>RETURN_IMPLICIT</li></ul><p id="e183e1b9-9a48-46da-96cf-ca074947c83e">Přičemž některé z nich jsou parametrizované a můžou tak zabrat až tři bajty. Instrukce pracují se zásobníkem, na který vkládají, či z něj odebírají hodnoty. Zásobník je tvořen zvlášť pro každou metodu, proto například chybí instrukce pro odstranění hodnot ze zásobníku - vzhledem k tomu že instrukce hodnoty ze zásobníku odebírají implicitně, na konci se prostě celý zásobník zahodí, někdy s tím, že hodnota na vrcholu je vložená na vrchol zásobníku, ze kterého vznikl tento.</p><p id="f80bd24c-d708-449d-b07f-285e6cf64919">Musím říct, že mě docela překvapilo, jak málo instrukcí mi stačilo. Intuitivně jsem čekal, že jich bude minimálně dvacet. Že by mi jich stačilo šest, respektive pět bez <code>ADD_SLOT</code>, která je tam jen protože je to častá operace, to mě ani ve snu nenapadlo.</p><h3 id="cb224893-4199-4c92-9857-fef52822d56e">PUSH_LITERAL</h3><p id="f2a501ec-89e5-4b44-b7f3-ac6db2dbec4f">Instrukce, kterou začíná prakticky každý set bajtkódů. Jako první vezmeme něco z tabulky literálů a vložíme to na stack.</p><p id="51a18c4f-e58f-4f15-aa66-e2bceb523640">Instrukce má dva parametry:</p><ol id="51bababc-2e0a-40de-a83f-d5840f4c063c" class="numbered-list" start="1"><li><code>literal_type</code></li></ol><ol id="568c7bbb-81b8-43dc-b127-8c47be0efda0" class="numbered-list" start="2"><li><code>literal_index</code></li></ol><p id="abc270dd-b502-4a6f-8856-4169c85cec63">Druhý určuje index v tabulce, první pak typ literálů, kterým v současnosti můžou být:</p><ol id="58d11351-a3d8-4f5f-8530-f0050c9d8d36" class="numbered-list" start="1"><li><code>Nil</code></li></ol><ol id="ce212102-644f-4d72-b0fb-c90bc6a40890" class="numbered-list" start="2"><li><code>Int</code></li></ol><ol id="5347fa9f-c398-4ff0-9983-db0e3d73d7a5" class="numbered-list" start="3"><li><code>String</code></li></ol><ol id="8bd3523a-b707-4c0a-90cf-98e042fbf41e" class="numbered-list" start="4"><li><code>Object</code></li></ol><ol id="2217cce4-0066-4ee4-a947-9066cfc0ba92" class="numbered-list" start="5"><li><code>Block</code></li></ol><ol id="65e505c8-8a79-4314-a374-24dfbe16dcd3" class="numbered-list" start="6"><li><code>Assignment primitive</code></li></ol><p id="24d93b7d-7929-46b9-8268-33b9b01fa7f1">Detaily fungování budou vysvětleny v kapitole o interpretru.</p><p id="3b6c9efa-56a0-474e-9a8d-3c3ecedb97a5">Délka instrukce: 3 bajtkódy.</p><h3 id="fecdd51c-6a61-477c-a7e1-f4367739f6f0">PUSH_SELF</h3><p id="c3d85b40-3d5f-46ae-914b-39bb8ec2c024">Na vrchol zásobníku vlož <em>self</em>, tedy objekt v jehož kontextu aktuálně probíhá kód.</p><p id="d01f0f4f-d171-46b1-9ec1-d3c73806ae86">Délka instrukce: 1 bajtkód.</p><h3 id="db481803-3924-4d4f-9a53-ea4cd6395efe">ADD_SLOT</h3><p id="c9588a30-e0e8-4c50-8fa8-17fd6cd32c67">Z vrcholu zásobníku seber jeden objekt jako <em>hodnotu</em>, druhý objekt jako <em>jméno</em> a třetí objekt jako <em>příjemce</em>. Do <em>příjemce</em> potom ulož <em>hodnotu</em> na dané <em>jméno</em>. Výsledný objekt vlož na vrchol zásobníku.</p><p id="2c53be74-396b-4e3a-9acd-1f8a042fb9f6">Tato instrukce by nemusela existovat, šlo by to celé implementovat pomocí <em>mirrorů</em>, ale vzhledem k tomu o jak často používanou záležitost se jedná, a jak strašně moc to zjednodušuje zbytek kódu, rozhodl jsem se jí takhle použít.</p><p id="ca9e3e77-9c1c-4090-918a-699836ea3c3d">Délka instrukce: 1 bajtkód.</p><h3 id="11c286f6-775f-4319-a51f-539b5b45e874">RETURN_TOP</h3><p id="1b20df5e-7fc3-46b0-921a-a04c58b5fb5d">Z vrcholu zásobníku vyber hodnotu a vrať jí.</p><p id="d595646f-c88a-46a6-b3a9-85cdf1e69f15">Vrácení probíhá tak, že pokud jsou v tomto procesu předchozí zásobníky, vlož jí na vrchol předchozího zásobníku. Pokud ne, ulož jí jako návratovou hodnotu procesu.</p><p id="b4213605-e455-4295-8fe4-7ff496760a9f">Délka instrukce: 1 bajtkód.</p><h3 id="e3dfe0d6-82e9-4ed5-9705-223ca5e27572">RETURN_IMPLICIT</h3><p id="a0bef694-c7c6-4ab6-be34-987f497647cc">Docela dlouho jsem přemýšlel k čemu byla Pavlovi <code>returnImplicit</code>, a došlo mi to až když jsem implementoval bloky.</p><p id="be797d5b-14c7-4c35-844c-3bf372951309">Z vrcholu zásobníku vyber hodnotu a vrať jí skrz tolik framů, dokud nebudeš ve scope ke kterému se return vztahuje.</p><p id="ff71dea5-2866-4961-bf88-8c06dace2569">Tohle je Selfová specialita, kde return z bloku nevrací jen z bloku, ale ze scope, kde je blok použit.</p><p id="5b84e2ef-ce31-4712-b8c1-a091fd47f828">Tedy kód</p><pre id="21d7025f-7afc-4403-8af4-c16a627b4ed8" class="code"><code>(|| something ifTrue: [^ something].)</code></pre><p id="61f5e9d3-ccb4-44e0-a7c4-54557d84d504">vrací nejen z bloku, ale i z method-objectu kolem něj.</p><p id="743b39b5-0d7d-4dfa-9e99-a37db6bdffc9">Délka instrukce 1 bajtkód.</p><h3 id="5f50dff6-8ded-486a-abc0-e74582ba7f4d">SEND</h3><p id="56fb03c5-ead7-4bc8-92cd-28ee474d64cb">Nejkomplexnější instrukce, která objektu na zásobníku pošle zprávu.</p><p id="502195f3-1aa7-428d-b555-90c210df1649">Instrukce má dva parametry:</p><ol id="232eb688-5acf-4393-8fc7-44852be87326" class="numbered-list" start="1"><li><code>message_type</code></li></ol><ol id="b980570c-a634-4fa3-845a-5addfe882dce" class="numbered-list" start="2"><li><code>number_of_parameters</code></li></ol><p id="5672677d-bb85-44bc-8fe1-ba60aac210c0">Akt poslání zprávy probíhá tak, že ze zásobníku je nejdříve vybráno <code>number_of_parameters</code> objektů do pole parametrů. V případě, že <code>message_type</code> je jeden z resend typů (<code>UNARY_RESEND</code> či <code>KEYWORD_RESEND</code>, je navíc ještě z vrcholu zásobníku sebráno jméno rodiče, kterému se má zpráva přeposlat. Dále je z vrcholu zásobníku sebráno jméno zprávy (<em>selector</em>) a objekt, kterému bude zpráva poslána.</p><p id="3ce88c31-1fc6-49dd-b6e2-238d477c93e6">Pokud jde o resend, je zpráva přeposlána parentovi - slot je vyhledán v patřičném rodičovi a je vrácen či vykonán v současném kontextu.</p><p id="3d882870-e034-4a76-8262-64801080b165">Pokud jde o kód, je vykonán tak, že je vytvořen nový zásobník, uložen nulový ukazatel na bajtkód (program counter) a objektu je přimapován do <code>.scope_parent</code> současný kontext.</p><p id="62d40553-c87e-4c5b-aa35-7c084241f521">Pokud jde o primitivní kód, je vykonán. Primitivní kód je voláním kompilovaných částí psaných v RPythonu.</p><p id="573bc941-07f7-432d-a095-3ff266742ae8">Pokud jde o hodnotu, je vložena na vrchol zásobníku.</p><p id="2aadc07c-70f5-4fd8-9fa0-1b072f72f9ae">SEND je nejsložitější instrukcí, kterou možná časem rozdělím na víc menších.</p><p id="0ce63e96-91fe-4078-a9dd-9e83401fd0c0">Délka instrukce: 3 bajtkódy.</p><h3 id="85e77a44-9014-4da9-ae4c-a2571964ddd5">Budoucí rozvoj</h3><p id="0b4b56b9-15cb-40e2-b585-cc46c6f6d423">Bajtkód, anglicky <em>bytecode</em>, je od slova <em>byte</em>. Samozřejmě nemusí mít přesně jeden bajt, ostatně moje instrukční sada by se mohla vejít do čtyř bitů. Do budoucna by ale mohlo interpreter zrychlit, kdybych provedl rozvoj všech často používaných instrukcí a převedl je z několika-bajtových parametrizovaných na jedno-bajtovové. Například bych mohl zavést bajtkód pro <code>SELF_SEND</code>, který by zkombinoval funkcionalitu <code>PUSH_SELF</code> a <code>SEND</code>. Nebo <code>SENDKW1</code>, který automaticky vybere jeden parametr ze zásobníku a bere ho jako <em>keyword message</em>. Některé instrukce by mohly obcházet <code>PUSH_LITERAL</code> bajtkód a rovnou si sahat na index do tabulky literálů. A tak podobně.</p><p id="6893f76e-0da1-41af-b436-0b93131d54a4">Taky limitace parametrů na jeden bajtkód momentálně znamená, že je možné použít pouze 256 literálů v jedné metodě, což ovšem v současné fázi vývoje bohatě stačí a nemá smysl to řešit. Časem chci přidat rozvoj na minimálně dvoubajtové definice, takže PUSH_LITERAL se prodlouží.</p><p id="ea92bdf0-030f-4abc-936f-d6e183debd02">Zatím se však budu držet současné podoby, jelikož mám větší problémy k vyřešení a jak pravil klasik, předčasná optimalizace je kořenem všeho zla.</p><h2 id="45861fe8-3040-4c76-a160-68451dc5e08b">CodeContext</h2><p id="a2e8f760-4642-44d0-8319-e00e97d536eb">Stojí za zmínku se podívat, v čem a jak jsou vlastně bajtkódy i literály ukládány. Jedná se o třídu <code>CodeContext</code>, která obsahuje string s bajtkódy. Řešil jsem na <code>#pypy</code> v čem je nejlepší uchovávat bajtkódy, protože sám bych měl asi tendence použít <code>bytearray</code>, ale ten jednak po RPythonem funguje divně (měl jsem s tím nějaké problémy, už nevím přesně jaké), ale hlavně je pomalejší než zpracování stringů.</p><p id="2249bb00-2c89-4516-acdb-a23aec802c26">Dále obsahuje pole <code>literals</code> s tabulkou literálů, z nihž každý je zabalen v nějakém boxu (viz omezení RPythonu na jeden datový typ polí).</p><figure id="b7f38b21-909a-42d2-baa0-c0c9bac48ca7" class="image"><a href="Jak se p e programovac jazyk 5 Bajtk d a liter ly/code_context.png"><img style="width:731px" src="Jak se p e programovac jazyk 5 Bajtk d a liter ly/code_context.png"/></a></figure><p id="fbcf2328-ead6-45d0-814b-ba232756e3ec">Pak jsou zde ještě dočasně uloženy různé speciální hodnoty, například se tu kešují dočasné mezi-objekty, které uchovávají parametry.</p><h2 id="3c2092a7-db20-4121-a54b-269e934ef566">Zásobníky</h2><p id="af2abb54-1d86-4fcd-940e-cfa7a9757d09">Zasobníky jsem implementoval jako hierarchickou strukturu tří tříd;</p><figure id="a282e57a-ba3c-470d-b960-bb0636e5e0cb" class="image"><a href="Jak se p e programovac jazyk 5 Bajtk d a liter ly/frames.png"><img style="width:896px" src="Jak se p e programovac jazyk 5 Bajtk d a liter ly/frames.png"/></a></figure><h3 id="753ea828-bbfa-4567-8272-3584596925bc">MethodStack</h3><p id="27102a6b-4b17-4871-9414-1527a929f4d8">Třída <code>MethodStack</code> tvoří prostý zásobník, na jehož vrchol je možné vložit instanci <code>Objekt</code>u metodou <code>.push()</code>, sundat z vrcholu <code>Objekt</code> metodou <code>.pop()</code> a jako bonus implementuje <code>.pop_or_nil()</code>, která v případě že je zásobník prázdný vrátí singleton <code>Objekt</code>u <code>nil</code>.</p><p id="de3a54e6-88ef-4184-aba5-12d7fa94d433">Třída dále uchovává nějaké obecné properties, jako <code>.error_handler</code>, <code>.code_context</code>, <code>.bc_index</code> a <code>.self</code>. Error handler je použit k řešení výjimek, code_context uchovává bajtkódy a bc_index slouží jako program counter.</p><p id="586293c9-3b3f-48d5-8e42-502936f541f3">Při běhu metody se sem ukládají jednotlivé literály a postupně si je z toho tahají instrukce tak jak jdou za sebou. V případě že je volána další metoda, tak na vrchol zásobníku se vloží výsledek poté co skončí. To řeší následující třída metodou <code>.pop_frame_down()</code>.</p><p id="72bf6868-e672-4aab-8c31-befcd8396ed1">Momentálně jsou k dispozici dvě implementace, jedna jako před-alokované pole, která je trochu rychlejší v kódu bez JITu a druhá jako linked-list, která je trochu rychlejší s JITem.</p><h3 id="dbb6a3f8-a4e5-4db2-9790-9e18509f6984">ProcessStack</h3><p id="b169d068-4ea8-4ac5-8058-934a19a31fb6">Na tuto třídu navazuje <code>ProcessStack</code>, který je zásobníkem zásobníků a v podstatě reprezentuje jeden běžící proces. Pokaždé, když je vykonáván nějaký <code>Object</code> s kódem, je v ní vytvořen nový zásobník. Když kód doběhne, tak vezme poslední hodnotu z posledního zásobníku a vloží jí na vrchol zásobníku předtím. Ten co je na vrchu pak zahodí (proto nejsou potřeba samostatné <code>POP</code> bajtkódy).</p><p id="74b0e0af-62a1-45df-945e-d47364281ba6">Jak už napovídá název, taky uchovává další kontext „procesu“, jako výsledek běhu programu, informaci o tom jestli proces ještě stále běží, nebo ne.</p><p id="4ead4811-527b-440e-a4db-1d4f97e30f11">Za zmínku stojí, že aktuální frame navrchu je vždy uchováván v proměnné <code>.frame</code>.</p><h3 id="81dc8e65-3489-4eb1-9984-ae2867cb962c">ProcessCycler</h3><p id="093c2cde-7d5c-40db-a536-a229c44c51d9">Poslední třídou je <code>ProcessCycler</code>, který přepíná aktuálně prováděný proces tím, že ho vždy uloží do proměnné <code>.process</code>. Vzhledem k tomu, že smyčka interpreteru vždy načte tuto hodnotu, provede jeden bajtkód a zavolá cyklování procesu, je tím docíleno jednoduché paralelizace.</p><h2 id="d256e27a-0c70-4bba-98be-e153730fb1ef">Pokračování</h2><p id="616977c8-4cf7-4fb2-8fe6-ce889940f7ed">V dalším díle se podíváme na implementace kompilátoru do výše uvedeného bajtkódu. Ačkoliv jsem intuitivně čekal, že půjde o něco složitého, nakonec se to ukázalo jako jedna z nejjednodušších věcí na celém projektu.</p><h2 id="7591ff77-2b88-4a4d-ac8d-e8c1f4b8c73d">Relevantní diskuze</h2><ul id="383f49a2-8e01-435f-982c-cf89f0c6ea5d" class="bulleted-list"><li><a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/4/jak-se-pise-programovaci-jazyk-5-bajtkod-a-literaly">Jak se píše programovací jazyk 5: Bajtkód a literály</a> (abclinuxu)</li></ul></div></article></body></html>
+<html>
+  <head>
+    <title>Jak se píše programovací jazyk 5: Bajtkód a literály</title>
+    <link rel="stylesheet" type="text/css" href="../../../style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <article id="9532731e-b55e-4d24-81ff-fed23e1dc32e" class="page sans">
+      <header>
+        <h1 class="page-title">Jak se píše programovací jazyk 5: Bajtkód a literály</h1>
+      </header>
+      <div class="page-body">
+        <p id="8b9fcd90-6b9a-4352-8f35-f422f38d0a20">
+          <time>@2019/04/18</time>
+        </p>
+        <p id="cf59ce1a-7bab-491e-a997-08176389c8ac">Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.</p>
+        <p id="fe8f0e0c-ba1e-485f-bf8c-2eb875637da5">Jak už jsem zmiňoval, nejsem ani v nejmenším odborník na tvorbu programovacích jazyků. Když jsem se pustil do psaní specifikace VM, byly mi známé následující přístupy:</p>
+        <ol id="353dfee0-f421-4e4b-aec7-cddb1a70a127" class="numbered-list" start="1">
+          <li>Interpretace AST</li>
+        </ol>
+        <ol id="caa0fa03-8b5e-431d-8b40-ec10218f9f96" class="numbered-list" start="2">
+          <li>Interpretace imperativního bajtkódu</li>
+        </ol>
+        <ol id="391fed5f-22de-410d-b933-bc884c289b04" class="numbered-list" start="3">
+          <li>Interpretace <em>stack based</em> bajtkódu</li>
+        </ol>
+        <p id="6be00d3e-7afe-4daf-9a35-7b342b1aa181">Pavel Křivánek ve své bakalářské práci <a href="http://kitakitsune.org/ltas/resources/Podpora_beztridniho_programovani_ve_Squeak_Smalltalku.pdf">Podpora beztřídního programování ve Squeak Smalltalku</a> použil pro svůj Selfem inspirovaný jazyk Marvin <em>stack based</em> (na zásobníku založený) bajtkód ve stylu forthu.</p>
+        <p id="42a572a5-6ac4-4faf-8bd8-123397ca6b22">Oproti tomu <a href="https://pdfs.semanticscholar.org/7a9f/b345d1372f99c47f68fbcf5187f10af87704.pdf">The Design and Implementation of the Self Compiler, an Optimizing Compiler for Object-Oriented Programming Languages</a> (dále jen <em>DISCOCOOPL</em>) zmiňuje spíše imperativní bajtkód ve stylu assembleru.</p>
+        <p id="342482d0-1e71-4076-9c19-7f2415dd6725">V krátké výměně mailů, které jsem Pavlovi Křivánkovi poslal zmiňoval, abych zkusil zkombinovat první a druhý přístup.</p>
+        <p id="a82cb61f-3cd3-4870-863d-03869b85534a">Dále zde byly dva projekty <em>Smalltalků</em> napsaných v RPythonu:</p>
+        <ol id="2716b212-5e65-4e9b-8b95-937657314f29" class="numbered-list" start="1">
+          <li>
+            <a href="https://github.com/SOM-st/RPySOM">https://github.com/SOM-st/RPySOM</a>
+          </li>
+        </ol>
+        <ol id="069d45b3-694c-43c9-bf65-c14363fbdb8f" class="numbered-list" start="2">
+          <li><a href="https://github.com/hpi-swa/RSqueak">https://github.com/hpi-swa/RSqueak</a> (viz paper <a href="https://www.hpi.uni-potsdam.de/hirschfeld/publications/media/FelgentreffPapeReinHirschfeld_2016_HowToBuildAHighPerformanceVmForSqueakSmalltalkInYourSpareTimeAnExperienceReportOfUsingTheRPythonToolchain_AcmDL.pdf">How to Build a High-Performance VM for Squeak/Smalltalk in Your Spare Time</a>)</li>
+        </ol>
+        <p id="5616ac9d-946a-45db-9364-c78e7610d171">Oba dva sloužily jako lehká technická inpisrace při tvorbě interpretru.</p>
+        <h2 id="1a24d315-c343-4abb-b2df-e0272344b779">Souslednost</h2>
+        <p id="889ab8f9-f4ac-4f7d-88ad-ba40f16c4312">Za zmínku pravděpodobně stojí, že tato a následující dvě kapitoly byly psány až po dokončení většiny práce na bajtkódech, interpreteru a kompilátoru. Práce na těchto komponentách však probíhala zároveň a jednalo se do jisté míry o iterativní proces. Člověk přidá jeden parametr bajtkódu, upraví kompilátor a interpreter a hned vidí, že to ovlivnilo celkový obraz tak, že nyní není třeba kousek tady a je třeba přidat kousek támhle, což vede ke změnám v kompilátoru tady a támhle, díky čemuž není třeba v interpretru tohle a támhleto může fungovat jinak..</p>
+        <p id="0e322e3d-5b4f-4b67-91c4-e15b50e5f395">Vytvářet něco, kde se zároveň tři a více komponent ovlivňuje, a bez samotné implementace se dopředu těžko představuje, jak konkrétně by to mělo celé vypadat, je zajímavá zkušenost. Nyní při psaní zpětně vidím, jak se to celé podepsalo na celkové podobě interpretru a hned mě napadá, že by šlo upravit spoustu komponent trochu jinak.</p>
+        <p id="a722a6ab-a24f-4e31-807b-351d4a3dad84">Vývoj, a zde a v následujících kapitolách popsaná podoba, byla ovšem diktována snahou o co nejrychlejší bootstrapping, s tím že na optimalizace a úpravy bude dost času později, pokud projekt vyhodnotím jako hodný dalšího pokračování.</p>
+        <h2 id="2c49cd4a-eb8d-4bbe-b0cb-adf314b4e3ac">Literály</h2>
+        <p id="f88784d2-5b5d-46b4-9ab7-6ed96d1f6750">Bajtkód se neskládá pouze z jednotlivých instrukcí, skládá se také z tabulky literálů. V té jsou uloženy všechny konstantní hodnoty známé v době kompilace.</p>
+        <p id="02c6e1db-b51b-418d-b720-3d13ea300830">Mezi ně patří:</p>
+        <ul id="e161e116-54ef-45ca-b94e-8189536866ed" class="bulleted-list">
+          <li>Řetězce</li>
+        </ul>
+        <ul id="043a27ef-775c-4c91-9f9d-d24782cc5343" class="bulleted-list">
+          <li>Čísla</li>
+        </ul>
+        <ul id="85e14e6a-10e2-487d-9387-4f55d3480394" class="bulleted-list">
+          <li>Nil</li>
+        </ul>
+        <ul id="0307f7bc-ebf1-40f0-9735-c59043945323" class="bulleted-list">
+          <li>Object</li>
+        </ul>
+        <ul id="ac4d20ca-aac8-454d-89d2-92faba47353a" class="bulleted-list">
+          <li>Block</li>
+        </ul>
+        <ul id="29e4a925-21d4-4915-bd9f-631b911b5907" class="bulleted-list">
+          <li>Assignment primitive</li>
+        </ul>
+        <p id="eb6d7f2c-8cd4-47f5-9341-25d95095ce99">Když pak interpreter dojde na část kde je nutné použít nějaký literál, nemusí ho v tu chvíli rekonstruovat z bajtkódu, místo toho se jednoduše podívá do tabulky literálů na patřičný index a vytvoří podle něj objekt.</p>
+        <h2 id="aba5b2e7-deb0-43ff-a7a2-bc32f225a48e">Bytecodes</h2>
+        <p id="911f2b21-9ec9-4578-b72b-61015b965de0">Pavel Křivánek navrhoval pro Marvina následující bajtkódy:</p>
+        <ul id="d1baa76e-5ff7-4baa-8217-45a09016bbf7" class="bulleted-list">
+          <li><strong>send:</strong> Zašle objektu na vrcholu zásobníku zprávu identifikovanou určitým selektorem.</li>
+        </ul>
+        <ul id="819a1d72-1ac9-4799-8df2-795ac4908554" class="bulleted-list">
+          <li><strong>selfSend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem.</li>
+        </ul>
+        <ul id="224396a4-0b9f-491b-b04a-5a94208b6da2" class="bulleted-list">
+          <li><strong>resend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem v kontextu předka.</li>
+        </ul>
+        <ul id="5a2403c9-d1c3-4299-9c0d-071001c4e3aa" class="bulleted-list">
+          <li><strong>pushSelf</strong> Na vrchol zásobníku umístí příjemce zprávy.</li>
+        </ul>
+        <ul id="236e53bb-2097-440f-84eb-75e88e4b4b50" class="bulleted-list">
+          <li><strong>pushLiteral:</strong> Na vrchol zásobníku umístí referenci na určený literál.</li>
+        </ul>
+        <ul id="954086f3-18ae-4af8-896e-1e855a027b6c" class="bulleted-list">
+          <li><strong>pop</strong> Odebere jednu položku z vrcholu zásobnı́ku a získanou hodnotu zahodı́.</li>
+        </ul>
+        <ul id="31b9c96d-7c4e-4750-b2f0-b646576e6a0f" class="bulleted-list">
+          <li><strong>returnTop</strong> Návrat z metody s vrcholem zásobnı́ku jako výsledkem.</li>
+        </ul>
+        <ul id="72294e5f-b2b8-4c79-8a80-147614b66f36" class="bulleted-list">
+          <li><strong>returnImplicit</strong> Implicitní návrat z kontextu.</li>
+        </ul>
+        <p id="3c9b46b5-a2d3-4d70-aa39-e052de2c4e1a">Osobně jsem se tímto setem hodně inspiroval, nakonec jsem však pro některé nenašel použití a naopak, některé které v Marvinovi nebyly mi tam přišly jako užitečné.</p>
+        <p id="98aef4b6-7424-4156-8933-8807a6d5623f">Nakonec jsem skončil s následujícím setem:</p>
+        <ul id="018da1f3-eae3-4508-9d09-9f71a946eda2" class="bulleted-list">
+          <li>SEND</li>
+        </ul>
+        <ul id="5fe76253-135b-4715-b888-156dcfa25d42" class="bulleted-list">
+          <li>PUSH_SELF</li>
+        </ul>
+        <ul id="11dc9017-e233-4db6-b37c-a319f6fa9202" class="bulleted-list">
+          <li>PUSH_LITERAL</li>
+        </ul>
+        <ul id="9287e5a0-de9e-40a2-8972-ab74d906e1f2" class="bulleted-list">
+          <li>ADD_SLOT</li>
+        </ul>
+        <ul id="e9e10028-0acb-4cc6-a730-cb9225e99079" class="bulleted-list">
+          <li>RETURN_TOP</li>
+        </ul>
+        <ul id="3228e19a-16b0-4f6d-9485-52330cb7982a" class="bulleted-list">
+          <li>RETURN_IMPLICIT</li>
+        </ul>
+        <p id="e183e1b9-9a48-46da-96cf-ca074947c83e">Přičemž některé z nich jsou parametrizované a můžou tak zabrat až tři bajty. Instrukce pracují se zásobníkem, na který vkládají, či z něj odebírají hodnoty. Zásobník je tvořen zvlášť pro každou metodu, proto například chybí instrukce pro odstranění hodnot ze zásobníku - vzhledem k tomu že instrukce hodnoty ze zásobníku odebírají implicitně, na konci se prostě celý zásobník zahodí, někdy s tím, že hodnota na vrcholu je vložená na vrchol zásobníku, ze kterého vznikl tento.</p>
+        <p id="f80bd24c-d708-449d-b07f-285e6cf64919">Musím říct, že mě docela překvapilo, jak málo instrukcí mi stačilo. Intuitivně jsem čekal, že jich bude minimálně dvacet. Že by mi jich stačilo šest, respektive pět bez <code>ADD_SLOT</code>, která je tam jen protože je to častá operace, to mě ani ve snu nenapadlo.</p>
+        <h3 id="cb224893-4199-4c92-9857-fef52822d56e">PUSH_LITERAL</h3>
+        <p id="f2a501ec-89e5-4b44-b7f3-ac6db2dbec4f">Instrukce, kterou začíná prakticky každý set bajtkódů. Jako první vezmeme něco z tabulky literálů a vložíme to na stack.</p>
+        <p id="51a18c4f-e58f-4f15-aa66-e2bceb523640">Instrukce má dva parametry:</p>
+        <ol id="51bababc-2e0a-40de-a83f-d5840f4c063c" class="numbered-list" start="1">
+          <li>
+            <code>literal_type</code>
+          </li>
+        </ol>
+        <ol id="568c7bbb-81b8-43dc-b127-8c47be0efda0" class="numbered-list" start="2">
+          <li>
+            <code>literal_index</code>
+          </li>
+        </ol>
+        <p id="abc270dd-b502-4a6f-8856-4169c85cec63">Druhý určuje index v tabulce, první pak typ literálů, kterým v současnosti můžou být:</p>
+        <ol id="58d11351-a3d8-4f5f-8530-f0050c9d8d36" class="numbered-list" start="1">
+          <li>
+            <code>Nil</code>
+          </li>
+        </ol>
+        <ol id="ce212102-644f-4d72-b0fb-c90bc6a40890" class="numbered-list" start="2">
+          <li>
+            <code>Int</code>
+          </li>
+        </ol>
+        <ol id="5347fa9f-c398-4ff0-9983-db0e3d73d7a5" class="numbered-list" start="3">
+          <li>
+            <code>String</code>
+          </li>
+        </ol>
+        <ol id="8bd3523a-b707-4c0a-90cf-98e042fbf41e" class="numbered-list" start="4">
+          <li>
+            <code>Object</code>
+          </li>
+        </ol>
+        <ol id="2217cce4-0066-4ee4-a947-9066cfc0ba92" class="numbered-list" start="5">
+          <li>
+            <code>Block</code>
+          </li>
+        </ol>
+        <ol id="65e505c8-8a79-4314-a374-24dfbe16dcd3" class="numbered-list" start="6">
+          <li>
+            <code>Assignment primitive</code>
+          </li>
+        </ol>
+        <p id="24d93b7d-7929-46b9-8268-33b9b01fa7f1">Detaily fungování budou vysvětleny v kapitole o interpretru.</p>
+        <p id="3b6c9efa-56a0-474e-9a8d-3c3ecedb97a5">Délka instrukce: 3 bajtkódy.</p>
+        <h3 id="fecdd51c-6a61-477c-a7e1-f4367739f6f0">PUSH_SELF</h3>
+        <p id="c3d85b40-3d5f-46ae-914b-39bb8ec2c024">Na vrchol zásobníku vlož <em>self</em>, tedy objekt v jehož kontextu aktuálně probíhá kód.</p>
+        <p id="d01f0f4f-d171-46b1-9ec1-d3c73806ae86">Délka instrukce: 1 bajtkód.</p>
+        <h3 id="db481803-3924-4d4f-9a53-ea4cd6395efe">ADD_SLOT</h3>
+        <p id="c9588a30-e0e8-4c50-8fa8-17fd6cd32c67">Z vrcholu zásobníku seber jeden objekt jako <em>hodnotu</em>, druhý objekt jako <em>jméno</em> a třetí objekt jako <em>příjemce</em>. Do <em>příjemce</em> potom ulož <em>hodnotu</em> na dané <em>jméno</em>. Výsledný objekt vlož na vrchol zásobníku.</p>
+        <p id="2c53be74-396b-4e3a-9acd-1f8a042fb9f6">Tato instrukce by nemusela existovat, šlo by to celé implementovat pomocí <em>mirrorů</em>, ale vzhledem k tomu o jak často používanou záležitost se jedná, a jak strašně moc to zjednodušuje zbytek kódu, rozhodl jsem se jí takhle použít.</p>
+        <p id="ca9e3e77-9c1c-4090-918a-699836ea3c3d">Délka instrukce: 1 bajtkód.</p>
+        <h3 id="11c286f6-775f-4319-a51f-539b5b45e874">RETURN_TOP</h3>
+        <p id="1b20df5e-7fc3-46b0-921a-a04c58b5fb5d">Z vrcholu zásobníku vyber hodnotu a vrať jí.</p>
+        <p id="d595646f-c88a-46a6-b3a9-85cdf1e69f15">Vrácení probíhá tak, že pokud jsou v tomto procesu předchozí zásobníky, vlož jí na vrchol předchozího zásobníku. Pokud ne, ulož jí jako návratovou hodnotu procesu.</p>
+        <p id="b4213605-e455-4295-8fe4-7ff496760a9f">Délka instrukce: 1 bajtkód.</p>
+        <h3 id="e3dfe0d6-82e9-4ed5-9705-223ca5e27572">RETURN_IMPLICIT</h3>
+        <p id="a0bef694-c7c6-4ab6-be34-987f497647cc">Docela dlouho jsem přemýšlel k čemu byla Pavlovi <code>returnImplicit</code>, a došlo mi to až když jsem implementoval bloky.</p>
+        <p id="be797d5b-14c7-4c35-844c-3bf372951309">Z vrcholu zásobníku vyber hodnotu a vrať jí skrz tolik framů, dokud nebudeš ve scope ke kterému se return vztahuje.</p>
+        <p id="ff71dea5-2866-4961-bf88-8c06dace2569">Tohle je Selfová specialita, kde return z bloku nevrací jen z bloku, ale ze scope, kde je blok použit.</p>
+        <p id="5b84e2ef-ce31-4712-b8c1-a091fd47f828">Tedy kód</p>
+        <pre id="21d7025f-7afc-4403-8af4-c16a627b4ed8" class="code"><code>(|| something ifTrue: [^ something].)</code>
+</pre>
+        <p id="61f5e9d3-ccb4-44e0-a7c4-54557d84d504">vrací nejen z bloku, ale i z method-objectu kolem něj.</p>
+        <p id="743b39b5-0d7d-4dfa-9e99-a37db6bdffc9">Délka instrukce 1 bajtkód.</p>
+        <h3 id="5f50dff6-8ded-486a-abc0-e74582ba7f4d">SEND</h3>
+        <p id="56fb03c5-ead7-4bc8-92cd-28ee474d64cb">Nejkomplexnější instrukce, která objektu na zásobníku pošle zprávu.</p>
+        <p id="502195f3-1aa7-428d-b555-90c210df1649">Instrukce má dva parametry:</p>
+        <ol id="232eb688-5acf-4393-8fc7-44852be87326" class="numbered-list" start="1">
+          <li>
+            <code>message_type</code>
+          </li>
+        </ol>
+        <ol id="b980570c-a634-4fa3-845a-5addfe882dce" class="numbered-list" start="2">
+          <li>
+            <code>number_of_parameters</code>
+          </li>
+        </ol>
+        <p id="5672677d-bb85-44bc-8fe1-ba60aac210c0">Akt poslání zprávy probíhá tak, že ze zásobníku je nejdříve vybráno <code>number_of_parameters</code> objektů do pole parametrů. V případě, že <code>message_type</code> je jeden z resend typů (<code>UNARY_RESEND</code> či <code>KEYWORD_RESEND</code>, je navíc ještě z vrcholu zásobníku sebráno jméno rodiče, kterému se má zpráva přeposlat. Dále je z vrcholu zásobníku sebráno jméno zprávy (<em>selector</em>) a objekt, kterému bude zpráva poslána.</p>
+        <p id="3ce88c31-1fc6-49dd-b6e2-238d477c93e6">Pokud jde o resend, je zpráva přeposlána parentovi - slot je vyhledán v patřičném rodičovi a je vrácen či vykonán v současném kontextu.</p>
+        <p id="3d882870-e034-4a76-8262-64801080b165">Pokud jde o kód, je vykonán tak, že je vytvořen nový zásobník, uložen nulový ukazatel na bajtkód (program counter) a objektu je přimapován do <code>.scope_parent</code> současný kontext.</p>
+        <p id="62d40553-c87e-4c5b-aa35-7c084241f521">Pokud jde o primitivní kód, je vykonán. Primitivní kód je voláním kompilovaných částí psaných v RPythonu.</p>
+        <p id="573bc941-07f7-432d-a095-3ff266742ae8">Pokud jde o hodnotu, je vložena na vrchol zásobníku.</p>
+        <p id="2aadc07c-70f5-4fd8-9fa0-1b072f72f9ae">SEND je nejsložitější instrukcí, kterou možná časem rozdělím na víc menších.</p>
+        <p id="0ce63e96-91fe-4078-a9dd-9e83401fd0c0">Délka instrukce: 3 bajtkódy.</p>
+        <h3 id="85e77a44-9014-4da9-ae4c-a2571964ddd5">Budoucí rozvoj</h3>
+        <p id="0b4b56b9-15cb-40e2-b585-cc46c6f6d423">Bajtkód, anglicky <em>bytecode</em>, je od slova <em>byte</em>. Samozřejmě nemusí mít přesně jeden bajt, ostatně moje instrukční sada by se mohla vejít do čtyř bitů. Do budoucna by ale mohlo interpreter zrychlit, kdybych provedl rozvoj všech často používaných instrukcí a převedl je z několika-bajtových parametrizovaných na jedno-bajtovové. Například bych mohl zavést bajtkód pro <code>SELF_SEND</code>, který by zkombinoval funkcionalitu <code>PUSH_SELF</code> a <code>SEND</code>. Nebo <code>SENDKW1</code>, který automaticky vybere jeden parametr ze zásobníku a bere ho jako <em>keyword message</em>. Některé instrukce by mohly obcházet <code>PUSH_LITERAL</code> bajtkód a rovnou si sahat na index do tabulky literálů. A tak podobně.</p>
+        <p id="6893f76e-0da1-41af-b436-0b93131d54a4">Taky limitace parametrů na jeden bajtkód momentálně znamená, že je možné použít pouze 256 literálů v jedné metodě, což ovšem v současné fázi vývoje bohatě stačí a nemá smysl to řešit. Časem chci přidat rozvoj na minimálně dvoubajtové definice, takže PUSH_LITERAL se prodlouží.</p>
+        <p id="ea92bdf0-030f-4abc-936f-d6e183debd02">Zatím se však budu držet současné podoby, jelikož mám větší problémy k vyřešení a jak pravil klasik, předčasná optimalizace je kořenem všeho zla.</p>
+        <h2 id="45861fe8-3040-4c76-a160-68451dc5e08b">CodeContext</h2>
+        <p id="a2e8f760-4642-44d0-8319-e00e97d536eb">Stojí za zmínku se podívat, v čem a jak jsou vlastně bajtkódy i literály ukládány. Jedná se o třídu <code>CodeContext</code>, která obsahuje string s bajtkódy. Řešil jsem na <code>#pypy</code> v čem je nejlepší uchovávat bajtkódy, protože sám bych měl asi tendence použít <code>bytearray</code>, ale ten jednak po RPythonem funguje divně (měl jsem s tím nějaké problémy, už nevím přesně jaké), ale hlavně je pomalejší než zpracování stringů.</p>
+        <p id="2249bb00-2c89-4516-acdb-a23aec802c26">Dále obsahuje pole <code>literals</code> s tabulkou literálů, z nihž každý je zabalen v nějakém boxu (viz omezení RPythonu na jeden datový typ polí).</p>
+        <figure id="b7f38b21-909a-42d2-baa0-c0c9bac48ca7" class="image">
+          <a href="Jak se p e programovac jazyk 5 Bajtk d a liter ly/code_context.png">
+            <img style="width:731px" src="Jak se p e programovac jazyk 5 Bajtk d a liter ly/code_context.png" />
+          </a>
+        </figure>
+        <p id="fbcf2328-ead6-45d0-814b-ba232756e3ec">Pak jsou zde ještě dočasně uloženy různé speciální hodnoty, například se tu kešují dočasné mezi-objekty, které uchovávají parametry.</p>
+        <h2 id="3c2092a7-db20-4121-a54b-269e934ef566">Zásobníky</h2>
+        <p id="af2abb54-1d86-4fcd-940e-cfa7a9757d09">Zasobníky jsem implementoval jako hierarchickou strukturu tří tříd;</p>
+        <figure id="a282e57a-ba3c-470d-b960-bb0636e5e0cb" class="image">
+          <a href="Jak se p e programovac jazyk 5 Bajtk d a liter ly/frames.png">
+            <img style="width:896px" src="Jak se p e programovac jazyk 5 Bajtk d a liter ly/frames.png" />
+          </a>
+        </figure>
+        <h3 id="753ea828-bbfa-4567-8272-3584596925bc">MethodStack</h3>
+        <p id="27102a6b-4b17-4871-9414-1527a929f4d8">Třída <code>MethodStack</code> tvoří prostý zásobník, na jehož vrchol je možné vložit instanci <code>Objekt</code>u metodou <code>.push()</code>, sundat z vrcholu <code>Objekt</code> metodou <code>.pop()</code> a jako bonus implementuje <code>.pop_or_nil()</code>, která v případě že je zásobník prázdný vrátí singleton <code>Objekt</code>u <code>nil</code>.</p>
+        <p id="de3a54e6-88ef-4184-aba5-12d7fa94d433">Třída dále uchovává nějaké obecné properties, jako <code>.error_handler</code>, <code>.code_context</code>, <code>.bc_index</code> a <code>.self</code>. Error handler je použit k řešení výjimek, code_context uchovává bajtkódy a bc_index slouží jako program counter.</p>
+        <p id="586293c9-3b3f-48d5-8e42-502936f541f3">Při běhu metody se sem ukládají jednotlivé literály a postupně si je z toho tahají instrukce tak jak jdou za sebou. V případě že je volána další metoda, tak na vrchol zásobníku se vloží výsledek poté co skončí. To řeší následující třída metodou <code>.pop_frame_down()</code>.</p>
+        <p id="72bf6868-e672-4aab-8c31-befcd8396ed1">Momentálně jsou k dispozici dvě implementace, jedna jako před-alokované pole, která je trochu rychlejší v kódu bez JITu a druhá jako linked-list, která je trochu rychlejší s JITem.</p>
+        <h3 id="dbb6a3f8-a4e5-4db2-9790-9e18509f6984">ProcessStack</h3>
+        <p id="b169d068-4ea8-4ac5-8058-934a19a31fb6">Na tuto třídu navazuje <code>ProcessStack</code>, který je zásobníkem zásobníků a v podstatě reprezentuje jeden běžící proces. Pokaždé, když je vykonáván nějaký <code>Object</code> s kódem, je v ní vytvořen nový zásobník. Když kód doběhne, tak vezme poslední hodnotu z posledního zásobníku a vloží jí na vrchol zásobníku předtím. Ten co je na vrchu pak zahodí (proto nejsou potřeba samostatné <code>POP</code> bajtkódy).</p>
+        <p id="74b0e0af-62a1-45df-945e-d47364281ba6">Jak už napovídá název, taky uchovává další kontext „procesu“, jako výsledek běhu programu, informaci o tom jestli proces ještě stále běží, nebo ne.</p>
+        <p id="4ead4811-527b-440e-a4db-1d4f97e30f11">Za zmínku stojí, že aktuální frame navrchu je vždy uchováván v proměnné <code>.frame</code>.</p>
+        <h3 id="81dc8e65-3489-4eb1-9984-ae2867cb962c">ProcessCycler</h3>
+        <p id="093c2cde-7d5c-40db-a536-a229c44c51d9">Poslední třídou je <code>ProcessCycler</code>, který přepíná aktuálně prováděný proces tím, že ho vždy uloží do proměnné <code>.process</code>. Vzhledem k tomu, že smyčka interpreteru vždy načte tuto hodnotu, provede jeden bajtkód a zavolá cyklování procesu, je tím docíleno jednoduché paralelizace.</p>
+        <h2 id="d256e27a-0c70-4bba-98be-e153730fb1ef">Pokračování</h2>
+        <p id="616977c8-4cf7-4fb2-8fe6-ce889940f7ed">V dalším díle se podíváme na implementace kompilátoru do výše uvedeného bajtkódu. Ačkoliv jsem intuitivně čekal, že půjde o něco složitého, nakonec se to ukázalo jako jedna z nejjednodušších věcí na celém projektu.</p>
+        <h2 id="7591ff77-2b88-4a4d-ac8d-e8c1f4b8c73d">Relevantní diskuze</h2>
+        <ul id="383f49a2-8e01-435f-982c-cf89f0c6ea5d" class="bulleted-list">
+          <li><a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/4/jak-se-pise-programovaci-jazyk-5-bajtkod-a-literaly">Jak se píše programovací jazyk 5: Bajtkód a literály</a> (abclinuxu)</li>
+        </ul>
+      </div>
+    </article>
+  </body>
+</html>
