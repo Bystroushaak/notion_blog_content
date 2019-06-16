@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>tinySelf</title>
+    <link rel="stylesheet" type="text/css" href="../../../style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+  </head>
+  <body>
+    <article id="57c3b418-d3bc-4c87-9fad-5c5397310d86" class="page sans">
+      <header>
+        <div class="page-header-icon">
+          <span class="icon">📂</span>
+        </div>
+        <h1 class="page-title">tinySelf</h1>
+      </header>
+      <div class="page-body">
+        <p id="114d1ead-9e2a-4cda-8481-ec75d0ce736c">tinySelf is an experimental programming language inspired by the <a href="http://www.selflanguage.org/">Self lang</a>, with the emphasis on the word <em>experimental</em>.</p>
+        <p id="c42ef001-647f-462d-bbad-b9cb059796e5">I would like something like the glasswork rack you know from the chemistry pictures, but for computation.</p>
+        <figure id="9e4bec7e-16d9-4edf-8156-259adb7c2c29" class="image">
+          <a href="self_analogy.png">
+            <img style="width:800px" src="tinySelf/self_analogy.png" />
+          </a>
+        </figure>
+        <p id="cd769838-0b1a-4139-9e14-d63d292d9522">The point of the experiment is not that much in the language itself, but all kind of different stuff that can be done with it. tinySelf should be lightweight, compact, collapsible, interchangeable, universal computational apparatus for anything I can possibly hope to make.</p>
+        <h1 id="051956c0-50f4-4f33-bbee-017eb090f023">Technology</h1>
+        <p id="9d99e720-964e-4f10-aff4-61d9782b7d61">Whole interpreter is written in Python, specifically in dialect of the python know as <a href="https://en.wikipedia.org/wiki/PyPy#RPython">RPython</a> (`r` as in restricted), which is provided by the makers of the <a href="https://pypy.org/">PyPy project</a> to ease the creation of new languages.</p>
+        <p id="116d6043-9af7-439c-8974-71fdd355c1c5">For example, it gives you a JIT, garbage collector, ways how to bind numeric ints to your objects and so on. Also, it translates to C.</p>
+        <h1 id="e04895b3-f60d-47e1-9e5e-c49925e8c896">Differences from Self</h1>
+        <ul id="1e3c9cd6-4a37-44ff-8095-9fe35606236d" class="bulleted-list">
+          <li>Support for cascading operator <code>;</code>.</li>
+        </ul>
+        <ul id="edef9f04-b893-44ff-8e4d-49facc099fd9" class="bulleted-list">
+          <li>Comments using <code>#</code>.</li>
+        </ul>
+        <ul id="f3a77ed3-afef-4b20-8624-07e9b9f93c71" class="bulleted-list">
+          <li>Multiline strings like in python.</li>
+        </ul>
+        <ul id="8912eb6e-c9b8-49df-a838-446451095cb6" class="bulleted-list">
+          <li>Error handling. I actually have no idea whether or how it works in Self.</li>
+        </ul>
+        <ul id="285ef624-3257-4dcc-afba-bf12c7f30e18" class="bulleted-list">
+          <li>Primitives are not messages with special <code>_syntax</code>, but messages to object <code>primitives</code>.</li>
+        </ul>
+        <ul id="470285f6-6538-4004-a446-4aaf1ae6eb1b" class="bulleted-list">
+          <li>Stdlib is my own, and it is only loosely inspired by Self.</li>
+        </ul>
+        <ul id="0eb8e955-bfa1-461a-b450-9203d32dd20d" class="bulleted-list">
+          <li>Focus on hackability and usefulness, instead on research and academia.</li>
+        </ul>
+        <h1 id="771ea156-0a56-4f82-b3a3-ae17b30f4f93">Articles</h1>
+        <p id="ffb15404-0ed8-4f4b-888f-6c483a6c954e">Here is some of my articles about tinySelf:</p>
+        <figure id="ef0d6334-f7fb-4256-a3f2-1cb90bd5db37" class="link-to-page">
+          <a href="tinySelf performance gains 2019 4.html"><span class="icon">🗎</span>tinySelf performance gains 2019/4</a>
+        </figure>
+        <figure id="35fe6656-44f2-4f3d-9e90-77938e0f9259" class="link-to-page">
+          <a href="Speedups of the interpreter 2019 1.html"><span class="icon">🗎</span>Speedups of the interpreter 2019/1</a>
+        </figure>
+        <figure id="eabfc270-15a2-4d5c-82ef-f232f8b4b698" class="link-to-page">
+          <a href="Simple while benchmark 2019 01 06.html"><span class="icon">🗎</span>Simple while benchmark 2019.01.06</a>
+        </figure>
+        <h1 id="d2a3a41b-8ceb-4f14-beef-65190083be50">Source code</h1>
+        <ul id="0a6ba598-731c-4b83-9425-d44be9505791" class="bulleted-list">
+          <li>
+            <a href="https://github.com/Bystroushaak/tinySelf">https://github.com/Bystroushaak/tinySelf</a>
+          </li>
+        </ul>
+        <h1 id="cf58467e-8aa9-4489-9ef5-13c2bc5bf77c">Licence</h1>
+        <p id="adf8a6af-78dc-4286-948d-7ca04fcdfd62">MIT opensource licence.</p>
+        <p id="618194d7-7ad7-4d2e-b046-cb6be96e7b0e">
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
