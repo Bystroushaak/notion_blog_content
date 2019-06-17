@@ -1,0 +1,772 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Environment and the programming language Self (part two; language)</title>
+    <link rel="stylesheet" type="text/css" href="../../../../style.css" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Bystroushaak" />
+    <meta name="twitter:creator" content="@Bystroushaak" />
+    <meta name="twitter:title" content="Environment and the programming language Self (part two; language)" />
+    <meta name="twitter:description" content="Last episode Environment and the programming language Self (part one; environment) introduced Self as a project, showed where to download it and you could also find some basic orientation about the usage of the morphic interface environment there. In this episode, we&#x27;ll look into the language itself and also some more interesting parts of the standard library." />
+    <meta name="twitter:image" content="http://blog.rfox.eu/Bystroushaak%20s%20blog/English%20section/Series%20about%20Self/Environment%20and%20the%20programming%20language%20Self%20part%201/accessing_kategorie.png" />
+  </head>
+  <body>
+    <a class="breadcrumb" href="../../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Series about Self</a> / Environment and the programming language Self (part two; language)
+
+    <article id="bd2ffc57-38c8-4a52-8c8a-3b50148a6ec9" class="page sans">
+      <header>
+        <h1 class="page-title">Environment and the programming language Self (part two; language)</h1>
+      </header>
+      <div class="page-body">
+        <p id="a5088462-d2b3-4879-a07e-9313455df9c0" class="">
+          <time>@2019/06/17</time>
+        </p>
+        <div id="a139d938-f892-4cc4-9801-4ca87536804e" class="column-list">
+          <div id="78754068-2e5e-413e-83e9-c166194bb406" style="width:12.5%" class="column">
+            <p id="800f8b53-5aff-437d-b61c-fac2e3eccc23" class="">Note:</p>
+          </div>
+          <div id="354805c5-6edf-40b2-821b-5c551499998f" style="width:87.5%" class="column">
+            <p id="aa3a9784-a000-4a4f-aea3-bc0911c7f251" class="">There is also a Czech version of this article: </p>
+          </div>
+        </div>
+        <hr id="c0b0aace-10c9-4bd9-9531-07e7c7c355a8" />
+        <p id="664826e6-084f-45e2-b3ba-00dd32b85eb7" class="">Last episode <a href="Environment and the programming language Self part.html">Environment and the programming language Self (part one; environment)</a> introduced Self as a project, showed where to download it and you could also find some basic orientation about the usage of the morphic interface environment there. In this episode, we&#x27;ll look into the language itself and also some more interesting parts of the standard library.</p>
+        <h1 id="c490b377-8b3a-4621-b8ad-78f2dec31b9b" class="">From the language point of view</h1>
+        <p id="f68c486f-78a2-49a2-b913-34d8cac1cbcf" class="">On the syntactic level, Self is inspired by Smalltalk. It was born in the same place, in Xerox PARC, although a decade later. In Self, like in Smalltalk, everything revolves around sending messages. Unlike Smalltalk, Self introduces a literal for objects, which means that objects are as natural as strings and numbers in other languages.</p>
+        <p id="ab9b1376-1697-4fdf-9b7e-5b732d40d1f4" class="">You can understand the object as a <em>key: val</em> storage. Individual keys are called <em>slots</em>.</p>
+        <p id="3a7afa49-6bf3-48e2-88c1-821d4b52bf4e" class="">When you send a message to the object, a corresponding slot is resolved. If it contains data (object stored there doesn&#x27;t contain code), it is returned. If it is a code object, a value, that is left after the evaluation of the code, is returned.</p>
+        <p id="5d0b4d96-a121-477a-8071-7437420fa95c" class="">Message is sent to the object by typing its name after the object.</p>
+        <pre id="fbe23948-4321-4f45-8e87-f21227b84396" class="code"><code>obj message</code>
+</pre>
+        <p id="ffad02ba-a1cf-410d-8bf9-ea8a0ca9a09e" class="">This is similar to C-like languages:</p>
+        <pre id="24af4372-dbdf-42b1-a4e8-3ced8ba58504" class="code"><code>obj.message()</code>
+</pre>
+        <h2 id="5545e9d9-96e4-4b32-af45-c23566db9d32" class="">Syntax of the object</h2>
+        <p id="5c9f78fb-9761-499b-8705-5b4566f0791d" class=""><code>()</code> creates an empty object. That is an object without slots, which can&#x27;t react to messages.</p>
+        <p id="281f24f5-b09d-40ed-a3e8-c00736d027f6" class=""><code>(| a. b. |)</code> creates object, which contains two slots called <code>a</code> and <code>b</code>. Values of both slots are set to <code>nil</code>.</p>
+        <p id="ed81a24f-b15b-4cb4-9c7c-512824ae0f01" class=""><code>|</code> opens and closes section of slot definitions. Slots themselves are separated by dots. The above object is a &quot;box&quot; that has two drawers called <code>a</code> and <code>b</code>. These drawers can store data or a code.</p>
+        <p id="ce461c07-8559-4e50-9886-a46cc80713ed" class="">Object in Self works a bit like a hashmap or a dictionary. A specific value can be stored in a specific slot. The value can be assigned during initialization:</p>
+        <pre id="4bb05b08-e5c7-44e1-ad56-9bcc540f71e6" class="code"><code>(| a &lt;- nil. b = nil. |)</code>
+</pre>
+        <p id="4c6375f8-68f0-48f8-8fb2-65939d390286" class="">You can see the two different types of assignments in the example. First one (<code>&lt;-</code>) creates rewritable slot, the other one (<code>=</code>) is read only.</p>
+        <p id="7f88c384-1d5c-46b1-92f3-7017aacb9c39" class="">In fact, in the first case, there are two slots; slot <code>a</code> itself, and then a method <code>a:</code> (an assignment primitive), which writes to that slot. In the latter case, only the slot itself is created and it is thus not possible to write into it directly. This has its use for all kinds of constant values.</p>
+        <p id="cc3327a6-f1dd-4a42-bf6e-17483703e126" class="">Each object can also contain code, which is listed after the second vertical line <code>|</code>:</p>
+        <pre id="0ed9a0eb-2e2d-4a63-b225-0cc1275b3f93" class="code"><code>(| a = 1 | a printLine)</code>
+</pre>
+        <p id="e4a9eae8-d879-41a9-aaf1-a8cd2cbc802e" class="">The above example defines an unnamed object with a single <code>a</code> slot set to an object of the number <code>1</code>. It also contains a code to send a <code>printLine</code> message to the slot <code>a</code>, that is, to the value in that slot.</p>
+        <h2 id="3057d244-787a-4dfa-b067-e41c67299304" class="">Parent slots</h2>
+        <p id="e6c145f6-4f2a-45bb-829a-801a3f816241" class="">Special type of slots in Self are the so-called <em>parent slots</em>, which cause, that messages, which are not found in the object, are delegated to objects that these slots point to.</p>
+        <p id="633e9f8a-9d49-4b4d-b9af-3868351bbd99" class="">When we send a message <code>clone </code>to the object,</p>
+        <pre id="607a7cb7-df99-4d08-80e0-68aaeb79af50" class="code"><code>(| p* = traits clonable |)</code>
+</pre>
+        <p id="dd59af35-4345-4321-b1fa-2d82b033cd18" class="">it returns its own copy, even though it does not have a method stored in the <code>clone</code> slot. However, this method is defined in the object referenced by the slot <code>p*</code>, or in the other objects in the <em>parent chain</em>, if this object also contains parent slots.</p>
+        <p id="876d6cd1-4295-4add-9b9a-e4137e544495" class="">This mechanism effectively implements inheritance. If you think about it, this behavior resembles a situation where we call the ancestor&#x27;s method of an object, that is inherited from  <code>traits clonable</code>, for example in Python. Main difference is that a <em>parent slot</em> is just a slot, and that means it can be dynamically changed.</p>
+        <h2 id="7af57c6d-0217-4bd4-a3ad-da8d73eb706e" class="">Parameters</h2>
+        <p id="1158c8a7-0857-4b9e-995d-54ed1b87a327" class=""><code>| slot |</code> definition can also contain parameters of the method. These are preceded by a colon at the beginning of the name. For example, an object:</p>
+        <pre id="e9f889f8-c1a9-49cc-82b9-e978a98c871f" class="code"><code>(|
+    x:Y: = (| :a. :b. | a printLine)
+|)</code>
+</pre>
+        <p id="c8c71676-1d91-46e8-b202-0b6d232e3f92" class="">contains one slot <code>x:Y:</code>, which points to the code object accepting the parameters <code>a</code> and <code>b</code>.</p>
+        <p id="5ed384cc-774f-45a0-ac8b-17bf801e47fd" class="">Alternative syntax for the object is:</p>
+        <pre id="6bd6bece-ba1d-4bda-b75b-52b031c0d6e1" class="code"><code>(|
+    x: a Y: b = (a printLine)
+|)</code>
+</pre>
+        <h2 id="575c6a99-b1dc-4bb8-bd85-75952c3e1d40" class="">Messages</h2>
+        <p id="a8202779-6ad4-435c-81f4-f8448b7f0d7f" class="">There are three standard types of messages:</p>
+        <ul id="329ac2bb-f170-4545-8194-6465d1192596" class="bulleted-list">
+          <li><em>Unary</em>, for example <code>first</code></li>
+        </ul>
+        <ul id="15b2f922-732f-4996-995f-d4841a5e401e" class="bulleted-list">
+          <li><em>Binary</em>, for example <code>&gt; a</code></li>
+        </ul>
+        <ul id="31b42952-6542-4b6f-928a-4703b4e648e7" class="bulleted-list">
+          <li><em>Keyword</em>, for example <code>set: a</code> or <code>set: a And: b</code></li>
+        </ul>
+        <p id="79b59c3c-1781-4475-ae0b-812d5cfa5622" class=""><em>Unary</em> messages don&#x27;t have parameters. <em>Binary</em> ones have exactly one parameter and are used for operators. <em>Keyword</em> messages can have any number of parameters. Unlike in Smalltalk, second and all following keywords of the multi-parameter keyword message start with a capital letter. This makes it clear where the message ends.</p>
+        <p id="a757d5e2-df87-4b01-9abd-7cf00f16eb16" class="">Message <code>a first</code> causes interpreter to look for a slot called <code>first</code> in the object <code>a</code>. If the <code>first</code> slot contains data, they are returned. If it contains <em>object with code</em>, it is evaluated and value of the last expression is returned.</p>
+        <p id="36aa3778-3ecc-4a4b-84cd-4dd9558c3aa3" class="">Message <code>a &gt; 1</code> resolves into lookup of the slot <code>&gt;</code>, where the code object is given a parameter <code>1</code>. Slot of this type can contain only code objects, because they always have to accept one parameter.</p>
+        <p id="47a19814-a1ce-4a3b-a0f8-a88719ea0347" class="">Message <code>x set: a And: b</code> causes lookup of the slot <code>set:And:</code> in the object <code>x</code>. Resolved code object is given parameters <code>a</code> and <code>b</code>.</p>
+        <h3 id="0625571f-2406-4ab2-921a-b1148f898b68" class="">Primitive messages</h3>
+        <p id="b575e8e6-ac79-4a7e-90e8-3b433de934fb" class="">Fourth type of messages is <em>primitive calls</em>, distinguished from the other types by the <code>_</code> at the beginning of the message name:</p>
+        <p id="12b3c1ac-7bca-4a41-87f2-81d9bf521013" class="">
+          <code>_print</code>
+        </p>
+        <p id="bae0d29e-4fa9-4307-be59-36a5957a427e" class="">
+          <code>_set: s And: b</code>
+        </p>
+        <p id="aea578ba-d816-4303-a27a-f2ac26c825e3" class="">This type of messages is used only for calling <em>primitive methods</em> of the interpreter, that is the parts of the interpreter implemented in the C++.</p>
+        <p id="ff838ef8-a49a-4a46-97dd-d61686b6117d" class="">The whole Self as a programming environment can be understood as a language built on axioms defined by primitives.</p>
+        <h2 id="c73825d7-36c2-4f28-bd48-8491721ff28a" class="">Self</h2>
+        <p id="0e92a53d-c0f7-4223-8863-ccaf3577349d" class="">Self as a language is called &quot;Self&quot; because unlike in Smalltalk, you don&#x27;t have to use this keyword in front of every message sent to the object itself.</p>
+        <p id="6b00d953-0bb3-4b0b-b4d7-c4403c8113ce" class="">If you want to call a method <code>print</code> in the different method of the object, you can use:</p>
+        <pre id="5c5139f8-c06c-47c5-a7c1-0fd9e1b2e821" class="code"><code>self print</code>
+</pre>
+        <p id="ea042771-b9c5-45f9-b707-f4928f9eab4e" class="">However, you can omit <code>self</code> and use just:</p>
+        <pre id="a386b5e1-68fd-4ea9-974b-5f27c84fdcf2" class="code"><code>print</code>
+</pre>
+        <p id="ead3bd1a-33f5-4665-a5ff-cf60d5e8f04b" class="">This is rather an interesting feature that is worth thinking about. Each identifier you type, and is not found immediately in the method namespace, is delegated to the object itself and then to all parent slots. What is actually a local namespace, when an object implicitly sends everything to itself?</p>
+        <p id="c3194d37-7c19-41a1-bd00-0eeb65ef2fe4" class="">Message <code>a first</code> from the previous chapter can be actually rewritten as a <code>self a first</code> message, or as a <code>(self a) first</code> message.</p>
+        <h2 id="0d9ad4b2-32c5-4955-bca3-6ebf54cc4288" class="">Blocks</h2>
+        <p id="f7f84031-fe0c-438e-a4ce-7eea819db5f8" class="">Blocks are similar to objects, except for three differences:</p>
+        <ol id="b931b7e8-e197-4f28-a635-691361c082b1" class="numbered-list" start="1">
+          <li>They usually don&#x27;t belong to the place, where they are defined, and are evaluated somewhere else.</li>
+        </ol>
+        <ol id="90f49b4a-583b-4f67-9819-a27c3adbc782" class="numbered-list" start="2">
+          <li>They act as if they contained a parent slot pointing to the namespace where they were defined.</li>
+        </ol>
+        <ol id="c29fd701-8655-4f85-b4e7-9842313638be" class="numbered-list" start="3">
+          <li>They automatically contain <code>parent*</code> pointing to <code>traits block</code>.</li>
+        </ol>
+        <p id="0344ae64-2b0b-457d-b740-ec4dd0dbf666" class="">Thanks to these features, they work as <em>a closures</em> known from the other programming languages.</p>
+        <p id="e172b764-2f18-4687-a45e-4380f6438e67" class=""><code>[]</code> is an empty block.</p>
+        <p id="c1a2e7bc-9a40-416f-99d9-4d71276189f3" class="">Like objects, block can contain slots: <code>[| a &lt;- 1. |]</code> will create a block with a rewritable slot <code>a</code> set to value <code>1</code>.</p>
+        <p id="087bbb08-3df6-4cfe-b507-bb79793dffc3" class="">Blocks can also have parameters: <code>[| :a | a printLine]</code> and act as <em>code objects</em>. To call a block, you can send a message to it: <code>value</code>, or <code>value:</code> if the block expects one parameter, or <code>value: .. With: .. With: ..</code> if it expects multiple parameters.</p>
+        <p id="abf9d982-40b7-4981-bf93-c3ccb8e73e43" class="">Blocks are used to implement all control structures used in Self: if conditions, loops and so on.</p>
+        <p id="b4d0b9ee-0b1d-444f-804f-6019ab38fc47" class="">For example, <em>if condition</em> is just a <em>keyword message</em><code>ifTrue:</code>, or <code>ifTrue:False:</code> sent to bool object, which expects block as a parameter:</p>
+        <pre id="70a3d279-b45e-4cd7-b318-b060a5dc6e9e" class="code"><code>(| :a. :b. |
+    (a &gt; b) ifTrue: [^a] False: [^b].
+)</code>
+</pre>
+        <p id="836907c4-0837-46ea-83e9-6ec8a1144eec" class="">Here you can see the <em>code object</em> with two parameters <code>a</code> and <code>b</code>, which are compared to each other by sending a binary message <code>&gt; b</code> to the object <code>a</code> and then sending the message.</p>
+        <p id="8ff192fe-be01-4272-8a26-2c38821894fe" class="">The caret character <code>^</code> is used for return. If used in a block, it returns a value not only from the block itself, but also from the surrounding object. In this case, the value from the entire code-object is returned, not just from the block (this can be done using <code>return:</code>). So if <code>a</code><em>is greater than</em><code>b</code>,  <code>a</code> itself is returned from the whole code object.</p>
+        <p id="cd1b1252-fa85-47cf-9f2c-2b71fc6dd471" class="">Generally, with respect to return values, it is either possible to use the <code>^</code> to return a value or the value of the last message in a given <em>code object</em>/block.</p>
+        <pre id="2cc98c99-7e55-42f6-9a0a-6a36eb65abe3" class="code"><code>(|
+    parent* = traits boolean.
+    a = (true ifTrue: [1])
+|)</code>
+</pre>
+        <p id="5ec0c4e1-98bf-48ab-8951-3d800dab2e01" class="">Here we see an object definition that contains a <em>parent slot</em> pointing to the <code>traits boolean</code> object. This makes the message <code>true</code> accessible.</p>
+        <p id="a7035e81-b9ff-4558-b1aa-dba6eb7668df" class="">The method stored in the <code>a</code> slot then sends a <code>true</code> message to <code>self</code>, which returns the content of a <code>true</code> slot defined by <code>traits boolean</code>&#x27;s parent chain. A keyword message with a block parameter, that contains the code consisting just from the object <code>1</code>, is then sent to this object.</p>
+        <p id="b1ed9e28-cb5c-40df-b0e2-934e68e497c7" class="">Because the object <code>1</code> is the last value in the block, it is returned. The result from <code>ifTrue:</code> message is also returned and becomes the last value in the method stored in the <code>a</code> slot and is thus also returned as a value.</p>
+        <p id="ce397d6e-8b6e-4220-92c5-08c5fa3ad51d" class="">Result of the <code>a</code> message is thus the object <code>1</code>, even though the return is not used.</p>
+        <h2 id="41d63576-5ab2-42b7-ace5-96d96ea0c9eb" class="">Delegation</h2>
+        <p id="3a86efc3-2525-48a1-a112-f1e56d47387e" class="">As I already mentioned, Self uses something that works as an inheritance, but it is not the typical inheritance as we know it from other mainstream languages. Better description would be <em>&quot;a delegation of messages, which the object can&#x27;t resolve itself, to objects defined in parent slots.&quot;</em></p>
+        <p id="9e722829-6123-4e9f-9906-6f39bf21e884" class="">Object can have multiple parent slots, that contain slot with same name. This leads us to so called <em>resends</em>, which allow us to specify which parent should be used for slot resolution. Syntactically, it is defined as <code><em>&lt;parent name&gt;.&lt;message name&gt;</em></code>, for example <code>parent.message</code>.</p>
+        <p id="934e52ec-80ae-4a23-bd99-0dff036c54c8" class="">If the following code</p>
+        <pre id="1c789487-d56c-4fb0-b791-1a8a502edef3" class="code"><code>(|
+  firstParent* = traits something.
+  secondParent* = traits different.
+|
+
+   copy.
+)</code>
+</pre>
+        <p id="95236966-90c3-4875-af01-642558d1dac7" class="">contained <code>copy</code> slots in both parents, it would be necessary to choose specific target by rewriting a message sent to resend <code>secondParent.copy</code>.</p>
+        <p id="8d6ff83a-bac9-45bc-9023-3a3c53cb8c40" class="">Delegation is a fairly interesting concept that allows both single and multiple inheritance. In addition, it also allows things that classic languages can&#x27;t offer, such as changing the <em>parent slot</em> at runtime to effectively switch to which object the undiscovered messages are delegated.</p>
+        <p id="ff0d4af4-1f47-46f8-86f9-bccee6948cd1" class="">This, at first glance somewhat wild design feature, has quite interesting usage cases, for example parsers, where it allows you to easily change the context.</p>
+        <h2 id="16a9d22d-6ce2-4c23-8903-e823515405c8" class="">Comments</h2>
+        <p id="6182be46-d199-47dc-9231-887d5c83a8df" class="">Comments are written in quotes:</p>
+        <pre id="200d4bcf-96f0-43c5-9c01-9a388cf60f25" class="code"><code>&quot;this is a comment&quot;</code>
+</pre>
+        <h2 id="3e6e3fca-7cb7-491c-8052-74d22505ca31" class="">Annotations</h2>
+        <p id="2ad55af9-deaa-45f7-aa2a-d113a2937e39" class="">Annotations provide a way of adding metadata to objects, but there is surprisingly little documentation on how they work and can be used, even though they are used across the entire standard image.</p>
+        <p id="a99a42a6-ec90-4342-9338-0d928761e4cb" class="">The syntax uses curly braces:</p>
+        <pre id="4629f2fa-9d7f-4a60-aaee-3f9831f0017d" class="code"><code>(|
+  p* = traits clonable.
+  {&#x27;Category: accessing&#x27;
+    slot = nil.
+  }
+|)</code>
+</pre>
+        <p id="1916d834-1263-4443-b987-dfc21562dc8d" class="">This example tells the graphical interface to make the slot appear in the <em>accessing</em> category:</p>
+        <figure id="c2787bce-f7aa-4de1-ba00-3830f8bbe18b" class="image">
+          <a href="accessing_kategorie.png">
+            <img style="width:192px" src="Environment and the programming language Self part 1/accessing_kategorie.png" />
+          </a>
+        </figure>
+        <p id="51fc25dd-ca9e-4a36-870b-bbe7b800e9d0" class="">Personally, I think that annotations come as a somewhat syntactically confusing feature, and I have managed to cause all sorts of errors when I created annotations with various random labels:</p>
+        <figure id="764aab33-4c14-4a83-91f6-48457e346e3c" class="image">
+          <a href="errory_u_anotaci.png">
+            <img style="width:432px" src="Environment and the programming language Self part 1/errory_u_anotaci.png" />
+          </a>
+        </figure>
+        <p id="b82b3f4e-a803-425b-b4a2-e6fc989e3c4e" class="">Still, annotations are used everywhere, especially for the Transporter, which uses them to indicate which object belongs to which module, when it was last updated, and so on.</p>
+        <p id="6f903a72-7199-4f6a-bebd-3efd5ce28618" class="">Annotations are not visible in the object itself when viewed in the Outliner. You need to use a mirror (see the next chapter).</p>
+        <h1 id="69048156-750c-42a3-a380-c9395677e187" class="">In terms of Stdlib&#x27;s point of view</h1>
+        <p id="025474dd-5e57-4136-9146-7fd019773081" class="">The trap of the simple languages, which syntax fits on a post card, lays in the complexity of the stdlib. Self is not an exception. I won&#x27;t show you the whole stdlib, just the most important parts. Curious readers can see specific details in the Self itself.</p>
+        <h2 id="5f1e52ed-fda5-4d2d-986c-b9c1e395e0cd" class="">Conditions</h2>
+        <p id="229d5022-2a06-4242-bf56-4443b5540f94" class="">As is customary in the Smalltalk-ish languages, if conditions are implemented as messages sent to a bool object. Following messages are available:</p>
+        <ul id="d6de7141-fa86-46f6-9dee-f2b2dc24f54d" class="bulleted-list">
+          <li>
+            <code>ifTrue: []</code>
+          </li>
+        </ul>
+        <ul id="2b5979e1-b06a-4732-8075-24dfcacc152b" class="bulleted-list">
+          <li>
+            <code>ifFalse: []</code>
+          </li>
+        </ul>
+        <p id="c1274e3c-c05f-46e1-a763-19a13896361f" class="">and their equivalents with the &quot;else&quot; branch:</p>
+        <ul id="0015342f-c6b7-4add-ae19-528fe50a0497" class="bulleted-list">
+          <li>
+            <code>ifTrue: [] False: []</code>
+          </li>
+        </ul>
+        <ul id="2565748d-2204-4c68-a7eb-6e5202932352" class="bulleted-list">
+          <li>
+            <code>ifFalse: [] True: []</code>
+          </li>
+        </ul>
+        <h2 id="2870d5fb-ccea-4765-8b67-d126352cdfac" class="">Loops</h2>
+        <p id="06d29776-fdd9-4159-8d50-656a63620732" class="">Like conditions, cycles are implemented as messages sent to either <em>collections</em> or to <em>block</em> objects.</p>
+        <p id="ca7ca34a-ac1a-4e36-a6fd-460ab6ab21f7" class="">Basic message is <code>loop</code>:</p>
+        <ul id="5d680931-4996-44c6-93d8-c342dbbdfdbe" class="bulleted-list">
+          <li>
+            <code>[ ... ] loop</code>
+          </li>
+        </ul>
+        <p id="0094ad84-8b0d-4c9d-af89-b07fd5788bdf" class="">This loops the body of a block unconditionally.</p>
+        <p id="21124a84-6e46-480d-acaa-9b165621a164" class="">Additionally, conditional loops are available:</p>
+        <ul id="6f662a4a-79cc-4f76-9a30-74b0c197a281" class="bulleted-list">
+          <li>
+            <code>[ condition ] whileTrue: [ ... ]</code>
+          </li>
+        </ul>
+        <p id="d0b7b84f-2b8d-4030-a78e-174064136165" class="">and also equivalent messages <code>whileFalse:</code>, <code>untilTrue:</code>, <code>ultilFalse:</code>, <code>loopExit</code> and <code>loopExitValue</code>.</p>
+        <p id="99300224-ad57-4be9-9bfa-33df93c14263" class="">Other loops are <code>do:</code> messages sent to the numeric types, with alternative forms of <code>to:Do:</code> and <code>to:By:Do:</code>, which cycle <code>to:</code> given value <code>By:</code> some step, like for example <code>range()</code> function in Python.</p>
+        <p id="f9578e0b-9f06-4c07-b359-fc877c742fa4" class="">There are also various transformers and iterators for collections, that work as loops. For example, you can send a message to <code>mapBy:</code>, <code>mapBy:Into:</code>, <code>gather:</code>, <code>filterBy:</code> and so on.</p>
+        <p id="53238b08-af00-42a2-8755-6d707c28c532" class="">I can only recommend to look at the specific collection for the list of all available messages, because there are dozens of messages of this kind, allowing everything from filtering to searching, sorting, mapping, transforming, counting, and so on. There are definitely more messages than there are methods in Python.</p>
+        <p id="c8d79343-b833-4a54-9d61-cb4b933443d3" class="">Just for the sake of curiosity, here is a list of messages that a <code>list</code> collection can respond to:</p>
+        <pre id="1e7c564c-d636-4303-abb0-27c68bd039fe" class="code"><code>&lt;= x
+&gt; x
+&gt;= x
+areKeysOrdered
+copare: x IfLess: lb Equal: eb Greater: gb
+copy
+KeyedStoreStringIfFail: fb
+max: x
+min: x</code>
+</pre>
+        <h2 id="0986d899-6c98-44f6-9c49-93910f93db65" class="">Accessing</h2>
+        <pre id="c5fad132-a856-4382-ad66-0d84b06d78c4" class="code"><code>at: k
+at: i IfAbsent: b
+first
+first: v
+firstIfAbsent: noneBlk
+isEmpty
+last
+firstLinkFor: elem IfPresent: presentBlock ifAbsent: absentBlock
+firstLinkSatisfying: conditionBlock IfPresent: presentBlock ifAbsent: absentBlock
+ifNone: noneBlock
+ifNone: noneBlock IfOne: oneBlock IfMany: manyBlock
+keys
+last: v
+soleElement</code>
+</pre>
+        <h2 id="ea920a96-1fd2-496e-8384-7027c33cddc6" class="">Adding</h2>
+        <pre id="d1fc720a-9d70-4b03-b7f2-fb85e44de78e" class="code"><code>add: elem
+add: v WithKey: k
+addAll: c
+add:allFirst: c
+addFirst: elem
+addLast: elem</code>
+</pre>
+        <h2 id="49de49da-3c80-47a8-8c80-ebfe7ab2d3bd" class="">Coercing</h2>
+        <pre id="714b8898-c493-4c56-bea3-bdad522ac726" class="code"><code>asList</code>
+</pre>
+        <h2 id="bb7658ea-7f36-424a-ba7a-4924d4d5f836" class="">Comparing</h2>
+        <pre id="c6e1d7d7-dab9-44a9-9354-71e59fa2936a" class="code"><code>&lt; c
+= c
+compare: c IfLess: lb Equal: eb Greater: gb
+hash
+isPrefixOf: c
+isSuffixOf: c
+equalsCollection: c</code>
+</pre>
+        <h2 id="4c286d38-1d30-434c-8009-dda48ac7a3ca" class="">Concatenating</h2>
+        <pre id="2305d591-53f4-4175-9f40-eca0a9f46dd1" class="code"><code>, c</code>
+</pre>
+        <h2 id="9852075e-d180-41a4-824a-4812a75c53e8" class="">Copying</h2>
+        <pre id="fc6b87ac-429e-4532-8ad4-79e2dd919c31" class="code"><code>copy
+copyContaining: c
+copyRemoveAll</code>
+</pre>
+        <h2 id="1b0f21af-c903-4de3-97d5-e66c384724e9" class="">Double dispatch from universalSetOrDictionary</h2>
+        <pre id="d77517c8-23b5-4d36-8f73-14da989a107d" class="code"><code>unsafe_with: c1 Do: b FirstKey: firstK1 FirstValue: firstV1</code>
+</pre>
+        <h2 id="3339fa7c-ab44-4788-a11d-efcb8f024915" class="">Inserting</h2>
+        <pre id="5404c283-d689-4579-8d07-652c5fcf21a8" class="code"><code>insert: x AfterElementSatisfying: blk IfAbsent: aBlk
+insert: x BeforeElementSatisfying: blk IfAbsent: aBlk
+insertAll: x AfterElementSatisfying: blk IfAbsent: aBlk
+insertAll: x BeforeElementSatisfying: blk IfAbsent: aBlk</code>
+</pre>
+        <h2 id="825ccc7c-ab97-463d-939d-65f3c1975414" class="">Iterating</h2>
+        <pre id="7a390e02-314b-4d8e-9418-d11d06b9eb97" class="code"><code>do: b
+doFirst: f Middle: m Last: lst IfEmpty: mt
+reverseDo:
+with: x Do: b
+with: x ReverseDo: b
+withNonindexable: c Do: b</code>
+</pre>
+        <h2 id="389fb5e9-0571-4283-9c60-28429ccada06" class="">InteratingWithEnds</h2>
+        <pre id="cc6bd773-abce-465c-b8a6-b49e16204aef" class="code"><code>do: elementBlk SeparatedBy: inBetweenBlk
+doFirst: f Middle: m Last: lst
+doFirst: f Middle: m Last: lst IfEmpty: e
+doFirst: f MiddleLast: ml
+doFirst: f MiddleLast: ml IfEmpty: e
+doFirstLast: f Middle: ml
+doFirstLastt: f Middle: ml IfEmpty: e
+doFirstMiddle: fm Last: lst
+doFirstMiddle: fm Last: lst IfEmpty: e</code>
+</pre>
+        <h2 id="55684061-16bb-446d-a223-988059f40247" class="">Printing</h2>
+        <pre id="9e838955-4aa3-473d-8958-dd804a128081" class="code"><code>collectionName
+comment1
+printStringSize: smax Depth: dmax
+statePrintString
+storeStringForUnkeyedCollectorIfFail: fb
+storeStringIfFail: fb
+storeStringNeeds
+unkeyedStoreStringIfFail: fb
+buildStringWith: block
+continued
+defaultPrintSize
+leftBracket
+minContentsSize
+minElSize
+printStringKey: k
+rightBracket
+separator
+statePrintStringOfElements
+statePrintStringOfSize</code>
+</pre>
+        <h2 id="9abbd5a0-016e-4299-8f38-1acfde31fc9e" class="">Reducing</h2>
+        <pre id="2a8806d9-cbcb-4bd4-8195-5443c0738c7c" class="code"><code>countHowMany: testBlock
+dotProduct: aCollection
+harmonicMean
+max
+mean
+median
+min
+percentile: nth
+product
+reduceWith: b
+reduceWith: b IfSingleton: sb
+reduceWith: b IfSingleton: sb IfEmpty: mt
+rootMeanSquare
+standardDeviation
+sum</code>
+</pre>
+        <h2 id="738bf7f4-78d0-4e02-81b9-1c722159024c" class="">Removing</h2>
+        <pre id="4b79959a-4235-4a68-a12e-d21c228bcef8" class="code"><code>remove: x
+remove elem IfAbsent: block
+removeAll
+removeAll: aCollection
+removeFirstIfAbsent: ab
+removeLast
+removeLastIfAbsent: ab</code>
+</pre>
+        <h2 id="585d7c97-3922-405b-a245-a952e453bacd" class="">Searching</h2>
+        <pre id="eb6b6bd0-8162-46dc-bde2-5eb75d063f52" class="code"><code>allSatisfy: b
+anySatisfy: b
+findFirst: eb IfPresent: fb
+findFirst: eb IfPresent: fb IfAbsent: fail
+includes: v
+keyOf: elem
+keyOf: elem IfAbsent: ab
+noneSatisfy: b
+occurrencesOf: v
+occurrencesOfEachElement</code>
+</pre>
+        <h2 id="e3fe24ed-d7c1-4205-a249-8481e7d85377" class="">setLikeOperations</h2>
+        <pre id="2cfbfb48-2191-4783-ac00-1d3f6553ff98" class="code"><code>includesAll: c
+intersect: c
+difference: c</code>
+</pre>
+        <h2 id="326ce31a-b014-4fcd-94fc-7c87e46d0c53" class="">Sizing</h2>
+        <pre id="f070a64d-9b4b-4e43-8718-3cf498008613" class="code"><code>isEmpty
+nonEmpty
+size</code>
+</pre>
+        <h2 id="41864642-2e39-4fb3-a78e-1cf2d2630902" class="">Sorting</h2>
+        <pre id="409bd5b7-7e0d-4f96-8c60-138045b102ea" class="code"><code>ascendingOrder
+comment2
+copySort
+copySortBy: cmp
+copySortBySelector: sel
+isAlreadyKnownToBeSortedBy: cmp
+sortedBy: cmp Do: b
+sortedDo: b</code>
+</pre>
+        <h2 id="4cd74451-35b2-4e5c-91ee-443ce2bf5ad6" class="">Testing</h2>
+        <pre id="2b24d325-83d6-466d-be22-69edd43218bb" class="code"><code>isOrdered</code>
+</pre>
+        <h2 id="a9af3b41-6b6e-47e1-8fb0-1115d663631b" class="">Transforming</h2>
+        <pre id="36a2e549-b5e6-41d5-aa76-b62fc6f61f07" class="code"><code>asByteVector
+asDictionary
+asList
+asOrderedSet
+asSequence
+asSet
+asString
+asTreeBag
+asTreeSet
+asVMByteVector
+asVector
+copyFilteredBy: eb
+copyMappedBy: eb
+filterBy: filterBlock
+filterBy: eb Into: c
+gather: aBlock
+gather: aBlock Into: aCollection
+mapBy: eb
+mapBy: eb Into: c</code>
+</pre>
+        <p id="534fe10a-de04-4847-96f7-17f035c1b29e" class="">That&#x27;s quite rich, isn&#x27;t it?</p>
+        <h2 id="6154aee6-71d3-4f1a-905e-fe6e48ac29be" class="">Data structures</h2>
+        <p id="d6477823-a682-4438-bb03-f5962d963d68" class="">Data structures are made of layers of <em>traits</em> hierarchy.</p>
+        <p id="154da4aa-651e-467c-ab59-7e09cac0a387" class="">All collections are based on key-value pairs. Even lists are based on a key value with individual elements being used both as keys and as values.</p>
+        <p id="1f67f233-6059-48a1-bed7-096e75f280a3" class="">Self offers a rather rich variation of sets, dictionaries and trees:</p>
+        <figure id="67a5f37e-a184-4a18-bb6e-f00dddf4c4d8" class="image">
+          <a href="dicts_and_trees.png">
+            <img style="width:528px" src="Environment and the programming language Self part 1/dicts_and_trees.png" />
+          </a>
+        </figure>
+        <p id="097f4573-a48f-46d1-891d-c27d2f508a35" class="">Trees differ from dictionaries in the use of unbalanced binary trees, which can lead to degeneration and poor performance if you don&#x27;t know what you are doing.</p>
+        <p id="106ecb10-1dd4-4dc7-aa7e-b858166429fc" class="">There is also a variation of <em>lists</em>, <em>vectors</em>, <em>strings</em> and <em>queues</em>:</p>
+        <figure id="5907d80f-c3ef-48e6-922a-dad786140822" class="image">
+          <a href="lists_vectors_strings_and_queues.png">
+            <img style="width:425px" src="Environment and the programming language Self part 1/lists_vectors_strings_and_queues.png" />
+          </a>
+        </figure>
+        <p id="d21dd2ef-c1cf-42fd-81f8-bcbc698b8b64" class="">The most important messages supported by virtually all collections include:</p>
+        <div id="c04fae81-fd57-434f-aa2b-3f0039e88597" class="collection-content">
+          <h4 class="collection-title">Important messages</h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>Zpráva</th>
+                <th>Popis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="3edb9e9c-655b-4fce-b96b-89b8e0ecb5f8">
+                <td class="cell-title">
+                  <a href="Important messages/at.html">at:</a>
+                </td>
+                <td class="cell-|tK0">Get item at position / key.</td>
+              </tr>
+              <tr id="5eec7301-ef58-4a54-a773-c257ae056c9f">
+                <td class="cell-title">
+                  <a href="Important messages/at Put.html">at:Put:</a>
+                </td>
+                <td class="cell-|tK0">To position / key put item.</td>
+              </tr>
+              <tr id="24d9a7d7-e8f9-4829-aabc-624f0f69c7a1">
+                <td class="cell-title">
+                  <a href="Important messages/add.html">add:</a>
+                </td>
+                <td class="cell-|tK0">Add item (to the end if it is sorted collection).</td>
+              </tr>
+              <tr id="f2e6f87a-c340-4b96-903d-a8a2ca3f9fed">
+                <td class="cell-title">
+                  <a href="Important messages/addAll.html">addAll:</a>
+                </td>
+                <td class="cell-|tK0">Add all items from this collection.</td>
+              </tr>
+              <tr id="91479d46-a46f-41dc-8890-d9febe22ee73">
+                <td class="cell-title">
+                  <a href="Important messages/do.html">do: [ .. ]</a>
+                </td>
+                <td class="cell-|tK0">For each item do this block.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 id="4f016cbb-f351-4fda-b52e-b7f0630a3f36" class="">Example</h3>
+        <p id="00c6d330-14e7-4d5d-bed2-6e63d812b1ab" class="">If you want to use the collection, just type the name in the shell/source code editor and clone it. This can be done with the <code>clone</code> or <code>copy</code> message (same thing for most of the objects).</p>
+        <p id="de724eeb-93b8-42ca-b508-5e9b4163db74" class="">WARNING: In prototype based systems it is really important to clone the collection. Other objects use the same prototype and if you don&#x27;t clone the source, you&#x27;ll change the prototype for every other piece of the code that works with the collection. This usually leads to a fast crash.</p>
+        <figure id="4f1f640b-cf6a-41fc-a3ce-de12287b4c25" class="image">
+          <a href="dict1.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict1.png" />
+          </a>
+        </figure>
+        <p id="c6c984bd-42b3-444b-8e3a-d34594d89930" class="">Now click on <em>Get it</em>.</p>
+        <figure id="423319b0-d9ec-4568-8dcb-a1b33c452a1c" class="image">
+          <a href="dict2.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict2.png" />
+          </a>
+        </figure>
+        <p id="36bf30d8-564c-4504-a9ad-2f5abe255c71" class="">Put the outliner somewhere on the desktop and &quot;unpack&quot; it using small arrow on the left:</p>
+        <figure id="5a8e7f17-51bd-41dd-8ed2-8572cc9b8e7a" class="image">
+          <a href="dict3.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict3.png" />
+          </a>
+        </figure>
+        <p id="50094ab4-a086-428b-ba27-43caa8400361" class="">You can see that the collection there contains zero elements (<code>size 0</code>). Open a shell in it and try to add something to it:</p>
+        <figure id="35026292-b641-41ad-967c-2aa3a8e948a9" class="image">
+          <a href="dict4.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict4.png" />
+          </a>
+        </figure>
+        <p id="a083213c-5aeb-4853-b838-efd00bb52450" class="">Now choose <em>Do it.</em> You can alternativelly choose also <em>Get it</em> and you&#x27;ll get <em>outliner</em> for the result of the message call, instead of just evaluating the code.</p>
+        <figure id="931fcd31-386e-40a0-a713-46affeb7771f" class="image">
+          <a href="dict5.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict5.png" />
+          </a>
+        </figure>
+        <p id="5d705ca3-2161-42c1-8a80-4a6e4b6f030b" class="">As you can see, the value has changed. Now you can see what the object returned as a reaction to the <code>values</code> message is.</p>
+        <figure id="a457de3f-0dbb-48dc-b57f-b53b80354a19" class="image">
+          <a href="dict6.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict6.png" />
+          </a>
+        </figure>
+        <p id="da440e30-7847-4357-8565-745b7e650570" class="">Here is the outliner for the result. You can put it somewhere on the desktop:</p>
+        <p id="73544a49-5033-43aa-b0c1-6c1d85db9557" class="">
+        </p>
+        <figure id="4df01d8c-05a6-4c75-a96c-fee0c69317d1" class="image">
+          <a href="dict7.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict7.png" />
+          </a>
+        </figure>
+        <p id="d1df66a4-e988-49b4-89fd-db95e0a0011e" class="">and unpack it again to see what is inside:</p>
+        <figure id="eacc6e49-1b2c-45dd-b136-93a12ef11cbd" class="image">
+          <a href="dict8.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/dict8.png" />
+          </a>
+        </figure>
+        <p id="94521a76-079f-48c5-b449-e1c87d861589" class="">As you can see, the vector contains <code>&#x27;value&#x27;</code> string at index <code>1</code>. Keep in mind that the dictionary is unsorted.</p>
+        <p id="3e6bc498-8d77-43b9-a2d3-4b31aaca1bd8" class="">Don&#x27;t worry about the strange appearance of the <em>Shell</em> in the top left corner, I have broken graphics drivers and Self uses such prehistoric X bindings, that it lags and repaints it strangely. It works on my laptop as it should.</p>
+        <p id="b9587e76-2098-4bfe-950b-d4bab9a979e2" class="">Here&#x27;s an example of how to use <code>to:</code> to print elements and keys in the console:</p>
+        <figure id="0f6a545c-cdfe-4e76-b0b0-0f819edfbd88" class="image">
+          <a href="dict_do.png">
+            <img style="width:908px" src="Environment and the programming language Self part 1/dict_do.png" />
+          </a>
+        </figure>
+        <p id="228abc27-a663-43bb-bfbc-5ec0686d46aa" class=""><code>do:</code> (as all iterators in Self) expects a block, that can have two optional parameters, a value, and a key, named in the example as <code>v</code> and<code>k</code>. Note the somewhat strange order, one would logically expect the opposite (the key and then the value).</p>
+        <h3 id="36f8c928-d921-4166-bb99-4d1232f4416e" class="">Collector</h3>
+        <p id="7f8a50d9-da27-4fec-a207-fc33331a2ff4" class="">Collector is a special data structure that responds to the binary message <code>&amp;</code>. Basically, it exists because Self does not have a literal for creating lists. To create a list, the easiest way is to use a collector:</p>
+        <pre id="f2b1ca4d-1415-4140-9893-05f8a150e980" class="code"><code>(1 &amp; 2 &amp; 3) asList</code>
+</pre>
+        <p id="bd40e029-3e65-45b1-8fa1-725273151dc0" class=""><em>Collector</em> is neither a list nor a dictionary. It can be converted to all possible data structures by a message called as<em> &lt;Something&gt;</em>, for example <code>asList</code>.</p>
+        <h2 id="836bf0e2-ca69-4b59-b90a-f560d6712049" class="">Exceptions</h2>
+        <p id="3282b53e-e630-4122-963b-848e05b7c35e" class="">Exceptions are not supported. Messages that might end up with an error usually offer an alternative in the form of a keyword message with the parameter <code>IfFail:</code>. You can see the example here with an object for accessing the operating system:</p>
+        <figure id="2e742743-dccc-4f13-b585-8644cafc0abf" class="image">
+          <a href="IfFail.png">
+            <img style="width:964px" src="Environment and the programming language Self part 1/IfFail.png" />
+          </a>
+        </figure>
+        <p id="70d8ae73-e8fa-435d-b211-23c75920ea9f" class="">It is up to the programmer to use and handle the appropriate error (by passing the block with error handler code). If he does not, the debugger should appear, or the program will crash.</p>
+        <p id="770592d3-2da4-4854-8fde-9b566b96a043" class="">Likewise, if you want to allow error handling as a programmer of the library, you need to add a message variant with <code>IfFail:</code> parameter.</p>
+        <p id="8ee71d6a-e3f2-4eac-a2b2-c7ca4cd69071" class="">In my opinion, it doesn&#x27;t seem to be the best solution, unfortunately that&#x27;s how it works.</p>
+        <h2 id="4828aa8d-f85e-49ec-91c6-775e9a09b23e" class="">Object model</h2>
+        <p id="1f94675a-fb25-4659-8028-997a10e96467" class="">Note: A rather interesting discussion on the topic of Self&#x27;s object model can be found here: <a href="https://news.ycombinator.com/item?id=14409088">https://news.ycombinator.com/item?id=14409088</a></p>
+        <p id="9ef851c9-db6f-4449-b9a6-ee2cace6791b" class="">As I explained, Self uses an object model based on prototypes. This can be summarized as saying that you copy new objects with a <code>clone</code> or <code>copy</code> message, or you create an empty object directly from the source code object literal with a reference to <code>parent*</code>, which provides a functionality similar to an inheritance.</p>
+        <p id="7149f4dc-f6a1-4820-adff-4be49263e9a3" class="">As for the hierarchy of different objects, they are divided between <em>traits</em> and <em>mixins</em>.</p>
+        <h2 id="1c159523-dc3d-4b4e-a334-94a3a39f4e8b" class="">Traits</h2>
+        <p id="ac75c33a-778c-403f-8e20-5339688fbdee" class="">These are <em>&quot;ancestors&quot;</em>, that is, objects containing shared functionality, that are often fully functional by themselves. These objects are created in order to be shared by other objects via the <code>parent*</code> slots.</p>
+        <p id="27734961-6426-4747-b7af-cfb0d1233c68" class="">Self has a relatively rich <em>trait hierarchy</em>, as can be seen in the previous chapters.</p>
+        <h2 id="6da6b9fb-b6e7-4b02-a4f5-11a05545609b" class="">Mixins</h2>
+        <p id="50631d78-fad2-4847-9132-7af044d6dff9" class=""><em>Mixins</em> are small clusters of shared functionality, typically without a <code>parent*</code> slot, and shared only at some specific level of the object hierarchy. The purpose is to provide a <em>functionality</em> that is <em>mixed</em> into an object. Their equivalent is something like an interface with partial implementation.</p>
+        <h1 id="23feea88-8827-4124-8372-ef2fbff30828" class="">Reflection with Mirrors</h1>
+        <p id="3040c3be-b51d-4392-aa7f-c19f9d1ca754" class="">Mirrors are a specialty of Self, which I haven&#x27;t seen in any other programming language.</p>
+        <p id="b8b14310-45e1-4879-a9a6-4da2338557d2" class="">Mainstream programming languages usually use reflection by employing various internal properties. For example, Python uses <code>.__ class__</code>, or<code>.__ dict__</code>, or <code>.__ name__</code> to access  internal object information.</p>
+        <p id="d4d8c9ff-930b-4415-aeda-3d50dd126a89" class="">Self uses mirrors. You can create a mirror by sending a <code>reflect:</code>  message to an object with <code>traits clonable</code> in its parent hierarchy.</p>
+        <figure id="d15b3d72-3e96-4b8d-b8d4-ad0a1c384cfc" class="image">
+          <a href="mirror1.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror1.png" />
+          </a>
+        </figure>
+        <p id="8fdf4c65-0108-4d27-81e5-9a49053eba89" class="">This will return an object that is <em>mirroring</em> the object given as a parameter.</p>
+        <figure id="49e3a5f3-58a3-4baf-bd1b-255dbedd3dc5" class="image">
+          <a href="mirror2.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror2.png" />
+          </a>
+        </figure>
+        <p id="ce35a972-4af6-4fc3-a200-f3192f566685" class="">You can see that it contains a slot pointing to the original object.</p>
+        <figure id="ddecabe0-21f0-45aa-a0f4-4e3214a91f39" class="image">
+          <a href="mirror3.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror3.png" />
+          </a>
+        </figure>
+        <figure id="7436bf6c-61af-466c-960e-b5658f746f14" class="image">
+          <a href="mirror4.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror4.png" />
+          </a>
+        </figure>
+        <p id="dc152e08-660e-485c-b67b-d861f8583858" class="">If you open the parent slot, you can also see all kinds of messages it can react to:</p>
+        <figure id="8c3e09de-6b47-4229-a43f-74902a39f139" class="image">
+          <a href="mirror5.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror5.png" />
+          </a>
+        </figure>
+        <p id="b6811159-c646-4c3f-8c23-764e232d78b6" class="">Note that I jump on the desktop to the left and right using the WIN + arrow keys shortcut. I just jumped halfway to the right.</p>
+        <p id="feded0d4-de0c-424e-bc04-10b90312223e" class="">In <code>traits mirrors slots</code> parent we can see that there isn&#x27;t much, so we&#x27;ll look at his parent:</p>
+        <figure id="dc169f01-86c3-40cb-916b-44307951b974" class="image">
+          <a href="mirror6.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror6.png" />
+          </a>
+        </figure>
+        <p id="54ccefb3-d5c5-4b9a-9d80-a5b4daa0545d" class="">You can see a rich list of categories that allow you to do all kind of stuff with a mirror:</p>
+        <figure id="d97879b1-42cb-4e7f-8a97-065a1dc37e28" class="image">
+          <a href="mirror7.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror7.png" />
+          </a>
+        </figure>
+        <p id="a94a71b0-3fd5-4b2e-80f4-320a7e3468ce" class="">You can for example list all messages that the object can react to:</p>
+        <figure id="6d4870cf-f76f-4050-8f37-7ec6e8d14aa1" class="image">
+          <a href="mirror8.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror8.png" />
+          </a>
+        </figure>
+        <p id="5e48a608-35fd-4cce-8277-948e7a9f8b10" class="">Which is as you can see an empty set:</p>
+        <figure id="7a483625-1dae-4268-ba66-ee6cf6b2741c" class="image">
+          <a href="mirror9.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror9.png" />
+          </a>
+        </figure>
+        <p id="51e73a9a-30df-4690-a871-3c0374470fed" class="">For clarification: the object, to which we created the mirror, contains no messages, only two slots. Here in this context, only slots, that contain code objects, are counted as &quot;messages&quot;.</p>
+        <p id="6774f26f-10de-4394-96aa-faeb13f9f69b" class="">The slots themselves can be explored with messages from the <code>slotAccess</code> category:</p>
+        <figure id="f46bb080-6fda-4164-bb88-c084ce9ad553" class="image">
+          <a href="mirror10.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror10.png" />
+          </a>
+        </figure>
+        <p id="5992163d-e82b-4be4-aeca-a28822501aed" class="">You can see for example the result of the <code>firstKey</code> message:</p>
+        <figure id="aafa2cad-ec3f-4414-bae0-ec3316edf162" class="image">
+          <a href="mirror11.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror11.png" />
+          </a>
+        </figure>
+        <p id="5b6b413c-44ce-4bee-967a-61b83b9ae8af" class="">The result was really the name of the slot &quot;a&quot;. You can also resolve the whole slot:</p>
+        <figure id="52e565c3-4d73-4ad7-956e-c1eb3c2b2f1e" class="image">
+          <a href="mirror12.png">
+            <img style="width:715px" src="Environment and the programming language Self part 1/mirror12.png" />
+          </a>
+        </figure>
+        <p id="d48cbb21-ef93-472b-8bf8-dee1701fcdc7" class="">The beauty of mirrors lies in the ability to disable them. To do that, you just have to remove the proper parent from the code where you want to disable the <code>reflect:</code> message, for example, by overwriting it with an object returning <code>nil</code>. This makes it possible to execute the code relatively safely by using functions like eval (of course you have to also remove the access to syscals and filesystem).</p>
+        <h1 id="16b68c2e-5d6f-4e1b-86c5-4c207b76e3ed" class="">Tips &amp; tricks</h1>
+        <p id="19a8fa2d-d0d4-42e8-91cf-49816d083585" class="">Over time, I collected useful notes, tips and tricks in my personal wiki, that can make programming in Self more pleasant.</p>
+        <h2 id="71ec5340-344f-4d79-b20a-c263554b5d14" class="">copy message support</h2>
+        <p id="8dc2d97a-f162-45b4-9518-db59ab1953dd" class="">To support the <code>copy</code> message, an object must inherit some basic functionality, which you can find in the <code>traits clonable</code>.</p>
+        <h2 id="698a001f-6ab7-451b-b99c-13cf4a44fd3e" class="">Display parent slots in outliner</h2>
+        <p id="6316893e-6ca4-4114-82c0-3a4b32b6d33d" class="">It&#x27;s somewhat unfortunate to open up <code>parents*</code> in the outliner all the time just to see what&#x27;s available for inherited slots.</p>
+        <figure id="5f1c28a2-d83d-48a2-b878-c188efc86042" class="image">
+          <a href="shared_slots_in_parent.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/shared_slots_in_parent.png" />
+          </a>
+        </figure>
+        <p id="25b2f26d-20e9-4445-8a42-650edf5ff2dc" class="">Fortunately, the Outliner can be easily configured to display inherited slots by setting:</p>
+        <pre id="9ec05b7d-d3c6-40bb-ae30-039752ce7d69" class="code"><code>preferences outliner kevooidal: true</code>
+</pre>
+        <figure id="26af5295-6280-4dae-8c7a-efb566e2c4eb" class="image">
+          <a href="kevooidal.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/kevooidal.png" />
+          </a>
+        </figure>
+        <p id="66b03dbb-3610-4eeb-b47a-9e57f62d1acf" class="">
+          <a href="https://whois.smartweb.cz/object/185.199.108.153/">
+            <strong>185.199.108.153</strong>
+          </a>
+        </p>
+        <h2 id="d95a80b1-1d14-4a79-8273-5f535f4c4287" class="">Open all subcategories</h2>
+        <p id="f58019bf-3cd5-4396-a050-99275f5c5c40" class="">Sometimes it is very annoying to click on the black arrows when you have multiple nested categories. Double-clicking on the arrow opens all its subcategories.</p>
+        <h2 id="a65b3b5f-c1a5-43c8-99a8-7fe2e334dfc9" class="">Quit by sending a message</h2>
+        <p id="18b76eeb-9746-42d9-a067-47606a136b98" class="">The environment can be terminated by the <code>saveThenQuit</code> or <code>quitNoSave</code> messages. Personally, I like to put a button on the desktop that calls one of these messages when pressed.</p>
+        <figure id="88dc941a-4653-4e7f-b7a7-a27c66dafc14" class="image">
+          <a href="buttons.png">
+            <img style="width:727px" src="Environment and the programming language Self part 1/buttons.png" />
+          </a>
+        </figure>
+        <h2 id="285e5427-9ffe-42cc-bd32-4bd272c8818a" class="">Build new image</h2>
+        <p id="eb16fd70-f217-44e5-8171-055cc0ba4b4d" class="">If you don&#x27;t want to use the default image provided with the Self distribution, and for some reason you want to build your own, you can do this from the <code>objects/</code> directory in the project&#x27;s source code repository (! it is required to do it from this directory!) by using following command:</p>
+        <pre id="0afaa068-17b0-4d13-8ba5-eb7b4886f675" class="code"><code>Self -f worldBuilder.self -o morphic</code>
+</pre>
+        <p id="d99005b2-6688-4345-b4a5-b833644a6690" class=""><code>-o</code> does not specify the output file name (!) but the <em>overclock. </em><code>morphic</code> parameter tells the <em>worldBuilder</em> that it should include the graphical interface.</p>
+        <p id="3c9dd0ab-6378-4f20-aaf0-4f048c23edbd" class="">When the script finishes, type into the console</p>
+        <pre id="286180a5-248a-4cd8-8ff5-677b64290e15" class="code"><code>desktop open</code>
+</pre>
+        <p id="2614ea2f-a6fc-4dde-a2ff-89887603b6ae" class="">This will open the graphical interface and you can then save the image by using context menu.</p>
+        <h2 id="a74beac1-82b1-498e-97dd-60e13102df53" class="">Find slot</h2>
+        <p id="3115a7e5-89cb-4578-bae0-eb8d5ecee266" class="">TODO:</p>
+        <ul id="01761f0e-3462-4634-831a-6bc83794081f" class="to-do-list">
+          <li>
+            <div class="checkbox checkbox-off">
+            </div>
+            <span class="to-do-children-unchecked">V kapitole Datastructures vysvětlit co jsou to traity</span>
+          </li>
+        </ul>
+        <p id="40a21fbe-748d-4408-9984-519043d57caa" class="">
+        </p>
+        <p id="5351acce-aad9-4535-bfe8-1aad9ec67bce" class="">
+        </p>
+        <p id="c6988c63-1c1e-4bb1-877e-b9b99cf9ff26" class="">
+          <a href="https://www.notion.so/sharedmindspace/Prost-ed-a-programovac-jazyk-Selfu-d-l-druh-jazyk-559e708a294442b4af79127992196ad1">https://www.notion.so/sharedmindspace/Prost-ed-a-programovac-jazyk-Selfu-d-l-druh-jazyk-559e708a294442b4af79127992196ad1</a>
+        </p>
+        <p id="ca88e75f-903e-43b7-aa93-9a773f17cc6e" class="">
+        </p>
+        <p id="0e1937bd-248b-4a06-9d01-6dec1c680555" class="">This will give you an object, that can be used to look for a slot by its name:</p>
+        <figure id="0437dc5c-9285-4ad5-860c-75624ad1bd2a" class="image">
+          <a href="find_slot2.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/find_slot2.png" />
+          </a>
+        </figure>
+        <p id="74c1f127-7958-448c-8fe2-d354f4f8947e" class="">Input bar at the bottom specifies the root of the search, the top one is used to specify what you want. Basic wildcards using * are supported.</p>
+        <figure id="f189a401-c200-446c-a960-d6a1c4fd5d90" class="image">
+          <a href="find_slot3.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/find_slot3.png" />
+          </a>
+        </figure>
+        <p id="b11d5361-d5cd-4221-824c-729f5cdd8827" class="">Input bars are approved by clicking on the green square, or by pressing CTRL + enter. Then you have to click on the top arrow to start the search:</p>
+        <figure id="3df4ac6d-e9af-4908-93ae-5c9b803bfb08" class="image">
+          <a href="find_slot4.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/find_slot4.png" />
+          </a>
+        </figure>
+        <p id="9fd75bee-4779-4c98-b18b-b85c036f1274" class="">Individual slots can be opened by clicking the square next to them.</p>
+        <figure id="edf535f6-1a6b-475f-9ff7-cbd21fcb6082" class="image">
+          <a href="find_slot5.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/find_slot5.png" />
+          </a>
+        </figure>
+        <p id="7ae92518-87f2-462b-92db-8a6524028199" class="">And you can also invoke all kinds of actions from the context menu</p>
+        <figure id="95fd58be-d8be-4d5e-8dda-3e21aac9634c" class="image">
+          <a href="find_slot.png">
+            <img style="width:713px" src="Environment and the programming language Self part 1/find_slot.png" />
+          </a>
+        </figure>
+        <h2 id="dd2d888c-0ded-4ccb-92dd-ce532e0b0b6f" class="">Read serialized objects from script</h2>
+        <p id="d312ad7e-9432-4d90-a129-5428c4cc47ff" class="">If you want to run one of the scripts or load your saved module, you can use the following approaches:</p>
+        <pre id="0481e387-5a7c-48f8-8a53-d18be1983ea8" class="code"><code>bootstrap read: &#x27;name&#x27; From: &#x27;directory&#x27;</code>
+</pre>
+        <p id="da613be6-0036-4f5f-9c7d-b4e61418aada" class="">Note that the name doesn&#x27;t end with <code>.self</code>. Or:</p>
+        <pre id="00b8c826-e7ff-49c4-b0f2-012615d57737" class="code"><code>&#x27;path/to/file.self&#x27; runScript</code>
+</pre>
+        <p id="2b995def-b836-49e7-ac5f-9d4a6e4eaa86" class="">You can find more details here: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
+        <h2 id="1fa25c40-9467-412e-903d-0cdd703bdb05" class="">radarView</h2>
+        <p id="7388d52f-22a1-46b3-b118-807a9bc48125" class="">As I already mentioned in the previous episode, you can get the radarview by using following messages:</p>
+        <pre id="d1445743-6d47-4a4c-a22c-5abe2f9e1f12" class="code"><code>desktop worlds first addMorph: radarView</code>
+</pre>
+        <p id="0987c265-d73a-4fb2-b038-d9be90b8dc28" class="">or</p>
+        <pre id="c468b681-9107-43aa-bd85-5ca03f374804" class="code"><code>desktop w hands first addMorph: radarView</code>
+</pre>
+        <h2 id="b4567d55-5369-4d10-8789-00fcbef85e85" class="">Better fonts</h2>
+        <p id="29134f47-9746-4911-ba0c-efb33a711fed" class="">Maybe you did notice that Self&#x27;s basic font looks really awful. It is originally looking for <em>verdana</em>, which is not installed on Linux by default, so it uses fallback. The solution is described here:</p>
+        <ul id="e4fc7be3-8f13-4bde-a8fd-7681b6cb3a2f" class="bulleted-list">
+          <li>
+            <a href="https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html">https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html</a>
+          </li>
+        </ul>
+        <h2 id="e8a113a1-5726-4631-b338-79d346fee69c" class="">Editor morph</h2>
+        <p id="39883a18-97c2-4cab-a61b-38e0c39830a9" class="">Experimentally I found out, that if you want to use the editor, you need <code>editorRowMorph</code> containing <code>editorMorph</code>. This then responds to <code>contentsString</code> message.</p>
+        <p id="ccf79587-94b2-49a4-bde5-2c7a552fca30" class="">I didn&#x27;t find out how to use <code>ui2_textField</code>, <code>ui2_textBuffer</code>, <code>textViewerMorph</code> and <code> uglyTextEditorMorph</code>.</p>
+        <h1 id="e58de3c5-fbc4-4db5-b8bf-07f19cdc12fe" class="">Next episode</h1>
+        <p id="52fb7fd5-57a4-4ea8-8698-3c1bb6369712" class="">Next episode will be about debugger, transporter and it will also list some of the problems with Self.</p>
+        <hr id="2ca44a2a-c711-4d07-adc4-89004d90fd61" />
+        <p id="551e6fa1-10a6-4f36-b48b-c419d8b8a0d9" class="">Relevant discussions:</p>
+        <ul id="9cbee625-5ff4-4b26-8d30-d5e1d5873c82" class="bulleted-list">
+          <li>
+          </li>
+        </ul>
+        <p id="f0882dfd-ed12-4641-9981-f97eee13a2f3" class="">
+        </p>
+      </div>
+    </article>
+        <div class="corner-ribbon top-right red">
+      <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+    </div>
+  </body>
+</html>
