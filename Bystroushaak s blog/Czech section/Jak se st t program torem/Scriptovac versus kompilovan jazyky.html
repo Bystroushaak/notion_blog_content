@@ -1,8 +1,8 @@
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Scriptovací versus kompilované jazyky</title>
     <link rel="stylesheet" type="text/css" href="../../../style.css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Bystroushaak" />
@@ -17,8 +17,8 @@
         <h1 class="page-title">Scriptovací versus kompilované jazyky</h1>
       </header>
       <div class="page-body">
-        <p id="7766cede-2d1e-4235-b3c9-23993f12dc18">Po krátkém uvážení jsem se rozhodl přidat i upravenou odpověď na jeden email, kde jsme se s tazatelem bavili o rozdílu mezi kompilovanými a interpretovanými programovacími jazyky.</p>
-        <p id="ab0801d4-c94e-43d2-a910-9e6a5167e3a3">Existují v zásadě čtyři možné abstraktní úrovně typů programovacích jazyků:</p>
+        <p id="7766cede-2d1e-4235-b3c9-23993f12dc18" class="">Po krátkém uvážení jsem se rozhodl přidat i upravenou odpověď na jeden email, kde jsme se s tazatelem bavili o rozdílu mezi kompilovanými a interpretovanými programovacími jazyky.</p>
+        <p id="ab0801d4-c94e-43d2-a910-9e6a5167e3a3" class="">Existují v zásadě čtyři možné abstraktní úrovně typů programovacích jazyků:</p>
         <ol id="37ab0b45-a1b9-4845-b977-2f748c44d6e7" class="numbered-list" start="1">
           <li>Psaní přímo ve strojovém kódu.</li>
         </ol>
@@ -31,10 +31,10 @@
         <ol id="cf983e45-5293-4cb8-b015-3dc138687010" class="numbered-list" start="4">
           <li>Psaní v interpretovaných jazycích.</li>
         </ol>
-        <p id="654359f0-bda3-4c3b-acf1-3583f84e83a2">Jednotlivé úrovně se liší podle složitosti, možností, které programátorovi dávají při manipulaci s počítačem a efektivitou práce.</p>
-        <h2 id="b9c60b42-8f01-4020-aa00-3837711e41b0">1. Psaní ve strojovém kódu</h2>
-        <p id="ddcb1e39-84af-4fde-a0d6-14b16857d555">Psaní ve strojovém kódu je nejtěžší, protože nepoužíváte programovací jazyk, ale píšete přímo instrukce procesoru, což jsou sekvence čísel.</p>
-        <p id="08b371e3-7fb7-408b-8145-6568c9738655">Pokud chceš pochopit jak to vypadá, tady je malá ukázka z programu pro smazání souboru s názvem &quot;soubor.txt&quot;. Celý program má 45724 řádek těchto čísel.</p>
+        <p id="654359f0-bda3-4c3b-acf1-3583f84e83a2" class="">Jednotlivé úrovně se liší podle složitosti, možností, které programátorovi dávají při manipulaci s počítačem a efektivitou práce.</p>
+        <h2 id="b9c60b42-8f01-4020-aa00-3837711e41b0" class="">1. Psaní ve strojovém kódu</h2>
+        <p id="ddcb1e39-84af-4fde-a0d6-14b16857d555" class="">Psaní ve strojovém kódu je nejtěžší, protože nepoužíváte programovací jazyk, ale píšete přímo instrukce procesoru, což jsou sekvence čísel.</p>
+        <p id="08b371e3-7fb7-408b-8145-6568c9738655" class="">Pokud chceš pochopit jak to vypadá, tady je malá ukázka z programu pro smazání souboru s názvem &quot;soubor.txt&quot;. Celý program má 45724 řádek těchto čísel.</p>
         <pre id="517762be-c49d-445f-ae05-1a93ba70bcc7" class="code"><code>00b5a80 6878 5a61 3176 5f35 645f 6c67 7469 7265
 00b5a90 6c61 3632 3532 464d 415a 6179 5f00 3344
 00b5aa0 7473 3864 6164 6574 6974 656d 3431 6579
@@ -54,19 +54,19 @@
 00b5b80 4f65 4466 7961 5f00 3344 7473 3564 6172
 00b5b90 676e 3565 5f33 545f 7235 7465 6f72 4154</code>
 </pre>
-        <p id="37dd7e32-f3d8-4fbf-80b4-4315b52b7113">Jedná se o čísla v <a href="http://cs.wikipedia.org/wiki/%C5%A0estn%C3%A1ctkov%C3%A1_soustava">hexadecimálním formátu</a>, což je často používaný způsob vyjádření obsahu buněk v paměti. Ten tlustější sloupec úplně nalevo je adresa instrukcí, které pak následují
+        <p id="37dd7e32-f3d8-4fbf-80b4-4315b52b7113" class="">Jedná se o čísla v <a href="http://cs.wikipedia.org/wiki/%C5%A0estn%C3%A1ctkov%C3%A1_soustava">hexadecimálním formátu</a>, což je často používaný způsob vyjádření obsahu buněk v paměti. Ten tlustější sloupec úplně nalevo je adresa instrukcí, které pak následují
 na zbytku řádku a jsou pro přehlednost odděleny mezerami po 16 bitech (2 bajtech).</p>
-        <p id="6cc59a7e-68e7-433c-be9b-ea6e805d9bc4">Vezměme si první dva sloupečky z prvního řádku:</p>
+        <p id="6cc59a7e-68e7-433c-be9b-ea6e805d9bc4" class="">Vezměme si první dva sloupečky z prvního řádku:</p>
         <pre id="74e713f5-4ca7-416f-857a-f1b5afbf035d" class="code"><code>00b5a80 6878</code>
 </pre>
-        <p id="11e0ec70-7d71-4add-87dc-1002335e2b83">Co to vlastně znamená? Nic jiného, než že paměťová buňka číslo 00b5a80 (744064 v decimální soustavě) má hodnotu 6878 hexadecimálně, což je číslo 26744 v normální, lidmi používané decimální soustavě.</p>
-        <p id="67dbb02e-5bea-4d18-a1be-fb7b8544cf53">Až tahle buňka poleze do procesoru, na drátech se postupně objeví jedničky a nuly (napětí a absence napětí, jako když blikáte žárovkou) <code>0110100001111000</code>.</p>
-        <p id="59a209ab-21fd-430c-a88b-bde20589b5a1">Co přesně znamená číslo 6878? Nemám tušení. Zkoušel jsem to hledat v <a href="http://ref.x86asm.net/coder32.html">tabulce opkódů pro x86</a>, ale nic jsem nenašel. Pravděpodobně je to špatně zarovnané, možná v tom hraje i roli endianita.</p>
-        <p id="8216a928-f52c-49cf-9029-6621675b9278">Je to složité, co? Lidé si něco takového nejsou schopní zapamatovat, proto vznikl assembler.</p>
-        <h2 id="681d38a2-6b03-46ed-a571-df814444cac7">2. Psaní v Assembleru</h2>
-        <p id="4af2d423-a1de-46c1-9ae4-db1b530d1b21">Viděli jste předchozí čísla - nedá se z nich moc poznat, o co se jedná. Proto vznikl assembler - jazyk, který vyjadřuje, co daná čísla znamenají. Dá se z něj jednodušeji (ne však jednoduše) pochopit, co program dělá, ale pořád je to dost nízkoúrovňové a proto ho většina
+        <p id="11e0ec70-7d71-4add-87dc-1002335e2b83" class="">Co to vlastně znamená? Nic jiného, než že paměťová buňka číslo 00b5a80 (744064 v decimální soustavě) má hodnotu 6878 hexadecimálně, což je číslo 26744 v normální, lidmi používané decimální soustavě.</p>
+        <p id="67dbb02e-5bea-4d18-a1be-fb7b8544cf53" class="">Až tahle buňka poleze do procesoru, na drátech se postupně objeví jedničky a nuly (napětí a absence napětí, jako když blikáte žárovkou) <code>0110100001111000</code>.</p>
+        <p id="59a209ab-21fd-430c-a88b-bde20589b5a1" class="">Co přesně znamená číslo 6878? Nemám tušení. Zkoušel jsem to hledat v <a href="http://ref.x86asm.net/coder32.html">tabulce opkódů pro x86</a>, ale nic jsem nenašel. Pravděpodobně je to špatně zarovnané, možná v tom hraje i roli endianita.</p>
+        <p id="8216a928-f52c-49cf-9029-6621675b9278" class="">Je to složité, co? Lidé si něco takového nejsou schopní zapamatovat, proto vznikl assembler.</p>
+        <h2 id="681d38a2-6b03-46ed-a571-df814444cac7" class="">2. Psaní v Assembleru</h2>
+        <p id="4af2d423-a1de-46c1-9ae4-db1b530d1b21" class="">Viděli jste předchozí čísla - nedá se z nich moc poznat, o co se jedná. Proto vznikl assembler - jazyk, který vyjadřuje, co daná čísla znamenají. Dá se z něj jednodušeji (ne však jednoduše) pochopit, co program dělá, ale pořád je to dost nízkoúrovňové a proto ho většina
 programátorů nepoužívá, pokud vyloženě nemusí.</p>
-        <p id="d6a02b42-7ceb-40f8-824a-f836a9e20731">Čísla z předchozího programu dovede takzvaný disassembler (program pro převod existujících programů na zdrojový kód v assembleru) převést na zkratky instrukcí pro procesor.</p>
+        <p id="d6a02b42-7ceb-40f8-824a-f836a9e20731" class="">Čísla z předchozího programu dovede takzvaný disassembler (program pro převod existujících programů na zdrojový kód v assembleru) převést na zkratky instrukcí pro procesor.</p>
         <pre id="398886ee-d8e6-441b-88f0-a63c8681839b" class="code"><code>8082e74 &lt;_Dmain&gt;:
  8082e74:55                   push   %ebp
  8082e75:8b ec                mov    %esp,%ebp
@@ -81,11 +81,11 @@ programátorů nepoužívá, pokud vyloženě nemusí.</p>
  8082e8e:90                   nop
  8082e8f:90                   nop</code>
 </pre>
-        <p id="1078333c-ff17-4f23-89b3-0a25163768c8">Bohužel jsem kdysi při psaní odpovědi vybral jinou část programu než u předchozího výpisu, což je možné poznat podle řady čísel vlevo, které opět označují adresy paměťových buněk. V minulém případě se jednalo o čísla okolo <code>00b5a80</code>, nyní se díváme na adresu <code>8082e74</code>, což je v programu o dost dál.</p>
-        <p id="7c4e526c-c9d2-4612-8966-1cabbb5a8d8f">Za adresami instrukcí následuje sekvence čísel a znaků - například <code>55</code>, nebo na druhém řádku <code>8b</code><code>ec</code>. To jsou kódy instrukcí tak, jak je vidí procesor a jak byly zobrazeny ve výpisu nahoře.</p>
-        <p id="943ab5b8-7b2e-4894-a101-2f0b1a64ef46">Napravo je pak příkaz assembleru, například <code>push %ebp</code>, nebo <code>call 80845a0 &lt;_D3std4file6removeFxAaZv&gt;</code>.</p>
-        <p id="357351bb-914c-42f2-8786-d38bd14d0fa3">Kódy vlevo jsou tam přidány, aby bylo jasně vidět, že každému číslu odpovídají patřičné instrukce (číslu <code>c3</code>, tedy <code>195</code> v decimální soustavě odpovídá instrukce <code>ret</code>).</p>
-        <p id="5b810a7b-5f1d-44f3-b40a-711ba29a8566">Pokud by jsme program psali v assembleru a nepoužívali jen náhled na již existující kód z disassembleru, tak by celá ukázka vypadala nějak takto:</p>
+        <p id="1078333c-ff17-4f23-89b3-0a25163768c8" class="">Bohužel jsem kdysi při psaní odpovědi vybral jinou část programu než u předchozího výpisu, což je možné poznat podle řady čísel vlevo, které opět označují adresy paměťových buněk. V minulém případě se jednalo o čísla okolo <code>00b5a80</code>, nyní se díváme na adresu <code>8082e74</code>, což je v programu o dost dál.</p>
+        <p id="7c4e526c-c9d2-4612-8966-1cabbb5a8d8f" class="">Za adresami instrukcí následuje sekvence čísel a znaků - například <code>55</code>, nebo na druhém řádku <code>8b</code><code>ec</code>. To jsou kódy instrukcí tak, jak je vidí procesor a jak byly zobrazeny ve výpisu nahoře.</p>
+        <p id="943ab5b8-7b2e-4894-a101-2f0b1a64ef46" class="">Napravo je pak příkaz assembleru, například <code>push %ebp</code>, nebo <code>call 80845a0 &lt;_D3std4file6removeFxAaZv&gt;</code>.</p>
+        <p id="357351bb-914c-42f2-8786-d38bd14d0fa3" class="">Kódy vlevo jsou tam přidány, aby bylo jasně vidět, že každému číslu odpovídají patřičné instrukce (číslu <code>c3</code>, tedy <code>195</code> v decimální soustavě odpovídá instrukce <code>ret</code>).</p>
+        <p id="5b810a7b-5f1d-44f3-b40a-711ba29a8566" class="">Pokud by jsme program psali v assembleru a nepoužívali jen náhled na již existující kód z disassembleru, tak by celá ukázka vypadala nějak takto:</p>
         <pre id="ffa73e2d-8331-4e6c-a732-e468dc5cd070" class="code"><code>&lt;_Dmain&gt;:
 push   %ebp
 mov    %esp,%ebp
@@ -100,11 +100,11 @@ nop
 nop
 nop</code>
 </pre>
-        <p id="e3209eec-13fa-4d38-91c0-66fb6ab5a3e0">Příkaz assembleru nám umožňuje zjistit (či specifikovat), co procesor udělá.</p>
+        <p id="e3209eec-13fa-4d38-91c0-66fb6ab5a3e0" class="">Příkaz assembleru nám umožňuje zjistit (či specifikovat), co procesor udělá.</p>
         <hr id="5072a334-0ec5-4cb9-831c-a941050988ad" />
-        <p id="f76f9f3c-b6fe-4722-bb49-58b135593e90">Paměťová buňka je nejmenší část, se kterou je možné v paměti pracovat. Podle architektury to může být 8, 16, 32 či 64 bitů, tedy jedniček a nul. Do buňky je možné zapisovat a číst z ní.</p>
-        <p id="a9a5ff92-da80-43af-ab0b-52ac292c0eb8">Představit si to můžete jako řadu formulářů, které určitě důvěrně znáte z internetových stránek, například přihlašování do emailů. Do každého políčka ve formuláři můžete buďto zapsat číslo, nebo z něj číslo přečíst.</p>
-        <p id="53e35b1a-7092-4dda-a496-b470b06fdaaa">V podstatě všechny instrukce assembleru pracují s těmito buňkami. Něco vezmou, dají to někam, provedou s tím něco a pak kamsi zapíšou výsledek. Z buňky do buňky, miliardkrát za vteřinu.</p>
+        <p id="f76f9f3c-b6fe-4722-bb49-58b135593e90" class="">Paměťová buňka je nejmenší část, se kterou je možné v paměti pracovat. Podle architektury to může být 8, 16, 32 či 64 bitů, tedy jedniček a nul. Do buňky je možné zapisovat a číst z ní.</p>
+        <p id="a9a5ff92-da80-43af-ab0b-52ac292c0eb8" class="">Představit si to můžete jako řadu formulářů, které určitě důvěrně znáte z internetových stránek, například přihlašování do emailů. Do každého políčka ve formuláři můžete buďto zapsat číslo, nebo z něj číslo přečíst.</p>
+        <p id="53e35b1a-7092-4dda-a496-b470b06fdaaa" class="">V podstatě všechny instrukce assembleru pracují s těmito buňkami. Něco vezmou, dají to někam, provedou s tím něco a pak kamsi zapíšou výsledek. Z buňky do buňky, miliardkrát za vteřinu.</p>
         <hr id="58297e2b-54ca-478d-8dc6-97e5cf8b06db" />
         <ul id="927d5653-cd60-49c7-9d23-03519170a889" class="bulleted-list">
           <li><code>mov</code> například znamená, že přesune informace z jedno paměťové buňky do druhé.</li>
@@ -116,42 +116,42 @@ nop</code>
           <li><code>call</code> znamená, že se zavolá podprogram, což je další sekvence podobných instrukcí. V příkladu výše se pomocí call volá funkce na adrese <code>80845a0</code> - tu najdete tak, že ve výpisu z dissassembleru by v prvním sloupci bylo číslo <code>80845a0</code>. Jméno podprogramu, který se volá je <code>_D3std4file6removeFxAaZv</code>. Všimněte si v něm slov std, file a remove. Později se k tomu vrátím.</li>
         </ul>
         <hr id="55acf163-299c-45ed-ba3e-07c8ca8c0a77" />
-        <p id="5bb08de0-f878-46c2-bad9-50f1641182ed">Podle toho co má instrukce za parametry se mění způsob, jakým svůj úkol provede. Například jimi lze určit, kterou buňku kam předá:</p>
+        <p id="5bb08de0-f878-46c2-bad9-50f1641182ed" class="">Podle toho co má instrukce za parametry se mění způsob, jakým svůj úkol provede. Například jimi lze určit, kterou buňku kam předá:</p>
         <pre id="5c22f852-53f5-4c04-a644-a3915ece1bca" class="code"><code>mov    %esp,%ebp</code>
 </pre>
-        <p id="5cb72471-0f12-41f6-a0fa-ee16bf7f5898">Tohle v podstatě říká, ať procesor přesune obsah buňky s názvem <code>ebp</code> do buňky <code>esp</code>. Kdybych to měl vyjádřit graficky, tak je to:</p>
+        <p id="5cb72471-0f12-41f6-a0fa-ee16bf7f5898" class="">Tohle v podstatě říká, ať procesor přesune obsah buňky s názvem <code>ebp</code> do buňky <code>esp</code>. Kdybych to měl vyjádřit graficky, tak je to:</p>
         <pre id="3aab253d-4786-4204-b988-c508197fa254" class="code"><code>esp &lt;- ebp</code>
 </pre>
         <hr id="fb6a1791-4e4f-4bd4-af51-a8636161618e" />
-        <p id="428cd826-11df-457a-b3a0-9aa148b77e60">Assembler pořád není moc intuitivní. Kdybyste chtěli tímhle způsobem naprogramovat něco užitečného pro moderní počítače, musíte napsat desítky až stovky tisíc řádek podobných instrukcí. Není to dostatečně abstraktní.</p>
-        <p id="161de0e4-b518-4693-8b0b-bef46a03852f">Dejme tomu, že chcete třeba napsat program, který smaže soubor - pokud byste ho psali v assembleru, musíte prvně přesouvat čísla (či znaky) z buněk do buněk, dokud se v paměti nevytvoří souvislá řada znaků:</p>
+        <p id="428cd826-11df-457a-b3a0-9aa148b77e60" class="">Assembler pořád není moc intuitivní. Kdybyste chtěli tímhle způsobem naprogramovat něco užitečného pro moderní počítače, musíte napsat desítky až stovky tisíc řádek podobných instrukcí. Není to dostatečně abstraktní.</p>
+        <p id="161de0e4-b518-4693-8b0b-bef46a03852f" class="">Dejme tomu, že chcete třeba napsat program, který smaže soubor - pokud byste ho psali v assembleru, musíte prvně přesouvat čísla (či znaky) z buněk do buněk, dokud se v paměti nevytvoří souvislá řada znaků:</p>
         <pre id="f497a668-2758-4dc8-a209-ae73c0fb689e" class="code"><code> _ _ _ _ _ _ _ _ _ _ _
 |s|o|u|b|o|r|.|t|x|t|0|
  - - - - - - - - - - -</code>
 </pre>
-        <p id="f5c2e9ea-0bd1-48d5-8f69-1e08d033430a">Jak už jsem psal, počítač pracuje s čísly, tedy ve skutečnosti by obsah buněk v paměti vypadal nějak takto:</p>
+        <p id="f5c2e9ea-0bd1-48d5-8f69-1e08d033430a" class="">Jak už jsem psal, počítač pracuje s čísly, tedy ve skutečnosti by obsah buněk v paměti vypadal nějak takto:</p>
         <pre id="6d105051-9027-42e9-a0eb-22668bc67a72" class="code"><code> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
 |115|111|117| 98|111|114| 46|116|120|116|  0|
  --- --- --- --- --- --- --- --- --- --- ---</code>
 </pre>
-        <p id="3201b097-c540-42d2-a446-afb26076eca7">či v hexa:</p>
+        <p id="3201b097-c540-42d2-a446-afb26076eca7" class="">či v hexa:</p>
         <pre id="d45df750-d244-4091-b613-627efadf8eb4" class="code"><code> __ __ __ __ __ __ __ __ __ __ __
 |73|6f|75|62|6f|72|2e|74|78|74|00|
  -- -- -- -- -- -- -- -- -- -- --</code>
 </pre>
-        <p id="43bf4d9a-a831-4b4b-8cf3-7f1614c9b836">Poté stačí zavolat nějakou funkci jádra operačního systému, které někam (třeba do buňky eax) uloží adresu začátku této sekvence čísel. Funkce operačního systému si pak přečte buňky na které jste jí dali adresu (kde má skončit pozná podle nuly na konci), smazala soubor z
+        <p id="43bf4d9a-a831-4b4b-8cf3-7f1614c9b836" class="">Poté stačí zavolat nějakou funkci jádra operačního systému, které někam (třeba do buňky eax) uloží adresu začátku této sekvence čísel. Funkce operačního systému si pak přečte buňky na které jste jí dali adresu (kde má skončit pozná podle nuly na konci), smazala soubor z
 disku a uložila návratový kód do nějaké standardní buňky (třeba zase <code>eax</code>). Podle tohoto kódu by jste pak zjistili, jestli došlo k chybě, nebo se podařilo soubor smazat v pořádku.</p>
-        <p id="22f48305-d626-4408-83d0-18fa13068a97">Když se někdo koukne na kód takového programu, bude mít stovky až tisíce řádek různých instrukcí a bude velice nepřehledný, takže se v něm za půl roku pravděpodobně nevyznáte a ni vy a to jste jeho tvůrci.</p>
+        <p id="22f48305-d626-4408-83d0-18fa13068a97" class="">Když se někdo koukne na kód takového programu, bude mít stovky až tisíce řádek různých instrukcí a bude velice nepřehledný, takže se v něm za půl roku pravděpodobně nevyznáte a ni vy a to jste jeho tvůrci.</p>
         <hr id="9b87425e-c9eb-4bec-95b3-f2ff18e799e1" />
-        <p id="2f016179-502d-45c6-b5ce-39ddfcf03a91">Pokud se někde uvádí, že procesor funguje na frekvenci třeba 3GHz, znamená to, že provede 3 000 000 000 taktů za vteřinu. Během jednoho taktu moderní procesory zpracují jednu, či více instrukcí, takže, když to pro názornost podstatně zjednoduším a vynechám některé důležité
+        <p id="2f016179-502d-45c6-b5ce-39ddfcf03a91" class="">Pokud se někde uvádí, že procesor funguje na frekvenci třeba 3GHz, znamená to, že provede 3 000 000 000 taktů za vteřinu. Během jednoho taktu moderní procesory zpracují jednu, či více instrukcí, takže, když to pro názornost podstatně zjednoduším a vynechám některé důležité
 detaily, dá se zjednodušeně říct, že procesor vykoná za vteřinu 3 000 000 000 řádek assembleru.</p>
-        <p id="9f70753f-5ba1-40d4-88d1-eb0cff46c1af">Docela dobré, ne?</p>
+        <p id="9f70753f-5ba1-40d4-88d1-eb0cff46c1af" class="">Docela dobré, ne?</p>
         <hr id="7bfd2cf5-dd47-43a5-8688-e407ac76343b" />
-        <p id="ee10ec8b-979d-4832-a26e-1160259ca7a8">Další věc je, že assemblery jsou pro každý druh procesoru jiné. Jiný assembler má tvůj počítač, jiný má tvůj mobil a jiný má počítač v autě, nebo ten co řídí semafor. Někde se buňka eax jmenuje jinak, jinde vůbec neexistuje. Některé mají minimální šířku 8 bitů, jiné 64.</p>
-        <p id="13c3cdea-ca61-408b-9f14-40b86e66a8f2">Proto se moc nevyplatí v něm programovat, protože pro každý procesor se musíš naučit nový assembler a programy, které jdou na procesoru typu x86_64 nepůjdou na x86, či mipsel.</p>
-        <h2 id="630b36a6-dad8-4832-abcb-be4b04a27617">3. Psaní v kompilovaných jazycích</h2>
-        <p id="2399f685-5e18-436d-8c90-10eeaf7689d2">Jak jste měli možnost vidět - assembler je sice o dost přehlednější než strojový kód, ale pořád je dost nízkoúrovňový a programování v něm jej docela náročné a složité.</p>
-        <p id="b65c4c7a-e0b8-43e5-9849-23f5961e4de1">Proto vznikly takzvané kompilované jazyky - jedná se o jazyky, kde programátor popíše v nějakém relativně příjemném jazyku co chce aby se stalo do textového souboru. <strong>Zd</strong>rojový kód může vypadat třeba takto:</p>
+        <p id="ee10ec8b-979d-4832-a26e-1160259ca7a8" class="">Další věc je, že assemblery jsou pro každý druh procesoru jiné. Jiný assembler má tvůj počítač, jiný má tvůj mobil a jiný má počítač v autě, nebo ten co řídí semafor. Někde se buňka eax jmenuje jinak, jinde vůbec neexistuje. Některé mají minimální šířku 8 bitů, jiné 64.</p>
+        <p id="13c3cdea-ca61-408b-9f14-40b86e66a8f2" class="">Proto se moc nevyplatí v něm programovat, protože pro každý procesor se musíš naučit nový assembler a programy, které jdou na procesoru typu x86_64 nepůjdou na x86, či mipsel.</p>
+        <h2 id="630b36a6-dad8-4832-abcb-be4b04a27617" class="">3. Psaní v kompilovaných jazycích</h2>
+        <p id="2399f685-5e18-436d-8c90-10eeaf7689d2" class="">Jak jste měli možnost vidět - assembler je sice o dost přehlednější než strojový kód, ale pořád je dost nízkoúrovňový a programování v něm jej docela náročné a složité.</p>
+        <p id="b65c4c7a-e0b8-43e5-9849-23f5961e4de1" class="">Proto vznikly takzvané kompilované jazyky - jedná se o jazyky, kde programátor popíše v nějakém relativně příjemném jazyku co chce aby se stalo do textového souboru. <strong>Zd</strong>rojový kód může vypadat třeba takto:</p>
         <pre id="392538a1-3b5b-4875-87bf-4373c9cac11a" class="code"><code>import std.stdio;
 import std.file : remove;
 
@@ -161,39 +161,39 @@ int main(string[] args){
    return 0;
 }</code>
 </pre>
-        <p id="623897d1-b787-4b75-8605-4dd467169a31">Ten se pak předá programu zvanému kompilátor, který ho převede na <strong>st</strong>rojový kód, tedy spustitelný soubor třeba s příponou .exe, takže například remove.exe.</p>
-        <p id="5684720b-46be-4fce-8a9a-edf630c53140">Tento soubor se pak dá spouštět na počítačích se stejným typem procesoru a operačního systému. Když přijdete k počítači s jiným typem procesoru a operačního systému, jednoduše si vezmete znova <strong>zd</strong>rojový kód, opět ho zkompilujete a převedete na <strong>st</strong>rojový kód daného procesoru.</p>
-        <p id="4a10ee48-9d2d-440b-bc12-1e7145aa423e">Výše uvedená ukázka je v programovacím jazyce D. Je už docela přehledná - všimni si řádku s nápisem:</p>
+        <p id="623897d1-b787-4b75-8605-4dd467169a31" class="">Ten se pak předá programu zvanému kompilátor, který ho převede na <strong>st</strong>rojový kód, tedy spustitelný soubor třeba s příponou .exe, takže například remove.exe.</p>
+        <p id="5684720b-46be-4fce-8a9a-edf630c53140" class="">Tento soubor se pak dá spouštět na počítačích se stejným typem procesoru a operačního systému. Když přijdete k počítači s jiným typem procesoru a operačního systému, jednoduše si vezmete znova <strong>zd</strong>rojový kód, opět ho zkompilujete a převedete na <strong>st</strong>rojový kód daného procesoru.</p>
+        <p id="4a10ee48-9d2d-440b-bc12-1e7145aa423e" class="">Výše uvedená ukázka je v programovacím jazyce D. Je už docela přehledná - všimni si řádku s nápisem:</p>
         <pre id="b6b08f47-a6d1-4308-bbf3-682d62dff7fa" class="code"><code>remove(&quot;soubor.txt&quot;);</code>
 </pre>
-        <p id="0ef2ee66-a9d6-4a18-8b0e-1f8610360345">To už je docela přehledné, ne? I začátečník v angličtině z toho pozná, o co jde.</p>
+        <p id="0ef2ee66-a9d6-4a18-8b0e-1f8610360345" class="">To už je docela přehledné, ne? I začátečník v angličtině z toho pozná, o co jde.</p>
         <hr id="fc9358e6-b5b2-4277-b936-f8d75d1c8960" />
-        <p id="2fb9793a-2bbc-4d9d-af52-18d728886caf">Osm řádků v programovacím jazyce D se přeloží na 74985 řádků kódu v assembleru, což představuje 728KB strojového kódu.</p>
-        <p id="f616b250-d102-470a-b62e-a545e1543e5d">To znamená, že kompilátor za mě vytvořil desítky tisíc řádků v assembleru. Prakticky by jich mohlo být o dost méně, ale použil jsem jazyk, který mi to jako programátorovi dost usnadňuje. Kdybych to psal v C, je výsledek obvykle menší .exe, ale zase bych toho musel obvykle napsat víc (což nutně neplatí pro tuhle ukázku).</p>
-        <h2 id="36d492ab-d765-4672-ac2e-004ff5fb3c3f">4. Psaní v interpretovaných jazycích</h2>
-        <p id="a86b55c1-471e-4bc3-9187-01ddd65487f6">Program v assembleru měl stovky až tisíce řádků. Zdrojový soubor v kompilovaném programovacím jazyce D měl osm řádků, program v interpretovaném jazyce python jde ještě dále a bude mít jen dva:</p>
+        <p id="2fb9793a-2bbc-4d9d-af52-18d728886caf" class="">Osm řádků v programovacím jazyce D se přeloží na 74985 řádků kódu v assembleru, což představuje 728KB strojového kódu.</p>
+        <p id="f616b250-d102-470a-b62e-a545e1543e5d" class="">To znamená, že kompilátor za mě vytvořil desítky tisíc řádků v assembleru. Prakticky by jich mohlo být o dost méně, ale použil jsem jazyk, který mi to jako programátorovi dost usnadňuje. Kdybych to psal v C, je výsledek obvykle menší .exe, ale zase bych toho musel obvykle napsat víc (což nutně neplatí pro tuhle ukázku).</p>
+        <h2 id="36d492ab-d765-4672-ac2e-004ff5fb3c3f" class="">4. Psaní v interpretovaných jazycích</h2>
+        <p id="a86b55c1-471e-4bc3-9187-01ddd65487f6" class="">Program v assembleru měl stovky až tisíce řádků. Zdrojový soubor v kompilovaném programovacím jazyce D měl osm řádků, program v interpretovaném jazyce python jde ještě dále a bude mít jen dva:</p>
         <pre id="e67c5685-730a-4082-9531-504d9cf41dd4" class="code"><code>import os
 os.remove(&quot;soubor.txt&quot;)</code>
 </pre>
-        <p id="b5e9bbfd-06fb-4de1-9329-00bf3ac6ebf9">Jednoduché, ne? Prvním řádkem řeknete, že chcete pracovat s operačním systémem. Druhým řádkem operačnímu systému dáte příkaz, aby odstranil soubor s názvem soubor.txt.</p>
-        <p id="6c0c0fcb-14ed-46f7-8090-47d78f4c43f1">Interpretované jazyky za tuto jednoduchost platí většími nároky na paměť a procesor.</p>
-        <p id="b9d003a6-3ae8-4e5f-aa78-ee55511f6e83">Na rozdíl od kompilovaných programovacích jazyků <strong>ne</strong>jsou překládány do <strong>st</strong>rojového kódu, se kterým umí pracovat procesor a tedy z nich obvykle nedostanete .exe. Místo toho jsou předané programu zvanému interpreter, který je prochází řádek po řádku a když narazí na nějakou instrukci,
+        <p id="b5e9bbfd-06fb-4de1-9329-00bf3ac6ebf9" class="">Jednoduché, ne? Prvním řádkem řeknete, že chcete pracovat s operačním systémem. Druhým řádkem operačnímu systému dáte příkaz, aby odstranil soubor s názvem soubor.txt.</p>
+        <p id="6c0c0fcb-14ed-46f7-8090-47d78f4c43f1" class="">Interpretované jazyky za tuto jednoduchost platí většími nároky na paměť a procesor.</p>
+        <p id="b9d003a6-3ae8-4e5f-aa78-ee55511f6e83" class="">Na rozdíl od kompilovaných programovacích jazyků <strong>ne</strong>jsou překládány do <strong>st</strong>rojového kódu, se kterým umí pracovat procesor a tedy z nich obvykle nedostanete .exe. Místo toho jsou předané programu zvanému interpreter, který je prochází řádek po řádku a když narazí na nějakou instrukci,
 zavolá podprogram, který provede to co mu instrukce určuje. Tento podprogram může mít třeba deset tisíc řádků v jazyce C a stovky tisíc řádků v jazyce assembler.</p>
-        <p id="8a181f3e-9230-4a73-b9e7-e3ff62936004">V praxi to znamená, že interpretované jazyky nikdy nejdou do procesoru, vždy jdou do interpreteru, který je (obvykle) napsaný v kompilovaném jazyce. Interpreter v podstatě posílá části sebe sama v závislosti na tom, na jakou část zdrojového kódu právě narazí.</p>
-        <p id="1fe835b0-a52c-4efe-ace1-7ff9e93cac5e">Díky tomu, že nejdou do procesoru přímo fungují na všech procesorech kde pro ně byl jednou zkompilován interpreter.</p>
-        <p id="21d2055f-f5a6-47f1-9adc-a1e20856af2f">Python je dost silný jazyk - jeden jeho řádek vydá za několik řádků v D, přibližně za 10 až 20 řádků v C a za několik set až tisíc v assembleru, proto jsem chtěl, aby jste s ním začínali a v původním
+        <p id="8a181f3e-9230-4a73-b9e7-e3ff62936004" class="">V praxi to znamená, že interpretované jazyky nikdy nejdou do procesoru, vždy jdou do interpreteru, který je (obvykle) napsaný v kompilovaném jazyce. Interpreter v podstatě posílá části sebe sama v závislosti na tom, na jakou část zdrojového kódu právě narazí.</p>
+        <p id="1fe835b0-a52c-4efe-ace1-7ff9e93cac5e" class="">Díky tomu, že nejdou do procesoru přímo fungují na všech procesorech kde pro ně byl jednou zkompilován interpreter.</p>
+        <p id="21d2055f-f5a6-47f1-9adc-a1e20856af2f" class="">Python je dost silný jazyk - jeden jeho řádek vydá za několik řádků v D, přibližně za 10 až 20 řádků v C a za několik set až tisíc v assembleru, proto jsem chtěl, aby jste s ním začínali a v původním
 článku jsem ho tolik doporučoval.</p>
-        <h2 id="203c85fc-b477-4d90-80f0-5cb2d5d83b82">Shrnutí</h2>
-        <p id="54d4d346-1c4a-46f4-918f-5fb99b389f0b">Abych to shrnul, obecně platí následující vztahy:</p>
+        <h2 id="203c85fc-b477-4d90-80f0-5cb2d5d83b82" class="">Shrnutí</h2>
+        <p id="54d4d346-1c4a-46f4-918f-5fb99b389f0b" class="">Abych to shrnul, obecně platí následující vztahy:</p>
         <ul id="7117f6c5-9ec6-495b-9dbc-681b2133af79" class="bulleted-list">
           <li>Čím blíže k číslu 1 (strojovému kódu), tím složitěji se programuje, klesá efektivita, ale na druhou stranu máte větší možnosti při manipulaci s počítačem.</li>
         </ul>
         <ul id="140c5148-62d6-41fe-874a-7eaefc988a5e" class="bulleted-list">
           <li>Čím blíž k číslu 4 (interpretovaným jazykům), tím jednodušší a efektivnější programování, na druhou stranu nemáte takové možnosti ovládat hardware. To ovšem ve většině případů ani není potřeba.</li>
         </ul>
-        <p id="c0564ece-67b5-4219-a0c7-80e4b8a7272f">Python spadá do kategorie 4 - je interpretovaný. To znamená, že je lehký na naučení, efektivní, ale některé věci, jako třeba operační systém v něm jen tak neuděláte. To se může zdát jako nevýhoda, ale jelikož to má být váš tvůj první programovací jazyk, tak to taková nevýhoda ve skutečnosti není.</p>
-        <p id="7aa85eb7-03c0-4123-b8b5-17d238b0ded7">Když navíc někdy narazíte na problém, že z pythonu potřebujete volat kód v úrovních 1-3, tak můžete. Python totiž umí volat knihovny napsané v jazycích nižší úrovně.</p>
-        <p id="3f0f86db-7bc5-4caf-a5e2-300bae7eaafa">Doufám že jsem to vysvětlil dostatečně jasně, i když je mi jasné, že to většina začátečníků to asi nepochopí, rozhodně ne na první přečtení.</p>
+        <p id="c0564ece-67b5-4219-a0c7-80e4b8a7272f" class="">Python spadá do kategorie 4 - je interpretovaný. To znamená, že je lehký na naučení, efektivní, ale některé věci, jako třeba operační systém v něm jen tak neuděláte. To se může zdát jako nevýhoda, ale jelikož to má být váš tvůj první programovací jazyk, tak to taková nevýhoda ve skutečnosti není.</p>
+        <p id="7aa85eb7-03c0-4123-b8b5-17d238b0ded7" class="">Když navíc někdy narazíte na problém, že z pythonu potřebujete volat kód v úrovních 1-3, tak můžete. Python totiž umí volat knihovny napsané v jazycích nižší úrovně.</p>
+        <p id="3f0f86db-7bc5-4caf-a5e2-300bae7eaafa" class="">Doufám že jsem to vysvětlil dostatečně jasně, i když je mi jasné, že to většina začátečníků to asi nepochopí, rozhodně ne na první přečtení.</p>
       </div>
     </article>
         <div class="corner-ribbon top-right red">

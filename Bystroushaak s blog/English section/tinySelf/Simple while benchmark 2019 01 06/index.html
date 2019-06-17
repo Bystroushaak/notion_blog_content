@@ -1,8 +1,8 @@
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Simple while benchmark 2019.01.06</title>
     <link rel="stylesheet" type="text/css" href="../../../../style.css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Bystroushaak" />
@@ -17,11 +17,11 @@
         <h1 class="page-title">Simple while benchmark 2019.01.06</h1>
       </header>
       <div class="page-body">
-        <p id="b48920a4-22bd-4d64-a098-d7ce4d484bc2">
+        <p id="b48920a4-22bd-4d64-a098-d7ce4d484bc2" class="">
           <time>@2019/01/06</time>
         </p>
-        <p id="19f1e1b4-9d51-4d33-8ed3-d88226ac5aaa">I&#x27;ve decided to add some benchmarks just for my own usage to measure whether things improved when I change something or not.</p>
-        <p id="d477160c-f46f-4dbf-a726-a1cdf0a2ba97">Benchmark of the tinySelf while loop:</p>
+        <p id="19f1e1b4-9d51-4d33-8ed3-d88226ac5aaa" class="">I&#x27;ve decided to add some benchmarks just for my own usage to measure whether things improved when I change something or not.</p>
+        <p id="d477160c-f46f-4dbf-a726-a1cdf0a2ba97" class="">Benchmark of the tinySelf while loop:</p>
         <pre id="2005991b-dcfd-49d4-81f2-3fe4f2fb54d6" class="code"><code>(|
     benchmark = (| i &lt;- 0. |
         [i &lt; 10000] whileTrue: [
@@ -41,8 +41,8 @@
     ).
 |) run_benchmark.</code>
 </pre>
-        <p id="a63a0bae-2b4c-48f9-a3d0-a795c4bfd6a8">Result:</p>
-        <div id="8dbe1c61-6d69-43e8-bbde-5fd01e98f1fc" class="collection-view">
+        <p id="a63a0bae-2b4c-48f9-a3d0-a795c4bfd6a8" class="">Result:</p>
+        <div id="8dbe1c61-6d69-43e8-bbde-5fd01e98f1fc" class="collection-content">
           <h4 class="collection-title">10 000 while cycles</h4>
           <table class="collection-content">
             <thead>
@@ -73,7 +73,7 @@
             </tbody>
           </table>
         </div>
-        <div id="92c66cf1-ced7-4326-a606-4aea3a6757e2" class="collection-view">
+        <div id="92c66cf1-ced7-4326-a606-4aea3a6757e2" class="collection-content">
           <h4 class="collection-title">1 000 000 while cycles</h4>
           <table class="collection-content">
             <thead>
@@ -104,9 +104,9 @@
             </tbody>
           </table>
         </div>
-        <p id="a000a445-436a-433c-909f-f0eb22718a57">This is obviously quite slow, but at least it now gives me tool to measure how slow and how much was the speed improved with optimizations.</p>
-        <p id="d458519e-de7a-4b79-bfd5-d182b985390b">Obvious optimization will be turning JIT on, <del>using rpythons unboxed integers</del> and also caching of the slot lookups.</p>
-        <p id="6685e951-4238-4ba9-ade0-3fc2358f26eb">
+        <p id="a000a445-436a-433c-909f-f0eb22718a57" class="">This is obviously quite slow, but at least it now gives me tool to measure how slow and how much was the speed improved with optimizations.</p>
+        <p id="d458519e-de7a-4b79-bfd5-d182b985390b" class="">Obvious optimization will be turning JIT on, <del>using rpythons unboxed integers</del> and also caching of the slot lookups.</p>
+        <p id="6685e951-4238-4ba9-ade0-3fc2358f26eb" class="">
         </p>
       </div>
     </article>

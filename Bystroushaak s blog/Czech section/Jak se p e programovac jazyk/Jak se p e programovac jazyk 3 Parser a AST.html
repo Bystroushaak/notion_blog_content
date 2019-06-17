@@ -1,8 +1,8 @@
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Jak se píše programovací jazyk 3: Parser a AST</title>
     <link rel="stylesheet" type="text/css" href="../../../style.css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Bystroushaak" />
@@ -19,15 +19,15 @@
         <h1 class="page-title">Jak se píše programovací jazyk 3: Parser a AST</h1>
       </header>
       <div class="page-body">
-        <p id="d22624d8-9c4b-4813-acee-87e959dd9f4e">
+        <p id="d22624d8-9c4b-4813-acee-87e959dd9f4e" class="">
           <time>@2019/02/16</time>
         </p>
-        <p id="7972e399-39dc-4cc4-9fac-14c6d44dc154">Ve třetím dílu seriálu <em>Jak se píše programovací jazyk</em> se podíváme na způsob, kterým se z jednorozměrného pole <code>Token</code> objektů udělá syntaktický strom, který pak následně můžeme dále zpracovávat a vyhodnocovat.</p>
-        <h1 id="3d9a6798-79b3-47f1-82bc-8d407702a16a">Parser</h1>
-        <p id="69f234e5-edcc-44bd-bac0-fcd319e19d42">Jak bylo popsáno v minulém dílu, Lexer vám kód rozřeže na pole jednotlivých elementů. V mém případě z kódu jako:</p>
+        <p id="7972e399-39dc-4cc4-9fac-14c6d44dc154" class="">Ve třetím dílu seriálu <em>Jak se píše programovací jazyk</em> se podíváme na způsob, kterým se z jednorozměrného pole <code>Token</code> objektů udělá syntaktický strom, který pak následně můžeme dále zpracovávat a vyhodnocovat.</p>
+        <h1 id="3d9a6798-79b3-47f1-82bc-8d407702a16a" class="">Parser</h1>
+        <p id="69f234e5-edcc-44bd-bac0-fcd319e19d42" class="">Jak bylo popsáno v minulém dílu, Lexer vám kód rozřeže na pole jednotlivých elementů. V mém případě z kódu jako:</p>
         <pre id="c54fe7eb-4c72-43d1-afc3-e9eb6170cdd4" class="code"><code>(| asd = 1 | ^asd.)</code>
 </pre>
-        <p id="cefcc4f1-2ab2-4a17-9431-d08381303c88">udělá pole ve stylu:</p>
+        <p id="cefcc4f1-2ab2-4a17-9431-d08381303c88" class="">udělá pole ve stylu:</p>
         <pre id="628aa0af-6c21-477b-b432-a154b1f70fa7" class="code"><code>[
   Token(&quot;OBJ_START&quot;, &quot;(&quot;),
   Token(&quot;SEPARATOR&quot;, &quot;|&quot;),
@@ -40,7 +40,7 @@
   Token(&quot;OBJ_END&quot;, &quot;)&quot;)
 ]</code>
 </pre>
-        <p id="79e40b53-cb13-44d6-a62f-1ef78abdf620">Jde o seznam <a href="https://github.com/solanolabs/rply/blob/master/rply/token.py">Token</a> objektů, kde v property <code>.name</code> je uložen název tokenu (například <em>„IDENTIFIER“</em>) a v <code>.value</code> jeho hodnota (například <em>„asd“</em>). Na parseru je poté kód vzít a udělat z něj AST (abstraktní syntaktický strom) ve stylu:</p>
+        <p id="79e40b53-cb13-44d6-a62f-1ef78abdf620" class="">Jde o seznam <a href="https://github.com/solanolabs/rply/blob/master/rply/token.py">Token</a> objektů, kde v property <code>.name</code> je uložen název tokenu (například <em>„IDENTIFIER“</em>) a v <code>.value</code> jeho hodnota (například <em>„asd“</em>). Na parseru je poté kód vzít a udělat z něj AST (abstraktní syntaktický strom) ve stylu:</p>
         <pre id="c4f4910a-e300-4a5b-867f-014d6489a3e2" class="code"><code>Object(
   slots={&quot;asd&quot;: Number(1)},
   params=[],
@@ -52,7 +52,7 @@
   ],
 )</code>
 </pre>
-        <p id="d28f5ee0-fe48-47b7-99de-d0c973ef9142">Na to jak je tinySelf jednoduchý jazyk mi dal parser docela zabrat. Původně jsem ho začal psát v RPythonním <a href="http://rpython.readthedocs.io/en/latest/rlib.html#ebnf">rpython.rlib.parsing.ebnfparse</a>, což vypadalo opticky dobře a jednoduše:</p>
+        <p id="d28f5ee0-fe48-47b7-99de-d0c973ef9142" class="">Na to jak je tinySelf jednoduchý jazyk mi dal parser docela zabrat. Původně jsem ho začal psát v RPythonním <a href="http://rpython.readthedocs.io/en/latest/rlib.html#ebnf">rpython.rlib.parsing.ebnfparse</a>, což vypadalo opticky dobře a jednoduše:</p>
         <pre id="ed29d4b7-34ce-4cad-b7ee-5a926fc227d8" class="code"><code>IGNORE: &quot; |\n&quot;;
 
 root: (expression [&quot;\.&quot;])* expression;
@@ -92,25 +92,25 @@ string: SINGLE_QUOTED_STRING | DOUBLE_QUOTED_STRING;
 SINGLE_QUOTED_STRING: &quot;&#x27;[^\\\&#x27;]*&#x27;&quot;;
 DOUBLE_QUOTED_STRING: &quot;\\&quot;[^\\\\&quot;]*\\&quot;&quot;;</code>
 </pre>
-        <p id="9322bf60-afd6-4920-b4ba-2193f37df136">Poměrně záhy jsem však narazil na nedostatek dokumentace a taky na chování, které mi vysloveně vadilo (všechny ty <code>&gt;&lt;</code> a <code>&lt;&gt;</code> kolem identifikátorů, divná rekurze s <code>|</code>, mixování s reguláry atd..). Od začátku jsem to pojal jako TDD development (psatní testů před kódem) a jen díky tomu jsem se z toho nezcvokl, neměl jsem k tomu však daleko.</p>
-        <p id="6dc80472-9047-4907-a95a-575736074d5d">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p>
-        <h1 id="5b183968-a7db-4ca4-90dd-9c087af6e2fb">RPLY</h1>
-        <p id="66f9efe0-7194-43a5-8461-e7b99a089d2a">Chybějící dokumentace mě časem donutila od RPythonního <code>ebnfparse</code> odejít, speciálně když jsem si procházel ostatní projekty, které používaly jiné parsery. Časem jsem narazil na <a href="https://rply.readthedocs.io/en/latest/">rply</a>, což je port parseru <a href="https://github.com/dabeaz/ply">ply</a> přímo pro RPython. Funguje tak, že píšete dekorátory funkcím ve stylu:</p>
+        <p id="9322bf60-afd6-4920-b4ba-2193f37df136" class="">Poměrně záhy jsem však narazil na nedostatek dokumentace a taky na chování, které mi vysloveně vadilo (všechny ty <code>&gt;&lt;</code> a <code>&lt;&gt;</code> kolem identifikátorů, divná rekurze s <code>|</code>, mixování s reguláry atd..). Od začátku jsem to pojal jako TDD development (psatní testů před kódem) a jen díky tomu jsem se z toho nezcvokl, neměl jsem k tomu však daleko.</p>
+        <p id="6dc80472-9047-4907-a95a-575736074d5d" class="">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p>
+        <h1 id="5b183968-a7db-4ca4-90dd-9c087af6e2fb" class="">RPLY</h1>
+        <p id="66f9efe0-7194-43a5-8461-e7b99a089d2a" class="">Chybějící dokumentace mě časem donutila od RPythonního <code>ebnfparse</code> odejít, speciálně když jsem si procházel ostatní projekty, které používaly jiné parsery. Časem jsem narazil na <a href="https://rply.readthedocs.io/en/latest/">rply</a>, což je port parseru <a href="https://github.com/dabeaz/ply">ply</a> přímo pro RPython. Funguje tak, že píšete dekorátory funkcím ve stylu:</p>
         <pre id="5cd6046e-24b6-46cc-a94b-4401ac9b4c3c" class="code"><code>@pg.production(&#x27;expression : NUMBER&#x27;)
 def expression_number(p):
     return Number(int(p[0].getstr()))</code>
 </pre>
-        <p id="c3f50bb6-685a-4558-8c41-2c15b12995cb">Dekorátor určuje pattern z tokenů. Dekorovaná funkce pak co se s tokeny provede. Všechny tokeny jsou předány v poli v proměnné ‚<code>p</code>‘.</p>
-        <p id="99d8df1e-28df-45bb-a8bb-05d18fed3a4f">V kódu nahoře se vezme první token (index 0) a vratí se objekt <code>Number</code> s tokenem, jehož hodnota byla převedena na číslo.</p>
-        <p id="b023c94a-28a4-4dd4-9ec9-64698c694dda">Number není žádný magický objekt, nadefinoval jsem si ho sám po vzoru ostatních parserů. Dohromady mám tyto objekty, ze kterých se sestavuje syntaktický strom:</p>
+        <p id="c3f50bb6-685a-4558-8c41-2c15b12995cb" class="">Dekorátor určuje pattern z tokenů. Dekorovaná funkce pak co se s tokeny provede. Všechny tokeny jsou předány v poli v proměnné ‚<code>p</code>‘.</p>
+        <p id="99d8df1e-28df-45bb-a8bb-05d18fed3a4f" class="">V kódu nahoře se vezme první token (index 0) a vratí se objekt <code>Number</code> s tokenem, jehož hodnota byla převedena na číslo.</p>
+        <p id="b023c94a-28a4-4dd4-9ec9-64698c694dda" class="">Number není žádný magický objekt, nadefinoval jsem si ho sám po vzoru ostatních parserů. Dohromady mám tyto objekty, ze kterých se sestavuje syntaktický strom:</p>
         <figure id="15baed76-e73a-4d6f-8812-d0251999d793" class="image">
           <a href="Jak se p e programovac jazyk 3 Parser a AST/ast.png">
             <img style="width:1960px" src="Jak se p e programovac jazyk 3 Parser a AST/ast.png" />
           </a>
         </figure>
-        <p id="4292bd03-b4a0-4e27-83f3-f6761e59e97e">Jak je vidět, v tinySelfu existují pouze objekty, bloky, akt poslání zprávy, přeposlání zprávy, kaskáda zpráv (akt poslání několika zpráv jednomu objektu), návrat hodnoty, tři typy zpráv (unární, binární, <em>keyword</em>) a poté čtyři zkratky pro často používané objekty: čísla, stringy, Self a Nil. Self by existovat teoreticky nemusel, mohla by to být jen <code>Message(&quot;self&quot;)</code> poslaná nikomu, ale zpřehledňuje to kód i výsledný strom. Nil je jen zkratka pro singleton, který by mohl být uložený v globálním namespace.</p>
-        <h2 id="56745c3a-7c85-4b59-b961-b642b26b0bb7">Složitější rekurzivní pravidla</h2>
-        <p id="8ae1b03b-3492-4bb2-863a-3d287d777fdf">Zde je ukázka složitějšího transformačního pravidla:</p>
+        <p id="4292bd03-b4a0-4e27-83f3-f6761e59e97e" class="">Jak je vidět, v tinySelfu existují pouze objekty, bloky, akt poslání zprávy, přeposlání zprávy, kaskáda zpráv (akt poslání několika zpráv jednomu objektu), návrat hodnoty, tři typy zpráv (unární, binární, <em>keyword</em>) a poté čtyři zkratky pro často používané objekty: čísla, stringy, Self a Nil. Self by existovat teoreticky nemusel, mohla by to být jen <code>Message(&quot;self&quot;)</code> poslaná nikomu, ale zpřehledňuje to kód i výsledný strom. Nil je jen zkratka pro singleton, který by mohl být uložený v globálním namespace.</p>
+        <h2 id="56745c3a-7c85-4b59-b961-b642b26b0bb7" class="">Složitější rekurzivní pravidla</h2>
+        <p id="8ae1b03b-3492-4bb2-863a-3d287d777fdf" class="">Zde je ukázka složitějšího transformačního pravidla:</p>
         <pre id="33016725-4452-4628-ba91-fe46da2bce8e" class="code"><code>@pg.production(&#x27;expression : IDENTIFIER&#x27;)
 def unary_message(p):
     return Send(obj=Self(), msg=Message(p[0].getstr()))
@@ -119,29 +119,29 @@ def unary_message(p):
 def unary_message_to_expression(p):
     return Send(obj=p[0], msg=Message(p[1].getstr()))</code>
 </pre>
-        <p id="2ad85d1c-f521-487d-be72-4fc4441175a0">Na ukázce je dobře vidět, jak vzniká poslání zpráv a jak je řešeno vkládání implicitního Selfu. Pokud je identifikátor poslán zdánlivě ničemu, je aktu poslání zprávy předán jako cíl <code>Self()</code>. Pokud je před identifikátorem nějaký výraz, je cíli poslání zprávy předán první token obsahující tento výraz (což už je naparsovaná expression, tedy prvek AST).</p>
-        <p id="9a6187a5-0701-48b1-9caf-7b8fc9663191">Podobnými pravidly je složen celý jazyk. Zde je také hezky vidět rekurzivní povaha parseru, který definuje <em>expression</em> jako identifikátor a poté také jako <em>expression</em> následované identifikátorem. Parser takhle provede rekurzivní <em>pattern matching</em> na všechny odpovídající tokeny, v samotných funkcích se pak jen definuje, co se z toho má složit za AST.</p>
-        <p id="c5093b42-f0b8-4c02-8abd-46e80c632d8c">Tenhle přístup má svou výhodu, protože vám dovoluje skládat AST přímo tak jak ho chcete. Předtím používaný <code>ebnf</code> z RPythonu vypadal sice zapsán elegantněji jako jeden krásný string, ale neumožňoval žádné skoro žádné manipupace s AST a vyplivl vám strom z tokenů, který bylo dále třeba zpracovávat. I když to bylo na vyšší úrovni, než samotné pole tokenů, stejně to byl masivní opruz. Oproti tomu přímý přístup k datům v rply vám umožňuje vygenerovat rovnou hotový a upravený AST.</p>
-        <p id="0f5a2869-8095-456c-b00e-f2e95bc420b1">Zde je zdrojový kód celého parseru:</p>
+        <p id="2ad85d1c-f521-487d-be72-4fc4441175a0" class="">Na ukázce je dobře vidět, jak vzniká poslání zpráv a jak je řešeno vkládání implicitního Selfu. Pokud je identifikátor poslán zdánlivě ničemu, je aktu poslání zprávy předán jako cíl <code>Self()</code>. Pokud je před identifikátorem nějaký výraz, je cíli poslání zprávy předán první token obsahující tento výraz (což už je naparsovaná expression, tedy prvek AST).</p>
+        <p id="9a6187a5-0701-48b1-9caf-7b8fc9663191" class="">Podobnými pravidly je složen celý jazyk. Zde je také hezky vidět rekurzivní povaha parseru, který definuje <em>expression</em> jako identifikátor a poté také jako <em>expression</em> následované identifikátorem. Parser takhle provede rekurzivní <em>pattern matching</em> na všechny odpovídající tokeny, v samotných funkcích se pak jen definuje, co se z toho má složit za AST.</p>
+        <p id="c5093b42-f0b8-4c02-8abd-46e80c632d8c" class="">Tenhle přístup má svou výhodu, protože vám dovoluje skládat AST přímo tak jak ho chcete. Předtím používaný <code>ebnf</code> z RPythonu vypadal sice zapsán elegantněji jako jeden krásný string, ale neumožňoval žádné skoro žádné manipupace s AST a vyplivl vám strom z tokenů, který bylo dále třeba zpracovávat. I když to bylo na vyšší úrovni, než samotné pole tokenů, stejně to byl masivní opruz. Oproti tomu přímý přístup k datům v rply vám umožňuje vygenerovat rovnou hotový a upravený AST.</p>
+        <p id="0f5a2869-8095-456c-b00e-f2e95bc420b1" class="">Zde je zdrojový kód celého parseru:</p>
         <ul id="3df38aab-0234-40e2-83dd-4259b972c50f" class="bulleted-list">
           <li>
             <a href="https://github.com/Bystroushaak/tinySelf/blob/master/src/tinySelf/parser/parser.py">parser.py</a>
           </li>
         </ul>
-        <p id="2346a27c-f941-4a2c-b701-7915156e927c">Nikdy dřív jsem nepsal takhle složitý EBNF parser a musím říct, že to pro mě byl docela záhul. Naučit se přemýšlet v rekurzivně skládaných definicích mi dalo zabrat, a to ani nemluvím o tom, že jsem pro Self nenašel žádnou EBNF definici, takže jsem si jí podle manuálu +- skládal sám.</p>
+        <p id="2346a27c-f941-4a2c-b701-7915156e927c" class="">Nikdy dřív jsem nepsal takhle složitý EBNF parser a musím říct, že to pro mě byl docela záhul. Naučit se přemýšlet v rekurzivně skládaných definicích mi dalo zabrat, a to ani nemluvím o tom, že jsem pro Self nenašel žádnou EBNF definici, takže jsem si jí podle manuálu +- skládal sám.</p>
         <figure id="6dea40d6-e3c2-49da-9866-8a3729309f04" class="image">
           <a href="Jak se p e programovac jazyk 3 Parser a AST/passing_tests.png">
             <img style="width:890px" src="Jak se p e programovac jazyk 3 Parser a AST/passing_tests.png" />
           </a>
         </figure>
-        <p id="7825c40c-7620-4ffd-9ff1-c1b3595113b6">Nakonec se však povedlo a kód prošel všemi testy, které jsem pro něj napsal. Myslel jsem si, že tím to pro mě končí, ale jak se ukázalo, byl to jen začátek další parsovací bolesti, tentokrát spočívající ve snaze kód upravit pro překlad RPythonem.</p>
-        <h1 id="76735348-6d36-43bf-9c29-9709bf25382c">Pokračování</h1>
-        <p id="4c34c5cf-c9ee-41e9-9f37-d2c77dea713f">Příští díl bude takovým mezidílem na téma RPythonu a některých praktických problémů, které jsem musel vyřešit, abych mohl parser a lexer pod ním zkompilovat.</p>
-        <h1 id="035572b4-371d-4d89-8cd2-3c89557492b1">Relevantní diskuze</h1>
+        <p id="7825c40c-7620-4ffd-9ff1-c1b3595113b6" class="">Nakonec se však povedlo a kód prošel všemi testy, které jsem pro něj napsal. Myslel jsem si, že tím to pro mě končí, ale jak se ukázalo, byl to jen začátek další parsovací bolesti, tentokrát spočívající ve snaze kód upravit pro překlad RPythonem.</p>
+        <h1 id="76735348-6d36-43bf-9c29-9709bf25382c" class="">Pokračování</h1>
+        <p id="4c34c5cf-c9ee-41e9-9f37-d2c77dea713f" class="">Příští díl bude takovým mezidílem na téma RPythonu a některých praktických problémů, které jsem musel vyřešit, abych mohl parser a lexer pod ním zkompilovat.</p>
+        <h1 id="035572b4-371d-4d89-8cd2-3c89557492b1" class="">Relevantní diskuze</h1>
         <ul id="252d60a9-acd8-4e03-97ff-967994b7d34a" class="bulleted-list">
           <li><a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-3-parser-a-ast">Jak se píše programovací jazyk 3: Parser a AST</a> (abclinuxu)</li>
         </ul>
-        <p id="04abc208-70cd-4bf0-9fce-e3d64cdf46c4">
+        <p id="04abc208-70cd-4bf0-9fce-e3d64cdf46c4" class="">
         </p>
       </div>
     </article>
