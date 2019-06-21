@@ -73,6 +73,11 @@ h3 {
 	word-break: break-all;
 }
 
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
 figure {
 	margin: 1.25em 0;
 	page-break-inside: avoid;
@@ -286,6 +291,10 @@ time {
 	text-decoration: none;
 	vertical-align: text-bottom;
 	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
 }
 
 .user-icon {
