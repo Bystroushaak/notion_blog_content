@@ -22,7 +22,7 @@ body {
 
 body {
 	line-height: 1.5;
-}
+	}
 
 a,
 a.visited {
@@ -359,7 +359,6 @@ input[type="checkbox"] {
 p {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
-	white-space: pre-line;
 }
 
 .image {
@@ -377,6 +376,7 @@ code {
 	padding: 0.2em 0.4em;
 	border-radius: 3px;
 	font-size: 85%;
+	tab-size: 2;
 }
 
 code {
@@ -475,6 +475,8 @@ blockquote {
 	background: rgb(251,228,228);
 }
 .block-color-default {
+	color: inherit;
+	fill: inherit;
 }
 .block-color-gray {
 	color: rgba(55, 53, 47, 0.6);
