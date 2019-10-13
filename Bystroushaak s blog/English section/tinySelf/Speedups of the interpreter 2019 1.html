@@ -103,17 +103,17 @@ class PrimitiveIntObject(_NumberObject):
         <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
         <figure id="673efe48-d19b-4297-9615-374f379d0cef" class="image">
           <a href="Speedups of the interpreter 2019 1/profiler_1.png">
-            <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_1.png" />
+            <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_1_thumb.jpg" />
           </a>
         </figure>
         <figure id="cdd53cf8-f9ca-472b-bc8d-5a2419a7b1dc" class="image">
           <a href="Speedups of the interpreter 2019 1/profiler_2.png">
-            <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_2.png" />
+            <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_2_thumb.jpg" />
           </a>
         </figure>
         <figure id="0a1c9401-7d8b-4753-9932-7ba7dc1da654" class="image">
           <a href="Speedups of the interpreter 2019 1/profiler_3.png">
-            <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_3.png" />
+            <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_3_thumb.jpg" />
           </a>
         </figure>
         <p id="135dd53a-dc37-4d6e-88fb-d434365bd3ad" class="">Few moments of clicking around clearly showed, that unholy lot of time was wasted by copying the <em>dicts</em> in the <code>add_primitive_fn</code>. I quickly realized, that each new int, float and string is created as new object and new map for this object.</p>
@@ -122,13 +122,13 @@ class PrimitiveIntObject(_NumberObject):
         <p id="37a7eca9-7504-4792-9c37-083b6bf9f4ea" class="">In class based languages, internal object representation holds just values and pointer to shared methods / description of the object&#x27;s structure in the <em>class</em>. Self uses similar trick by using <em>maps</em>. When object is created, it holds only data. With object is created its map, which holds metadata - information about slots, their names and so on.</p>
         <figure id="2445f3a8-e4c0-400d-989a-f531b22e4093" class="image">
           <a href="Speedups of the interpreter 2019 1/2019-01-2400.12.08.png">
-            <img style="width:384px" src="Speedups of the interpreter 2019 1/2019-01-2400.12.08.png" />
+            <img style="width:384px" src="Speedups of the interpreter 2019 1/2019-01-2400.12.08_thumb.jpg" />
           </a>
         </figure>
         <p id="733a7a82-ba29-49e0-aceb-db473c7d9b87" class="">On the internal level, each time object is cloned, it shares its map with the original object, until some kind of structural change is made.</p>
         <figure id="4c68e4ee-a707-4264-a14c-884f99ad1d97" class="image">
           <a href="Speedups of the interpreter 2019 1/2019-01-2923.45.11.png">
-            <img style="width:384px" src="Speedups of the interpreter 2019 1/2019-01-2923.45.11.png" />
+            <img style="width:384px" src="Speedups of the interpreter 2019 1/2019-01-2923.45.11_thumb.jpg" />
           </a>
         </figure>
         <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again: </p>

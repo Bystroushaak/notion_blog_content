@@ -113,25 +113,25 @@ class Map:
         <p id="21741387-2229-43ca-891e-98ed9e53116f" class="">V jakémsi pseudoUML to vypadá takto:</p>
         <figure id="88334089-2309-4ad4-a5fc-5014522c6dce" class="image">
           <a href="Jak se p e programovac jazyk 4 Objektov layout/map_0.png">
-            <img style="width:178px" src="Jak se p e programovac jazyk 4 Objektov layout/map_0.png" />
+            <img style="width:178px" src="Jak se p e programovac jazyk 4 Objektov layout/map_0_thumb.jpg" />
           </a>
         </figure>
         <p id="c1e71aef-4661-44fe-abee-2ee157656e6c" class="">Pokud dojde ke klonování objektu, je vytvořen nový objekt obsahující pole s odkazy na hodnoty. Všechny ostatní informace, jako rodičovské sloty, seznam parametrů a kód objektu jsou pro všechny klony uložené v jedné mapě, na kterou si předávají reference. Díky tomu je možné signifikantním způsobem šetřit paměť.</p>
         <figure id="acdd3d53-0803-4da6-a4d8-1dca2f7c4925" class="image">
           <a href="Jak se p e programovac jazyk 4 Objektov layout/map_1.png">
-            <img style="width:419px" src="Jak se p e programovac jazyk 4 Objektov layout/map_1.png" />
+            <img style="width:419px" src="Jak se p e programovac jazyk 4 Objektov layout/map_1_thumb.jpg" />
           </a>
         </figure>
         <p id="df090a8a-2d00-4d66-afe1-55bb871bdb6a" class="">To platí, i když se změní hodnota konkrétního slotu:</p>
         <figure id="e4db1c86-c57b-49d4-b149-5755b676d684" class="image">
           <a href="Jak se p e programovac jazyk 4 Objektov layout/map_2.png">
-            <img style="width:394px" src="Jak se p e programovac jazyk 4 Objektov layout/map_2.png" />
+            <img style="width:394px" src="Jak se p e programovac jazyk 4 Objektov layout/map_2_thumb.jpg" />
           </a>
         </figure>
         <p id="62a8fedc-8c30-4c6f-9cdb-570e26b7ec82" class="">Celá implementace se ovšem kapku zesložiťuje v případě kdy se změní struktura, neboť je potřeba patřičně ošetřit všechny manipulace objektu tak, aby došlo k vytvoření nové mapy.</p>
         <figure id="599fe379-e581-48a1-ae32-a2b6baf81822" class="image">
           <a href="Jak se p e programovac jazyk 4 Objektov layout/map_3.png">
-            <img style="width:417px" src="Jak se p e programovac jazyk 4 Objektov layout/map_3.png" />
+            <img style="width:417px" src="Jak se p e programovac jazyk 4 Objektov layout/map_3_thumb.jpg" />
           </a>
         </figure>
         <p id="1e7521bd-f5cc-469e-a940-76b0e6b5070d" class="">To jsem osobně vyřešil spoustou <code>meta_</code> metod. Například <code>.meta_add_slot()</code>, která do klonu přidá nový slot, před tím však vytvoří <em>klon mapy</em>, takže tento nový objekt již používá vlastní mapu, kterou si může upravovat jak chce.</p>
@@ -145,7 +145,7 @@ class Map:
         <p id="16286af8-76fe-4aed-80f2-e0b79521fcde" class="">Zde je UML výsledné podoby <em>objektového layoutu</em>:</p>
         <figure id="6626d9a6-07b9-489d-9d91-b7b0ad50646e" class="image">
           <a href="Jak se p e programovac jazyk 4 Objektov layout/object_layout.png">
-            <img style="width:887px" src="Jak se p e programovac jazyk 4 Objektov layout/object_layout.png" />
+            <img style="width:887px" src="Jak se p e programovac jazyk 4 Objektov layout/object_layout_thumb.jpg" />
           </a>
         </figure>
         <p id="6674d19f-8870-4f29-9c75-bab35b56930f" class="">Zdrojový kód je možné najít v souboru:</p>

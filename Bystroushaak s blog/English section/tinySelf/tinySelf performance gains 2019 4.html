@@ -42,7 +42,7 @@
         <p id="94a8fab5-4767-4c3e-9538-75fd6c43f068" class="">Unsurprisingly, it can be seen from the first glance, that 73.45% of the time is spent in the <code>_do_send()</code> method:</p>
         <figure id="c634c802-ed5d-434c-9274-8c7313ba12b4" class="image">
           <a href="tinySelf performance gains 2019 4/profiling.png">
-            <img style="width:2560px" src="tinySelf performance gains 2019 4/profiling.png" />
+            <img style="width:2560px" src="tinySelf performance gains 2019 4/profiling_thumb.jpg" />
           </a>
         </figure>
         <p id="44de260b-12b5-429c-ba0a-aa6176e0c223" class="">42% takes slot lookup, which is not much surprising. 34% of that takes parent lookup. Still, no surprise there.</p>
@@ -159,13 +159,13 @@
         <p id="19fa38bf-9fb4-4c33-99cf-d3f3fe86fcf4" class="">Off course, this is not really that great time saving for local sends, but it may be great for parent sends, because it potentially saves a lot of requests to several dictionaries in parents. Local sends are still great for proof of concept.</p>
         <figure id="d6d5bed3-db1b-4692-ab8c-a72dc6157829" class="image">
           <a href="tinySelf performance gains 2019 4/2019-04-16_19.58.16.png">
-            <img style="width:2798px" src="tinySelf performance gains 2019 4/2019-04-16_19.58.16.png" />
+            <img style="width:2798px" src="tinySelf performance gains 2019 4/2019-04-16_19.58.16_thumb.jpg" />
           </a>
         </figure>
         <p id="35f050cf-538a-4eb4-bcac-701385ee0488" class="">So, I had to put some kind of measurement into the <code>object_layout.py</code>, as it only makes sense to dynamically recompile objects which already have some slots.</p>
         <figure id="e44716b6-ee1d-41ef-8c76-106292528907" class="image">
           <a href="tinySelf performance gains 2019 4/2019-04-16_19.59.32.png">
-            <img style="width:2999px" src="tinySelf performance gains 2019 4/2019-04-16_19.59.32.png" />
+            <img style="width:2999px" src="tinySelf performance gains 2019 4/2019-04-16_19.59.32_thumb.jpg" />
           </a>
         </figure>
         <p id="b5637471-ce5c-456d-898a-1b485551bbfa" class="">I&#x27;ve implemented all this, introduced new bytecodes for local and parent sends, then split <code>._do_send()</code> method into multiple parts, which were used by new bytecodes. And it worked and it was <em>slightly</em> faster.</p>

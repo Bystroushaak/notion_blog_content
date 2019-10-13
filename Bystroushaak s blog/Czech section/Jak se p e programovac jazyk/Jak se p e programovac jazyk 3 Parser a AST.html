@@ -115,7 +115,7 @@ def expression_number(p):
         <p id="b023c94a-28a4-4dd4-9ec9-64698c694dda" class="">Number není žádný magický objekt, nadefinoval jsem si ho sám po vzoru ostatních parserů. Dohromady mám tyto objekty, ze kterých se sestavuje syntaktický strom:</p>
         <figure id="15baed76-e73a-4d6f-8812-d0251999d793" class="image">
           <a href="Jak se p e programovac jazyk 3 Parser a AST/ast.png">
-            <img style="width:1960px" src="Jak se p e programovac jazyk 3 Parser a AST/ast.png" />
+            <img style="width:1960px" src="Jak se p e programovac jazyk 3 Parser a AST/ast_thumb.jpg" />
           </a>
         </figure>
         <p id="4292bd03-b4a0-4e27-83f3-f6761e59e97e" class="">Jak je vidět, v tinySelfu existují pouze objekty, bloky, akt poslání zprávy, přeposlání zprávy, kaskáda zpráv (akt poslání několika zpráv jednomu objektu), návrat hodnoty, tři typy zpráv (unární, binární, <em>keyword</em>) a poté čtyři zkratky pro často používané objekty: čísla, stringy, Self a Nil. Self by existovat teoreticky nemusel, mohla by to být jen <code>Message(&quot;self&quot;)</code> poslaná nikomu, ale zpřehledňuje to kód i výsledný strom. Nil je jen zkratka pro singleton, který by mohl být uložený v globálním namespace.</p>
@@ -141,7 +141,7 @@ def unary_message_to_expression(p):
         <p id="2346a27c-f941-4a2c-b701-7915156e927c" class="">Nikdy dřív jsem nepsal takhle složitý EBNF parser a musím říct, že to pro mě byl docela záhul. Naučit se přemýšlet v rekurzivně skládaných definicích mi dalo zabrat, a to ani nemluvím o tom, že jsem pro Self nenašel žádnou EBNF definici, takže jsem si jí podle manuálu +- skládal sám.</p>
         <figure id="6dea40d6-e3c2-49da-9866-8a3729309f04" class="image">
           <a href="Jak se p e programovac jazyk 3 Parser a AST/passing_tests.png">
-            <img style="width:890px" src="Jak se p e programovac jazyk 3 Parser a AST/passing_tests.png" />
+            <img style="width:890px" src="Jak se p e programovac jazyk 3 Parser a AST/passing_tests_thumb.jpg" />
           </a>
         </figure>
         <p id="7825c40c-7620-4ffd-9ff1-c1b3595113b6" class="">Nakonec se však povedlo a kód prošel všemi testy, které jsem pro něj napsal. Myslel jsem si, že tím to pro mě končí, ale jak se ukázalo, byl to jen začátek další parsovací bolesti, tentokrát spočívající ve snaze kód upravit pro překlad RPythonem.</p>
