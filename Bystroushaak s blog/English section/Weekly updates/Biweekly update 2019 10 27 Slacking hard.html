@@ -31,7 +31,7 @@
       <div class="page-body">
         <p id="d7315719-baba-4275-8f16-0e50784a57bc" class="">In the productivity area, this was really, really bad week. I felt kinda overwhelmed, so I decided to relax. All my free time was consumed by anime, movies, and even some games (Minecraft / 7 days to die). Now I feel more relaxed, but at the same time, I feel like I wasted my life.</p>
         <h1 id="dcfc8833-8970-4454-8b40-d328fdd38f0e" class="">tinySelf progress</h1>
-        <p id="3dbcd0be-3b62-43a9-bc72-30a538ff9a43" class="">I&#x27;ve put some time into debugging, and ultimately into understanding the nature of the float trait bug. I now think that I do understand it, but at the same time, it revealed the bug in the design which I am not yet sure how to mitigate.</p>
+        <p id="3dbcd0be-3b62-43a9-bc72-30a538ff9a43" class="">I&#x27;ve put some time into debugging, and ultimately into understanding the nature of the float trait bug. I now think that I understand it, but at the same time, it revealed the bug in the design which I am not yet sure how to mitigate.</p>
         <figure id="7a1fb50e-c293-4927-89b6-309c53ac0341" class="image">
           <a href="Biweekly update 2019 10 27 Slacking hard/tinySelf_bug_mind_map.jpg">
             <img style="width:1600px" src="Biweekly update 2019 10 27 Slacking hard/tinySelf_bug_mind_map_thumb.jpg" />
@@ -47,8 +47,8 @@
         <ol id="708761a2-306b-4ecc-b0e8-48846275406b" class="numbered-list" start="3">
           <li>This newly added object calls a &quot;primitive&quot; method.</li>
         </ol>
-        <p id="35690ff1-4963-4865-8140-646141018055" class="">When this happens, <code>self</code> keyword points to the object added in the step 2., not to the object that has a trait in the step 1.</p>
-        <p id="794cad56-444a-40c5-b905-3a1d66d7d4f0" class="">The way how <code>self</code> works at the moment is kinda hacky, so I am rethinking the whole way in hope that I&#x27;ll come with something cleaner. So I am thinking about it from time to time, hoping that I&#x27;ll have some solution soon, procrastinating on 100% in the meantime.</p>
+        <p id="35690ff1-4963-4865-8140-646141018055" class="">When this happens, <code>self</code> in the primitive method points to the object added in the step 2., not to the object that has a trait in the step 1. It is kinda weird why, because the object added in step 2. uses self that points to the object that has a trait from step 1. It took me some time debugging why, and the reason is because axioms that define how the interpreter should work were wrong.</p>
+        <p id="794cad56-444a-40c5-b905-3a1d66d7d4f0" class="">The way how <code>self</code> works at the moment is kinda hacky and will need a rework. I am rethinking the approach in hope that I&#x27;ll come with something cleaner, sadly, I also feel kinda paralyzed with this problem, so I am <del>procrastinating on 100% in the meantime</del> thinking about it &quot;on the background&quot; with the <a href="https://www.goodreads.com/book/show/3063393-pragmatic-thinking-and-learning">right hemisphere thinking</a>, hoping that I&#x27;ll have some solution soon.</p>
         <h1 id="36f5dff4-40b6-4212-8408-b80bd24853fe" class="">Book report</h1>
         <p id="e66be499-904e-4636-9974-5899fb2522dc" class="">I&#x27;ve finished <a href="http://www.lulu.com/shop/andrei-chi%C8%99/moldable-tools/paperback/product-22849029.html"><em>Moldable tools</em></a>, and I am in the process of writing blogpost about core ideas. Other than that, I&#x27;ve finished <a href="https://www.goodreads.com/book/show/24968626-crux"><em>Crux</em></a> by Ramez Naam and I&#x27;ve immediatelly picked up third episode of the Nexus series.</p>
         <h1 id="5ee4e1c5-0ca3-4cd0-bd1c-a52774e66d35" class="">Writing</h1>
