@@ -92,8 +92,8 @@
         <p id="5f4fdf98-d70c-499a-86c4-c9f3ca933f5d" class="">Schválně se zkuste zamyslet, co to vlastně je. Vyjde vám, že je to omezená hierarchická <em>key-value</em> databáze.</p>
         <p id="d21255db-ec66-4e04-924f-e01af4b1b72e" class="">Omezená, protože omezuje nejen velikost a subset klíče, který je v lepším případě v UTF, ale i samotnou uloženou <em>hodnotu</em> na proud bajtů. To se zdá rozumné jen do chvíle, kdy si uvědomíte, že je to stromová databáze, která vám nedovoluje přímo ukládat strukturovaná data. Počet inodů (větví struktury) je navíc omezen na číslo, jenž se v horších případech pohybuje v řádu desítek až stovek tisíc, maximálně však pár milionů prvků v jednom <em>adresáři</em>.</p>
         <figure id="46e9a00c-962d-4125-b443-be480047210d" class="image">
-          <a href="Program torova kritika chyb j c struktury opera n /fs_metaphor.png">
-            <img style="width:600px" src="Program torova kritika chyb j c struktury opera n /fs_metaphor.png" />
+          <a href="Program%20torova%20kritika%20chyb%20j%20c%20struktury%20opera%20n%20/fs_metaphor.png">
+            <img style="width:600px" src="Program%20torova%20kritika%20chyb%20j%20c%20struktury%20opera%20n%20/fs_metaphor.png" />
           </a>
         </figure>
         <p id="e9c57347-247f-4717-973a-25243c9219bc" class="">Ve dvou z mých předchozích zaměstnáních jsme museli obcházet omezený počet inodů na složku retardací jako <a href="http://balanceddiscstorage.readthedocs.io/">BalancedDiscStorage</a>, či ukládáním souborů do tří podsložek složených z prvních tří písmen MD5 hashe souboru.</p>
@@ -101,7 +101,7 @@
         <p id="f97c792f-00a4-4410-8cec-a2a4cdd80e14" class="">Filesystém je specificky omezená databáze. Každý koho znám, kdo se kdy pokusil filesystém použít pro cokoliv netriviálního, dřív nebo později tvrdě narazil. Ať už je to programátor, který si řekne, že si ty data prostě a jednoduše bude ukládat do souborů, nebo uživatel, který se v bordelu na filesystému nemůže vyznat a musí používat různé divné vyhledávání a indexování. Výkřikem techniky je, když dokáže poznat, že má poškozená data a dopočítat je zpětně ze samo-opravných kódů, pokud máte disky v RAIDu.</p>
         <p id="a44fcbc0-cc30-45ac-9530-fcc438b7b7a4" class="">Samozřejmě chápu, že pointou je něco jiného. Řeší se tu sektory na disku a žurnálování, plotny a oddíly a RAIDy a celé je to super pokrok oproti původním primitivním systémům ukládání dat. <em>Ale</em> — není to náhodou pokrok špatným směrem?</p>
         <figure id="a437aec1-4202-4a66-8997-f8d7ba41240d" class="image">
-          <a href="Program torova kritika chyb j c struktury opera n /150401-erma-mark1-file-system.png">
+          <a href="Program%20torova%20kritika%20chyb%20j%20c%20struktury%20opera%20n%20/150401-erma-mark1-file-system.png">
             <img style="width:624px" src="Program torova kritika chyb j c struktury opera n /150401-erma-mark1-file-system_thumb.jpg" />
           </a>
         </figure>
@@ -111,7 +111,7 @@
         <p id="5914bc60-cd9b-4518-bb3c-369ec281274d" class="">Programy se prvně napíšou ve zdrojovém kódu příslušného jazyka, který se potom zkompiluje a slinkuje do jednoho bloku. Ten je následně vyděrován na děrné štítky (binární data) a zastrčen do patřičné krabice (souboru) ve správné sekci kartotéky (filesystému).</p>
         <p id="8e53a751-a28f-4066-961f-b46f224c7c7b" class="">Když chce uživatel program pustit, napíše jeho jméno na příkazovém řádku, nebo někde klepne na ikonu. Poskládané děrné štítky jsou následně vyndány z kartotéky a nacpány do paměti, která se pro program tváří, jako kdyby byl v celém operačním systému sám. Kód je poté prováděn od počátečních děrných štítků k těm koncovým, s tím že program může podmíněně přeskočit na konkrétní děrný štítek v krabici, která ho tvoří.</p>
         <figure id="53420a0f-08ae-497f-af2b-dfbdac6ae07b" class="image">
-          <a href="Program torova kritika chyb j c struktury opera n /pe_structure.jpg">
+          <a href="Program%20torova%20kritika%20chyb%20j%20c%20struktury%20opera%20n%20/pe_structure.jpg">
             <img style="width:2653px" src="Program torova kritika chyb j c struktury opera n /pe_structure_thumb.jpg" />
           </a>
         </figure>
@@ -134,7 +134,7 @@
         <p id="c64cf61b-8e6d-4280-baf0-476feaada41f" class="">V čem je problém?</p>
         <p id="70bbbcc3-0a67-4696-9ad3-09944bfbe637" class="">Prakticky všechna data mají svou strukturu. Kdykoliv, kdy programátoři v programovacím jazyku pracují s daty, a nejedná se jen o jejich přesunutí, tak se jim snaží dát strukturu. Namapují je na různé <code>struct</code> konstrukty. Vytvoří z nich strom objektů. I u <em>streamovaných</em> věcí, jako je třeba záznam zvuku ve formátu <a href="https://cs.wikipedia.org/wiki/WAV">WAV</a>, se iteruje skrz jednotlivé <em>chunky</em>.</p>
         <figure id="2a27a936-5835-4114-87a8-148a61d948a2" class="image">
-          <a href="Program torova kritika chyb j c struktury opera n /wav101.png">
+          <a href="Program%20torova%20kritika%20chyb%20j%20c%20struktury%20opera%20n%20/wav101.png">
             <img style="width:1488px" src="Program torova kritika chyb j c struktury opera n /wav101_thumb.jpg" />
           </a>
         </figure>

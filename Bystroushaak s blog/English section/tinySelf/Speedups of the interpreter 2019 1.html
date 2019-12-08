@@ -33,7 +33,7 @@
         <p id="cd88bf70-0773-4cda-aafb-f3f2ad917681" class="">
           <time>@2019/01/29</time>
         </p>
-        <p id="381a2a80-9fdf-4217-bc1b-a8c13e5dc593" class="">So, since I did some benchmarks (<a href="Simple while benchmark 2019 01 06.html">Simple while benchmark 2019.01.06</a>), I had high hopes for speedup using rpython&#x27;s JIT.</p>
+        <p id="381a2a80-9fdf-4217-bc1b-a8c13e5dc593" class="">So, since I did some benchmarks (<a href="Simple%20while%20benchmark%202019%2001%2006.html">Simple while benchmark 2019.01.06</a>), I had high hopes for speedup using rpython&#x27;s JIT.</p>
         <p id="172d60a5-0dce-4920-bc02-d9d0c19c65b9" class="">As it turned out, it didn&#x27;t work at all - it actually runs many times slower (62 seconds instead of 17).</p>
         <p id="cd0408ce-6388-48d5-b0fa-985779b4246b" class="">Several attempts at tweaking the code revealed where was the problem - I had to specify almost everything as &quot;red&quot; variable. Even things like program counter, which I didn&#x27;t expect at all.</p>
         <p id="a84a9b94-a142-453d-82b1-ccb2cab33764" class="">With those improvements, code run 20% faster than without JIT. Obviously, this wasn&#x27;t acceptable, so I had to investigate.</p>
@@ -95,7 +95,7 @@ class PrimitiveIntObject(_NumberObject):
 </pre>
         <figure id="bb40f15d-1907-443b-95e0-234b37a1f084">
           <div class="source">
-            <a href="Speedups of the interpreter 2019 1/callgrind.out.2530.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57c100e6-92fb-4037-ab63-111301aee646/callgrind.out.2530.txt</a>
+            <a href="Speedups%20of%20the%20interpreter%202019%201/callgrind.out.2530.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57c100e6-92fb-4037-ab63-111301aee646/callgrind.out.2530.txt</a>
           </div>
         </figure>
         <p id="f02f86f9-d87a-4692-a6b2-b34facc63bec" class="">and then</p>
@@ -103,17 +103,17 @@ class PrimitiveIntObject(_NumberObject):
 </pre>
         <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
         <figure id="673efe48-d19b-4297-9615-374f379d0cef" class="image">
-          <a href="Speedups of the interpreter 2019 1/profiler_1.png">
+          <a href="Speedups%20of%20the%20interpreter%202019%201/profiler_1.png">
             <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_1_thumb.jpg" />
           </a>
         </figure>
         <figure id="cdd53cf8-f9ca-472b-bc8d-5a2419a7b1dc" class="image">
-          <a href="Speedups of the interpreter 2019 1/profiler_2.png">
+          <a href="Speedups%20of%20the%20interpreter%202019%201/profiler_2.png">
             <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_2_thumb.jpg" />
           </a>
         </figure>
         <figure id="0a1c9401-7d8b-4753-9932-7ba7dc1da654" class="image">
-          <a href="Speedups of the interpreter 2019 1/profiler_3.png">
+          <a href="Speedups%20of%20the%20interpreter%202019%201/profiler_3.png">
             <img style="width:1920px" src="Speedups of the interpreter 2019 1/profiler_3_thumb.jpg" />
           </a>
         </figure>
@@ -122,13 +122,13 @@ class PrimitiveIntObject(_NumberObject):
         <p id="5536e7dd-1981-48c2-a87f-178d7d05ed68" class="">As you may know, Self is prototype based language. That means it doesn&#x27;t use classes, which means that functionality is by default in each object. Code reuse is achieved using parent slots.</p>
         <p id="37a7eca9-7504-4792-9c37-083b6bf9f4ea" class="">In class based languages, internal object representation holds just values and pointer to shared methods / description of the object&#x27;s structure in the <em>class</em>. Self uses similar trick by using <em>maps</em>. When object is created, it holds only data. With object is created its map, which holds metadata - information about slots, their names and so on.</p>
         <figure id="2445f3a8-e4c0-400d-989a-f531b22e4093" class="image">
-          <a href="Speedups of the interpreter 2019 1/2019-01-2400.12.08.png">
-            <img style="width:384px" src="Speedups of the interpreter 2019 1/2019-01-2400.12.08.png" />
+          <a href="Speedups%20of%20the%20interpreter%202019%201/2019-01-2400.12.08.png">
+            <img style="width:384px" src="Speedups%20of%20the%20interpreter%202019%201/2019-01-2400.12.08.png" />
           </a>
         </figure>
         <p id="733a7a82-ba29-49e0-aceb-db473c7d9b87" class="">On the internal level, each time object is cloned, it shares its map with the original object, until some kind of structural change is made.</p>
         <figure id="4c68e4ee-a707-4264-a14c-884f99ad1d97" class="image">
-          <a href="Speedups of the interpreter 2019 1/2019-01-2923.45.11.png">
+          <a href="Speedups%20of%20the%20interpreter%202019%201/2019-01-2923.45.11.png">
             <img style="width:384px" src="Speedups of the interpreter 2019 1/2019-01-2923.45.11_thumb.jpg" />
           </a>
         </figure>
