@@ -1,0 +1,460 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Programátorova kritika chybějící struktury operačních systémů</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Bystroushaak" />
+    <meta name="twitter:creator" content="@Bystroushaak" />
+    <meta name="twitter:title" content="Programátorova kritika chybějící struktury operačních systémů" />
+    <meta name="twitter:description" content="Před nějakou dobou se mi dostalo do rukou zamyšlení, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi „průzkum“ už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací." />
+    <meta name="twitter:image" content="http://blog.rfox.eu/Bystroushaak%20s%20blog/Czech%20section/Program%20torova%20kritika%20chyb%20j%20c%20struktury%20opera%20n%20/fs_metaphor.png" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+    </script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-142545439-1');
+        </script>
+        <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+  </head>
+  <body>
+    <a class="breadcrumb" href="../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="index.html">Czech section</a> / Programátorova kritika chybějící struktury operačních systémů
+
+    <article id="ae480376-4afa-4e02-907a-3228370dc745" class="page sans">
+      <header>
+        <h1 class="page-title">Programátorova kritika chybějící struktury operačních systémů</h1>
+      </header>
+      <div class="page-body">
+        <p id="1c1695ec-f31f-44c4-8889-cec5cb9f706b" class="">
+          <time>@2018/12/10</time>
+        </p>
+        <p id="0dff7aaf-d828-4946-a76f-8d5cc7dc6c74" class="">Před nějakou dobou se mi dostalo do rukou <a href="https://www.cl.cam.ac.uk/~srk31/research/papers/kell13operating.pdf">zamyšlení</a>, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi <em>„průzkum“</em> už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací.</p>
+        <h2 id="1d8e9806-af91-4536-ac27-51883664e296" class="">Buďte varováni</h2>
+        <p id="1df80904-a94b-4094-b78f-df85248fcac4" class="">Pozor, tento zápisek obsahuje množství textu. Pokud vás text uráží, zvažte, zda se vůbec chcete pustit do diskuze.</p>
+        <h2 id="ccb7aabf-3f07-4eb0-9dd6-1d604c29b940" class="">
+          <code>&lt;možné přeskočit&gt;</code>
+        </h2>
+        <p id="66ab035d-cc2c-4690-b6ac-2475a194593e" class="">Předně bych rád deklaroval, že tu mluvím sám o sobě. Když budu psát, že <em>„je něco zapotřebí“</em>, <em>„možné“</em>, nebo <em>„schůdné“</em>, myslím tím <em>„zapotřebí pro mě“</em>, <em>„možné pro mě“</em>, nebo <em>„schůdné pro mě“</em>.</p>
+        <p id="75381acd-8267-4d45-afa6-1f0aadc30185" class="">Zažil jsem až příliš diskuzí na internetu, které byly způsobeny čtením mezi řádky a vztahováním čtenářovo názorů a předsudků na osobu autora. Vím, že tohle upozornění pravděpodobně nepomůže, ale zkuste se nad prezentovanými myšlenkami zamyslet s otevřenou myslí.</p>
+        <p id="10f458d5-1fa0-4722-8163-1ee3b4fb9dbb" class="">Pokud vám některé moje nápady přijdou kontroverzní, nesmyslné, či pokud budete mít dokonce pocit, že Vás pobuřují svou donebevolající blbostí - uklidněte se. Vzpomeňte si na výše uvedenou deklaraci. Uvědomte si, že vůbec nemluvím o vás, nemám potřebu a chuť vám něco vnucovat, měnit vám workflow, nebo pomlouvat Váš systém. Berte to jako mojí podivnost, jako možný směr, který to chce vyzkoušet a nevztahujte to o čem tu mluvím na sebe.</p>
+        <p id="8ee77a2d-97b6-416e-b793-939a52baefaf" class="">Pokud ho nechcete, či nemůžete vložit do diskuze, pošlete mi ho emailem na <code>bystrousak[]kitakitsune.org</code>, s nějakým smysluplným předmětem. Možná Vás to překvapí, ale napsal jsem docela hodně článků s podobným upozorněním a dodneška diskutuji s lidmi co je četli, i když je to třeba 7 let od vydání. O váš názor stojím.</p>
+        <h2 id="3c38ef22-82fb-4b5d-ae1e-7296f988a7eb" class="">
+          <code>&lt;/možné přeskočit&gt;</code>
+        </h2>
+        <h2 id="43b0313d-a94f-4729-8cb2-0e4f868f7718" class="">Proč?</h2>
+        <p id="78abf4bb-cf4a-4bc7-a665-18af92fa5bf6" class="">V posledních letech jsem pracoval pro několik firem vytvářejících software. V některých případech jsem se zapojil do již existujících týmů, v ostatních jsem začínal spolu s několika dalšími programátory „na zelené louce“. Často jsem se přímo podílel na návrhu architektury, pokud jsem jí rovnou nevymýšlel sám.</p>
+        <p id="c948253c-29e9-4f24-8f63-7da27923a506" class="">Pracuji jako <em>„backendový programátor“</em>. Mým popisem práce je typicky vytvářet systémy, které načítají, zpracovávají a ukládají různá data, parsují všemožné formáty, volají různé programy, či interagují s ostatními systémy a zařízeními.</p>
+        <p id="27321867-ab44-419e-abea-7fbe45cd8300" class="">V <em>Národní knihovně</em> jsem v tříčlenném týmu dělal na systému pro zpracování elektronických publikací. Vytvořil jsem tam prakticky veškerý backendový kód, od ukládání dat, po komunikaci s ostatními systémy, mezi které patří například Aleph, Kramerius, nebo LTP (dlouhodobý archiv digitálních dat). Pro ukládání byl použit linuxový filesystém ext4 na CentOSu a objektová databáze <a href="https://en.wikipedia.org/wiki/Zope_Object_Database">ZODB</a> vynucená <a href="https://plone.org/">Plonem</a>, ve kterém byla frontendová část. Pro komunikaci pak všechno možné, od volání API přes <a href="https://www.zdrojak.cz/clanky/rest-architektura-pro-webove-api/">REST</a>, nahrávání XML souborů na FTP, až po balení věcí do ZIPu a kopírování na sambu. Interní komponenty mezi sebou používaly <a href="https://en.wikipedia.org/wiki/RabbitMQ">RabbitMQ</a>.</p>
+        <p id="09d72696-9016-4876-beec-62ff0c506cbc" class="">V jisté nejmenované společnosti jsem pracoval na systému k ochraně proti DDoS útokům. Kvůli NDA nemůžu rozebírat podrobnosti nad rámec popisu tehdejších pracovních inzerátů. Ty ukazují, že byl také použit linux, python, SQL i NoSQL databáze, spousta různých existujících opensource programů a na komunikaci RabbitMQ. Na velké části z toho komunikačního kódu jsem dělal přímo já.</p>
+        <p id="ecd5c781-8c3d-4b2f-94df-ccb86fa34ec4" class="">Pro <em>Nubium development</em>, vytvářející asi nejznámější český filehostingový web <em>ulož.to</em>, jsem dělal na backendu. Zrefaktoroval jsem a částečně navrhl kusy software, které se starají o ukládání a redistribuci souborů napříč různými servery, ale i o zpracování uživatelských dat. Například ikonky, které se zobrazují u náhledů archivů a videí, jsou moje práce, kromě spousty dalších věcí, které nikde neuvidíte.</p>
+        <p id="9eb33bfb-8a8f-48cb-a73e-ff5e57bfd4ed" class="">Pro pár dalších firem jsem dělal různé weby a RESTové služby. Sáhl jsem si ovšem i na exotičtější věcí, například na systém pro rozpoznání a automatické vyhodnocování záběrů z kamer v různých tunelech a k tomu přidružený <em>machine learning</em>.</p>
+        <p id="fc604cae-f9e7-4af9-ac3f-b4abef286969" class="">Všude kde jsem dělal se používal linux, databáze, a většinou i nějaká forma <em>message queue</em> předávající strukturovaná data. Někdy šlo o SQL tabulky, jindy o JSON poslaný přes RabbitMQ.</p>
+        <p id="9b2855a3-b9b4-4a6e-b891-cd7644fcfd9a" class="">V každé z jmenovaných firem jsem viděl ten samý vzor - nezávisle na sobě vytvořený, přibližně podobný kus software, který přirozeně vyplynul z několika požadavků:</p>
+        <ul id="79d55add-6089-4638-bef0-9aedfb743583" class="bulleted-list">
+          <li>Spolehlivé ukládání velkého počtu malých souborů (miliony souborů, s průměrně megabajty až gigabajty na soubor), či menšího počtu velkých souborů (terabajty / soubor).</li>
+        </ul>
+        <ul id="a4c5fa5a-2d50-47aa-8a67-435ce1eabadd" class="bulleted-list">
+          <li>Načítání a zápis konfigurace ve strukturovaném formátu (INI, JSON, XML, YAML, ..).</li>
+        </ul>
+        <ul id="5590c10c-cbc2-4dc5-b98c-b400bd007d66" class="bulleted-list">
+          <li>Strukturovaná komunikace mezi vlastními, ale i s cizími programy.</li>
+        </ul>
+        <ul id="4df40d75-6e25-4e4b-89e4-0c1995a67599" class="bulleted-list">
+          <li>Distribuovaná architektura zahrnující vícero fyzických strojů, umožňující snadné škálování.</li>
+        </ul>
+        <p id="d68709dd-fabd-46c1-a005-ee809b65c2bf" class="">Pokud programujete, pravděpodobně víte, kam tím mířím. Jestliže spousta programátorů vytváří nad danou knihovnou stále stejný vzor, nejedná se o chybu programátorů, ale o špatně navrženou knihovnu.</p>
+        <p id="32f496b3-4600-402a-987a-822c378a4c83" class="">Postupně, jak jsem nad tím tak přemýšlel, jsem dospěl k názoru, že je špatně samotná <em>architektura</em> operačního systému. To co nám nabízí a co umožňuje nepovídá tomu co po něm chceme a co od něj očekáváme. Především z hlediska „<em>programátorského uživatelského interface</em>“, tedy toho, s čím jako programátor pracuji.</p>
+        <h2 id="e83313bc-c048-44c0-8b9b-faf10ad54f5b" class="">Operační systém</h2>
+        <p id="0c3d055e-2441-469c-b2e7-fb4727172e91" class="">Když jsem byl mladší, měl jsem poměrně jasnou představu o tom, co je to operační systém: <em>Windows přece</em>. To je ta věc, co mají všichni na počítači, vlevo dole to má tlačítko start, a když nenaběhne a zobrazí se jen černá obrazovka, je zapotřebí napsat <code>win</code>.</p>
+        <p id="9258da41-3d98-4176-a62e-1575b5287a2c" class="">Na střední škole mě naučili definici, podle které je operační systém <em>„programové vybavení počítače zpřístupňující vstupně-výstupní zařízení“</em>.</p>
+        <p id="6933623b-c15d-47a2-ba2f-a3f25ed8271b" class="">Později jsem zjistil, že operačních systémů existuje hodně a v podstatě všechny dělají to samé; vytvářejí ± jednotnou abstrakci nad hardwarem počítače, umožňují pouštět různé programy, nabízí více, či méně propracovaný filesystém, spravují paměť, řeší multitasking a uživatelská práva.</p>
+        <p id="ebd8683e-18ff-43ee-b6ef-78f990578471" class="">V dnešní době je operační systém pro většinu lidí <em>to</em>, čím pouští své prohlížeče, ve kterých koukají na <em>youtuby</em> a na <em>facebooky</em> a taky skrz <em>to</em> posílají emaily. Občas <em>to</em> umí pouštět hry a pracovat se vším možným, od CD-ROMky po klávesnici.</p>
+        <p id="0fb4f06d-8123-45b7-afd0-7d356ded2c7f" class="">Pro pokročilé uživatele je to pak určitá forma databáze a API, která umožňuje spouštět jejich programy a také nabízí standardizovaný přístup ke konkrétním činnostem. Například výpis znaku, uložení souboru, navázání spojení po internetu a tak podobně.</p>
+        <p id="93944212-085e-45cc-ba9d-9ddde458282a" class="">Většinou máme tendenci vnímat operační systém jako něco neměnného, co si vybereme z relativně malé nabídky diktováné svatou trojicí (Windows, Mac, Linux), okolo které se zmateně krčí několik prakticky nepoužívaných (0.03% celkem) alternativ (*BSD, Plan9, BeOS, ..).</p>
+        <p id="795770d0-fab0-42ce-8b4f-89f1bf8389b8" class="">Z nějakého důvodu jsou všechny skutečně používané systémy až na výjimky hodně podobné. Rád bych se zamyslel, jestli je to skutečně žádaná vlastnost, nebo náhodný historický vývoj.</p>
+        <h2 id="8a5d1b51-5292-4174-985a-03d38d7fe752" class="">Krátká historie operačních systémů</h2>
+        <p id="3152d01e-ec3b-49e7-b282-3b7f4d8868f9" class="">První počítače neměly operační systém a byly uživatelsky velmi nepříjemné. Daly se programovat pouze přímou změnou hardwarového propojení.</p>
+        <p id="0ef4ec0b-e952-4bd8-a00d-e6d800825019" class="">Pak přišly děrnoštítkové a děrnopáskové stroje. Na nich operátor <a href="https://youtu.be/XV-7J5y1TQc?t=242">nacvakal</a> sérií přepínačů přímo do paměti binárně „zavaděč“, jenž mu umožnil načíst děrné štítky, či děrný pásek. Ten obsahoval sekvence instrukcí a data.</p>
+        <p id="1c15d380-a914-400b-9ee9-3da0066f3428" class="">Systém pracoval v takzvaných dávkách. Programátor dodal médium s dávkou dat, operátor je načetl do počítače a spustil. Po dokončení běhu vrátil programátorovi výsledky, či chybovou hlášku, pokud došlo k chybě.</p>
+        <p id="0b716439-2513-4dce-8fa4-47a0bfd55729" class="">Jelikož se jednalo o hodně manuální činnosti, časem vznikly knihovny pomocných funkcí a různé užitečné nástroje. Například zavaděč, který se zavede automaticky po startu počítače a umožní načtení programátorova programu pouhým stisknutím patřičného tlačítka. Nebo <em>subrutina</em>, která při pádu programu vypíše obsah paměti. Těmto programům se říkalo <em>monitory</em>.</p>
+        <p id="c3f3cb33-8290-4bc0-bfdf-82c1ff0f3358" class="">Protože tehdejší počítače byly velmi, velmi drahé, vznikl tlak na jejich použití vícero uživateli zároveň. S tím přišly první operační systémy, které sloučily funkcionalitu <em>monitoru</em>, přidaly podporu běhu vícero programů zároveň a také nabídly správu a paralelní přístup vícero uživatelů.</p>
+        <p id="efe3d91c-f310-42f4-b404-260fc89e6382" class="">Stále komplikovanější hardware a komplexita jeho přímého ovládání způsobila narůstající tlak na univerzálnost kódu mezi různými stroji a jejich verzemi. Operační systémy začaly nabízet podporu typicky používaných zařízení. Nadále již nebylo třeba zadávat adresu paměti na disku, stačilo uložit data do pojmenovaného umístění, a později i do složek. Vznikly první souborové systémy. S podporou vícero uživatelů zároveň vyvstala také snaha oddělit jejich programy, aby si navzájem nemohly přepisovat a číst data. Také vznikly plánovače a virtuální paměť a multitasking.</p>
+        <p id="2ed42f88-0c61-4691-b573-ee4977b97b3c" class="">Operační systémy se staly vrstvou, která stojí mezi uživatelem, jenž nadále nemusí být programátorem, a poskytuje mu standardní způsoby uložení dat, výpisu znaku na obrazovku, práci s klávesnicí, tisku na tiskárnu a spuštění jeho dávky / programu.</p>
+        <p id="410e919c-2586-451d-b3ac-aaad07f99370" class="">Později k tomu přibylo ještě grafické rozhraní a síťování. Osobní počítače nabídly plejádu zařízení, z nichž všechny musel operační systém umět používat a podporovat. Až na pár výjimek, kterým se budu věnovat dále, šlo o iterativní vývoj, který nepřinesl nic zásadně revolučního. Všechno se zlepšovalo, zefektivňovalo, samotné paradigma se však moc nezměnilo.</p>
+        <h1 id="e696a1d6-3fa0-43b2-8561-8de8da0aee3b" class="">Kritika operačního systému</h1>
+        <p id="0e6eb48f-f905-4b10-943a-24353585f5fb" class="">Nemám nejmenší problém s konceptem operačního systému jako hardwarové abstrakce. Naopak! Mám problém s konceptem OS jako uživatelského rozhraní. Tím nemyslím grafiku, ale zbytek všeho s čím interagujete, a co má nějaký tvar;</p>
+        <h2 id="4e9389cf-c9c6-4367-8ec9-7dfc5f5cbb51" class="">Koncept souborového systému</h2>
+        <p id="5f4fdf98-d70c-499a-86c4-c9f3ca933f5d" class="">Schválně se zkuste zamyslet, co to vlastně je. Vyjde vám, že je to omezená hierarchická <em>key-value</em> databáze.</p>
+        <p id="d21255db-ec66-4e04-924f-e01af4b1b72e" class="">Omezená, protože omezuje nejen velikost a subset klíče, který je v lepším případě v UTF, ale i samotnou uloženou <em>hodnotu</em> na proud bajtů. To se zdá rozumné jen do chvíle, kdy si uvědomíte, že je to stromová databáze, která vám nedovoluje přímo ukládat strukturovaná data. Počet inodů (větví struktury) je navíc omezen na číslo, jenž se v horších případech pohybuje v řádu desítek až stovek tisíc, maximálně však pár milionů prvků v jednom <em>adresáři</em>.</p>
+        <figure id="46e9a00c-962d-4125-b443-be480047210d" class="image">
+          <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/fs_metaphor.png">
+            <img style="width:600px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/fs_metaphor.png" />
+          </a>
+        </figure>
+        <p id="e9c57347-247f-4717-973a-25243c9219bc" class="">Ve dvou z mých předchozích zaměstnáních jsme museli obcházet omezený počet inodů na složku retardací jako <a href="http://balanceddiscstorage.readthedocs.io/">BalancedDiscStorage</a>, či ukládáním souborů do tří podsložek složených z prvních tří písmen MD5 hashe souboru.</p>
+        <p id="82d57a3e-9676-4fb1-950a-341acf3dd065" class="">K tomu pro většinu operací chybí atomicita, a transakce nejsou podporovány vůbec. Paralelní zápisy a čtení fungují v různých operačních systémech různě, a ve skutečnosti není garantováno naprosto nic. Schválně si to srovnejte se světem databází, kde se <a href="https://cs.wikipedia.org/wiki/Datab%C3%A1zov%C3%A1_transakce#Vlastnosti">ACID</a> považuje za samozřejmost.</p>
+        <p id="f97c792f-00a4-4410-8cec-a2a4cdd80e14" class="">Filesystém je specificky omezená databáze. Každý koho znám, kdo se kdy pokusil filesystém použít pro cokoliv netriviálního, dřív nebo později tvrdě narazil. Ať už je to programátor, který si řekne, že si ty data prostě a jednoduše bude ukládat do souborů, nebo uživatel, který se v bordelu na filesystému nemůže vyznat a musí používat různé divné vyhledávání a indexování. Výkřikem techniky je, když dokáže poznat, že má poškozená data a dopočítat je zpětně ze samo-opravných kódů, pokud máte disky v RAIDu.</p>
+        <p id="a44fcbc0-cc30-45ac-9530-fcc438b7b7a4" class="">Samozřejmě chápu, že pointou je něco jiného. Řeší se tu sektory na disku a žurnálování, plotny a oddíly a RAIDy a celé je to super pokrok oproti původním primitivním systémům ukládání dat. <em>Ale</em> — není to náhodou pokrok špatným směrem?</p>
+        <figure id="a437aec1-4202-4a66-8997-f8d7ba41240d" class="image">
+          <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/150401-erma-mark1-file-system.png">
+            <img style="width:624px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/150401-erma-mark1-file-system_thumb.jpg" />
+          </a>
+        </figure>
+        <p id="62665ba8-d070-40f6-9441-059cea617da4" class="">Původní filesystémy byly metafora. Metafora pro ukládání souborů do složek, tak jako se strkají papíry do šanonů a šuplíků. Kromě mnoha technických omezení, daných stavem tehdejší výpočetní techniky, trpěly a trpí i omezením z podstaty této metafory. Přemýšlím, jestli by jsme si místo otázky <em>„jak trochu vylepšit padesát let starou metaforu“</em> (třeba pomocí tagů) neměli klást spíš otázku <em>„je to vážně ta správná metafora pro ukládání dat?“</em></p>
+        <h2 id="7b504fe9-c770-4c40-844d-b5e5cc85b960" class="">Programy</h2>
+        <p id="e63909b6-a3aa-4317-8400-3ad4bb6a5d5f" class="">Čistě fyzicky, programy jako takové nejsou nic jiného, než jen sekvence uložených bajtů. V podstatě ani pro operační systém nemůžou být nic jiného, neboť souborová databáze operačního systému s ničím jiným pracovat ani neumí.</p>
+        <p id="5914bc60-cd9b-4518-bb3c-369ec281274d" class="">Programy se prvně napíšou ve zdrojovém kódu příslušného jazyka, který se potom zkompiluje a slinkuje do jednoho bloku. Ten je následně vyděrován na děrné štítky (binární data) a zastrčen do patřičné krabice (souboru) ve správné sekci kartotéky (filesystému).</p>
+        <p id="8e53a751-a28f-4066-961f-b46f224c7c7b" class="">Když chce uživatel program pustit, napíše jeho jméno na příkazovém řádku, nebo někde klepne na ikonu. Poskládané děrné štítky jsou následně vyndány z kartotéky a nacpány do paměti, která se pro program tváří, jako kdyby byl v celém operačním systému sám. Kód je poté prováděn od počátečních děrných štítků k těm koncovým, s tím že program může podmíněně přeskočit na konkrétní děrný štítek v krabici, která ho tvoří.</p>
+        <figure id="53420a0f-08ae-497f-af2b-dfbdac6ae07b" class="image">
+          <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/pe_structure.jpg">
+            <img style="width:2653px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/pe_structure_thumb.jpg" />
+          </a>
+        </figure>
+        <p id="a19641cd-eced-4efb-9e6a-d9ff137cd221" class="">Programy taky můžou číst parametry příkazového řádku, používat sdílené knihovny, volat API operačního systému, pracovat s filesystémem, posílat (číselné) signály různým jiným programům, reagovat na ně, vracet návratové hodnoty, nebo otevírat sockety.</p>
+        <p id="c2fca4db-7b97-4985-a16c-ddbab02a88d3" class="">Co je na tom špatně?</p>
+        <p id="4448bdc8-3238-4cef-a1c5-96e977dff3c1" class="">Nechci říct, že je koncept špatný jako takový. ALE. Opět je to stejná stará metafora, iterativním vývojem posunutá o pár kroků dál. Všechno mi přijde hrozně <em>nízkoúrovňové</em>. Celý ten systém se za posledních 40 let změnil jen minimálně a nemůžu se zbavit myšlenky, že než že by jsme dorazili k naprosté dokonalosti, spíš jsme někde uvázli v zákrutě lokálního maxima.</p>
+        <p id="72817ab9-90f9-4d89-bf25-de9dd2a423ef" class=""><a href="https://en.wikipedia.org/wiki/Lisp_machine">Lispovské stroje</a>, <a href="http://toastytech.com/guis/alto3.html">Smalltalkovské</a> a <a href="http://www.selflanguage.org/">Selfové prostředí</a> mě naučily, že se to dá dělat i jinak. Že programy nutně nemusí být kolekce bajtů, ale můžou to být malé samostatné objekty, které jsou (metaforou posílání zpráv) zavolatelné z ostatních částí systému, a které se dynamicky kompilují podle potřeby.</p>
+        <p id="a9d97f94-dc39-46a8-8506-4ddad0909efe" class="">Znáte takovou tu <a href="https://cs.wikipedia.org/wiki/Filosofie_Unixu">unixovou filosofii</a>, že je dobré používat malé programy, které dělají jednu věc, na tu se zaměřují a dělají jí dobře? Proč tu myšlenku nedotáhnout do konce a neudělat malé programy z každé funkce a metody vašeho programu? Ta by naoplátku mohla komunikovat s metodami a funkcemi ostatních programů.</p>
+        <p id="e58ec4d7-997e-41bc-9f15-f8966a3d0d20" class="">Ve Smalltalku to tak funguje, dokonce není problém to verzovat, specifikovat závislosti, mít nad tím package manager, ošetření chyb, nápovědu a kdo ví co dalšího. Vážně by to nešlo dělat s programy obecně?</p>
+        <h2 id="b2c870a8-3b25-424c-b7d1-73faf12da40d" class="">Data bez struktury, nazývaná soubory</h2>
+        <blockquote id="f06ded2d-219b-4652-9ae4-ea11b4655f08" class="">The whole UNIX ethos has been a huge drag on industry progress. UNIX&#x27;s pitch is essentially: how about a system of small functions each doing discrete individual things... but functions must all have the signature char *function(const char *)? Structured data is for fools, we&#x27;ll just reductively do everything as text. What we had in 1972 is fine. Let&#x27;s stick with that.</blockquote>
+        <p id="6ce79471-c805-429c-8d5b-257d4b9297bb" class="">
+          <em>(Zdroj: </em>
+          <em>
+            <a href="http://www.righto.com/2017/10/the-xerox-alto-smalltalk-and-rewriting.html?showComment=1508781022450#c7613952874348706529">http://www.righto.com/2017/10/the-xerox-alto-smalltalk-and-rewriting.html?showComment=1508781022450#c7613952874348706529</a>
+          </em>
+          <em>)</em>
+        </p>
+        <p id="0f248c9c-d36c-4ee8-ab30-1af162f41096" class="">A jsme zase u těch binárních dat. Na první pohled geniální myšlenka, protože nic nemůže být víc univerzální. Na další pohled už tak ne.</p>
+        <p id="c64cf61b-8e6d-4280-baf0-476feaada41f" class="">V čem je problém?</p>
+        <p id="70bbbcc3-0a67-4696-9ad3-09944bfbe637" class="">Prakticky všechna data mají svou strukturu. Kdykoliv, kdy programátoři v programovacím jazyku pracují s daty, a nejedná se jen o jejich přesunutí, tak se jim snaží dát strukturu. Namapují je na různé <code>struct</code> konstrukty. Vytvoří z nich strom objektů. I u <em>streamovaných</em> věcí, jako je třeba záznam zvuku ve formátu <a href="https://cs.wikipedia.org/wiki/WAV">WAV</a>, se iteruje skrz jednotlivé <em>chunky</em>.</p>
+        <figure id="2a27a936-5835-4114-87a8-148a61d948a2" class="image">
+          <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/wav101.png">
+            <img style="width:1488px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/wav101_thumb.jpg" />
+          </a>
+        </figure>
+        <p id="a86bb881-298c-4310-8926-35b5018288f2" class="">
+          <em>(Struktura WAV souboru. Zdroj: </em>
+          <a href="https://github.com/corkami/pics/">
+            <em>https://github.com/corkami/pics/</em>
+          </a>
+          <em>.)</em>
+        </p>
+        <p id="0641ece5-4d5d-4035-8769-172f3690e01c" class="">Proč tedy proboha každý program vezme data, dá jim strukturu, něco nad ní udělá a tu strukturu zahodí a zkolabuje zpět na nestrukturovaná, <em>surová</em> binární data?</p>
+        <p id="27e550aa-2ab2-495c-a027-be88946a1264" class="">Současná počítačová kultura je posedlá parsery a externími popisy dat, jenž by však mohly nést strukturu samy o sobě. Každý den jsou nesmírná kvanta výpočetních cyklů zcela nesmyslně plýtvána na konverzi <em>surových</em> bajtů na struktury a zase zpět. A každý program to dělá jinak, dokonce i v různých verzích. Nemalá část mé práce jako programátora je jen o parsování a převodech dat, jenž kdyby měla strukturu, tak by byla upravitelná jednoduchou transformací. Tady vem kus stromu a přesuň ho sem. K téhle části grafu přidej tohle, jinde něco uber.</p>
+        <p id="5dd9eb48-0746-4d1b-b26a-57576aa086e2" class="">Současná situace je analogická k situaci, kde kdybych posílal poštou hrad z lega, tak bych ho rozložil na jednotlivé kostky a k balíku přibalil referenci na návod, jak si hrad složit. Příjemce by si pak návod musel <em>někde</em> sehnat a hrad pracně skládat. Absurdita je zřejmější, když si uvědomíme, že se to netýká jen kostek lega, ale úplně všeho. I kdybych chtěl někomu podat sklenici, tak bych jí podal jako hrst písku a příjemce by si musel sklenici vyrobit sám. Je mi jasné, že na konci se vždy musí posílat bajty, stejně jako se musí posílat kostky lega. Ale proč je neposlat už složené?</p>
+        <p id="522a68bc-9e5a-4f5d-9b27-cf251ee81efe" class="">Nejde jen o nesmyslnost toho všeho. Jde o to, že zároveň s tím je to i <em>horší</em>. Horší pro uživatele, a horší pro programátory. Data se kterými pracujete by mohla být sebe-popisná, ale nejsou. Jednotlivé položky by mohly obsahovat datové typy, ale i dokumentaci. A nemají. Proč? Protože je v módě mít zvlášť hromadu binárních dat, a zvlášť jejich externí popis. Vážně to tak chceme, vážně to má nějaké výhody?</p>
+        <p id="077c4a77-97b8-4ebf-8f84-cad0cf5e82b4" class="">V minulém desetiletí bylo možné vidět masivní nárůst používání formátů jako XML, JSON a YAML. Určitě lepší než drátem do oka, ale to stále není to o čem tu mluvím. Nejde mi o konkrétní formát, jde mi o strukturu samotnou. Proč nemít strukturovaně všechna data?</p>
+        <p id="dbd65f7d-d163-48f1-8501-83bd0c73e714" class="">Nemluvím tady o parsování XML parserem, mluvím tu o přímém načtení do paměti, ve stylu <a href="https://msgpack.org/">message packu</a>, <a href="https://github.com/real-logic/simple-binary-encoding">SBE</a>, nebo <a href="https://google.github.io/flatbuffers/">FlatBuffers</a>, či <a href="https://capnproto.org/">Cap’n Proto</a>. Bez toho aniž by bylo třeba vyhodnocovat text a řešit escape sekvence a formát unicode. O tom že na strukturovaná data o <em>Frantovi Putšálkovi</em> v kolekci lidí přistoupím pomocí <code>people[0].name</code>, místo toho abych v jednom formátu dělal <code>doc.getElementByTagName(&quot;person&quot;)[0].name.value</code> a v druhém <code>doc[&quot;people&quot;][0][&quot;name&quot;]</code>. O tom že si můžu k atributu přečíst nápovědu pouhým <code>help(people)</code>, místo abych hledal dokumentaci.</p>
+        <p id="ade204bd-6479-4393-b794-abd21b1d2e15" class="">Mluvím tu o tom že se neparsuji s WAVem, ale prostě iteruji přes jednotlivé <em>chunky</em>, které tam jsou. O tom že data popisují sebe sama přímo svou strukturou, ne externím popisem. Mluvím o přímé serializaci objektů, o jednotném systému podporovaném všemi jazyky, i když nemají objekty.</p>
+        <p id="0f68ee67-3a40-4996-9708-9ce45d88a1f3" class="">Vážně by to bylo tak nemožné? Proč?</p>
+        <h2 id="18bd338e-ed8f-40dd-a92d-a4623eb79b77" class="">Strukturovaná komunikace</h2>
+        <p id="a2b3f13b-f85b-454e-bce7-5e7a387c4a40" class="">Všímáte si toho vzoru v mé kritice, hněvu a vášni? Je jím téma <em>neuvědomělé struktury</em>.</p>
+        <p id="673181fe-3c57-45ab-b653-69b7233bdc5e" class="">Souborové systémy nevnímáme jako databáze. Nedochází nám, že jejich struktura jsou hierarchická <em>key-value</em> data. Programy bereme jako binární bloby, místo klubka propojených funkcí a struktur a objektů majících potřebu komunikovat se sebou, ale i s okolním světem. Data chápeme jako mrtvé série surových bajtů, místo stromových a grafových struktur.</p>
+        <p id="76dadcbc-6cd4-4c72-8abd-271b0fa5f97d" class="">Co dalšího má strukturu, o čem jsem zatím nepsal? Samozřejmě komunikace. S operačním systémem. S programy. Mezi programy.</p>
+        <h2 id="395cc842-969e-4c7e-b591-314940601a32" class="">/sys</h2>
+        <p id="fd3855b2-d2ec-4d8e-9ecf-5eca4d6b013a" class=""><a href="https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs">Plan9</a> byl úžasným krokem tímhle směrem. Poté co jsem ho prozkoumal jsem však dospěl k názoru, že tvůrci sice měli obecné povědomí o tom co dělají, ale nedošlo jim to v celé úplnosti. Možná částečně proto, že byli stále hodně ovlivněni unixem a komunikací v proudech bajtů.</p>
+        <p id="b195441a-23b8-4287-b4b7-f8b03d577d2e" class="">Na Plan9 je úžasné, jak můžete interagovat se systémem pomocí zápisu a čtení z různých speciálních souborů. Fantastické! Revoluční! Tak úžasné, že to linux převzal například v podobě <code>/sys</code> subsystému a <a href="https://cs.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a>.</p>
+        <p id="e280df65-30ca-4d9d-a8a3-04e154966539" class="">Víte co tomu chybí? Reflexe a struktura dat. Pokud si nepřečtete manuál, tak naprosto netušíte co kam zapsat.</p>
+        <p id="b8630633-ccaa-456a-991c-6a9c29919b25" class="">Zde je kód pro blikání diodou na raspberry pi:</p>
+        <pre id="a5ef88b7-602b-4cf5-95b8-a2f269467470" class="code"><code>echo 27 &gt; /sys/class/gpio/export
+echo out &gt; /sys/class/gpio/export/gpio27/direction
+echo 1 &gt; /sys/class/gpio/export/gpio27/value</code>
+</pre>
+        <p id="d0ba90fe-6b4b-4b27-b244-ff713f557719" class="">Jak jsou řešeny chyby? Co když do <code>/sys/class/gpio/export/gpio27/value</code> zapíšu string „vánočka“? Dostanu zpět error kód z echa? Nebo se v nějakém jiném souboru něco objeví? Jak jsou zvládány paralelní zápisy? A co čtení, kde je popsáno co můžu dostat za hodnoty, když do <code>/sys/class/gpio/export/gpio27/direction</code> zapíšu <code>„in“</code> místo <code>„out“</code>?</p>
+        <p id="aa3c4ca0-b3f1-4316-8cca-d3ddc3da18a3" class="">Prostě jak si to který modul udělá, tak to bude. Datové typy se neřeší. Pojďme postavit komunikaci se systémem na databázi, která si neuvědomuje že je databáze!</p>
+        <p id="9c22d59c-3137-4656-bd20-6e03bb948e85" class="">Tohle je asi největší neuvědomělá snaha o zavedení čehosi jako objektů, jakou jsem kdy viděl. Ta struktura jsou objekty. Jen ten rozdíl mezi <code>sys.class.gpio.diode</code> a složkou na podobném umístění je že složka je nepopsaná <em>key-value</em> položka, podobně jako JSON, která nemá jasně dané properties, formát dat, nápovědu, nebo třeba formát a způsob vyvolávání výjimek.</p>
+        <h2 id="95b7b52c-146c-4e99-8e53-0e120c1aeeb4" class="">Sockety</h2>
+        <p id="f7dea464-97a7-4e04-a419-d3febdaf99a5" class="">Já chápu, proč vznikly. Vážně. Ve své době to bylo naprosto racionální a nebylo nic lepšího. Ale proč proboha používat nestrukturovaný formát přenosu binárních dat i dneska, když veškerá komunikace je strukturovaná, což platí i pro zdánlivé proudy bajtů, jako streamované audio.</p>
+        <p id="3c7399e9-a345-431b-b863-7f6ad846523d" class="">Vemte si, jak to vypadá, když píšete IRC bota. Navážete spojení. Super. Samozřejmě použijete <code>select</code>, aby jste nevytěžovali procesor. Data čtete v blocích, například 4096 bajtů. V paměti je převádíte na stringy a hledáte v nich nové „<code>\r\n“</code>. Musíte bufferovat a zpracovávat řádky vždy až když dorazí celé. Pak parsujete textovou strukturu a skládáte z ní zprávy o jednom řádku. A různé zprávy mají různé formáty a je třeba je parsovat různě. Hrozná zábava s reimplementací <a href="https://tools.ietf.org/html/rfc1459">specifikace</a> po milionté jinak. Přitom zprávy by mohly mít strukturu samy o sobě, stejnou jako zbytek všeho ostatního.</p>
+        <p id="1a6e2ca2-c871-43ba-a6af-ad901d218e97" class="">Nebo třeba HTTP. To přece přenáší strukturovaná HTML data, ne? Máte jasně daný jazyk a jeho popis a způsob parsování. Super! Co víc si přát. Myslíte ale, že HTTP používá na úrovni přenosového protokolu jako datový formát (HT/X)ML? Ani náhodou, samozřejmě, že si specifikuje vlastní protokol, který <a href="https://cs.wikipedia.org/wiki/Hypertext_Transfer_Protocol">vypadá</a> úplně jinak (<em>key-value</em> data hlaviček a pak způsob posílání <em>chunků</em> dat).</p>
+        <p id="a66c4d90-504b-4667-a860-dc030271075a" class="">Email? Ani mě nenechte začít na téma zkaženosti emailu, jeho protokolu a formátu, kde se nejasně definovaná struktura v asi pěti standardech mísí mezi sebou a každý výrobce si to implementuje po svém. Pokud jste někdy zkoušeli zpracovávat emailové hlavičky z nějaké konference, tak určitě víte. Pokud ne, zkuste si to. Garantuji, že vám to změní pohled na svět.</p>
+        <p id="35bfb443-7769-4032-bf19-5b6418b963ac" class="">A tak je to se vším. Skoro nikdy nepotřebujete proud bajtů, ale posílat zprávy, které jsou prakticky vždy hierarchie <em>key-val</em> dat, nebo pole. Proč tedy skoro 50 let po vynálezu socketu stále přenášíme data ve streamech a neustále si vymýšlíme vlastní textové protokoly? Není čas na něco lepšího?</p>
+        <p id="2a71989c-9c19-4460-b356-60ecbe8c81df" class="">Vytvoříme strukturu tady, pak jí serializujeme na surové bajty, nacpeme do socketu a pošleme systému, který musí provést deserializaci a rekonstrukci na základě externího popisu dat, který je s trochou štěstí podobný tomu našemu. Proč? Proč neposílat rovnou struktury?</p>
+        <p id="17294a3a-2797-453f-b868-ddd5983bc458" class=""><a href="https://en.wikipedia.org/wiki/ZeroMQ">ZeroMQ</a> byla podle mého názoru krok správným směrem, ale zatím mi přijde, že se nedočkala moc vřelého přijetí.</p>
+        <h2 id="8ba0a8da-0173-41f8-a5b5-0c31c15a5538" class="">Parametry příkazové řádky</h2>
+        <p id="876ef2e0-7ef3-44d8-84f9-38db45225510" class="">Máte program na disku, který něco dělá. Když vynechám kliknutí a následné „ruční“ zadání dat, tak argumenty příkazové řádky jsou jeden z nejčastějších způsobů, jak programu říct, co po něm chcete. A každý druhý program si je parsuje vlastním způsobem.</p>
+        <p id="56df36f1-76c6-4b59-8e41-7911eafe6279" class="">Reálně neexistuje žádný standard formátu argumentů na příkazové řádce. Některé programy používají <code>--param</code>. Jiné <code>-param</code>. Další jen <code>param</code>. Někdy se seznamy oddělují mezerami, jindy čárkami. Už jsem dokonce zažil i JSON parametry mixované s těmi normálními.</p>
+        <p id="dd348a21-faac-4c78-80c9-e7efc81dedae" class="">Pokud program voláte z nějakého příkazového řádku, tak se vám do toho navíc mixuje jeho scriptovací jazyk a jeho způsob definice stringů, proměnných a bůh ví čeho dalšího (z hlavy mě napadají escape sekvence, jména funkcí, eval sekvence, wildcards znaky, <code>--</code> pro ukončení wildcardů a tak podobně). Celé je to jeden velký, gigantický bordel, který si každý patlá a parsuje, jak se mu zrovna chce.</p>
+        <p id="ccab9253-900f-4bf6-a672-b53af4eab8d3" class="">A co volání ostatních programů z <em>jiných programů</em>? Ani nechci vzpomínat, kolikrát jsem viděl, či psal kód ve stylu:</p>
+        <pre id="056d636d-391c-4bba-801f-110b77b863a5" class="code"><code>import subprocess
+
+sp = subprocess.Popen(
+  [&#x27;7z&#x27;, &#x27;a&#x27;, &#x27;Test.7z&#x27;, &#x27;Test&#x27;, &#x27;-mx9&#x27;],
+  stderr=subprocess.STDOUT,
+  stdout=subprocess.PIPE
+)
+stdout, stderr = sp.communicate()</code>
+</pre>
+        <p id="78c5403e-984a-4a0b-8dfc-6075db67e1c5" class="">Naposledy nedávno, i s celou plejádou parsování free-form výstupu. A už mě to vážně nebaví.</p>
+        <p id="a7603159-d3cc-4326-a7ab-1c9c0f88e79d" class="">Pokud jsou argumenty složitější, stane se z toho rychle onanie skládání stringů, kde si navíc nemůžete být jisti bezpečností, nemáte garanci podporované znakové sady, musíte sanitizovat uživatelský vstup a volané podprogramy navíc stále můžou vykazovat chování, které je všechno, jen ne triviální. Například vám <a href="https://thraxil.org/users/anders/posts/2008/03/13/Subprocess-Hanging-PIPE-is-your-enemy/">zatuhne buffer</a> při větším výstupu. Nebo program reaguje jinak v neinteraktivním režimu, než v interaktivním a není žádný způsob, jak ho přesvědčit o opaku. Případně vám cpe escape sekvence a <code>tty</code> formátování, kam by jste nechtěli. A jak asi přenesete strukturovaná data tam a zpět?</p>
+        <p id="7b442dbe-f15e-4149-b2e6-b4dcc5d518d5" class="">Přitom parametry příkazové řádky jsou většinou nějakým seznamem, nebo slovníkem s vnořenými strukturami. Chce to jednotný a na zápis jednoduchý jazyk. Něco lehčího na zápis, než JSON, ale zároveň víc expresivního.</p>
+        <p id="75050485-f595-4240-8e51-af502fa4d6ec" class="">Úplně pak vynechávám, že nutnost parametrů příkazové řádky se úplně vytratí, když můžete posílat programu strukturované zprávy podobně jako volat funkci v programovacím jazyku. Vždyť nejde o nic jiného, než o zavolání patřičné funkce / metody s konkrétními parametry, tak proč to dělat takhle divně a nepřímo?</p>
+        <h2 id="df47658d-13ac-4c15-8f53-3e387c471903" class="">Env proměnné</h2>
+        <p id="d85b942d-5d40-40db-90a3-5c54ac476cfc" class=""><em>Env</em> proměnné jsou slovník. Doslova se tak mapují a chovají. Jenže díky <em>chybějící struktuře</em> jsou jen jednorozměrným slovníkem s klíči a hodnotami v podobě stringů. V D by se zapsaly jako <code>string[string] env;</code>. To často nestačí, protože potřebujete přenést vnořené struktury.</p>
+        <p id="0d06065a-e64f-43d3-a68c-55c4c0ce8d1e" class="">Má duše křičí, terorizována hláškami jako „<em>potřebuješ předat složitější data do</em><code>env</code><em>proměnné? tak tam zapiš JSON, nebo odkaz na soubor!</em>“ Proč proboha jako civilizace nezvládneme jednotný způsob předávání a ukládání dat, že musíme míchat syntaxi <code>env</code> proměnných v bashi s JSONem?</p>
+        <h2 id="c2f9c5b8-3af2-4592-aaa8-2188aa62725c" class="">Konfigurační soubory</h2>
+        <p id="31c3e76d-d622-4a87-9663-95a282ee4b81" class="">Ať už si to uvědomujete, nebo ne, prakticky každý netriviální program ve vašem počítači potřebuje nějakou konfiguraci. Tu si zpravidla bere z konfiguračního souboru. Víte, kde je ten soubor umístěný? V Linuxu bývá standardem je umisťovat do <code>/etc</code>, ale klidně můžou být taky ve vašem <code>$HOME</code>, nebo v <code>$HOME/.config</code>, nebo v libovolné podsložce (třeba <code>$HOME/.thunderbird/</code>).</p>
+        <p id="a6459b8f-651f-4f8f-a6fa-7a4c4746158e" class="">A co formát? Hádáte správně. Může být libovolný; <em>(pseudo)</em>INI, XML, JSON, YAML. Nebo Lua. Nebo taky hybrid vlastního programovacího jazyka (viz postfix). Co koho zrovna napadne, to se používá.</p>
+        <p id="a4b6d487-eb96-4cca-9808-97a7451095cb" class="">Existuje vtip, že komplexita každého konfiguračního souborů s časem roste, dokud v něm někdo vytvoří špatně implementovanou půlku lispu. Mým oblíbeným příkladem je <a href="https://www.ansible.com/">Ansible</a> a jeho nedotažená, nekompletní parodie na <a href="http://docs.ansible.com/ansible/latest/playbooks_conditionals.html">programovací jazyk postavený nad YAMLem</a>.</p>
+        <p id="0add76b8-b9c4-42b7-afc6-ce60379e6240" class="">Chápu, kde se to bere. Taky jsem touhle cestou šel. Proč to ale nemůže být standardizované a stejné napříč celým systémem? Ideálně ten samý datový formát, který je zároveň jazykem, napříč vším. Proč nemůžou být konfigurací samotné objekty uložené v patřičném umístění?</p>
+        <h2 id="5f512a7e-5d07-4acc-8cfe-786f846de856" class="">Logy</h2>
+        <p id="d1253cb7-362d-4b72-9812-b278fddd7b91" class="">U logování je typicky nutno řešit následující problémy:</p>
+        <ol id="a939be18-0bbc-4908-9830-43cb18a5a509" class="numbered-list" start="1">
+          <li>Strukturované logování. Ukládání ve formátu, jenž je možné následně zpracovávat, provádět nad ním dotazy a tak podobně.</li>
+        </ol>
+        <ol id="29d28618-d717-4c08-9beb-82e5bd88216e" class="numbered-list" start="2">
+          <li>Paralelní přístup, aby mohlo logovat vícero aplikací do jednoho logu a jednotlivé záznamy se „nekřížily“.</li>
+        </ol>
+        <ol id="070fcb27-88d8-4442-baa3-68b5afb4b281" class="numbered-list" start="3">
+          <li>Rotování logů. Staré logy se postupně přejmenovávávají, jsou komprimovány a po čase úplně smazány.</li>
+        </ol>
+        <ol id="99b6a242-d43b-453b-8bee-8eef0b8e5c7b" class="numbered-list" start="4">
+          <li>Způsob logování. Aplikace musí logy nějak dopravit do cílového úložiště.</li>
+        </ol>
+        <p id="e80f15c2-0dc1-4e4d-a4a6-432da386a016" class="">Současná řešení jsou opět typicky zcela různá, tak jak koho zrovna co napadlo:</p>
+        <ol id="f40a947f-8d21-4d33-93ac-9f9b52d89562" class="numbered-list" start="1">
+          <li>Struktura logů je nahodilá. Prakticky všichni používají nějaký více/méně parsovatelný formát, ale jeho tvar je často různý. Málokdy je definováno například jak jsou uloženy a „escapovány“ víceřádkové logy. Parsování probíhá ve velké části přes regexpy a prakticky vždy je křehké a rozbitelné. S určitou pýchou vždy ukazuji kolegům že jejich logy dokážu rozbít obejitím jejich regexpu a snažím se je přesvědčit o použití něčeho nerozbitného.</li>
+        </ol>
+        <ol id="4608d3e3-5f06-4a3b-b1ae-eeaba021c4f5" class="numbered-list" start="2">
+          <li>Paralelní logování je řešeno separátní logovací aplikací. Filesystém, na rozdíl od většiny ostatních databází, neumí atomický přístup, ani nic jako triggery, takže pokud tahle aplikace spadne, je po lozích.</li>
+        </ol>
+        <ol id="a75c7eb9-5c6a-4eff-8829-209ff6cc684f" class="numbered-list" start="3">
+          <li>Rotování je také řešeno externí aplikací, a prakticky vždycky se jedná o záležitost periodicky pouštěnou <em>cronem</em>. Ještě jsem neviděl chytré logování, které by zvládlo odrotovat log, když hrozí, že na disku kvůli němu nezbude místo, zato jsem viděl pár služeb v produkci, jenž to položilo. Další problém je, že aplikace typicky mají otevřený soubor s logem a pokud je jim „odrotován“ pod rukama, tak se to celé rozbije. Řeší se to naprosto ne-elegantně posíláním signálů, na které musí umět asynchronně reagovat. Nedávno jsem se hrozně vysmál, když kolega chtěl logovat jen na <em>stdout</em> a tak změnil cestu k souborovému logu na <code>/dev/null</code>. Celé to krásně fungovalo jen do té doby, než se pythonní <a href="https://docs.python.org/3/library/logging.handlers.html#rotatingfilehandler">RotatingFileHandler</a> rozhodl soubor odrotovat a celá aplikace spadla.</li>
+        </ol>
+        <ol id="76e7327c-75e0-421d-a1f7-8479b9640d8c" class="numbered-list" start="4">
+          <li>Co se způsobu týče, tak některé aplikace prostě otevřou soubor a logují do něj. Jiné posílají data na UDP (syslog). Další zas posílají zprávy v JSONu do Sentry. Co koho napadne a co je zrovna populární, tak to bude.</li>
+        </ol>
+        <p id="a159816a-ec9c-4ff7-a1b3-a7150b9acab2" class="">Logování mi přijde jako krásná ukázka programátorské struktury, kterou je nucen řešit prakticky každý a kterou operační systém v celé komplexitě podporuje skoro vůbec, nebo jen málo. Je to také krásná ukázka konceptu, který by si zasloužil převést na posílání strukturovaných zpráv;</p>
+        <p id="973f1f97-27f9-4d4f-9883-93759a96d4d0" class="">Zprávy jsou objeky. Mají své datum odeslání, mají krátký text a většinou i dlouhý text a také „úroveň“ (v pythonu typicky <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>). Pokud s logy pracujete, skoro nikdy nechcete pracovat na úrovni textu. Chcete například omezit datum - jak to uděláte, když se jedná o text? Nebo úroveň - pokud chcete všechny zprávy úrovně <code>ERROR</code>, nechcete to <em>grepovat</em> textově, protože slovo „ERROR“ může být použito i v tělě zprávy v různých kontextech. Například „NO_ERROR“.</p>
+        <p id="f5b18444-a334-4164-a54f-35777afcd97b" class="">Aplikace, do které se loguje by měla přijímat zprávy, které bude uchovávat v datové struktuře <a href="https://cs.wikipedia.org/wiki/Fronta_(datov%C3%A1_struktura)">fronta</a>. Tím by nikdy nemohlo dojít místo na disku. Starší struktury by bylo možné automaticky komprimovat, ale pro uživatele by to mělo být transparentní - pokud chce vyhledávat nad komprimovanými zprávami, ani by o tom neměl vědět.</p>
+        <p id="d2f9446d-e771-44b2-9424-1790cedb6b38" class="">Nemělo by existovat padesát způsobů logování - pro uživatele by to měla být záležitost instancování systémového loggeru a jeho následné používání, po krátké konfiguraci, kde si zvolí politiku rotace. Pak už jen loguje standardním posláním zprávy, ať už lokálně, nebo vzdáleně z internetu.</p>
+        <h1 id="9f98a34d-96de-4009-a1b3-575caabb3fe6" class="">Ukázková studie: Docker</h1>
+        <p id="4e414c48-a135-46bc-855d-ab591b696f0e" class=""><a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> je virtualizační nástroj umožňující vám sestavovat, spravovat a spouštět kontejnery virtuálních počítačů, ve kterých je specifické programové vybavení.</p>
+        <p id="0e849bae-170e-4b38-b326-184d03329df2" class="">Osobně mám Docker docela rád a občas ho používám k sestavování balíčků pro cílové distribuce (například <code>.deb</code> pro Debian a <code>.rpm</code> pro RHEL).</p>
+        <p id="8b7b3eb5-eddd-4d84-8e69-1c349f87475c" class="">Parametrů Dockeru je nepřeberně: <a href="https://docs.docker.com/engine/reference/run/">https://docs.docker.com/engine/reference/run/</a>. Mojí oblíbenou částí jsou volumes, tedy složky, jenž jsou mountovány dovnitř kontejneru z vnějšího hosta.</p>
+        <p id="e47a4f81-a1df-4bc0-bce9-b2ef592ee6af" class="">Syntaxe je přibližně <code>-v local_path:/docs:rw</code>. Jako dobrá ukázka mi to přijde, protože se do jednoho parametru cpou tři různé hodnoty: cesta v počítači na kterém příkaz pouštíte (která navíc musí být absolutní!), cesta uvnitř kontejneru (která navíc musí být v <code>Dockerfile</code> označená pomocí <code>VOLUME</code>) a práva k zápisu.</p>
+        <p id="36f24185-65d9-449b-806c-5e5b93a683ab" class="">K naprosté dokonalosti to bylo dovedeno <a href="https://docs.docker.com/storage/volumes">novým</a> parametrem <code>--mount</code>, který dělá to samé, ale zavádí pro to úplně novou syntaxi, jenž přináší úplně jiná pravidla parsování:</p>
+        <pre id="f9414646-6932-412a-bf69-68b9761536b7" class="code"><code>--mount source=local_path,target=/docs</code>
+</pre>
+        <p id="7e4ad365-23bd-4b37-ad08-3f02415695d1" class="">Komplexnější ukázka může vypadat například takto:</p>
+        <pre id="ef2b3cea-bc5f-4c70-ba0d-0bb91c95f3f7" class="code"><code>--mount &#x27;type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,&quot;volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw&quot;&#x27;</code>
+</pre>
+        <p id="f28a5e6a-ca04-4465-aab6-48030692e9b9" class="">a zahrnuje ukázky escapování CSV parseru (!).</p>
+        <p id="8415b297-4c3a-4df1-a99b-59d71a63e032" class="">Z hodnot oddělených dvojtečkami se stává úplně nový formát hodnot oddělených čárkami, definující key-value hodnoty pomocí <em>rovnítka</em> (=), ale zároveň hodnoty jako list, protože místy tam žádné <em>rovnítko</em> není, a je možné používat uvozovky a celkově .. co to sakra je?</p>
+        <p id="a22280f3-e82a-4022-ac1d-7b22ec3a4972" class="">To ani nemluvím o tom jak se různě chování mění, podle toho co zrovna použijete, protože to není předmětem diskuze.</p>
+        <p id="17251893-b5a5-42cd-8d03-e80d2d36866f" class="">Pointou je, že místo aby se jednalo o nějak jasně definovaný objekt, kterému můžete poslat zprávu, tak je to systém hned několika konvencí skládání stringů na příkazové řádce, který je peklo snažit se nějak obalit do vašeho programu, protože se chová nekonzistentně a nepředvídatelně.</p>
+        <p id="1daa0fd1-6d64-4c02-8ba0-6ef67f9ff14a" class="">A to není všechno, pořád je tady ještě Dockerfile, protože to je samozřejmě další se vším ostatním nekompatibilní formát bez debuggeru a jasné vize a logiky.</p>
+        <h2 id="25a6e9bd-90a4-46b5-bf9b-4332162dc12c" class="">Dockerfile</h2>
+        <p id="8093b101-03c8-4c6a-9083-1147c8d9660c" class="">Původní myšlenka Dockerfile byla hádám podobná, jako u makefile. Pustíme na to docker a on provede jednotlivé direktivy krok za krokem a sestaví nám „projekt“.</p>
+        <p id="aff4d917-c9a7-41cd-bc41-047409be979f" class="">Původní idea byla jednoduchá - prostě soubor <code>KEY value</code> definic, které se budou postupně vykonávat. Může to vypadat například takto:</p>
+        <pre id="d0b63989-482f-4272-bd7d-d20e2465c1f1" class="code"><code>FROM microsoft/nanoserver
+COPY testfile.txt c:\\
+RUN dir c:\</code>
+</pre>
+        <p id="48422307-25c1-4679-99ad-95014e24c1bf" class="">FROM určuje co se má použít za původní kontejner, ze kterého se bude vycházet, COPY zkopíruje soubor z počítače, na kterém je kontejner sestavován a RUN provede nějaký příkaz.</p>
+        <p id="9ba0b759-ace9-4d54-be09-8dc29a86dfc7" class="">Každý kdo zná <a href="https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule">Greenspunovo desáté pravidlo</a> asi tuší, jak se to vyvíjelo dál. Přišla definice ENV proměnných a jejich nahrazování pomocí šablonování. Definice escape znaků, <code>.dockerignore</code> soubor. Příkazy jako třeba CMD získaly alternativní syntaxi, takže to nemusí být jen <code>CMD program parametr</code>, ale i <code>CMD [&quot;program&quot;, &quot;parametr&quot;]</code>.</p>
+        <p id="55c98cb2-c925-4940-bda2-fbcff7d36ac0" class="">Věci jako LABEL umožnily definovat další <code>key=value</code> struktury. Samozřejmě, SAMOZŘEJMĚ, že někdo potřeboval podmíněný build, tak vznikly hacky jak ho obejít přes templatování a nastavování key value hodnot z vnějšku: <a href="https://stackoverflow.com/questions/37057468/conditional-env-in-dockerfile">https://stackoverflow.com/questions/37057468/conditional-env-in-dockerfile</a></p>
+        <p id="4aa90a0c-4b91-40ca-9c85-1ac320b73a92" class="">Je jen otázkou času, než tam někdo přidá plnohodnotné podmínky a funkce a udělá z toho svůj vlastní zprasený programovací jazyk. Bez debuggeru, bez profileru, bez pěkných tracebacků.</p>
+        <p id="42d6e1ad-a732-4b34-83fb-5ae9fdc9aab7" class="">Proč? Protože neexistuje žádný standard a operační systém neposkytuje nic po čem by se dalo sáhnout. Fragmentace tak pokračuje.</p>
+        <h1 id="43e02ae6-a57b-493a-8c0d-4667276f819a" class="">Ukázková studie: OpenShift</h1>
+        <p id="3aabd673-40e8-4541-9b8b-1a242ef40e99" class="">Nedávno jsem v práci byl nucený pracovat s OpenShiftem. Musím říct, že se mi docela líbil a myslím si, že má zářnou budoucnost. Umožňuje vytvářet pěknou hardwarovou abstrakci nad clustery počítačů, provádět relativně bezbolestný deployment aplikací na vlastním firemním cloudu.</p>
+        <p id="ef85363e-c040-4a1f-8fa0-793426a2237e" class="">Přesto jsem během procesu portování několika balíčků ze starého RHEL 6 formátu, který běžel na fyzických serverech do nového RHEL 7 spec formátu, který má běžet uvnitř OpenShiftu neustále kroutil hlavou ohledně specifik nastavování a konfigurace.</p>
+        <p id="df51cfc0-493d-4a01-a01d-2230bd06bc10" class="">Abyste tomu rozuměli, tvůrci OpenShiftu ho umožňují konfigurovat přes webové rozhraní prostě jen klikáním. K tomu navíc nabízejí REST API a také utilitu příkazové řádky <code>oc</code>, kterou je možné provádět to samé co z ostatních dvou rozhraní.</p>
+        <p id="fff9433f-0840-450c-a319-9a504e58b9cd" class="">Kroutil jsem hlavou, protože jak v případě Webu, REST API či <code>oc</code> se jedná o konfiguraci nahráváním a upravováním <em>objektů</em> popsaných pomocí YAMLu či JSONu (formáty je možné zaměňovat).</p>
+        <p id="62a1fbb8-dce1-4a11-9f50-ede6089f54b3" class="">Tyto <em>objekty</em> je možné definovat v takzvané <em>template</em>, která funguje jako svého druhu <a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>, postupně vykonává jednotlivé bloky a na konci by měl být výsledkem běžící systém. V rámci <em>template</em> je možné používat šablonovací systém, který umožňuje definovat a expandovat proměnné.</p>
+        <p id="9395618a-83f6-45f7-a029-031fa6740ff6" class="">Tohle všechno je postavené nad YAMLem, což je poněkud méně ukecaný bratr JSONu. Ukázka template může vypadat například takto:</p>
+        <pre id="5a49bc94-1e36-417c-97e8-b8fbadb1eca2" class="code"><code>apiVersion: v1
+kind: Template
+metadata:
+  name: redis-template
+  annotations:
+    description: &quot;Description&quot;
+    iconClass: &quot;icon-redis&quot;
+    tags: &quot;database,nosql&quot;
+objects:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    name: redis-master
+  spec:
+    containers:
+    - env:
+      - name: REDIS_PASSWORD
+        value: ${REDIS_PASSWORD}
+      image: dockerfile/redis
+      name: master
+      ports:
+      - containerPort: 6379
+        protocol: TCP
+parameters:
+- description: Password used for Redis authentication
+  from: &#x27;[A-Z0-9]{8}&#x27;
+  generate: expression
+  name: REDIS_PASSWORD
+labels:
+  redis: master</code>
+</pre>
+        <p id="2f886b0d-a55e-427e-87ad-84bf51d71932" class="">Expanze proměnných probíhají zvenčí přes parametry příkazové řádky.</p>
+        <p id="39609cbd-5474-4b8b-b794-8cb3c08573e8" class="">Dosud dobré. Jenže jak by se dalo tušit, mám k tomu spoustu výhrad:</p>
+        <p id="431c5d3f-8599-47f9-9eed-b65a3a96aa3e" class="">Naprosto zde chybějí podmínky. Aby člověk mohl například podmíněně vykonat nějakou část kódu, musí použít šablonovací systém (<a href="http://jinja.pocoo.org/">Jinja2</a> třeba) nad tímhle šablonovacím systémem.</p>
+        <p id="e4d27070-71d4-4dc3-bf67-a350c82290ed" class="">Chybí tam taky samozřejmě definice funkcí (často opakovaných bloků) a cyklů. Kdyby se jednalo o cokoliv jiného, tak bych to asi odpustil, ale představte si úplně ukázkové použití. U nás ve firmě používáme pro každou jazykovou mutaci našeho produktu čtyři prostředí: <code>dev</code>, <code>test</code>, <code>stage</code> a <code>prod</code>. Prvně si vývojáři testují nasazení na <code>dev</code>u, potom testeři na <code>test</code>u, businnesáci poté na <code>stage</code> a zákazníci nakonec používají prostředí na <code>prod</code>u.</p>
+        <p id="46701935-46be-4662-9fed-f62f37953699" class="">Když nasadím novou verzi programu, musí postupně projít přes všechny tyto prostředí. Tudíž by bylo dobré mít nějakou možnost například provést spuštění virtuálního stroje v rámci OpenShiftu tak, že prostě řeknu „pusť toto čtyřikrát“. Jenže OpenShift samozřejmě nic takového neumí a je třeba to dělat manuálně. To začne být velmi rychle velmi velký opruz, protože prostředí se od sebe moc nelíší, kromě trochy konfigurace, která je to jediné co by bylo třeba dynamicky upravit.</p>
+        <p id="ece741c7-d605-4097-b361-7a186588a081" class="">Vzpomínáte si, že jsem původně psal o různých jazykových mutacích? Protože to jsou čtyři instance per jazyk a jazykové mutace máme momentálně taky čtyři, což dává dohromady šesnáct instancí. A to máme projekty, kde je to deset instancí per vývojové prostředí, per jazyk. Tedy dohromady musí běžet 160 instancí.</p>
+        <p id="96ac06f1-5d9f-4011-bef4-c01e451f510f" class="">Je asi jasné, že tohle nejde a tak jsme byli nuceni si nad tím postavit vlastní správu v podobě python scriptů a shellscriptů a ansible. Nemám z toho radost. A to jsem se nakonec rozhodl nepitvat, že OpenShift používá docker a je v něm nutné zároveň s jeho YAML formátem řešit i Dockerfile formát a argumenty příkazové řádky.</p>
+        <p id="046e21d7-9833-47e7-828c-e9cd00597890" class="">To vše proto, že neexistuje jednotný široce přijímaný formát konfiguračního jazyka, který by byl zároveň jazykem scriptovacím. Něco jako lisp.</p>
+        <h1 id="bd0421bc-8530-4f79-a64c-7c5428b0e8c7" class="">Ukázková studie: Ansible</h1>
+        <p id="fa885297-5202-4d6d-9ce1-b55dfa5616fa" class="">Ansiblééé je krásnou ukázkou jak to dopadne, když se někdo jen tak ad-hoc pokusí podobný jazyk uvařit, aniž by nad tím nějak moc přemýšlel, nebo měl za sebou teorii programovacích jazyků.</p>
+        <p id="6f6881f4-8b23-4a9a-8576-ba66bdddb7a5" class="">Původně začal jako deklarační konfigurační jazyk popisující co se má jak dělat,který založený na JSONu.</p>
+        <p id="1d65abef-3a9a-42e0-b27b-ed13460948b1" class="">Zde je například ukázka deklarace instalace nginxu:</p>
+        <pre id="1ca3fb5c-43d9-4943-8fb0-ec1509f0b105" class="code"><code>- name: Install nginx
+  hosts: host.name.ip
+  become: true
+  tasks:
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
+  - name: Install nginx
+    yum:
+      name: nginx
+      state: present
+  - name: Insert Index Page
+    template:
+      src: index.html
+      dest: /usr/share/nginx/html/index.html
+  - name: Start NGiNX
+    service:
+      name: nginx
+      state: started</code>
+</pre>
+        <p id="356b12c2-6dfb-4b5a-9846-3cd6176667cc" class="">Celé je to poměrně jednoduše čitelná YAML key-value struktura. Samozřejmě, SAMOZŘEJMĚ že nemohlo zůstat jen u tohohle a tak někoho napadlo přidat podmínky a cykly. Samozřejmě jako YAML:</p>
+        <ul id="a45b5337-e985-490f-a02f-b7ed094effff" class="bulleted-list">
+          <li>
+            <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_conditionals.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_conditionals.html</a>
+          </li>
+        </ul>
+        <ul id="ac6bfc05-4636-4aba-a6f2-258065b2ab9c" class="bulleted-list">
+          <li>
+            <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html</a>
+          </li>
+        </ul>
+        <pre id="f6ed94b8-9e34-4f11-b40c-0f3fff28782a" class="code"><code>tasks:
+    - command: echo {{ item }}
+      loop: [ 0, 2, 4, 6, 8, 10 ]
+      when: item &gt; 5</code>
+</pre>
+        <p id="4c4f9a9e-c946-4edb-aa05-d84be1ad00ee" class="">Samozřejmě, že tím vznikl programovací jazyk bez jakékoliv konzistence, vnitřní logiky a smyslu. Jazyk který byl nucený jít dál a dál a nadefinovat si bloky a výjimky a ošetřování chyb a funkce a to celé postavené nad YAMLem. To celé bez debuggeru, IDE, toolingu, smysluplnných <em>stacktrace</em> a s naprostou ignorací šedesáti let vývoje uživatelského rozhraní programovacích jazyků.</p>
+        <p id="6bc83a92-d9ec-4b4a-b344-c51b05fa49e6" class="">Ten tenký vysoký zvuk znějící jako pištění na vysoké frekvenci, jenž můžete slyšet v dokonalém tichu třeba chvíli před spaním jsou andělé řvoucí frustrací. Je to řev mojí duše nad vší lidskou demencí, která se vrší a vrší nad sebe.</p>
+        <p id="65139f32-550e-4e22-bb3d-04b557b34ed7" class="">Nemůžeme se prostě domluvit nad něčím co by pro jednou dávalo smysl?</p>
+        <h1 id="9a4e1a8c-937c-43f4-acea-aaf0a728b447" class="">Obecný princip</h1>
+        <p id="61c4a272-80b0-48c5-91f8-924e65f225ce" class="">Co takhle vzít všude tam, kde se dneska používá nějaký podivný stringový formát, ať už je to předávání parametrů programům, nebo komunikace mezi nimi, a nahradit to nějakým úsporným, jednoduše zapisovatelným jazykem pro definici struktur? Jazykem, který by byl zároveň popisným formátem, jenž by chápal datové typy jako <code>dict</code>, <code>list</code>, <code>int</code> a <code>string</code> a delegaci (dědičnost). Tak aby pro člověka i program odpadla většina parsování a dohad nad strukturou, a druhý jmenovaný je dostal už rovnou ve svém nativním formátu.</p>
+        <p id="081ff0ce-f01c-4c31-a0b8-16bc11326310" class="">Tolik tedy ke kritice. Pojďme se podívat na nápady, jak se posunout někam dál.</p>
+        <h2 id="b5426a3b-d226-47d5-a82b-917e9d8bcf9a" class="">Ohledně objektů</h2>
+        <p id="7b3a741b-e00d-433f-b13b-fb5f396ceeb4" class="">Když mluvím o objektech, nemám na mysli co znáte z programovacích jazyků jako třeba C++, nebo Java. Spousta lidí na to má poslední dobou alergii.</p>
+        <p id="b42f8745-85cf-4159-8f92-c571b44be966" class="">Myslím tím obecný koncept grupování funkcí s daty, nad kterými operují. K tomu není třeba <em>class based přístup</em> (= nemusíte psát třídy). Není k tomu třeba ani dědičnost, i když nějaká forma delegace se hodí.</p>
+        <p id="7fd130a1-d930-4fbc-a532-640f7315ed63" class="">GPIO podsložka filesystému <code>/sys</code> obsahující kontrolní soubor, jenž udává směr zápisu dat na LED diodu, a datový soubor, kterým data můžete zapsat či číst, je objekt. Má metodu (ovládací soubor) i data, nad kterými se operuje. Samozřejmě, že ideálně by bylo možné podobný objekt i kopírovat a instancovat standardním způsobem, předávat ho dalším objektům a metodám a provádět jeho introspekci. Ale i tak je to primitivní objektový systém, kde objektem je složka, daty jsou soubory, a metodami kontrolní soubory a operace nad nimi.</p>
+        <p id="7e833b6e-665b-4fc6-9c53-2daf427285fe" class="">Samotné objekty jsou na nejnižší úrovni <em>key-value</em> data. Klíč způsobí provedení kódu v případě že jde o jméno metody, nebo vrácení dat, v případě že jsou v něm uloženy data. Rozdíl mezi objekty a <em>key-value</em> záznamem v databázi je poměrně minimální, a spočívá především v možnosti uložit kód, a také v delegaci, kde když se nenajde daný klíč v potomkovi, tak se přesune hledání do konkrétního rodiče.</p>
+        <p id="4dbf8915-857a-4808-ad08-998d9016fd75" class="">Pokud tedy mluvím o objektech, mám na mysli obecné <em>key-value</em> struktury umožňující delegaci, referencování dalších (objektových) <em>key-value</em> struktur, reflexi a ideálně i nějakou formu homoikonicity.</p>
+        <p id="855a5b5d-045a-4512-a08a-e100181ecda1" class="">Záměrně nemám na mysli konkrétní jazyk, ale zcela a vůbec nemám na mysli imperativní, objektově orientované a na strukturách založené jazyky, jako jsou C++, C#, Java a další podobné.</p>
+        <h2 id="2d7c7deb-cca0-4611-965c-ef14b2446f30" class="">Ohledně zpráv</h2>
+        <p id="a4139973-1e44-45c3-bdaa-468608478e27" class="">Je pro mě fascinující, že na nejnižších úrovních internetových protokolů není problém se domluvit na strukturovaném formátu zpráv. Každý TCP/IP packet má jasně danou hlavičku, jasně dané adresování a celé to funguje v naprosto masivním, celosvětovém měřítku. Proč by to tedy nemohlo fungovat na počítači, či mezi nimi i na vyšší úrovni?</p>
+        <p id="317461a2-638a-447c-b55b-5a64ba6ad794" class="">Opravdu by nešlo adresovat jednotlivé metody objektů, či objekty samotné, jak v rámci jednoho počítače, tak po internetu?</p>
+        <h1 id="41e87b89-e4bc-4331-ae69-3500af367807" class="">Idea</h1>
+        <p id="2a9d55cc-72dd-412e-9fc0-9049d318d023" class="">Nebudu popisovat nějaký konkrétní systém. Sice jsem na tohle téma provedl pár experimentů, ale v zásadě nemám konkrétní data a zkušenosti. Shrnu pouze to co jsem napsal předtím. Tím by postupným zhušťováním a krystalizací již jednou rozebraných myšlenek mohlo vzniknout cosi jako dostatečně komprimovaný popis požadavků, aby to bylo možno brát jako <em>nekonkrétní</em> definici <em>konkrétního</em> produktu.</p>
+        <h2 id="ba3be080-d4e2-4eba-a5c0-82ecdd116875" class="">Databáze místo filesystému</h2>
+        <p id="6ddf6f28-0f9d-4126-b78a-c1ad90b07ca5" class="">Přemýšlel jsem nad tím, a nevyhnutelným krokem je podle mého názoru zahodit filesystém a nahradit ho databází. Když mluvím o databázi, nemám tím na mysli konkrétní SQL databázi, ani <em>key-value</em> „no-SQL“ databáze. Mluvím tu o obecném strukturovaném systému uchovávání dat na záznamových médiích, který podporuje datové typy, atomicitu, indexování, transakce, žurnály a ukládání libovolně strukturovaných dat, včetně velkých bloků čistě binárních dat.</p>
+        <p id="da2e4f88-d597-44c3-b60f-cdf7df64e072" class="">Něco kam můžete prostě hodit nějakou strukturu a ono se to postará o její uložení <strong>bez zbytečné serializace a deserializace</strong>. Já vím, že na konci jsou to vždycky jen bajty, ale právě proto nevidím moc důvodů, proč dělat signifikantní rozdíl mezi tím co je v paměti a co je na disku.</p>
+        <p id="96c3bef0-e254-49b8-874e-288ad7897937" class="">Nechci aby to vypadalo, jako že mám něco proti tradičním souborovým systémům. Jsem jejich uživatelem stejně jako všichni ostatní, ale myslím, si, že bez tohohle se není možné posunout někam signifikantně jinam. Když nejste schopni vynutit strukturu na úrovni uložených dat, bez neustálého převádění sem a tam, z formátu do formátu a reprezentací v paměti, je to jako stavět barák v bažině, na základech, které se neustále hýbou.</p>
+        <h2 id="20ed2693-11c4-447f-8488-28f1122d430d" class="">Programy jako kolekce adresovatelných bloků kódu v databázi</h2>
+        <p id="5a459059-3fd4-4937-8c4b-7bb9530f3213" class="">Jakmile máte filesystém, který vám umožňuje nativně uchovávat strukturované informace, nedává smysl mít programy jako jednu velkou sérii bajtů, která se uzavírá před světem. Naopak dává smysl z toho postavit něco podobného architektuře <em>microservices</em>.</p>
+        <p id="4a05077e-18a3-4628-9b21-dcdc9ed52b3c" class="">Pokud se nad tím zamyslíte dostatečně abstraktně, program je objekt. Je to kolekce dat, nad kterými operují v něm obsažené funkce. Celé je to zapouzdřené a komunikuje to jen pomocí nějakých standardních způsobů (stdin/out/err, socket, signály, env, error kódy, zápisy do souborů..). Když máte filesystém umožňující tyhle objekty uchovávat nativně, nevidím důvod, proč potom nezpřístupnit jednotlivé <em>metody</em> tohoto objektu i z venčí.</p>
+        <p id="a3b49a8a-127e-4328-859d-d558f3a6fc12" class="">Jakmile je zveřejníte, nepotřebujete komunikovat starými streamovými způsoby (socket, soubor, ..), stačí vám prostě vracet strukturovaná data.</p>
+        <p id="7f37cc45-ac0c-4cc2-beab-59be8c3ad778" class="">Kód se může stále kompilovat, stále je možné používat různé programovací jazyky. Liší se to však výsledkem, jenž z toho vypadne. Místo binárního blobu, posílaného přímo do procesoru, jenž je izolován od ostatních procesů a zbytku systému, máte v podstatě definici API a reakcí na ně. Něco jako sdílenou knihovnu, až na to že tohle je nativní prvek systému a jeho finální podoba.</p>
+        <h2 id="30f9a582-60af-45e4-a780-33477e907f9c" class="">Smrt konfiguračních formátů a parsování textu</h2>
+        <p id="9ee0ef34-db75-49df-bae5-02c907a26940" class="">Konfigurační soubory a různé jejich formáty existují, protože filesystém neumí uložit strukturu. Kdyby to uměl, můžete prostě uložit daný slovník s danými klíči a hodnotami, a příště po nich sáhnout. Nemusíte zapisovat <code>RUN=1</code> do sekce <code>[configuration]</code> a pak to parsovat a serializovat a deserializovat. Můžete prostě uložit samotný fakt <code>&quot;RUN&quot;: True</code> na umístění <code>configuration</code> přímo na disku.</p>
+        <p id="af1d9819-bd9e-4e8b-aeae-79ecc26671bb" class="">Nepotřebujete řešit, jestli je to JSON, nebo CSV, protože v tom pro vás není rozdíl z hlediska formátu, ale jen struktury dat (JSON typicky <em>dict</em>, CSV pole polí).</p>
+        <p id="6acc72f1-2a13-4c92-a4b1-e5ffaf733504" class="">Parametry příkazové řádky, env proměnné, ale i všechno ostatní píšete jako datové typy zachovávající si strukturu. Programem nejsou parsovány jako text, o to se stará už systém ve chvíli kdy to uživatel dopíše. Datový formát je jednoduchý na textový zápis. Když posílá data program programu, nikde mezi nimi se neserializuje do textu, zprávy se neposílají jako stream bajtů, ale jako zprávy (ve stylu <a href="https://en.wikipedia.org/wiki/ZeroMQ">zeromq</a>).</p>
+        <h2 id="e65b0c96-5f9d-44b4-8600-2b849db6c106" class="">Komplexní redukce</h2>
+        <p id="57b44fcf-9b6b-45d2-80aa-670924265b77" class="">Předchozí popis je pořád moc dlouhý, pojďme ho proto ještě trochu víc zredukovat, tak jak se redukují třeba matematické výrazy do jednoho vzorce:</p>
+        <blockquote id="e542b650-0fec-4b3a-bebf-ca35286b1131" class="">Místo filesystému strukturovaná hierarchická databáze zachovávající datové typy. V ní jak programy, uložené jako kolekce navzájem se volajících, ale i z venku zavolatelných funkcí, tak konfigurační soubory a uživatelská data. To vše formou přístupných a adresovatelných struktur. Na zápis a čtení jednoduchý, <strong>lehký</strong> textový formát, používaný všude kde je strukturovaný uživatelský vstup. Programy které ke komunikaci nepoužívají textové protokoly, ale předávají si přímo struktury.</blockquote>
+        <p id="4dc938ad-4609-476d-8605-dbdcfe3f622f" class="">Dost bylo iterativního vylepšování padesát let starých myšlenek. Myslím, že je čas na něco nového.</p>
+        <h2 id="c6cff942-406f-41e8-bbcb-ea3dd84d9784" class="">Inspirace a kontext</h2>
+        <p id="6371efdd-cbe7-4264-9ff9-899d39cfb2e6" class="">Pokud si myslíte, že jsou to všechno naivní blbosti, zkuste si přečíst něco na téma <a href="https://en.wikipedia.org/wiki/Genera_(operating_system)">Genery</a>:</p>
+        <ul id="426708ad-231c-4bca-81ae-5350b281f09f" class="bulleted-list">
+          <li>
+            <a href="http://bitsavers.trailing-edge.com/pdf/symbolics/software/genera_8/Genera_Concepts.pdf">http://bitsavers.trailing-edge.com/pdf/symbolics/software/genera_8/Genera_Concepts.pdf</a>
+          </li>
+        </ul>
+        <p id="4afa70a3-7a1c-43e9-9a9a-16ec82131da2" class="">Zjistíte, že před desítkami let existoval grafický systém splňující velkou část všeho, o čem jsem psal. Systém tak dobrý, že dodnes kolem sebe spojuje skupiny nadšenců.</p>
+        <p id="2bd53aaa-a0bb-4ee4-952a-28d1248e3d83" class="">Dále pak na podobná témata:</p>
+        <ul id="f4e15033-10f9-4946-9032-615c43b50f03" class="bulleted-list">
+          <li>
+            <a href="https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/">https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/</a>
+          </li>
+        </ul>
+        <ul id="3c54d64c-2d00-4c47-ac71-9bf8b84c000e" class="bulleted-list">
+          <li>
+            <a href="https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/">https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/</a>
+          </li>
+        </ul>
+        <ul id="84180232-ab23-4807-be2f-4a240f964993" class="bulleted-list">
+          <li>
+            <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">https://shalabh.com/programmable-systems/systems-not-programs.html</a>
+          </li>
+        </ul>
+        <ul id="970085af-a6fb-4354-9497-3ec82856e42f" class="bulleted-list">
+          <li>
+            <a href="https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html">https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html</a>
+          </li>
+        </ul>
+        <ul id="2e918d41-9e0b-4e84-87f9-a4e563a37d42" class="bulleted-list">
+          <li>
+            <a href="http://www.pixelbeat.org/programming/stdio_buffering/">http://www.pixelbeat.org/programming/stdio_buffering/</a>
+          </li>
+        </ul>
+        <ul id="a5844c4c-c395-448d-8811-d1afa283b966" class="bulleted-list">
+          <li>
+            <a href="http://okmij.org/ftp/papers/DreamOSPaper.html">http://okmij.org/ftp/papers/DreamOSPaper.html</a>
+          </li>
+        </ul>
+        <ul id="88458863-4178-4137-a7be-d4274eaf891a" class="bulleted-list">
+          <li>
+            <a href="http://www.abclinuxu.cz/blog/bystroushaak/2011/2/proc-pouzivam-unix-linux">http://www.abclinuxu.cz/blog/bystroushaak/2011/2/proc-pouzivam-unix-linux</a>
+          </li>
+        </ul>
+        <ul id="c944e264-55d3-4dd7-a0a5-eae812900b10" class="bulleted-list">
+          <li>
+            <a href="http://www.abclinuxu.cz/blog/bystroushaak/2017/7/jak-se-stat-programatorem#493">http://www.abclinuxu.cz/blog/bystroushaak/2017/7/jak-se-stat-programatorem#493</a>
+          </li>
+        </ul>
+        <h1 id="64cb21b6-3fab-4c37-8bcf-59675e4573a1" class="">Relevantní diskuze</h1>
+        <ul id="3852fb5c-47c1-4fac-8618-7fb02c4e2771" class="bulleted-list">
+          <li>
+            <a href="http://www.abclinuxu.cz/blog/bystroushaak/2018/12/programatorova-kritika-chybejici-struktury-os/diskuse">http://www.abclinuxu.cz/blog/bystroushaak/2018/12/programatorova-kritika-chybejici-struktury-os/diskuse</a>
+          </li>
+        </ul>
+        <ul id="24a6a6bf-b0c7-4b6d-a0c3-a802b96af38d" class="bulleted-list">
+          <li>
+            <a href="http://www.abclinuxu.cz/blog/foobar/2018/12/structuros-simulator-bystroushaakovho-nezmyslu">StructurOS - simulátor bystroushaakovho nezmyslu</a>
+          </li>
+        </ul>
+        <ul id="785f9524-32ac-4c58-be5e-47ce7726f01b" class="bulleted-list">
+          <li>
+            <a href="http://www.abclinuxu.cz/blog/Linux_nieje_jadro_ale_komunita/2018/12/simulator-bystroushaakovho-nezmyslu-2-tentokrat-s-videom">Simulátor bystroushaakovho nezmyslu 2, tentokrát s videom.</a>
+          </li>
+        </ul>
+        <p id="997edbfe-72fc-4e5f-a3c4-100d50b8fcbe" class="">
+        </p>
+      </div>
+    </article>
+        <div class="corner-ribbon top-right red">
+      <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+    </div>
+  </body>
+</html>

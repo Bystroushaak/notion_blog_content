@@ -1,0 +1,469 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Bystroushaak" />
+    <meta name="twitter:creator" content="@Bystroushaak" />
+    <meta name="twitter:title" content="Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)" />
+    <meta name="twitter:description" content="Dneska se bude jednat o mezi-díl, kam jsem nacpal věci, jenž se mi moc nevešly nikam jinam. Podíváme se detailněji na debugger a transporter a taky si rozebreme nevýhody Selfu jako jazyka, prostředí, ale i obecně principu používání prototypového programování." />
+    <meta name="twitter:image" content="http://blog.rfox.eu/Bystroushaak%20s%20blog/Czech%20section/Seri%20l%20o%20Selfu/../../English%20section/Series%20about%20Self/Environment%20and%20the%20programming%20language%20Self%20part%202/transporter_0.png" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+    </script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-142545439-1');
+        </script>
+        <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+  </head>
+  <body>
+    <a class="breadcrumb" href="../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../index.html">Czech section</a> / <a class="breadcrumb" href="index.html">Seriál o Selfu</a> / Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)
+
+    <article id="1d44b6cb-74ec-4739-89be-bfabaf14ecd2" class="page sans">
+      <header>
+        <h1 class="page-title">Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)</h1>
+      </header>
+      <div class="page-body">
+        <p id="778687e9-c975-4648-9e2b-8e517d00c601" class="">
+          <time>@2019/02/15</time>
+        </p>
+        <p id="f2213676-dc93-4d8f-9d4b-737970e3f75a" class="">Dneska se bude jednat o mezi-díl, kam jsem nacpal věci, jenž se mi moc nevešly nikam jinam. Podíváme se detailněji na debugger a transporter a taky si rozebreme nevýhody Selfu jako jazyka, prostředí, ale i obecně principu používání prototypového programování.</p>
+        <h1 id="3c43da18-0922-4401-bdc8-d4edae3faf17" class="">Z hlediska uživatelského použití transporteru</h1>
+        <p id="07485f39-565c-4d13-af82-aeb24dbf5a1e" class="">Nebudu se věnovat tomu, jak přesně transporter funguje, to je možné vyčíst například z paperu <a href="http://bibliography.selflanguage.org/gold.html">Sifting Out the Gold: Delivering Compact Applications From an Exploratory Object-Oriented Environment</a>. Zaměřím se spíš na uživatelskou stránku, tak jak je ukázána ve videu na stránce <a href="https://bluishcoder.co.nz/2015/11/19/exporting-self-objects-to-source-files-via-transporter.html">https://bluishcoder.co.nz/2015/11/19/exporting-self-objects-to-source-files-via-transporter.html</a>.</p>
+        <p id="015396b7-277c-4935-82ec-12c8b16c10cd" class="">Obrázkově je tahle podkapitola hrozně dlouhá, proto chci předem říct, že ve skutečnosti se neděje nic moc komplikovaného. Vytvořím anonymní objekt. Přidám ho v transporteru do nového modulu. Pak vytvořím slot v globální hierarchii, uložím do něj tento objekt a taky ho přidám do již vytvořeného modulu. Potom řeknu anotací transporteru, aby slot nenastavoval na defaultní hodnotu, ale „sledoval“ objekt co je v něm uložený. Pak všechno uložím na disk skrz dialog transporteru.</p>
+        <p id="7102dfa8-131b-48eb-a0cb-633ea40c94d0" class="">Začnu vytvořením naprosto jednoduchého objektu, obsahujícího jeden slot „a“ o hodnotě „1“.</p>
+        <figure id="a6d2349e-62af-4543-9fbb-923c3f120dda" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_0.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_0.png" />
+          </a>
+        </figure>
+        <figure id="af9b95ac-c177-4e69-934a-39e157b4726c" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_1.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_1.png" />
+          </a>
+        </figure>
+        <p id="dc571004-2f06-4170-a9d6-f76c30a9230f" class="">Na outliner potom kliknu prostředním tlačítkem (kolečkem) a vyberu z menu <em>„Set module...“</em>:</p>
+        <figure id="09a5b83f-efc6-4ee7-94b5-05d3c3a3bf48" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_2.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_2.png" />
+          </a>
+        </figure>
+        <p id="0d46649f-feef-41ce-84ea-5a5045555b7b" class="">Nyní se bude objevovat série dialogů, kde se mě transporter poptá na různé informace. Jako první se ptá na sloty:</p>
+        <figure id="071dcb9a-2e85-443a-a2fa-0d8166f71544" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_3.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_3.png" />
+          </a>
+        </figure>
+        <p id="38ec807a-754f-4def-b666-65d8d2944f16" class="">Chci všechny.</p>
+        <p id="d224b1df-46fc-4dc1-bf4f-7624b3663cf6" class="">Dál se ptá na jméno modulu, do kterého objekt uložit.</p>
+        <figure id="5889f624-45f5-430c-92dc-d03eab26dd88" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_4.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_4.png" />
+          </a>
+        </figure>
+        <p id="4199f832-96e1-4410-89b9-c8033588bda9" class="">Chci „other“, což vyvolá dialog s názvem. Já chci svůj modul pojmenovat „test“:</p>
+        <figure id="e41b3a5a-dab1-45ac-b82e-45d4fc5c749d" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_6.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_6.png" />
+          </a>
+        </figure>
+        <p id="7ce336ce-2182-4539-b712-5054ad9a0d83" class="">Dialog se mě nyní ptá zda chci modul vytvořit, nebo jsem se splet. Chci ho skutečně vytvořit:</p>
+        <figure id="45042bf8-04ef-477d-9612-9f2df5e6fc1d" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_7.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_7.png" />
+          </a>
+        </figure>
+        <p id="0177d6a9-76e8-430c-8d48-d4b6111c9a22" class="">Nechci ho udělat submodulem ostatních modulů, proto nechávám následující pole prázdné:</p>
+        <figure id="907be9be-a5d7-4a21-ab10-778c55771b34" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_8.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_8.png" />
+          </a>
+        </figure>
+        <p id="db02e3a0-8086-4649-8590-aeb31cadfdbb" class="">Ještě to znova potvrzuji:</p>
+        <figure id="5ef2e834-69bf-4005-808a-899d489f5614" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_9.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_9.png" />
+          </a>
+        </figure>
+        <p id="0bdc794b-e350-458e-bd56-54ce3d17344f" class="">Vybírám složku do které by se měl soubor uložit. Nechávám defaultní „applications“:</p>
+        <figure id="3f309952-3f6d-4d00-8dc0-c3d4b7b42ded" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_10.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_10.png" />
+          </a>
+        </figure>
+        <p id="9d5f1465-e005-49f1-98a6-e15a641e4882" class="">Můj objekt je nyní oficiálně součástí modulu, akorát se prostě jen tak vznáší ve vzduchu, což znamená, že by po načtení nešel moc dobře referencovat. Já ho chci uložit na cestu <code>globals test</code>. Otevřu si tedy outliner pro <code>globals</code> kliknutím na plochu kolečkem:</p>
+        <figure id="19229d79-a32b-4c7c-b011-e30b80f5b40f" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_11.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_11.png" />
+          </a>
+        </figure>
+        <p id="d60b9dac-a2dd-4ea6-bf31-65a6fda02c92" class="">a otevřu si podsekci „applications“:</p>
+        <figure id="aeaaf0b0-7126-4de8-8a0c-fcf663c5bb0e" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_12.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_12.png" />
+          </a>
+        </figure>
+        <p id="f8898fa4-c862-42b8-ae29-c1ec7d7e1d1a" class="">Vidím, že už v ní jsou čtyři aplikace. Kliknutím na nápis „applications“ prostředním se objeví kontextové menu, kde vyberu „Add Slot“:</p>
+        <figure id="bbdea4af-8c7d-4d78-9b38-e87ae35e2c3c" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_13.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_13.png" />
+          </a>
+        </figure>
+        <p id="1c5cd71a-9ac6-465b-9d53-3828d8a374be" class="">Z dialogu pro přidání slotu smažu defaultní text s nápovědou:</p>
+        <figure id="98da68c1-33ce-4c57-8189-a95a195be606" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_14.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_14.png" />
+          </a>
+        </figure>
+        <p id="ae893f61-03aa-4d16-a23a-ae8b2d848e4a" class="">a nastavím slot na <code>nil</code>.</p>
+        <figure id="776123e1-0ee7-4a02-8475-1c1c3058f9fe" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_16.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_16.png" />
+          </a>
+        </figure>
+        <p id="b7d68a8a-2f8e-4efc-8fc1-03c12cff3471" class="">Uložím kliknutím na zelený obdélník, či stisknutím CTRL+enter.</p>
+        <figure id="1b3b3346-a8a6-4500-a760-b95500014b04" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_17.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_17.png" />
+          </a>
+        </figure>
+        <p id="76c09a66-4f30-4525-a8eb-0da31a1235fd" class="">Nyní místo <code>nil</code>u graficky přenesu referenci na můj anonymní objekt na ploše. Stejně tak bych ale mohl přijít do mého anonymního objektu, otevřít si v něm shell a zadat cosi jako <code>globals test: self</code>.</p>
+        <figure id="73e2b732-381d-4155-bcf4-08469a512d80" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_18.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_18.png" />
+          </a>
+        </figure>
+        <figure id="f04dcecb-e12a-4321-a38b-9afd01986454" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_19.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_19.png" />
+          </a>
+        </figure>
+        <figure id="119a4f8b-ffa5-4172-869a-69d6f057250f" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_20.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_20.png" />
+          </a>
+        </figure>
+        <p id="99b4b228-712f-4d1c-802c-24b6469f04c6" class="">Slot <code>globals test</code> nyní ukazuje na můj objekt, neboli můj objekt nyní existuje na této cestě.</p>
+        <p id="54570f2e-7914-42a7-8986-2e628dc3a1b8" class="">Nyní zbývá ještě nastavit modul pro tento slot kliknutím prostředním tlačítkem a vybráním „Set module“:</p>
+        <figure id="d9db3b39-582f-4c5a-babd-fbc179a8a916" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_21.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_21.png" />
+          </a>
+        </figure>
+        <p id="f1271557-593d-457e-b428-ebb6d998e772" class="">Zobrazí se podstatně větší menu, kde doscrolluju až dolu a vyberu other:</p>
+        <figure id="400f26c5-57ec-4e1c-978f-02bf539b9fec" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_22.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_22.png" />
+          </a>
+        </figure>
+        <p id="bdead88b-f8e2-44a4-af66-9ab608bd8017" class="">Tam znova zadám „test“:</p>
+        <figure id="f7d38b23-4c5a-4be8-8b55-65dd4294f408" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_23.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_23.png" />
+          </a>
+        </figure>
+        <p id="ccfe864a-e376-4ee6-9d80-42e255b00e19" class="">Abych teď nemusel jak blázen scrollovat zase nahoru, dvakrát kliknu na prázdnou plochu a vyberu že chci jít „home“:</p>
+        <figure id="b044bb8b-54b8-4e8d-ae59-5d51a2e53255" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_24.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_24.png" />
+          </a>
+        </figure>
+        <p id="f50df1fc-f395-46db-9e18-06b5b600f689" class="">Což mě vrátí tam kde jsem byl. Nyní ještě potřebuji upravit anotaci slotu <code>globals test</code>, kliknu na něj tedy opět kolečkem a vyberu „Show Annotation“:</p>
+        <figure id="291e015c-bcad-4788-98ce-401ac44d0902" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_29.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_29.png" />
+          </a>
+        </figure>
+        <p id="9020e03d-e72f-4f16-bdc9-5ed6e81e3bc3" class="">V nastavení modulu vyberu že chci „Follow“, nikoliv nastavovat slot na <code>nil</code>.</p>
+        <figure id="373801d2-394f-427f-bdf6-c5e4f6a96c93" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_30.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_30.png" />
+          </a>
+        </figure>
+        <figure id="ff2d9af3-7079-458b-80bc-b0495dd66715" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_31.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_31.png" />
+          </a>
+        </figure>
+        <p id="cc7d417c-70ab-4eae-87c9-9aa57bcfbc5e" class="">Nyní kliknu do prázdného místa na ploše prostředním a vyberu z menu „Changed Modules“:</p>
+        <figure id="a057a797-122b-4098-82a9-eae455704083" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_25.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_25.png" />
+          </a>
+        </figure>
+        <p id="9ac790c9-a9de-483c-9784-6ac8ebdd9075" class="">Zobrazí se mi dialog ukazující změněné moduly:</p>
+        <figure id="55a469a4-baa7-4c21-936d-14f087f28f68" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_26.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_26.png" />
+          </a>
+        </figure>
+        <p id="b495daa8-eb0e-425c-b915-daa578ef4a45" class="">Ty můžu zapsat klikáním na tlačítka. Kliknu na tlačítko s nápisem „W“ vedle:</p>
+        <figure id="6e97d6d9-5347-42fa-b79c-4c6392ba05e9" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_27.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_27.png" />
+          </a>
+        </figure>
+        <p id="651d3e2f-189a-4815-8357-f642edf8e52c" class="">Tak a to je vše. Zdá se to jako hodně kroků, ale ve skutečnosti je to celé docela logické. Nyní se můžu podívat, že o úroveň výš (neptejte se mě proč) vznikl ve složce „objects/applications/“ soubor „test.self“:</p>
+        <pre id="9c8b5947-e19a-47a4-9dd6-62de7b69313d" class="code"><code>&#x27;&#x27;
+ &#x27;
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
+&#x27;
+[ 
+&quot;prefileIn&quot; self] value
+
+
+ &#x27;-- Module body&#x27;
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: FollowSlot&#x27;
+        
+         test = bootstrap define: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: &#x27;directory&#x27; From:
+             bootstrap remove: &#x27;fileInTimeString&#x27; From:
+             bootstrap remove: &#x27;myComment&#x27; From:
+             bootstrap remove: &#x27;postFileIn&#x27; From:
+             bootstrap remove: &#x27;revision&#x27; From:
+             bootstrap remove: &#x27;subpartNames&#x27; From:
+             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( |
+             {} = &#x27;ModuleInfo: Creator: globals modules test.
+
+CopyDowns:
+globals modules init. copy 
+SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: &#x27;.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: FollowSlot\x7fVisibility: public&#x27;
+        
+         directory &lt;- &#x27;applications&#x27;.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public&#x27;
+        
+         fileInTimeString &lt;- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: FollowSlot&#x27;
+        
+         myComment &lt;- &#x27;&#x27;.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: FollowSlot&#x27;
+        
+         postFileIn = ( |
+            | resend.postFileIn).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: InitializeToExpression: (\&#x27;30.21.0\&#x27;)\x7fVisibility: public&#x27;
+        
+         revision &lt;- &#x27;30.21.0&#x27;.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;modules&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: FollowSlot\x7fVisibility: private&#x27;
+        
+         subpartNames &lt;- &#x27;&#x27;.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; () From: ( | {
+         &#x27;Category: applications\x7fModuleInfo: Module: test InitialContents: FollowSlot&#x27;
+        
+         test &lt;- bootstrap setObjectAnnotationOf: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( |
+             {} = &#x27;ModuleInfo: Creator: globals test.
+&#x27;.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; &#x27;globals&#x27; -&gt; &#x27;test&#x27; -&gt; () From: ( | {
+         &#x27;ModuleInfo: Module: test InitialContents: FollowSlot&#x27;
+        
+         a = 1.
+        } | ) 
+
+
+
+ &#x27;-- Side effects&#x27;
+
+ globals modules test postFileIn</code>
+</pre>
+        <p id="382b4b94-29e1-4681-a82a-e1ee47d56f6f" class="">V něm jsou nastaveny všechna možná metadata. Tento soubor můžu verzovat gitem a také načíst do nové image:</p>
+        <figure id="a089ba51-965f-4a1d-bde3-e29f2c68bd25" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_33.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_33.png" />
+          </a>
+        </figure>
+        <p id="ba18b33f-7173-4fc2-b174-b8ec7e3ebb46" class="">Což mi dá do ruky metadata o modulu a vedle v outlineru pro <code>globals</code> si můžete všimnout že se objevil nový slot „test“:</p>
+        <figure id="db654ea8-716b-4612-b2d0-cfc03e19fc78" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_34.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_34.png" />
+          </a>
+        </figure>
+        <p id="9ec7cf9e-ee6d-4b69-8764-bc914941015e" class="">Ve kterém je skutečně můj objekt:</p>
+        <figure id="ab248916-6969-4947-bc67-5ddd4a9aabc8" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_35.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/transporter_35.png" />
+          </a>
+        </figure>
+        <h1 id="70af389e-feec-4f59-890a-34de085b6a1f" class="">Z hlediska debuggeru</h1>
+        <p id="f76e8a72-3ad7-48ce-ad4a-d4fcd71e0042" class="">Self nabízí debugger smalltalkovského typu, ze kterého je možné interaktivně měnit kód. Krátká ukázka myslím řekne víc než tisíc slov.</p>
+        <p id="9ddbff75-6912-4e25-9419-735e6226715a" class="">V Shellu vytvořím jednoduchý objekt, který má slot „a“, kde je uložen kód, který by měl na standardní výstup vypsat hodnotu čísla „1“. Záměrně se ale upíši a místo zprávy „<code>printLine</code>“ pošlu pouze zprávu „<code>printLin</code>“, tedy bez „<code>e</code>“ na konci:</p>
+        <figure id="c00685b1-10b7-422f-82e5-4fb2eaa8ea99" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_0.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_0.png" />
+          </a>
+        </figure>
+        <p id="2cd80d13-b6ee-48de-909d-835ae406905a" class="">To mi <em>„do ruky“</em> vloží objekt, který jsem popsal.</p>
+        <figure id="1d4e5f8d-5065-4151-bb06-785f002e383e" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_1.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_1.png" />
+          </a>
+        </figure>
+        <p id="7ce032ff-15e2-4f1f-8910-4d4822ee10d6" class="">Můžu si zkontrolovat, že je to skutečně on tím že ho položím na plochu a rozbalím sloty:</p>
+        <figure id="3183b690-fab0-4a95-bac8-fe3775cb7099" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_2.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_2.png" />
+          </a>
+        </figure>
+        <p id="49124248-3d18-4806-81a1-2d9e7027f285" class="">V objektu otevřu <em>podshell</em> kliknutím na E vpravo v rohu a pošlu mu zprávu „a“:</p>
+        <figure id="03f7a512-366d-4c90-8962-991550ecf247" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_3.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_3.png" />
+          </a>
+        </figure>
+        <p id="a0955772-09f3-4aa3-8e94-a6fd86c0ed24" class="">Nyní kliknu na <em>Get it</em>, což by mělo kód provést (tedy vypsat do konzole jedničku) a zároveň mi do kurzoru umístit výsledek volání (také jednička). V kódu mám ale popsanou chybu, takže místo toho dostanu do ruky debugger:</p>
+        <figure id="80cf4c93-ed33-46fa-a8db-f962a8a22139" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_4.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_4.png" />
+          </a>
+        </figure>
+        <p id="db26378d-15cf-451e-b190-6ff56641c38a" class="">Debugger vypadá trochu podobně jako outliner. Krabička, která se dá rozklikávat. Zde je celá rozkliknutá:</p>
+        <figure id="456e39c1-9c41-4988-95cc-bdd5ffb83895" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_5.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_5.png" />
+          </a>
+        </figure>
+        <p id="10a48c8e-39f5-4412-9635-347471cd3a0a" class="">Můžeme vidět celý stack trace, ale nejenom to, dá se s ním krásně interagovat. Například vlevo nahoře vidíme jedničku, což je receiver zprávy (selektoru). Na jedničku lze kliknout a dostaneme přímo objekt:</p>
+        <figure id="eecb3865-5f00-48aa-8f80-679935b5dbf9" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_6.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_6.png" />
+          </a>
+        </figure>
+        <figure id="3f77739d-2866-451e-9e40-c989da99ecaf" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_7.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_7.png" />
+          </a>
+        </figure>
+        <p id="92b8c4b2-fbda-422b-82bd-f303569f7e5d" class="">V případě jedničky to sice úplně nedává smysl, ale u jiných objektů může být velmi užitečné si je živě prozkoumat.</p>
+        <p id="bd90ae93-2d8d-463d-8cad-5e935217d9ca" class="">Z editoru lze také chybu hned opravit:</p>
+        <figure id="d07c0cdc-3bce-4e0d-932c-42dace48f3a8" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_8.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_8.png" />
+          </a>
+        </figure>
+        <p id="1dd0deea-8b1f-4a06-b49d-d56c242fb900" class="">Po kliknutí na zelený čtvereček se upraví přímo kód, všimněte si outlineru vedle:</p>
+        <figure id="f8d02bd2-dea5-40f5-9a17-6df1713e363d" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_9.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_9.png" />
+          </a>
+        </figure>
+        <p id="b6fc72eb-3642-4617-ab76-57ae40535775" class="">Nyní kliknu na continue a celý interpret bude pokračovat tam, kde by pokračoval normálně, kdyby k žádné chybě nedošlo, tedy do konzole se vypíše jednička a ta se mi taky octne v ruce:</p>
+        <figure id="0818635d-8849-4d13-84b1-9b1bf6c0a11c" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_11.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_11.png" />
+          </a>
+        </figure>
+        <p id="95cfdcd3-0d20-4923-bd67-71eceb5ea746" class="">Debugger nyní vypíše, že je mrtvý a minimalizuje se. Když nyní znova kliknu na <em>Get it</em> tlačítko, vše již napodruhé proběhne správně;</p>
+        <figure id="e01f779d-6d67-45c4-b6c2-6e9c5a1d857a" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_13.png">
+            <img style="width:715px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/debugger_13.png" />
+          </a>
+        </figure>
+        <h1 id="6d94f9fe-7a6b-4b51-a96f-f912aaf0bf9e" class="">Z hlediska problémů</h1>
+        <p id="10564669-f49d-48f7-9ced-18e406181924" class="">Z praktického hlediska je Self docela smutná kupka. Nejprve bych rád řekl, že je do velké míry použitelný, ale zdaleka ne tolik, aby to bylo přístupné pro začínající uživatele. Pokud něco budete řešit, zapomeňte na to, že vygooglíte řešení. S vysokou pravděpodobností jste nejspíš první, kdo má daný problém. A pokud ne, tak je stejně slušná šance, že problém je nevyřešen.</p>
+        <h2 id="c8d7f975-8024-4df6-9969-e8fe193f17df" class="">32 bit</h2>
+        <p id="59b29c78-377d-44d6-a054-c6218202a2cf" class="">Self je 32 bitový program. Portace na 64 bitů je sice možná, ale netriviální a nikdo se do toho nehrne. Očekávám, že v příštích deseti letech se na tom asi nic nezmění.</p>
+        <p id="444d588a-b449-47e1-9f0c-d38e4e8f5471" class="">Na jednu stranu je to docela nemilé, protože vás to omezuje na maximálně čtyřgigabajtové image, ale tenhle problém se dá vyřešit například použitím víc instancí a hlavně narazíte na problémy se vším možným daleko dřív. Například samotné ukládání image je docela pomalé už u velikostí kolem desítek megabajtů a gigabajtové velikosti by trvaly pravděpodobně celé minuty.</p>
+        <h2 id="619e6921-ffec-41a9-a267-b6ea4d03c352" class="">Problémy prototypů</h2>
+        <p id="0bcf2e1d-4d88-4da4-baae-886effa50f9e" class="">Prototypy jsou jednoduché na pochopení a spolu s delegaci (koukám se na tebe, javascripte!) nabízejí silný a efektivní mechanismus organizace kódu.</p>
+        <p id="a6bfe824-a52f-4b0f-ac00-a105e781e983" class="">Mají ovšem jednu nevýhodu; jednou zapomenete na clone a přepíšete půlku systému.</p>
+        <p id="fdb5aee5-a911-4340-8b74-9901544128d0" class="">Například s prototypovým <code>dictionary</code> se pracuje prostě tak, že si ho naklonujete a zapisujete do něj hodnoty. Pokud ovšem zapomenete provést klonování a rovnou píšete do dictionary, píšete zároveň do všech nových dictionary co budou vytvořeny kopírováním. To většinou vede k velmi rychlému pádu systému.</p>
+        <p id="70b02baf-ed31-4a70-b0a4-235d51f3b6f4" class="">Self bohužel nenabízí žádnou možnost, jak se tomuhle bránit. Osobně bych se tomu ve svém jazyce rád vyvaroval <em>zamykáním</em> systémových objektů tak, aby bylo vynuceno klonování předtím, než je možné do nich zapsat. Nebo možná nějakým automatickým klonováním.</p>
+        <h2 id="27f08f9a-508e-46a5-a096-eda938486a4c" class="">Bezejmennost prototypových objektů</h2>
+        <p id="d431959f-1e2f-46bb-bdf1-b61fe398e6e7" class="">Selfovské je na tom se svými literály (zkrácený nativní zápis definice objektu) podobně, jako jazyky podporující pouze lambda funkce. Anonymní objekty jsou super, ale přeci jen člověk se snáze orientuje pokud může věci pojmenovat.</p>
+        <p id="01973103-682f-4cbe-b5bf-69dc593d1a9d" class="">V Selfu je toto řešeno anotacemi, kde je možné nastavit jméno objektu, které se pak zobrazuje v outlinerech, nebo prostě umístěním objektu do patřičné hierarchie. Pokud umístíme objekt do cesty <code>globals dictionary</code>, tak je asi jasné, že se jedná o slovník.</p>
+        <p id="9d238051-ff05-41a1-b369-28654d16fd05" class="">Stojí za zamyšlení si to srovnat s <em>na třídách založenými jazyky</em>, které zpravidla trpí přesně opačným problémem, kde se snaží pojmenovat úplně všechno. Třída má svoje jasně dané jméno a instance má jméno proměnné kde existuje.</p>
+        <p id="a389df0d-9c26-473f-b602-81567e44ea3a" class="">Co je pro lidi lepší a přirozenější? Aby měl objekt jasně dané jméno, nebo aby bylo jméno dané proměnou (či cestou) ve které je uložený?</p>
+        <h2 id="98e922d8-db4e-481f-8d69-d5cdb8922bae" class="">No undo</h2>
+        <p id="a3eed696-6786-4dc3-8093-b95a48d1ea6d" class="">Edit morphy nepodporují undo. Pešek. A všechny ostatní klávesové zkratky jsou nějaký subset části emacsu.</p>
+        <h2 id="ced36269-217d-4a10-8c45-9f4c3bbaee61" class="">Ctrl+c / Ctrl+v</h2>
+        <p id="077a2535-3027-4d0a-9299-cdb6ad1061fa" class="">Bohužel nefunguje, protože používá nějaké prehistorické X bindingy. Řešení je nainstalovat si program <a href="https://www.nongnu.org/autocutsel/">autocutsel</a> a pustit ho na pozadí.</p>
+        <h2 id="5ae09357-d161-489f-95ec-1c2e133f1108" class="">Chybějící dokumentace</h2>
+        <p id="64b44046-285d-443b-9c42-0a86b6fd5b42" class="">Dokumentace prostě kromě toho co jsem už odkazoval není. Většinou se dá zeptat v konferenci, ale to není zrovna ideální.</p>
+        <h2 id="4ed429a2-5384-4f89-8492-08e0577b51f2" class="">Sloty jsou unordered</h2>
+        <p id="49252983-dad4-4272-8cb2-1c83478a15b0" class="">To je trochu smutné z hlediska používání objektů samotných k uchovávání informací, neboť vás to nutí používat ordered kolekce.</p>
+        <h2 id="0164b7aa-b157-408b-8774-6656958e4d29" class="">Self nemá podporu kaskádování</h2>
+        <p id="28701188-4d3d-4799-8b26-3e3009daa42c" class="">Pokud nevíte co to je, tak vám to asi vadit nebude, přicházíte-li ale ze Smalltalku, tak to bude bolest.</p>
+        <h2 id="236fa1ea-d30d-4bea-a610-b6112582e45e" class="">Unicode vstup / výstup se nekoná</h2>
+        <p id="6e9d8e92-e4d6-40d2-8b80-9408ff7a7452" class="">Self používá jako kódování ISO 8859-1, takže nebere žádné znaky mimo toto (doslova se nedají napsat) a nic mimo toho ani neumí zobrazit.</p>
+        <p id="853bd438-b339-439d-ac23-b64d43a7e186" class="">Pokud by se s tím někomu chtělo zabývat, tak zde:</p>
+        <ul id="9239322c-ace4-4efb-9b90-576d98eb0de1" class="bulleted-list">
+          <li>
+            <a href="https://github.com/russellallen/self/issues/113">https://github.com/russellallen/self/issues/113</a>
+          </li>
+        </ul>
+        <h2 id="84207a7a-a3d7-4201-b603-26dc2d2b38f1" class="">Outlinery sajou</h2>
+        <p id="f8a54c2a-4e2b-434e-a1d0-7a62ea41be59" class="">Outlinery jsou zajímavý koncept, který ale začne být otravný docela rychle. Proč je možné vidět například zde:</p>
+        <ul id="0b5eb4f8-f377-484f-a158-4f5c03f62c8d" class="bulleted-list">
+          <li>
+            <a href="http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display/">http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display/</a>
+          </li>
+        </ul>
+        <p id="6183ba47-a259-4cd1-952d-44793a8598a0" class="">či ve své plné kráse zde:</p>
+        <ul id="b01b81b4-4790-4557-baa2-747ec96c24a7" class="bulleted-list">
+          <li>
+            <a href="http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display_expanded/">http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display_expanded/</a>
+          </li>
+        </ul>
+        <p id="85108888-ab25-4a4c-bf1c-73081674cd86" class="">Taky když zkoumáte nějakou komplexnější věc, tak končíte s desítkami outlinerů.</p>
+        <p id="9652be89-96f5-4045-aa9b-5f1ef2a2b786" class="">Osobně bych to doplnil browserem modulů ve stylu Smalltalku:</p>
+        <figure id="e71ddc4d-8a66-40a0-941c-196bfd84f942" class="image">
+          <a href="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png">
+            <img style="width:886px" src="../../English_section/Series_about_Self/Environment_and_the_programming_language_Self_part_2/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png" />
+          </a>
+        </figure>
+        <h2 id="f737c514-5bd2-4f2a-bd02-067c2d5dc3d4" class="">Self a obrázky</h2>
+        <p id="cdebc330-d63e-4a90-a614-c76be62649db" class="">Self neumí zobrazovat obrázky v žádném z normálních formátů. Jediné co umí je nějaký <a href="https://en.wikipedia.org/wiki/Sun_Raster">Sunovský rastrový formát</a>:</p>
+        <ul id="c34d0cdb-4256-4be6-80f0-8d650fb66978" class="bulleted-list">
+          <li>
+            <a href="https://bluishcoder.co.nz/2009/07/27/displaying-images-with-self.html">https://bluishcoder.co.nz/2009/07/27/displaying-images-with-self.html</a>
+          </li>
+        </ul>
+        <h1 id="b52eb344-e6df-491c-a7b6-07f6cc10a809" class="">Pokračování</h1>
+        <p id="c0f3ecc5-6d41-4023-bf86-ad630d964714" class="">V posledním díle se podíváme na komunitu kolem Selfu, historii, budoucnost a dojde i na nějaké to filosofování.</p>
+        <h1 id="20a5c33d-a785-430d-85c5-d1795fcf62cf" class="">Relevantní diskuze</h1>
+        <ul id="f1a90335-ad36-420a-bb88-6c4ba5549e5b" class="bulleted-list">
+          <li><a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/prostredi-a-programovaci-jazyk-selfu-dil-treti">Prostředí a programovací jazyk Selfu (díl třetí)</a> (abclinuxu)</li>
+        </ul>
+        <p id="6905b090-dda3-48a6-8289-d9d28ed8be8e" class="">
+        </p>
+      </div>
+    </article>
+        <div class="corner-ribbon top-right red">
+      <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+    </div>
+  </body>
+</html>

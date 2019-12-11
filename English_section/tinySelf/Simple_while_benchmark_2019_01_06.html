@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Simple while benchmark 2019.01.06</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@Bystroushaak" />
+    <meta name="twitter:title" content="Simple while benchmark 2019.01.06" />
+    <meta name="twitter:description" content="I&#x27;ve decided to add some benchmarks just for my own usage to measure whether things improved when I change something or not." />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+    </script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-142545439-1');
+        </script>
+        <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+  </head>
+  <body>
+    <a class="breadcrumb" href="../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">tinySelf</a> / Simple while benchmark 2019.01.06
+
+    <article id="eabfc270-15a2-4d5c-82ef-f232f8b4b698" class="page sans">
+      <header>
+        <h1 class="page-title">Simple while benchmark 2019.01.06</h1>
+      </header>
+      <div class="page-body">
+        <p id="b48920a4-22bd-4d64-a098-d7ce4d484bc2" class="">
+          <time>@2019/01/06</time>
+        </p>
+        <p id="19f1e1b4-9d51-4d33-8ed3-d88226ac5aaa" class="">I&#x27;ve decided to add some benchmarks just for my own usage to measure whether things improved when I change something or not.</p>
+        <p id="d477160c-f46f-4dbf-a726-a1cdf0a2ba97" class="">Benchmark of the tinySelf while loop:</p>
+        <pre id="2005991b-dcfd-49d4-81f2-3fe4f2fb54d6" class="code"><code>(|
+    benchmark = (| i &lt;- 0. |
+        [i &lt; 10000] whileTrue: [
+            i: i + 1.
+        ].
+    ).
+
+    run_benchmark = (| start_time. end_time. |
+        primitives interpreter runScript: &#x27;objects/stdlib.tself&#x27;.
+
+        start_time: primitives time timestamp.
+        benchmark.
+        end_time: primitives time timestamp.
+
+
+        end_time - start_time asString + &#x27;\n&#x27; print.
+    ).
+|) run_benchmark.</code>
+</pre>
+        <p id="a63a0bae-2b4c-48f9-a3d0-a795c4bfd6a8" class="">Result:</p>
+        <div id="8dbe1c61-6d69-43e8-bbde-5fd01e98f1fc" class="collection-content">
+          <h4 class="collection-title">10 000 while cycles</h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>Version</th>
+                <th>Time (in Seconds)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="cae87f75-2b1d-4584-99e4-d4bbe8c3951f">
+                <td class="cell-title">
+                  <a href="Simple_while_benchmark_2019_01_06/10_000_while_cycles/Interpreted_under_Python_2_7.html">Interpreted under Python 2.7</a>
+                </td>
+                <td class="cell-jC~8">25.31</td>
+              </tr>
+              <tr id="cc2ff14c-8919-43ff-874f-e55be05a7521">
+                <td class="cell-title">
+                  <a href="Simple_while_benchmark_2019_01_06/10_000_while_cycles/Interpreted_under_Pypy_2_7.html">Interpreted under Pypy 2.7</a>
+                </td>
+                <td class="cell-jC~8">0.7</td>
+              </tr>
+              <tr id="87399ed1-41af-4cce-ac05-bcabecad5f92">
+                <td class="cell-title">
+                  <a href="Simple_while_benchmark_2019_01_06/10_000_while_cycles/RPython_without_JIT.html">RPython (without JIT)</a>
+                </td>
+                <td class="cell-jC~8">0.16</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="92c66cf1-ced7-4326-a606-4aea3a6757e2" class="collection-content">
+          <h4 class="collection-title">1 000 000 while cycles</h4>
+          <table class="collection-content">
+            <thead>
+              <tr>
+                <th>Version</th>
+                <th>Time (in Seconds)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="177f15d8-f047-4130-8c25-2f88432d52fb">
+                <td class="cell-title">
+                  <a href="Simple_while_benchmark_2019_01_06/1_000_000_while_cycles/Interpreted_under_Python_2_7.html">Interpreted under Python 2.7</a>
+                </td>
+                <td class="cell-jC~8">2583.2</td>
+              </tr>
+              <tr id="ec46c869-3f63-4f13-874c-e0b874bca763">
+                <td class="cell-title">
+                  <a href="Simple_while_benchmark_2019_01_06/1_000_000_while_cycles/Interpreted_under_Pypy_2_7.html">Interpreted under Pypy 2.7</a>
+                </td>
+                <td class="cell-jC~8">30.25</td>
+              </tr>
+              <tr id="3579a639-491e-4ba3-8d45-9a764bea29af">
+                <td class="cell-title">
+                  <a href="Simple_while_benchmark_2019_01_06/1_000_000_while_cycles/RPython_without_JIT.html">RPython (without JIT)</a>
+                </td>
+                <td class="cell-jC~8">16.26</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="a000a445-436a-433c-909f-f0eb22718a57" class="">This is obviously quite slow, but at least it now gives me tool to measure how slow and how much was the speed improved with optimizations.</p>
+        <p id="d458519e-de7a-4b79-bfd5-d182b985390b" class="">Obvious optimization will be turning JIT on, <del>using rpythons unboxed integers</del> and also caching of the slot lookups.</p>
+        <p id="6685e951-4238-4ba9-ade0-3fc2358f26eb" class="">
+        </p>
+      </div>
+    </article>
+        <div class="corner-ribbon top-right red">
+      <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+    </div>
+  </body>
+</html>

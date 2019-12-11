@@ -1,0 +1,302 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Weekly update 2019/09/08; Bugs and a lot of stress</title>
+    <link rel="stylesheet" type="text/css" href="../../../style.css" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@Bystroushaak" />
+    <meta name="twitter:title" content="Weekly update 2019/09/08; Bugs and a lot of stress" />
+    <meta name="twitter:description" content="I&#x27;ve published my first update post last week and immediately thought how much should I propagate this. I mean .. this should be mostly for me, but the first post was longer, with a lot of information and screenshots, so should I post it to the lobste.rs or reddit? Or should I limit this just to a twitter / RSS?" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+    </script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-142545439-1');
+        </script>
+        <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+  </head>
+  <body>
+    <a class="breadcrumb" href="../../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Weekly updates</a> / Weekly update 2019/09/08; Bugs and a lot of stress
+
+    <article id="59220d5a-941f-4341-bc58-79be68bfe646" class="page sans">
+      <header>
+        <h1 class="page-title">Weekly update 2019/09/08; Bugs and a lot of stress</h1>
+      </header>
+      <div class="page-body">
+        <p id="c17d6ad4-7259-49d1-85e7-51823fa23e38" class="">I&#x27;ve published my first update post last week and immediately thought how much should I propagate this. I mean .. this should be mostly for me, but the first post was longer, with a lot of information and screenshots, so should I post it to the <a href="http://lobste.rs">lobste.rs</a> or reddit? Or should I limit this just to a twitter / RSS?</p>
+        <p id="647c468b-a56f-462c-9247-b9268cc70a75" class=""><a href="https://lobste.rs/s/mig0aa/weekly_update_2019_09_01_what_i_am_working">Negative reactions</a> (-6 score) on the <a href="http://lobste.rs">lobste.rs</a> provided enough data; no cross post to aggregator sites like reddit or lobste.rs. Just twitter, rss and patreon.</p>
+        <p id="62146edc-4585-4178-8ead-28caddd236c1" class="">Which reminds me, I&#x27;ve got first patron. Thanks!</p>
+        <h1 id="61f06ef4-7de5-4fbe-a6d5-ded0703fb725" class="">tinySelf progress</h1>
+        <p id="d0144f52-2847-42ed-8593-61e9ec950d7d" class="">Oh god. I&#x27;ve spent something like 12 hours by debugging a bug, which wasn&#x27;t there. I did some changes in interpreter, which were meant to make code more readable and easy to understand. I&#x27;ve added some tests, moved and rewritten some primitive code from python to tinySelf&#x27;s stdlib.</p>
+        <p id="0466252f-d768-48a0-b62a-c2de78ba262b" class="">Suddenly, blocks (equivalent of lambda / closures) stopped working. Naturally, I&#x27;ve thought that I&#x27;ve introduced the bug and literally turned the interpreter inside out. I&#x27;ve put in place debug messages, stepped through thousand of interpreter cycles in PyCharm&#x27;s debbuger, I&#x27;ve even randomly tried to comment out blocks of code and see whether the behaviour will at least change. And all of this led nowhere.</p>
+        <p id="265db5d7-308c-4974-ac18-68e5f5a9ba07" class="">I&#x27;ve fixed several other bugs found during debugging. I thought that bug may be in compiler, so I&#x27;ve added horribly hacked-together state-machine parser to prettify AST printouts, so instead of</p>
+        <pre id="e82832eb-f266-4170-a460-4bd17a9e3334" class="code"><code>Send(obj=Object(slots={test_while_100: Object(slots={i: IntNumber(0), i:: AssignmentPrimitive()}, code=[Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(1)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=i:, parameters=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))])), Send(obj=Self(), msg=Message(false))])])), Send(obj=Send(obj=Send(obj=Self(), msg=Message(i)), msg=Message(asString)), msg=Message(printLine))]), test_another: Object(slots={x: Nil(), x:: AssignmentPrimitive(), brekeke: Nil(), brekeke:: AssignmentPrimitive()}, code=[Send(obj=Self(), msg=KeywordMessage(name=x:, parameters=[IntNumber(0)])), Send(obj=&#x27;another&#x27;, msg=Message(printLine)), Send(obj=Self(), msg=Message(brekeke)), Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(x)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(2)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=x:, parameters=[Send(obj=Send(obj=Self(), msg=Message(x)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))])), Send(obj=Self(), msg=Message(nil))])])), Send(obj=Send(obj=Send(obj=Self(), msg=Message(x)), msg=Message(asString)), msg=Message(printLine))]), test_while: Object(code=[Send(obj=Self(), msg=Message(test_while_100)), Send(obj=Self(), msg=Message(test_another))])}), msg=Message(test_while))</code>
+</pre>
+        <p id="04133613-386c-4b10-8f7a-c4a9b69091ce" class="">you get</p>
+        <pre id="4b676a21-28c2-4ad7-bc94-20acf3d901f8" class="code"><code>Send(
+  obj=Object(
+    slots={
+      test_while_100: Object(
+        slots={
+          i: IntNumber(0),
+          i:: AssignmentPrimitive()
+        },
+        code=[
+          Send(
+            obj=Block(
+              code=[
+                Send(
+                  obj=Send(
+                    obj=Self(),
+                    msg=Message(i)
+                  ),
+                  msg=BinaryMessage(
+                    name=&lt;,
+                    parameter=IntNumber(1)
+                  )
+                )
+              ]
+            ),
+            msg=KeywordMessage(
+              name=whileTrue:,
+              parameters=[
+                Block(
+                  code=[
+                    Send(
+                      obj=Self(),
+                      msg=KeywordMessage(
+                        name=i:,
+                        parameters=[
+                          Send(
+                            obj=Send(
+                              obj=Self(),
+                              msg=Message(i)
+                            ),
+                            msg=BinaryMessage(
+                              name=+,
+                              parameter=IntNumber(1)
+                            )
+                          )
+                        ]
+                      )
+                    ),
+                    Send(
+                      obj=Self(),
+                      msg=Message(false)
+                    )
+                  ]
+                )
+              ]
+            )
+          ),
+          Send(
+            obj=Send(
+              obj=Send(
+                obj=Self(),
+                msg=Message(i)
+              ),
+              msg=Message(asString)
+            ),
+            msg=Message(printLine)
+          )
+        ]
+      ),
+      test_another: Object(
+        slots={
+          x: Nil(),
+          x:: AssignmentPrimitive(),
+          brekeke: Nil(),
+          brekeke:: AssignmentPrimitive()
+        },
+        code=[
+          Send(
+            obj=Self(),
+            msg=KeywordMessage(
+              name=x:,
+              parameters=[
+                IntNumber(0)
+              ]
+            )
+          ),
+          Send(
+            obj=&#x27;another&#x27;,
+            msg=Message(printLine)
+          ),
+          Send(
+            obj=Self(),
+            msg=Message(brekeke)
+          ),
+          Send(
+            obj=Block(
+              code=[
+                Send(
+                  obj=Send(
+                    obj=Self(),
+                    msg=Message(x)
+                  ),
+                  msg=BinaryMessage(
+                    name=&lt;,
+                    parameter=IntNumber(2)
+                  )
+                )
+              ]
+            ),
+            msg=KeywordMessage(
+              name=whileTrue:,
+              parameters=[
+                Block(
+                  code=[
+                    Send(
+                      obj=Self(),
+                      msg=KeywordMessage(
+                        name=x:,
+                        parameters=[
+                          Send(
+                            obj=Send(
+                              obj=Self(),
+                              msg=Message(x)
+                            ),
+                            msg=BinaryMessage(
+                              name=+,
+                              parameter=IntNumber(1)
+                            )
+                          )
+                        ]
+                      )
+                    ),
+                    Send(
+                      obj=Self(),
+                      msg=Message(nil)
+                    )
+                  ]
+                )
+              ]
+            )
+          ),
+          Send(
+            obj=Send(
+              obj=Send(
+                obj=Self(),
+                msg=Message(x)
+              ),
+              msg=Message(asString)
+            ),
+            msg=Message(printLine)
+          )
+        ]
+      ),
+      test_while: Object(
+        code=[
+          Send(
+            obj=Self(),
+            msg=Message(test_while_100)
+          ),
+          Send(
+            obj=Self(),
+            msg=Message(test_another)
+          )
+        ]
+      )
+    }
+  ),
+  msg=Message(test_while)
+)</code>
+</pre>
+        <div id="ab1fae43-6a55-444c-96fb-fd8179094bc4" class="column-list">
+          <div id="20cf9128-e114-4f9a-bd0a-7d862e7b9f64" style="width:68.75%" class="column">
+            <p id="6d0b8c9e-fd15-4852-b6bf-d917ac9748f6" class="">This works only in the python emulation mode, because I didn&#x27;t feel like converting it to valid <strong>r</strong>python at the moment.</p>
+            <p id="1cfcd4f3-8a14-4e5d-9602-f6839440e72d" class="">This proved, that AST is indeed correct and the bug have to be indeed somewhere else. I&#x27;ve suspected the compiler, even thought that I&#x27;ve found the bug, only to find out next morning, that no, I&#x27;ve been just too tired and got confused. I&#x27;ve thought that it may be hidden in the finalization of the <a href="https://github.com/Bystroushaak/tinySelf/blob/4389ccd787c22af270c858fe0c4b17f99e28eaba/src/tinySelf/vm/code_context.py#L71">CodeContext</a> object, but nope.</p>
+          </div>
+          <div id="cd5b940f-198e-487f-b04e-426926eeccdc" style="width:31.249999999999993%" class="column">
+            <p id="d76fb22f-d932-43e0-969a-ce5c5c026c3a" class="">Note: Yeah, I really should rewrite the AST objects to output  indented representation instead of this post processing hack. I&#x27;ve created <a href="https://github.com/Bystroushaak/tinySelf/issues/122">#122</a> to remember this.</p>
+            <p id="aeda4c25-536f-410d-a0e0-c2d6eb1aeda2" class="">
+            </p>
+          </div>
+        </div>
+        <p id="5c24803f-d3b5-4d3d-9d0a-9f196049be22" class="">At the moment, I think that it is bug in the architecture of the interpreter, and not the code itself. I think that it only manifested itself because I&#x27;ve moved something into the standard library, a little piece of code which expected behavior that should work, but was always wrong by design.</p>
+        <p id="eb4d4f4d-2067-499a-a2c7-d032dcc919a5" class="">I&#x27;ll probably write a postmortem analysis, because this bug is really something.</p>
+        <h1 id="db4b9399-58d7-4ca5-8590-5cc5ba8bd4e6" class="">Articles read during the week</h1>
+        <p id="ad22ac6a-5ebc-4f7d-bfe7-5a58d549acd2" class="">I&#x27;ve promised myself that I&#x27;ll log every article that I&#x27;ll read in a week. Here is a raw list:</p>
+        <figure id="df4dc2c8-74bc-4247-bd69-cc1851c1d31e" class="link-to-page">
+          <a href="../Weekly_update_2019_09_08_Bugs_and_a_lot_of_stress/Articles_read_during_2019_09_02_2019_09_08.html"><span class="icon">🗎</span>Articles read during 2019/09/02 - 2019/09/08</a>
+        </figure>
+        <h2 id="f9ec55f3-9901-490b-b046-3c40bfb839d0" class="">Conclusions</h2>
+        <p id="e32da383-f628-4fe0-81ac-c5a8aad622a6" class="">I do tend to spend too much time by reading stuff which in retrospective looks dull.</p>
+        <p id="5bb67d36-562b-4c93-83ac-a9c82c26cbc1" class="">I&#x27;ve decided to try to stop reading articles on the internet for a week. I am really curious about what it will do to my productivity and whether it will have any impact on the speed of progress of reading books.</p>
+        <h1 id="f2ffc463-759e-447b-b325-9beebe508bc1" class="">Book reading progress</h1>
+        <p id="e10988e2-81b3-413d-8f3c-928d67d69c8e" class="">I&#x27;ve been really busy, because the company where I work is trying to migrate parts of its infrastructure to the OpenShift and I&#x27;ve had to port some old services to new system. There were deadlines, hidden bugs and all kinds of problems. I&#x27;ve managed to port everything late in the Friday, but it really was stressful and it had a huge impact on my life.</p>
+        <p id="80454915-287c-41b3-9de0-c88e2ff4e855" class="">This has resulted in almost non-existent progress through all &quot;technical&quot; books. On the other hand, I&#x27;ve had an urge to read more sci-fi, so I&#x27;ve picked up <a href="https://www.goodreads.com/book/show/24968626-crux">Crux</a> and also <a href="https://www.goodreads.com/book/show/12007.Use_of_Weapons">Use of weapons</a> and also <a href="https://www.goodreads.com/book/show/886066.Matter">Matter</a> and switched them in the ebook reader randomly and in short periods, because I didn&#x27;t really felt captivated by any of them.</p>
+        <p id="644ea16f-b7d3-4579-ba62-ffcb7c455e6a" class="">Only book I&#x27;ve made some progress into is <a href="https://www.goodreads.com/book/show/693795.John_Von_Neumann">John Van Neumann</a>, which I enjoy very much.</p>
+        <p id="4fc72ddd-b2a3-4b75-ada6-be69eb95681d" class="">Oh, and I&#x27;ve randomly ordered three books from amazon, even though I really shouldn&#x27;t (I have something like fourty physical books waiting in queue):</p>
+        <ul id="f8f2b44e-e222-40aa-8010-5c56c39e8b1a" class="bulleted-list">
+          <li>
+            <a href="https://www.amazon.de/gp/product/8131700070/ref=ppx_od_dt_b_asin_title_s00?ie=UTF8&amp;psc=1">Design patterns: elements of reusable object-oriented software</a>
+          </li>
+        </ul>
+        <ul id="883fd3d9-d768-4905-83b3-6f89adbf8b49" class="bulleted-list">
+          <li>
+            <a href="https://www.amazon.de/dp/0241965780/ref=pe_3044161_185740101_TE_item">The Organized Mind: Thinking Straight in the Age of Information Overload</a>
+          </li>
+        </ul>
+        <ul id="2a5ee9b3-b752-47bd-855c-54af954de438" class="bulleted-list">
+          <li>
+            <a href="https://www.amazon.de/dp/0884271951/ref=pe_3044161_185740101_TE_item">The Goal: A Process of Ongoing Improvement</a>
+          </li>
+        </ul>
+        <h1 id="95b821cb-aae3-4349-a433-fd87f65daa0b" class="">Youtube</h1>
+        <p id="0f255a84-8256-42f0-824d-69b0065ba04e" class="">I really enjoyed <em>Joe Rogan&#x27;s</em> talk with <em>John Carmack</em>:</p>
+        <figure id="a85036ce-4964-48eb-9b07-48eed1122449">
+          <div class="source">
+                        <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/udlMSe5-zP8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+            </iframe>
+          </div>
+        </figure>
+        <p id="4eeebb8e-834b-42da-b2fb-fa4739f93527" class="">and I&#x27;ve got really interested in this guy:</p>
+        <figure id="f3c77259-8e84-44ba-9983-b6cfe56be74a">
+          <div class="source">
+                        <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/eWZwCAlCpqA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+            </iframe>
+          </div>
+        </figure>
+        <p id="b8749078-3f55-4892-91ee-f3948537457f" class="">.. when I saw the speed of his progress. I&#x27;ve even asked him for some tips about editing speed, and he replied:</p>
+        <blockquote id="2cb6b9f2-a9b5-4643-9e17-89dd0c12317a" class="">Hi Bystroushaak! For editing speed, my best tip is to always try to learn more about the features of your editor and trying to integrate them in your daily workflow. I bet your editor has at least one keyboard shortcut that you don’t know about, for example :)
+For faster programming in general, I made a commute talk video about that a while back: <a href="https://youtu.be/8sl9ph1gm08">https://youtu.be/8sl9ph1gm08</a></blockquote>
+        <figure id="e33f1ce3-aff6-4043-8c2d-115df910b36f">
+          <div class="source">
+                        <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/8sl9ph1gm08" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+            </iframe>
+          </div>
+        </figure>
+        <p id="214413e6-3ee7-421a-b41f-d4603182bda0" class="">I am currently trying to finish transition from Sublime / VS Code to PyCharm, so I get the first tip. I&#x27;ve obtained the book <a href="https://effectivepycharm.com/">Effective pycharm</a> and I am consciously and methodically trying to learn everything PyCharm has to offer. But I&#x27;ve found tips in the video more insightful. Maybe I should also try to make live coding videos to see whether it can improve my focus on the code and the speed of implementing new stuff? I think it could work like a kind of par programming, which is exhausting, but effective.</p>
+        <p id="271b4a75-74bb-4af7-b51e-869b77638451" class="">Anyway, I&#x27;ve decided to watch some of his videos and pay attention on how he writes code and implements new stuff, maybe I&#x27;ll learn something new there.</p>
+        <h1 id="c762b8d2-246c-40ed-ab65-64b6f2ecb850" class="">Random stuff</h1>
+        <p id="783dd1b2-6fea-4ae9-ae20-00ab1a8cb301" class="">I am experimenting with nicotine and <a href="https://en.wikipedia.org/wiki/Theobromine">theobromine</a>, and I am writing a blog on topic of various cognition enhancing drugs.</p>
+        <p id="1b52f908-2048-4470-a727-5872d8e0cbde" class="">I think that I shall probably create some kind of notion template for this weekly updates, if I really want to do them each week. It should contain sections for tinySelf, book reading progress, blog writing progress and random interesting stuff.</p>
+        <hr id="ca70e64c-ec73-4410-9e33-0cf1e8ab8be9" />
+        <p id="7a10adc2-e013-46a8-b531-83fb63c0fd20" class="">Yes, my English is probably horrible, but this kind of blog post doesn&#x27;t qualify for (paid) grammar corrections. If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>.</p>
+        <hr id="2b223234-bbef-4a12-82a9-b98e2e6f242b" />
+        <h1 id="0f26d26a-6264-4df1-b0e6-30dd26006d6e" class="">Relevant discussion</h1>
+        <ul id="97a66d31-8f64-44d5-9ed9-594c5ad1f9b7" class="bulleted-list">
+          <li>
+            <a href="https://twitter.com/bystroushaak/status/1170806223740051456">Twitter</a>
+          </li>
+        </ul>
+        <ul id="0bb3505a-dcf9-4bf4-b6de-7c08ba58e7d6" class="bulleted-list">
+          <li>
+            <a href="https://www.patreon.com/posts/weekly-update-09-29815928">Patreon</a>
+          </li>
+        </ul>
+        <p id="a7f7a434-a014-406c-8b28-e86b16c236c2" class="">
+        </p>
+      </div>
+    </article>
+        <div class="corner-ribbon top-right red">
+      <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+    </div>
+  </body>
+</html>

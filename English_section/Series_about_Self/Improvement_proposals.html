@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Improvement proposals</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Bystroushaak" />
+    <meta name="twitter:creator" content="@Bystroushaak" />
+    <meta name="twitter:title" content="Improvement proposals" />
+    <meta name="twitter:description" content="I would like to spur discussion about structure of the project and also about the community, its organization and knowledge bases. I believe that this discussion is really important for the future of Self development." />
+    <meta name="twitter:image" content="http://blog.rfox.eu/Bystroushaak%20s%20blog/English%20section/Series%20about%20Self/https://selflanguage.files.wordpress.com/2016/06/serious_cat.jpg?w=460" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+    </script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-142545439-1');
+        </script>
+        <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+  </head>
+  <body>
+    <a class="breadcrumb" href="../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">Series about Self</a> / Improvement proposals
+
+    <article id="151c3e55-9df7-46b9-8d7f-c1d92ca52855" class="page sans">
+      <header>
+        <h1 class="page-title">Improvement proposals</h1>
+      </header>
+      <div class="page-body">
+        <p id="5478b1a0-ac2a-441b-abe6-c53760d96f3c" class=""><time>@2016/06/18</time> Originally <a href="https://blog.selflanguage.org/2016/06/18/improvement-proposals/">published at the Self blog</a>.</p>
+        <hr id="827e3965-57b1-45d3-996e-7b62c4b365a2" />
+        <p id="091435bd-ce6e-4b88-bd76-460c078f4fd9" class="">I would like to spur discussion about structure of the project and also about the community, its organization and knowledge bases. I believe that this discussion is really important for the future of Self development.</p>
+        <p id="ea0c3018-4de7-4b12-bb36-efcf716e9805" class="">Self is open source, which is important, but not sufficient condition to thrive. Open source success is only partially given by the license, but more importantly by the community of people around projects. In the end, it is the people what makes all the difference.</p>
+        <p id="5fa29fc2-c1ad-4047-9d71-942d7b02f665" class="">Self has somehow sleeping community, which I think is partially because we don’t have good tools for communication and self-organization.</p>
+        <p id="c0162f6b-1e52-41a3-b137-dd3a849f1dfe" class="">Here is what I think that would be useful:</p>
+        <h2 id="2ba21261-48e6-4d75-9e8a-5e2c981f898d" class="">Official Github organization</h2>
+        <p id="7779b149-d888-41b8-82ea-f9c7c12f364c" class="">Github allows to create „organizations“, which is used to group multiple projects under one „official“ entity.</p>
+        <p id="5ebcc856-4479-460f-b94a-237fe175d0e2" class="">Current state of Self on Github is confusing, especially for newcomers. From what I understand, „official“ repository is the one in Russel Allen’s personal account, but there is no „THIS IS OFFICIAL REPOSITORY, CONTRIBUTE HERE“ sign. People have to figure this on their own and hope that they didn’t figure it wrong.</p>
+        <p id="7b630023-ecc3-4477-89da-a62706a2f987" class="">I would also recommend to split the Self repository into several smaller, single-purpose-oriented repositories. For example: separate the handbook, and maybe application directory (git can <a href="http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/">do this</a> without the loss of history).</p>
+        <p id="ad7da6df-bece-4f7a-a6e4-96768109af12" class="">It would be probably good idea to decide if we want to allow anyone to access this „organization“ and to let anyone add their own application repositories. This would simplify the discovery of available Self software. Other possibility is to use it only for „official“ stuff and „syndicate“ Self packages somewhere else (wiki or package repository).</p>
+        <h3 id="3ce406a7-0e15-4a7b-aec1-a5175e3d09e7" class="">Talking to the people</h3>
+        <p id="45fbdf21-7c99-45d6-8a5d-d0093435ebc4" class="">We need to start to talk to the people. This is a problem that all smaller projects have; there is too much context in your head (this is relevant to the <em>bus factor</em> from <a href="https://blog.selflanguage.org/2016/06/15/lessons-learnt-from-the-self-archive/">previous blog</a>).</p>
+        <p id="ac221943-ce6d-4a6a-b5bc-7b09379af73f" class="">The „THIS IS OFFICIAL REPOSITORY, CONTRIBUTE HERE“ sign is the classical example of the context that everyone from the mail-list have. It was posted few times into Self conference, but for anyone coming outside the Self community, this is really hard to figure. You have to talk to people, or they won’t know.</p>
+        <p id="f656f19e-202c-43ab-9182-071e085acabb" class=""><a href="https://github.com/russellallen/self/wiki">The Self wiki</a> is another example of this problem. There is no sign that there actually is a wiki. [CENSORED (see discussion in mail conference, search keyword <code>drama</code>)]</p>
+        <p id="0e82086b-f0ba-457b-8dd7-09aee2f9f6e6" class="">If you want something from the people (eg. contribution), you have to tell them. They are not mindreaders and they won’t engage without knowing that it is ok to engage.</p>
+        <p id="136b34b4-e19a-4a7a-be92-4e9cf22fcd0c" class="">For example, I pushed a lot of typo and RST formatting fixes to the Self Handbook / Russel Allen’s git repository and I felt really uneasy doing this. Is it okay to contribute? Is it okay to make changes in someone else’s work?</p>
+        <h2 id="9cb054b3-f171-4cee-bfef-59def8ff6f7d" class="">Community WIKI</h2>
+        <pre id="380fc2e0-a598-4379-bb2f-2c135cfa3a2e" class="code"><code>15.12.2010, 09:55 Thorsten Dittmar written:
+hello folks,
+
+for me self is still one of the most beautiful languages I know, but the lib&#x27;s are not so shapelily. So we have a kind of an Ugly Duckling here... a lady with amazing intrinsic values and horrible &quot;lips&quot;... 
+
+Of course, we can start with some cosmetics.. We can change the UI and other stuff, but for me that doesn&#x27;t look like the right way... Self has so many unfinished stuff, that I guess we will not make it better to open another bottle.</code>
+</pre>
+        <p id="895bbd2b-68e8-4c78-913c-f1ffeb8cdf1b" class="">What is „unfinished stuff“? What is the state of Self? Where is the FAQ? Where is the screenshot section? Where is community knowledge base? Where is documentation? Where is the detailed description of VM? Where do you collect information?</p>
+        <p id="ca539266-ce36-4172-ba48-5ee03e4b1777" class="">Currently, only way to get a clear idea about Self and its state is to <a href="https://blog.selflanguage.org/2016/06/09/self-mail-conference-in-mbox/">read the mail archive</a> and the 115 thousands lines of C++ sources. Mail archive is the worst possible database for this kind of stuff. Not only that history is not easily accessible for newcomers, it also cannot be edited and improved. Also attachments don’t work much.</p>
+        <p id="e8244c9a-ed57-4d11-a87b-2df13835d9fd" class="">We need good community Wiki, where we can:</p>
+        <ul id="a44b802e-8e8a-4888-ad79-a9f2b1af75d0" class="bulleted-list">
+          <li>collect information about Self</li>
+        </ul>
+        <ul id="b2f01d1f-94d9-4435-901b-e94391d6ecd6" class="bulleted-list">
+          <li>document the VM</li>
+        </ul>
+        <ul id="1559c580-d94f-4b2b-9ac2-fac51702cdf6" class="bulleted-list">
+          <li>document aspects of programming in Self<ul id="df3cdeeb-93f8-4862-9146-86ef3c20b2d8" class="bulleted-list"><li>It is really hard to find any source code to study. There are applications in Self’s git repository, but it took me 6 months to notice. Again, there is no signs pointing to this.</li></ul></li>
+        </ul>
+        <ul id="261b704a-2634-47a9-a8f3-61a327df6f59" class="bulleted-list">
+          <li>discuss various stuff about Self, ideas, improvements, highlights and so on</li>
+        </ul>
+        <ul id="6403292c-65f4-420b-9eb1-04135928b59b" class="bulleted-list">
+          <li>document what is in bad shape, what needs to be done and plan future work</li>
+        </ul>
+        <ul id="781e34a8-bb2b-4d01-aa95-aefcb6640291" class="bulleted-list">
+          <li>provide user’s sections<ul id="38ee7d38-6230-408c-966f-8ed6ec07f33c" class="bulleted-list"><li>Something like a blog, but for all kinds of data, files, snippets and information related to Self, that user’s may save for benefit of themselves and others.</li></ul><ul id="69908ef7-3f0f-4d52-bb9b-566bd1035d3b" class="bulleted-list"><li>This need to be under user’s control.</li></ul></li>
+        </ul>
+        <ul id="d48d39d0-d446-49d5-972a-57c87dae6122" class="bulleted-list">
+          <li>have user profiles – some small section, where you may shortly introduce yourself and maybe tell others what you do<ul id="9efe8532-1bb7-412d-a90e-2bdee69cc869" class="bulleted-list"><li>It is hard to tell who is working on the Self and what are they doing. Again – this is context information which are not available.</li></ul></li>
+        </ul>
+        <ul id="12e15f76-e8d1-47ef-b676-e7c02269d0d8" class="bulleted-list">
+          <li>collect list of links to all relevant Self information sources<ul id="a34af1a3-4c5b-4fb1-a7ea-e2a4cde03bca" class="bulleted-list"><li>I am willing to do this and maintain this section.</li></ul></li>
+        </ul>
+        <ul id="cf6d1dd6-debe-4a02-a6c9-6d8f23ed8e50" class="bulleted-list">
+          <li>collect list of links to Self alternative interpreters and inspired languages<ul id="27a197ee-843f-4a1b-8c30-c99816d47847" class="bulleted-list"><li>I partially did this in previous blog.</li></ul></li>
+        </ul>
+        <ul id="25b3578d-efe9-411f-bf2c-62a48beced1c" class="bulleted-list">
+          <li>tell people how to contribute, where to contribute and other community information<ul id="6251ded2-ca81-4d38-9d50-6f53c848f238" class="bulleted-list"><li>Viz „Talking to the people“.</li></ul></li>
+        </ul>
+        <p id="27e769f7-da17-494c-a1fd-882a45b02cf5" class="">Wiki is important part of the plan to increase the Self’s bus factor (see previous blog). It also helps people (newcomers especially) to put themselves into perspective of what Self is, how to interact with community and how to contribute.</p>
+        <p id="be5cfcf0-7862-4ca5-818f-aace1ce6cd33" class="">I am willing to be maintainer of this Wiki. I don’t really want to, but I have strong feeling, that if I am not going to do it, nobody will.</p>
+        <h3 id="0a54165a-2370-4422-bf9a-a0cda1d7b037" class="">Github wiki</h3>
+        <p id="eaf58015-ecd6-4c92-ba51-92be67f93bc9" class="">I don’t think it is a good idea to use this specific wiki software, because to me, it looks like it is seriously limited in capabilities.</p>
+        <p id="9f5df3ea-e762-44b4-aada-955bc33bc6d8" class="">I like, that it uses the Git for synchronization, but I feel, that we will need something more advanced. Something that will be able to host large variety of content, categories and discussions. When I think about it, I see it like the hybrid between the <a href="http://c2.com/cgi/wiki/FrontPage">c2 wiki</a> and Wikipedia.</p>
+        <p id="fa5cbc9b-e32b-4465-8546-ebc6c82b7e9f" class="">I don’t expect anyone to come with clear solutions, but I think that we need to talk about this and look at alternatives. What do you think?</p>
+        <h2 id="6810d6b4-4c3b-4156-bf23-0c78a229a3c1" class="">Package repository</h2>
+        <p id="67301890-1041-4daa-a927-871ff58043bc" class="">One of the services, which I think is critical for success of any language is the package repository and package manager.</p>
+        <p id="a9787fb7-aa4d-4ede-9f55-c35d37852cbb" class="">I am not that sure how easily this may be done for Self, but I am 100% sure, that this is necessary for larger adoption;</p>
+        <p id="f960da2c-182d-4e32-a52b-7976deb5f504" class="">We need to give people the tool, which will allow them to build applications on top of other people libraries. Not just that – also the place where we can discover new libraries and projects, instead of having them scattered all over the Internet.</p>
+        <p id="c9b6b544-72e4-4843-b7ae-e4e8401ff4eb" class="">I have a lot of experiences with Python and believe me when I say, that this is big win for the language and big reason to use it.</p>
+        <h2 id="ef159293-0619-4e11-a3be-1d25f0ca3da9" class="">Community decision</h2>
+        <p id="6af126f8-963d-4cff-b9f9-c4ebb55b7cbf" class="">I know, that Self was a research language, and partially probably still is. I will impersonate the Generic Beginner* and speak using his voice, when I say:</p>
+        <blockquote id="38265107-c4fa-4c84-9747-77f0384d138f" class="">I think that after 26 years, it is time to make up your mind. How do you perceive Self? What is it to you? Do you take Self seriously, or is this just a game?I can’t build a product on Self in its current state. I can’t afford to wait decades for improvements. I need to know, whether I can count on you (the community).I may put my time and/or resources into Self, but I need to know that I won’t be wasting my time, and that I am not alone.</blockquote>
+        <p id="ccd75042-07f7-4278-b592-d412af28c0ee" class="">I want to know your opinion. It may be clear in your head, but again – if you don’t talk to the people, they won’t know.</p>
+        <p id="399a2576-190b-4ea4-8d8d-4edf4a5053d1" class="">For me,</p>
+        <figure id="20657417-a0d2-4d4f-9b43-53c16055ea9b" class="image">
+          <a href="https://selflanguage.files.wordpress.com/2016/06/serious_cat.jpg?w=460">
+            <img style="width:240px" src="https://selflanguage.files.wordpress.com/2016/06/serious_cat.jpg?w=460" />
+          </a>
+        </figure>
+        <p id="7c3460e5-8098-42b3-85dd-5e9183a1f180" class="">What about you?</p>
+        <p id="19182006-9272-448b-b09b-e2f6e0b5c509" class="">*Not necessarily my opinion, but I think it comes to mind of all newcomers looking at Self and thinking „hey, this looks nice, should I use it?“</p>
+      </div>
+    </article>
+        <div class="corner-ribbon top-right red">
+      <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+    </div>
+  </body>
+</html>
