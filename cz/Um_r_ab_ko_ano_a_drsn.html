@@ -8,24 +8,8 @@
     <meta name="twitter:site" content="@Bystroushaak" />
     <meta name="twitter:creator" content="@Bystroushaak" />
     <meta name="twitter:title" content="Umírá abíčko? (ano a drsně)" />
-    <meta name="twitter:description" content="Poslední dobou se mi to tu zdá hodně chcíplé a už je to přes čtyři měsíce, co jsem tu publikoval blog Umírá abíčko? (odpověď v textu). Pojďme se podívat co se změnilo." />
+    <meta name="twitter:description" content="Poslední dobou se mi abclinuxu zdá hodně chcíplé a už je to přes čtyři měsíce, co jsem publikoval blog Umírá abíčko? (odpověď v textu). Pojďme se podívat co se změnilo." />
     <meta name="twitter:image" content="http://blog.rfox.eu/cz/Um_r_ab_ko_ano_a_drsn/236681-umira-abicko-ano-a-drsne--7797615694359817511.png" />
-        <script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
     </script>
@@ -37,8 +21,10 @@
           gtag('config', 'UA-142545439-1');
         </script>
         <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+        <script src="/twitter_script.js">
+    </script>
   </head>
-  <body>
+  <body onload="add_twitter_link();">
     <div id="sidebar_top"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li><li><a href="http://blog.rfox.eu/en/LVR_15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a></li></ul>
 
 & <a href="/Changelog.html">more</a></div>
@@ -52,7 +38,7 @@
         <p id="c0980533-61f4-4d54-aeaa-95c5a229ccb6" class="">
           <time>@2019/02/12</time>
         </p>
-        <p id="8a3218a8-eed3-4acb-9dd1-49b8724263ff" class="">Poslední dobou se mi to tu zdá hodně chcíplé a už je to přes čtyři měsíce, co jsem tu publikoval blog <a href="/blog/bystroushaak/2018/10/umira-abicko-odpoved-v-textu">Umírá abíčko? (odpověď v textu)</a>. Pojďme se podívat co se změnilo.</p>
+        <p id="8a3218a8-eed3-4acb-9dd1-49b8724263ff" class="">Poslední dobou se mi abclinuxu zdá hodně chcíplé a už je to přes čtyři měsíce, co jsem publikoval blog <a href="/blog/bystroushaak/2018/10/umira-abicko-odpoved-v-textu">Umírá abíčko? (odpověď v textu)</a>. Pojďme se podívat co se změnilo.</p>
         <p id="8204b7ad-1413-4174-b558-a5222cc88275" class="">Opět nechám mluvit spíš grafy, než sebe:</p>
         <div id="8e22046d-e627-45c8-b491-0018bcd99a07" class="column-list">
           <div id="3e5d9a9c-1ca7-4ce6-9207-4a69bbfefa25" style="width:50%" class="column">
@@ -153,7 +139,9 @@
         <div class="corner-ribbon top-right red">
       <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
     </div>
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=Bystroushaak">Tweet</a>
+        <a class="twitter-share-button" id="twitter_button" href="#">
+      <img src="/tweet_button.png" />
+    </a>
     <div id="sidebar_bottom"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li><li><a href="http://blog.rfox.eu/en/LVR_15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a></li></ul>
 
 & <a href="/Changelog.html">more</a></div>

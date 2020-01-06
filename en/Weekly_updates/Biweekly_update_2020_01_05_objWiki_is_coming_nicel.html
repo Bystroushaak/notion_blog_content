@@ -10,22 +10,6 @@
     <meta name="twitter:title" content="Biweekly update 2020-01-05; objWiki is coming nicely" />
     <meta name="twitter:description" content="2020, eh? I really hope that this year will be better than the last one, which was in many ways too close to my personal low of all times." />
     <meta name="twitter:image" content="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel/objWiki_dependency_graph.png" />
-        <script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
     </script>
@@ -37,8 +21,10 @@
           gtag('config', 'UA-142545439-1');
         </script>
         <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+        <script src="/twitter_script.js">
+    </script>
   </head>
-  <body>
+  <body onload="add_twitter_link();">
     <div id="sidebar_top"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li><li><a href="http://blog.rfox.eu/en/LVR_15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a></li></ul>
 
 & <a href="/Changelog.html">more</a></div>
@@ -80,7 +66,7 @@
             </figure>
           </div>
         </div>
-        <p id="a3929af4-cbf7-4f75-bd78-d25d6210a3f9" class="">I&#x27;ve put a lot of work into learning the PyQt5. Finally, yesterday late at night, I&#x27;ve managed to inline regular widgets to the <code>QTextEdit</code> which wasn&#x27;t easy at all and I have written longer article on that topic (it should be published sometimes soon). Here is a current screenshot:</p>
+        <p id="a3929af4-cbf7-4f75-bd78-d25d6210a3f9" class="">I&#x27;ve put a lot of work into learning the PyQt5. Finally, yesterday late at night, I&#x27;ve managed to inline regular widgets to the <code>QTextEdit</code> which wasn&#x27;t easy at all and I have written longer article on that topic (it should be published sometime soon). Here is a current screenshot:</p>
         <figure id="469f12cf-842c-4602-8639-c4b706799c1f" class="image">
           <a href="Biweekly_update_2020_01_05_objWiki_is_coming_nicel/objWiki.png">
             <img style="width:1620px" src="Biweekly_update_2020_01_05_objWiki_is_coming_nicel/objWiki_thumb.jpg" />
@@ -91,8 +77,8 @@
         <pre id="c81b68a4-34e2-493f-a090-f3a26461c067" class="code"><code>$ curl -s http://kitakitsune.org/doctene_knihy.txt | grep 2019. | wc -l
 52</code>
 </pre>
-        <p id="c868ca66-18fb-4a25-8334-0e4f6347851f" class="">Overall, I&#x27;ve finished 52 books last (16 048 pages) and generally paged documents last year. That&#x27;s not that bad, compared to year before that (only 39 books, 10 856 pages), but it&#x27;s also not that great.</p>
-        <p id="3c8b8b82-9878-47e6-971b-5036440fc28f" class="">At the moment, I am reading <a href="https://en.wikipedia.org/wiki/Flatland">Flatland</a>, <a href="https://www.goodreads.com/book/show/18693669-the-organized-mind">Organized Mind</a>, <a href="https://www.goodreads.com/book/show/829616.Lateral_Thinking">Lateral thinking</a> and I&#x27;ve loaded <a href="https://www.goodreads.com/book/show/567621.The_Cassini_Division">The Cassini Division by Ken MacLeod</a> to the ebook reader and I love it so far (10%).</p>
+        <p id="c868ca66-18fb-4a25-8334-0e4f6347851f" class="">Overall, last year, I&#x27;ve finished 52 books (16 048 pages) and generally paged documents. That&#x27;s not that bad, compared to year before that (only 39 books, 10 856 pages), but it&#x27;s also not that great.</p>
+        <p id="3c8b8b82-9878-47e6-971b-5036440fc28f" class="">At the moment, I am reading <a href="https://en.wikipedia.org/wiki/Flatland">Flatland</a>, <a href="https://www.goodreads.com/book/show/18693669-the-organized-mind">Organized Mind</a>, <a href="https://www.goodreads.com/book/show/829616.Lateral_Thinking">Lateral thinking</a> and I&#x27;ve loaded <a href="https://www.goodreads.com/book/show/567621.The_Cassini_Division">The Cassini Division by Ken MacLeod</a> to the ebook reader and I love it so far (10% done).</p>
         <div id="977b71cf-b159-4200-b745-7ed441291204" class="column-list">
           <div id="32aaa3c7-77a6-453e-b34d-552692546188" style="width:18.75%" class="column">
             <figure id="4093056b-0c6b-4df2-acaa-918aa3e9ef15" class="image">
@@ -201,7 +187,9 @@
         <div class="corner-ribbon top-right red">
       <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
     </div>
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=Bystroushaak">Tweet</a>
+        <a class="twitter-share-button" id="twitter_button" href="#">
+      <img src="/tweet_button.png" />
+    </a>
     <div id="sidebar_bottom"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li><li><a href="http://blog.rfox.eu/en/LVR_15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a></li></ul>
 
 & <a href="/Changelog.html">more</a></div>

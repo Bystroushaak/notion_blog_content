@@ -4,22 +4,6 @@
     <title> Eurolingua English 3</title>
     <link rel="stylesheet" type="text/css" href="../../../style.css" />
     <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
-        <script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
     </script>
@@ -31,8 +15,10 @@
           gtag('config', 'UA-142545439-1');
         </script>
         <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+        <script src="/twitter_script.js">
+    </script>
   </head>
-  <body>
+  <body onload="add_twitter_link();">
     <div id="sidebar_top"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li><li><a href="http://blog.rfox.eu/en/LVR_15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a></li></ul>
 
 & <a href="/Changelog.html">more</a></div>
@@ -70,7 +56,9 @@
         <div class="corner-ribbon top-right red">
       <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
     </div>
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=Bystroushaak">Tweet</a>
+        <a class="twitter-share-button" id="twitter_button" href="#">
+      <img src="/tweet_button.png" />
+    </a>
     <div id="sidebar_bottom"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li><li><a href="http://blog.rfox.eu/en/LVR_15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a></li></ul>
 
 & <a href="/Changelog.html">more</a></div>
