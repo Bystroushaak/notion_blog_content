@@ -36,7 +36,7 @@
       </header>
       <div class="page-body">
         <p id="2ea1a84a-0b9b-4f54-8a02-6600112b9d07" class="">
-          <time>@2020/01/07</time>
+          <time>@2020/01/08</time>
         </p>
         <p id="16097e24-3203-4386-9e2e-a66b0f3292cc" class="">It just happened, that I needed active widget in the rich text / wysiwyg editor in PyQt5. And I googled and googled and I couldn&#x27;t find any good solution. Only example more complicated than <a href="https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html">SVG widget</a> (<a href="https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py">source</a>) one can find is <a href="http://python.6.x6.nabble.com/Snippet-to-embed-a-widget-in-an-editor-td1914070.html">Snippet to embed a widget in an editor</a> (<a href="https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html">alt source</a>).</p>
         <p id="2de4d76c-fddc-451a-bfaa-6fe1a07bf321" class="">This eventually works with PyQt5. Here is a simplified refactored example I&#x27;ve used to test my code:</p>
@@ -135,7 +135,7 @@ self.wrap_with_text_object(text_format_id, widget)</code>
 </pre>
         <p id="4f31ffa5-feaf-4b55-b90f-45c366236129" class="">This method creates <code>QObject</code>, that is also a <code>QTextObjectInterface</code> instance. This has to have methods <code>.intrinsicSize()</code> and <code>.drawObject()</code>. In this case, it just returns values defined in the widget itself, and also renders the widget to the <code>painter</code>.</p>
         <p id="38cce446-447c-4fb3-b3b6-257f34225c5b" class="">Resulting <code>TextObject</code> is then registered as handler for given <code>text_format_id</code> number.</p>
-        <p id="58c71ff4-9a99-4b61-864f-7782ab045037" class="">Then, when you actually want to inline the widget to the text in the  <code>QTextEdit</code>, you use the second method and map the given <code>text_format_id</code> to unicode character <a href="https://www.fileformat.info/info/unicode/char/fffc/index.htm">0xfffc called OBJECT REPLACEMENT CHARACTER</a>:</p>
+        <p id="58c71ff4-9a99-4b61-864f-7782ab045037" class="">Then, when you actually want to inline the widget to the text in the  <code>QTextEdit</code>, you use the second method and map the given <code>text_format_id</code> to unicode character 0xfffc called <a href="https://www.fileformat.info/info/unicode/char/fffc/index.htm">OBJECT REPLACEMENT CHARACTER</a>:</p>
         <pre id="24ef55ad-f21b-43a7-85ec-1d91da1fcb23" class="code"><code>self.insert_text_object(cursor, chr(0xfffc), text_format_id)</code>
 </pre>
         <p id="041db683-bc9a-4fff-b23b-5d5aee821bd7" class="">Which does what it says:</p>
@@ -159,7 +159,7 @@ self.wrap_with_text_object(text_format_id, widget)</code>
         <pre id="22f5f196-dd52-44da-a16a-176baf78596c" class="code"><code>def drawObject(self, painter, rect, doc, pos_in_document, format):
     widget.resize(widget.sizeHint())
     widget.render(painter, QtCore.QPoint(int(rect.x()), int(rect.y())))
-    widget.move(rect.x(), rect.y())</code>
+    widget.move(rect.x() + 1, rect.y() + 1)</code>
 </pre>
         <p id="efe4c1da-7bc2-481e-95b7-6aa2f6a4e622" class="">and set widget&#x27;s parent to the editor itself (this is actually important!). Final code looks like this:</p>
         <pre id="9e5b1533-af0e-4edd-9972-541e4beefc12" class="code"><code>#! /usr/bin/env python3
@@ -250,20 +250,19 @@ if __name__ == &#x27;__main__&#x27;:
         <p id="66861407-c283-44bb-9004-523f02da2396" class="">Of course, I wanted have widget that can be edited naturally, without listed problems. Ideally, all of this would be automated and encapsulated somewhere in the background. I&#x27;ve also discovered that my solution doesn&#x27;t work much for multiple inlined objects, so I had to solve all of the problems.</p>
         <p id="f4b19a57-84a8-42e0-88e4-6542cbb76472" class="">Here is my current code:</p>
         <pre id="c17c0a85-d028-4c9c-a298-a848b6f21cc1" class="code"><code>#! /usr/bin/env python3
-from PyQt5 import Qt
 from PyQt5 import QtCore
 from PyQt5.QtGui import QPen
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtGui import QTextFormat
 from PyQt5.QtGui import QTextCharFormat
 from PyQt5.QtGui import QTextObjectInterface
+from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWidgets import QTextEdit
 from PyQt5.QtWidgets import QVBoxLayout
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import Qt
 
 
 class InlinedWidgetInfo:
@@ -303,6 +302,7 @@ class ExampleWindow(QWidget):
         inlined_widget_wrapper = InlinedWidgetInfo(widget)
         inlined_widget_wrapper2 = InlinedWidgetInfo(widget2)
 
+        self.last_text_lenght = 0
         self.text_format_id_to_inlined_widget_map = {}
 
         cursor.insertText(&#x27;\n\n&#x27;)
@@ -318,6 +318,7 @@ class ExampleWindow(QWidget):
 
         self.wysiwyg_editor.currentCharFormatChanged.connect(self.on_character_format_change)
         self.wysiwyg_editor.selectionChanged.connect(self._trigger_obj_char_rescan)
+        self.wysiwyg_editor.textChanged.connect(self.on_text_changed)
 
     def wrap_with_text_object(self, inlined_widget):
         class TextObject(QObject, QTextObjectInterface):
@@ -348,9 +349,17 @@ class ExampleWindow(QWidget):
         if text_format_id == 0:
             self._trigger_obj_char_rescan()
 
+    def on_text_changed(self):
+        current_text_lenght = len(self.wysiwyg_editor.toPlainText())
+        if self.last_text_lenght &gt; current_text_lenght:
+            self._trigger_obj_char_rescan()
+
+        self.last_text_lenght = current_text_lenght
+
     def _trigger_obj_char_rescan(self):
+        text = self.wysiwyg_editor.toPlainText()
         character_indexes = [
-            cnt for cnt, char in enumerate(self.wysiwyg_editor.toPlainText())
+            cnt for cnt, char in enumerate(text)
             if char == InlinedWidgetInfo.object_replacement_character
         ]
 
@@ -358,19 +367,25 @@ class ExampleWindow(QWidget):
         present_text_format_ids = set()
         for index in character_indexes:
             cursor = QTextCursor(self.wysiwyg_editor.document())
+
+            # I have to create text selection in order to detect correct character
             cursor.setPosition(index)
+            if index &lt; len(text):
+                cursor.setPosition(index + 1, QTextCursor.KeepAnchor)
 
             text_format_id = cursor.charFormat().objectType()
+
             present_text_format_ids.add(text_format_id)
 
         # diff for characters that are there and that should be there
         expected_text_format_ids = set(self.text_format_id_to_inlined_widget_map.keys())
-        got_text_format_ids = expected_text_format_ids - present_text_format_ids
+        removed_text_ids = expected_text_format_ids - present_text_format_ids
 
         # hide widgets for characters that were removed
-        for text_format_id in got_text_format_ids:
+        for text_format_id in removed_text_ids:
             inlined_widget = self.text_format_id_to_inlined_widget_map[text_format_id]
             inlined_widget.widget.hide()
+            del self.text_format_id_to_inlined_widget_map[text_format_id]
 
 
 if __name__ == &#x27;__main__&#x27;:
@@ -380,7 +395,7 @@ if __name__ == &#x27;__main__&#x27;:
     window.show()
     sys.exit(app.exec_())</code>
 </pre>
-        <p id="dc3e6bb8-2b78-429b-b798-a347db8d6bc9" class="">As you can see, there are several differences. First and the most obvious one is the <code>InlinedWidget</code> class:</p>
+        <p id="dc3e6bb8-2b78-429b-b798-a347db8d6bc9" class="">As you can see, there are several differences. First and the most obvious one is the <code>InlinedWidgetInfo</code> class:</p>
         <pre id="83e1079a-ffea-4316-b1d5-ceaa57c47bef" class="code"><code>class InlinedWidgetInfo:
     object_replacement_character = chr(0xfffc)
     _instance_counter = 0
@@ -422,9 +437,10 @@ self.insert_text_object(cursor, inlined_widget_wrapper)</code>
     inlined_widget.widget.show()
     cursor.insertText(inlined_widget.char, char_format)</code>
 </pre>
-        <p id="d00fbfc5-b8e6-4d80-9a01-ff0fcbaf4ae0" class="">You maybe noticed, that two new methods were added and connected to proper signals:</p>
+        <p id="d00fbfc5-b8e6-4d80-9a01-ff0fcbaf4ae0" class="">You maybe noticed, that three new methods were added and connected to proper signals:</p>
         <pre id="91d61ecd-995a-4c40-935d-2882d60410af" class="code"><code>self.wysiwyg_editor.currentCharFormatChanged.connect(self.on_character_format_change)
-self.wysiwyg_editor.selectionChanged.connect(self._trigger_obj_char_rescan)</code>
+self.wysiwyg_editor.selectionChanged.connect(self._trigger_obj_char_rescan)
+self.wysiwyg_editor.textChanged.connect(self.on_text_changed)</code>
 </pre>
         <p id="57e3473a-3f02-4b73-8ef4-7b38a690dd7a" class="">First one is automatically called by PyQt5 each time cursor touches any of the <em>object replacement characters</em>. It is also called with <code>objectType</code> zero when the cursor stop touching it. As I want to detect deletion of <em>object replacement character</em>, this is exactly what I want.</p>
         <pre id="b5c4fb7a-584e-4616-8177-5f1efbd1e999" class="code"><code>def on_character_format_change(self, qtextcharformat):
@@ -435,10 +451,19 @@ self.wysiwyg_editor.selectionChanged.connect(self._trigger_obj_char_rescan)</cod
     if text_format_id == 0:
         self._trigger_obj_char_rescan()</code>
 </pre>
-        <p id="497f13f5-2ef1-4961-9afe-1aefdb87f66f" class="">Then there is this slightly more complicated method <code>._trigger_obj_char_rescan()</code> which is called each time cursor stops touching any of the <em>object replacement characters</em>, or when the text selection is applied.</p>
+        <p id="5e917501-f537-42a1-9d3c-9ede52f15223" class="">I was also forced to add <code>.on_text_changed()</code> that is called each time text is changed, and check whether the change was deletion of character (that is, text is now shorter), because <code>.on_character_format_change()</code> isn&#x27;t called when delete key is used on last item :(.</p>
+        <pre id="e8c99565-dfb8-452c-80b0-ab4bee9fb507" class="code"><code>def on_text_changed(self):
+    current_text_lenght = len(self.wysiwyg_editor.toPlainText())
+    if self.last_text_lenght &gt; current_text_lenght:
+        self._trigger_obj_char_rescan()
+
+    self.last_text_lenght = current_text_lenght</code>
+</pre>
+        <p id="497f13f5-2ef1-4961-9afe-1aefdb87f66f" class="">Then there is this slightly more complicated method <code>._trigger_obj_char_rescan()</code> which is called each time cursor stops touching any of the <em>object replacement characters</em>, or when the text selection is applied or when character is deleted.</p>
         <pre id="2a838905-202f-4dc7-bcb5-e9722fe17bfa" class="code"><code>def _trigger_obj_char_rescan(self):
+    text = self.wysiwyg_editor.toPlainText()
     character_indexes = [
-        cnt for cnt, char in enumerate(self.wysiwyg_editor.toPlainText())
+        cnt for cnt, char in enumerate(text)
         if char == InlinedWidgetInfo.object_replacement_character
     ]
 
@@ -446,19 +471,25 @@ self.wysiwyg_editor.selectionChanged.connect(self._trigger_obj_char_rescan)</cod
     present_text_format_ids = set()
     for index in character_indexes:
         cursor = QTextCursor(self.wysiwyg_editor.document())
+
+        # I have to create text selection in order to detect correct character
         cursor.setPosition(index)
+        if index &lt; len(text):
+            cursor.setPosition(index + 1, QTextCursor.KeepAnchor)
 
         text_format_id = cursor.charFormat().objectType()
+
         present_text_format_ids.add(text_format_id)
 
     # diff for characters that are there and that should be there
     expected_text_format_ids = set(self.text_format_id_to_inlined_widget_map.keys())
-    got_text_format_ids = expected_text_format_ids - present_text_format_ids
+    removed_text_ids = expected_text_format_ids - present_text_format_ids
 
     # hide widgets for characters that were removed
-    for text_format_id in got_text_format_ids:
+    for text_format_id in removed_text_ids:
         inlined_widget = self.text_format_id_to_inlined_widget_map[text_format_id]
-        inlined_widget.widget.hide()</code>
+        inlined_widget.widget.hide()
+        del self.text_format_id_to_inlined_widget_map[text_format_id]</code>
 </pre>
         <p id="0bab7941-95c2-49f5-9867-dd9e194ddcd6" class="">It may look complicated, but it&#x27;s really simple:</p>
         <ol id="f9741e4e-a6eb-45de-a219-dba9099d3865" class="numbered-list" start="1">
@@ -522,6 +553,10 @@ self.wysiwyg_editor.selectionChanged.connect(self._trigger_obj_char_rescan)</cod
           </li>
         </ul>
         <h1 id="647adefb-44f4-40ab-9ca0-7ced53394f1a" class="">Changelog</h1>
+        <h3 id="aa3e6c60-d55c-4167-93cb-1950c3fda0b1" class="">
+          <time>@2020/01/08</time>
+        </h3>
+        <p id="c08ee592-43d1-4bf6-81da-d6b2c73307bd" class="">Fixed behavior when the delete key is pressed for last inlined item.on_character_format_change</p>
         <h3 id="0b64a313-efff-49ac-a485-82efa578e2fa" class="">
           <time>@2020/01/07</time>
         </h3>
