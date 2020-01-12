@@ -123,15 +123,15 @@ self.wrap_with_text_object(text_format_id, widget)</code>
 </pre>
         <p id="f90d71f2-363a-407f-bd5f-09566d233549" class="">Tutorial says, that you should use at least <code>QTextFormat.UserObject</code>, so <code>+ 1001</code> is safe bet. All magic happens in the <code>.wrap_with_text_object()</code> method:</p>
         <pre id="190395ca-44a7-4b2a-9a93-31c06ef87c49" class="code"><code>def wrap_with_text_object(self, text_format_id, widget):
-	  class TextObject(QObject, QTextObjectInterface):
-	      def intrinsicSize(self, doc, pos_in_document, format):
-	          return QtCore.QSizeF(widget.sizeHint())
+    class TextObject(QObject, QTextObjectInterface):
+        def intrinsicSize(self, doc, pos_in_document, format):
+            return QtCore.QSizeF(widget.sizeHint())
+
+        def drawObject(self, painter, rect, doc, pos_in_document, format):
+            widget.resize(widget.sizeHint())
+            widget.render(painter, QtCore.QPoint(int(rect.x()), int(rect.y())))
 	
-	      def drawObject(self, painter, rect, doc, pos_in_document, format):
-	          widget.resize(widget.sizeHint())
-	          widget.render(painter, QtCore.QPoint(int(rect.x()), int(rect.y())))
-	
-	  self.wysiwyg_editor.document().documentLayout().registerHandler(text_format_id, TextObject(self))</code>
+    self.wysiwyg_editor.document().documentLayout().registerHandler(text_format_id, TextObject(self))</code>
 </pre>
         <p id="4f31ffa5-feaf-4b55-b90f-45c366236129" class="">This method creates <code>QObject</code>, that is also a <code>QTextObjectInterface</code> instance. This has to have methods <code>.intrinsicSize()</code> and <code>.drawObject()</code>. In this case, it just returns values defined in the widget itself, and also renders the widget to the <code>painter</code>.</p>
         <p id="38cce446-447c-4fb3-b3b6-257f34225c5b" class="">Resulting <code>TextObject</code> is then registered as handler for given <code>text_format_id</code> number.</p>
@@ -556,7 +556,7 @@ self.wysiwyg_editor.textChanged.connect(self.on_text_changed)</code>
         <h3 id="aa3e6c60-d55c-4167-93cb-1950c3fda0b1" class="">
           <time>@2020/01/08</time>
         </h3>
-        <p id="c08ee592-43d1-4bf6-81da-d6b2c73307bd" class="">Fixed behavior when the delete key is pressed for last inlined item.on_character_format_change</p>
+        <p id="c08ee592-43d1-4bf6-81da-d6b2c73307bd" class="">Fixed behavior when the delete key is pressed for last inlined item.</p>
         <h3 id="0b64a313-efff-49ac-a485-82efa578e2fa" class="">
           <time>@2020/01/07</time>
         </h3>
@@ -578,7 +578,7 @@ self.wysiwyg_editor.textChanged.connect(self.on_text_changed)</code>
       <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
     </div>
         <a class="twitter-share-button" id="twitter_button" href="#">
-      <img src="/tweet_button.png" />
+      <img src="/tweet_button.svg" />
     </a>
     <div id="sidebar_bottom"><h3>New posts:</h3><ul><li><a href="http://blog.rfox.eu/en/Active_widget_in_PyQT5_QTextEdit.html">Active widget in PyQT5 / QTextEdit</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_01_05_objWiki_is_coming_nicel.html">Biweekly update 2020-01-05; objWiki is coming nicely</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html">Biweekly update 2019-12-24; Christmas, </a><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_24_Christmas_sighs.html"><em>sighs</em></a></li><li><a href="http://blog.rfox.eu/en/Sunburst_for_PyCharm_Idea.html">Sunburst for PyCharm / Idea</a></li><li><a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2019_12_08_Projects_and_work_organ.html">Biweekly update 2019-12-08; Projects and work organization</a></li></ul>
 
