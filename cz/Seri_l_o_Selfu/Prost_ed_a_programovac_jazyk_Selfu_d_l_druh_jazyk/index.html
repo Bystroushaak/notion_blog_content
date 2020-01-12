@@ -23,6 +23,76 @@
         <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
         <script src="/scripts.js">
     </script>
+        <style>
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
   </head>
   <body onload="on_body_load();">
     <a class="breadcrumb" href="../../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../../index.html">Czech section</a> / <a class="breadcrumb" href="../index.html">Seriál o Selfu</a> / Prostředí a programovací jazyk Selfu (díl druhý; jazyk)
@@ -42,17 +112,41 @@
         <p id="79fc2fd5-c2ed-4972-84cd-ec4c8ddec994" class="">Poté co objektu pošleme <em>zprávu</em>, je v paměti vyhledán obsah konkrétního slotu. Pokud se jedná o datový slot (objekt v něm uložený neobsahuje kód), je vrácen. Pokud se jedná o objekt s kódem, je vrácena hodnota zbylá po provedení kódu objektu.</p>
         <p id="50ed3495-f75b-4189-8a03-21eadc53c54d" class="">Zprávu objektu pošleme tím, že jí napíšeme napravo od něj.</p>
         <p id="3b139891-a0bc-4da1-a092-b56e85ddc008" class="">Kód</p>
-        <pre id="6e6a6d20-c4be-41c6-9817-9f91dc4873fe" class="code"><code>obj zpráva</code>
+        <pre class="code"><code><span></span>
+<span class="n">obj</span>
+<span class="n">zpráva</span>
+</code>
 </pre>
         <p id="8b638e7b-0da0-446e-a1b3-8ee0fb9142c8" class="">je podobný výrazu v C-like syntaxi:</p>
-        <pre id="5cea0c0b-c67b-42f2-be04-b04e237fb8a5" class="code"><code>obj.zpráva()</code>
+        <pre class="code"><code><span></span>
+<span class="n">obj</span>
+<span class="o">.</span>
+<span class="n">zpráva</span>
+<span class="p">()</span>
+</code>
 </pre>
         <h2 id="0172a46b-6aa0-452d-a730-15ddbef6099e" class="">Syntaxe objektu</h2>
         <p id="4a937de0-1335-4fae-86c6-c8e3da14dc74" class=""><code>()</code> vytvoří prázdný objekt. To je objekt, ve kterém nejsou žádné metody a který neumí reagovat na žádné zprávy.</p>
         <p id="d5b818df-bef7-452f-b055-a8e573e1d32c" class="">Kód <code>(| a. b. |)</code> vytvoří objekt, ve kterém jsou dva sloty pojmenované jako <code>‚a‘</code> a <code>‚b‘</code>. Hodnoty obou budou nastaveny na <code>nil</code>.</p>
         <p id="8a72c70a-a68b-45d4-943c-292bf9b5d60a" class="">Znak svislé čáry <code>|</code> uvozuje definici slotů. Jednotlivé sloty jsou odděleny tečkami. Výše uvedený objekt je „krabička“, která má v sobě dva šuplíky <code>a</code> a <code>b</code>. Ty můžou uchovávat data, či kód.</p>
         <p id="77656745-d2ac-4c78-8957-6308db395687" class="">Objekt v Selfu funguje tak trochu jako hashmapa, či dictionary (slovník). Do konkrétního slotu se dá uložit konkrétní hodnota. Tuto hodnotu je možné přiřadit již při inicializaci:</p>
-        <pre id="3812a72b-2c71-48b9-981e-f6cc84b9a958" class="code"><code>(| a &lt;- nil. b = nil. |)</code>
+        <pre class="code"><code><span></span>
+<span class="p">(</span>
+<span class="o">|</span>
+<span class="n">a</span>
+<span class="o">&amp;</span>
+<span class="n">lt</span>
+<span class="p">;</span>
+<span class="o">-</span>
+<span class="n">nil</span>
+<span class="o">.</span>
+<span class="n">b</span>
+<span class="o">=</span>
+<span class="n">nil</span>
+<span class="o">.</span>
+<span class="o">|</span>
+<span class="p">)</span>
+</code>
 </pre>
         <p id="189d3c0e-0980-46ce-8560-363e8ee8eb7f" class="">V příkladu je možné vidět hned dva styly přiřazení hodnoty. Liší se od sebe tím, že první je možné později přepisovat (<code>&lt;-</code>), druhý (<code>=</code>) nikoliv.</p>
         <p id="26eb4fca-a884-4312-948e-380a5aa9678d" class="">Ve skutečnosti dochází na nízké úrovni v prvním případě k vytvoření dvou slotů - skutečného slotu a metody pro zápis do tohoto slotu. Ve druhém případě je vytvořen jen slot samotný a není tedy možné do něj zapsat. To má své využití pro různé konstanty.</p>
@@ -148,7 +242,17 @@
         <p id="0156f6a5-0b7f-4a2e-9257-4ff90c222016" class="">Na první pohled poněkud divoká konstrukce má docela zajímavé využití například při psaní parserů, kde umožňuje měnit kontext.</p>
         <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
         <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
-        <pre id="5c1b05c8-5bbc-44b6-9e1e-3e873c3bea83" class="code"><code>&quot;toto je komentar&quot;</code>
+        <pre class="code"><code><span></span>
+<span class="o">&amp;</span>
+<span class="n">quot</span>
+<span class="p">;</span>
+<span class="n">toto</span>
+<span class="n">je</span>
+<span class="n">komentar</span>
+<span class="o">&amp;</span>
+<span class="n">quot</span>
+<span class="p">;</span>
+</code>
 </pre>
         <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
         <p id="9603835d-8055-422c-9880-c44c1aca0bf9" class="">Anotace jsou způsob přidávání metadat k objektům, kterému se dokumentace překvapivě málo věnuje, přestože je použít napříč celou image.</p>
@@ -381,7 +485,9 @@ sortedBy: cmp Do: b
 sortedDo: b</code>
 </pre>
         <h2 id="200e3aaf-0a3c-440a-9c29-007026319605" class="">Testing</h2>
-        <pre id="43512b24-61ae-4650-a09e-e569686f3af3" class="code"><code>isOrdered</code>
+        <pre class="code"><code><span></span>
+<span class="n">isOrdered</span>
+</code>
 </pre>
         <h2 id="ab379811-7fdb-4113-b257-7e7b46e073ba" class="">Transforming</h2>
         <pre id="ca14b549-b3f1-45c5-b65e-0deb8123b9ec" class="code"><code>asByteVector

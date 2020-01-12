@@ -23,6 +23,76 @@
         <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
         <script src="/scripts.js">
     </script>
+        <style>
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
   </head>
   <body onload="on_body_load();">
     <a class="breadcrumb" href="../../../index.html">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Series about Self</a> / Environment and the programming language Self (part two; language)
@@ -60,7 +130,23 @@
         <p id="281f24f5-b09d-40ed-a3e8-c00736d027f6" class=""><code>(| a. b. |)</code> creates object, which contains two slots called <code>a</code> and <code>b</code>. Values of both slots are set to <code>nil</code>.</p>
         <p id="ed81a24f-b15b-4cb4-9c7c-512824ae0f01" class=""><code>|</code> opens and closes section of slot definitions. Slots themselves are separated by dots. The above object is a &quot;box&quot; that has two drawers called <code>a</code> and <code>b</code>. These drawers can store data or a code.</p>
         <p id="ce461c07-8559-4e50-9886-a46cc80713ed" class="">Object in Self works a bit like a hashmap or a dictionary. A specific value can be stored in a specific slot. The value can be assigned during initialization:</p>
-        <pre id="4bb05b08-e5c7-44e1-ad56-9bcc540f71e6" class="code"><code>(| a &lt;- nil. b = nil. |)</code>
+        <pre class="code"><code><span></span>
+<span class="p">(</span>
+<span class="o">|</span>
+<span class="n">a</span>
+<span class="o">&amp;</span>
+<span class="n">lt</span>
+<span class="p">;</span>
+<span class="o">-</span>
+<span class="n">nil</span>
+<span class="o">.</span>
+<span class="n">b</span>
+<span class="o">=</span>
+<span class="n">nil</span>
+<span class="o">.</span>
+<span class="o">|</span>
+<span class="p">)</span>
+</code>
 </pre>
         <p id="4c6375f8-68f0-48f8-8fb2-65939d390286" class="">You can see the two different types of assignments in the example. First one (<code>&lt;-</code>) creates rewritable slot, the other one (<code>=</code>) is read only.</p>
         <p id="7f88c384-1d5c-46b1-92f3-7017aacb9c39" class="">In fact, in the first case, there are two slots; slot <code>a</code> itself, and then a method <code>a:</code> (an assignment primitive), which writes to that slot. In the latter case, only the slot itself is created and it is thus not possible to write into it directly. This has its use for all kinds of constant values.</p>
@@ -83,9 +169,23 @@
 </pre>
         <p id="c8c71676-1d91-46e8-b202-0b6d232e3f92" class="">contains one slot <code>x:Y:</code>, which points to the code object accepting the parameters <code>a</code> and <code>b</code>.</p>
         <p id="5ed384cc-774f-45a0-ac8b-17bf801e47fd" class="">Alternative syntax for the object is:</p>
-        <pre id="6bd6bece-ba1d-4bda-b75b-52b031c0d6e1" class="code"><code>(|
-    x: a Y: b = (a printLine)
-|)</code>
+        <pre class="code"><code><span></span>
+<span class="p">(</span>
+<span class="o">|</span>
+<span class="n">x</span>
+<span class="p">:</span>
+<span class="n">a</span>
+<span class="n">Y</span>
+<span class="p">:</span>
+<span class="n">b</span>
+<span class="o">=</span>
+<span class="p">(</span>
+<span class="n">a</span>
+<span class="n">printLine</span>
+<span class="p">)</span>
+<span class="o">|</span>
+<span class="p">)</span>
+</code>
 </pre>
         <h2 id="575c6a99-b1dc-4bb8-bd85-75952c3e1d40" class="">Messages</h2>
         <p id="a8202779-6ad4-435c-81f4-f8448b7f0d7f" class="">There are three standard types of messages:</p>
@@ -172,7 +272,18 @@
         <p id="ff0d4af4-1f47-46f8-86f9-bccee6948cd1" class="">This, at first glance somewhat wild design feature, has quite interesting usage cases, for example parsers, where it allows you to easily change the context.</p>
         <h2 id="16a9d22d-6ce2-4c23-8903-e823515405c8" class="">Comments</h2>
         <p id="6182be46-d199-47dc-9231-887d5c83a8df" class="">Comments are written in quotes:</p>
-        <pre id="200d4bcf-96f0-43c5-9c01-9a388cf60f25" class="code"><code>&quot;this is a comment&quot;</code>
+        <pre class="code"><code><span></span>
+<span class="o">&amp;</span>
+<span class="n">quot</span>
+<span class="p">;</span>
+<span class="n">this</span>
+<span class="ow">is</span>
+<span class="n">a</span>
+<span class="n">comment</span>
+<span class="o">&amp;</span>
+<span class="n">quot</span>
+<span class="p">;</span>
+</code>
 </pre>
         <h2 id="3e6e3fca-7cb7-491c-8052-74d22505ca31" class="">Annotations</h2>
         <p id="2ad55af9-deaa-45f7-aa2a-d113a2937e39" class="">Annotations provide a way of adding metadata to objects, but there is surprisingly little documentation on how they work and can be used, even though they are used across the entire standard image.</p>
@@ -405,7 +516,9 @@ sortedBy: cmp Do: b
 sortedDo: b</code>
 </pre>
         <h2 id="4cd74451-35b2-4e5c-91ee-443ce2bf5ad6" class="">Testing</h2>
-        <pre id="2b24d325-83d6-466d-be22-69edd43218bb" class="code"><code>isOrdered</code>
+        <pre class="code"><code><span></span>
+<span class="n">isOrdered</span>
+</code>
 </pre>
         <h2 id="a9af3b41-6b6e-47e1-8fb0-1115d663631b" class="">Transforming</h2>
         <pre id="36a2e549-b5e6-41d5-aa76-b62fc6f61f07" class="code"><code>asByteVector
