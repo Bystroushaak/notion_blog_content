@@ -212,8 +212,8 @@
 <span class="p">(</span><span class="o">|</span> <span class="n">slot</span> <span class="o">|</span><span class="p">)</span>  <span class="c1"># Objekt obsahující jeden slot (key/val storage, kde slot = nil.).</span>
 
 <span class="c1"># Objekt obsahující definice dvou slotů; read only ‚s‘ a zapisovatelného slotu ‚s2‘.</span>
-<span class="c1"># Ekvivalentní slovníku {&amp;quot;s&amp;quot;: None, &amp;quot;s2&amp;quot;: 1}, když pominu zapisovatelnost slotů.</span>
-<span class="p">(</span><span class="o">|</span> <span class="n">s</span> <span class="o">=</span> <span class="n">nil</span><span class="o">.</span> <span class="n">s2</span> <span class="o">&</span><span class="n">lt</span><span class="p">;</span><span class="o">-</span> <span class="mi">1</span> <span class="o">|</span><span class="p">)</span>
+<span class="c1"># Ekvivalentní slovníku {"s": None, "s2": 1}, když pominu zapisovatelnost slotů.</span>
+<span class="p">(</span><span class="o">|</span> <span class="n">s</span> <span class="o">=</span> <span class="n">nil</span><span class="o">.</span> <span class="n">s2</span> <span class="o">&lt;-</span> <span class="mi">1</span> <span class="o">|</span><span class="p">)</span>
 
 <span class="c1"># Objekt obsahující slot ‚s‘, a taky kód, který tomuto slotu pošle unární zprávu ‚printLine‘. Poslední výraz je vždy vrácen, takže bude vrácena hodnota slotu ‚s‘.</span>
 <span class="p">(</span><span class="n">s</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">s</span> <span class="n">printLine</span><span class="o">.</span> <span class="n">s</span><span class="p">)</span>
@@ -221,18 +221,18 @@
 
 <span class="p">[</span> <span class="p">]</span>  <span class="c1"># prázdný blok</span>
 <span class="p">[:</span><span class="n">a</span> <span class="o">|</span> <span class="n">a</span> <span class="n">printLine</span><span class="o">.</span> <span class="n">a</span><span class="p">]</span>  <span class="c1"># blok přijímající parametr ‚a‘, který vypíše posláním zprávy ‚printLine‘ a vrátí.</span>
-<span class="p">[</span><span class="o">|</span> <span class="p">:</span><span class="n">a</span> <span class="o">|</span> <span class="n">a</span> <span class="n">printLine</span><span class="o">.</span> <span class="nb">exit</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="p">]</span>  <span class="c1"># totožný kód - return v bloku vrací z nadřazeného scope, nikoliv jen z bloku samotného!.</span>
+<span class="p">[</span><span class="o">|</span> <span class="p">:</span><span class="n">a</span> <span class="o">|</span> <span class="n">a</span> <span class="n">printLine</span><span class="o">.</span> <span class="n">exit</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="p">]</span>  <span class="c1"># totožný kód - return v bloku vrací z nadřazeného scope, nikoliv jen z bloku samotného!.</span>
 
 <span class="c1"># Komplexnější objekt obsahující asi všechny elementy jazyka.</span>
-<span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span> <span class="n">b</span> <span class="o">&</span><span class="n">lt</span><span class="p">;</span><span class="o">-</span> <span class="mf">2.</span> <span class="n">c</span> <span class="o">|</span>
-  <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span>
+<span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.</span> <span class="n">b</span> <span class="o">&lt;-</span> <span class="mf">2.</span> <span class="n">c</span> <span class="o">|</span>
+  <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
     <span class="n">ifTrue</span><span class="p">:</span> <span class="p">[</span><span class="n">c</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">.</span> <span class="o">^</span><span class="n">c</span><span class="p">]</span>
-    <span class="bp">False</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span> <span class="n">logger</span> <span class="n">log</span><span class="p">:</span> <span class="n">a</span><span class="p">;</span> <span class="n">log</span> <span class="n">b</span><span class="o">.</span><span class="p">]</span><span class="o">.</span>
+    <span class="kc">False</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span> <span class="n">logger</span> <span class="n">log</span><span class="p">:</span> <span class="n">a</span><span class="p">;</span> <span class="n">log</span> <span class="n">b</span><span class="o">.</span><span class="p">]</span><span class="o">.</span>
 
-  <span class="n">logger</span> <span class="n">log</span><span class="p">:</span> <span class="s2">"Vsechny zpravy se prvne resolvuji na Self"</span><span class="o">.</span>
-  <span class="bp">self</span> <span class="n">logger</span> <span class="n">log</span><span class="p">:</span> <span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="n">Toto</span> <span class="n">je</span> <span class="n">tedy</span> <span class="n">totozna</span> <span class="n">zprava</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="o">.</span>
+  <span class="n">logger</span> <span class="n">log</span><span class="p">:</span> <span class="s1">'Vsechny zpravy se prvne resolvuji na Self'</span><span class="o">.</span>
+  <span class="bp">self</span> <span class="n">logger</span> <span class="n">log</span><span class="p">:</span> <span class="s2">"Toto je tedy totozna zprava"</span><span class="o">.</span>
 
-  <span class="o">^</span> <span class="p">(</span><span class="o">|</span> <span class="n">output</span> <span class="o">=</span> <span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="n">vysledek</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="o">.</span> <span class="n">line</span> <span class="o">&</span><span class="n">lt</span><span class="p">;</span><span class="o">-</span> <span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="n">metody</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span> <span class="o">|</span><span class="p">)</span>
+  <span class="o">^</span> <span class="p">(</span><span class="o">|</span> <span class="n">output</span> <span class="o">=</span> <span class="s2">"vysledek"</span><span class="o">.</span> <span class="n">line</span> <span class="o">&lt;-</span> <span class="s2">"metody"</span> <span class="o">|</span><span class="p">)</span>
 <span class="p">)</span>
 </code></pre>
       <p id="544b8f83-4919-4bff-90f9-ac89f91115d2" class="">Celý kód lexeru se vejde na 40 řádek a jde jen o definici jednotlivých elementů jazyka pomocí regexpů:</p>
@@ -241,38 +241,38 @@
 
 
 <span class="n">lg</span> <span class="o">=</span> <span class="n">LexerGenerator</span><span class="p">()</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"SELF"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"self"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'SELF'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'self'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"NUMBER"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"(0x[0-9a-fA-F]+)|((\-)?\d+(\.\d)?)"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'NUMBER'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'(0x[0-9a-fA-F]+)|((\-)?\d+(\.\d)?)'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"OBJ_START"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\("</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"OBJ_END"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\)"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'OBJ_START'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\('</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'OBJ_END'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\)'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"BLOCK_START"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\["</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"BLOCK_END"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\]"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'BLOCK_START'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\['</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'BLOCK_END'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\]'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"SINGLE_Q_STRING"</span><span class="p">,</span> <span class="n">r</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="s2">"(?:</span><span class="se">\\</span><span class="s2">.|[^"</span>\\<span class="p">])</span><span class="o">*</span><span class="s2">"&amp;quot;)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"DOUBLE_Q_STRING"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"&amp;quot;(?:</span><span class="se">\\</span><span class="s2">.|[^&amp;quot;</span><span class="se">\\</span><span class="s2">])*&amp;quot;"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'SINGLE_Q_STRING'</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"'(?:</span><span class="se">\\</span><span class="s2">.|[^'</span><span class="se">\\</span><span class="s2">])*'"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'DOUBLE_Q_STRING'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'"(?:</span><span class="se">\\</span><span class="s1">.|[^"</span><span class="se">\\</span><span class="s1">])*"'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"FIRST_KW"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"([a-z_][a-zA-Z0-9_]*\.)*[a-z_]+[a-zA-Z0-9_]*:"</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"KEYWORD"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"[A-Z]+[a-zA-Z0-9_]*:"</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"ARGUMENT"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">":[a-zA-Z_]*[a-zA-Z0-9_]+"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'FIRST_KW'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'([a-z_][a-zA-Z0-9_]*\.)*[a-z_]+[a-zA-Z0-9_]*:'</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'KEYWORD'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'[A-Z]+[a-zA-Z0-9_]*:'</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'ARGUMENT'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">':[a-zA-Z_]*[a-zA-Z0-9_]+'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"RW_ASSIGNMENT"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\&amp;lt;-"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'RW_ASSIGNMENT'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\&lt;-'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"OPERATOR"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"[!@\$%&amp;amp;\*\-\+~/?&amp;lt;&amp;gt;,]+|==+"</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"RETURN"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\^"</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"END_OF_EXPR"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\."</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"SEPARATOR"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\|"</span><span class="p">)</span>
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"CASCADE"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\;"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'OPERATOR'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'[!@\$%&amp;\*\-\+~/?&lt;&gt;,]+|==+'</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'RETURN'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\^'</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'END_OF_EXPR'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\.'</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'SEPARATOR'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\|'</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'CASCADE'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'\;'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"IDENTIFIER"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"([a-zA-Z_][a-zA-Z0-9_]*\.)*[a-zA-Z_]*[a-zA-Z0-9_\*]+"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'IDENTIFIER'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'([a-zA-Z_][a-zA-Z0-9_]*\.)*[a-zA-Z_]*[a-zA-Z0-9_\*]+'</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"ASSIGNMENT"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"="</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'ASSIGNMENT'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'='</span><span class="p">)</span>
 
-<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"COMMENT"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"#.*[\n|$]?"</span><span class="p">)</span>
+<span class="n">lg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'COMMENT'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'#.*[\n|$]?'</span><span class="p">)</span>
 
 
 <span class="n">lexer</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>

@@ -130,23 +130,7 @@
         <p id="d5b818df-bef7-452f-b055-a8e573e1d32c" class="">Kód <code>(| a. b. |)</code> vytvoří objekt, ve kterém jsou dva sloty pojmenované jako <code>‚a‘</code> a <code>‚b‘</code>. Hodnoty obou budou nastaveny na <code>nil</code>.</p>
         <p id="8a72c70a-a68b-45d4-943c-292bf9b5d60a" class="">Znak svislé čáry <code>|</code> uvozuje definici slotů. Jednotlivé sloty jsou odděleny tečkami. Výše uvedený objekt je „krabička“, která má v sobě dva šuplíky <code>a</code> a <code>b</code>. Ty můžou uchovávat data, či kód.</p>
         <p id="77656745-d2ac-4c78-8957-6308db395687" class="">Objekt v Selfu funguje tak trochu jako hashmapa, či dictionary (slovník). Do konkrétního slotu se dá uložit konkrétní hodnota. Tuto hodnotu je možné přiřadit již při inicializaci:</p>
-        <pre class="code"><code><span></span>
-<span class="p">(</span>
-<span class="o">|</span>
-<span class="n">a</span>
-<span class="o">&amp;</span>
-<span class="n">lt</span>
-<span class="p">;</span>
-<span class="o">-</span>
-<span class="n">nil</span>
-<span class="o">.</span>
-<span class="n">b</span>
-<span class="o">=</span>
-<span class="n">nil</span>
-<span class="o">.</span>
-<span class="o">|</span>
-<span class="p">)</span>
-</code>
+        <pre id="3812a72b-2c71-48b9-981e-f6cc84b9a958" class="code"><code>(| a &lt;- nil. b = nil. |)</code>
 </pre>
         <p id="189d3c0e-0980-46ce-8560-363e8ee8eb7f" class="">V příkladu je možné vidět hned dva styly přiřazení hodnoty. Liší se od sebe tím, že první je možné později přepisovat (<code>&lt;-</code>), druhý (<code>=</code>) nikoliv.</p>
         <p id="26eb4fca-a884-4312-948e-380a5aa9678d" class="">Ve skutečnosti dochází na nízké úrovni v prvním případě k vytvoření dvou slotů - skutečného slotu a metody pro zápis do tohoto slotu. Ve druhém případě je vytvořen jen slot samotný a není tedy možné do něj zapsat. To má své využití pro různé konstanty.</p>
@@ -243,15 +227,7 @@
         <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
         <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
         <pre class="code"><code><span></span>
-<span class="o">&amp;</span>
-<span class="n">quot</span>
-<span class="p">;</span>
-<span class="n">toto</span>
-<span class="n">je</span>
-<span class="n">komentar</span>
-<span class="o">&amp;</span>
-<span class="n">quot</span>
-<span class="p">;</span>
+<span class="s2">&quot;toto je komentar&quot;</span>
 </code>
 </pre>
         <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
@@ -810,7 +786,10 @@ mapBy: eb Into: c</code>
         <pre id="860c2cf3-615b-4973-a544-d3b2548c9c6f" class="code"><code>bootstrap read: &#x27;name&#x27; From: &#x27;directory&#x27;</code>
 </pre>
         <p id="2a1ed6e6-60a0-4fe3-9196-74a44993d9fe" class="">Všimněte si že na konci name není <code>.self</code>, nebo:</p>
-        <pre id="91e4fb0a-2e4f-4376-bbff-fc6741cc1bd2" class="code"><code>&#x27;path/to/file.self&#x27; runScript</code>
+        <pre class="code"><code><span></span>
+<span class="s1">&#39;path/to/file.self&#39;</span>
+<span class="n">runScript</span>
+</code>
 </pre>
         <p id="6ef75131-467f-4128-9885-9fce91e8d0ef" class="">Podrobnosti zde: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
         <h2 id="63819b08-9821-47bc-94ae-2c6290c37e82" class="">Radarview</h2>

@@ -121,8 +121,7 @@
       <p id="d5b818df-bef7-452f-b055-a8e573e1d32c" class="">Kód <code>(| a. b. |)</code> vytvoří objekt, ve kterém jsou dva sloty pojmenované jako <code>‚a‘</code> a <code>‚b‘</code>. Hodnoty obou budou nastaveny na <code>nil</code>.</p>
       <p id="8a72c70a-a68b-45d4-943c-292bf9b5d60a" class="">Znak svislé čáry <code>|</code> uvozuje definici slotů. Jednotlivé sloty jsou odděleny tečkami. Výše uvedený objekt je „krabička“, která má v sobě dva šuplíky <code>a</code> a <code>b</code>. Ty můžou uchovávat data, či kód.</p>
       <p id="77656745-d2ac-4c78-8957-6308db395687" class="">Objekt v Selfu funguje tak trochu jako hashmapa, či dictionary (slovník). Do konkrétního slotu se dá uložit konkrétní hodnota. Tuto hodnotu je možné přiřadit již při inicializaci:</p>
-      <pre class="code"><code><span class="p">(</span><span class="o">|</span> <span class="n">a</span> <span class="o">&</span><span class="n">lt</span><span class="p">;</span><span class="o">-</span> <span class="n">nil</span><span class="o">.</span> <span class="n">b</span> <span class="o">=</span> <span class="n">nil</span><span class="o">.</span> <span class="o">|</span><span class="p">)</span>
-</code></pre>
+      <pre id="3812a72b-2c71-48b9-981e-f6cc84b9a958" class="code"><code>(| a &lt;- nil. b = nil. |)</code></pre>
       <p id="189d3c0e-0980-46ce-8560-363e8ee8eb7f" class="">V příkladu je možné vidět hned dva styly přiřazení hodnoty. Liší se od sebe tím, že první je možné později přepisovat (<code>&lt;-</code>), druhý (<code>=</code>) nikoliv.</p>
       <p id="26eb4fca-a884-4312-948e-380a5aa9678d" class="">Ve skutečnosti dochází na nízké úrovni v prvním případě k vytvoření dvou slotů - skutečného slotu a metody pro zápis do tohoto slotu. Ve druhém případě je vytvořen jen slot samotný a není tedy možné do něj zapsat. To má své využití pro různé konstanty.</p>
       <p id="c8d65600-b3f9-4ef5-863e-c321033d9f9d" class="">Objekt dále může obsahovat kód, který je uveden za druhou svislou čarou <code>|</code>:</p>
@@ -205,7 +204,7 @@
       <p id="0156f6a5-0b7f-4a2e-9257-4ff90c222016" class="">Na první pohled poněkud divoká konstrukce má docela zajímavé využití například při psaní parserů, kde umožňuje měnit kontext.</p>
       <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
       <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
-      <pre class="code"><code><span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="n">toto</span> <span class="n">je</span> <span class="n">komentar</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span>
+      <pre class="code"><code><span class="s2">"toto je komentar"</span>
 </code></pre>
       <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
       <p id="9603835d-8055-422c-9880-c44c1aca0bf9" class="">Anotace jsou způsob přidávání metadat k objektům, kterému se dokumentace překvapivě málo věnuje, přestože je použít napříč celou image.</p>
@@ -654,7 +653,8 @@ mapBy: eb Into: c</code></pre>
       <p id="3a10a7d9-adb9-4d79-bef8-3950ec3ead08" class="">Pokud si chcete spustit nějaký ze scriptů, nebo načíst váš uložený modul, dají se k tomu použít dva přístupy:</p>
       <pre id="860c2cf3-615b-4973-a544-d3b2548c9c6f" class="code"><code>bootstrap read: 'name' From: 'directory'</code></pre>
       <p id="2a1ed6e6-60a0-4fe3-9196-74a44993d9fe" class="">Všimněte si že na konci name není <code>.self</code>, nebo:</p>
-      <pre id="91e4fb0a-2e4f-4376-bbff-fc6741cc1bd2" class="code"><code>'path/to/file.self' runScript</code></pre>
+      <pre class="code"><code><span class="s1">'path/to/file.self'</span> <span class="n">runScript</span>
+</code></pre>
       <p id="6ef75131-467f-4128-9885-9fce91e8d0ef" class="">Podrobnosti zde: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
       <h2 id="63819b08-9821-47bc-94ae-2c6290c37e82" class="">Radarview</h2>
       <p id="d881f75a-16f6-4271-88b3-a4870877a734" class="">Jak už jsem psal, radarView je možné zobrazit takhle:</p>

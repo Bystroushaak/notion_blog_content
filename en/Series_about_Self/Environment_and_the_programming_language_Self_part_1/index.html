@@ -130,23 +130,7 @@
         <p id="281f24f5-b09d-40ed-a3e8-c00736d027f6" class=""><code>(| a. b. |)</code> creates object, which contains two slots called <code>a</code> and <code>b</code>. Values of both slots are set to <code>nil</code>.</p>
         <p id="ed81a24f-b15b-4cb4-9c7c-512824ae0f01" class=""><code>|</code> opens and closes section of slot definitions. Slots themselves are separated by dots. The above object is a &quot;box&quot; that has two drawers called <code>a</code> and <code>b</code>. These drawers can store data or a code.</p>
         <p id="ce461c07-8559-4e50-9886-a46cc80713ed" class="">Object in Self works a bit like a hashmap or a dictionary. A specific value can be stored in a specific slot. The value can be assigned during initialization:</p>
-        <pre class="code"><code><span></span>
-<span class="p">(</span>
-<span class="o">|</span>
-<span class="n">a</span>
-<span class="o">&amp;</span>
-<span class="n">lt</span>
-<span class="p">;</span>
-<span class="o">-</span>
-<span class="n">nil</span>
-<span class="o">.</span>
-<span class="n">b</span>
-<span class="o">=</span>
-<span class="n">nil</span>
-<span class="o">.</span>
-<span class="o">|</span>
-<span class="p">)</span>
-</code>
+        <pre id="4bb05b08-e5c7-44e1-ad56-9bcc540f71e6" class="code"><code>(| a &lt;- nil. b = nil. |)</code>
 </pre>
         <p id="4c6375f8-68f0-48f8-8fb2-65939d390286" class="">You can see the two different types of assignments in the example. First one (<code>&lt;-</code>) creates rewritable slot, the other one (<code>=</code>) is read only.</p>
         <p id="7f88c384-1d5c-46b1-92f3-7017aacb9c39" class="">In fact, in the first case, there are two slots; slot <code>a</code> itself, and then a method <code>a:</code> (an assignment primitive), which writes to that slot. In the latter case, only the slot itself is created and it is thus not possible to write into it directly. This has its use for all kinds of constant values.</p>
@@ -273,16 +257,7 @@
         <h2 id="16a9d22d-6ce2-4c23-8903-e823515405c8" class="">Comments</h2>
         <p id="6182be46-d199-47dc-9231-887d5c83a8df" class="">Comments are written in quotes:</p>
         <pre class="code"><code><span></span>
-<span class="o">&amp;</span>
-<span class="n">quot</span>
-<span class="p">;</span>
-<span class="n">this</span>
-<span class="ow">is</span>
-<span class="n">a</span>
-<span class="n">comment</span>
-<span class="o">&amp;</span>
-<span class="n">quot</span>
-<span class="p">;</span>
+<span class="s2">&quot;this is a comment&quot;</span>
 </code>
 </pre>
         <h2 id="3e6e3fca-7cb7-491c-8052-74d22505ca31" class="">Annotations</h2>
@@ -843,7 +818,10 @@ mapBy: eb Into: c</code>
         <pre id="0481e387-5a7c-48f8-8a53-d18be1983ea8" class="code"><code>bootstrap read: &#x27;name&#x27; From: &#x27;directory&#x27;</code>
 </pre>
         <p id="da613be6-0036-4f5f-9c7d-b4e61418aada" class="">Note that the name doesn&#x27;t end with <code>.self</code>. Or:</p>
-        <pre id="00b8c826-e7ff-49c4-b0f2-012615d57737" class="code"><code>&#x27;path/to/file.self&#x27; runScript</code>
+        <pre class="code"><code><span></span>
+<span class="s1">&#39;path/to/file.self&#39;</span>
+<span class="n">runScript</span>
+</code>
 </pre>
         <p id="2b995def-b836-49e7-ac5f-9d4a6e4eaa86" class="">You can find more details here: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
         <h2 id="1fa25c40-9467-412e-903d-0cdd703bdb05" class="">radarView</h2>

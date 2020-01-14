@@ -141,16 +141,17 @@
   Token("OBJ_END", ")")
 ]</code></pre>
       <p id="79e40b53-cb13-44d6-a62f-1ef78abdf620" class="">Jde o seznam <a href="https://github.com/solanolabs/rply/blob/master/rply/token.py">Token</a> objektů, kde v property <code>.name</code> je uložen název tokenu (například <em>„IDENTIFIER“</em>) a v <code>.value</code> jeho hodnota (například <em>„asd“</em>). Na parseru je poté kód vzít a udělat z něj AST (abstraktní syntaktický strom) ve stylu:</p>
-      <pre id="c4f4910a-e300-4a5b-867f-014d6489a3e2" class="code"><code>Object(
-  slots={"asd": Number(1)},
-  params=[],
-  parents={},
-  code=[
-    Return(
-      Send(Self(), Message("asd"))
-    )
-  ],
-)</code></pre>
+      <pre class="code"><code><span class="n">Object</span><span class="p">(</span>
+  <span class="n">slots</span><span class="o">=</span><span class="p">{</span><span class="s2">"asd"</span><span class="p">:</span> <span class="n">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">)},</span>
+  <span class="n">params</span><span class="o">=</span><span class="p">[],</span>
+  <span class="n">parents</span><span class="o">=</span><span class="p">{},</span>
+  <span class="n">code</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">Return</span><span class="p">(</span>
+      <span class="n">Send</span><span class="p">(</span><span class="n">Self</span><span class="p">(),</span> <span class="n">Message</span><span class="p">(</span><span class="s2">"asd"</span><span class="p">))</span>
+    <span class="p">)</span>
+  <span class="p">],</span>
+<span class="p">)</span>
+</code></pre>
       <p id="d28f5ee0-fe48-47b7-99de-d0c973ef9142" class="">Na to jak je tinySelf jednoduchý jazyk mi dal parser docela zabrat. Původně jsem ho začal psát v RPythonním <a href="http://rpython.readthedocs.io/en/latest/rlib.html#ebnf">rpython.rlib.parsing.ebnfparse</a>, což vypadalo opticky dobře a jednoduše:</p>
       <pre id="ed29d4b7-34ce-4cad-b7ee-5a926fc227d8" class="code"><code>IGNORE: " |\n";
 
@@ -194,9 +195,10 @@ DOUBLE_QUOTED_STRING: "\\"[^\\\\"]*\\"";</code></pre>
       <p id="6dc80472-9047-4907-a95a-575736074d5d" class="">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p>
       <h1 id="5b183968-a7db-4ca4-90dd-9c087af6e2fb" class="">RPLY</h1>
       <p id="66f9efe0-7194-43a5-8461-e7b99a089d2a" class="">Chybějící dokumentace mě časem donutila od RPythonního <code>ebnfparse</code> odejít, speciálně když jsem si procházel ostatní projekty, které používaly jiné parsery. Časem jsem narazil na <a href="https://rply.readthedocs.io/en/latest/">rply</a>, což je port parseru <a href="https://github.com/dabeaz/ply">ply</a> přímo pro RPython. Funguje tak, že píšete dekorátory funkcím ve stylu:</p>
-      <pre id="5cd6046e-24b6-46cc-a94b-4401ac9b4c3c" class="code"><code>@pg.production('expression : NUMBER')
-def expression_number(p):
-    return Number(int(p[0].getstr()))</code></pre>
+      <pre class="code"><code><span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'expression : NUMBER'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">expression_number</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getstr</span><span class="p">()))</span>
+</code></pre>
       <p id="c3f50bb6-685a-4558-8c41-2c15b12995cb" class="">Dekorátor určuje pattern z tokenů. Dekorovaná funkce pak co se s tokeny provede. Všechny tokeny jsou předány v poli v proměnné ‚<code>p</code>‘.</p>
       <p id="99d8df1e-28df-45bb-a8bb-05d18fed3a4f" class="">V kódu nahoře se vezme první token (index 0) a vratí se objekt <code>Number</code> s tokenem, jehož hodnota byla převedena na číslo.</p>
       <p id="b023c94a-28a4-4dd4-9ec9-64698c694dda" class="">Number není žádný magický objekt, nadefinoval jsem si ho sám po vzoru ostatních parserů. Dohromady mám tyto objekty, ze kterých se sestavuje syntaktický strom:</p>
@@ -206,13 +208,14 @@ def expression_number(p):
       <p id="4292bd03-b4a0-4e27-83f3-f6761e59e97e" class="">Jak je vidět, v tinySelfu existují pouze objekty, bloky, akt poslání zprávy, přeposlání zprávy, kaskáda zpráv (akt poslání několika zpráv jednomu objektu), návrat hodnoty, tři typy zpráv (unární, binární, <em>keyword</em>) a poté čtyři zkratky pro často používané objekty: čísla, stringy, Self a Nil. Self by existovat teoreticky nemusel, mohla by to být jen <code>Message("self")</code> poslaná nikomu, ale zpřehledňuje to kód i výsledný strom. Nil je jen zkratka pro singleton, který by mohl být uložený v globálním namespace.</p>
       <h2 id="56745c3a-7c85-4b59-b961-b642b26b0bb7" class="">Složitější rekurzivní pravidla</h2>
       <p id="8ae1b03b-3492-4bb2-863a-3d287d777fdf" class="">Zde je ukázka složitějšího transformačního pravidla:</p>
-      <pre id="33016725-4452-4628-ba91-fe46da2bce8e" class="code"><code>@pg.production('expression : IDENTIFIER')
-def unary_message(p):
-    return Send(obj=Self(), msg=Message(p[0].getstr()))
+      <pre class="code"><code><span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'expression : IDENTIFIER'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unary_message</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Send</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">Self</span><span class="p">(),</span> <span class="n">msg</span><span class="o">=</span><span class="n">Message</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getstr</span><span class="p">()))</span>
 
-@pg.production('expression : expression IDENTIFIER')
-def unary_message_to_expression(p):
-    return Send(obj=p[0], msg=Message(p[1].getstr()))</code></pre>
+<span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'expression : expression IDENTIFIER'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unary_message_to_expression</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Send</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="n">Message</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getstr</span><span class="p">()))</span>
+</code></pre>
       <p id="2ad85d1c-f521-487d-be72-4fc4441175a0" class="">Na ukázce je dobře vidět, jak vzniká poslání zpráv a jak je řešeno vkládání implicitního Selfu. Pokud je identifikátor poslán zdánlivě ničemu, je aktu poslání zprávy předán jako cíl <code>Self()</code>. Pokud je před identifikátorem nějaký výraz, je cíli poslání zprávy předán první token obsahující tento výraz (což už je naparsovaná expression, tedy prvek AST).</p>
       <p id="9a6187a5-0701-48b1-9caf-7b8fc9663191" class="">Podobnými pravidly je složen celý jazyk. Zde je také hezky vidět rekurzivní povaha parseru, který definuje <em>expression</em> jako identifikátor a poté také jako <em>expression</em> následované identifikátorem. Parser takhle provede rekurzivní <em>pattern matching</em> na všechny odpovídající tokeny, v samotných funkcích se pak jen definuje, co se z toho má složit za AST.</p>
       <p id="c5093b42-f0b8-4c02-8abd-46e80c632d8c" class="">Tenhle přístup má svou výhodu, protože vám dovoluje skládat AST přímo tak jak ho chcete. Předtím používaný <code>ebnf</code> z RPythonu vypadal sice zapsán elegantněji jako jeden krásný string, ale neumožňoval žádné skoro žádné manipupace s AST a vyplivl vám strom z tokenů, který bylo dále třeba zpracovávat. I když to bylo na vyšší úrovni, než samotné pole tokenů, stejně to byl masivní opruz. Oproti tomu přímý přístup k datům v rply vám umožňuje vygenerovat rovnou hotový a upravený AST.</p>

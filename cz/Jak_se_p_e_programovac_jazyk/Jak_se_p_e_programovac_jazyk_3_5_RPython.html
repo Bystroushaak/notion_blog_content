@@ -126,8 +126,8 @@
       <p id="03fb45e0-8bc8-4110-8606-ae91131be017" class="">Parser parsuje, testy procházejí a svítí zeleně. Co víc si přát. Snad jen .. Ve všemožných článcích psali, že je dobré provádět časté testy, zda jde kód přeložit RPythonem. Během psaní parseru to nemělo smysl, protože parser je obtížně dělitelný kus a moje soustředění mířilo směrem k projití unittesty. Řešit u toho ještě datové typy a všechna omezení RPythonu mi přišlo jako zbytečný masochismus, který by mohl způsobit, že projekt nikdy nedodělám.</p>
       <p id="e64c2589-7e2f-439f-9776-6cd5c77c28f5" class="">Normální unittesty pouštím scriptem <code>run_tests.sh</code>, který obsahuje následující kód:</p>
       <pre class="code"><code><span class="ch">#! /usr/bin/env bash</span>
-<span class="n">export</span> <span class="n">PYTHONPATH</span><span class="o">=&</span><span class="n">quot</span><span class="p">;</span><span class="n">src</span><span class="o">/</span><span class="p">:</span><span class="err">$</span><span class="n">PYTHONPATH</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span>
-<span class="n">python2</span> <span class="o">-</span><span class="n">m</span> <span class="n">py</span><span class="o">.</span><span class="n">test</span> <span class="n">tests</span> <span class="err">$@</span>
+<span class="n">export</span> <span class="n">PYTHONPATH</span><span class="o">=</span><span class="s2">"src/:$PYTHONPATH"</span>
+<span class="n">python2</span> <span class="o">-</span><span class="n">m</span> <span class="n">py</span><span class="o">.</span><span class="n">test</span> <span class="n">tests</span> <span class="err">$</span><span class="o">@</span>
 </code></pre>
       <p id="7ae683d2-cbb0-4621-9f02-1d9b3b3e663c" class="">Ten je následně pouštěn scriptem <a href="https://github.com/joh/when-changed">when-changed</a>, jenž detekuje změny na disku a při každé úpravě zdrojových kódů pustí testy:</p>
       <pre class="code"><code><span class="n">when</span><span class="o">-</span><span class="n">changed</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">r</span> <span class="n">src</span><span class="o">/</span><span class="n">tinySelf</span><span class="o">/*.</span><span class="n">py</span> <span class="o">-</span><span class="n">r</span> <span class="n">tests</span><span class="o">/*.</span><span class="n">py</span> <span class="o">-</span><span class="n">c</span> <span class="o">./</span><span class="n">run_tests</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">s</span>
@@ -166,12 +166,12 @@
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">lex_and_parse</span><span class="p">(</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="mi">1</span><span class="o">&</span><span class="n">quot</span><span class="p">;)</span>
+    <span class="nb">print</span> <span class="n">lex_and_parse</span><span class="p">(</span><span class="s2">"1"</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">1</span>
 
 
 <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">main</span><span class="p">,</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="n">main</span><span class="p">,</span> <span class="kc">None</span>
 
 
 <span class="k">def</span> <span class="nf">jitpolicy</span><span class="p">(</span><span class="n">driver</span><span class="p">):</span>
@@ -183,7 +183,7 @@
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">untranslated_main</span><span class="p">()</span>
 </code></pre>
       <p id="f069e582-5bd6-4ecc-8ba0-ae65db0b7773" class="">Jak je vidět, jen se pustí funkce <code>lex_and_parse("1")</code>, tedy pokus o zparsování zdrojového kódu obsahujícího jen číslo jedna.</p>
@@ -235,9 +235,9 @@
 </code></pre>
       <p id="ce7de1d9-5e6b-4feb-bef9-9675de086509" class="">není možné v různých instancích uložit různé datové typy. To je pro mě jakožto dlouhodobého programátora v pythonu docela nezvyk.</p>
       <p id="6593d087-a9fc-4a71-aa6e-e881002758ab" class="">Hezky je to vidět například na parsovací funkci <code>kw_slot_definition()</code>, která se proměnila z</p>
-      <pre class="code"><code><span class="nd">@pg.production</span><span class="p">(</span><span class="s2">"slot_definition : kw_slot_name ASSIGNMENT expression"</span><span class="p">)</span>
+      <pre class="code"><code><span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'slot_definition : kw_slot_name ASSIGNMENT expression'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">kw_slot_definition</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">Object</span><span class="p">),</span> <span class="o">&</span><span class="n">quot</span><span class="p">;</span><span class="n">Only</span> <span class="n">objects</span> <span class="n">are</span> <span class="n">assignable</span> <span class="n">to</span> <span class="n">kw</span> <span class="n">slots</span><span class="err">!</span><span class="o">&</span><span class="n">quot</span><span class="p">;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">Object</span><span class="p">),</span> <span class="s2">"Only objects are assignable to kw slots!"</span>
 
     <span class="n">slot_name</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
@@ -248,7 +248,7 @@
     <span class="k">return</span> <span class="p">{</span><span class="n">slot_name</span><span class="p">:</span> <span class="n">obj</span><span class="p">}</span>
 </code></pre>
       <p id="8eb34dc5-8861-439d-a3c7-9d69c2554459" class="">na</p>
-      <pre class="code"><code><span class="nd">@pg.production</span><span class="p">(</span><span class="s2">"slot_definition : kw_slot_name ASSIGNMENT expression"</span><span class="p">)</span>
+      <pre class="code"><code><span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'slot_definition : kw_slot_name ASSIGNMENT expression'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">kw_slot_definition</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="n">slot_info</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">obj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -264,13 +264,13 @@
       <p id="6d9a221e-2a05-419e-ad6d-c135a2513e9b" class="">Ve druhém případě <code>assert</code> nefunguje jako příkaz pro ujištění, ale jako <em>type hint</em> (<em>typová nápověda</em>) pro RPython, který mu říká, jakého datového typu jsou dané parametry. Pokud bych ho neuvedl, došlo by v době překladu k vyhození výjimky, která může vypadat například takto:</p>
       <pre class="code"><code><span class="p">[</span><span class="n">translation</span><span class="p">:</span><span class="n">ERROR</span><span class="p">]</span> <span class="n">NoSuchAttrError</span><span class="p">:</span> 
 
-<span class="n">the</span> <span class="n">attribute</span> <span class="s2">"params"</span> <span class="n">goes</span> <span class="n">here</span> <span class="n">to</span> <span class="o">&</span><span class="n">lt</span><span class="p">;</span><span class="n">ClassDef</span> <span class="s2">"rply.token.BaseBox"</span><span class="o">&</span><span class="n">gt</span><span class="p">;,</span> <span class="n">but</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">forbidden</span> <span class="n">here</span>
+<span class="n">the</span> <span class="n">attribute</span> <span class="s1">'params'</span> <span class="n">goes</span> <span class="n">here</span> <span class="n">to</span> <span class="o">&lt;</span><span class="n">ClassDef</span> <span class="s1">'rply.token.BaseBox'</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">forbidden</span> <span class="n">here</span>
 
 
-    <span class="n">v0</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj_0</span><span class="p">,</span> <span class="p">(</span><span class="s2">"params"</span><span class="p">))</span>
+    <span class="n">v0</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj_0</span><span class="p">,</span> <span class="p">(</span><span class="s1">'params'</span><span class="p">))</span>
 
-<span class="n">In</span> <span class="o">&</span><span class="n">lt</span><span class="p">;</span><span class="n">FunctionGraph</span> <span class="n">of</span> <span class="p">(</span><span class="n">parser</span><span class="p">:</span><span class="mi">453</span><span class="p">)</span><span class="n">kw_slot_definition</span> <span class="n">at</span> <span class="mh">0x55b7e3841cc8</span><span class="o">&</span><span class="n">gt</span><span class="p">;:</span>
-<span class="n">Happened</span> <span class="n">at</span> <span class="nb">file</span> <span class="n">src</span><span class="o">/</span><span class="n">tinySelf</span><span class="o">/</span><span class="n">parser</span><span class="o">.</span><span class="n">py</span> <span class="n">line</span> <span class="mi">461</span>
+<span class="n">In</span> <span class="o">&lt;</span><span class="n">FunctionGraph</span> <span class="n">of</span> <span class="p">(</span><span class="n">parser</span><span class="p">:</span><span class="mi">453</span><span class="p">)</span><span class="n">kw_slot_definition</span> <span class="n">at</span> <span class="mh">0x55b7e3841cc8</span><span class="o">&gt;</span><span class="p">:</span>
+<span class="n">Happened</span> <span class="n">at</span> <span class="n">file</span> <span class="n">src</span><span class="o">/</span><span class="n">tinySelf</span><span class="o">/</span><span class="n">parser</span><span class="o">.</span><span class="n">py</span> <span class="n">line</span> <span class="mi">461</span>
 
         <span class="n">slot_info</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -278,7 +278,7 @@
         <span class="c1"># assert isinstance(slot_info, KwSlotContainer)</span>
         <span class="c1"># assert isinstance(obj, Object)</span>
     
-<span class="o">==&</span><span class="n">gt</span><span class="p">;</span>     <span class="n">obj</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">slot_info</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+<span class="o">==&gt;</span>     <span class="n">obj</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">slot_info</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
     
         <span class="k">return</span> <span class="n">DictContainer</span><span class="p">({</span><span class="n">slot_info</span><span class="o">.</span><span class="n">slot_name</span><span class="p">:</span> <span class="n">obj</span><span class="p">})</span>
 </code></pre>
