@@ -139,7 +139,7 @@
       </figure>
       <p id="7fded033-ba2d-48a6-9383-f0b2a5362a4f" class="">To my surprise, what happened is that when used for the first time, it worked as expected. But when you used the primitive method in another float object, the <code>self</code> for primitive methods got redirected to the object used before. Interpreter uses this branch for handling primitive code:</p>
       <pre class="code"><code><span class="k">elif</span> <span class="n">slot</span><span class="o">.</span><span class="n">has_primitive_code</span><span class="p">:</span>
-                <span class="c1"># primitives need "self" to be actually the object they are expecting,</span>
+    <span class="c1"># primitives need "self" to be actually the object they are expecting,</span>
     <span class="c1"># for example for dicts it have to be dict, not some descendant</span>
     <span class="c1"># in the parent chain</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">slot_found_directly_in_obj</span><span class="p">:</span>
@@ -151,12 +151,12 @@
         <span class="n">parameters</span>
     <span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">return_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                                <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">return_value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">return_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">return_value</span><span class="p">)</span>
 </code></pre>
       <p id="4829747e-bda7-41c0-8c48-23e652b5c3e2" class=""><code>.primitive_code()</code> method is a primitive (in rpython implemented) function expecting three parameters: <code>interpreter</code>, <code>self</code> and <code>parameters</code>.</p>
-      <p id="56df5432-c4b6-4cf1-a018-798b1039deec" class="">The second parameter <code>obj</code> which is mapped to <code>self</code> in the primitive function was in this case wrong, because it was resolved from <code>traits float</code>. <code>slot_found_directly_in_obj</code> was <code>True</code>, and <code>slot</code> had <code>.scope_parent</code> property set to last object in which context it was used. This happened to be primitive from previous call.</p>
-      <p id="97c61eca-cc62-4faf-a633-ce75c6759963" class="">Fixing this was easy, but figuring where to find correct object which should be used as <code>self</code> parameter for the primitive was hard. I've thought (and tried) about storing last primitive to call frame. I've explored a path to store <code>(obj, primitive)</code> pairs on the stack, or creating primitive stack in each frame, and several other ways. At the end, I've solved this by looking into the <code>.scope_parent</code> of the <code>obj</code> (which is at that time currently executed method). As the parameters are mapped into the <code>.scope_parent</code> properties, this can be used as history. Code now looks like this:</p>
+      <p id="56df5432-c4b6-4cf1-a018-798b1039deec" class="">The second parameter <code>obj</code> which is mapped to <code>self</code> in the primitive function was in this case wrong, because it was resolved from <code>traits float</code>. <code>slot_found_directly_in_obj</code> was <code>False</code>, and <code>slot</code> had <code>.scope_parent</code> property set to last object in which context it was used. This happened to be primitive from previous call.</p>
+      <p id="97c61eca-cc62-4faf-a633-ce75c6759963" class="">Fixing this was easy, but figuring where to find correct object which should be used as <code>self</code> parameter for the primitive was hard. I've thought (and tried) about storing last primitive in call frame. I've explored a path to store <code>(obj, primitive)</code> pairs on the stack, or creating linked primitive stacks in each frame, and several other ways. At the end, I've solved this by looking into the <code>.scope_parent</code> of the <code>obj</code> (which is at that time currently executed method). As the parameters are mapped into the <code>.scope_parent</code> properties, this can be used as history. Code now looks like this:</p>
       <pre class="code"><code><span class="k">elif</span> <span class="n">slot</span><span class="o">.</span><span class="n">has_primitive_code</span><span class="p">:</span>
     <span class="c1"># primitives need "self" to be actually the object they are expecting,</span>
     <span class="c1"># for example for dicts it have to be dict, not some descendant</span>
@@ -171,7 +171,7 @@
         <span class="n">parameters</span>       <span class="c1"># mapped to `params`</span>
     <span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">return_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">return_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">return_value</span><span class="p">)</span>
 </code></pre>
       <p id="adc52944-4adc-47c9-8cd7-ec7cc02acb10" class="">...</p>
@@ -198,8 +198,8 @@
     <span class="c1"># find instance of the class from which this was resolved</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">primitive_self</span><span class="p">,</span> <span class="n">slot</span><span class="o">.</span><span class="n">scope_parent</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
         <span class="n">primitive_self</span> <span class="o">=</span> <span class="n">primitive_self</span><span class="o">.</span><span class="n">scope_parent</span>
-        <span class="k">if</span> <span class="n">primitive_self</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">primitive_self</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">universe</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">primitive_self</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">primitive_self</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">universe</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
 
     <span class="k">return</span> <span class="n">primitive_self</span>
 </code></pre>

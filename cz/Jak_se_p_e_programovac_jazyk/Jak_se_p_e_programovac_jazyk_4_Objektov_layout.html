@@ -163,8 +163,8 @@ obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
         <span class="bp">self</span><span class="o">.</span><span class="n">slots</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parents</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">primitive_code</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">primitive_code</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre>
       <p id="176507ec-31da-40ac-9db7-029b061d5c36" class="">Tedy <code>Objekt</code> může obsahovat sloty jako hashmapu, seznam přijímaných parametrů jako pole, slovník odkazů na rodiče a kód, což je zase jiný objekt, něco jako pole zpráv, které se postupně zasílají.</p>
@@ -174,9 +174,9 @@ obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
       <p id="11af0d6d-70f3-4a21-bdb8-df92e5f78096" class="">Self je na prototypech založený jazyk, kde nic jako třídy není. Objekty nejsou <em>instancovány</em>, ale <em>klonovány</em> z jiných objektů. Přesto, či respektive právě proto, je možné použít stejný trik, jako u jazyků s třídami. Při klonování je v paměti vytvořena takzvaná <em>mapa</em> a uživateli je vrácen objekt, který je podobně jako v předchozím případě pouze polem s hodnotami a pointerem na <em>mapu</em>. Pokud uživatel klon strukturálně modifikuje (přidá / ubere / přejmenuje sloty), je pro něj vytvořena samostatná mapa, do té doby jsou však mapy sdíleny.</p>
       <p id="b6f79370-efd7-45b9-a5f1-2a36dce8633d" class="">Rozložení v paměti se tedy mění následovně:</p>
       <pre class="code"><code><span class="k">class</span> <span class="nc">Object</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">map</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="nb">map</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_slot_values</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_parent_slot_values</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -195,7 +195,7 @@ obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
         <span class="bp">self</span><span class="o">.</span><span class="n">_slots</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_parent_slotss</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">primitive_code</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">primitive_code</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre>
       <p id="21741387-2229-43ca-891e-98ed9e53116f" class="">V jakémsi pseudoUML to vypadá takto:</p>

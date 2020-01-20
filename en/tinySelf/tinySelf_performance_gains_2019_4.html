@@ -271,7 +271,7 @@
       <pre class="code"><code><span class="k">class</span> <span class="nc">TwoPointerArray</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="n">length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -289,7 +289,7 @@
             <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
 
         <span class="n">rval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">rval</span>
 
@@ -298,7 +298,7 @@
             <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
 
         <span class="n">rval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">rval</span>
 
@@ -375,9 +375,9 @@
        1,907438730 seconds time elapsed</code></pre>
       <h1 id="393107ba-af9c-4cc9-b254-42480f8e7103" class="">Remove pre-initialization of slots and parents</h1>
       <p id="c9910934-8ef6-46ba-b89e-417ca611bed5" class="">As it was implemented, <code>__init__()</code> method of <code>Object</code> looked like this:</p>
-      <pre class="code"><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">map</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+      <pre class="code"><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="nb">map</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_slot_values</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_parent_slot_values</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre>

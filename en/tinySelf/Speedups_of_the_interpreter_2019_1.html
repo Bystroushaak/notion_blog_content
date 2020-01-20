@@ -140,7 +140,7 @@
 <span class="c1"># ... other primitive functions ...</span>
 
 <span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_map</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
@@ -167,7 +167,7 @@
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">obj</span><span class="o">.</span><span class="n">value</span>
 
@@ -213,7 +213,7 @@
       <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again:</p>
       <pre class="code"><code><span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
     <span class="n">_immutable_fields_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_map</span><span class="p">)</span>
 
         <span class="o">...</span>
@@ -225,12 +225,12 @@
       <pre class="code"><code><span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
     <span class="n">_OBJ_CACHE</span> <span class="o">=</span> <span class="n">ObjCache</span><span class="p">()</span>
     <span class="n">_immutable_fields_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 
-        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">slots_references</span> <span class="o">=</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">slots</span>
             <span class="k">return</span>
 
@@ -247,7 +247,7 @@
         <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asString"</span><span class="p">,</span> <span class="n">as_string</span><span class="p">,</span> <span class="p">[])</span>
         <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asFloat"</span><span class="p">,</span> <span class="n">as_float</span><span class="p">,</span> <span class="p">[])</span>
 
-        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre>
       <p id="f7b62a79-3fed-4efc-b81e-79915da0bce9" class="">All the magic is happening in the <code>_OBJ_CACHE</code>, which stores the <code>.map</code> and <code>.slots</code> properties, which are shared across all instances of <code>PrimitiveIntObject</code>. That makes sense, as only the <code>.value</code> is different for each instance.</p>
