@@ -11,7 +11,7 @@
   <meta name="twitter:creator" content="@Bystroushaak" />
   <meta name="twitter:title" content="Programátorova kritika chybějící struktury operačních systémů" />
   <meta name="twitter:description" content="Před nějakou dobou se mi dostalo do rukou zamyšlení, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi „průzkum“ už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací." />
-  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Program_torova_kritika_chyb_j_c_struktury_opera_n_/fs_metaphor.png" /><!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta name="twitter:image" content="http://blog.rfox.eu/cz/../en/Programmer_s_critique_of_missing_structure_of_oper/fs_metaphor.png" /><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -122,7 +122,14 @@
       <h1 class="page-title">Programátorova kritika chybějící struktury operačních systémů</h1>
     </header>
     <div class="page-body">
-      <p id="1c1695ec-f31f-44c4-8889-cec5cb9f706b" class=""><time>@2018/12/10</time></p>
+      <div id="7b47a3e3-89a8-4e56-a9b8-525a23967117" class="column-list">
+        <div id="dc7889f4-b661-4820-99a2-9447368365b3" style="width:18.75%" class="column">
+          <p id="1c1695ec-f31f-44c4-8889-cec5cb9f706b" class=""><time>@2018/12/10</time></p>
+        </div>
+        <div id="d997e0e2-736c-48ac-955c-00acbbeaf2cf" style="width:81.25%" class="column">
+          <p id="7c220dcf-aad5-4a26-b981-3e7e287eb5ed" class="">Available also in English: <a href="../en/Programmer_s_critique_of_missing_structure_of_oper.html">Programmer's critique of missing structure of operating systems</a></p>
+        </div>
+      </div>
       <p id="0dff7aaf-d828-4946-a76f-8d5cc7dc6c74" class="">Před nějakou dobou se mi dostalo do rukou <a href="https://www.cl.cam.ac.uk/~srk31/research/papers/kell13operating.pdf">zamyšlení</a>, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi <em>„průzkum“</em> už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací.</p>
       <h2 id="1d8e9806-af91-4536-ac27-51883664e296" class="">Buďte varováni</h2>
       <p id="1df80904-a94b-4094-b78f-df85248fcac4" class="">Pozor, tento zápisek obsahuje množství textu. Pokud vás text uráží, zvažte, zda se vůbec chcete pustit do diskuze.</p>
@@ -178,14 +185,14 @@
       <p id="5f4fdf98-d70c-499a-86c4-c9f3ca933f5d" class="">Schválně se zkuste zamyslet, co to vlastně je. Vyjde vám, že je to omezená hierarchická <em>key-value</em> databáze.</p>
       <p id="d21255db-ec66-4e04-924f-e01af4b1b72e" class="">Omezená, protože omezuje nejen velikost a subset klíče, který je v lepším případě v UTF, ale i samotnou uloženou <em>hodnotu</em> na proud bajtů. To se zdá rozumné jen do chvíle, kdy si uvědomíte, že je to stromová databáze, která vám nedovoluje přímo ukládat strukturovaná data. Počet inodů (větví struktury) je navíc omezen na číslo, jenž se v horších případech pohybuje v řádu desítek až stovek tisíc, maximálně však pár milionů prvků v jednom <em>adresáři</em>.</p>
       <figure id="46e9a00c-962d-4125-b443-be480047210d" class="image">
-        <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/fs_metaphor.png"><img style="width:600px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/fs_metaphor.png" /></a>
+        <a href="../en/Programmer_s_critique_of_missing_structure_of_oper/fs_metaphor.png"><img style="width:600px" src="../en/Programmer_s_critique_of_missing_structure_of_oper/fs_metaphor.png" /></a>
       </figure>
       <p id="e9c57347-247f-4717-973a-25243c9219bc" class="">Ve dvou z mých předchozích zaměstnáních jsme museli obcházet omezený počet inodů na složku retardací jako <a href="http://balanceddiscstorage.readthedocs.io/">BalancedDiscStorage</a>, či ukládáním souborů do tří podsložek složených z prvních tří písmen MD5 hashe souboru.</p>
       <p id="82d57a3e-9676-4fb1-950a-341acf3dd065" class="">K tomu pro většinu operací chybí atomicita, a transakce nejsou podporovány vůbec. Paralelní zápisy a čtení fungují v různých operačních systémech různě, a ve skutečnosti není garantováno naprosto nic. Schválně si to srovnejte se světem databází, kde se <a href="https://cs.wikipedia.org/wiki/Datab%C3%A1zov%C3%A1_transakce#Vlastnosti">ACID</a> považuje za samozřejmost.</p>
       <p id="f97c792f-00a4-4410-8cec-a2a4cdd80e14" class="">Filesystém je specificky omezená databáze. Každý koho znám, kdo se kdy pokusil filesystém použít pro cokoliv netriviálního, dřív nebo později tvrdě narazil. Ať už je to programátor, který si řekne, že si ty data prostě a jednoduše bude ukládat do souborů, nebo uživatel, který se v bordelu na filesystému nemůže vyznat a musí používat různé divné vyhledávání a indexování. Výkřikem techniky je, když dokáže poznat, že má poškozená data a dopočítat je zpětně ze samo-opravných kódů, pokud máte disky v RAIDu.</p>
       <p id="a44fcbc0-cc30-45ac-9530-fcc438b7b7a4" class="">Samozřejmě chápu, že pointou je něco jiného. Řeší se tu sektory na disku a žurnálování, plotny a oddíly a RAIDy a celé je to super pokrok oproti původním primitivním systémům ukládání dat. <em>Ale</em> — není to náhodou pokrok špatným směrem?</p>
       <figure id="a437aec1-4202-4a66-8997-f8d7ba41240d" class="image">
-        <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/150401-erma-mark1-file-system.png"><img style="width:624px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/150401-erma-mark1-file-system_thumb.jpg" /></a>
+        <a href="../en/Programmer_s_critique_of_missing_structure_of_oper/150401-erma-mark1-file-system.png"><img style="width:624px" src="../en/Programmer_s_critique_of_missing_structure_of_oper/150401-erma-mark1-file-system_thumb.jpg" /></a>
       </figure>
       <p id="62665ba8-d070-40f6-9441-059cea617da4" class="">Původní filesystémy byly metafora. Metafora pro ukládání souborů do složek, tak jako se strkají papíry do šanonů a šuplíků. Kromě mnoha technických omezení, daných stavem tehdejší výpočetní techniky, trpěly a trpí i omezením z podstaty této metafory. Přemýšlím, jestli by jsme si místo otázky <em>„jak trochu vylepšit padesát let starou metaforu“</em> (třeba pomocí tagů) neměli klást spíš otázku <em>„je to vážně ta správná metafora pro ukládání dat?“</em></p>
       <h2 id="7b504fe9-c770-4c40-844d-b5e5cc85b960" class="">Programy</h2>
@@ -193,7 +200,7 @@
       <p id="5914bc60-cd9b-4518-bb3c-369ec281274d" class="">Programy se prvně napíšou ve zdrojovém kódu příslušného jazyka, který se potom zkompiluje a slinkuje do jednoho bloku. Ten je následně vyděrován na děrné štítky (binární data) a zastrčen do patřičné krabice (souboru) ve správné sekci kartotéky (filesystému).</p>
       <p id="8e53a751-a28f-4066-961f-b46f224c7c7b" class="">Když chce uživatel program pustit, napíše jeho jméno na příkazovém řádku, nebo někde klepne na ikonu. Poskládané děrné štítky jsou následně vyndány z kartotéky a nacpány do paměti, která se pro program tváří, jako kdyby byl v celém operačním systému sám. Kód je poté prováděn od počátečních děrných štítků k těm koncovým, s tím že program může podmíněně přeskočit na konkrétní děrný štítek v krabici, která ho tvoří.</p>
       <figure id="53420a0f-08ae-497f-af2b-dfbdac6ae07b" class="image">
-        <a href="Program_torova_kritika_chyb_j_c_struktury_opera_n_/pe_structure.jpg"><img style="width:2653px" src="Program_torova_kritika_chyb_j_c_struktury_opera_n_/pe_structure_thumb.jpg" /></a>
+        <a href="../en/Programmer_s_critique_of_missing_structure_of_oper/pe_structure.jpg"><img style="width:2653px" src="../en/Programmer_s_critique_of_missing_structure_of_oper/pe_structure_thumb.jpg" /></a>
       </figure>
       <p id="a19641cd-eced-4efb-9e6a-d9ff137cd221" class="">Programy taky můžou číst parametry příkazového řádku, používat sdílené knihovny, volat API operačního systému, pracovat s filesystémem, posílat (číselné) signály různým jiným programům, reagovat na ně, vracet návratové hodnoty, nebo otevírat sockety.</p>
       <p id="c2fca4db-7b97-4985-a16c-ddbab02a88d3" class="">Co je na tom špatně?</p>
@@ -462,39 +469,49 @@
       </ul>
       <p id="4afa70a3-7a1c-43e9-9a9a-16ec82131da2" class="">Zjistíte, že před desítkami let existoval grafický systém splňující velkou část všeho, o čem jsem psal. Systém tak dobrý, že dodnes kolem sebe spojuje skupiny nadšenců.</p>
       <p id="2bd53aaa-a0bb-4ee4-952a-28d1248e3d83" class="">Dále pak na podobná témata:</p>
-      <ul id="f4e15033-10f9-4946-9032-615c43b50f03" class="bulleted-list">
+      <ul id="1135e172-fb7d-4bc8-83a1-193268cdce0d" class="bulleted-list">
         <li>
-          <a href="https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/">https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/</a>
+          <a href="https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/">Squeak is like an operating system</a>
         </li>
       </ul>
-      <ul id="3c54d64c-2d00-4c47-ac71-9bf8b84c000e" class="bulleted-list">
+      <ul id="d82fbc27-079a-4f98-9c59-e2a5f1e3f6d1" class="bulleted-list">
         <li>
-          <a href="https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/">https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/</a>
+          <a href="https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/">The Operating System: Should There Be One?</a> (article + reddit discussion)
         </li>
       </ul>
-      <ul id="84180232-ab23-4807-be2f-4a240f964993" class="bulleted-list">
+      <ul id="15d7faf6-77ef-460f-ad87-b066a0cb80e7" class="bulleted-list">
         <li>
-          <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">https://shalabh.com/programmable-systems/systems-not-programs.html</a>
+          <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">Systems, not Programs</a>
         </li>
       </ul>
-      <ul id="970085af-a6fb-4354-9497-3ec82856e42f" class="bulleted-list">
+      <ul id="56670107-29d8-434d-bcd8-3ba179c3c346" class="bulleted-list">
         <li>
-          <a href="https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html">https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html</a>
+          <a href="https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html">Things UNIX can do atomically</a>
         </li>
       </ul>
-      <ul id="2e918d41-9e0b-4e84-87f9-a4e563a37d42" class="bulleted-list">
+      <ul id="75321a23-687f-4ee1-b595-090c8fefce8d" class="bulleted-list">
         <li>
-          <a href="http://www.pixelbeat.org/programming/stdio_buffering/">http://www.pixelbeat.org/programming/stdio_buffering/</a>
+          <a href="http://www.pixelbeat.org/programming/stdio_buffering/">buffering in standard streams</a>
         </li>
       </ul>
-      <ul id="a5844c4c-c395-448d-8811-d1afa283b966" class="bulleted-list">
+      <ul id="80ebc3c7-066f-47b8-9c69-327fa3c5cc7d" class="bulleted-list">
         <li>
-          <a href="http://okmij.org/ftp/papers/DreamOSPaper.html">http://okmij.org/ftp/papers/DreamOSPaper.html</a>
+          <a href="http://okmij.org/ftp/papers/DreamOSPaper.html">A dream of an ultimate OS</a>
         </li>
       </ul>
-      <ul id="88458863-4178-4137-a7be-d4274eaf891a" class="bulleted-list">
+      <ul id="802241fb-2c61-4123-9123-b11f19f772de" class="bulleted-list">
         <li>
-          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2011/2/proc-pouzivam-unix-linux">http://www.abclinuxu.cz/blog/bystroushaak/2011/2/proc-pouzivam-unix-linux</a>
+          <a href="https://kaitai.io/">Kaitai struct</a>
+        </li>
+      </ul>
+      <ul id="912d2f1b-53e7-4dad-aa42-101a8bd71dc4" class="bulleted-list">
+        <li>
+          <a href="https://treenotation.org/">Tree notation</a>
+        </li>
+      </ul>
+      <ul id="a3e56504-a976-4bc5-9b30-0ca669dc2637" class="bulleted-list">
+        <li>
+          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2011/2/proc-pouzivam-unix-linux">Proč používám Unix/Linux</a>
         </li>
       </ul>
       <ul id="c944e264-55d3-4dd7-a0a5-eae812900b10" class="bulleted-list">
@@ -505,7 +522,7 @@
       <h1 id="64cb21b6-3fab-4c37-8bcf-59675e4573a1" class="">Relevantní diskuze</h1>
       <ul id="3852fb5c-47c1-4fac-8618-7fb02c4e2771" class="bulleted-list">
         <li>
-          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2018/12/programatorova-kritika-chybejici-struktury-os/diskuse">http://www.abclinuxu.cz/blog/bystroushaak/2018/12/programatorova-kritika-chybejici-struktury-os/diskuse</a>
+          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2018/12/programatorova-kritika-chybejici-struktury-os/diskuse">Velmi plodná diskuze na abclinuxu</a>
         </li>
       </ul>
       <ul id="24a6a6bf-b0c7-4b6d-a0c3-a802b96af38d" class="bulleted-list">
@@ -518,7 +535,34 @@
           <a href="http://www.abclinuxu.cz/blog/Linux_nieje_jadro_ale_komunita/2018/12/simulator-bystroushaakovho-nezmyslu-2-tentokrat-s-videom">Simulátor bystroushaakovho nezmyslu 2, tentokrát s videom.</a>
         </li>
       </ul>
-      <p id="997edbfe-72fc-4e5f-a3c4-100d50b8fcbe" class=""></p>
+      <h1 id="8e02d43a-f0d3-4c41-afdb-01536ca661e2" class="">Edit <time>@2020/02/18</time></h1>
+      <p id="e099fadb-3d61-44cc-8d64-c4c0b45331e4" class="">Od doby co jsem tento článek publikoval se objevilo několik zajímavých článků na tohle téma:</p>
+      <ul id="3565f250-2dd0-452c-b674-b18f46dd73a1" class="bulleted-list">
+        <li>
+          <a href="https://shalabh.com/programmable-systems/files-and-file-formats.html">Files, Formats and Byte Arrays</a>
+        </li>
+      </ul>
+      <ul id="a74ddb44-0c04-457a-9935-030e2387227d" class="bulleted-list">
+        <li>
+          <a href="https://djrobstep.com/posts/programs-are-a-prison">Programs are a prison: Rethinking the fundamental building blocks of computing interfaces</a>
+        </li>
+      </ul>
+      <ul id="88f7a91c-40fb-4f43-90df-694ba8a8a971" class="bulleted-list">
+        <li>
+          <a href="https://lobste.rs/s/fw5ubn/unix_plan_9_lurking_smalltalk">Unix, Plan 9, and Lurking Smalltalk</a>
+        </li>
+      </ul>
+      <ul id="3e118587-787b-4307-9436-6dbe77e1f74c" class="bulleted-list">
+        <li>
+          <a href="https://www.youtube.com/watch?v=wN6IwNriwHc">Database as Filesystem</a>
+        </li>
+      </ul>
+      <ul id="9be44191-3ce3-4390-933d-272d0e4e98a9" class="bulleted-list">
+        <li>
+          <a href="https://apenwarr.ca/log/20190216">The log/event processing pipeline you can't have</a>
+        </li>
+      </ul>
+      <p id="27dfa73c-57cc-43bd-a817-bc2894015093" class=""></p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
