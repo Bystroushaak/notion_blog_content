@@ -210,7 +210,7 @@
       <p id="793a786a-c6d2-4425-8a83-2d6ead1d8035" class="">Programs can also read parameters from the command line, use shared library, call API of the operating system, work with filesystem, send (numeric) signals to other programs, react to such signals, return (numeric) values or open sockets.</p>
       <p id="e09a6750-0ce1-4aa5-b57d-4977f7569b94" class="">What's wrong with that?</p>
       <p id="611988c0-2884-4d6a-b457-6776669e9048" class="">I don't want to say that the concept itself is wrong. BUT. Again, it is the same old metaphor extended a few steps into the future by iterative progress. Everything is really, really <em>low-level</em>. The whole system has changed only minimally in the last 40 years and I can't get rid of the idea that rather than arriving at absolute perfection, we are stuck somewhere in a twist of local maximum.</p>
-      <p id="7e348d9f-bacf-4be4-8ee4-9b9ace47624f" class=""><a href="https://en.wikipedia.org/wiki/Lisp_machine">Lisp Machines</a>, <a href="http://toastytech.com/guis/alto3.html">Smalltalk</a> and <a href="https://www.notion.so/sharedmindspace/Environment-and-programming-language-Self-part-one-environment-edb7f8862aa3467698a9fcb9bd63c0b8">Self's environment</a> have taught me that it can be done differently. The programs do not necessarily have to be a collection of bytes, they can be small separate objects that are (by a metaphor of sending messages) callable from other parts of the system, and that dynamically compile as needed.</p>
+      <p id="7e348d9f-bacf-4be4-8ee4-9b9ace47624f" class=""><a href="https://en.wikipedia.org/wiki/Lisp_machine">Lisp Machines</a>, <a href="http://toastytech.com/guis/alto3.html">Smalltalk</a> and <a href="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part.html">Self's environment</a> have taught me that it can be done differently. The programs do not necessarily have to be a collection of bytes, they can be small separate objects that are (by a metaphor of sending messages) callable from other parts of the system, and that dynamically compile as needed.</p>
       <p id="8bbaca74-bd3f-4da4-9c9d-fd40a0b8876c" class="">Are you familiar with a <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a> which says that you should compose solutions to your problems from small utilities; do one thing, focus on it, and do it well? Why don't we take the idea to the next level and make small programs from every function and method of our programs? This would allow them to communicate with the methods and functions of other programs in the same way as <a href="https://en.wikipedia.org/wiki/Microservices">microservices</a> work.</p>
       <p id="112a8227-8a4e-4037-9a3c-b0075c9bc291" class="">It works in Smalltalk; it can be versioned, it can use and be part of the dependency specification system, handle exceptions, help, and who knows what else. Can't we do this with programs in general?</p>
       <h2 id="78a7ca08-7414-4534-a6f6-9379911acef9" class="">Data without a structure, called Files</h2>
@@ -550,17 +550,22 @@
       <h1 id="afb76b10-a38e-4bf5-bca1-f7a2063fa4aa" class="">Relevant discussions</h1>
       <ul id="6b18c33c-5142-422c-9ffa-f701582f262f" class="bulleted-list">
         <li>
-          <a href="https://lobste.rs/s/08jcgq/programmer_s_critique_missing_structure">lobste.rs thread</a>
+          <a href="https://lobste.rs/s/08jcgq/programmer_s_critique_missing_structure">lobste.rs thread</a> (24 comments)
         </li>
       </ul>
       <ul id="17f44ca8-6542-4d67-9fe5-ccb0404a6d0b" class="bulleted-list">
         <li>
-          <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/">/r/programming</a>
+          <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/">/r/programming</a> (71 comments)
         </li>
       </ul>
-      <ul id="17f44ca8-6542-4d67-9fe5-asdasdasdad" class="bulleted-list">
+      <ul id="0e45e959-e080-4c40-bc88-db364d1bec9c" class="bulleted-list">
         <li>
-          <a href="https://news.ycombinator.com/item?id=22357184">hackernews</a>
+          <a href="https://news.ycombinator.com/item?id=22357184">hackernews</a> (189 comments)
+        </li>
+      </ul>
+      <ul id="260446c8-27e9-4a8c-8e2e-b7e9bb01512e" class="bulleted-list">
+        <li>
+          <a href="https://tildes.net/~comp/lyl/programmers_critique_of_missing_structure_of_operating_systems">tildes</a> (6 comments)
         </li>
       </ul>
     </div>
