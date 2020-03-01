@@ -161,7 +161,19 @@
       <p id="f79a1d20-e400-428a-8cfc-15242b81758b" class="">I have no idea, how people organized work and thoughts in groups at that time (text files via FTP maybe? telephone and paper notepads?), but it is either converted to a few existing HTML resources, or (most likely) dead. You won’t see the design decisions, discussions or thoughts from that time.</p>
       <p id="67dac09b-c17e-4f39-978e-94a45e678258" class="">Then HTML and HTTP came. People were excited about this new protocol:</p>
       <blockquote id="19ffa5c8-b969-4897-943c-cc311b973073" class="">
-        From urs@cs.stanford.edu Sat, 19 Mar 1994 11:53:23 PST: Thanks mostly to Bay-Wie Chang, Self now has a Mosaic home page, http://self.stanford.edu All of our material continues to be available via ftp, but the Mosaic interface is definitively friendlier (e.g., it has an online bibliography and paper abstracts). Enjoy! -Urs
+        From urs@cs.stanford.edu Sat, 19 Mar 1994 11:53:23 PST:<br>
+        <br>
+        Thanks mostly to Bay-Wie Chang, Self now has a Mosaic home page,<br>
+        <br>
+        http://self.stanford.edu<br>
+        <br>
+        All of our material continues to be available via ftp, but the Mosaic<br>
+        interface is definitively friendlier (e.g., it has an online<br>
+        bibliography and paper abstracts).<br>
+        <br>
+        Enjoy!<br>
+        <br>
+        -Urs
       </blockquote>
       <p id="a5991f62-1bc2-468e-b0c0-5a910deea169" class="">It was definitely an improvement. But idea to create articles and webpages about Self and put them on your web lead to massive resource fragmentation. I am not criticizing, merely pointing to a fact, that almost every link from that time is dead, because it was not maintained in long-term and that whole situation is actually unmaintainable by one person, even if that person really wanted to maintain it. That url in the email is by the way –&nbsp;<a href="https://web.archive.org/web/*/http://self.stanford.edu">dead</a>.</p>
       <p id="d4dca30f-d375-4dcb-a097-2ef9b29c60fe" class="">When you think about it, almost every time anyone counted on third-party service, it didn’t pay off. From that point of view, everything is dying, we just don’t see it, because it still exists. But for the future newcomer to Self, it is already dead.</p>
@@ -181,7 +193,40 @@
       <h3 id="3c1ac95b-141a-4a5f-adc4-3c6482879739" class="">Honorable mentions</h3>
       <h3 id="1a159aac-d899-436c-97ff-aca5a726e99c" class="">FTP that refused to die</h3>
       <blockquote id="5602f0ab-9a38-4a7f-b9b2-103d5af0bbea" class="">
-        Date: Fri, 25 Aug 1995 12:45:08 +0200 From: rainer@physik3.gwdg.de (Rainer Blome) To: self-interest@self.sunlabs.com Subject: non-official ftp site in germany (solaris only) The link speed to Sun was really not acceptable when I tried it, so I was glad to be able to get Self from Manchester. Seems that I have been lucky now that the site is down. The FTP admin of our local computing centre was so kind as to put Self 4.0 on his server. It is not official and may vanish any time, but they have lots of disk space and I suppose it won't. Still, please don't use this site unless it is a lot faster than your link to the USA. Since the stuff is the one that I used to install Self here, it doesn't look exactly like the original (all files have the Self-4.0 prefix) and it is not complete (I only installed the solaris version). /ftp.gwdg.de:/pub/languages/self: total 12110 -rw-rw-r-- 1 emoenke 1475 Jul 26 17:05 Self-4.0.Install -rw-rw-r-- 1 emoenke 1933 Jul 26 17:04 Self-4.0.LICENSE -rw-rw-r-- 1 emoenke 1087 Jul 26 17:05 Self-4.0.README -rw-rw-r-- 1 emoenke 71809 Jul 26 17:05 Self-4.0.readThisFirst.ps -rw-rw-r-- 1 emoenke 12320062 Jul 26 14:16 Self-4.0.solaris.tar.gz Also, the tar file is gzipped instead of compressed. Not having patched the install script, it won't work anymore (unless you linked zcat to gzcat), but what Install actually did was just a single line anyway: gzip -cd Self-4.0.solaris.tar.gz | tar -xfpB - Greetings, Rainer
+        Date: Fri, 25 Aug 1995 12:45:08 +0200<br>
+        From: rainer@physik3.gwdg.de (Rainer Blome)<br>
+        To: self-interest@self.sunlabs.com<br>
+        Subject: non-official ftp site in germany (solaris only)<br>
+        <br>
+        The link speed to Sun was really not acceptable when I tried it, so I was<br>
+        glad to be able to get Self from Manchester. Seems that I have been lucky<br>
+        now that the site is down. The FTP admin of our local computing centre was<br>
+        so kind as to put Self 4.0 on his server. It is not official and may<br>
+        vanish any time, but they have lots of disk space and I suppose it won't.<br>
+        Still, please don't use this site unless it is a lot faster than your link<br>
+        to the USA.<br>
+        <br>
+        Since the stuff is the one that I used to install Self here,<br>
+        it doesn't look exactly like the original (all files have the Self-4.0<br>
+        prefix) and it is not complete (I only installed the solaris version).<br>
+        <br>
+        /ftp.gwdg.de:/pub/languages/self:<br>
+        total 12110<br>
+        -rw-rw-r-- 1 emoenke 1475 Jul 26 17:05 Self-4.0.Install<br>
+        -rw-rw-r-- 1 emoenke 1933 Jul 26 17:04 Self-4.0.LICENSE<br>
+        -rw-rw-r-- 1 emoenke 1087 Jul 26 17:05 Self-4.0.README<br>
+        -rw-rw-r-- 1 emoenke 71809 Jul 26 17:05 Self-4.0.readThisFirst.ps<br>
+        -rw-rw-r-- 1 emoenke 12320062 Jul 26 14:16 Self-4.0.solaris.tar.gz<br>
+        <br>
+        <br>
+        Also, the tar file is gzipped instead of compressed. Not having patched<br>
+        the install script, it won't work anymore (unless you linked zcat to<br>
+        gzcat), but what Install actually did was just a single line anyway:<br>
+        <br>
+        gzip -cd Self-4.0.solaris.tar.gz | tar -xfpB -<br>
+        <br>
+        <br>
+        Greetings, Rainer
       </blockquote>
       <p id="cfcb0a6d-490a-4219-aa41-b9421706ef09" class="">The FTP is still there, but sadly the Self directory isn’t.</p>
       <h3 id="b980b56d-164b-46af-88b9-1c588081f732" class="">merlintec</h3>
@@ -212,7 +257,39 @@
       <h3 id="001f8c06-d198-45dd-9a8d-187e7317eda0" class="">Linux</h3>
       <p id="609210ef-deb0-4f7d-83e7-64d85b1f9f91" class="">An example of the complexity of Self was its porting to Linux. First message about porting to Linux was probably this:</p>
       <blockquote id="b528b8c8-2683-4335-9ef8-62814f33e804" class="">
-        From dirkst@POOL.informatik.rwth-aachen.de Tue, 18 Aug 92 11:04:58 PDT From: dirkst@POOL.informatik.rwth-aachen.de (Dirk Steinberg) Date: Tue, 18 Aug 92 11:04:58 PDT Subject: Message-ID: &lt;9208181757.AA24531@messua.informatik.rwth-aachen.de&gt; MIME-Version: 1.0 Content-Type: text/plain Hi, I have recently read about Self and ftp'd some papers from self.stanford.edu, I even got the sun4 version of Self 2.0 and played around with it for a few minutes. Otherwise, I have no experience with Self whatsoever, but from what I read I am kand of enthusiastic. My question: Is anyone porting Self to some other platform, maybe even to the 386? I have Linux running on a 486/33 w/ 16 Meg RAM and 500 Meg HD, which should be a workable system for Self; I have gcc-2.2.2 and libg++-2.2, so it should be possible to compile the virtual machine (judging from the README's). BUT: I have the feeling that the compiler really generates native SPARC code and so one would have to write a completely new backend and assembler for the 386. I guess that would be a *major* project!?? Is the compiler/assembler written in Self or C++? If Self is tied to the SPARC achitecure and inherently non=portable, then that would nagatively influence the impact that this exciting software could have. How about using the gcc backend? Thanks for any info, Dirk Dirk Steinberg dirkst@pool.informatik.rwth-aachen.de
+        From dirkst@POOL.informatik.rwth-aachen.de Tue, 18 Aug 92 11:04:58 PDT<br>
+        From: dirkst@POOL.informatik.rwth-aachen.de (Dirk Steinberg)<br>
+        Date: Tue, 18 Aug 92 11:04:58 PDT<br>
+        Subject:<br>
+        Message-ID: &lt;9208181757.AA24531@messua.informatik.rwth-aachen.de&gt;<br>
+        MIME-Version: 1.0<br>
+        Content-Type: text/plain<br>
+        <br>
+        Hi,<br>
+        <br>
+        I have recently read about Self and ftp'd some papers from self.stanford.edu,<br>
+        I even got the sun4 version of Self 2.0 and played around with it for a few<br>
+        minutes. Otherwise, I have no experience with Self whatsoever, but from what<br>
+        I read I am kand of enthusiastic.<br>
+        <br>
+        My question: Is anyone porting Self to some other platform, maybe even to the<br>
+        386? I have Linux running on a 486/33 w/ 16 Meg RAM and 500 Meg HD, which should<br>
+        be a workable system for Self; I have gcc-2.2.2 and libg++-2.2, so it should be<br>
+        possible to compile the virtual machine (judging from the README's).<br>
+        BUT: I have the feeling that the compiler really generates native SPARC code and<br>
+        so one would have to write a completely new backend and assembler for the 386.<br>
+        I guess that would be a *major* project!?? Is the compiler/assembler written in Self<br>
+        or C++? If Self is tied to the SPARC achitecure and inherently non=portable, then<br>
+        that would nagatively influence the impact that this exciting software could have.<br>
+        <br>
+        How about using the gcc backend?<br>
+        <br>
+        Thanks for any info,<br>
+        <br>
+        Dirk<br>
+        <br>
+        Dirk Steinberg<br>
+        dirkst@pool.informatik.rwth-aachen.de
       </blockquote>
       <p id="c8a8bdfb-fd8b-47b9-b272-ad7c5771d61d" class="">This is from 1992. First (not fully ported) Self for Linux came in 1999, by&nbsp;<em>Gordon Cichon</em>, but that wasn’t really much usable, from what I’ve read. Proper support with GUI and everything working nicely took several more years.</p>
       <h2 id="3639bcdc-eb94-4252-9fec-df64bc0dc5c6" class="">The bus factor is low</h2>
