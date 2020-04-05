@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Python p2p libraries and frameworks</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css" />
+  <link rel="alternate" type="application/atom+xml" href="http://rfox.eu/raw/feeds/notion_blog.xml" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@Bystroushaak" />
+  <meta name="twitter:title" content="Python p2p libraries and frameworks" />
+  <meta name="twitter:description" content="I've explored the scene of the Python libraries and frameworks for peer to peer networking." /><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-142545439-1');
+  </script>
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico" />
+  <script src="/scripts.js">
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="http://blog.rfox.eu/Paperclips_tr_ky/Frakt_ln_dildo.html">Fraktální dildo (cz only)</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_03_23_Sick_again.html">Biweekly update 2020-03-23; Sick again..</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/Paperclips_tr_ky/Installation_of_pip_packages_on_offline_computer.html">Installation of pip packages on offline computer</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/Paperclips_tr_ky/the_Algorithm.html">Paperclips; the Algorithm</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_03_01_Publishing_success.html">Biweekly update 2020-03-01; Publishing success</a>
+      </li>
+    </ul>& <a href="/Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">Explorations</a> / Python p2p libraries and frameworks
+  <article id="2b95a61c-60cb-4e18-a6c8-cf4dc0ea75c6" class="page sans">
+    <header>
+      <h1 class="page-title">Python p2p libraries and frameworks</h1>
+    </header>
+    <div class="page-body">
+      <p id="5b29c591-51c1-4023-8c40-eac92b40a246" class=""><time>@2020/04/05</time></p>
+      <p id="99e86fb1-e5ca-4b61-8420-5baad6708b03" class="">I've explored the scene of the Python libraries and frameworks for peer to peer networking.</p>
+      <p id="7da2d748-e299-4035-a8fd-cace62b52899" class="">tldr; Its not that great.</p>
+      <figure class="block-color-gray_background callout" id="a5adb912-e000-4c8b-9fde-deead28cb918" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          Note: asyncio-only code is considered disadvantageous. See <a href="https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/">What Color is Your Function?</a> for explanation why. Basically it is a cancer that spreads through your whole program until everything is asyncio, and I like multiprocessing based on messages much more.
+        </div>
+      </figure>
+      <h1 id="6fcf077a-2fdb-476c-9a95-ce721b8ce16f" class="">PyP2P</h1>
+      <p id="dc77067f-97b6-48d6-bbf0-34d81e1fbd86" class=""><a href="https://github.com/StorjOld/pyp2p">https://github.com/StorjOld/pyp2p</a></p>
+      <p id="11876151-801a-43bd-ade2-cd60539769b5" class="">PyP2P is a simplified networking library for building peer-to-peer networks in Python. The library is designed to solve the pain of finding nodes and bypassing NATs so you can focus on writing your application code.</p>
+      <ul id="1b366797-a3ed-4e48-8511-28ba03612e39" class="bulleted-list">
+        <li>Automated port forwarding with UPnP and NATPMP</li>
+      </ul>
+      <ul id="72b7cd32-65fd-4e69-b989-85a09b0be138" class="bulleted-list">
+        <li>Support for TCP hole punching / simultaneous open</li>
+      </ul>
+      <ul id="7ebc888c-7704-47e2-9466-49c49eb31464" class="bulleted-list">
+        <li>Reverse connect (tell a node to connect to you)</li>
+      </ul>
+      <ul id="a2511f5d-84ff-452b-805a-e94267d31a52" class="bulleted-list">
+        <li>Fail-safe proxying (planned feature)</li>
+      </ul>
+      <ul id="ad05eefb-3556-4a35-ab3e-02711022a8ad" class="bulleted-list">
+        <li>Python 2 (tested on 2.7 - experimental) & 3 (tested on 3.3)</li>
+      </ul>
+      <ul id="adc718b7-fdd3-4294-a92e-5af6c0f8864e" class="bulleted-list">
+        <li>Linux and Windows - yep</li>
+      </ul>
+      <p id="01c21f13-8c65-49b4-a99e-a2a3e10d98d3" class="">Somehow related to Storj.</p>
+      <h3 id="c29a2e7e-d240-4b3b-bf28-34865dd790a8" class="">Cons</h3>
+      <p id="15d3aebc-bcb2-4bd9-84fe-1e32bd03ae7d" class="">Requires rendezvous server.</p>
+      <p id="c7b3172e-34e9-4463-a3f7-49acfd09df12" class="">Last commit 2016</p>
+      <p id="543ac526-95b8-4264-8933-f92ca3121465" class="">No documentation, some examples.</p>
+      <h1 id="453dba06-51ec-490b-ac9f-8b0c8af56ae4" class="">py-libp2p</h1>
+      <p id="d537283b-8594-43cf-97c3-09d5041ac915" class=""><a href="https://github.com/libp2p/py-libp2p">https://github.com/libp2p/py-libp2p</a></p>
+      <p id="66623386-787c-48a5-9ed2-e2b7f49ab679" class="">Peer-to-peer networking stack (used by IPFS and others).</p>
+      <p id="7e44633c-585c-4d52-b3b5-7ceaaadd62fa" class=""><a href="https://medium.com/coinmonks/understanding-ipfs-in-depth-5-6-what-is-libp2p-f8bf7724d452">The one-liner pitch is that libp2p is a modular system of protocols, specifications, and libraries that enable the development of peer-to-peer network applications.</a></p>
+      <h3 id="0f14e4b5-3134-494f-8cac-f35140452c2d" class="">Pros</h3>
+      <p id="0fcf0247-551e-47d7-a7f0-411186bee086" class="">Last commit 2020.</p>
+      <p id="69794fb0-2f5a-43a1-b458-d4fd3c0d8bf5" class="">Backed by ethereum grant.</p>
+      <p id="a2c683a0-8cbc-4b93-bd9b-bb3791ed1dea" class="">Implementation of <a href="https://libp2p.io/">https://libp2p.io/</a>, multiple languages supported.</p>
+      <p id="908ba867-b09f-40e0-bf55-775940f2146d" class="">Has some theory & capable people behind it. Looks mature enough.</p>
+      <h3 id="dc221566-1cb1-4a12-b8ff-75a55d4b89f0" class="">Cons</h3>
+      <p id="630871b4-c03a-4315-a861-29f1b8a1ec5e" class="">Asyncio.</p>
+      <p id="f6d2c549-c505-465e-a807-6abb60f2dc12" class="">Not much documentation.</p>
+      <p id="0797abe1-7ebf-4e43-a592-71d60d5de0cf" class="">Some weird addressing stuff /ip4/127.0.0.1/tcp/8000/p2p/QmQn4SwGkDZKkUEpBRBvTmheQycxAHJUNmVEnjA2v1qe8Q</p>
+      <h1 id="dc7a6ec7-46a0-40c5-9358-2421318dbb28" class="">py-ipv8</h1>
+      <p id="50b29715-ed8f-47c3-ab16-1d163dec767c" class=""><a href="https://github.com/tribler/py-ipv8/">https://github.com/tribler/py-ipv8/</a></p>
+      <p id="08f7fa3f-9cb9-4db0-a2be-610e26ea55de" class=""><strong>What is IPv8 ?</strong></p>
+      <p id="08dcc570-e0e3-47d5-9e9e-a5d8e1292d6e" class="">IPv8 aims to provide authenticated communication with privacy. The design principle is to enable communication between public key pairs: IP addresses and physical network attachment points are abstracted away. This Python 2/3 package is an amalgamation of peer-to-peer communication functionality from&nbsp;<a href="https://github.com/Tribler/dispersy">Dispersy</a>&nbsp;and&nbsp;<a href="https://github.com/Tribler/tribler">Tribler</a>, developed over the last 13 years by students and employees of the Delft University of Technology. The IPv8 library allows you to easily create network overlays on which to build your own applications.</p>
+      <h3 id="a6563a64-d057-4198-be2c-8a609039e3e9" class=""><strong>IPv8 Objectives</strong></h3>
+      <ul id="70ae09cd-24d8-4874-92dd-d791864e0cd7" class="bulleted-list">
+        <li><strong>Authentication</strong>. We offer mutual authentication using strong cryptography. During an IPv8 communication session, both parties can be sure of the other party’s identity. IPv8 users are identified by their public key. The initial key exchange is designed so that secrets are never transmitted across the Internet, not even in encrypted form. We use a standard challenge/response protocol with protection against spoofing, man-in-the-middle, and replay attacks.</li>
+      </ul>
+      <ul id="3de36219-36f6-410c-b3ea-d0c31dc54de3" class="bulleted-list">
+        <li><strong>Privacy</strong>. IPv8 is specifically designed for strong privacy protection and end-to-end encryption with perfect forward secrecy. We enhanced the industry standard onion routing protocol, Tor, for usage in a trustless environment (e.g. no trusted central directory servers).</li>
+      </ul>
+      <ul id="8acae4e3-ea3a-4e73-a59d-0fbeff3f064b" class="bulleted-list">
+        <li><strong>No infrastructure dependency</strong>. Everybody is equal in the world of IPv8. No central web server, discovery server, or support foundation is needed.</li>
+      </ul>
+      <ul id="2ee4c379-da1f-468f-9c70-d0e6eecb54b4" class="bulleted-list">
+        <li><strong>Universal connectivity</strong>. IPv8 can establish direct communication in difficult network situations. This includes connecting people behind a NAT or firewall. IPv8 includes a single simple and effective NAT traversal technique: UDP hole-punching. This is essential when offering privacy without infrastructure and consumer-grade donated resources.</li>
+      </ul>
+      <ul id="a23c597f-350d-4ee7-b60b-26cc090e3008" class="bulleted-list">
+        <li><strong>Trust</strong>. You can enhance your security if you tell IPv8 which people you know and trust. It tries to build a web-of-trust automatically.</li>
+      </ul>
+      <h3 id="d63a871a-e913-4aee-baf2-f2da9a545594" class="">Pros</h3>
+      <p id="bc432042-a834-49aa-bb99-4b697d688f46" class="">Last commit 2020</p>
+      <p id="0f304297-cee1-4a70-bcc4-23365e221325" class="">Looks like it solves many problems.</p>
+      <h3 id="6927e732-cc3e-47a8-8523-8410bd5ec558" class="">Cons</h3>
+      <p id="9c73a260-3254-4a25-88b1-a9ebe4e50722" class="">Asyncio.</p>
+      <h1 id="d32ed5e6-8bb2-4fd4-bca7-f6115620ac83" class="">p2p-python</h1>
+      <p id="d4c10328-4eee-4299-8996-b49209af917b" class=""><a href="https://github.com/namuyan/p2p-python">https://github.com/namuyan/p2p-python</a></p>
+      <blockquote id="dbe4573a-f974-47f9-927d-c924fdccb990" class="">
+        I seek a library that can make a simple P2P network. This library enables you create P2P application.
+      </blockquote>
+      <p id="b8c0ded4-7d34-4bb4-a550-3be296439ad0" class=""><strong>Specification</strong></p>
+      <ul id="1aa41b4a-a18f-480b-9191-2aa811224a58" class="bulleted-list">
+        <li>Asynchronous IO</li>
+      </ul>
+      <ul id="19cc4bd7-a9a1-4626-b996-c03c770b7c6c" class="bulleted-list">
+        <li>Pure Python code</li>
+      </ul>
+      <ul id="afadf010-e9e1-4d10-b3ce-eadc4f1abb32" class="bulleted-list">
+        <li>TCP and UDP connection</li>
+      </ul>
+      <ul id="7ecd5dad-d1bb-4117-9f81-2bcc61203db6" class="bulleted-list">
+        <li>Automatic network build</li>
+      </ul>
+      <ul id="6ec1c908-cc79-4520-a628-ff9de7e27774" class="bulleted-list">
+        <li>Python <strong>3.6+</strong></li>
+      </ul>
+      <h3 id="4d44e1af-9656-4ff1-96fa-e1484a43f0d0" class="">Pros</h3>
+      <p id="7bff331b-3e44-46ab-be23-53dfc33ceaeb" class="">Last commit 2020.</p>
+      <p id="a5f4bff3-41ec-49ac-b93c-f6820e12c4f8" class="">Pure python code.</p>
+      <h3 id="27b99e65-885b-4816-ba3e-813d5c717377" class="">Cons</h3>
+      <p id="f3afcaa9-604a-4215-bb88-bb717b85360e" class="">Asyncio based</p>
+      <p id="81e142ec-4a42-4800-9931-1e47492a52e7" class="">"simple" in the description.</p>
+      <p id="c677399a-2cba-4f8c-afbf-8d1a0f674726" class="">Not much documentation, some examples.</p>
+      <p id="c446a06e-3705-44d7-88c3-bf98120e89bc" class="">Looks weird and amateurish.</p>
+      <h1 id="20023f40-8c63-4d21-a61a-ae304141267c" class="">Zyre</h1>
+      <p id="36cc6188-8cde-47d4-bbaf-7e2afdfcfb33" class=""><a href="https://github.com/zeromq/zyre">https://github.com/zeromq/zyre</a></p>
+      <p id="9d03cf07-fd5f-4720-bdae-ab049114a480" class="">Zyre provides reliable group messaging over local area networks.</p>
+      <h3 id="90f4fb70-ce70-4fb9-84a6-1b9fc97a46e8" class="">Pros</h3>
+      <p id="715ae806-be85-48cc-b102-536688477603" class="">Last commit 2020.</p>
+      <p id="703bdd88-f4a5-41d6-8a76-cc6c2ba8c2d1" class="">Bindings for various languages.</p>
+      <h3 id="72c56075-517a-4a62-ae34-b3c90b536e2e" class="">Cons</h3>
+      <p id="1bde8d3b-2595-4ed9-b5ff-a8ae71845a09" class="">Requires bunch of C libraries.</p>
+      <p id="6965fa3b-7aca-4ca0-abf1-d6dd76c94351" class="">Looks like it is meant for the LAN networks.</p>
+      <h1 id="386e5429-b710-47fb-afe6-584885708bf0" class="">devp2p / ethereum</h1>
+      <p id="65880066-759d-4a38-b9c7-9abc3d8ead89" class=""><a href="https://github.com/ethereum/devp2p">https://github.com/ethereum/devp2p</a></p>
+      <p id="15e8c49c-7794-4ebe-882e-3916a151f338" class=""><a href="https://github.com/ethereum/trinity">https://github.com/ethereum/trinity</a></p>
+      <p id="ca3c33b3-930d-4b77-9802-9adb4b2291f1" class="">Client for the ethereum network.</p>
+      <p id="dec6c4dc-ab5f-49f4-8f7c-10dec632d883" class="">Doesn't seem to be easily use-able for standalone projects.</p>
+      <h1 id="be823a78-6c59-49e3-aa4b-d88d220225fa" class="">pydevp2p</h1>
+      <p id="774e37ba-22f8-4152-9495-ad2e19e88378" class=""><a href="https://github.com/ethereum/pydevp2p">https://github.com/ethereum/pydevp2p</a></p>
+      <p id="7a9f2991-306d-4981-ac42-3db2994a4b5e" class="">Old library for lowlevel ethereum p2p.</p>
+      <p id="40298cd4-8e39-4989-98e2-230af6cc9e49" class="">pydevp2p is the Python implementation of the RLPx network layer. RLPx provides a general-purpose transport and interface for applications to communicate via a p2p network. The first version is geared towards building a robust transport, well-formed network, and software interface in order to provide infrastructure which meets the requirements of distributed or decentralized applications such as Ethereum. Encryption is employed to provide better privacy and integrity than would be provided by a cleartext implementation.</p>
+      <h3 id="48f24e5a-3c79-43f1-979b-272ed498502b" class="">Cons</h3>
+      <p id="07a5cceb-447c-4664-9850-8c703dc789da" class="">Last commit 2018.</p>
+      <h1 id="78d8c7d3-bc98-4fe9-854f-9849fad7be4a" class="">Tandem</h1>
+      <p id="db6a3dbf-b73f-4aef-a281-a4bae39abf56" class=""><a href="https://github.com/typeintandem/tandem">https://github.com/typeintandem/tandem</a></p>
+      <p id="2544eb60-4829-404e-a026-5085c44cd92d" class="">Tandem is a decentralized, collaborative text-editing solution. Tandem works with native text editors, works across different editors, and uses peer-to-peer connections to facilitate communication.</p>
+      <p id="7f9bb595-bc89-4286-9260-28872c8ee749" class="">Tandem exists as a set of plugins for native text editors. We currently support Sublime Text 3 and Neovim. We also unofficially support Vim.</p>
+      <p id="39ada519-1a8c-495f-8bc4-e0210a650444" class="">Collaborating is as easy as installing the plugin on your editor and creating a Tandem Session. Invite other people to your session, and get typing in tandem!</p>
+      <h3 id="61c4f4e5-24c7-4129-bd0a-b8dd79d89b78" class="">Cons</h3>
+      <p id="cad3eb9d-a7b2-4991-babb-6e231f06f606" class="">Requires rendezvous server</p>
+      <p id="38dfe2ad-dc9f-433d-a3d5-f865c45221ac" class="">Meant as plugin for text editors, would probably require significant amount of work.</p>
+      <h1 id="641b6b7c-a506-4e68-a3fb-ef493661dd7a" class="">Dispersy</h1>
+      <p id="64e32983-3072-46b9-b7da-e0ae8976eab4" class=""><a href="https://github.com/Tribler/dispersy">https://github.com/Tribler/dispersy</a></p>
+      <p id="fc0469cd-9f55-4a0d-9430-aa53c6d21848" class="">The elastic database system. A database designed for P2P-like scenarios, where potentially millions of computers send database updates around.</p>
+      <p id="95758dcd-0b03-414e-a13b-5643e0f05472" class="">The Distributed Permission System, or Dispersy, is a platform to simplify the design of distributed communities. At the heart of Dispersy lies a simple identity and message handling system where each community and each user is uniquely and securely identified using elliptic curve cryptography.</p>
+      <h3 id="3cef33f2-99aa-44de-affc-92a6ed013cc0" class="">Cons</h3>
+      <p id="6afa0c90-fe40-4411-a626-edf5d63cc827" class="">No longer maintaned.</p>
+      <h1 id="6de84d0a-9af9-4360-9bfd-79b33439e913" class="">Banyan</h1>
+      <p id="a1617e13-9bbb-4999-a529-743821e3ea81" class=""><a href="https://github.com/OpenWeavers/banyan">https://github.com/OpenWeavers/banyan</a></p>
+      <p id="2ad14b1b-0e4d-484a-8caa-5f5a7a4af2d3" class="">Banyan is a simple peer to peer application protocol for File Sharing over LAN.</p>
+      <p id="1b37f829-7ba8-4d77-bb35-9703f256fcdc" class="">The workflow is organized as follows</p>
+      <ol id="40d128ef-796c-42f8-9123-c0a9ebd3a8ae" class="numbered-list" start="1">
+        <li>Initialization - Peer Starts up with a friendly name, which is visible on local network</li>
+      </ol>
+      <ol id="4c05961d-229e-4968-a589-010b8f932dea" class="numbered-list" start="2">
+        <li>Peer Discovery - Peer Sends a broadcast to all other hosts in local network. Other peers will respond to it.</li>
+      </ol>
+      <ol id="4114bb93-ee9f-4273-8dfd-101220874037" class="numbered-list" start="3">
+        <li>Synchronization - Peer Receives file list from all other Peers</li>
+      </ol>
+      <ol id="2fed1541-d456-4a15-8ba0-6b3b6bcd977b" class="numbered-list" start="4">
+        <li>Transfer - Peer can receive file from any other Peer</li>
+      </ol>
+      <h3 id="6da80f97-f6a3-4190-934f-79e108dd44ef" class="">Cons</h3>
+      <p id="71a0ec7c-cc2e-4ae0-8632-6cb751d6daff" class="">LAN only.</p>
+      <p id="9bca96e1-a9aa-4646-8c1b-170047e72e5a" class="">Last commit 2019.</p>
+      <p id="d6f33f50-0503-4d3c-94b2-4d13b6af3c4b" class="">Not really mature, no longer developed.</p>
+      <h1 id="be3849a9-3320-4e8c-9e14-c9d586bb3589" class="">Peerstack</h1>
+      <p id="c5492b1a-3b62-4d0e-8a68-a2608f4c3635" class=""><a href="https://github.com/e9k/peerstack">https://github.com/e9k/peerstack</a></p>
+      <p id="1938b431-3d22-4463-ace5-3672cad479f7" class="">Python Peer-to-Peer Framework.</p>
+      <h3 id="8d26572a-5785-4976-8a7b-cf52c9f5432f" class="">Cons</h3>
+      <p id="0eaf64b5-c57f-491e-adbe-56379b4d731e" class="">Amateurish stuff (3 commits), no longer developed (last commit 2017).</p>
+      <p id="e8a870a0-f446-40f1-a78e-698ccdae2b18" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="/tweet_button.svg" /></a>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="http://blog.rfox.eu/Paperclips_tr_ky/Frakt_ln_dildo.html">Fraktální dildo (cz only)</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_03_23_Sick_again.html">Biweekly update 2020-03-23; Sick again..</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/Paperclips_tr_ky/Installation_of_pip_packages_on_offline_computer.html">Installation of pip packages on offline computer</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/Paperclips_tr_ky/the_Algorithm.html">Paperclips; the Algorithm</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_03_01_Publishing_success.html">Biweekly update 2020-03-01; Publishing success</a>
+      </li>
+    </ul>& <a href="/Changelog.html">more</a>
+  </div>
+</body>
+</html>
