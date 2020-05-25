@@ -22,7 +22,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Lifelog 2020-05-25; Work in progress everywhere">
   <meta name="twitter:description" content="I think it is time to stop calling this stuff &quot;biweekly update&quot;, as I seem to be unable to publish every two weeks.">
-  <meta name="twitter:image" content="blog_generator_fail_thumb.png">
+  <meta name="twitter:image" content="blog_generator_fail_thumb.jpg">
   <script src="../../../scripts.js">
   </script>
 </head>
@@ -57,7 +57,7 @@
       <p id="44fdeef9-aa54-4957-b878-e2def53065ba" class="">I was running a bit late with my bi-weekly update, but I finally managed to put together everything I wanted. Then I exported the blog from the notion and run a conversion script, which translates the notion structure into the simple HTML and adds a bunch of other functionality, that is missing in the export.</p>
       <p id="87a4a26b-20b4-4a6a-82ad-faa9ff8813fd" class="">Except, that this time, it failed;</p>
       <figure id="e491d8a0-4110-40a2-8946-6117ba50b0e2" class="image">
-        <a href="blog_generator_fail.png"><img style="width:528px" src="blog_generator_fail_thumb.png"></a>
+        <a href="blog_generator_fail.png"><img style="width:528px" src="blog_generator_fail_thumb.jpg"></a>
       </figure>
       <p id="8f35371b-a4e7-42c1-91a6-7ce0bfa1a5ea" class="">I've poked the code with a debugger for a while and then I've realized that it is not a bug in my code, that indeed, notion changed the structure of HTML exports. Apparently there are now hashes or UUIDs or whatever they are, in filenames. So for example, <code>English section.html</code> is now <code>English section 8f6665fa0621410daa32502748e3cc5d.html</code>.</p>
       <p id="9801e001-4a4f-4435-8b01-2d19854ab872" class="">"Easy enough to fix this", I thought. Just run a simple regexp and replace them. Of course, it's not so simple, because you need to replace also all links and meta tags and such. But my whole blog generator is a list of progressive transformers made in this manner, so this was easy enough to code.</p>
@@ -68,7 +68,7 @@
       <p id="c44341e2-427d-4a0d-b6dc-cad89d9c4070" class="">I've even thrown in new Atom feed generator from the changelog, as the old one was a <a href="https://github.com/Bystroushaak/notion2rss">bit hacky</a>, and I've also implemented a diff script, that can diff between old structure and new one, and output a list of nginx redirects, so old links won't get broken.</p>
       <p id="d7913047-b258-428c-82f0-f4c70a1989d1" class="">It was 3:30 in the morning, when I've finally merged the 76 commits:</p>
       <figure id="59ec041a-d0aa-464b-908c-78754aa16b05" class="image">
-        <a href="git_merge_log.png"><img style="width:528px" src="git_merge_log_thumb.png"></a>
+        <a href="git_merge_log.png"><img style="width:528px" src="git_merge_log_thumb.jpg"></a>
         <figcaption>
           (Pardon the weird part on top, it seems like my desktop manager mixed the screenshot with PyCharm's frame buffer.)
         </figcaption>
@@ -100,7 +100,7 @@
       <p id="c95ffa1f-03e8-49f0-8334-0d40c68603f9" class="">For example, I've watched a lot of Warhorse videos about game making, and I am really interested in the system they've made, because it is relevant to my quest for structured systems (see <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html">Programmer's critique of missing structure of operating systems</a> for details). In the past, I would simply quit my job and go work there, to get new experience and see something new. This is now a luxury I can no longer afford, because I know that as a newcomer to the field, I wouldn't even get a half of what I am now making. Maybe a third. So.. that's no longer an option.</p>
       <p id="10d656f2-6873-44d8-bd7c-208576e2e66e" class="">Same situation happened with the <a href="https://vrgineers.com/xtal/">VRginners / XTAL</a>. They are a company making this futuristic HMD headset:</p>
       <figure id="7377f2b7-5f97-40d2-9c4c-bd37a94b3057" class="image">
-        <a href="Untitled.png"><img style="width:1104px" src="Untitled_thumb.png"></a>
+        <a href="Untitled.png"><img style="width:1104px" src="Untitled_thumb.jpg"></a>
       </figure>
       <p id="96c785c8-6c97-47fb-ae34-06befb3860f0" class="">And they have dev office nearby. I've sen't them my CV and asked whether they could find some use for me. They've replied that they could, provided that I could work in C/C++ and take a low junior pay. In the past, I would love to accept the position. Now, I simply can't.</p>
       <p id="6190df01-99b3-41d8-aafd-386433a95165" class="">So, yeah. It's not that great problem and I certainly can't complain, because I am still incredibly lucky and do well. It just sucks that possible branches of my future are now closed. I am no longer free to work in interesting positions, because I have to trade them for more money.</p>
