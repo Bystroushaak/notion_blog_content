@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Jak se píše programovací jazyk 3: Parser a AST</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Jak se píše programovací jazyk 3: Parser a AST">
+  <meta name="twitter:description" content="Ve třetím dílu seriálu Jak se píše programovací jazyk se podíváme na způsob, kterým se z jednorozměrného pole Token objektů udělá syntaktický strom, který pak následně můžeme dále zpracovávat a vyhodnocovat.">
+  <meta name="twitter:image" content="ast_thumb.jpg">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">Czech section</a> / <a class="breadcrumb" href="../index.html">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 3: Parser a AST
+  <article id="be275547-b187-4543-b222-57949fac8c51" class="page sans">
+    <header>
+      <h1 class="page-title">Jak se píše programovací jazyk 3: Parser a AST</h1>
+    </header>
+    <div class="page-body">
+      <p id="d22624d8-9c4b-4813-acee-87e959dd9f4e" class=""><time>@2019/02/16</time></p>
+      <p id="7972e399-39dc-4cc4-9fac-14c6d44dc154" class="">Ve třetím dílu seriálu <em>Jak se píše programovací jazyk</em> se podíváme na způsob, kterým se z jednorozměrného pole <code>Token</code> objektů udělá syntaktický strom, který pak následně můžeme dále zpracovávat a vyhodnocovat.</p>
+      <h1 id="3d9a6798-79b3-47f1-82bc-8d407702a16a" class="">Parser</h1>
+      <p id="69f234e5-edcc-44bd-bac0-fcd319e19d42" class="">Jak bylo popsáno v minulém dílu, Lexer vám kód rozřeže na pole jednotlivých elementů. V mém případě z kódu jako:</p>
+      <pre class="code"><code><span class="p">(</span><span class="o">|</span> <span class="n">asd</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="o">^</span><span class="n">asd</span><span class="o">.</span><span class="p">)</span>
+</code></pre>
+      <p id="cefcc4f1-2ab2-4a17-9431-d08381303c88" class="">udělá pole ve stylu:</p>
+      <pre id="628aa0af-6c21-477b-b432-a154b1f70fa7" class="code"><code>[
+  Token("OBJ_START", "("),
+  Token("SEPARATOR", "|"),
+  Token("IDENTIFIER", "asd"),
+  Token("ASSIGNMENT", "="),
+  Token("NUMBER", "1"),
+  Token("SEPARATOR", "|"),
+  Token("RETURN", "^"),
+  Token("IDENTIFIER", "asd"),
+  Token("OBJ_END", ")")
+]</code></pre>
+      <p id="79e40b53-cb13-44d6-a62f-1ef78abdf620" class="">Jde o seznam <a href="https://github.com/solanolabs/rply/blob/master/rply/token.py">Token</a> objektů, kde v property <code>.name</code> je uložen název tokenu (například <em>„IDENTIFIER“</em>) a v <code>.value</code> jeho hodnota (například <em>„asd“</em>). Na parseru je poté kód vzít a udělat z něj AST (abstraktní syntaktický strom) ve stylu:</p>
+      <pre class="code"><code><span class="n">Object</span><span class="p">(</span>
+  <span class="n">slots</span><span class="o">=</span><span class="p">{</span><span class="s2">"asd"</span><span class="p">:</span> <span class="n">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">)},</span>
+  <span class="n">params</span><span class="o">=</span><span class="p">[],</span>
+  <span class="n">parents</span><span class="o">=</span><span class="p">{},</span>
+  <span class="n">code</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">Return</span><span class="p">(</span>
+      <span class="n">Send</span><span class="p">(</span><span class="n">Self</span><span class="p">(),</span> <span class="n">Message</span><span class="p">(</span><span class="s2">"asd"</span><span class="p">))</span>
+    <span class="p">)</span>
+  <span class="p">],</span>
+<span class="p">)</span>
+</code></pre>
+      <p id="d28f5ee0-fe48-47b7-99de-d0c973ef9142" class="">Na to jak je tinySelf jednoduchý jazyk mi dal parser docela zabrat. Původně jsem ho začal psát v RPythonním <a href="http://rpython.readthedocs.io/en/latest/rlib.html#ebnf">rpython.rlib.parsing.ebnfparse</a>, což vypadalo opticky dobře a jednoduše:</p>
+      <pre id="ed29d4b7-34ce-4cad-b7ee-5a926fc227d8" class="code"><code>IGNORE: " |\n";
+
+root: (expression ["\."])* expression;
+
+object: ["("] slots? sends* [")"];
+block: ["["] slots? sends* ["]"];
+
+return: ["^"] expression;
+expression: IDENTIFIER | value | object | block | send;
+
+#sends: (send ["\."])* send ["\."]?;
+sends: (expression ["\."])* expression ["\."]?;
+send: (receiver? keyword) | (receiver? message) | (receiver? receiver? operator receiver);
+receiver: IDENTIFIER | object | block;
+message: IDENTIFIER;
+keyword: FIRST_KW_IDENTIFIER &gt;expression&lt; (KEYWORD_IDENTIFIER &gt;expression&lt;)*;
+operator: operator_characters+;
+operator_characters: "!" | "@" | "#" | "$" | "%" | "&amp;" | "*" | "-" | "+" | \
+                     "=" | "~" | "/" | "?" | "&lt;" | "&gt;" | "," | ";";
+
+slots: ["|"] (&gt;slot_definition&lt; ["\."])* &gt;slot_definition&lt;? ["\."]? ["|"];
+slot_definition: IDENTIFIER | (FIRST_KW_IDENTIFIER &gt;expression&lt;) | ARGUMENT;
+
+value: &lt;string&gt; | &lt;float&gt; | &lt;integer&gt;;
+
+float: integer "\." POSINT;
+integer: "\-" POSINT | POSINT;
+
+POSINT: "0|[1-9][0-9]*";
+
+ARGUMENT: ":[a-z_][a-zA-Z0-9_\*]*";
+IDENTIFIER: "[a-z_][a-zA-Z0-9_\*]*";
+FIRST_KW_IDENTIFIER: "[a-z_][a-zA-Z0-9_]*:";
+KEYWORD_IDENTIFIER: "[A-Z][a-zA-Z0-9_]*:";
+
+string: SINGLE_QUOTED_STRING | DOUBLE_QUOTED_STRING;
+SINGLE_QUOTED_STRING: "'[^\\\']*'";
+DOUBLE_QUOTED_STRING: "\\"[^\\\\"]*\\"";</code></pre>
+      <p id="9322bf60-afd6-4920-b4ba-2193f37df136" class="">Poměrně záhy jsem však narazil na nedostatek dokumentace a taky na chování, které mi vysloveně vadilo (všechny ty <code>&gt;&lt;</code> a <code>&lt;&gt;</code> kolem identifikátorů, divná rekurze s <code>|</code>, mixování s reguláry atd..). Od začátku jsem to pojal jako TDD development (psatní testů před kódem) a jen díky tomu jsem se z toho nezcvokl, neměl jsem k tomu však daleko.</p>
+      <p id="6dc80472-9047-4907-a95a-575736074d5d" class="">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p>
+      <h1 id="5b183968-a7db-4ca4-90dd-9c087af6e2fb" class="">RPLY</h1>
+      <p id="66f9efe0-7194-43a5-8461-e7b99a089d2a" class="">Chybějící dokumentace mě časem donutila od RPythonního <code>ebnfparse</code> odejít, speciálně když jsem si procházel ostatní projekty, které používaly jiné parsery. Časem jsem narazil na <a href="https://rply.readthedocs.io/en/latest/">rply</a>, což je port parseru <a href="https://github.com/dabeaz/ply">ply</a> přímo pro RPython. Funguje tak, že píšete dekorátory funkcím ve stylu:</p>
+      <pre class="code"><code><span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'expression : NUMBER'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">expression_number</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Number</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getstr</span><span class="p">()))</span>
+</code></pre>
+      <p id="c3f50bb6-685a-4558-8c41-2c15b12995cb" class="">Dekorátor určuje pattern z tokenů. Dekorovaná funkce pak co se s tokeny provede. Všechny tokeny jsou předány v poli v proměnné ‚<code>p</code>‘.</p>
+      <p id="99d8df1e-28df-45bb-a8bb-05d18fed3a4f" class="">V kódu nahoře se vezme první token (index 0) a vratí se objekt <code>Number</code> s tokenem, jehož hodnota byla převedena na číslo.</p>
+      <p id="b023c94a-28a4-4dd4-9ec9-64698c694dda" class="">Number není žádný magický objekt, nadefinoval jsem si ho sám po vzoru ostatních parserů. Dohromady mám tyto objekty, ze kterých se sestavuje syntaktický strom:</p>
+      <figure id="15baed76-e73a-4d6f-8812-d0251999d793" class="image">
+        <a href="ast.png"><img style="width:1960px" src="ast_thumb.jpg"></a>
+      </figure>
+      <p id="4292bd03-b4a0-4e27-83f3-f6761e59e97e" class="">Jak je vidět, v tinySelfu existují pouze objekty, bloky, akt poslání zprávy, přeposlání zprávy, kaskáda zpráv (akt poslání několika zpráv jednomu objektu), návrat hodnoty, tři typy zpráv (unární, binární, <em>keyword</em>) a poté čtyři zkratky pro často používané objekty: čísla, stringy, Self a Nil. Self by existovat teoreticky nemusel, mohla by to být jen <code>Message("self")</code> poslaná nikomu, ale zpřehledňuje to kód i výsledný strom. Nil je jen zkratka pro singleton, který by mohl být uložený v globálním namespace.</p>
+      <h2 id="56745c3a-7c85-4b59-b961-b642b26b0bb7" class="">Složitější rekurzivní pravidla</h2>
+      <p id="8ae1b03b-3492-4bb2-863a-3d287d777fdf" class="">Zde je ukázka složitějšího transformačního pravidla:</p>
+      <pre class="code"><code><span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'expression : IDENTIFIER'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unary_message</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Send</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">Self</span><span class="p">(),</span> <span class="n">msg</span><span class="o">=</span><span class="n">Message</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getstr</span><span class="p">()))</span>
+
+<span class="nd">@pg</span><span class="o">.</span><span class="n">production</span><span class="p">(</span><span class="s1">'expression : expression IDENTIFIER'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unary_message_to_expression</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Send</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="n">Message</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">getstr</span><span class="p">()))</span>
+</code></pre>
+      <p id="2ad85d1c-f521-487d-be72-4fc4441175a0" class="">Na ukázce je dobře vidět, jak vzniká poslání zpráv a jak je řešeno vkládání implicitního Selfu. Pokud je identifikátor poslán zdánlivě ničemu, je aktu poslání zprávy předán jako cíl <code>Self()</code>. Pokud je před identifikátorem nějaký výraz, je cíli poslání zprávy předán první token obsahující tento výraz (což už je naparsovaná expression, tedy prvek AST).</p>
+      <p id="9a6187a5-0701-48b1-9caf-7b8fc9663191" class="">Podobnými pravidly je složen celý jazyk. Zde je také hezky vidět rekurzivní povaha parseru, který definuje <em>expression</em> jako identifikátor a poté také jako <em>expression</em> následované identifikátorem. Parser takhle provede rekurzivní <em>pattern matching</em> na všechny odpovídající tokeny, v samotných funkcích se pak jen definuje, co se z toho má složit za AST.</p>
+      <p id="c5093b42-f0b8-4c02-8abd-46e80c632d8c" class="">Tenhle přístup má svou výhodu, protože vám dovoluje skládat AST přímo tak jak ho chcete. Předtím používaný <code>ebnf</code> z RPythonu vypadal sice zapsán elegantněji jako jeden krásný string, ale neumožňoval žádné skoro žádné manipupace s AST a vyplivl vám strom z tokenů, který bylo dále třeba zpracovávat. I když to bylo na vyšší úrovni, než samotné pole tokenů, stejně to byl masivní opruz. Oproti tomu přímý přístup k datům v rply vám umožňuje vygenerovat rovnou hotový a upravený AST.</p>
+      <p id="0f5a2869-8095-456c-b00e-f2e95bc420b1" class="">Zde je zdrojový kód celého parseru:</p>
+      <ul id="3df38aab-0234-40e2-83dd-4259b972c50f" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/tinySelf/blob/master/src/tinySelf/parser/parser.py">parser.py</a>
+        </li>
+      </ul>
+      <p id="2346a27c-f941-4a2c-b701-7915156e927c" class="">Nikdy dřív jsem nepsal takhle složitý EBNF parser a musím říct, že to pro mě byl docela záhul. Naučit se přemýšlet v rekurzivně skládaných definicích mi dalo zabrat, a to ani nemluvím o tom, že jsem pro Self nenašel žádnou EBNF definici, takže jsem si jí podle manuálu +- skládal sám.</p>
+      <figure id="6dea40d6-e3c2-49da-9866-8a3729309f04" class="image">
+        <a href="passing_tests.png"><img style="width:890px" src="passing_tests.png"></a>
+      </figure>
+      <p id="7825c40c-7620-4ffd-9ff1-c1b3595113b6" class="">Nakonec se však povedlo a kód prošel všemi testy, které jsem pro něj napsal. Myslel jsem si, že tím to pro mě končí, ale jak se ukázalo, byl to jen začátek další parsovací bolesti, tentokrát spočívající ve snaze kód upravit pro překlad RPythonem.</p>
+      <h1 id="76735348-6d36-43bf-9c29-9709bf25382c" class="">Pokračování</h1>
+      <p id="4c34c5cf-c9ee-41e9-9f37-d2c77dea713f" class="">Příští díl bude takovým mezidílem na téma RPythonu a některých praktických problémů, které jsem musel vyřešit, abych mohl parser a lexer pod ním zkompilovat.</p>
+      <h1 id="035572b4-371d-4d89-8cd2-3c89557492b1" class="">Relevantní diskuze</h1>
+      <ul id="252d60a9-acd8-4e03-97ff-967994b7d34a" class="bulleted-list">
+        <li>
+          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-3-parser-a-ast">Jak se píše programovací jazyk 3: Parser a AST</a> (abclinuxu)
+        </li>
+      </ul>
+      <p id="04abc208-70cd-4bf0-9fce-e3d64cdf46c4" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

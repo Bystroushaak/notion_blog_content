@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Biweekly update 2020-03-23; Sick again..</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Biweekly update 2020-03-23; Sick again..">
+  <meta name="twitter:description" content="Later than usually. Sorry. I just didn't felt like writing an update last Sunday, and there wasn't that much interesting going on, except the crazy global pandemic everyone already knows about.">
+  <meta name="twitter:image" content="pycharm_obj_wiki.png_thumb.jpg">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Weekly updates</a> / Biweekly update 2020-03-23; Sick again..
+  <article id="e14bfe9d-9ef5-4e59-81ef-837f565aa1a5" class="page sans">
+    <header>
+      <h1 class="page-title">Biweekly update 2020-03-23; Sick again..</h1>
+    </header>
+    <div class="page-body">
+      <p id="ccf90a0a-3688-4f05-8030-0b88b49120e7" class="">Later than usually. Sorry. I just didn't felt like writing an update last Sunday, and there wasn't that much interesting going on, except the crazy global pandemic everyone already knows about.</p>
+      <p id="bec428ab-ad89-4ff3-86a9-ff7fe6b157fc" class="">I was sick again, for the third time this year. Not with coronavirus, at least I hope, because I have no symptoms. But I still need to blow my nose way too often and I also sleep way too much. I've slept twelve hours today and I still feel like I could sleep more.</p>
+      <h1 id="74be4d05-c9d1-4ffa-a5dd-a2ad3cda55ae" class="">Object wiki update</h1>
+      <p id="03995c59-9629-4cfd-a8e9-39ddf2815536" class="">I've greatly improved the way how it stores information, the way how it handles inputs and I also manged to convince QTextEdit to serialize inlined objects (<a href="../../Active_widget_in_PyQT5_-_QTextEdit.html">Active widget in PyQT5 / QTextEdit</a> to XML/HTML). It could be almost used to edit simple text wiki pages.</p>
+      <figure id="efa0c897-247f-46cd-904a-43899d1b6575" class="image">
+        <a href="pycharm_obj_wiki.png.png"><img style="width:3840px" src="pycharm_obj_wiki.png_thumb.jpg"></a>
+      </figure>
+      <p id="465dc29b-b10b-45f4-9772-2503c8a5ad15" class="">So far, I am mostly fighting the boring but necessary stuff (PyQt). I find it unbelievable how many things I had to solve myself, that no one solved before, especially with widgets inlined into text. But the boring phase should be over soon, at least I hope so.</p>
+      <h1 id="d50f4828-89b9-440f-a093-a8d7ef562fef" class="">PyCharm</h1>
+      <p id="cef58a71-d59f-46c5-8da0-eac6b486066a" class="">I've bought PyCharm for another year. I've used to be a strong proponent of the "simple" text editors like vim, Sublime text, or Visual Studio Code. I used to like the idea that you can compose your own IDE exactly how you want. Then I've run into problems, that this does not really scale well. And everything is knitted together very loosely and breaks all the time.</p>
+      <p id="28deeb2a-7c33-40ca-9391-52ad96b14b8b" class="">My colleague convinced me* to try PyCharm. I've spent several weeks by tuning it, porting color scheme (<a href="../../Sunburst_for_PyCharm_-_Idea.html">Sunburst for PyCharm / Idea</a>), key shortcuts and so on. Then I've read a book (<a href="https://effectivepycharm.com/">Effective pycharm</a>). Since then, I am maybe ten times more effective than with just "editors". I have everything I had with them, but a bunch of stuff that was semi-broken now actually works, like type inference. And the whole IDE understands the code and can do all kinds of reasoning about it. The cost of refactoring is now actually almost zero, so I do it a lot and this itself made me better programmer.</p>
+      <p id="ec9f1a8f-53ea-475d-89ef-84ffb15f2f91" class="">Then there is a bunch of specialized stuff, like database views, and structure views and wonderful debugger integration and python specific options. Automatic dependency tracking and jumping trough code with shift+click and a lot of other stuff is just icing on cake.</p>
+      <p id="70a11d21-71cc-4f6a-a2f2-1f24e4425b13" class="">Really, my only regret is that I have not decided to use PyCharm sooner. It went so far, that I am considering using some statically typed language for my future projects. Rust probably. I've learned the hard way, that more your IDE understands your code, more effective you'll be. Especially for refactoring. And quick refactoring allows quick iterations and improvements. To quote Elon Musk:</p>
+      <blockquote id="4ff6bf15-ff35-4ef7-81f6-0d60a08e6ad8" class="">
+        A high production rate solves many ills. If you have a high production rate, you have a high iteration rate. For pretty much any technology whatsoever, the progress is a function of how many iterations do you have, and how much progress do you make between each iteration. If you have a high production rate then you have many iterations. You can make progress from one to the next.
+      </blockquote>
+      <h1 id="9b2f61c4-3c47-46cb-b845-4c2a92eeea42" class="">Book report</h1>
+      <p id="eebb2349-b0a8-4b60-82ed-81422c7991fe" class="">I didn't manage to finish any books this month so far, mostly because I've spread myself too thin, and I am reading something four books at the same time:</p>
+      <ul id="236b9f2e-e190-4fab-b5ab-603317b38620" class="bulleted-list">
+        <li>
+          <a href="https://www.databazeknih.cz/knihy/na-volne-noze-321161">Na volné noze</a> (a book about freelancing)
+        </li>
+      </ul>
+      <ul id="fae23ae9-0738-4926-915e-4506f3648aa5" class="bulleted-list">
+        <li>
+          <a href="https://www.goodreads.com/book/show/10258481-a-geek-in-japan">A geek in japan</a>
+        </li>
+      </ul>
+      <ul id="4e9ca46b-6aa0-4da6-b8b6-3950c3a73d0c" class="bulleted-list">
+        <li>
+          <a href="https://www.goodreads.com/book/show/85009.Design_Patterns">Design patterns</a>
+        </li>
+      </ul>
+      <ul id="0468b60c-4281-420e-9ec5-6b04d2838685" class="bulleted-list">
+        <li>
+          <a href="https://www.goodreads.com/book/show/39071691-the-bullet-journal-method">The Bullet Journal Method</a>
+        </li>
+      </ul>
+      <p id="d70819b6-2e0f-4640-9fad-434ef7bcebe7" class="">Also, I've picked up <a href="https://www.goodreads.com/book/show/2845024-anathem">Anathem</a> by Stephenson for second reading after eight years. I am enjoying it very much, but it has 937 pages by itself, so it will take me something like month to read just this single book I am reading for fun.</p>
+      <p id="a7309f0a-bc29-4adf-b11f-4b47a8032d32" class="">I find that global pandemic had a strange effect on me, and I want to re-read some books I've already read when I was a teenager. I get flashbacks to books I've almost forgotten that exists, like <a href="https://www.goodreads.com/book/show/209693.The_Drawing_of_the_Dark">The Drawing of the Dark</a>.</p>
+      <h1 id="605a0cc1-12af-4497-88c3-f6a5c798a98e" class="">Writing</h1>
+      <p id="38c730b1-69a5-46c0-a3af-02d8f9316d51" class="">I've published <a href="../../../Paperclips_-_Utrzky/Installation_of_pip_packages_on_offline_computer.html"><span class="icon">🗒</span>Installation of pip packages on offline computer</a>. I've tried to force myself into writing other blogs I am working on, but without any success.</p>
+      <h1 id="1b854444-6b3a-4c92-b8e4-2dbf2198218e" class="">Random stuff</h1>
+      <p id="cbe74ea7-731a-40a8-868b-6fa719dc0d2e" class="">There was Notion AMA: <a href="https://www.reddit.com/r/NotionSo/comments/fi45dc/im_the_first_engineering_hire_at_notion_ama/">I'm the first engineering hire at Notion. AMA!</a></p>
+      <p id="a320d445-f33e-4ecb-8c14-fd8f8be22745" class="">My question got nice response:</p>
+      <figure id="f21d3eab-e739-42c7-854b-0480a6fd7383" class="image">
+        <a href="notion_ama.png"><img style="width:1448px" src="notion_ama_thumb.jpg"></a>
+      </figure>
+      <hr id="29ebb784-c564-4b22-98bd-5576422955ca">
+      <p id="767b5025-cc42-4ebe-85f0-36e27a21c1fa" class=""><a href="https://tasshin.com/blog/monasteries-of-the-future-a-summary/">Monasteries of the Future: A Summary</a> is an interesting article.</p>
+      <hr id="5043b50d-7cc6-4042-a06b-05e262dec4be">
+      <p id="618256d2-cf28-4319-9d99-1d06af2c602e" class="">The sea is lovely.</p>
+      <figure id="90ce8176-9275-4861-b52a-74adedbb3c05">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/YZQ5YvJYbeY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="83c16c14-9069-409c-b313-9cf5a8109ce3">
+      <p id="02705fff-38f2-42b9-a3f2-95b3d78167ff" class="">Wardruna - Grá has really wonderful vocals towards the end:</p>
+      <ul id="d24b75a7-f0ab-4cf5-a4ac-fdc1215f803f" class="bulleted-list">
+        <li>
+          <a href="https://www.youtube.com/watch?v=kFU7nRe7C0A">https://www.youtube.com/watch?v=kFU7nRe7C0A</a>
+        </li>
+      </ul>
+      <p id="1bd0bdbf-8654-4091-9443-39045491515c" class="">(I would embed it, but it is one of those videos that can't be embedded)</p>
+      <hr id="28444b2e-85f1-44cd-88df-0d77a7439917">
+      <p id="b5f81afb-44f5-4cfb-85ce-396c25d0e951" class="">This is the most beautiful CSS for a personal page I've ever seen:</p>
+      <ul id="33d45102-9f1c-4568-addd-dc72063ee747" class="bulleted-list">
+        <li>
+          <a href="https://www.gwern.net/About">https://www.gwern.net/About</a>
+        </li>
+      </ul>
+      <p id="9e23ff03-ca55-42c5-b9b7-d9118e43537a" class="">I shall steal it.</p>
+      <hr id="681a60ab-cc9f-4a1d-b0c8-f8295e77bbe7">
+      <figure class="block-color-gray_background callout" id="32b9f857-dd48-43ce-b84b-0d579b9af838" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">💡</span>
+        </div>
+        <div style="width:100%">
+          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
+        </div>
+      </figure>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

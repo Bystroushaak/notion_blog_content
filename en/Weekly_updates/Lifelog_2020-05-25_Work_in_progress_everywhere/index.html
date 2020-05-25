@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Lifelog 2020-05-25; Work in progress everywhere</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Lifelog 2020-05-25; Work in progress everywhere">
+  <meta name="twitter:description" content="I think it is time to stop calling this stuff &quot;biweekly update&quot;, as I seem to be unable to publish every two weeks.">
+  <meta name="twitter:image" content="blog_generator_fail_thumb.png">
+  <script src="../../../scripts.js">
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Weekly updates</a> / Lifelog 2020-05-25; Work in progress everywhere
+  <article id="4fdf1229-0419-448d-8db8-e821c59a3d9e" class="page sans">
+    <header>
+      <h1 class="page-title">Lifelog 2020-05-25; Work in progress everywhere</h1>
+    </header>
+    <div class="page-body">
+      <p id="6e2f13ab-5da3-44f9-8c0c-a7a3b19441c3" class="">I think it is time to stop calling this stuff "biweekly update", as I seem to be unable to publish every two weeks.</p>
+      <h1 id="988b343a-0ef3-4c52-9f7b-597732b1f781" class="">How notion cost me a week of life</h1>
+      <p id="44fdeef9-aa54-4957-b878-e2def53065ba" class="">I was running a bit late with my bi-weekly update, but I finally managed to put together everything I wanted. Then I exported the blog from the notion and run a conversion script, which translates the notion structure into the simple HTML and adds a bunch of other functionality, that is missing in the export.</p>
+      <p id="87a4a26b-20b4-4a6a-82ad-faa9ff8813fd" class="">Except, that this time, it failed;</p>
+      <figure id="e491d8a0-4110-40a2-8946-6117ba50b0e2" class="image">
+        <a href="blog_generator_fail.png"><img style="width:528px" src="blog_generator_fail_thumb.png"></a>
+      </figure>
+      <p id="8f35371b-a4e7-42c1-91a6-7ce0bfa1a5ea" class="">I've poked the code with a debugger for a while and then I've realized that it is not a bug in my code, that indeed, notion changed the structure of HTML exports. Apparently there are now hashes or UUIDs or whatever they are, in filenames. So for example, <code>English section.html</code> is now <code>English section 8f6665fa0621410daa32502748e3cc5d.html</code>.</p>
+      <p id="9801e001-4a4f-4435-8b01-2d19854ab872" class="">"Easy enough to fix this", I thought. Just run a simple regexp and replace them. Of course, it's not so simple, because you need to replace also all links and meta tags and such. But my whole blog generator is a list of progressive transformers made in this manner, so this was easy enough to code.</p>
+      <p id="cdc555ee-521c-4b55-9e57-bdb4d83d1f86" class="">It was 3:30 in the morning when I run the export, hash got removed from the filenames, and I've realized, that no, this not that easy. Notion also shortened the names and now when you replace the hash, you get collisions and some content gets overwritten. And I can't just let the hash in the export, because then I would break links pointing to my blog.</p>
+      <p id="1686c81e-5fc6-4c15-84fe-4e104aed8f67" class="">Thus began the week-long journey to completely rewrite my blog generator, to prevent this from happening ever again.</p>
+      <p id="6c574978-37bf-496d-949c-e164943b1fe1" class="">Old system worked like a set of postprocessors on a html pages on disc. There was a lot of path handling and so on. In the new system, I've decided to try new approach, similar to how compilers work; first create an abstract tree representation in the memory and then apply set of transformation on the tree until it has a form you want.</p>
+      <p id="0b0e9d05-8fba-4627-968a-f86da1ab2c73" class="">I've implemented kind of a virtual filesystem and a system of references instead of paths in HTML links and then I've rewritten everything to work with this new representation. Structure is now generated from how pages link to each other and also their names are taken from the headers of each page, and the code can handle duplicates.</p>
+      <p id="c44341e2-427d-4a0d-b6dc-cad89d9c4070" class="">I've even thrown in new Atom feed generator from the changelog, as the old one was a <a href="https://github.com/Bystroushaak/notion2rss">bit hacky</a>, and I've also implemented a diff script, that can diff between old structure and new one, and output a list of nginx redirects, so old links won't get broken.</p>
+      <p id="d7913047-b258-428c-82f0-f4c70a1989d1" class="">It was 3:30 in the morning, when I've finally merged the 76 commits:</p>
+      <figure id="59ec041a-d0aa-464b-908c-78754aa16b05" class="image">
+        <a href="git_merge_log.png"><img style="width:528px" src="git_merge_log_thumb.png"></a>
+        <figcaption>
+          (Pardon the weird part on top, it seems like my desktop manager mixed the screenshot with PyCharm's frame buffer.)
+        </figcaption>
+      </figure>
+      <p id="0469b078-99ce-498a-93ec-8d747d6421cc" class="">And all of this because <em>someone</em> thought <em>"wouldn't it be great if we put a UUID into the filenames?"</em></p>
+      <h1 id="4b3eb973-4e99-4faa-b243-e46631b194bb" class="">tinySelf progress</h1>
+      <p id="a9c7cef7-b9e7-442b-9599-dc58e12cdd4d" class="">I've had this conversation with my friend on the topic of <a href="https://shalabh.com/programmable-systems/systems-not-programs.html"><em>systems</em></a> <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">versus</a> <a href="https://shalabh.com/programmable-systems/systems-not-programs.html"><em>languages</em></a><em>,</em> and what an operating system is, and also about Steven Wolfram and his information system, that he built around himself.</p>
+      <p id="809113fd-b06b-4dd8-8550-766ba4ad1640" class="">Then I've watched following video and felt a need to work on something as cool.</p>
+      <figure id="a0bf7c59-5f5e-4453-9a7d-b137ec78c518">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/o4-YnLpLgtk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="e698598d-dd3b-4a71-87b1-94f8be49a6f7" class="">So, after a long period of inactivity, I am slowly trying to return to <a href="../../tinySelf.html"><span class="icon">📂</span>tinySelf</a> development.</p>
+      <p id="46876734-c99d-492f-a1ad-861ce877dd11" class="">At the moment, language mostly works, but interpreter needs some upgrades. There are details, that are not really done. For example, you can have only specific amount of slots in object, because bytecode encodes the literals to one byte, so I need to add multi byte encoding and so on.</p>
+      <p id="aeb7aac8-020c-40bc-9e5a-0861657e0014" class="">It would also be nice to increase performance. One big bottleneck is that each object (ehm, it's map actually) has its own <code>{string: object}</code> dictionary for slots, which is slow to create. Although it has fast lookups, you usually need to do lookup into all parent slots recursively through whole parent chain. This can be a lot of lookups, so there is a layer of caching on top of this, which creates additional dictionary, which is also slow. I think that I've maybe overthought the stuff and that there may be some simpler method to use, like one global dictionary for everything, where you encode information to the keys, or something like that.</p>
+      <p id="eb25e52f-02af-4766-b042-f822c1eb20bd" class="">I am also thinking about the alternative possibilities for implementation. I want to look into implementation of the <a href="http://sprylang.se/index.html">Spry language</a> and see how lookups work there. There is also <a href="https://github.com/hpi-swa/RSqueak">RSqueak</a> and <a href="https://github.com/SOM-st/RPySOM">RPySom</a>, which were a source of inspiration in the past, but I've never really studied the implementation of the VM in the detail, only specific stuff, like for example bytecode crunching.</p>
+      <p id="b16346a7-8461-4100-a81d-be9fee9fc8d4" class="">It could pay itself to actually, you know, get some education in the field of writing interpreters, before I go and do that. I think that I should read <a href="http://www.craftinginterpreters.com/">Crafting interpreters</a> and maybe also <a href="https://interpreterbook.com/">Writing An Interpreter In Go</a> before I return to the development and began reinventing the wheel again. I've loaded them into the iPad / ebook reader and I'll see what I'll learn.</p>
+      <p id="50f86c6e-b02f-4d64-88f3-742088718edb" class="">I can't help but to wonder whether the Rpython is really the best language / toolkit for implementation of the interpreter, because there is quite a lot of undocumented dark corners and even some stuff that is documented doesn't really make much sense to me.</p>
+      <p id="e0803c75-733c-41e3-9087-021610089dcf" class="">For example, it is possible to run the JIT translation and interpretation with pygame visualisation, but I have literally no idea what I am looking at and you can't really get a documentation for the whole process. Rpython also makes me constantly wonder what is actually doing at the lowlevel. Like for example, when I simply define and use an object, what it will actually translate into. Sometimes, I just need a simple structure, and there are <a href="https://rpython.readthedocs.io/en/latest/rtyper.html#structure-types">ways how to do that</a>, but the documentation is confusing and I have no idea what really happens.</p>
+      <p id="24bb400f-b258-42fc-836c-fb57ad37f9b4" class="">I think that it may actually make sense to try to rewrite the whole thing into Rust, as I try to stay away from the C/C++. There may be sane ways how to add support for JIT. And then there is also GraalVM, which means Java. I've gone to the GraalVM lectures last year and I really liked the experience, so I should probably try it. But I didn't really touch Java in like ten years, so I need to do some tasks to reacquaint (eh, what a word) myself with it again. Sigh.</p>
+      <h1 id="4f2ab751-9800-4478-a75f-616879de16b8" class="">Object wiki update</h1>
+      <p id="09c2bf8d-f9ef-42f8-826b-c0e5e000eca9" class="">Last time, I was talking about another developer, and work on transactions (see <a href="../../objWiki/Transaction_support_for_simple_in-memory_database.html">Transaction support for simple in-memory database</a> for details). It took me almost 100 commits, but transactions are finally working, and I've also finished and tested the basic client-server architecture.</p>
+      <p id="19a5ea47-8cf7-4166-a09e-dc29cf8788dd" class="">The system I've created is this monstrosity, which tracks transactions on the server, and sends lazy-loaded objects to the client. Client gets transaction with NodeTree root object, which lazily loads part of the tree of Nodes and Inputs each time he accesses some property or calls some method on any of the objects he received. And it also tracks access to it and sends updates to the server, so it can use it to compute transaction conflicts.</p>
+      <p id="fd90bc6b-0cd6-46f4-b9c1-3a1ad0c88b15" class="">Everything seems to work, and I've also added a lot of basic unittests, so it shouldn't be fragile. Nevertheless, I still feel like I should add much more tests and also do some kind of performance testing, because I've done things with python you normally don't do. Reflection, hooking on all kinds of lookups and so on. For example, I serialize exceptions at the server and send them pickled to client.</p>
+      <h1 id="465ded3c-7a6b-4636-baff-b3696e09a048" class="">Life & philosophy; trap of overspecialization</h1>
+      <p id="e39f6a3d-d213-4cad-96ec-a91680fb7f33" class="">I may have fallen into the trap of the overspecialization. I mean, I make decent money for the part of the world where I live in. Problem is, that I've kinda reached the top of what I can make, which is alright, but it limits me to try new stuff.</p>
+      <p id="f0fdaf32-ea35-4d72-a792-c48f23c97ef5" class="">At the moment and at least for another year, my ex and my kid depend on the money I make. They take something between one third to one half of the money I make, which forces me to get a lot of money, which limits what I can do.</p>
+      <p id="c95ffa1f-03e8-49f0-8334-0d40c68603f9" class="">For example, I've watched a lot of Warhorse videos about game making, and I am really interested in the system they've made, because it is relevant to my quest for structured systems (see <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html">Programmer's critique of missing structure of operating systems</a> for details). In the past, I would simply quit my job and go work there, to get new experience and see something new. This is now a luxury I can no longer afford, because I know that as a newcomer to the field, I wouldn't even get a half of what I am now making. Maybe a third. So.. that's no longer an option.</p>
+      <p id="10d656f2-6873-44d8-bd7c-208576e2e66e" class="">Same situation happened with the <a href="https://vrgineers.com/xtal/">VRginners / XTAL</a>. They are a company making this futuristic HMD headset:</p>
+      <figure id="7377f2b7-5f97-40d2-9c4c-bd37a94b3057" class="image">
+        <a href="Untitled.png"><img style="width:1104px" src="Untitled_thumb.png"></a>
+      </figure>
+      <p id="96c785c8-6c97-47fb-ae34-06befb3860f0" class="">And they have dev office nearby. I've sen't them my CV and asked whether they could find some use for me. They've replied that they could, provided that I could work in C/C++ and take a low junior pay. In the past, I would love to accept the position. Now, I simply can't.</p>
+      <p id="6190df01-99b3-41d8-aafd-386433a95165" class="">So, yeah. It's not that great problem and I certainly can't complain, because I am still incredibly lucky and do well. It just sucks that possible branches of my future are now closed. I am no longer free to work in interesting positions, because I have to trade them for more money.</p>
+      <p id="353a00fc-b2d2-41b1-b137-85e35cc29801" class="">I suspect that this will force me to make my own company, or maybe go work to different country. Context: we are still relatively poor country compared to the neighbors in the EU and I know I could make more there.</p>
+      <h1 id="809e1087-93e5-42b9-bc6b-2b3179f8e33a" class="">Book report</h1>
+      <div id="6eef9eff-9b32-4c47-9195-6ce157cc167a" class="column-list">
+        <div id="6571f57c-a37f-46ac-87c1-9f468cefab51" style="width:25%" class="column">
+          <figure id="c20aaf51-d6fb-4a60-8310-d041585c7821" class="image">
+            <a href="the_human_cover.jpg"><img style="width:400px" src="the_human_cover.jpg"></a>
+          </figure>
+        </div>
+        <div id="a6bac773-2d01-4d97-8cdb-1439f6930860" style="width:75%" class="column">
+          <p id="a72bb566-3581-4412-923a-ccc603604624" class="">I've finished The Human by Neal Asher. As a long time Asher fan, I was really excited about the book and I've enjoyed most of it immensely.</p>
+          <p id="7679a61d-4973-4e75-be7d-f7d53a90b643" class="">Only thing I didn't like that much is the ending, where everything returns more or less back to the original state before the trilogy, which makes me feel like it didn't really matter.</p>
+          <p id="f962ad8d-1f9d-44f2-8bca-ceebdae591bf" class="">But other than that, the book was excellent. Action scenes were like no other. Basically, whole book describes just one gigantic battle previous two books set up. There three alien species (Pradors, Jains and whatever The Client is), humans using Jain tech and AI's using top polity tech.</p>
+        </div>
+      </div>
+      <p id="2930895b-c476-40f2-a727-ccf02207a5e3" class="">I kinda feel like Asher got himself into tight corner. So far, each of his books pushed the described technology a little bit further, but I can't seriously imagine where he could push after this.</p>
+      <figure class="block-color-gray_background callout" id="8e78a55d-d15b-4497-a486-cfb744555e00" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">⚠️</span>
+        </div>
+        <div style="width:100%">
+          I've had so many thoughts about this, that I've had to put them in separate blog.
+        </div>
+      </figure>
+      <p id="8ab9cfc7-3584-46b6-af45-92eb8ae80426" class="">When I was reading the epic descriptions of the battle fought on all levels and scales, from macroscopic, with kinetic weapons and lasers, to underspace technology, information warfare and nano and pico tech at the same moment, I couldn't help but to keep playing psydnb in my head:</p>
+      <figure id="f7562fdb-50c2-4675-91ef-ef0a579ed080">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/kecval-6_fY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="1406f935-6341-4d62-9948-13e15a692b29">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/LxhcM7Lg2IE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="9107ad6e-5e0a-4a0b-8f02-15ab3a2a71f9">
+      <p id="6ea06869-bc29-4311-89f7-77312b094350" class=""><a href="https://www.goodreads.com/book/show/53306572-the-bosch?from_search=true&amp;from_srp=true&amp;qid=dUBgY2bs9o&amp;rank=1">The Bosh</a> was also great. It's a short novella from the future of the Polity, I would guess that several thousand years from Asher's other books.</p>
+      <figure id="6bb010ab-0d8e-4dbb-9acf-0959f62974c5" class="image">
+        <a href="the_bosh.jpg"><img style="width:192px" src="the_bosh.jpg"></a>
+      </figure>
+      <hr id="21ca629a-6a5c-4f6d-bc12-a44b0f27d53d">
+      <div id="e1422927-a902-4e4a-8182-481e4294b8e1" class="column-list">
+        <div id="f99cb750-f1cb-4a92-bcd2-d6a20437bf30" style="width:25%" class="column">
+          <figure id="c390b15c-88b9-4df7-84e8-f4030788bd3c" class="image">
+            <a href="2020-05-18_02.26.33.jpg"><img style="width:1151px" src="2020-05-18_02.26.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="63db5424-3f3c-4c7a-8181-a78822649628" style="width:75%" class="column">
+          <p id="7efb1cca-904a-4146-9865-3292a4b1755b" class="">"Využití atomové energie" (Usage of the atomic energy) is this great little book from the sixties, that Čestmír Šimáně published in the edition "Velká vojenská knihovna" (Big military library). From what I understand, whole edition was inaccessible to normal people.</p>
+          <p id="1fecfb0e-5141-430d-873a-9d48a4ce60ed" class="">I've bought books from Čestmír Šimáně, because of the <a href="http://www.ujf.cas.cz/cs/oddeleni/oddeleni-urychlovacu/microtron/history.html">microtron</a> and LVR-15 visit last year (see <a href="../../LVR-15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a> for details). He was one of the people behind czech nuclear program and I must say, that book was a pleasure. I've especially enjoyed the visualisations:</p>
+        </div>
+      </div>
+      <div id="44a442fd-4d91-4be5-8bfa-630dfc25ad8e" class="column-list">
+        <div id="b767102e-339c-42e1-874f-55a671a59c5c" style="width:50%" class="column">
+          <figure id="bb735bf9-3eb9-44e4-84b3-e80c28dd9d54" class="image">
+            <a href="2020-05-18_02.27.14.jpg"><img style="width:1089px" src="2020-05-18_02.27.14_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="1e5b350a-8bdb-4a9d-bb11-20ef464c37c2" style="width:50%" class="column">
+          <figure id="105738f3-05b0-4767-beb4-7dcbb2bb3cec" class="image">
+            <a href="2020-05-18_02.27.24.jpg"><img style="width:1031px" src="2020-05-18_02.27.24_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="88ca22da-ab07-49f9-a637-838873bbbd34" class="image">
+        <a href="2020-05-18_02.27.42.jpg"><img style="width:1600px" src="2020-05-18_02.27.42_thumb.jpg"></a>
+      </figure>
+      <p id="600d659d-a7a7-45ab-9e5d-8e790d499e00" class="">I must say, that I've learned a lot about particle physics from this book. And it has this really optimistic feel about it, which sometimes let my skin crawl, like for example when he talks about all possible usages for the atomic technology. For example radioactive floaters in liquid containers, which you can use to measure level of liquid inside by putting Geiger counter on the top. That's certainly .. creative.</p>
+      <hr id="b84e1618-b7d3-4f20-b412-7af78cc272d9">
+      <p id="59d26852-dc2a-4a51-b9d6-3e9feacca8c7" class="">Blender books updated for blender 2.80 arrived. So far, I am reading through <em>Blender for dummies</em>.</p>
+      <figure id="ceabb816-8d7b-4681-9e88-40e02a33690f" class="image">
+        <a href="blender_books.jpg"><img style="width:1200px" src="blender_books_thumb.jpg"></a>
+      </figure>
+      <p id="74a91921-ebb8-41ec-adaa-c262c338986a" class="">Blender is one of those things, that more I know about, the more I am impressed. I've bought the books to get an idea what actually is there in Blender. I've watched a lot of youtube videos with tutorials, and although they are great for learning some specific task, they can't replace a good book.</p>
+      <h1 id="cb644092-def2-42f2-b061-f846a661c3a7" class="">Iterative explorations</h1>
+      <p id="af577293-04df-406b-b9f6-981062428d81" class="">Finally, after many years, I've been able to get my hands on voice code interface in form of <a href="https://dragonfly2.readthedocs.io/en/latest/kaldi_engine.html">kaldi / dragonfly</a>. At the moment, I've only confirmed that it works. I'll definitely write about the details when I manage to create some setup beyond the simple demo.</p>
+      <p id="2534b270-6c13-428c-b1c2-257c341f4075" class="">At the moment, I'll just leave you with some inspiration:</p>
+      <figure id="e24f0901-9f08-4fa5-b944-33bdbca3e7c7">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/8SkdfdXWYaI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <h1 id="13b352d5-89b9-492f-ba45-80c75ec91db5" class="">Writing</h1>
+      <p id="1c0a8057-a67f-4fe2-89ce-6d43a0d63487" class="">I've published <a href="../../Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>, <a href="../../Improvements/Vitamins_nootropics_and_other_boosters/Theobromine.html">Theobromine</a>, <a href="../../objWiki/Transaction_support_for_simple_in-memory_database.html">Transaction support for simple in-memory database</a> and <a href="../../Improvements/the_Software.html">the Software</a>.</p>
+      <h1 id="edf6fcb6-8905-4ae0-9fed-7293d67a30fb" class="">Blender</h1>
+      <p id="736c346f-a7f6-4a92-8b21-7b0f7c7bfb3d" class="">Some time ago, I've taken multiple photos of the steam room in public swimming pool, because each time I am sitting there, I am wondering about the <a href="https://en.wikipedia.org/wiki/Quaternary_numeral_system">quaternary codes</a> in the tiles.</p>
+      <div id="1a34c0a4-e3c6-481d-9853-1dd7804d4f91" class="column-list">
+        <div id="ea9d0e28-324a-42af-87b8-5feb931d106a" style="width:33.33333333333333%" class="column">
+          <figure id="2a7a95d1-a581-4cdb-bb1a-8368694b227c" class="image">
+            <a href="2019-10-04_21.43.56.jpg"><img style="width:1200px" src="2019-10-04_21.43.56_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="3bde761b-ba27-4de4-b6d5-8acd9a003965" style="width:33.33333333333333%" class="column">
+          <figure id="c58c1263-8250-40b0-8141-23a6e079867e" class="image">
+            <a href="2019-10-04_21.43.35.jpg"><img style="width:1200px" src="2019-10-04_21.43.35_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="c6fa655a-d26c-43d6-bde0-2e27d0078b69" style="width:33.33333333333333%" class="column">
+          <figure id="18e8d5de-daa8-410e-a98a-3b2b60cc8c1c" class="image">
+            <a href="2019-10-04_21.43.42.jpg"><img style="width:1200px" src="2019-10-04_21.43.42_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="f428fc2c-5412-4da0-a829-c5e1259eb6be" class="">Now I am trying to compose all images into one scene. So far, I've mapped two <a href="https://fspy.io/">fspy</a> cameres to one surface and projected the textures to the surface:</p>
+      <figure id="aebf5517-ef61-4b38-b12f-cc0a5dc405f2" class="image">
+        <a href="screenshot.jpg"><img style="width:3840px" src="screenshot_thumb.jpg"></a>
+      </figure>
+      <p id="0924ed4e-9024-4e81-9c7c-9fa08ae1bf38" class="">I mean I know that there are probably no hidden messages, but still..</p>
+      <h1 id="f281ed68-ee66-41b9-8ed0-37bb1a40c4a3" class="">Improvements</h1>
+      <p id="72864e62-671d-4fe5-9f18-69286aa9ca89" class="">The cable management cage arrived, so I've installed it. Underside of my desk went from this:</p>
+      <figure id="b798205e-3e27-48e7-83f4-247ac3a89040" class="image">
+        <a href="2020-04-12_18.32.09.jpg"><img style="width:1200px" src="2020-04-12_18.32.09_thumb.jpg"></a>
+      </figure>
+      <p id="e911b430-14fc-45c9-809e-7be98cafea03" class="">to this:</p>
+      <figure id="c0dd26b4-741d-4829-8ee8-b38f74ca88cd" class="image">
+        <a href="cable_management_2.jpg"><img style="width:1200px" src="cable_management_2_thumb.jpg"></a>
+      </figure>
+      <p id="f9ae0abe-dd0e-40cf-88bf-f6b5725ff2ac" class="">There is still room for an improvement, but I think that I can live with this for some time.</p>
+      <h2 id="2ee67ef2-d2de-4635-9945-03ec166289e0" class="">Notebook</h2>
+      <p id="5e04c905-4c08-49bb-b0a6-c1470d0f2872" class="">Some time ago, I've mentioned that I am trying to use paper notebook for todo and checklists for work. So far, it worked great.</p>
+      <p id="db12b6c1-51c5-4e0b-b029-f70a794ac26c" class="">I am using this <em>pseudo bullet journal method</em> and there is something about it that just works. I mean I still use a ton of computer checklists and issues and mindmaps, but this just works with a different parts of the brain.</p>
+      <figure id="a984ea74-d534-4ef3-a0d1-e4138c8a95a1" class="image">
+        <a href="notes.jpg"><img style="width:1600px" src="notes_thumb.jpg"></a>
+      </figure>
+      <p id="72e7cbad-8c8c-4176-b1f8-8c5c402a2a3f" class="">I've found that it is a great tool especially when I am programming, as it doesn't require me to switch mental context into some other app to write notes. It may seem counterintuitive, but to actually pick a pen and handwrite a note requires a lot less context switching than to change virtual desktop to notetaking app and start laying it there.</p>
+      <p id="1fdc1d54-3fe8-4247-a118-256617bbd381" class="">This may be because I was forced to invest massive amount of time into learning how to handwrite, and I suspect that people who weren't forced to take notes in school by hand could feel this differently.</p>
+      <p id="d866b0ca-4df9-430f-97ff-78c8a03a9363" class="">Disadvantages are obvious: the stuff on the paper is dead. I can easily move it to the computer, but the other way is almost impossible.</p>
+      <h1 id="fb8bdeb3-c876-4baa-a52c-3b27a133a407" class="">Random stuff</h1>
+      <p id="05248781-1de3-4119-a403-eedead011095" class="">Inspirative 3D desktop project:</p>
+      <figure id="762f4c8b-40a8-41bd-ac73-79d02eb992c2">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/FWLuwG91HnI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="af206758-f4bc-4b3c-9dc8-9645f181a3f3">
+      <p id="5f71dca7-3d17-4091-a5ae-940d0159f877" class="">Why there isn't more music like this?</p>
+      <figure id="b0d4aa2f-0346-48b1-a706-f872e8651ce0">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/5JAxgFe4hpE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="3f2fd0d5-8ded-4de3-8dd5-51c0edcb7131">
+      <p id="93779393-f3cc-4fad-8607-d9c4f32e38ed" class="">Guy behind the Astartes project had an <a href="https://www.reddit.com/r/Warhammer/comments/gkf3vh/im_syama_pederson_creator_of_the_astartes_project/">AMA on reddit</a>.</p>
+      <hr id="a0daafc6-418b-492e-8013-1fbc19185912">
+      <figure class="block-color-gray_background callout" id="4d47fd97-ed95-4157-9403-186b8413b891" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">💡</span>
+        </div>
+        <div style="width:100%">
+          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
+        </div>
+      </figure>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

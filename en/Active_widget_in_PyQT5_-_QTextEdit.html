@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Active widget in PyQT5 / QTextEdit</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Active widget in PyQT5 / QTextEdit">
+  <meta name="twitter:description" content="It just happened, that I needed active widget in the rich text / wysiwyg editor in PyQt5. And I googled and googled and I couldn't find any good solution. Only example more complicated than SVG widget (source) one can find is Snippet to embed a widget in an editor (alt source).">
+  <meta name="twitter:image" content="Active_widget_in_PyQT5_-_QTextEdit/example_window.png">
+  <script src="../scripts.js">
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="index.html">English section</a> / Active widget in PyQT5 / QTextEdit
+  <article id="a35a5d6b-ff79-4aa8-b78d-198babf0bbbc" class="page sans">
+    <header>
+      <h1 class="page-title">Active widget in PyQT5 / QTextEdit</h1>
+    </header>
+    <div class="page-body">
+      <p id="2ea1a84a-0b9b-4f54-8a02-6600112b9d07" class=""><time>@2020/01/08</time></p>
+      <p id="16097e24-3203-4386-9e2e-a66b0f3292cc" class="">It just happened, that I needed active widget in the rich text / wysiwyg editor in PyQt5. And I googled and googled and I couldn't find any good solution. Only example more complicated than <a href="https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html">SVG widget</a> (<a href="https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py">source</a>) one can find is <a href="http://python.6.x6.nabble.com/Snippet-to-embed-a-widget-in-an-editor-td1914070.html">Snippet to embed a widget in an editor</a> (<a href="https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html">alt source</a>).</p>
+      <p id="2de4d76c-fddc-451a-bfaa-6fe1a07bf321" class="">This eventually works with PyQt5. Here is a simplified refactored example I've used to test my code:</p>
+      <pre class="code"><code><span class="ch">#! /usr/bin/env python3</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextFormat</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextCharFormat</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextObjectInterface</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QObject</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QLineEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QTextEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+
+
+<span class="k">class</span> <span class="nc">ExampleWindow</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Example window'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">textCursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'beginning</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'I am here!'</span><span class="p">)</span>
+
+        <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="mi">1001</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">),</span> <span class="n">text_format_id</span><span class="p">)</span>
+
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'end'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">setTextCursor</span><span class="p">(</span><span class="n">cursor</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSizeF</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+            <span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">()</span><span class="o">.</span><span class="n">documentLayout</span><span class="p">()</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">TextObject</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">):</span>
+        <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
+        <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">char_format</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">ExampleWindow</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</code></pre>
+      <p id="24122370-51f6-48a2-b283-ac2a1bbcf9a9" class="">This almost works (I'll get to the details later) :</p>
+      <figure id="e7a35338-8dc0-467b-b61b-fa553b1fbecf" class="image">
+        <a href="Active_widget_in_PyQT5_-_QTextEdit/example_window.png"><img style="width:284px" src="Active_widget_in_PyQT5_-_QTextEdit/example_window.png"></a>
+      </figure>
+      <p id="0c48bfc0-1a57-4738-a898-47c49a43f59d" class="">Basically, everything important happens in the second part of the constructor:</p>
+      <pre class="code"><code><span class="n">widget</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
+<span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'I am here!'</span><span class="p">)</span>
+
+<span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="mi">1001</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">),</span> <span class="n">text_format_id</span><span class="p">)</span>
+</code></pre>
+      <p id="b7b4fcfb-2e12-4051-838e-59f280ce9e30" class="">First, just the regular random widget is instantiated. Nothing interesting here.</p>
+      <p id="0b3311d6-3ad3-48d0-bf98-90ba1359eb03" class="">Then, this widget is registered under given ID.</p>
+      <pre class="code"><code><span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="mi">1001</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span>
+</code></pre>
+      <p id="f90d71f2-363a-407f-bd5f-09566d233549" class="">Tutorial says, that you should use at least <code>QTextFormat.UserObject</code>, so <code>+ 1001</code> is safe bet. All magic happens in the <code>.wrap_with_text_object()</code> method:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSizeF</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+        <span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())))</span>
+        
+    <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">()</span><span class="o">.</span><span class="n">documentLayout</span><span class="p">()</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">TextObject</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+</code></pre>
+      <p id="4f31ffa5-feaf-4b55-b90f-45c366236129" class="">This method creates <code>QObject</code>, that is also a <code>QTextObjectInterface</code> instance. This has to have methods <code>.intrinsicSize()</code> and <code>.drawObject()</code>. In this case, it just returns values defined in the widget itself, and also renders the widget to the <code>painter</code>.</p>
+      <p id="38cce446-447c-4fb3-b3b6-257f34225c5b" class="">Resulting <code>TextObject</code> is then registered as handler for given <code>text_format_id</code> number.</p>
+      <p id="58c71ff4-9a99-4b61-864f-7782ab045037" class="">Then, when you actually want to inline the widget to the text in the <code>QTextEdit</code>, you use the second method and map the given <code>text_format_id</code> to unicode character 0xfffc called <a href="https://www.fileformat.info/info/unicode/char/fffc/index.htm">OBJECT REPLACEMENT CHARACTER</a>:</p>
+      <pre class="code"><code><span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">),</span> <span class="n">text_format_id</span><span class="p">)</span>
+</code></pre>
+      <p id="041db683-bc9a-4fff-b23b-5d5aee821bd7" class="">Which does what it says:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">):</span>
+    <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
+    <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">)</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">char_format</span><span class="p">)</span>
+</code></pre>
+      <p id="05887cf7-1f6c-4897-9cec-3977ab8af770" class="">That's not bad and it actually works, but the included object doesn't update itself and doesn't react to events and user input. Basically it acts as inlined image.</p>
+      <figure id="0820fcd4-9e08-49f6-9102-e28b361d1652" class="image">
+        <a href="Active_widget_in_PyQT5_-_QTextEdit/example_window.png"><img style="width:284px" src="Active_widget_in_PyQT5_-_QTextEdit/example_window.png"></a>
+      </figure>
+      <h1 id="071da08f-54f5-4534-b295-d9f7f867ba11" class="">Editability hack</h1>
+      <p id="3b3077d1-2663-4ac2-858a-4c5dceade7aa" class="">Naturally, I wanted to use the inlined widget as an actual widget, not as a picture, so I experimented around and managed to come with simple solution - just add the widget on top of the image!</p>
+      <p id="a298bed3-41de-4026-b16d-966cc63e3ada" class="">Modification is really simple, just update the draw method by adding:</p>
+      <pre class="code"><code><span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre>
+      <p id="8a4ad590-6e21-4722-aef3-2472f04dda7f" class="">so it will look like this:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())))</span>
+    <span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre>
+      <p id="efe4c1da-7bc2-481e-95b7-6aa2f6a4e622" class="">and set widget's parent to the editor itself (this is actually important!). Final code looks like this:</p>
+      <pre class="code"><code><span class="ch">#! /usr/bin/env python3</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextFormat</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextCharFormat</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextObjectInterface</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QObject</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QLineEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QTextEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+
+
+<span class="k">class</span> <span class="nc">ExampleWindow</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Example window'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">textCursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'beginning</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="p">)</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'I am here!'</span><span class="p">)</span>
+
+        <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="mi">1001</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">),</span> <span class="n">text_format_id</span><span class="p">)</span>
+
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'end'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">setTextCursor</span><span class="p">(</span><span class="n">cursor</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSizeF</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+            <span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())))</span>
+                <span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">()</span><span class="o">.</span><span class="n">documentLayout</span><span class="p">()</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">TextObject</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">):</span>
+        <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
+        <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">char_format</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">ExampleWindow</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</code></pre>
+      <figure id="4036bcce-ce2d-4053-b767-fe981ea7eb74" class="image">
+        <a href="Active_widget_in_PyQT5_-_QTextEdit/text_edit_editable.png"><img style="width:288px" src="Active_widget_in_PyQT5_-_QTextEdit/text_edit_editable.png"></a>
+      </figure>
+      <p id="1beaa199-0c07-4011-b187-f0366652df07" class="">Position is updated when you type, so the widget on top of the image moves accordingly.</p>
+      <p id="828b04f6-3f2f-4511-86a1-20b020b8b03a" class="">Negative effects:</p>
+      <ol id="43461ee9-b9fc-4e65-a2a4-b01950b52ca9" class="numbered-list" start="1">
+        <li>The image (or more specifically, the character that the image is bound to) under the widget can be deleted and so it disappears, but the widget itself is still here. You need to detect whether the character is still present after each modification, and if not, then hide the object.</li>
+      </ol>
+      <ol id="c578298f-f272-49cd-8d57-f3365792b481" class="numbered-list" start="2">
+        <li>I am fidgeting with the widget position to align it properly: <code>widget.move(rect.x() + 1, rect.y() + 1)</code>, because by default, it is off by one pixel in both directions. This can be solved simply by setting background to the widget, so the image under it won't be visible and this won't be noticeable. At least I hope so.</li>
+      </ol>
+      <ol id="52a1f024-1438-4aaf-a2da-80946ff8e333" class="numbered-list" start="3">
+        <li>Scrolling can break things. When the text area is too small and if it is in scrollable container, weird stuff happens with the Y coordinates. This will require improvements.</li>
+      </ol>
+      <figure class="block-color-gray_background callout" id="e7de0cf5-7211-4e4b-98b7-354afd0da07e" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">📌</span>
+        </div>
+        <div style="width:100%">
+          The widget doesn't redraw the image itself when the <code>text</code> property is updated. You have to trigger any edit action to cause redrawing, or call <code>self.wysiwyg_widget.viewport().update()</code> manually.
+        </div>
+      </figure>
+      <h1 id="25429979-e6c9-4e0f-8ea6-1ce46ac0a5e6" class="">Final upgrade</h1>
+      <p id="66861407-c283-44bb-9004-523f02da2396" class="">Of course, I wanted have widget that can be edited naturally, without listed problems. Ideally, all of this would be automated and encapsulated somewhere in the background. I've also discovered that my solution doesn't work much for multiple inlined objects, so I had to solve all of the problems.</p>
+      <p id="f4b19a57-84a8-42e0-88e4-6542cbb76472" class="">Here is my current code:</p>
+      <pre class="code"><code><span class="ch">#! /usr/bin/env python3</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPen</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextCursor</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextFormat</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextCharFormat</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextObjectInterface</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QObject</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QLineEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QTextEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+
+
+<span class="k">class</span> <span class="nc">InlinedWidgetInfo</span><span class="p">:</span>
+    <span class="n">object_replacement_character</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">)</span>
+    <span class="n">_instance_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">widget</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="n">InlinedWidgetInfo</span><span class="o">.</span><span class="n">_instance_counter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">char</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">object_replacement_character</span>
+
+        <span class="n">InlinedWidgetInfo</span><span class="o">.</span><span class="n">_instance_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">class</span> <span class="nc">ExampleWindow</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Example window'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">textCursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'beginning</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="p">)</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'First'</span><span class="p">)</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+
+        <span class="n">widget2</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="p">)</span>
+        <span class="n">widget2</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'Second'</span><span class="p">)</span>
+        <span class="n">widget2</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+
+        <span class="n">inlined_widget_wrapper</span> <span class="o">=</span> <span class="n">InlinedWidgetInfo</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+        <span class="n">inlined_widget_wrapper2</span> <span class="o">=</span> <span class="n">InlinedWidgetInfo</span><span class="p">(</span><span class="n">widget2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">inlined_widget_wrapper</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget_wrapper</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">inlined_widget_wrapper2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget_wrapper2</span><span class="p">)</span>
+
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="s1">'end'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">setTextCursor</span><span class="p">(</span><span class="n">cursor</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">currentCharFormatChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_character_format_change</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">selectionChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">textChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_text_changed</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inlined_widget</span><span class="p">):</span>
+        <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSizeF</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+            <span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+                <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+                <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">white</span><span class="p">))</span>
+                <span class="n">painter</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+                <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
+
+        <span class="n">document_layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">()</span><span class="o">.</span><span class="n">documentLayout</span><span class="p">()</span>
+        <span class="n">document_layout</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">TextObject</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">inlined_widget</span>
+
+    <span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget</span><span class="p">):</span>
+        <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
+        <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="n">char_format</span><span class="p">)</span>
+        <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_character_format_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qtextcharformat</span><span class="p">):</span>
+        <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">qtextcharformat</span><span class="o">.</span><span class="n">objectType</span><span class="p">()</span>
+
+        <span class="c1"># id 0 is used when the object is deselected - I don't really want the id</span>
+        <span class="c1"># itself, I just want to know that there was some change AFTER it was done</span>
+        <span class="k">if</span> <span class="n">text_format_id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_text_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">current_text_lenght</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">&gt;</span> <span class="n">current_text_lenght</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">=</span> <span class="n">current_text_lenght</span>
+
+    <span class="k">def</span> <span class="nf">_trigger_obj_char_rescan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">()</span>
+        <span class="n">character_indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">cnt</span> <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="n">InlinedWidgetInfo</span><span class="o">.</span><span class="n">object_replacement_character</span>
+        <span class="p">]</span>
+
+        <span class="c1"># get text_format_id for all OBJECT REPLACEMENT CHARACTERs</span>
+        <span class="n">present_text_format_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">character_indexes</span><span class="p">:</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">QTextCursor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">())</span>
+
+            <span class="c1"># I have to create text selection in order to detect correct character</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">QTextCursor</span><span class="o">.</span><span class="n">KeepAnchor</span><span class="p">)</span>
+
+            <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">charFormat</span><span class="p">()</span><span class="o">.</span><span class="n">objectType</span><span class="p">()</span>
+
+            <span class="n">present_text_format_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">)</span>
+
+        <span class="c1"># diff for characters that are there and that should be there</span>
+        <span class="n">expected_text_format_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">removed_text_ids</span> <span class="o">=</span> <span class="n">expected_text_format_ids</span> <span class="o">-</span> <span class="n">present_text_format_ids</span>
+
+        <span class="c1"># hide widgets for characters that were removed</span>
+        <span class="k">for</span> <span class="n">text_format_id</span> <span class="ow">in</span> <span class="n">removed_text_ids</span><span class="p">:</span>
+            <span class="n">inlined_widget</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">text_format_id</span><span class="p">]</span>
+            <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">text_format_id</span><span class="p">]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">ExampleWindow</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</code></pre>
+      <p id="dc3e6bb8-2b78-429b-b798-a347db8d6bc9" class="">As you can see, there are several differences. First and the most obvious one is the <code>InlinedWidgetInfo</code> class:</p>
+      <pre class="code"><code><span class="k">class</span> <span class="nc">InlinedWidgetInfo</span><span class="p">:</span>
+    <span class="n">object_replacement_character</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">)</span>
+    <span class="n">_instance_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">widget</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="n">InlinedWidgetInfo</span><span class="o">.</span><span class="n">_instance_counter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">char</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">object_replacement_character</span>
+
+        <span class="n">InlinedWidgetInfo</span><span class="o">.</span><span class="n">_instance_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre>
+      <p id="7bd90bbb-a090-4884-af1f-29a9cd9f2527" class="">This is just a container, that manually handles all the fluff with generating new <code>text_format_id</code>. After some experimentation, I've noticed that you always have to use same unicode character, which is meant directly for this - as an object replacement in rich text. All other methods were rewritten to use and expect this class.</p>
+      <p id="e50decc4-cbe7-4a70-8d03-e79055986312" class="">You just use it naturally like this:</p>
+      <pre class="code"><code><span class="n">inlined_widget_wrapper</span> <span class="o">=</span> <span class="n">InlinedWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">inlined_widget_wrapper</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget_wrapper</span><span class="p">)</span>
+</code></pre>
+      <p id="fa9f126d-7090-408e-87aa-35167a49a787" class=""><code>.wrap_with_text_object()</code> method was redefined, it now stores the <code>inlined_widget</code> object to the <code>.text_format_id_to_inlined_widget_map</code> dictionary attribute:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inlined_widget</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSizeF</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+
+        <span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="n">_self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+            <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
+            <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">white</span><span class="p">))</span>
+            <span class="n">painter</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+            <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
+
+    <span class="n">document_layout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">()</span><span class="o">.</span><span class="n">documentLayout</span><span class="p">()</span>
+    <span class="n">document_layout</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">TextObject</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">inlined_widget</span>
+</code></pre>
+      <p id="d19e5ef3-ad93-4761-a13a-7956b33b4808" class=""><code>.insert_text_object</code> was also slightly redefined, but only so that it now calls <code>.show()</code> on the widget, that is hidden by default right after it's creation.</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget</span><span class="p">):</span>
+    <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
+    <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">)</span>
+    <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="n">char_format</span><span class="p">)</span>
+</code></pre>
+      <p id="d00fbfc5-b8e6-4d80-9a01-ff0fcbaf4ae0" class="">You maybe noticed, that three new methods were added and connected to proper signals:</p>
+      <pre class="code"><code><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">currentCharFormatChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_character_format_change</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">selectionChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">textChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_text_changed</span><span class="p">)</span>
+</code></pre>
+      <p id="57e3473a-3f02-4b73-8ef4-7b38a690dd7a" class="">First one is automatically called by PyQt5 each time cursor touches any of the <em>object replacement characters</em>. It is also called with <code>objectType</code> zero when the cursor stop touching it. As I want to detect deletion of <em>object replacement character</em>, this is exactly what I want.</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">on_character_format_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qtextcharformat</span><span class="p">):</span>
+    <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">qtextcharformat</span><span class="o">.</span><span class="n">objectType</span><span class="p">()</span>
+
+    <span class="c1"># id 0 is used when the object is deselected - I don't really want the id</span>
+    <span class="c1"># itself, I just want to know that there was some change AFTER it was done</span>
+    <span class="k">if</span> <span class="n">text_format_id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">()</span>
+</code></pre>
+      <p id="5e917501-f537-42a1-9d3c-9ede52f15223" class="">I was also forced to add <code>.on_text_changed()</code> that is called each time text is changed, and check whether the change was deletion of character (that is, text is now shorter), because <code>.on_character_format_change()</code> isn't called when delete key is used on last item :(.</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">on_text_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">current_text_lenght</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">())</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">&gt;</span> <span class="n">current_text_lenght</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">=</span> <span class="n">current_text_lenght</span>
+</code></pre>
+      <p id="497f13f5-2ef1-4961-9afe-1aefdb87f66f" class="">Then there is this slightly more complicated method <code>._trigger_obj_char_rescan()</code> which is called each time cursor stops touching any of the <em>object replacement characters</em>, or when the text selection is applied or when character is deleted.</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">_trigger_obj_char_rescan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">()</span>
+    <span class="n">character_indexes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">cnt</span> <span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="n">InlinedWidgetInfo</span><span class="o">.</span><span class="n">object_replacement_character</span>
+    <span class="p">]</span>
+
+    <span class="c1"># get text_format_id for all OBJECT REPLACEMENT CHARACTERs</span>
+    <span class="n">present_text_format_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">character_indexes</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">QTextCursor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">document</span><span class="p">())</span>
+
+        <span class="c1"># I have to create text selection in order to detect correct character</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">QTextCursor</span><span class="o">.</span><span class="n">KeepAnchor</span><span class="p">)</span>
+
+        <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">charFormat</span><span class="p">()</span><span class="o">.</span><span class="n">objectType</span><span class="p">()</span>
+
+        <span class="n">present_text_format_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">)</span>
+
+    <span class="c1"># diff for characters that are there and that should be there</span>
+    <span class="n">expected_text_format_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">removed_text_ids</span> <span class="o">=</span> <span class="n">expected_text_format_ids</span> <span class="o">-</span> <span class="n">present_text_format_ids</span>
+
+    <span class="c1"># hide widgets for characters that were removed</span>
+    <span class="k">for</span> <span class="n">text_format_id</span> <span class="ow">in</span> <span class="n">removed_text_ids</span><span class="p">:</span>
+        <span class="n">inlined_widget</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">text_format_id</span><span class="p">]</span>
+        <span class="n">inlined_widget</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">text_format_id</span><span class="p">]</span>
+</code></pre>
+      <p id="0bab7941-95c2-49f5-9867-dd9e194ddcd6" class="">It may look complicated, but it's really simple:</p>
+      <ol id="f9741e4e-a6eb-45de-a219-dba9099d3865" class="numbered-list" start="1">
+        <li>Get text indices for all <em>object replacement characters</em>.</li>
+      </ol>
+      <ol id="e87b22f7-14cb-4cc8-90d2-585b5e890bd1" class="numbered-list" start="2">
+        <li>Put cursor at each index and call methods that will get you <code>text_format_id</code> for that character.</li>
+      </ol>
+      <ol id="d6429bc9-436d-49f5-959a-207bd830d86d" class="numbered-list" start="3">
+        <li>Get diff of expected characters and present characters, so you get characters that were removed.</li>
+      </ol>
+      <ol id="63948221-ddec-4801-a842-791c15a0ceb9" class="numbered-list" start="4">
+        <li>Call <code>.hide()</code> for all widgets that correspond with removed characters.</li>
+      </ol>
+      <p id="a870615b-daf4-47a3-83cb-782d697ccfce" class="">With all this, it finally works as expected:</p>
+      <figure id="28d78f43-9fb2-4e23-b286-880bae4cc0b3" class="image">
+        <a href="Active_widget_in_PyQT5_-_QTextEdit/out.gif"><img style="width:288px" src="Active_widget_in_PyQT5_-_QTextEdit/out.gif"></a>
+      </figure>
+      <p id="e55f1302-f203-4fda-ab7f-3ca6aa28b6c4" class="">What is missing is handling of mime-types, so copy paste and drag & drop would work, but I'll leave that for some other time.</p>
+      <h1 id="283fae8f-63e9-4326-8a6c-7a5a805fe860" class="">Relevant links</h1>
+      <ul id="19bb2a50-30c5-4dfd-ae4f-8629508803dd" class="bulleted-list">
+        <li>
+          <a href="https://doc.qt.io/qt-5/qtextobjectinterface.html">https://doc.qt.io/qt-5/qtextobjectinterface.html</a>
+        </li>
+      </ul>
+      <ul id="70abc4e8-636e-43b1-b9db-afb030e0d683" class="bulleted-list">
+        <li>
+          <a href="https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html">https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html</a>
+        </li>
+      </ul>
+      <ul id="887652a2-8643-4724-8620-66a7e741fb11" class="bulleted-list">
+        <li>
+          <a href="https://stackoverflow.com/questions/28956693/pyqt5-qtextedit-auto-completion">https://stackoverflow.com/questions/28956693/pyqt5-qtextedit-auto-completion</a>
+        </li>
+      </ul>
+      <ul id="fbb22cee-8176-4dec-b6f9-72cd277059ff" class="bulleted-list">
+        <li>
+          <a href="https://doc.qt.io/qt-5/qtextdocument.html">https://doc.qt.io/qt-5/qtextdocument.html</a>
+        </li>
+      </ul>
+      <ul id="4ebbe31d-4e78-4b33-b66f-242fc63b4b2e" class="bulleted-list">
+        <li>
+          <a href="https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html">https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html</a>
+        </li>
+      </ul>
+      <ul id="25902f6c-b07a-4e0e-bdad-7c384b22050e" class="bulleted-list">
+        <li>
+          <a href="https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py">https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py</a>
+        </li>
+      </ul>
+      <ul id="1000fe0f-fe5e-4605-a4e0-a19237f6cfe9" class="bulleted-list">
+        <li>
+          <a href="https://stackoverflow.com/questions/55909886/embed-pyqtgraph-into-pyqt-textedit">https://stackoverflow.com/questions/55909886/embed-pyqtgraph-into-pyqt-textedit</a>
+        </li>
+      </ul>
+      <ul id="f5bf1da8-2428-40f9-941e-e26779628422" class="bulleted-list">
+        <li>
+          <a href="https://doc.qt.io/qt-5/qabstractitemdelegate.html#details">https://doc.qt.io/qt-5/qabstractitemdelegate.html#details</a>
+        </li>
+      </ul>
+      <h1 id="647adefb-44f4-40ab-9ca0-7ced53394f1a" class="">Changelog</h1>
+      <h3 id="aa3e6c60-d55c-4167-93cb-1950c3fda0b1" class=""><time>@2020/01/08</time></h3>
+      <p id="c08ee592-43d1-4bf6-81da-d6b2c73307bd" class="">Fixed behavior when the delete key is pressed for last inlined item.</p>
+      <h3 id="0b64a313-efff-49ac-a485-82efa578e2fa" class=""><time>@2020/01/07</time></h3>
+      <p id="c43afd3c-6562-47fa-a792-fea2e915e736" class="">Code updated so that it now supports multiple inlined widgets.</p>
+      <h3 id="520c9707-c3cf-4123-9697-0fba7f7d75b1" class=""><time>@2020/01/06</time></h3>
+      <p id="1452e231-9275-4568-893d-b4e511d75325" class="">Article published.</p>
+      <hr id="afbcd30b-ec99-48e7-9954-76667fdc6890">
+      <figure class="block-color-gray_background callout" id="72d527ef-e2f9-4c45-83e1-ef36afb20771" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">💡</span>
+        </div>
+        <div style="width:100%">
+          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
+        </div>
+      </figure>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../Changelog.html">more</a>
+  </div>
+</body>
+</html>

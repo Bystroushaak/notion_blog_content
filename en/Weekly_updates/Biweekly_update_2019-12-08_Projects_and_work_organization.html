@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Biweekly update 2019-12-08; Projects and work organization</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Biweekly update 2019-12-08; Projects and work organization">
+  <meta name="twitter:description" content="Overall quite productive two weeks, but I didn't do much programming on my own personal projects.">
+  <meta name="twitter:image" content="Biweekly_update_2019-12-08_Projects_and_work_organization/obj_Wiki_thumb.jpg">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">Weekly updates</a> / Biweekly update 2019-12-08; Projects and work organization
+  <article id="319a3b92-6ae1-4a2f-8cbb-a3aa1dfa293c" class="page sans">
+    <header>
+      <h1 class="page-title">Biweekly update 2019-12-08; Projects and work organization</h1>
+    </header>
+    <div class="page-body">
+      <p id="433240fa-3491-4350-a2ed-f124aa6447e4" class="">Overall quite productive two weeks, but I didn't do much programming on my own personal projects.</p>
+      <h1 id="2b16ba79-fb33-47cf-80e2-9410e0979e03" class="">Work</h1>
+      <p id="c1b2ff5c-8b35-415a-a86d-8449d1d41648" class="">I've been doing a lot these two weeks. Specifically, I was creating integration tests for gigantic PyQt application. I have to say, that this sux much more, than expected. I've ended up creating my own pseudo-framework for testing, loosely based on <a href="https://pytest-qt.readthedocs.io/en/latest/index.html">pytest-qt</a> and strapping together all kinds of reflection in the PyQt framework to dynamically wait for dialogs.</p>
+      <p id="4d458331-1486-4370-ad86-662bfea65f3d" class="">The task looked simple enough, but went to shit pretty quickly, because half of the reflection present in the PyQt segfaults randomly. For example <a href="https://doc.qt.io/archives/qt-4.8/qapplication.html#activeModalWidget"><code>QApplication.activeModalWidget()</code></a> segfaults if you call it too often, and with some weird combinations of events, like when you click on button using pytest-qtbot and then you query <code>.activeModalWidget()</code> too quickly after that. Code now mostly works, but it is padded with random <code>time.sleep()</code> and bunch of methods that should provide reflection had to be rewritten in really inefficient ways.</p>
+      <p id="7a3cf93d-6eae-4767-b1b1-4626661fd4f0" class="">I've recommended to management to buy <a href="https://www.froglogic.com/squish/">Squish</a>, which seems like only working tool, but it is really expensive (like 2-8k€ / year) and so far it isn't clear whether they'll follow my recommendation, so I'll probably continue with creating my own custom micro-framework for GUI testing. Sigh.</p>
+      <h1 id="4eee6834-9a48-4176-8663-c4378ccd2694" class="">Object wiki update</h1>
+      <p id="e63219ba-8959-4a47-bae8-13c1213575aa" class="">I've decided to put all kind of notes I have about my concept of personal wiki to one place, in form of mindmap:</p>
+      <figure id="fb250d3d-cd42-4dc4-87ed-ce831d22058b" class="image">
+        <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/obj_Wiki.png"><img style="width:900px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/obj_Wiki_thumb.jpg"></a>
+        <figcaption>
+          <em>(Sorry, full version is available only for my patreon supporters)</em>
+        </figcaption>
+      </figure>
+      <p id="aa7bb147-75f0-4fac-aa86-588e27a7a45c" class="">I've also decided that I want to think about it more often, so I've put it on my wall:</p>
+      <figure id="d307b8eb-7953-4645-952e-df911c27df26" class="image">
+        <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/objWiki_mind_map_printed.jpg"><img style="width:3024px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/objWiki_mind_map_printed_thumb.jpg"></a>
+      </figure>
+      <p id="25106837-3192-46cd-8e5c-cdccb5ec64f5" class="">I am now in the middle of sorting individual steps by priority and creating a detailed road map for the first version.</p>
+      <p id="719a1e72-832d-49c4-9f52-3a328ef0e147" class="">Several books I've read in the last six months suggested that context-switching is really costly and that it also breaks <em>the flow</em>, so I've decided to try different approach than usual and try to actually plan most of the work in advance. That is to create list of all widgets and <em>blocks of functionality</em> that I want to create for the first version and then just go and do one task after another without the need for lengthy thinking periods.</p>
+      <p id="decd9af4-fb2c-469f-b74c-e8e69791e9b8" class="">In many ways, it should be really similar to the workflow we use in work, except just for one person and on personal project. This may feel weird, but I kinda feel like I may like it instead of the standard chaos and "reconnaissance by combat".</p>
+      <p id="1b20387d-268a-4b46-a6c9-a7b50c01f064" class="">I've researched all kind of tools for kanbans in the past and basically concluded, that everything sucks hard. Even companies that actually sell kanbans for living, like Trello, suck and don't really offer the features I would like to use. For example, dependency graphs of issues, or sub-task and so on. Jira could probably do the trick, but not without heavy modification and it was horribly slow on my own server when I've tried the trial.</p>
+      <p id="297e0390-8556-450e-be1f-fa4736150dba" class="">So, I've decided what the heck and began to create kind of a dependency graph and list of task in one place. Each task has an icon next to it, similar to this list of features for tinySelf: <a href="http://kitakitsune.org/sync/visualisations/tinySelf/tinySelf_todo.jpg">http://kitakitsune.org/sync/visualisations/tinySelf/tinySelf_todo.jpg</a>.</p>
+      <p id="c1ab3bdf-5864-401a-a60a-9bd0954d7aa8" class="">And there are road maps with features under them, and each feature is split into multiple sub-tasks, which sometimes link to other tasks using dotted arrows. Progress should be checked against this mind map, and it will be updated periodically to track what got done and what needs to be researched / updated. Issues on the Github will correspond with subtasks.</p>
+      <p id="4ed7d3fa-8a7b-40d1-bac6-9275b4ab329f" class="">Here is a taste of how the overall layout looks like. I feel like I want to keep the project private at the moment, so the image is really lowres and just to get an idea of what I am talking about:</p>
+      <figure id="6c7e155f-acb0-453e-94b0-51c863a1f9e3" class="image">
+        <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/objWiki_dependency_graph.png"><img style="width:528px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/objWiki_dependency_graph.png"></a>
+      </figure>
+      <p id="80826f70-49b5-466b-ba88-d278dc97d992" class="">What do you think about this kind of work organization? Email me or shout <a href="https://twitter.com/bystroushaak">@Bystroushaak</a> on twitter to let me know.</p>
+      <h1 id="63f26f2d-d3dd-49c7-9cf6-3aaeac69a1c1" class="">Book report</h1>
+      <p id="febda7fd-15cc-4bf4-be1a-11b8e487e839" class="">I've read <a href="https://www.goodreads.com/book/show/6462796-orbus"><em>Orbus</em></a> by Neal Asher for the third time. It was great, as always.</p>
+      <p id="5b3caff6-4f26-4052-98d1-3b1fb2b1a854" class="">I've also finally finished <a href="https://www.goodreads.com/book/show/693795.John_Von_Neumann"><em>John von Neumann</em></a> by Norman Macrae. It was .. kinda strange. Not bad, but at the same time I feel like I would like something deeper.</p>
+      <p id="f5e8c067-b2a8-437a-807c-91e9bf264916" class="">Anyway, I am working trough the <a href="https://www.goodreads.com/book/show/18693669-the-organized-mind"><em>Organized mind</em></a> and <a href="https://www.goodreads.com/book/show/829616.Lateral_Thinking"><em>Lateral thinking</em></a> in desperate attempt to crunch down my todo stack.</p>
+      <figure id="938927fe-3fd1-4286-8291-bf67f4dc806d" class="image">
+        <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/top_of_the_stack.jpg"><img style="width:1600px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/top_of_the_stack_thumb.jpg"></a>
+        <figcaption>
+          <em>(This is not the todo stack, this is just the part called "top of the stack")</em>
+        </figcaption>
+      </figure>
+      <p id="6144c8ef-5d7b-4069-916a-e4afd43ed131" class="">And I am still in the middle of the <em>Makers</em> by Stross and also <em>Use of weapons</em> by Banks in ebook reader.</p>
+      <h1 id="b42698f9-7c26-484e-9658-6e1685a4038c" class="">Writing</h1>
+      <p id="7e0068bb-b7c3-43f8-8d8d-bb4b3d66aab9" class="">Like last time I've published "standalone" article, <a href="../LVR-15_research_reactor_near_Prague.html">LVR-15 research reactor near Prague</a> also created nice bump in traffic, but that's it. After day or two, it drops back to zero (actually, there is something like 300 visitors every day, but mostly bots).</p>
+      <figure id="24e3a462-311d-4efd-a383-040e6b881813" class="image">
+        <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/traffic_bump.png"><img style="width:777px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/traffic_bump.png"></a>
+      </figure>
+      <h1 id="af4b0dc9-7546-4be4-936b-e529aa741f82" class="">Random stuff</h1>
+      <h3 id="9195e97f-22e5-4f27-ba72-c82de167f702" class="">DNA sequencing</h3>
+      <p id="be2bf997-1308-411d-999d-faa7c144fed0" class="">I've got my results from DNA sequencing. I was quite shocked that raw download has something like 111GB and thats after compression with gzip. At the moment I am repacking the results using <a href="https://github.com/ckolivas/lrzip">lrzip</a>, but it goes slowly. Really slowly.</p>
+      <hr id="b42d0442-e30e-424c-b880-639eec1b15c6">
+      <h3 id="29fe7de0-2981-4b83-b13e-b38da6dc5c03" class="">Activity board</h3>
+      <p id="ba2e3c4e-b1da-4bca-b1fc-c69dc8bba239" class="">I've spent absurd amount of time trying to build activity board for my 1.5 years old daughter. In case you don't know what an activity board is, its usually wooden plate with bunch of random stuff put on it. Kids like to go and play with it:</p>
+      <div id="2adbfc54-0d41-4d2e-9f8b-c0ae22b5492b" class="column-list">
+        <div id="7644df94-e071-438d-a9c3-1781b7de7b93" style="width:50%" class="column">
+          <figure id="9d59e704-219f-4f22-a144-8a27f2f238b1" class="image">
+            <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/bdf9b768dd62e1bfea0f50250e4e1895.jpg"><img style="width:750px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/bdf9b768dd62e1bfea0f50250e4e1895.jpg"></a>
+          </figure>
+        </div>
+        <div id="4c2ff9ff-3a24-49de-a5ad-b5cfc0cd5c27" style="width:50%" class="column">
+          <figure id="bbf5524a-4475-4632-afdd-14fd855673f9" class="image">
+            <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/sensory-board-busy-educational-toy-activity-the-is-both-a-great-developmental-tool-and-in-engaging-fun-for-child-diy.jpg"><img style="width:570px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/sensory-board-busy-educational-toy-activity-the-is-both-a-great-developmental-tool-and-in-engaging-fun-for-child-diy.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="fb430a7e-27d1-4f6f-9b32-182bbbe81274" class="">I got carried away and I've spent probably more time that I've should by giving it this paint job. It was first time I've played with paints, and really long time since I've been playing with wood.</p>
+      <div id="e0abdf0f-d9fb-468c-b5f1-baf762180539" class="column-list">
+        <div id="606f5fd5-bb7d-4343-a006-53883d360317" style="width:50%" class="column">
+          <figure id="7df70737-6adb-47d3-88f5-c5e3c5ab6ec2" class="image">
+            <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/2019-12-08_23.08.02.jpg"><img style="width:1200px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/2019-12-08_23.08.02_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="36d3fba8-136b-4174-99ea-5e07fd12e813" style="width:50%" class="column">
+          <figure id="aaef9e0b-71bf-4969-92d7-82a9c955e9d6" class="image">
+            <a href="Biweekly_update_2019-12-08_Projects_and_work_organization/2019-12-08_23.07.42.jpg"><img style="width:1200px" src="Biweekly_update_2019-12-08_Projects_and_work_organization/2019-12-08_23.07.42_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="42465cb0-0b06-4973-bd54-ec55d3a00f2b" class="">There is still bunch of stuff that should go in, I'll post results when its done. Here is a temporary <a href="https://www.notion.so/?r=9958e104367b4d769879411f2205d09e">notion.so</a> page which I am using to track the progress, if you are interested: <a href="https://www.notion.so/sharedmindspace/Activity-board-veci-12f79fcd749949008fd81ed99166f4e9">https://www.notion.so/sharedmindspace/Activity-board-veci-12f79fcd749949008fd81ed99166f4e9</a></p>
+      <hr id="cbfd7bdd-d80f-4fb7-9177-9f679944579f">
+      <figure class="block-color-gray_background callout" id="b6e2a12c-ca13-4dc1-b07e-f3aefeb2e9d7" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">💡</span>
+        </div>
+        <div style="width:100%">
+          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
+        </div>
+      </figure>
+      <h1 id="87397cee-0c2a-4314-bed7-c43c480d95fa" class="">Relevant discussions</h1>
+      <ul id="8cb625a2-8d76-4d52-8537-31ad920e4050" class="bulleted-list">
+        <li>
+          <a href="https://twitter.com/bystroushaak/status/1203825476948639745">Twitter</a>
+        </li>
+      </ul>
+      <ul id="1d783812-6ca2-419c-bef0-661c8d87af34" class="bulleted-list">
+        <li>
+          <a href="https://www.patreon.com/posts/32202756">Patreon</a>
+        </li>
+      </ul>
+      <p id="31dc9ab3-da9d-4050-b978-39a9d219360a" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

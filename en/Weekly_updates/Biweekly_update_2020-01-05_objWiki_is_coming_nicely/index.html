@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Biweekly update 2020-01-05; objWiki is coming nicely</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Biweekly update 2020-01-05; objWiki is coming nicely">
+  <meta name="twitter:description" content="2020, eh? I really hope that this year will be better than the last one, which was in many ways too close to my personal low of all times.">
+  <meta name="twitter:image" content="objWiki_dependency_graph.png">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Weekly updates</a> / Biweekly update 2020-01-05; objWiki is coming nicely
+  <article id="a602a43e-9274-418c-aceb-985cd741e405" class="page sans">
+    <header>
+      <h1 class="page-title">Biweekly update 2020-01-05; objWiki is coming nicely</h1>
+    </header>
+    <div class="page-body">
+      <p id="71831f43-0eb9-4e8d-acc2-84416f4247ef" class="">2020, eh? I really hope that this year will be better than the last one, which was in many ways too close to my personal low of all times.</p>
+      <p id="fdc2185d-5ca2-4cba-bd58-9a164c6ba7b6" class="">I've logged more than 22 hours in work on top of the regular 40 hours long work week, because we were deploying new version of our system into production. I've had weekend shifts and night shifts. It was time-consuming, but it should allow me to take some time off during this month, so I am looking forward to that.</p>
+      <h1 id="af33c1fb-ccad-4149-9072-6aab114c8f33" class="">tinySelf progress</h1>
+      <p id="a3ffd6ba-f765-4c9a-b8c6-715647af2d6e" class="">I've got to tinySelf slightly during the Christmas, and I've managed to probably solve problem with cloning primitive objects, but I didn't commit anything yet.</p>
+      <h1 id="00854a4b-7943-44c8-9dab-daa3ae5c33ad" class="">Object wiki update</h1>
+      <p id="6fe2d8f7-c935-42cb-a3d9-99ea8533e32d" class="">I've made a lot of progress. You can see it best on the month old dependency graph and graph updated today:</p>
+      <div id="a6be4465-9bda-46cc-8650-586fa4f151be" class="column-list">
+        <div id="568c251d-0c1c-4c56-840e-c92b3d403789" style="width:50%" class="column">
+          <figure id="76e6867a-b997-426b-842d-a7f90258e304" class="image">
+            <a href="objWiki_dependency_graph.png"><img style="width:288px" src="objWiki_dependency_graph.png"></a>
+          </figure>
+          <p id="480fe007-01cd-4536-8722-370d4e5e077f" class=""></p>
+        </div>
+        <div id="49ac0937-8a6a-43fa-a4a6-b0fff14ce3af" style="width:50%" class="column">
+          <figure id="2dddee36-76af-4d67-befd-3139b066c159" class="image">
+            <a href="2019.01.05_objWiki_dependency_graph.png"><img style="width:1024px" src="2019.01.05_objWiki_dependency_graph_thumb.jpg"></a>
+            <figcaption>
+              <em>(Full version is available</em> <em><a href="https://www.patreon.com/posts/32896305">for my patrons.</a></em><em>)</em>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <p id="a3929af4-cbf7-4f75-bd78-d25d6210a3f9" class="">I've put a lot of work into learning the PyQt5. Finally, yesterday late at night, I've managed to inline regular widgets to the <code>QTextEdit</code> which wasn't easy at all and I have written longer article on that topic: <a href="../../Active_widget_in_PyQT5_-_QTextEdit.html">Active widget in PyQT5 / QTextEdit</a>. Here is a current screenshot:</p>
+      <figure id="469f12cf-842c-4602-8639-c4b706799c1f" class="image">
+        <a href="objWiki.png"><img style="width:1620px" src="objWiki_thumb.jpg"></a>
+      </figure>
+      <h1 id="2c5838fb-fe3d-4872-b0a5-4ae9dddd3bcf" class="">Book report</h1>
+      <p id="76df0e79-53be-4f4c-a719-26410b61a468" class="">I've finished <a href="https://www.goodreads.com/book/show/6422238-makers">Makers</a> by Cory Doctorow. It was nice, but maybe too long with dull passages (only 416 pages? It felt like at least twice that), but the ending was one of the kinds, that make you wish the book had a sequel.</p>
+      <pre class="code"><code><span class="err">$</span> <span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">kitakitsune</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">doctene_knihy</span><span class="o">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">grep</span> <span class="mf">2019.</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+<span class="mi">52</span>
+</code></pre>
+      <p id="c868ca66-18fb-4a25-8334-0e4f6347851f" class="">Overall, last year, I've finished 52 books (16 048 pages) and generally paged documents. That's not that bad, compared to year before that (only 39 books, 10 856 pages), but it's also not that great.</p>
+      <p id="3c8b8b82-9878-47e6-971b-5036440fc28f" class="">At the moment, I am reading <a href="https://en.wikipedia.org/wiki/Flatland">Flatland</a>, <a href="https://www.goodreads.com/book/show/18693669-the-organized-mind">Organized Mind</a>, <a href="https://www.goodreads.com/book/show/829616.Lateral_Thinking">Lateral thinking</a> and I've loaded <a href="https://www.goodreads.com/book/show/567621.The_Cassini_Division">The Cassini Division by Ken MacLeod</a> to the ebook reader and I love it so far (10% done).</p>
+      <div id="977b71cf-b159-4200-b745-7ed441291204" class="column-list">
+        <div id="32aaa3c7-77a6-453e-b34d-552692546188" style="width:18.75%" class="column">
+          <figure id="4093056b-0c6b-4df2-acaa-918aa3e9ef15" class="image">
+            <a href="scribbles.jpg"><img style="width:365px" src="scribbles.jpg"></a>
+          </figure>
+        </div>
+        <div id="6d950b62-6f64-4d70-9b6f-83596d625b01" style="width:81.25%" class="column">
+          <p id="8f649737-2ce4-495a-aaa8-e07ad931faf5" class="">Flatland led me to really weird dreams today, when I felt like taking a nap afternoon. I've dreamt about scribbling side-notes about personal wiki into my school notebooks back when I was at the elementary school. Then came the teacher and demanded that I stop that at once. I told her basically to go to fuck herself, that I am the same being as twenty years from now, only on a different point of the time axis and I won't be commanded around. Then I thought something like <em>"eh, I am going back to future"</em>, cranked the time axis settings back to the 30, and then I woke up. Weird.</p>
+        </div>
+      </div>
+      <h1 id="48a2518a-446e-40b1-b320-4343e144d980" class="">Writing</h1>
+      <p id="bcd9bc47-bfb4-45ae-9a93-8965e69376a4" class="">I've finally finished translation of one of my longer articles. I've translated it myself as the cost of the translation would be something like 200€, and I've considered that too much at the beginning and then <a href="https://www.lesswrong.com/posts/tyMdPwd8x2RygcheE/sunk-cost-fallacy">sunk cost fallacy</a> kicked in and I've decided to finish it myself, even thought it took me more than 20 hours of my free time over the course of many months.</p>
+      <p id="711e486a-66c9-447e-bb92-6375ea4b09a5" class="">I am also finishing work on the article about particle accelerator I've visited in the December. I've resized and uploaded a lot of pictures, written some story and now I am working on the 3D model of the particle accelerator itself.</p>
+      <p id="648b63fc-281a-469e-925d-fa3c5edc80dd" class="">I must really say, that I appreciate Blender more and more. For example, I've used <a href="https://fspy.io/">fspy</a> to analyze the angles in pictures I've taken and then I've imported the pictures as camera views to my 3D scene. This allowed me to model the objects in the scene in really native and easy way, as the models align themselves with the stuff on the picture.</p>
+      <figure id="24114a68-e7de-4a28-a14f-b5fffcfcb818" class="image">
+        <a href="fspy.png"><img style="width:2111px" src="fspy_thumb.jpg"></a>
+      </figure>
+      <figure id="a06ae9c3-75f5-409f-bec5-9b2c0f7e4ed3" class="image">
+        <a href="blender_mikrotron_2.png"><img style="width:2006px" src="blender_mikrotron_2_thumb.jpg"></a>
+      </figure>
+      <p id="bb35176a-3cfc-447b-af8c-139076cba420" class="">I can switch between different camera angles of the pictures I've taken, and it all aligns together with the 3D scene. This allows me to gradually cover the objects in the pictures with crude shape approximations, and they are aligned correctly with the rest of the scene! If I just did this with reference images included to the scene, it would be almost impossible to match the angles correctly (I've tried). And you can add multiple cameras with (almost correctly) aligned angles.</p>
+      <figure id="6e6c8e58-57ff-437c-815d-677989c0c181" class="image">
+        <a href="blender_mikrotron_3.png"><img style="width:2006px" src="blender_mikrotron_3_thumb.jpg"></a>
+      </figure>
+      <p id="b5a944d4-94f6-4877-ae32-15282062569c" class="">It feels really wonderful to finally have some tool that allows me to add visualizations to my articles without the bottleneck of my inability to draw nicely. I am of course horrible ineffective and I fuck up the scene all the time, but this is just matter of training and I can learn that in time. It's hard to describe the feeling, but maybe its like if you've been unable to write, and you've tried and failed each time, and then you find out that there exists completely different approach. Finally, you are able to express the stuff that's been locked inside you. Such strange .. freedom.</p>
+      <h1 id="3bac4a4e-f96a-41df-ae16-b419f49c77b7" class="">Random stuff</h1>
+      <p id="b3edb8a7-7e8d-4f1f-9e0c-1443b1a90b1a" class="">I have managed to evade Christmas. I've just said no to everyone, family, friends and used-to-be girlfriend. It sucked, but I felt like I didn't really have any other options.</p>
+      <hr id="60c531b7-7e2f-4f27-903c-4e0ac54d57ae">
+      <p id="6459ecc2-490a-40c1-ac30-642d38e5e882" class=""><a href="https://psychonautwiki.org/wiki/Nootropics">Psychonaut wiki</a> exists. Good to know.</p>
+      <ul id="2d7324df-0010-497d-ac6a-d044e8e3a708" class="bulleted-list">
+        <li>
+          <a href="https://psychonautwiki.org/wiki/Thought_acceleration">https://psychonautwiki.org/wiki/Thought_acceleration</a>
+        </li>
+      </ul>
+      <ul id="1bae4f68-c2ef-4a1c-ae60-99e857587ca6" class="bulleted-list">
+        <li>
+          <a href="https://psychonautwiki.org/wiki/Analysis_enhancement">https://psychonautwiki.org/wiki/Analysis_enhancement</a>
+        </li>
+      </ul>
+      <hr id="2822083a-fabb-4d3b-89b2-3486cb09bece">
+      <p id="24a057f0-dfd5-4776-98c3-c3ca94ce0133" class=""><a href="https://www.youtube.com/channel/UCV5vCi3jPJdURZwAOO_FNfQ">This channel</a> and this video:</p>
+      <figure id="8a2d3875-4445-41e4-9162-557ddb335355">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/V2YDApNRK3g" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="8576502b-813f-421e-8b92-1254a64626de" class="">I've loved it so much, that I am now supporting him on patreon.</p>
+      <hr id="fa568357-055f-4bcf-b383-c7670fad1e98">
+      <p id="a1780893-dccf-49ef-a4a7-176929f8c51b" class="">This is yummy:</p>
+      <figure id="2b4363c3-db98-4b48-a0c7-6e4268e27b6c">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/zVhQOhxb1Mc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="fabdcf69-4207-4d76-a0c0-fbfe02e46049" class="">Matthew Bunn has such skill and level of knowledge, that it is really wonderful to listen to him.</p>
+      <hr id="3123e026-7695-4a3a-87f7-3c1e67e8b622">
+      <p id="208dac11-a65f-4282-9361-32d2ddc0fab7" class=""><a href="https://en.wikipedia.org/wiki/In_This_Corner_of_the_World_%28film%29">In This Corner of the World</a> (<a href="https://www.imdb.com/title/tt4769824/">imdb</a>) was beautiful, and sad. Very, very sad towards the end.</p>
+      <figure id="648b6a7f-b218-4dc1-a1de-a4639fa8752e">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/-jBe-uHhlNs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="0a34080c-0a1e-4811-b6e9-247ed085f4ff">
+      <figure id="83f9d0d6-6a7b-4e92-8967-c36df8f5a328">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/3oKMjTqdTYo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="d72ebddd-c3cf-4216-99f1-bfb342b0b622" class="image">
+        <a href="comment.png"><img style="width:430px" src="comment.png"></a>
+      </figure>
+      <hr id="33859dc7-35a8-4135-bfd0-90a8d2d0ca1d">
+      <figure class="block-color-gray_background callout" id="0b53d4de-6f43-4180-bef6-c329118895a0" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">💡</span>
+        </div>
+        <div style="width:100%">
+          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
+        </div>
+      </figure>
+      <h1 id="defb6ab0-0aba-4ee6-84e0-1b91cfa9bef0" class="">Relevant discussions</h1>
+      <ul id="917c5cc1-f29c-4c39-ad6e-6a1f73461437" class="bulleted-list">
+        <li>
+          <a href="https://twitter.com/bystroushaak/status/1213925466068979712">Twitter</a>
+        </li>
+      </ul>
+      <ul id="8c9e4450-d1be-44e5-9c65-2e1b6c4c01e2" class="bulleted-list">
+        <li>
+          <a href="https://www.patreon.com/posts/32897158">Patreon</a>
+        </li>
+      </ul>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

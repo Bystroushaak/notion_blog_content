@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Speedups of the interpreter 2019/1</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Speedups of the interpreter 2019/1">
+  <meta name="twitter:description" content="So, since I did some benchmarks (Simple while benchmark 2019.01.06), I had high hopes for speedup using rpython's JIT.">
+  <meta name="twitter:image" content="profiler_1_thumb.jpg">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">tinySelf</a> / Speedups of the interpreter 2019/1
+  <article id="35fe6656-44f2-4f3d-9e90-77938e0f9259" class="page sans">
+    <header>
+      <h1 class="page-title">Speedups of the interpreter 2019/1</h1>
+    </header>
+    <div class="page-body">
+      <p id="cd88bf70-0773-4cda-aafb-f3f2ad917681" class=""><time>@2019/01/29</time></p>
+      <p id="381a2a80-9fdf-4217-bc1b-a8c13e5dc593" class="">So, since I did some benchmarks (<a href="../Simple_while_benchmark_20190106.html">Simple while benchmark 2019.01.06</a>), I had high hopes for speedup using rpython's JIT.</p>
+      <p id="172d60a5-0dce-4920-bc02-d9d0c19c65b9" class="">As it turned out, it didn't work at all - it actually runs many times slower (62 seconds instead of 17).</p>
+      <p id="cd0408ce-6388-48d5-b0fa-985779b4246b" class="">Several attempts at tweaking the code revealed where was the problem - I had to specify almost everything as "red" variable. Even things like program counter, which I didn't expect at all.</p>
+      <p id="a84a9b94-a142-453d-82b1-ccb2cab33764" class="">With those improvements, code run 20% faster than without JIT. Obviously, this wasn't acceptable, so I had to investigate.</p>
+      <h1 id="22b061f5-9184-494b-a0b8-ed46a2d9c3f3" class="">Numeric ints</h1>
+      <p id="d64c7797-c875-4044-ae48-243605449395" class="">So far, I have been using boxed integer values represented as</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># yeah, this can't be factored out, I've tried..</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">PrimitiveIntObject</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_NumberObject</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">obj</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># ... other primitive functions ...</span>
+
+<span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_map</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="n">substract</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="n">multiply</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"%"</span><span class="p">,</span> <span class="n">modulo</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;"</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;="</span><span class="p">,</span> <span class="n">lte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;"</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;="</span><span class="p">,</span> <span class="n">gte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"=="</span><span class="p">,</span> <span class="n">compare</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asString"</span><span class="p">,</span> <span class="n">as_string</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asFloat"</span><span class="p">,</span> <span class="n">as_float</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">float_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">result_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">PrimitiveIntObject</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">obj</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+</code></pre>
+      <p id="6ecf7555-87fa-4834-8180-5fe62d0edcc3" class="">This may look strange, but you have to understand that functionality is not used from the class and it's surrounding code itself (=not from rpython), but from the inside of the tinySelf. <code>add_primitive_fn()</code> adds into slots of the insides of <code>PrimitiveIntObject</code> that is represented in tinySelf code objects which wrap given "primitive" code written in RPython.</p>
+      <p id="76595431-c228-46f0-bb42-bc68ba93b22a" class="">As you can see, every integer value is boxed inside of class, which is then bound to functions, which manipulate internal <code>.value</code> property. This is obviously highly ineffective.</p>
+      <p id="0f051810-0419-4287-a8fb-46b3b308d1fb" class="">RPython should translate this into C and that in turn should optimize the code, but is there better way how to tell RPython that "this is int, so treat is as int"?</p>
+      <p id="94a6e098-18d8-49ed-a15a-da3a6be718da" class="">I thought there is in <a href="https://rpython.readthedocs.io/en/latest/rlib.html#objectmodel">UnboxedValue</a>, but it turned out that I don't really remember this from reading the documentation correctly. Ouch.</p>
+      <p id="03c5f35e-2a3a-45b5-8209-6e284ee69b4b" class="">At least I've added <code>_immutable_fields_ = ["value"]</code> declaration to all constant primitives, but it turned out that this didn't improve the performance either. Ouch^2.</p>
+      <h1 id="9d4b7871-9a00-41d4-aeac-b59ec5a5a2ed" class="">Profiling logs</h1>
+      <p id="0fec2019-91ca-40a3-95f9-3cb4b35c22c9" class="">Instead of guessing, I've decided to profile the code. I've only profiled the code with profiler once before using <code>valgrind</code>, so I've just used google and found out <a href="http://www.pixelbeat.org/programming/profiling/">Linux Profiling tools and techniques</a>, which gave me two commands to run:</p>
+      <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code"><code>valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
+      <figure id="bb40f15d-1907-443b-95e0-234b37a1f084">
+        <div class="source">
+          <a href="callgrind.out.2530.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57c100e6-92fb-4037-ab63-111301aee646/callgrind.out.2530.txt</a>
+        </div>
+      </figure>
+      <p id="f02f86f9-d87a-4692-a6b2-b34facc63bec" class="">and then</p>
+      <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code"><code>kcachegrind callgrind.out.*</code></pre>
+      <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
+      <figure id="673efe48-d19b-4297-9615-374f379d0cef" class="image">
+        <a href="profiler_1.png"><img style="width:1920px" src="profiler_1_thumb.jpg"></a>
+      </figure>
+      <figure id="cdd53cf8-f9ca-472b-bc8d-5a2419a7b1dc" class="image">
+        <a href="profiler_2.png"><img style="width:1920px" src="profiler_2_thumb.jpg"></a>
+      </figure>
+      <figure id="0a1c9401-7d8b-4753-9932-7ba7dc1da654" class="image">
+        <a href="profiler_3.png"><img style="width:1920px" src="profiler_3_thumb.jpg"></a>
+      </figure>
+      <p id="135dd53a-dc37-4d6e-88fb-d434365bd3ad" class="">Few moments of clicking around clearly showed, that unholy lot of time was wasted by copying the <em>dicts</em> in the <code>add_primitive_fn</code>. I quickly realized, that each new int, float and string is created as new object and new map for this object.</p>
+      <h1 id="e83a4fad-3fb4-43b9-885e-f1484ad5514b" class="">New map for each int</h1>
+      <p id="5536e7dd-1981-48c2-a87f-178d7d05ed68" class="">As you may know, Self is prototype based language. That means it doesn't use classes, which means that functionality is by default in each object. Code reuse is achieved using parent slots.</p>
+      <p id="37a7eca9-7504-4792-9c37-083b6bf9f4ea" class="">In class based languages, internal object representation holds just values and pointer to shared methods / description of the object's structure in the <em>class</em>. Self uses similar trick by using <em>maps</em>. When object is created, it holds only data. With object is created its map, which holds metadata - information about slots, their names and so on.</p>
+      <figure id="2445f3a8-e4c0-400d-989a-f531b22e4093" class="image">
+        <a href="2019-01-2400.12.08.png"><img style="width:384px" src="2019-01-2400.12.08.png"></a>
+      </figure>
+      <p id="733a7a82-ba29-49e0-aceb-db473c7d9b87" class="">On the internal level, each time object is cloned, it shares its map with the original object, until some kind of structural change is made.</p>
+      <figure id="4c68e4ee-a707-4264-a14c-884f99ad1d97" class="image">
+        <a href="2019-01-2923.45.11.png"><img style="width:384px" src="2019-01-2923.45.11_thumb.jpg"></a>
+      </figure>
+      <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again:</p>
+      <pre class="code"><code><span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
+    <span class="n">_immutable_fields_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_map</span><span class="p">)</span>
+
+        <span class="o">...</span>
+</code></pre>
+      <p id="d6acee57-d3db-48eb-961a-6f461627d2e8" class="">As you can see, <code>_NumberObject</code>'s init is called with <code>obj_map</code> set to <code>None</code>, which creates new map. Constructor is called for each number, which in effect has a same effect, like there is a (dynamically created) class for each number. Ouch. And each string and float. Ouch ouch.</p>
+      <p id="422d5551-ddfb-4fd5-a95f-3d5979ac1459" class="">Fortunately, this is easy to fix. Just share the map between all ints (floats, strings). Quick fix and benchmark for ints proves, that this indeed speeds up the execution significantly; from ~18 seconds to 12 with unoptimized rpython translation without JIT.</p>
+      <p id="9d98a8c6-dd08-4a08-8ef4-6e880a18db07" class="">Additional optimizations on strings, and floats got down the execution time to something around 8 seconds.</p>
+      <p id="4139de6a-3eea-4dc5-8d86-bf67118d5576" class="">Constructor of the primitive int now looks like this:</p>
+      <pre class="code"><code><span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
+    <span class="n">_OBJ_CACHE</span> <span class="o">=</span> <span class="n">ObjCache</span><span class="p">()</span>
+    <span class="n">_immutable_fields_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">slots_references</span> <span class="o">=</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">slots</span>
+            <span class="k">return</span>
+
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="n">substract</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="n">multiply</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"%"</span><span class="p">,</span> <span class="n">modulo</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;"</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;="</span><span class="p">,</span> <span class="n">lte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;"</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;="</span><span class="p">,</span> <span class="n">gte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"=="</span><span class="p">,</span> <span class="n">compare</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asString"</span><span class="p">,</span> <span class="n">as_string</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asFloat"</span><span class="p">,</span> <span class="n">as_float</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre>
+      <p id="f7b62a79-3fed-4efc-b81e-79915da0bce9" class="">All the magic is happening in the <code>_OBJ_CACHE</code>, which stores the <code>.map</code> and <code>.slots</code> properties, which are shared across all instances of <code>PrimitiveIntObject</code>. That makes sense, as only the <code>.value</code> is different for each instance.</p>
+      <p id="0b11ae03-42bb-4dab-b7e3-9491cc5f7227" class="">See the changes in <a href="https://github.com/Bystroushaak/tinySelf/commit/7946fdfecb339139f22947a0cefc871eccafdb1e">7946fdfecb339139f22947a0cefc871eccafdb1e</a>.</p>
+      <h1 id="12590cc3-6cba-447c-81da-fbe39fccee7f" class="">Don't create new maps with each change</h1>
+      <p id="7278a499-240a-49d4-9da6-90b6b2be1194" class="">I usually work in pure python and don't think much about the cost of the <em>creation</em> of the dictionary, as python is so slow, that it is nothing compared to cost of other operations. This benchmark of mine reminded me, that dictionaries are costly to create, so naturally, I asked <em>"where else do I create dictionaries?"</em></p>
+      <p id="f2d8c35a-d4bd-4288-98cc-a8406764c1d4" class="">And then I remembered - every time I change a structure of an object, I am currently creating the copy of the map.</p>
+      <p id="b15d7104-e0f3-4a18-b51d-748e0fb05cd5" class="">You see, when you have Object and his clone, and you add or remove or shift slots in one of them, they don't anymore share same map, otherwise they both would be changed. I didn't have any checks, so each operation like addition of the new slot created new map, even if the map wasn't shared between multiple objects.</p>
+      <p id="95e5dc5f-02e9-4794-adaf-287c248d6bd9" class="">It turned out, that this also have massive impact on performance as it got simple while benchmark execution time down to 4.2 seconds. And only change it required is to add new method and bool property to check when doing structural changes:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">_clone_map_if_used_by_multiple_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">used_in_multiple_objects</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+</code></pre>
+      <p id="58af517a-c0b5-4037-99a1-3d16cdce05f5" class="">as you can see in <a href="https://github.com/Bystroushaak/tinySelf/commit/f5f0efe4559742bf91973184893a01923fff4e3b">f5f0efe4559742bf91973184893a01923fff4e3b</a>.</p>
+      <h1 id="7418f07a-3138-4166-84cc-38787f75054c" class="">Clone block traits</h1>
+      <p id="9b93e5f7-d1c4-4bc9-87cc-cb1a32d97822" class="">Another low hanging fruit is block traits, which is an object, that is created and dynamically bound to each block literal moved on stack. Simply by caching this object, cloning it and change the replacement, I've got down another almost second down to 3.47 seconds.</p>
+      <p id="84663859-6bab-4212-a9de-c42c78e8369c" class="">Instead of</p>
+      <pre id="6db855d7-750c-4b93-abc1-ed6d0a1a037b" class="code"><code>def add_block_trait(block):
+    obj = Object()
+    obj.meta_add_slot("value", block)
+    obj.meta_add_slot("with:", block)
+    obj.meta_add_slot("with:With:", block)
+    obj.meta_add_slot("with:With:With:", block)
+    obj.meta_add_slot("with:With:With:With:", block)
+    obj.meta_add_slot("withAll:", block)
+    add_primitive_fn(block, "asString", _print_block_source, [])
+    add_primitive_fn(block, "getLineNumber", _get_lineno, [])
+
+    obj.scope_parent = _BLOCK_TRAIT
+
+return obj</code></pre>
+      <p id="76180af9-4268-4fc1-8f42-3cf8c5e8af08" class="">there is now cached version:</p>
+      <pre id="5d3ce8de-30bc-42e6-b498-bd18cb3754c8" class="code"><code>def _create_block_trait_prototype():
+    obj = Object()
+
+    placer = PrimitiveNilObject()
+
+    obj.meta_add_slot("value", placer, check_duplicates=True)
+    obj.meta_add_slot("with:", placer, check_duplicates=True)
+    obj.meta_add_slot("with:With:", placer, check_duplicates=True)
+    obj.meta_add_slot("with:With:With:", placer, check_duplicates=True)
+    obj.meta_add_slot("with:With:With:With:", placer, check_duplicates=True)
+    obj.meta_add_slot("withAll:", placer, check_duplicates=True)
+
+    obj.scope_parent = _USER_EDITABLE_BLOCK_TRAIT
+
+    return obj
+
+
+_BLOCK_TRAIT_PROTOTYPE = _create_block_trait_prototype()
+
+
+def add_block_trait(block):
+    obj = _BLOCK_TRAIT_PROTOTYPE.clone()
+    obj.set_slot("value", block)
+
+    add_primitive_fn(block, "asString", _print_block_source, [])
+    add_primitive_fn(block, "getLineNumber", _get_lineno, [])
+
+    return obj</code></pre>
+      <p id="fbaf3cd3-18e4-4e98-a890-d8e9e0fef157" class="">There is still need to clone the object, but objects now share same map and there is no dict-creation involved.</p>
+      <p id="de1ef170-1a7a-431d-9260-bdda7b5a78fe" class="">See the full change in <a href="https://github.com/Bystroushaak/tinySelf/commit/b41d8e9c2157e1571c3b3f0fcf401be540a35360">b41d8e9c2157e1571c3b3f0fcf401be540a35360</a>.</p>
+      <h1 id="759c9e34-66ee-47aa-bd61-cad92f523394" class="">Additional speedups</h1>
+      <p id="27a65e13-9cfe-4c30-9719-58d6fea856fe" class="">I find it really amazing how much few simple tricks and caches in the right place speed up the benchmark. From 16.26 seconds to 3.47. That's more than 460%!</p>
+      <p id="6ecbc9bc-40b3-40f1-9d15-c1bfa62a4c78" class="">My goal is to get down under one second, ideally under or around 100 milliseconds with JIT.</p>
+      <p id="269ecf1c-c460-499f-b7f1-ee10a87303dc" class="">Next things on my todolist:</p>
+      <ul id="2c207202-7e34-46cf-8b86-04530e68d4ba" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">Play with the process context switching after right amount of instructions.</span>
+        </li>
+      </ul>
+      <ul id="dd2e2ffb-8b8e-406a-80c6-bae28a87f54d" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">Global lookup table, or maybe local <code>CodeContext</code> caches for string messages to allow translating them to numbers for speedup when looking up in dicts.</span>
+        </li>
+      </ul>
+      <ul id="091dc525-0d5a-4b8f-a005-c5559bffe5c6" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked"><code>@jit.elidable</code> for pure functions.</span>
+        </li>
+      </ul>
+      <ul id="4097aafc-7f0a-4400-bed2-6d039e670445" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">Compilation of all slots into their indexes and elimination of the dict lookups until structural changes are made.</span>
+        </li>
+      </ul>
+      <ul id="1895e02f-d813-409d-bc17-95b26ba66cf5" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">Cacheing of the parent lookups with quick check whether any of the parent structure was changed.</span>
+        </li>
+      </ul>
+      <ul id="fe10e0f6-326e-47c8-9fc8-e74274fab1ee" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">Inspiration by <a href="https://github.com/hpi-swa/RSqueak">RSqueak</a> and <a href="https://github.com/SOM-st/RPySOM">RPySOM</a>.</span>
+        </li>
+      </ul>
+      <p id="bf66e1b0-0719-451d-a89a-16aaadebb193" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

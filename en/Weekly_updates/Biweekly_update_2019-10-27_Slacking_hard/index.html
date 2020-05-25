@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Biweekly update 2019-10-27; Slacking hard</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Biweekly update 2019-10-27; Slacking hard">
+  <meta name="twitter:description" content="In the productivity area, this was really, really bad week. I felt kinda overwhelmed, so I decided to relax. All my free time was consumed by anime, movies, and even some games (Minecraft / 7 days to die). Now I feel more relaxed, but at the same time, I feel like I wasted my life.">
+  <meta name="twitter:image" content="tinySelf_bug_mind_map_thumb.jpg">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Weekly updates</a> / Biweekly update 2019-10-27; Slacking hard
+  <article id="6291a1db-cc76-42e4-a21d-8a01fbd8b9d1" class="page sans">
+    <header>
+      <h1 class="page-title">Biweekly update 2019-10-27; Slacking hard</h1>
+    </header>
+    <div class="page-body">
+      <p id="d7315719-baba-4275-8f16-0e50784a57bc" class="">In the productivity area, this was really, really bad week. I felt kinda overwhelmed, so I decided to relax. All my free time was consumed by anime, movies, and even some games (Minecraft / 7 days to die). Now I feel more relaxed, but at the same time, I feel like I wasted my life.</p>
+      <h1 id="dcfc8833-8970-4454-8b40-d328fdd38f0e" class="">tinySelf progress</h1>
+      <p id="3dbcd0be-3b62-43a9-bc72-30a538ff9a43" class="">I've put some time into debugging, and ultimately into understanding the nature of the float trait bug. I now think that I understand it, but at the same time, it revealed the bug in the design which I am not yet sure how to mitigate.</p>
+      <figure id="7a1fb50e-c293-4927-89b6-309c53ac0341" class="image">
+        <a href="tinySelf_bug_mind_map.jpg"><img style="width:1600px" src="tinySelf_bug_mind_map_thumb.jpg"></a>
+      </figure>
+      <p id="647f971f-29c8-49e3-899d-bb67c3d087e2" class="">Basically the problem occurs when:</p>
+      <ol id="217e96a3-6eea-41b0-8389-919a0167bc8c" class="numbered-list" start="1">
+        <li>The object has a trait.</li>
+      </ol>
+      <ol id="942db4cc-cb07-46ed-85ef-00e4626535fb" class="numbered-list" start="2">
+        <li>You add an object created at the runtime to the trait by mirror.</li>
+      </ol>
+      <ol id="708761a2-306b-4ecc-b0e8-48846275406b" class="numbered-list" start="3">
+        <li>This newly added object calls a "primitive" method.</li>
+      </ol>
+      <p id="35690ff1-4963-4865-8140-646141018055" class="">When this happens, <code>self</code> in the primitive method points to the object added in the step 2., not to the object that has a trait in the step 1. It is kinda weird why, because the object added in step 2. uses self that points to the object that has a trait from step 1. It took me some time debugging why, and the reason is because axioms that define how the interpreter should work were wrong.</p>
+      <p id="794cad56-444a-40c5-b905-3a1d66d7d4f0" class="">The way how <code>self</code> works at the moment is kinda hacky and will need a rework. I am rethinking the approach in hope that I'll come with something cleaner, sadly, I also feel kinda paralyzed with this problem, so I am <del>procrastinating on 100% in the meantime</del> thinking about it "on the background" with the <a href="https://www.goodreads.com/book/show/3063393-pragmatic-thinking-and-learning">right hemisphere thinking</a>, hoping that I'll have some solution soon.</p>
+      <hr id="148847f0-f3b8-4bb2-aada-c82c182b58e8">
+      <p id="4da88efa-9e98-4fd5-9257-5dcdb17cc6af" class="">I've also experimented with the printer on topic of "offline code review":</p>
+      <div id="e77fe817-aba5-45ed-b247-74b2fd0c210d" class="column-list">
+        <div id="4ca20320-f44e-4007-b5f8-f71e1a2e1102" style="width:37.5%" class="column">
+          <figure id="05a9351c-e53b-4f6f-becf-60f9a33a3a75" class="image">
+            <a href="tinySelf_vytisknuty_1.jpg"><img style="width:900px" src="tinySelf_vytisknuty_1_thumb.jpg"></a>
+          </figure>
+          <p id="81df1a6a-53aa-49f6-a995-9f4f9ef46789" class="">It has 126 pages.</p>
+        </div>
+        <div id="c67d5f7c-9202-473c-8520-dc684f2c6e43" style="width:62.5%" class="column">
+          <figure id="2bf4e6a7-babe-41e0-af69-7acbfd01eeb0" class="image">
+            <a href="tinySelf_vytisknuty_2.jpg"><img style="width:1600px" src="tinySelf_vytisknuty_2_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <h1 id="36f5dff4-40b6-4212-8408-b80bd24853fe" class="">Book report</h1>
+      <p id="e66be499-904e-4636-9974-5899fb2522dc" class="">I've finished <a href="http://www.lulu.com/shop/andrei-chi%C8%99/moldable-tools/paperback/product-22849029.html"><em>Moldable tools</em></a>, and I am in the process of writing blogpost about core ideas. Other than that, I've finished <a href="https://www.goodreads.com/book/show/24968626-crux"><em>Crux</em></a> by Ramez Naam and I've immediatelly picked up third episode of the Nexus series.</p>
+      <h1 id="5ee4e1c5-0ca3-4cd0-bd1c-a52774e66d35" class="">Writing</h1>
+      <p id="10e6cb3a-b6c2-4ff6-916f-1bc6a863fb49" class="">Small progress in the <em>Moldable tools</em> blog and also few paragraphs in the <em>Shokunin</em> blogpost.</p>
+      <h1 id="d8af6741-1c58-4e12-aec2-e5ad5a3787a8" class="">Random stuff</h1>
+      <p id="801acd4e-a31c-4703-94df-8095e784a492" class="">I've got an image painted by my female colleague Barbora:</p>
+      <figure id="a96670d8-6647-47ae-84b0-a550f58197f3" class="image">
+        <a href="obraz_od_bary.jpg"><img style="width:4032px" src="obraz_od_bary_thumb.jpg"></a>
+      </figure>
+      <p id="bbaa6e7e-ab6e-4fb4-8a41-6d37f034066b" class="">It was kinda random gift, when we talked about painting and I've shown her my blender doughnut.</p>
+      <hr id="015b4882-b824-4859-b000-37d4e82e3012">
+      <p id="80951285-8147-4b2e-82d0-1574ebc659c3" class="">This was interesting:</p>
+      <figure id="f15de82d-a195-4cad-9afc-da65fdcd8451">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/efs3QRr8LWw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="a764c532-e333-4aa3-9c67-b03aa7138773">
+      <p id="4e8dc4f3-9acf-4212-b8cf-8bd5d93c4330" class="">I also really liked educational vids about proteins and biology of cell:</p>
+      <figure id="521d5a6b-7215-42b3-a665-1ec4aa79c31e">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/wvTv8TqWC48" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="2a610649-3842-45c5-8070-4489aeef6d37">
+      <p id="3393802a-f0fe-41f5-865f-950fd23c836c" class="">And two videos of Russians singing help me concentrate in work:</p>
+      <figure id="41cf9dc8-a8f7-44c8-9926-6313ba3562fe">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/SRe1dsXs6_s" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="5ef813d2-fe3d-4fd3-b528-0ed41f715730">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/_3TjfUFXJZQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="f0909b6c-bf35-455e-a87a-eac210212b16">
+      <p id="709dc70d-9381-4fcd-8744-c3c77096917f" class="">Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>.</p>
+      <hr id="d3f4105c-89e3-4e21-88fc-025aaf57ee55">
+      <h1 id="4e1ba601-706f-492c-bbd1-c71d81d9a5b5" class="">Relevant discussions</h1>
+      <ul id="1af87cf1-75ff-4c66-bc45-3b474de30764" class="bulleted-list">
+        <li>
+          <a href="https://twitter.com/bystroushaak/status/1188590970436239360">Twitter</a>
+        </li>
+      </ul>
+      <ul id="ac08de2d-e77e-47d1-8b1f-354ceeaf0d61" class="bulleted-list">
+        <li>
+          <a href="https://www.patreon.com/posts/biweekly-update-31091670">Patreon</a>
+        </li>
+      </ul>
+      <p id="2cad2a6a-a68f-40ff-8b1b-8d8442dd145b" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

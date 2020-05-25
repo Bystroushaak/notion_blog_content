@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Jak se píše programovací jazyk 6: Kompilátor AST do bytecode</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:title" content="Jak se píše programovací jazyk 6: Kompilátor AST do bytecode">
+  <meta name="twitter:description" content="V minulém díle jsem rozepsal jak vypadají moje bajtkódy. Jak se k nim ale dostat? Přes moje původní obavy se ukázalo, že neoptimalizující kompilátor je v případě, že existuje abstraktní syntaktický strom krásně jednoduchý.">
+  <script src="../../scripts.js">
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">Czech section</a> / <a class="breadcrumb" href="index.html">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 6: Kompilátor AST do bytecode
+  <article id="e4f94696-f96d-4eb9-9aac-5367d4fde57e" class="page sans">
+    <header>
+      <h1 class="page-title">Jak se píše programovací jazyk 6: Kompilátor AST do bytecode</h1>
+    </header>
+    <div class="page-body">
+      <p id="25551eb7-9571-40f3-822a-323f15fa8257" class=""><time>@2019/05/05</time></p>
+      <p id="06b981b6-11e1-4166-b266-d6f820709a23" class="">V minulém díle jsem rozepsal jak vypadají moje bajtkódy. Jak se k nim ale dostat? Přes moje původní obavy se ukázalo, že neoptimalizující kompilátor je v případě, že existuje abstraktní syntaktický strom krásně jednoduchý.</p>
+      <p id="84648165-d96a-49e8-9742-c8d881b7d98e" class="">Ke každému prvku AST stromu jsem přidal metodu <code>.compile(code_context)</code>, která do <code>code_context</code> objektu zkompiluje sebe sama, tedy vloží do něj patřičné literály a do bajtkódu vloží instrukce pro jejich použití.</p>
+      <p id="d7ee5d94-98f9-4631-8189-544f3058f4e5" class="">Například pro objekt Self to vypadá takto:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">BYTECODE_PUSH_SELF</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">context</span>
+</code></pre>
+      <p id="07842f2b-a801-4f61-8782-2f3871c99e31" class="">Pro objekt představující čísla už je to trochu složitější, neboť je třeba prvně číslo vložit do seznamu literálů:</p>
+      <pre id="b003cb46-6589-4615-8bc8-4337cd69c13e" class="code"><code>def compile(self, context):
+    index = context.add_literal_int(self.value)
+
+    context.add_bytecode(BYTECODE_PUSH_LITERAL)
+    context.add_bytecode(LITERAL_TYPE_INT)
+    context.add_bytecode(index)
+
+    return context</code></pre>
+      <p id="a36a9bfa-8de2-477c-ae05-7284b64c93e9" class="">V bajtkódu je vložená instrukce <code>PUSH_LITERAL</code>, poté typ literálu a jeho index.</p>
+      <p id="0cac3d2a-733e-4be5-b2cf-daf053e81ff2" class="">U binární zprávy je krásně vidět, jak se prvně zkompiluje čemu se má zpráva poslat a poté teprve samotná zpráva:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_literal_str_push_bytecode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">BYTECODE_SEND</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">SEND_TYPE_BINARY</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">context</span>
+</code></pre>
+      <p id="c9d20504-883e-4f25-a3c8-fe8d5447421e" class="">Prvně se resolvne název, poté se zkompiluje obsah parametru a poté se tento obsah pošle objektu na názvu. Poslední řádek <code>context.add_bytecode(1)</code> určuje počet parametrů, což je u binárních zpráv vždy jeden.</p>
+      <p id="f1ac4587-f8e1-4575-a166-d19eb9ecce71" class="">Krásně se to kombinuje s objektem <code>Send</code>, který specifikuje fakt že se má něco něčemu poslat:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">context</span>
+</code></pre>
+      <p id="3097d9d1-d4cc-43d9-b69a-8d664f946bb4" class="">Prvně zkompiluj objekt kterému bude něco posílat, což muže být třeba <code>Self</code>, poté samotnou zprávu, což může být třeba výše uvedená <code>BinaryMessage</code>.</p>
+      <p id="a57d7ca2-05a0-4eea-b8bc-5d4b4a253ad1" class="">Asi nejzajímavějším a nejsložitějším na zkompilování se ukázal <code>Object</code>:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">_add_slot_to_bytecode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">boxed_name</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">boxed_name</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="n">value</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">BYTECODE_ADD_SLOT</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">ObjectRepresentation</span><span class="p">()</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">meta_set_ast</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">meta_set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">add_literal_obj</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">BYTECODE_PUSH_LITERAL</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">LITERAL_TYPE_OBJ</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">slots</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_slot_to_bytecode</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">SLOT_NORMAL</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_slot_to_bytecode</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">add_bytecode</span><span class="p">(</span><span class="n">SLOT_PARENT</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">:</span>
+        <span class="n">new_context</span> <span class="o">=</span> <span class="n">CodeContext</span><span class="p">()</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">meta_set_code_context</span><span class="p">(</span><span class="n">new_context</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">:</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">new_context</span><span class="p">)</span>
+
+        <span class="n">obj</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">code_context</span> <span class="o">=</span> <span class="n">new_context</span>
+
+    <span class="k">return</span> <span class="n">context</span>
+</code></pre>
+      <p id="809c8a1d-6bee-4284-a4c4-3931f6c3f50d" class="">Složitost je do velké míry dána tím, že jsem se rozhodl, že objektové literály budu vkládat mezi literály jako poměrně jednoduché objekty, které nemají nic moc kromě parametrů předvyplněno. Vyplnění probíhá ve chvíli, kdy je objekt vytvořen.</p>
+      <p id="7a7a064f-3089-4cf5-9ec8-9e9125728206" class="">Výše je možné vidět, že je nejdřív vytvořen prázdný objekt, do kterého je uložena jen AST reprezentace pro pozdější referenci a seznam parametrů, které přijímá. Celý zbytek je pak dodán až dynamicky za běhu - všechny <em>sloty</em>, všechny <em>parent sloty</em> a samozřejmě když obsahuje kód, tak je vše rekurzivně provedeno i pro kód.</p>
+      <h2 id="0b1d8784-e493-4fd2-9dca-f3c92615bde4" class="">Disassembler</h2>
+      <p id="13dd82c1-e853-4a5f-804f-d24d4dd32448" class="">Když už jsem měl hotový triviální kompilátor, rozhodl jsem se také napsat si k němu jednoduchý <a href="https://cs.wikipedia.org/wiki/Disassembler">disassembler</a> (ehm, <em>dis-bytecode-r</em>), tedy něco co mi čitelněji zobrazí zkompilovaný kód. V podstatě to funguje inverzně ke kompilátoru; postupně bere instrukce a jejich parametry a překládá je na mnemotechnické zkratky instrukcí:</p>
+      <p id="5643f58e-7675-4972-87eb-501674b5bf65" class="">Napsal jsem to celé maximálně triviálně:</p>
+      <pre id="241b863b-5f5b-429c-a46a-ccffd2298eea" class="code"><code>def _compute_index(bytecodes_len, bytecodes):
+    return str(bytecodes_len - len(bytecodes))
+
+
+def disassemble(bytecodes_bytearray):
+    disassembled = []
+
+    bytecodes = [ord(c) for c in bytecodes_bytearray]
+    bytecodes_len = len(bytecodes)
+    while bytecodes:
+        index = _compute_index(bytecodes_len, bytecodes)
+        bytecode = bytecodes.pop(0)
+
+        if bytecode == BYTECODE_SEND:
+            send_type = bytecodes.pop(0)
+
+            send_type_str = {
+                SEND_TYPE_UNARY: "UNARY",
+                SEND_TYPE_BINARY: "BINARY",
+                SEND_TYPE_KEYWORD: "KEYWORD",
+                SEND_TYPE_UNARY_RESEND: "UNARY_RESEND",
+                SEND_TYPE_KEYWORD_RESEND: "KEYWORD_RESEND",
+            }[send_type]
+
+            number_of_params = bytecodes.pop(0)
+
+            disassembled.append([
+                index,
+                "SEND",
+                "type:" + send_type_str,
+                "params:" + str(number_of_params)
+            ])
+            continue
+
+        elif bytecode == BYTECODE_PUSH_SELF:
+            disassembled.append([
+                index,
+                "PUSH_SELF"
+            ])
+            continue
+
+        elif bytecode == BYTECODE_PUSH_LITERAL:
+            literal_type = bytecodes.pop(0)
+            literal_index = bytecodes.pop(0)
+
+            literal_type_str = {
+                LITERAL_TYPE_NIL: "NIL",
+                LITERAL_TYPE_INT: "INT",
+                LITERAL_TYPE_STR: "STR",
+                LITERAL_TYPE_OBJ: "OBJ",
+                LITERAL_TYPE_FLOAT: "FLOAT",
+                LITERAL_TYPE_BLOCK: "BLOCK",
+                LITERAL_TYPE_ASSIGNMENT: "ASSIGNMENT",
+            }[literal_type]
+
+            disassembled.append([
+                index,
+                "PUSH_LITERAL",
+                "type:" + literal_type_str,
+                "index:" + str(literal_index)
+            ])
+            continue
+
+        elif bytecode == BYTECODE_RETURN_TOP:
+            disassembled.append([
+                index,
+                "RETURN_TOP"
+            ])
+            continue
+
+        elif bytecode == BYTECODE_RETURN_IMPLICIT:
+            disassembled.append([
+                index,
+                "RETURN_IMPLICIT"
+            ])
+            continue
+
+        elif bytecode == BYTECODE_ADD_SLOT:
+            slot_type = bytecodes.pop(0)
+            slot_type_str = {
+                SLOT_NORMAL: "SLOT_NORMAL",
+                SLOT_PARENT: "SLOT_PARENT",
+            }[slot_type]
+
+            disassembled.append([
+                index,
+                "ADD_SLOT",
+                "type:" + slot_type_str,
+            ])
+            continue
+
+    return disassembled</code></pre>
+      <p id="6f643ce9-434a-4b75-b16f-b834fb2855f6" class="">Pokud se někomu zdá ten kód trochu divný a říká si proč jsem třeba nepoužil tuple místo listů, nebo proč tam šaším s přetypováváním na stringy, tak odpověď je <a href="Jak_se_pise_programovaci_jazyk_35_RPython.html">Jak se píše programovací jazyk 3.5: RPython</a>. Výsledek vypadá zabalený v samotné Selfové syntaxi například takto:</p>
+      <pre id="b15577f4-f867-4dd7-85eb-bee3b4b4bde1" class="code"><code>(|
+  literals = (| l &lt;- dict clone. |
+    l
+      at: 0 Put: "ObjBox(Object(slots={benchmark: Object(slots={i: IntNumber(0), i:: AssignmentPrimitive()}, code=[Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(1000000)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=i:, parameters=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))]))])]))]), run_benchmark: Object(slots={start_time: Nil(), start_time:: AssignmentPrimitive(), end_time: Nil(), end_time:: AssignmentPrimitive()}, code=[Send(obj=Send(obj=Send(obj=Self(), msg=Message(primitives)), msg=Message(interpreter)), msg=KeywordMessage(name=runScript:, parameters=['objects/stdlib.tself'])), Send(obj=Self(), msg=KeywordMessage(name=start_time:, parameters=[Send(obj=Send(obj=Send(obj=Self(), msg=Message(primitives)), msg=Message(time)), msg=Message(timestamp))])), Send(obj=Self(), msg=Message(benchmark)), Send(obj=Self(), msg=KeywordMessage(name=end_time:, parameters=[Send(obj=Send(obj=Send(obj=Self(), msg=Message(primitives)), msg=Message(time)), msg=Message(timestamp))])), Send(obj=Send(obj=Send(obj=Send(obj=Send(obj=Self(), msg=Message(end_time)), msg=BinaryMessage(name=-, parameter=Send(obj=Self(), msg=Message(start_time)))), msg=Message(asString)), msg=BinaryMessage(name=+, parameter='
+')), msg=Message(print))])}))";
+      at: 1 Put: "StrBox(benchmark)";
+      at: 2 Put: "ObjBox(Object(slots={i: IntNumber(0), i:: AssignmentPrimitive()}, code=[Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(1000000)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=i:, parameters=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))]))])]))]))";
+      at: 3 Put: "StrBox(i)";
+      at: 4 Put: "IntBox(0)";
+      at: 5 Put: "StrBox(i:)";
+      at: 6 Put: "StrBox(run_benchmark)";
+      at: 7 Put: "ObjBox(Object(slots={start_time: Nil(), start_time:: AssignmentPrimitive(), end_time: Nil(), end_time:: AssignmentPrimitive()}, code=[Send(obj=Send(obj=Send(obj=Self(), msg=Message(primitives)), msg=Message(interpreter)), msg=KeywordMessage(name=runScript:, parameters=['objects/stdlib.tself'])), Send(obj=Self(), msg=KeywordMessage(name=start_time:, parameters=[Send(obj=Send(obj=Send(obj=Self(), msg=Message(primitives)), msg=Message(time)), msg=Message(timestamp))])), Send(obj=Self(), msg=Message(benchmark)), Send(obj=Self(), msg=KeywordMessage(name=end_time:, parameters=[Send(obj=Send(obj=Send(obj=Self(), msg=Message(primitives)), msg=Message(time)), msg=Message(timestamp))])), Send(obj=Send(obj=Send(obj=Send(obj=Send(obj=Self(), msg=Message(end_time)), msg=BinaryMessage(name=-, parameter=Send(obj=Self(), msg=Message(start_time)))), msg=Message(asString)), msg=BinaryMessage(name=+, parameter='
+')), msg=Message(print))]))";
+      at: 8 Put: "StrBox(start_time)";
+      at: 9 Put: "StrBox(start_time:)";
+      at: 10 Put: "StrBox(end_time)";
+      at: 11 Put: "StrBox(end_time:)".
+  ).
+
+  disassembled = (||
+    ("0", "PUSH_LITERAL", "type:OBJ", "index:0"), 
+    ("3", "PUSH_LITERAL", "type:STR", "index:1"), 
+    ("6", "PUSH_LITERAL", "type:OBJ", "index:2"), 
+    ("9", "PUSH_LITERAL", "type:STR", "index:3"), 
+    ("12", "PUSH_LITERAL", "type:INT", "index:4"), 
+    ("15", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("17", "PUSH_LITERAL", "type:STR", "index:5"), 
+    ("20", "PUSH_LITERAL", "type:ASSIGNMENT", "index:0"), 
+    ("23", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("25", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("27", "PUSH_LITERAL", "type:STR", "index:6"), 
+    ("30", "PUSH_LITERAL", "type:OBJ", "index:7"), 
+    ("33", "PUSH_LITERAL", "type:STR", "index:8"), 
+    ("36", "PUSH_LITERAL", "type:NIL", "index:0"), 
+    ("39", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("41", "PUSH_LITERAL", "type:STR", "index:9"), 
+    ("44", "PUSH_LITERAL", "type:ASSIGNMENT", "index:0"), 
+    ("47", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("49", "PUSH_LITERAL", "type:STR", "index:10"), 
+    ("52", "PUSH_LITERAL", "type:NIL", "index:0"), 
+    ("55", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("57", "PUSH_LITERAL", "type:STR", "index:11"), 
+    ("60", "PUSH_LITERAL", "type:ASSIGNMENT", "index:0"), 
+    ("63", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("65", "ADD_SLOT", "type:SLOT_NORMAL"), 
+    ("67", "PUSH_LITERAL", "type:STR", "index:6"), 
+    ("70", "SEND", "type:UNARY", "params:0"), 
+    ("73", "RETURN_TOP"), 
+    ("74", "RETURN_TOP"), 
+    ("75", "RETURN_TOP"), 
+    ("76", "RETURN_TOP")
+  ).
+
+bytecodes = (||
+    3, 3, 0, 3, 2, 1, 3, 3, 2, 3, 2, 3, 3, 1, 4, 6, 0, 3, 2, 5, 3, 6, 0, 6, 0, 6, 0, 3, 2, 6, 3, 3, 7, 3, 2, 8, 3, 0, 0, 6, 0, 3, 2, 9, 3, 6, 0, 6, 0, 3, 2, 10, 3, 0, 0, 6, 0, 3, 2, 11, 3, 6, 0, 6, 0, 6, 0, 3, 2, 6, 0, 0, 0, 4, 4, 4, 4
+).</code></pre>
+      <p id="06a88559-47a4-47b8-bb14-d8f7f641a1e9" class="">Původně jsem měl výsledek obalen v JSONu, ale nakonec mi kamarád připomněl, že součástí experimentu s tinySelfem je vyzkoušet používat jeho <em>objektové literály</em>, čehož je výsledkem výše uvedený výpis.</p>
+      <p id="59c4ff31-53a0-460f-8d5d-08b4039cdf7f" class="">Tedy interpreter vypisuje jako debug věci v syntaxi sama sebe. Nutno dodat, že je to zatím neotestované, neboť ve chvíli kdy byl tento blog napsán nebyly v tinySelfu podporovány ani pole, ani slovníky a jedná se tedy spíš jen o takový nástřel. Tomu taky odpovídají ty AST stringy na začátku, které jsou silně nepřehledné, a které to bude chtít časem určitě vylepšit.</p>
+      <h2 id="c813a69b-6160-46d5-9245-cc28c251929b" class="">Pokračování</h2>
+      <p id="1b38e7ef-4f13-440b-92a5-e4f6c4896060" class="">Příště se už konečně podíváme jak vlastně uvnitř vypadá interpreter a smyčka vykonávání příkazů.</p>
+      <h2 id="8a1ebe2d-a766-4c3b-9721-8130381fd00b" class="">Relevantní diskuze</h2>
+      <ul id="5d9f8259-ebc1-4dff-aa38-09d4fa398ec9" class="bulleted-list">
+        <li>
+          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/5/jak-se-pise-programovaci-jazyk-6-kompilator-ast-do-bytecode">Jak se píše programovací jazyk 6: Kompilátor AST do bytecode</a> (abclinuxu)
+        </li>
+      </ul>
+      <p id="4d95eeb8-94a0-435c-919e-56042931e8a3" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../Changelog.html">more</a>
+  </div>
+</body>
+</html>

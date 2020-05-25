@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Weekly update 2019/09/22; The bug was finally fixed</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Weekly update 2019/09/22; The bug was finally fixed">
+  <meta name="twitter:description" content="I've been sick whole week, so I didn't do much. I've spent Monday, Tuesday and Wednesday in bed on home office and I still feel tired and weak even after a week.">
+  <meta name="twitter:image" content="tweetdeck_thumb.jpg">
+</head>
+<body>
+  <div id="sidebar_top">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Weekly updates</a> / Weekly update 2019/09/22; The bug was finally fixed
+  <article id="f1765c0f-de7d-45ce-86a5-3184a236ff84" class="page sans">
+    <header>
+      <h1 class="page-title">Weekly update 2019/09/22; The bug was finally fixed</h1>
+    </header>
+    <div class="page-body">
+      <p id="31cf62e0-a797-4dda-ac63-b0eac9c20fd9" class="">I've been sick whole week, so I didn't do much. I've spent Monday, Tuesday and Wednesday in bed on home office and I still feel tired and weak even after a week.</p>
+      <h1 id="28b9e573-04e6-4b4a-b701-0d18b4bf3832" class="">tinySelf progress</h1>
+      <p id="875468a7-eb8e-4fc0-b473-9fc5118b4ede" class="">I've closed several issues:</p>
+      <ul id="9842ec72-f7f1-4609-8291-3fc947a3ff12" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/tinySelf/issues/123">#123; Add .debug_plantuml() to each object</a>.
+        </li>
+      </ul>
+      <ul id="dd237d76-de3e-4cd8-bec4-e9cb14a9a3c4" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/tinySelf/issues/105">#105; Intermediate obj identification</a>
+        </li>
+      </ul>
+      <ul id="436db412-0b66-4ab7-930c-8989d207d21b" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/tinySelf/issues/124">#124; Parent cache is broken</a>
+        </li>
+      </ul>
+      <ul id="eaed19da-dd19-4ca2-8949-52252ca241d3" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/tinySelf/issues/121">#121; Update on new version of pypy + changes in primitive files</a>
+        </li>
+      </ul>
+      <p id="87070578-a904-49ab-aa78-e20d3d32b2d6" class="">And most importantly, I've finally fixed the bug. In the end, the fix was really simple; I just had to update function that caches the results so that it would always visit <code>scope_parent</code>. First I converted the <code>.scope_parent</code> to property in <a href="https://github.com/Bystroushaak/tinySelf/commit/9c7601a05d73b699decc1521eeed9927175a14a3">9c7601a</a> but then I've noticed that although it works, it has huge performance penalty, so I've rewritten it in <a href="https://github.com/Bystroushaak/tinySelf/commit/e30501e7f59c142c3d7757374fe778c486a30e71">e30501e</a> to just two lines of code, which have almost no performance cost.</p>
+      <p id="3b3e03a6-4c74-4ca8-8c34-548a796ca831" class="">Other than this bugfix, I've also updated the code to latest pypy version, which has <a href="https://bitbucket.org/pypy/pypy/pull-requests/649/">my pull request</a> merged. This allowed me to <a href="https://github.com/Bystroushaak/tinySelf/commit/d33bcd1711aa440317c0bfda19c5b593b4e65e59">slightly simplify</a> the code in primitive files.</p>
+      <p id="2c3be1b4-1495-4c12-918d-ed2a90d0612c" class="">I also began the transition to typed docstrings, using the <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html">google style</a>. This allows IDE to figure out data types where it normally couldn't, so it is more useful in checking all kind of bugs and offering autocomplete. I can't use stuff like <a href="http://mypy-lang.org/">mypy</a>, because the code is written for 2.7, because whole rpython toolkit is for 2.7. Not that I mind much, because I think that mypy is mostly step in the wrong direction and I consider the docstring approach much cleaner.</p>
+      <h1 id="21087fa5-5be0-42bc-bed6-26c7362018c0" class="">Other programming</h1>
+      <p id="f80eee3b-c9ca-40d2-9cfc-34d51a397fb5" class="">I've created a project to port some of my longer articles to epub. It should grab the <a href="../../Series_about_Self.html"><span class="icon">📂</span>Series about Self</a> and spit out correct ebook.</p>
+      <p id="4a31d21a-70b8-4603-a7a4-90ce5e3573f5" class="">The reason, I've decided to follow this approach of creating complicated makefile-like transformer script, is that I want to be able to make changes in the text and add fixes and updates just by editing the blog in the wiki and it would be really annoying to backport all the changes to the epub as well.</p>
+      <h1 id="efe59e53-e020-45ad-943b-67941c7c8abf" class="">Book report</h1>
+      <p id="b2b447ec-1e09-494d-ad13-d62173eef73b" class="">I've been sick and unable to really focus on anything hard. I've read just a several pages from the <em>Moldable tools</em>, several pages from <em>Effective pycharm</em> and then I've picked up book number twelve in the <a href="https://www.goodreads.com/series/40419-honor-harrington">Honor Harrington</a> series called in czech <em>Honořina mise</em> (<a href="https://www.goodreads.com/book/show/7106681-mission-of-honor">Mission of Honor</a>).</p>
+      <p id="209a1ace-f9d6-4322-b2b5-4cd8d09267f5" class="">Harrington series is kind of comfort food but in form of books for me. I read it when I want something simple and easy, where the good guys win at the end. But it is quite good hard-scifi space opera, that I wouldn't mind suggesting to a friend.</p>
+      <h1 id="553809a4-a712-4380-aecf-c1ef6b9bdb26" class="">Self improvements</h1>
+      <h2 id="ef6c31c0-aec3-48bb-88fc-75a0940a283e" class="">3D modeling</h2>
+      <p id="c51ddcc6-0f68-4b88-bf37-2fa4d93b6c69" class="">It may sound absurd, but inspired by anime, I've begun to learn Blender. I was watching anime called <a href="https://myanimelist.net/anime/31953/New_Game">New game!</a>, where the main protagonist starts in a company making a game by learning basics of the 3D modeling. I've become curious and begun to watch tutorials on the youtube and instantly fell in love.</p>
+      <p id="d6fce8bb-d9f6-49ce-993b-dc259c654441" class="">I've done some stuff in Blender back when I was at college (2008-2011), but I never got much far. Some basic shapes, some rendering, but mostly I remember confusion and profound sense that I have no idea what I am doing.</p>
+      <p id="bf12f35c-2041-4f3c-8113-a7e41cf8c401" class="">Now there is this new release of Blender 2.8, and it has much more user-friendly interface, so I decided to <a href="https://www.youtube.com/playlist?list=PLjEaoINr3zgEq0u2MzVgAaHEBt--xLB6U">watch some tutorials</a> and ordered a book (and decided to cancel the order when I've read the reviews) and I feel generally optimistic about the whole thing.</p>
+      <figure id="d869f7e6-d7c6-44ad-a549-55901e21700b">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/MyxWDHy4ppY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="f60ec79c-20c1-4a30-94d9-35250b9af228" class="">This requires further explanation; I've given up drawing. I always felt that my blogs would be much better if I could just add little illustrations, but I've been profoundly unable to do so. I've tried everything; hand drawing, drawing by brush. I've tried vector drawing, I bought a graphical tablet in hopes that it will get better. It didn't. I've bought an iPad with Apple pencil and some software, and still, I just simply couldn't. The gap between what I want and what I can do is too big.</p>
+      <p id="2c06d239-b610-44a0-aa73-27506e9f2e60" class="">There are psychological barriers in my mind, but also my thinking is not really visual. I have a problem to hold an image in my mind, and also a problem with perspective and colors. I don't really understand how they work and why and how they can be used to mimic real world. One day, I realized that I won't put in the 10 000 hours to be good, or at least good enough for me. I would love to be able to express myself through pictures, but I can't.</p>
+      <p id="f03894e6-7d6f-42e9-872d-de4fc0c47b9d" class="">3D modeling totally slipped out of my mind. And now when I look at it, I feel hope; it is infinitely editable, more like sculpting than drawing. You don't use colors directly, but textures and materials and lights. I feel like I can make it work, and I know that I could do it ten years ago, so I hope I will be able to do some low poly illustrations in the future.</p>
+      <h1 id="f715e2d1-2873-43d7-bf4b-2698de37de9c" class="">Random stuff</h1>
+      <p id="a538dc79-7071-46f2-b24b-287abfe6a264" class="">I've moved my main Syncthing shared directory out of the VPS, which freed me 6 gigabytes of disk space. I am using extremely cheap VPS from Forpsi (something like $1.2/month for 20GB diskspace and 1GB RAM), and I was fighting for free space lately.</p>
+      <p id="850a4c83-e7f3-4251-83b8-57517e491040" class="">I still need to migrate the VPS to newer version of the OS and also ideally to other cheap VPS with more disk space, but this bought me some time.</p>
+      <hr id="cd6d6ac4-4d7a-40a8-9c67-4e39047ce6d8">
+      <p id="f3d646b1-b33c-4bb7-8c8e-669ecc3eced7" class="">Did you know that Twitter has a Tweetdeck?</p>
+      <figure id="28f1fccb-f39e-4a5e-ab5f-8b0bff65950e" class="image">
+        <a href="tweetdeck.png"><img style="width:3840px" src="tweetdeck_thumb.jpg"></a>
+      </figure>
+      <p id="45973cb0-81c9-4f9e-a0be-df75dc4d2cdb" class="">It is <strong>much</strong> faster and customizable, although the design is still shitty. Who think these noodles are cool? The most basic customization that worked in any kind of software since the 90's is to just grab the slider and make some column wider. And this pinacle of the webdesign can't even do that.</p>
+      <hr id="4cb1a03d-97ae-4693-a2e2-0c9963dd9bcc">
+      <p id="a53113d4-b637-428c-9e12-0d81cea591f9" class="">There was actually great discussion under the post "<a href="https://www.reddit.com/r/cyberDeck/comments/d6o3mu/accidentally_ended_up_here_what_is_this_strange/">Accidentally ended up here, what is this strange and wonderful place?</a>" that was sent to the <a href="https://www.reddit.com/r/cyberDeck/">/r/cyberDeck</a>.</p>
+      <hr id="7bb8458c-e8ca-4b24-9645-99e7fd050fea">
+      <hr id="de3c21f2-464a-4ee9-81ba-2f2c29f707d9">
+      <p id="f958be4d-a69e-43c8-8fdc-8badc581f1a5" class="">Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>.</p>
+      <hr id="9e5776d3-99b2-44dc-a8ca-1ce11538206c">
+      <h1 id="2d55a4ac-9bd1-4243-af6f-3684e5c4ae6b" class="">Relevant discussion</h1>
+      <ul id="c9031601-5251-43b3-be7b-95e4b6a9812b" class="bulleted-list">
+        <li>
+          <a href="https://twitter.com/bystroushaak/status/1175869480582426624">Twitter</a>
+        </li>
+      </ul>
+      <ul id="60294a30-c6c1-4977-b779-bf3284a456cd" class="bulleted-list">
+        <li>
+          <a href="https://www.patreon.com/posts/30162090">Patreon</a>
+        </li>
+      </ul>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+  <div id="sidebar_bottom">
+    <h3>New posts:</h3>
+    <ul>
+      <li>
+        <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+      </li>
+      <li>
+        <a href="http://blog.rfox.eu/en/Weekly_updates/Biweekly_update_2020_04_22_A_lot_of_programming.html">Biweekly update 2020-04-22; A lot of programming</a>
+      </li>
+    </ul>& <a href="../../../Changelog.html">more</a>
+  </div>
+</body>
+</html>
