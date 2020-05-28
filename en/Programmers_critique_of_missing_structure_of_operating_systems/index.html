@@ -17,84 +17,15 @@
     
       gtag('config', 'UA-142545439-1');
   </script>
-  <style>
-  .hll { background-color: #ffffcc }
-  .c { color: #408080; font-style: italic } /* Comment */
-  .err { border: 1px solid #FF0000 } /* Error */
-  .k { color: #008000; font-weight: bold } /* Keyword */
-  .o { color: #666666 } /* Operator */
-  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-  .cp { color: #BC7A00 } /* Comment.Preproc */
-  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-  .c1 { color: #408080; font-style: italic } /* Comment.Single */
-  .cs { color: #408080; font-style: italic } /* Comment.Special */
-  .gd { color: #A00000 } /* Generic.Deleted */
-  .ge { font-style: italic } /* Generic.Emph */
-  .gr { color: #FF0000 } /* Generic.Error */
-  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-  .gi { color: #00A000 } /* Generic.Inserted */
-  .go { color: #888888 } /* Generic.Output */
-  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-  .gs { font-weight: bold } /* Generic.Strong */
-  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-  .gt { color: #0044DD } /* Generic.Traceback */
-  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-  .kp { color: #008000 } /* Keyword.Pseudo */
-  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-  .kt { color: #B00040 } /* Keyword.Type */
-  .m { color: #666666 } /* Literal.Number */
-  .s { color: #BA2121 } /* Literal.String */
-  .na { color: #7D9029 } /* Name.Attribute */
-  .nb { color: #008000 } /* Name.Builtin */
-  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-  .no { color: #880000 } /* Name.Constant */
-  .nd { color: #AA22FF } /* Name.Decorator */
-  .ni { color: #999999; font-weight: bold } /* Name.Entity */
-  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-  .nf { color: #0000FF } /* Name.Function */
-  .nl { color: #A0A000 } /* Name.Label */
-  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-  .nt { color: #008000; font-weight: bold } /* Name.Tag */
-  .nv { color: #19177C } /* Name.Variable */
-  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-  .w { color: #bbbbbb } /* Text.Whitespace */
-  .mb { color: #666666 } /* Literal.Number.Bin */
-  .mf { color: #666666 } /* Literal.Number.Float */
-  .mh { color: #666666 } /* Literal.Number.Hex */
-  .mi { color: #666666 } /* Literal.Number.Integer */
-  .mo { color: #666666 } /* Literal.Number.Oct */
-  .sa { color: #BA2121 } /* Literal.String.Affix */
-  .sb { color: #BA2121 } /* Literal.String.Backtick */
-  .sc { color: #BA2121 } /* Literal.String.Char */
-  .dl { color: #BA2121 } /* Literal.String.Delimiter */
-  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-  .s2 { color: #BA2121 } /* Literal.String.Double */
-  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-  .sh { color: #BA2121 } /* Literal.String.Heredoc */
-  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-  .sx { color: #008000 } /* Literal.String.Other */
-  .sr { color: #BB6688 } /* Literal.String.Regex */
-  .s1 { color: #BA2121 } /* Literal.String.Single */
-  .ss { color: #19177C } /* Literal.String.Symbol */
-  .bp { color: #008000 } /* Name.Builtin.Pseudo */
-  .fm { color: #0000FF } /* Name.Function.Magic */
-  .vc { color: #19177C } /* Name.Variable.Class */
-  .vg { color: #19177C } /* Name.Variable.Global */
-  .vi { color: #19177C } /* Name.Variable.Instance */
-  .vm { color: #19177C } /* Name.Variable.Magic */
-  .il { color: #666666 } /* Literal.Number.Integer.Long */
-  </style>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Programmer's critique of missing structure of operating systems">
-  <meta name="twitter:description" content="Some time ago, I've come across a contemplation on the topic of necessity of operating systems. I've been doing sort of &quot;research&quot; about this for almost two years, so I've decided to write up central thoughts along with links to some relevant sources of information on this topic.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png">
+  <meta name="twitter:description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg">
   <script src="../../scripts.js">
   </script>
+  <meta name="keywords" content="self, python, smalltalk, programming_languages, quest_for_structure, os">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -549,20 +480,76 @@
           <a href="https://lobste.rs/s/fw5ubn/unix_plan_9_lurking_smalltalk">Unix, Plan 9, and Lurking Smalltalk</a>
         </li>
       </ul>
+      <p id="d00a1f8e-d244-4b62-bacc-e34ba948212f" class="">And <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/fi29591/">this response on reddit</a> got much of what I am trying to say right:</p>
+      <blockquote id="077e5975-7258-42af-808d-7504cc16cc27" class="">
+        So what would be a better way to solve this?<br>
+        <br>
+        We can reimagine the whole thing. Probably the most interesting take on this is the monad manifesto. The problem with monad is that it doesn't go far enough. But they do hit on a key thing: files and streams was a great metaphor to describe most compute work in the 60s, and for a while it was the best there was. But around the same time a more solid idea was forming, though it wouldn't evolve into it's full potential until the 70s: Objects (in the smalltalk sense, not simula).<br>
+        <br>
+        So lets revisit the OS, and the file system. So the idea is simple: everything in the OS is an isolated, completely obtuse "thing" we call this objects. And everything is an object, from the CPU running your code, to the kernel, to its scheduler, to the data you transfer outside. Your program itself is an object, though it's hidden internally. Generally objects don't expose their internals, instead you pass a message to them. The message may itself contain an object, to which the receiving object may then send another message with its internals. Objects sending and receiving of messages are not guaranteed to be in series, though some may.<br>
+        <br>
+        So thinking of reading a piece of data from, say your keyboard or another process in a pipe you'd send it an object which can handle receive a piece of data (the reading as a series of bytes), if you are thinking call-back you pretty much got it. Now you can send a separate thing, or you can send a continuation to yourself, so your program pauses until the bytes are available, at which point the callback writes them into a buffer and the jumps to the continuation letting your program proceed. It isn't that far from how OSes work now, but the model and metaphor fully describes it and makes it obvious this is the way to go, instead of it seemingly doing weird things. Async is inherent in the model.<br>
+        <br>
+        The advantage is that objects may appear to be the same, but behind the scenes expose very different things. And some objects may expose various things. Say writing as a transnational operation. You send a message to a writable data object which returns to you a transaction generator, when you send a message it returns (through continuations again) a result of writing to the transaction (which itself should be committed separately). If you don't want transactions (for whatever reason) or they don't make sense (writing to an append only object, like audio out) you have a simpler interface where you simply send the write operations to the object directly, no transaction.<br>
+        Now of course this leads to an interesting challenge. In Unix everything is a string, which allows things to interact. But objects aren't guaranteed to be uniform.<br>
+        <br>
+        The whole point of using objects instead of streams is that objects are more flexible (and honest) on what they are! The solution is that you can always try to find which interfaces an object implements. Here we can have a lot of discussion, but the solution is mostly set really. You can define interfaces, which are simply promises of what kind of messages an object can receive and send, and what guarantees it has (or at least must have). Objects can implement interfaces themselves, having full access to their internal, external implementation of interfaces can be done (using the object only on its external form, through its defined interfaces) and you can do implicit interfaces which are duck typing. You can then tell an object to pass itself to one object (generally a continuation) if it fulfills an interface, or to another (generally an error handler) if it doesn't. This allows for most basic type systems. Again the shell may give you a nicer way of describing this, but to the OS this is basically what it is.<br>
+        <br>
+        Resource management, dealing with open resources, etc. is handled by a GC, which works as you'd expect it.<br>
+        <br>
+        When objects pass their own stuff to others, they pass the necessary permissions, so security is bound to this. Commands by a user generally start with the permissions the user gives that command (generally open enough to not be annoying) and they may limit what they pass to other objects. Basically instead of file permission, we have object permission (modify, read, send messages to other objects aka. execute, etc.) and they can limit the scope (though not enlarge it) as needed. Because objects are more flexible than files you get more power.<br>
+        <br>
+        And now how to get specific objects. One is through resources, these are objects that are well defined and understood, and generally identified through a URI (or IRI if we're being modern). Basically files and the URI is the filepath. Again shells can do good conventions to make it faster (just like you don't need to specify http(s) or www in browsers). Of course some objects can build their own namespace (basically do the same thing as a folder) which allows them to access their resources, others can access those resources through them (so /bin/ed is our editor, but /bin/ed/conf.toml is the editor's default configuration). Resources are not specifically tied to any one thing, but may have multiple paths to it. Having path in the resource system to a resource generally keeps it alive. Not all objects can become resources (think a resource handle which makes no sense to access out of context) but generally they can.<br>
+        <br>
+        The second is providers, which are commonly accessible objects (either as a resource, or maybe provided by providers) that give you access to objects that do certain specific functionality. Generally the most common provider would be the environment provider, which gives you whatever is true for your environment (access to file, resources and so forth). A container system would basically expose what resources you have through env. Another would be context, which is more like what the specific process knows about how it was run (like which directory it was called from, what permissions were passed on to the object, etc). Basically DI at OS level.<br>
+        <br>
+        Then we revisit the whole pattern of how we code things. Generally instead of building a full program, we build a series of programs that work well together. The most fundamental program would be one that lets programs work together. So if I were doing vi, it would be a system that loads a view, and a key-press mapper (we don't use the standard ttl of course). The view shows a buffer, which is an object that lets me do arbitrary selections and actions. Most transformations would be done through a visitor-like pattern, it the visitor actually may output a transformation, and allows it to work more like recursive schemes. The viewer doesn't use a raw-buffer, but instead one wraps the data, but allows arbitrary style information added on a second layer. My loading script will actually add extra layers, realizing when it's code, or such allowing me further functionality and more rich view. The loading script also loads a bunch of keyboard bindings, which bind to specific objects/visitors/transformers which do actions. So I could start a select-search command, which selects all pieces of text that fullfill a regex, and then a replace command, which replaces those selections with whatever text I input. If it's code I could automatically load another searcher which uses the same command for all languages, the semantic searcher which lets me do things like select all directly named instances of this variable/function but ultimately just changes whatever the selection of the buffer is. I can then do the same replace or such.<br>
+        <br>
+        Basically the Unix philosophy got to its limits because computers started doing all sorts of things that the original model never considered. It lost it's structure and philosophy as it adapted and exceptions became more common than the rule, and decisions that now weren't the best one had to be kept to not loose existing features. But nowadays we have a better system to solve it, one that has proven it self time and time again. I think it would be interesting to build an OS that was like this from the beginning. Unix-like scenarios could be allowed, as Unix is simply a special case of the model.
+      </blockquote>
+      <h1 id="b00658f3-eb1a-4f8d-b353-aac3f53b2251" class="">Edit <time>@2020/05/26</time></h1>
+      <p id="d0344899-ae3c-4986-9c86-87029803045c" class="">There has been much confusion about what I've meant by some statements. I am sorry for that. English is not my native language and sometimes, it's not really easy for me to clearly express myself.</p>
+      <p id="11818dfa-c87b-4926-81a4-1ad085c7dbeb" class="">One that I've seen often is about lowlevel serialization. Here is my response on reddit:</p>
+      <hr id="27af4267-d65a-4039-b14c-b12f6166f77b">
+      <blockquote id="dff5e141-ef09-4900-9423-a804e4dfcaf5" class="">
+        OK, bro. Show us how to send a "message" over the wire without serializing it to a stream of bytes, then bits, then physical encoding first.
+      </blockquote>
+      <p id="a4f295c5-378f-4118-bf9f-212d61fb351b" class=""><em>Sigh</em>. You are missing the point and see stuff that is literally not there. Of course that on some level, there will always be some kind of lowlevel representation. But YOU don't need to do that, in a same way you don't need to create electric impulses in the ethernet cable you are using to connect to internet. You use a layers of abstractions, which do that for you.</p>
+      <p id="38006901-548f-4566-bbab-d85a6dee6dfa" class="">In a same way, <strong>you</strong> don't really <em>need</em> to send a bytes via sockets, you can use some kind of abstraction to do that for your. For example, I regularly use zeromq in python to send whole objects between different processes and systems, without caring about the representation.</p>
+      <p id="99675ae9-84a4-4e2c-85ef-0aeb5ebc4333" class="">Second point I was trying to make is that there is a difference between serializing that message yourself, like for example when you want to send a document, so you use an library to serialize that document into the .doc, or .odt or whatever. You may use a library, or maybe you have your own description of a protocol of raw bytes ordered by a certain schema. Or maybe you use XML. <strong>You are basically compiling the data you had in memory into some kind of structure, that is very different from the data you had in your memory.</strong></p>
+      <p id="eb6d99ee-fd39-4e91-bef5-f8b9474b86cd" class="">Someone else must then use other parser implemented by some specification or maybe RFC. This other <em>codec</em> creates some kind of representation in memory, which may be very different from what the representation in you system was.</p>
+      <p id="b0aaf397-7e48-45bd-aba4-a6d92d75a52b" class="">Now, there is a second way, you may be familiar with, if you are a programmer yourself; you just send a state of your objects, automatically encoded by some lowlevel serialization protocol for interoperability. For example, you may just dump the state of the object tree in your memory to JSON, or even better, use something like <a href="https://msgpack.org/">messagepack</a>, <a href="https://capnproto.org/">cap'n proto</a> or <a href="https://github.com/google/flatbuffers">flatbuffers</a>. Recipient then doesn't have any other codec beyond this primitive lowlevel deserialization library. He doesn't need to really understand how the document is structured, because he receives the structure as a whole, without the need to parse it.</p>
+      <p id="ab2ac896-4872-45bb-b69a-9f3b8fdcc073" class="">Analogy would be, that he doesn't really need a .doc parser, because all he needs is a JSON parser, for everything he uses, because everything is JSON. But JSON is not a good analogy, because it actually is lowlevel JavaScript format never meant for serious data representation, so it doesn't really have a schema and metaobject protocol, so you can't really reconstruct the whole object tree in memory. With the system I am talking about, you could transfer the structure AND a description of the object, which you could use to automatically generate a tree of objects in memory, in every language from the description of the objects (similarly to how you can use for example XML-RPC metadata to generate a client, or maybe Swagger metadata to generate client code for whatever language you are using).</p>
+      <p id="7fc85c4c-d731-4943-8932-307f920685a1" class="">This may seem like a security nightmare, but there are ways how to do this, best of which I think is probably <a href="https://www.researchgate.net/publication/286619645_Korz_Simple_Symmetric_Subjective_Context-Oriented_Programming">Korz</a>.</p>
       <h1 id="afb76b10-a38e-4bf5-bca1-f7a2063fa4aa" class="">Relevant discussions</h1>
-      <ul id="6b18c33c-5142-422c-9ffa-f701582f262f" class="bulleted-list">
+      <ul id="0e45e959-e080-4c40-bc88-db364d1bec9c" class="bulleted-list">
         <li>
-          <a href="https://lobste.rs/s/08jcgq/programmer_s_critique_missing_structure">lobste.rs thread</a> (24 comments)
+          <a href="https://news.ycombinator.com/item?id=22357184">hackernews</a> (193 comments)
         </li>
       </ul>
       <ul id="17f44ca8-6542-4d67-9fe5-ccb0404a6d0b" class="bulleted-list">
         <li>
-          <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/">/r/programming</a> (71 comments)
+          <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/">/r/programming</a> (73 comments)
         </li>
       </ul>
-      <ul id="0e45e959-e080-4c40-bc88-db364d1bec9c" class="bulleted-list">
+      <ul id="47a9249e-4da6-4291-97e7-6e23eecc9c14" class="bulleted-list">
         <li>
-          <a href="https://news.ycombinator.com/item?id=22357184">hackernews</a> (189 comments)
+          <a href="https://www.reddit.com/r/osdev/comments/ffbcwb/programmers_critique_of_missing_structure_of/">/r/osdev</a> (21 comments)
+        </li>
+      </ul>
+      <ul id="14f7a67c-1290-4ccc-bbbb-e87a99c92757" class="bulleted-list">
+        <li>
+          <a href="https://www.reddit.com/r/osdev/comments/ffbcwb/programmers_critique_of_missing_structure_of/">/r/linux</a> (26 comments)
+        </li>
+      </ul>
+      <ul id="1b77a5f2-b6b8-4fd5-97b2-3733283883e6" class="bulleted-list">
+        <li>
+          <a href="https://www.reddit.com/r/compsci/comments/g9ghr6/programmers_critique_of_missing_structure_of/">/r/compsci</a> (4 comments)
+        </li>
+      </ul>
+      <ul id="6b18c33c-5142-422c-9ffa-f701582f262f" class="bulleted-list">
+        <li>
+          <a href="https://lobste.rs/s/08jcgq/programmer_s_critique_missing_structure">lobste.rs thread</a> (24 comments)
         </li>
       </ul>
       <ul id="260446c8-27e9-4a8c-8e2e-b7e9bb01512e" class="bulleted-list">
@@ -570,6 +557,7 @@
           <a href="https://tildes.net/~comp/lyl/programmers_critique_of_missing_structure_of_operating_systems">tildes</a> (6 comments)
         </li>
       </ul>
+      <p id="18a935c0-2018-4d4c-b2cd-b7df7fcf1a60" class=""></p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
