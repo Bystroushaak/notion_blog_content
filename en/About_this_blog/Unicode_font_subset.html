@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unicode font subset</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Unicode font subset">
+  <meta name="twitter:description" content="How to use subset of the unicode font (Google Noto Emoji) to reduce size and solve problems with incosistent look of Unicode.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/About_this_blog/Unicode_font_subset/firefox_unicode.png">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="keywords" content="blog, css, fonts">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="Unicode_font_subset.html">Unicode font subset</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+        </li>
+        <li>
+          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+        </li>
+        <li>
+          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+        </li>
+        <li>
+          <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+        </li>
+      </ul>& <a href="../../Changelog.html">more</a>
+    </div>
+  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">About this blog</a> / Unicode font subset
+  <article id="8259ea56-4af1-4bcc-86ad-1d7e8725afe8" class="page sans">
+    <header>
+      <h1 class="page-title">Unicode font subset</h1>
+    </header>
+    <div class="page-body">
+      <p id="d3f775ff-b5ce-42f9-bf83-0ad9b40c7ed3" class=""><time>@2020/06/08</time></p>
+      <p id="bba8a0de-ac0b-4d75-90b7-84f8c0124f32" class="">I've noticed that unicode characters I am using in this blog (📰📄📩📂🗎) look completely different when viewed using FireFox:</p>
+      <figure id="0fd056f1-f391-4724-b078-5bc09ec9bece" class="image">
+        <a href="Unicode_font_subset/firefox_unicode.png"><img style="width:288px" src="Unicode_font_subset/firefox_unicode.png"></a>
+      </figure>
+      <p id="dd3e3613-6d29-4d38-8351-b09d4898078d" class="">and Chromium:</p>
+      <figure id="ed1a5ffe-85a8-4308-8d7f-aaff9a6c2cdb" class="image">
+        <a href="Unicode_font_subset/chromium_unicode.png"><img style="width:288px" src="Unicode_font_subset/chromium_unicode.png"></a>
+      </figure>
+      <p id="e52b6ad2-f1ff-45e4-b8f3-5ffd5058319f" class="">First I wanted to replace them with images, but then I've realized that this is probably problem of fonts. So I've googled and I've found Google's <a href="https://www.google.com/get/noto/help/emoji/">Noto Color Emoji</a> font. It has just one slight problem - it is almost 7MB in size.</p>
+      <p id="0ab33630-a7ef-47a1-b2ec-728b0a15ee20" class="">I don't want to load 7MB just to use a few unicode images, so I googled more to find out how to limit the subset to just used characters.</p>
+      <h1 id="7f3c967b-f325-4a82-8eaf-83dd81f2f68a" class="">Create subset of the font</h1>
+      <p id="3d54a9c2-134b-4bba-a116-4d7c7836dd31" class="">Install <a href="https://github.com/fonttools/fonttools">https://github.com/fonttools/fonttools</a>:</p>
+      <pre class="code"><code><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">fonttools</span>
+</code></pre>
+      <p id="55c1144d-d831-4770-9a8a-8f2ad2f96933" class="">Then run following command on the downloaded font</p>
+      <pre class="code"><code><span class="n">pyftsubset</span> <span class="n">NotoColorEmoji</span><span class="o">.</span><span class="n">ttf</span> <span class="o">--</span><span class="n">unicodes</span><span class="o">=</span><span class="s2">"U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2"</span> <span class="o">--</span><span class="n">layout</span><span class="o">-</span><span class="n">features</span><span class="o">=</span><span class="s2">""</span> <span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="s2">"woff"</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="s2">"NotoEmojiSubset.ttf"</span>
+</code></pre>
+      <p id="c76a0e22-b263-4558-86b2-ea86b7e70e2c" class="">and</p>
+      <pre class="code"><code><span class="n">pyftsubset</span> <span class="n">NotoColorEmoji</span><span class="o">.</span><span class="n">ttf</span> <span class="o">--</span><span class="n">unicodes</span><span class="o">=</span><span class="s2">"U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2"</span> <span class="o">--</span><span class="n">layout</span><span class="o">-</span><span class="n">features</span><span class="o">=</span><span class="s2">""</span> <span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="s2">"woff"</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="s2">"NotoEmojiSubset.woff"</span>
+</code></pre>
+      <p id="5b39e2d1-7af7-47b8-92ef-3efa4088768c" class="">for <code>woff</code> format. Files are tiny, just 8.9kB for my subset.</p>
+      <h2 id="8a50a77c-0564-4c13-a4c2-06a2a63459d5" class="">Character codes</h2>
+      <p id="879b4ff5-cc16-44d1-bb85-a031973b00a9" class="">I've found out what kind of unicode codes I want simply by typing it to the python shell:</p>
+      <pre class="code"><code><span class="err">$</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">17</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Apr</span> <span class="mi">15</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">14</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">7.5</span><span class="o">.</span><span class="mi">0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux2</span>
+<span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">u</span><span class="s2">"📰📄📩📂🗎🗒"</span>
+<span class="sa">u</span><span class="s1">'</span><span class="se">\U0001f4f0\U0001f4c4\U0001f4e9\U0001f4c2\U0001f5ce\U0001f5d2</span><span class="s1">'</span>
+</code></pre>
+      <p id="d0746962-79b9-4eda-abc7-ffd895302902" class="">And then to modify the code to contain the <code>+</code> character, that is to convert <code>\U001f4f0</code> to <code>U+001f4f0</code>.</p>
+      <h2 id="5e2ca13a-fc62-47bd-9a7c-7dcec0dc0dec" class="">Usage</h2>
+      <p id="6eb8d0ec-d408-47b7-b500-fd619008a9c9" class="">Add this to your CSS:</p>
+      <pre id="d370242a-f57e-4185-ba44-067c2358bb6f" class="code"><code>...
+
+@font-face {
+    font-family: "NotoEmojiSubset";
+    src: url(NotoEmojiSubset.ttf) format("ttf");
+    src: url(NotoEmojiSubset.woff) format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+
+.sans { font-family: NotoEmojiSubset, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+...</code></pre>
+      <p id="29c1ca98-42a4-4575-b17d-0e31d04c24b7" class=""></p>
+    </div>
+  </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../Tags/blog.html">blog</a>, <a href="../../Tags/css.html">css</a>, <a href="../../Tags/fonts.html">fonts</a></p>
+  </div>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="Unicode_font_subset.html">Unicode font subset</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+        </li>
+        <li>
+          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
+        </li>
+        <li>
+          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
+        </li>
+        <li>
+          <a href="http://blog.rfox.eu/en/Improvements.html">Improvements</a>
+        </li>
+      </ul>& <a href="../../Changelog.html">more</a>
+    </div>
+  </div>
+</body>
+</html>

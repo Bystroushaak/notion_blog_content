@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Most Personal Device experiment</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Most Personal Device experiment">
+  <meta name="twitter:description" content="I have this idea of a &quot;Most Personal Device&quot;, which is this little computer you always have with you, never leave it out of your sight, and use it as an authenticator and recovery seed for everything else.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Improvements/Most_Personal_Device_experiment/Untitled.png">
+  <script src="../../../scripts.js">
+  </script>
+</head>
+<body onload="on_body_load();">
+  <a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Improvements</a> / Most Personal Device experiment
+  <article id="49bcfd6b-0102-421d-9cd0-dd67d2035874" class="page sans">
+    <header>
+      <h1 class="page-title">Most Personal Device experiment</h1>
+    </header>
+    <div class="page-body">
+      <p id="a298c005-48e2-46c4-bef7-81fcf7919eea" class=""><time>@2020/05/28</time></p>
+      <p id="3efa80a0-69cc-43ae-93ec-b7d4349534cb" class="">I have this idea of a <em>"Most Personal Device"</em>, which is this little computer you always have with you, never leave it out of your sight, and use it as an authenticator and recovery seed for everything else.</p>
+      <p id="d0c796d3-40a1-4560-ad8c-3b6410327f06" class="">It should be something personal, something small and something that you'll feel comfortable using. It allows you to authenticate on your system, encrypt files so that you don't have to store encryption keys in your computer (see <a href="https://en.wikipedia.org/wiki/OpenPGP_card">OpenPGP smartcards</a> for details), and ideally also can store some sensible amount of data.</p>
+      <h1 id="5f3ff8a4-2947-45db-804b-70c2a83d25f0" class="">Yubikey</h1>
+      <p id="d4898855-6a09-4355-b877-b534cf7ae69b" class="">For a long time, I thought that it could be something like Yubico's Yubikey authentication token:</p>
+      <figure id="d5340986-ae97-4834-901f-3b4dd0b68b1c" class="image">
+        <a href="Untitled.png"><img style="width:594px" src="Untitled.png"></a>
+      </figure>
+      <p id="62edc3b8-67ba-4b7c-9ca3-c86c5fca3c90" class="">I have it pretty much all the time, and never leave it too much out of my range. Practical experiments showed, that sadly no, this is not really the thing I would like to use.</p>
+      <p id="b73b7546-dd7f-49b6-abb3-f1840e073640" class="">First - you have to physically plug it into the USB. That's a big annoyance. It may sound like a first world problem, but if you have it on your keys, that means that you have to find your keys, plug them all to the notebook or whatever and then don't forget them there. When I come home, I usually leave my keys in the lock, which also means, that I never have a Yubikey in reach to plug into my computer.</p>
+      <p id="a4f20352-b087-43ea-89d3-19ce2c121566" class="">Yubikey still has its use, mainly for pgp/gpg encryption of files, where I very often encrypt files to myself, for all kinds of backups, and only from time to time need to decrypt them. To use it for something like login to my computer would be annoying and would require different solution.</p>
+      <h1 id="c104949c-a3ba-4915-93f4-ddd0e8ab1d6c" class="">Smartwatches</h1>
+      <p id="90ca7d82-87a8-48df-bed6-e38719e6cdb2" class="">I've realized, that I would ideally want different kind of device, something with a display and several buttons. Then I've realized that I want programmable smartwatches.</p>
+      <p id="c79ee158-079f-43d5-be7b-d8451c2e297d" class="">Really, think about it. You want to login into something, the plugin in your browser notices that, asks the watches for a password, they show you the prompt, you click on yes or no and computer gets the password.</p>
+      <p id="bec16901-f0b7-460b-b522-3a5b798d0224" class="">You can also implement all kind of other sweet things, like one-time challenge/response questions for SSH authentication, sudo password authenticator and so on.</p>
+      <h2 id="5d9237d6-61a0-4288-bb70-c7c47579ddb6" class="">Pebble smartwatches</h2>
+      <p id="cdaccbcf-84e2-424a-a27a-bad811433914" class="">I've tried <a href="Pebble_smartwatches.html">Pebble smartwatches</a>, and it didn't work that well, mainly because the software stack sucked and I wasn't able to use it, before the watches broke.</p>
+      <figure id="18fb368a-ee7e-4a47-813d-0d2320848ad1" class="image">
+        <a href="pebble_time_steel.jpg"><img style="width:528px" src="pebble_time_steel_thumb.jpg"></a>
+      </figure>
+      <h2 id="305377af-8b32-46f0-827e-abf212691c05" class="">Evaluated at the moment</h2>
+      <p id="db041825-733f-4280-87ee-c1cae1fed695" class="">There will be articles about following experiments:</p>
+      <h2 id="af071a2d-4882-49b6-8eee-153ac15c6e42" class="">BangleJS</h2>
+      <p id="baa0da03-5cd9-4125-81fb-380ee1a5b51d" class="">I've bought BangleJS smartwatches, but so far, I didn't have so much time to try them. I have them only two days and I can already tell, that I won't keep them.</p>
+      <h3 id="d0146cc1-dc89-4f38-96e1-b7df95d84829" class="">Fitbit versa 2</h3>
+      <p id="97b299f9-1bd0-4ce6-9a78-325a18a08b6b" class="">Friend of mine recommended me fitbit versa 2, which should have some kind of SDK, so I'll probably try that.</p>
+      <p id="92868209-b054-4df7-9d4c-b72c9b88b20f" class=""></p>
+      <figure id="5772ac92-4c8e-46d8-92f9-03560e58d37a" class="link-to-page">
+        <a href="Pebble_smartwatches.html"><span class="icon">🗎</span>Pebble smartwatches</a>
+      </figure>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div>
+</body>
+</html>

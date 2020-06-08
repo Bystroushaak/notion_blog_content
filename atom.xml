@@ -2,13 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>http://blog.rfox.eu/atom.xml</id>
-  <updated>2020-05-25T12:36:00+0200</updated>
+  <updated>2020-06-09T00:00:00+0200</updated>
   <link href="http://blog.rfox.eu" />
   <link href="http://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="http://blog.rfox.eu/atom.xml">
+    <title type="text">Unicode font subset</title>
+    <id>http://blog.rfox.eu/en/About_this_blog/Unicode_font_subset.html</id>
+    <updated>2020-06-09T00:00:00+0200</updated>
+    <link href="http://blog.rfox.eu/en/About_this_blog/Unicode_font_subset.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;How to use unicode font subset in your CSS.&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://blog.rfox.eu/atom.xml">
     <title type="text">Lifelog 2020-05-25; Work in progress everywhere</title>
     <id>http://blog.rfox.eu/en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html</id>
@@ -106,17 +117,6 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;I had to install some software on old firewalled machine, running Centos 6 and python3.3. Machine was in a network, that allowed only ssh connection and nothing else.&lt;/em&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://blog.rfox.eu/atom.xml">
-    <title type="text">Paperclips; the Algorithm</title>
-    <id>http://blog.rfox.eu/Paperclips_tr_ky/the_Algorithm.html</id>
-    <updated>2020-03-01T18:43:00+0200</updated>
-    <link href="http://blog.rfox.eu/Paperclips_tr_ky/the_Algorithm.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;There is a talk about &amp;quot;the Algorithm&amp;quot; in the sense of the supernatural entity, that knows you and directs your path toward strange and interesting videos.&lt;/em&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
