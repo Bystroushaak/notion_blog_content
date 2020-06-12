@@ -33,6 +33,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -43,9 +46,6 @@
         </li>
         <li>
           <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../../Changelog.html">more</a>
     </div>
@@ -98,10 +98,9 @@
 |)</code></pre>
       <p id="c8c71676-1d91-46e8-b202-0b6d232e3f92" class="">contains one slot <code>x:Y:</code>, which points to the code object accepting the parameters <code>a</code> and <code>b</code>.</p>
       <p id="5ed384cc-774f-45a0-ac8b-17bf801e47fd" class="">Alternative syntax for the object is:</p>
-      <pre class="code"><code><span class="p">(</span><span class="o">|</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">a</span> <span class="n">Y</span><span class="p">:</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="n">printLine</span><span class="p">)</span>
-<span class="o">|</span><span class="p">)</span>
-</code></pre>
+      <pre id="6bd6bece-ba1d-4bda-b75b-52b031c0d6e1" class="code"><code>(|
+    x: a Y: b = (a printLine)
+|)</code></pre>
       <h2 id="575c6a99-b1dc-4bb8-bd85-75952c3e1d40" class="">Messages</h2>
       <p id="a8202779-6ad4-435c-81f4-f8448b7f0d7f" class="">There are three standard types of messages:</p>
       <ul id="329ac2bb-f170-4545-8194-6465d1192596" class="bulleted-list">
@@ -178,8 +177,7 @@
       <p id="ff0d4af4-1f47-46f8-86f9-bccee6948cd1" class="">This, at first glance somewhat wild design feature, has quite interesting usage cases, for example parsers, where it allows you to easily change the context.</p>
       <h2 id="16a9d22d-6ce2-4c23-8903-e823515405c8" class="">Comments</h2>
       <p id="6182be46-d199-47dc-9231-887d5c83a8df" class="">Comments are written in quotes:</p>
-      <pre class="code"><code><span class="s2">"this is a comment"</span>
-</code></pre>
+      <pre id="200d4bcf-96f0-43c5-9c01-9a388cf60f25" class="code"><code>"this is a comment"</code></pre>
       <h2 id="3e6e3fca-7cb7-491c-8052-74d22505ca31" class="">Annotations</h2>
       <p id="2ad55af9-deaa-45f7-aa2a-d113a2937e39" class="">Annotations provide a way of adding metadata to objects, but there is surprisingly little documentation on how they work and can be used, even though they are used across the entire standard image.</p>
       <p id="a99a42a6-ec90-4342-9338-0d928761e4cb" class="">The syntax uses curly braces:</p>
@@ -376,8 +374,7 @@ isAlreadyKnownToBeSortedBy: cmp
 sortedBy: cmp Do: b
 sortedDo: b</code></pre>
       <h2 id="4cd74451-35b2-4e5c-91ee-443ce2bf5ad6" class="">Testing</h2>
-      <pre class="code"><code><span class="n">isOrdered</span>
-</code></pre>
+      <pre id="2b24d325-83d6-466d-be22-69edd43218bb" class="code"><code>isOrdered</code></pre>
       <h2 id="a9af3b41-6b6e-47e1-8fb0-1115d663631b" class="">Transforming</h2>
       <pre id="36a2e549-b5e6-41d5-aa76-b62fc6f61f07" class="code"><code>asByteVector
 asDictionary
@@ -630,8 +627,7 @@ mapBy: eb Into: c</code></pre>
       <p id="d312ad7e-9432-4d90-a129-5428c4cc47ff" class="">If you want to run one of the scripts or load your saved module, you can use the following approaches:</p>
       <pre id="0481e387-5a7c-48f8-8a53-d18be1983ea8" class="code"><code>bootstrap read: 'name' From: 'directory'</code></pre>
       <p id="da613be6-0036-4f5f-9c7d-b4e61418aada" class="">Note that the name doesn't end with <code>.self</code>. Or:</p>
-      <pre class="code"><code><span class="s1">'path/to/file.self'</span> <span class="n">runScript</span>
-</code></pre>
+      <pre id="00b8c826-e7ff-49c4-b0f2-012615d57737" class="code"><code>'path/to/file.self' runScript</code></pre>
       <p id="2b995def-b836-49e7-ac5f-9d4a6e4eaa86" class="">You can find more details here: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
       <h2 id="1fa25c40-9467-412e-903d-0cdd703bdb05" class="">radarView</h2>
       <p id="7388d52f-22a1-46b3-b118-807a9bc48125" class="">As I already mentioned in the previous episode, you can get the radarview by using following messages:</p>
@@ -667,7 +663,7 @@ mapBy: eb Into: c</code></pre>
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../../../Tags/self.html">self</a>, <a href="../../../Tags/programming_languages.html">programming_languages</a>, <a href="../../../Tags/quest_for_structure.html">quest_for_structure</a></p>
+    <p><a href="../../../Tags/programming_languages.html">programming_languages</a>, <a href="../../../Tags/quest_for_structure.html">quest_for_structure</a>, <a href="../../../Tags/self.html">self</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -676,6 +672,9 @@ mapBy: eb Into: c</code></pre>
     <div id="last_five_bottom">
       <h3>New posts:</h3>
       <ul>
+        <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
         <li>
           <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
@@ -687,9 +686,6 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../../Changelog.html">more</a>
     </div>

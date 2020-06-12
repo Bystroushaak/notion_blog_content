@@ -33,6 +33,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -43,9 +46,6 @@
         </li>
         <li>
           <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../Changelog.html">more</a>
     </div>
@@ -194,10 +194,9 @@
       <p id="c8ac6eb8-5956-45bc-9f73-2bd7f6c0765a" class="">Plan9 is amazing in how you can interact with the system using just file operations on special kind of files. That's brilliant! Revolutionary! So amazing, that Linux now uses half of the features, for example in the <code>/sys</code> subsystem and in <a href="https://cs.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a>.</p>
       <p id="a147f13a-1018-4359-ac7c-2d0f5121bd35" class="">Do you know what is missing? Reflection and structured data. If you don't read a manual, you don't know what to write where and what to expect. Things just don't carry explicit semantic meaning.</p>
       <p id="eeb87100-3d6f-47eb-bc6d-b3fc9468b217" class="">Here is a code for blinking with the diode on the raspberry pi:</p>
-      <pre class="code"><code><span class="n">echo</span> <span class="mi">27</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span>
-<span class="n">echo</span> <span class="n">out</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">gpio27</span><span class="o">/</span><span class="n">direction</span>
-<span class="n">echo</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">gpio27</span><span class="o">/</span><span class="n">value</span>
-</code></pre>
+      <pre id="4613b54e-70c9-4ece-a640-b299db8266e1" class="code"><code>echo 27 &gt; /sys/class/gpio/export
+echo out &gt; /sys/class/gpio/export/gpio27/direction
+echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       <p id="3c3f5fbd-a82c-4b8b-96c7-85f27706f97a" class="">How are errors handled? What happens when you write the string „vánočka“ to the <code>/sys/class/gpio/export/gpio27/value</code>? Do you get error code back from the <code>echo</code> command? Or is there any information in any other file? How does the system handle parallel writes? And what about reading? What happens when I write <code>"in"</code> instead of <code>"out"</code> to the <code>/sys/class/gpio/export/gpio27/direction</code> and then I'll try to read from the <code>value</code>?</p>
       <p id="956f7832-d592-462c-bfea-518f7089fb39" class="">The description and expectation is stored in a different place. Maybe in man page. Maybe in the description of the module somewhere on the net. Real expectation is only in the form of a machine code and maybe in a source code, stored, of course, separately in a completely different place. Everything is stringly oriented and there is no standardization. One module may use <code>"in"</code> and <code>"out"</code>, the second <code>"master"</code> and <code>"slave"</code> and the third <code>"1"</code> and <code>"0"</code>. Data types are not specified or checked. If you really think about it, it's just a really primitive communication framework built on top of the files, without any other advantages of modern communication frameworks.</p>
       <p id="feadf8a9-c249-4157-9415-ff6fe9048333" class="">It is also probably the greatest effort to create something like objects I've seen, without actually realizing that they are trying to do so. The structure of <code>/sys</code> is very object like. The difference between the <code>sys.class.gpio.diode</code> and this naive file protocol is that a file implementation is an undescribed <em>key-value</em> set, similar to JSON. It also doesn't explicitly specify the structure, set of properties, format of more complicated messages, help, or format and mechanism of raising exceptions.</p>
@@ -214,15 +213,14 @@
       <p id="09e11280-34ce-4e63-bd27-1df337ce5789" class="">Theoretically, there are standard and best practices, but in reality, you just don't know the syntax until you'll read the man page. Some programs use <code>--param</code>. Others <code>-param</code>. And then there are programs that use just <code>param</code>. Sometimes, you separate lists by spaces, other times it is using commas, or even colons or semicolons. I've seen programs that required parameters encoded in JSON mixed with "normal" parameters.</p>
       <p id="cd8f4521-c989-4bce-8d83-cb2c2f235650" class="">If you call the program from some kind of a "command line", that is some kind of a shell, like bash, then you also get a mixture of the shell scripting language and its ways of defining strings, variables and only god knows what else (I can think of escape sequences, reserved names of functions, eval sequences using some random characters like <code>`</code>, wildcard characters, <code>--</code> for stopping the evaluation of wild cards, and so on). This is just one gigantic mess where everyone uses whatever he thinks is nice and parses it without any internal consistence or logic, just because he can.</p>
       <p id="605d7323-7748-45d6-8b95-24c6a938a9f2" class="">And then, there is a topic of calling programs from <em>other</em> programs. I don't even want to recall how many times I was forced to use some piece of code like</p>
-      <pre class="code"><code><span class="kn">import</span> <span class="nn">subprocess</span>
+      <pre id="45e69580-d1ae-4a6e-b868-cf94d363e419" class="code"><code>import subprocess
 
-<span class="n">sp</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-  <span class="p">[</span><span class="s1">'7z'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'Test.7z'</span><span class="p">,</span> <span class="s1">'Test'</span><span class="p">,</span> <span class="s1">'-mx9'</span><span class="p">],</span>
-  <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
-  <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
-<span class="p">)</span>
-<span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
-</code></pre>
+sp = subprocess.Popen(
+  ['7z', 'a', 'Test.7z', 'Test', '-mx9'],
+  stderr=subprocess.STDOUT,
+  stdout=subprocess.PIPE
+)
+stdout, stderr = sp.communicate()</code></pre>
       <p id="085ac170-ccf0-46a0-ada5-2536034459b4" class="">Most recently, with a wide range of parsing free-form output. And I'm really tired of this shit.</p>
       <p id="22e58aaf-4e01-4249-9f0e-d9308d6c62d1" class="">If the arguments are a bit more complicated, then it quickly degrades into masturbation of string concatenation where you are never sure if it is actually safe and it really doesn't allow to command injections, you don't have any guarantees of supported character encoding, there are pipes and tty behaviors you wouldn't dream of in your worst nightmares and everything is super complex. For example, your <a href="https://thraxil.org/users/anders/posts/2008/03/13/Subprocess-Hanging-PIPE-is-your-enemy/">buffer stops responding</a> for larger outputs. Or, the program reacts differently when run in an interactive mode, then in non-interactive, and there is no way of forcing it behave correctly. Or, it puts random escapes sequences and <code>tty</code> formatting to the output, but only <em>sometimes</em>. And, how do you actually transfer <strong>structured data</strong> to the program and from it?</p>
       <p id="e6facb40-d848-4ce7-902f-9664f2eba3a3" class="">I just don't get this mess. The command line parameters are usually just a list or a dictionary with nested structures. We could really use a unified and simple way to write language of specification of such structures. Something easier to write than JSON, and also more expressive.</p>
@@ -274,11 +272,9 @@
       <p id="bb8c815e-a965-481c-9e6e-e4723f8944cd" class="">There is a plethora of command line parameters for the Docker command: <a href="https://docs.docker.com/engine/reference/run/">https://docs.docker.com/engine/reference/run/</a>. My favorite part is represented by volumes which are directories mounted inside a container from the outside system.</p>
       <p id="5058343f-c5c8-495a-88b2-582febc234af" class="">The syntax is approximately <code>-v local_path:/docs:rw</code>. It seems to me as a good example, because there are three different kinds of values in the same parameter: the path in the system where you run the command (which must be absolute!), the path inside of the container (but beware that this also should be allowed in the <code>Dockerfile</code> using the <code>VOLUME</code> directive) and permissions that say that you can use this for read and write.</p>
       <p id="5a7699ad-d846-4cb0-8c71-a57822338fbf" class="">This example came to perfection when they added a <a href="https://docs.docker.com/storage/volumes/">new</a> parameter <code>--mount</code>, which does the same but introduces a completely new syntax for it, with completely different rules for parsing:</p>
-      <pre class="code"><code><span class="o">--</span><span class="n">mount</span> <span class="n">source</span><span class="o">=</span><span class="n">local_path</span><span class="p">,</span><span class="n">target</span><span class="o">=/</span><span class="n">docs</span>
-</code></pre>
+      <pre id="96ecf680-f57b-4220-8a70-bdaf859ea33e" class="code"><code>--mount source=local_path,target=/docs</code></pre>
       <p id="e8f3fcff-01ee-4eea-ac89-a391ac84f346" class="">A more complex example may look like this:</p>
-      <pre class="code"><code><span class="o">--</span><span class="n">mount</span> <span class="s1">'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</span>
-</code></pre>
+      <pre id="2c1f6068-8924-4870-950b-0da457c02a95" class="code"><code>--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
       <p id="a2ad5b90-843c-4941-8b3a-ed777cb254eb" class="">Notice that it contains an example of the CSV parser escape sequences (!).</p>
       <p id="bb4f482d-9625-4d47-8834-cff725e81f0e" class="">The original colon-separated-format mutated into a new format separated by commas. This one uses equality sign (<code>=</code>) for key-value definitions, but also is a list at the same time, because sometimes, there is no <code>=</code>, and you can use double quotes and .. what the fuck is that shit in the double quotes? <code>volume-opt=o=addr=&lt;nfs-address&gt;</code>? Seriously?</p>
       <p id="591358d5-9624-450e-9994-8401b0125811" class="">And I am not even talking about how the behavior changes depending on what exactly you use because this is not a subject that I want to focus on here.</p>
@@ -287,10 +283,9 @@
       <h2 id="7eca4b13-2f1a-41e9-80b0-a7635d417fd6" class="">Dockerfile</h2>
       <p id="846a7efd-5d87-40d7-9fb0-e70ecf9dcaed" class="">The original idea of Dockerfile was, I guess, similar to the <a href="https://en.wikipedia.org/wiki/Makefile">makefile</a>. We'll let the docker go on the file, it will go over the directives step by step and build a “project” for us.</p>
       <p id="b3ead744-c15a-4efa-962a-91e3d06a3061" class="">The original idea was simple - simply a set of <code>KEY value</code> definitions that will be gradually executed. Here's an example:</p>
-      <pre class="code"><code><span class="n">FROM</span> <span class="n">microsoft</span><span class="o">/</span><span class="n">nanoserver</span>
-<span class="n">COPY</span> <span class="n">testfile</span><span class="o">.</span><span class="n">txt</span> <span class="n">c</span><span class="p">:</span>\\
-<span class="n">RUN</span> <span class="nb">dir</span> <span class="n">c</span><span class="p">:</span>\
-</code></pre>
+      <pre id="711b239e-34eb-4842-b1d3-4a6159adb5ed" class="code"><code>FROM microsoft/nanoserver
+COPY testfile.txt c:\\
+RUN dir c:\</code></pre>
       <p id="c5b54ff4-16ca-4372-9c2e-86decd920aa6" class=""><code>FROM</code> specifies what to use as the original base image for the <em>virtual container</em>, COPY copies the file from the computer on which the container is built, and <code>RUN</code> executes some command.</p>
       <p id="7b236082-111c-47d5-b854-ddce941a7d48" class="">Anyone familiar with the <a href="https://en.wikipedia.org/wiki/Greenspun's_tenth_rule">Greenspun's Tenth Rule</a> probably knows how this has evolved after that. A definition of <code>ENV</code> variables and their substitution by using template systems came. A definition of escape characters, <code>.dockerignore</code> file. Commands such as <code>CMD</code> have received an alternative syntax, so it may not only be a <code>CMD program parameter</code> but also a <code>CMD ["program", "parameter"]</code>.</p>
       <p id="24e9d0c9-1622-4939-b5d7-8b2f41535126" class="">Things like LABEL made it possible to define additional <code>key=value</code> structures. Of course, of course, someone needed conditional build sections, so hacks were created to get around it by using template systems and setting key value values from the outside: <a href="https://stackoverflow.com/questions/37057468/conditional-env-in-dockerfile">https://stackoverflow.com/questions/37057468/conditional-env-in-dockerfile</a></p>
@@ -303,37 +298,36 @@
       <p id="e2dc428e-a982-4748-b2f8-905000905210" class="">I was shaking my head because, as in the case of the Web, REST API or <code>oc</code>, this is a configuration by uploading and editing <em>objects</em> described by YAML or JSON (formats can be interchanged freely).</p>
       <p id="80637914-f0ea-4bd5-a03f-0b040b2ed95f" class="">These <em>objects</em> can be defined in a so-called <em>template</em> which functions as a kind of <a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>, executes each block sequentially and at the end should result in a running system. Within a <em>template,</em> it is possible to use a template system that allows you to define and expand variables.</p>
       <p id="53367578-00dc-4d10-a1ad-3028b8a6bc27" class="">All of this is built on top of YAML which is somewhat less chatty brother of JSON. For example, a template example might look like this:</p>
-      <pre class="code"><code><span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">Template</span>
-<span class="n">metadata</span><span class="p">:</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">redis</span><span class="o">-</span><span class="n">template</span>
-  <span class="n">annotations</span><span class="p">:</span>
-    <span class="n">description</span><span class="p">:</span> <span class="s2">"Description"</span>
-    <span class="n">iconClass</span><span class="p">:</span> <span class="s2">"icon-redis"</span>
-    <span class="n">tags</span><span class="p">:</span> <span class="s2">"database,nosql"</span>
-<span class="n">objects</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
-  <span class="n">kind</span><span class="p">:</span> <span class="n">Pod</span>
-  <span class="n">metadata</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">redis</span><span class="o">-</span><span class="n">master</span>
-  <span class="n">spec</span><span class="p">:</span>
-    <span class="n">containers</span><span class="p">:</span>
-    <span class="o">-</span> <span class="n">env</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">REDIS_PASSWORD</span>
-        <span class="n">value</span><span class="p">:</span> <span class="err">$</span><span class="p">{</span><span class="n">REDIS_PASSWORD</span><span class="p">}</span>
-      <span class="n">image</span><span class="p">:</span> <span class="n">dockerfile</span><span class="o">/</span><span class="n">redis</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">master</span>
-      <span class="n">ports</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">containerPort</span><span class="p">:</span> <span class="mi">6379</span>
-        <span class="n">protocol</span><span class="p">:</span> <span class="n">TCP</span>
-<span class="n">parameters</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">description</span><span class="p">:</span> <span class="n">Password</span> <span class="n">used</span> <span class="k">for</span> <span class="n">Redis</span> <span class="n">authentication</span>
-  <span class="n">from</span><span class="p">:</span> <span class="s1">'[A-Z0-9]</span><span class="si">{8}</span><span class="s1">'</span>
-  <span class="n">generate</span><span class="p">:</span> <span class="n">expression</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">REDIS_PASSWORD</span>
-<span class="n">labels</span><span class="p">:</span>
-  <span class="n">redis</span><span class="p">:</span> <span class="n">master</span>
-</code></pre>
+      <pre id="8e4d9b2f-87f2-4a1e-9b70-4458e4314a78" class="code"><code>apiVersion: v1
+kind: Template
+metadata:
+  name: redis-template
+  annotations:
+    description: "Description"
+    iconClass: "icon-redis"
+    tags: "database,nosql"
+objects:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    name: redis-master
+  spec:
+    containers:
+    - env:
+      - name: REDIS_PASSWORD
+        value: ${REDIS_PASSWORD}
+      image: dockerfile/redis
+      name: master
+      ports:
+      - containerPort: 6379
+        protocol: TCP
+parameters:
+- description: Password used for Redis authentication
+  from: '[A-Z0-9]{8}'
+  generate: expression
+  name: REDIS_PASSWORD
+labels:
+  redis: master</code></pre>
       <p id="b38759f2-8bec-4840-b436-1efb4aa392c0" class="">Variables are expanded from the outside via command line parameters.</p>
       <p id="a850548f-e9f9-40ec-a7ae-746b0bf8921f" class="">So far, so good. But, as you might guess, I have a lot of reservations:</p>
       <p id="1fdbc6cb-a47c-46af-ba68-88c006a3e388" class="">There are absolutely no conditional statements. For example, to conditionally execute some of the code, one must use a template system (like <a href="http://jinja.pocoo.org/">Jinja2</a> for example) over this template system.</p>
@@ -347,27 +341,26 @@
       <h1 id="b7eddfe5-9605-45b9-93b1-954406a13ebd" class="">Example study: Ansible</h1>
       <p id="de62f379-60c3-46a9-a234-93ce4f670fe7" class="">Ansiblééé is a beautiful example of how it turns out when someone just ad-hoc tries to cook a language like I am calling for, without thinking much about it, and without really any theory of programming languages.</p>
       <p id="636de039-4224-4e50-b220-88c9d873df7b" class="">It began as a YAML based configuration declaration language describing what to do. Here is an example of a nginx installation:</p>
-      <pre class="code"><code><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">nginx</span>
-  <span class="n">hosts</span><span class="p">:</span> <span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">ip</span>
-  <span class="n">become</span><span class="p">:</span> <span class="n">true</span>
-  <span class="n">tasks</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Add</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span> <span class="n">repo</span>
-    <span class="n">yum</span><span class="p">:</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
-      <span class="n">state</span><span class="p">:</span> <span class="n">present</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">nginx</span>
-    <span class="n">yum</span><span class="p">:</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">nginx</span>
-      <span class="n">state</span><span class="p">:</span> <span class="n">present</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Insert</span> <span class="n">Index</span> <span class="n">Page</span>
-    <span class="n">template</span><span class="p">:</span>
-      <span class="n">src</span><span class="p">:</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span>
-      <span class="n">dest</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Start</span> <span class="n">NGiNX</span>
-    <span class="n">service</span><span class="p">:</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">nginx</span>
-      <span class="n">state</span><span class="p">:</span> <span class="n">started</span>
-</code></pre>
+      <pre id="adb533cd-4ca6-43d5-b03e-f1e0e64404c6" class="code"><code>- name: Install nginx
+  hosts: host.name.ip
+  become: true
+  tasks:
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
+  - name: Install nginx
+    yum:
+      name: nginx
+      state: present
+  - name: Insert Index Page
+    template:
+      src: index.html
+      dest: /usr/share/nginx/html/index.html
+  - name: Start NGiNX
+    service:
+      name: nginx
+      state: started</code></pre>
       <p id="5efff7a9-433a-432a-bb71-913b6be002a2" class="">It is quite easy to read YAML key-value structure. But of course, OF COURSE (!), it couldn't just stay like this. Someone thought that it would be great to add conditions and cycles. Of course, as YAML:</p>
       <ul id="65dd99cd-17be-4182-beb3-405ac7e64f0d" class="bulleted-list">
         <li>
@@ -582,7 +575,7 @@
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../Tags/self.html">self</a>, <a href="../Tags/python.html">python</a>, <a href="../Tags/smalltalk.html">smalltalk</a>, <a href="../Tags/programming_languages.html">programming_languages</a>, <a href="../Tags/quest_for_structure.html">quest_for_structure</a>, <a href="../Tags/os.html">os</a></p>
+    <p><a href="../Tags/os.html">os</a>, <a href="../Tags/programming_languages.html">programming_languages</a>, <a href="../Tags/python.html">python</a>, <a href="../Tags/quest_for_structure.html">quest_for_structure</a>, <a href="../Tags/self.html">self</a>, <a href="../Tags/smalltalk.html">smalltalk</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -591,6 +584,9 @@
     <div id="last_five_bottom">
       <h3>New posts:</h3>
       <ul>
+        <li>
+          <a href="Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
         <li>
           <a href="Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
@@ -602,9 +598,6 @@
         </li>
         <li>
           <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../Changelog.html">more</a>
     </div>

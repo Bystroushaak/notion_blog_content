@@ -32,6 +32,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -42,9 +45,6 @@
         </li>
         <li>
           <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../Changelog.html">more</a>
     </div>
@@ -69,51 +69,50 @@
       <p id="a84a9b94-a142-453d-82b1-ccb2cab33764" class="">With those improvements, code run 20% faster than without JIT. Obviously, this wasn't acceptable, so I had to investigate.</p>
       <h1 id="22b061f5-9184-494b-a0b8-ed46a2d9c3f3" class="">Numeric ints</h1>
       <p id="d64c7797-c875-4044-ae48-243605449395" class="">So far, I have been using boxed integer values represented as</p>
-      <pre class="code"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1"># yeah, this can't be factored out, I've tried..</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">PrimitiveIntObject</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_NumberObject</span><span class="p">)</span>
+      <pre id="520b59d0-81f2-4b90-bf10-12ca07bcb94b" class="code"><code>def add(_, self, parameters):
+    obj = parameters[0]
+    # yeah, this can't be factored out, I've tried..
+    assert isinstance(self, PrimitiveIntObject)
+    assert isinstance(obj, _NumberObject)
 
-    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">obj</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    return obj.result_type(self.value + obj.value)
 
-<span class="c1"># ... other primitive functions ...</span>
+# ... other primitive functions ...
 
-<span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_map</span><span class="p">)</span>
+class PrimitiveIntObject(_NumberObject):
+    def __init__(self, value, obj_map=None):
+        _NumberObject.__init__(self, obj_map)
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        self.value = value
 
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="n">substract</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="n">multiply</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"%"</span><span class="p">,</span> <span class="n">modulo</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;"</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;="</span><span class="p">,</span> <span class="n">lte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;"</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;="</span><span class="p">,</span> <span class="n">gte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"=="</span><span class="p">,</span> <span class="n">compare</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asString"</span><span class="p">,</span> <span class="n">as_string</span><span class="p">,</span> <span class="p">[])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asFloat"</span><span class="p">,</span> <span class="n">as_float</span><span class="p">,</span> <span class="p">[])</span>
+        add_primitive_fn(self, "+", add, ["obj"])
+        add_primitive_fn(self, "-", substract, ["obj"])
+        add_primitive_fn(self, "*", multiply, ["obj"])
+        add_primitive_fn(self, "/", divide, ["obj"])
+        add_primitive_fn(self, "%", modulo, ["obj"])
+        add_primitive_fn(self, "&lt;", lt, ["obj"])
+        add_primitive_fn(self, "&lt;=", lte, ["obj"])
+        add_primitive_fn(self, "&gt;", gt, ["obj"])
+        add_primitive_fn(self, "&gt;=", gte, ["obj"])
+        add_primitive_fn(self, "==", compare, ["obj"])
+        add_primitive_fn(self, "asString", as_string, [])
+        add_primitive_fn(self, "asFloat", as_float, [])
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">float_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    @property
+    def float_value(self):
+        return float(self.value)
 
-    <span class="k">def</span> <span class="nf">result_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">PrimitiveIntObject</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    def result_type(self, val):
+        return PrimitiveIntObject(val)
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
+    def __eq__(self, obj):
+        if not hasattr(obj, "value"):
+            return False
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">obj</span><span class="o">.</span><span class="n">value</span>
+        return self.value == obj.value
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
-</code></pre>
+    def __str__(self):
+        return str(int(self.value))</code></pre>
       <p id="6ecf7555-87fa-4834-8180-5fe62d0edcc3" class="">This may look strange, but you have to understand that functionality is not used from the class and it's surrounding code itself (=not from rpython), but from the inside of the tinySelf. <code>add_primitive_fn()</code> adds into slots of the insides of <code>PrimitiveIntObject</code> that is represented in tinySelf code objects which wrap given "primitive" code written in RPython.</p>
       <p id="76595431-c228-46f0-bb42-bc68ba93b22a" class="">As you can see, every integer value is boxed inside of class, which is then bound to functions, which manipulate internal <code>.value</code> property. This is obviously highly ineffective.</p>
       <p id="0f051810-0419-4287-a8fb-46b3b308d1fb" class="">RPython should translate this into C and that in turn should optimize the code, but is there better way how to tell RPython that "this is int, so treat is as int"?</p>
@@ -151,45 +150,43 @@
         <a href="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11.png"><img style="width:384px" src="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11_thumb.jpg"></a>
       </figure>
       <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again:</p>
-      <pre class="code"><code><span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
-    <span class="n">_immutable_fields_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_map</span><span class="p">)</span>
+      <pre id="be2fe417-3154-4c65-9d2a-f46acf66cba7" class="code"><code>class PrimitiveIntObject(_NumberObject):
+    _immutable_fields_ = ["value"]
+    def __init__(self, value, obj_map=None):
+        _NumberObject.__init__(self, obj_map)
 
-        <span class="o">...</span>
-</code></pre>
+        ...</code></pre>
       <p id="d6acee57-d3db-48eb-961a-6f461627d2e8" class="">As you can see, <code>_NumberObject</code>'s init is called with <code>obj_map</code> set to <code>None</code>, which creates new map. Constructor is called for each number, which in effect has a same effect, like there is a (dynamically created) class for each number. Ouch. And each string and float. Ouch ouch.</p>
       <p id="422d5551-ddfb-4fd5-a95f-3d5979ac1459" class="">Fortunately, this is easy to fix. Just share the map between all ints (floats, strings). Quick fix and benchmark for ints proves, that this indeed speeds up the execution significantly; from ~18 seconds to 12 with unoptimized rpython translation without JIT.</p>
       <p id="9d98a8c6-dd08-4a08-8ef4-6e880a18db07" class="">Additional optimizations on strings, and floats got down the execution time to something around 8 seconds.</p>
       <p id="4139de6a-3eea-4dc5-8d86-bf67118d5576" class="">Constructor of the primitive int now looks like this:</p>
-      <pre class="code"><code><span class="k">class</span> <span class="nc">PrimitiveIntObject</span><span class="p">(</span><span class="n">_NumberObject</span><span class="p">):</span>
-    <span class="n">_OBJ_CACHE</span> <span class="o">=</span> <span class="n">ObjCache</span><span class="p">()</span>
-    <span class="n">_immutable_fields_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">obj_map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">_NumberObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+      <pre id="8b00616c-7755-403c-a38e-38d1621b6cc3" class="code"><code>class PrimitiveIntObject(_NumberObject):
+    _OBJ_CACHE = ObjCache()
+    _immutable_fields_ = ["value"]
+    def __init__(self, value, obj_map=None):
+        _NumberObject.__init__(self, PrimitiveIntObject._OBJ_CACHE.map)
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        self.value = value
 
-        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">slots_references</span> <span class="o">=</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">slots</span>
-            <span class="k">return</span>
+        if PrimitiveIntObject._OBJ_CACHE.map is not None:
+            self.slots_references = PrimitiveIntObject._OBJ_CACHE.slots
+            return
 
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="n">substract</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="n">multiply</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"%"</span><span class="p">,</span> <span class="n">modulo</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;"</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&lt;="</span><span class="p">,</span> <span class="n">lte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;"</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"&gt;="</span><span class="p">,</span> <span class="n">gte</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"=="</span><span class="p">,</span> <span class="n">compare</span><span class="p">,</span> <span class="p">[</span><span class="s2">"obj"</span><span class="p">])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asString"</span><span class="p">,</span> <span class="n">as_string</span><span class="p">,</span> <span class="p">[])</span>
-        <span class="n">add_primitive_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"asFloat"</span><span class="p">,</span> <span class="n">as_float</span><span class="p">,</span> <span class="p">[])</span>
+        add_primitive_fn(self, "+", add, ["obj"])
+        add_primitive_fn(self, "-", substract, ["obj"])
+        add_primitive_fn(self, "*", multiply, ["obj"])
+        add_primitive_fn(self, "/", divide, ["obj"])
+        add_primitive_fn(self, "%", modulo, ["obj"])
+        add_primitive_fn(self, "&lt;", lt, ["obj"])
+        add_primitive_fn(self, "&lt;=", lte, ["obj"])
+        add_primitive_fn(self, "&gt;", gt, ["obj"])
+        add_primitive_fn(self, "&gt;=", gte, ["obj"])
+        add_primitive_fn(self, "==", compare, ["obj"])
+        add_primitive_fn(self, "asString", as_string, [])
+        add_primitive_fn(self, "asFloat", as_float, [])
 
-        <span class="k">if</span> <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">map</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">PrimitiveIntObject</span><span class="o">.</span><span class="n">_OBJ_CACHE</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</code></pre>
+        if PrimitiveIntObject._OBJ_CACHE.map is None:
+            PrimitiveIntObject._OBJ_CACHE.store(self)</code></pre>
       <p id="f7b62a79-3fed-4efc-b81e-79915da0bce9" class="">All the magic is happening in the <code>_OBJ_CACHE</code>, which stores the <code>.map</code> and <code>.slots</code> properties, which are shared across all instances of <code>PrimitiveIntObject</code>. That makes sense, as only the <code>.value</code> is different for each instance.</p>
       <p id="0b11ae03-42bb-4dab-b7e3-9491cc5f7227" class="">See the changes in <a href="https://github.com/Bystroushaak/tinySelf/commit/7946fdfecb339139f22947a0cefc871eccafdb1e">7946fdfecb339139f22947a0cefc871eccafdb1e</a>.</p>
       <h1 id="12590cc3-6cba-447c-81da-fbe39fccee7f" class="">Don't create new maps with each change</h1>
@@ -197,10 +194,9 @@
       <p id="f2d8c35a-d4bd-4288-98cc-a8406764c1d4" class="">And then I remembered - every time I change a structure of an object, I am currently creating the copy of the map.</p>
       <p id="b15d7104-e0f3-4a18-b51d-748e0fb05cd5" class="">You see, when you have Object and his clone, and you add or remove or shift slots in one of them, they don't anymore share same map, otherwise they both would be changed. I didn't have any checks, so each operation like addition of the new slot created new map, even if the map wasn't shared between multiple objects.</p>
       <p id="95e5dc5f-02e9-4794-adaf-287c248d6bd9" class="">It turned out, that this also have massive impact on performance as it got simple while benchmark execution time down to 4.2 seconds. And only change it required is to add new method and bool property to check when doing structural changes:</p>
-      <pre class="code"><code><span class="k">def</span> <span class="nf">_clone_map_if_used_by_multiple_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">used_in_multiple_objects</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-</code></pre>
+      <pre id="239d926c-329f-45a2-a6a2-bbd7d011442a" class="code"><code>def _clone_map_if_used_by_multiple_objects(self):
+        if self.map.used_in_multiple_objects:
+            self.map = self.map.clone()</code></pre>
       <p id="58af517a-c0b5-4037-99a1-3d16cdce05f5" class="">as you can see in <a href="https://github.com/Bystroushaak/tinySelf/commit/f5f0efe4559742bf91973184893a01923fff4e3b">f5f0efe4559742bf91973184893a01923fff4e3b</a>.</p>
       <h1 id="7418f07a-3138-4166-84cc-38787f75054c" class="">Clone block traits</h1>
       <p id="9b93e5f7-d1c4-4bc9-87cc-cb1a32d97822" class="">Another low hanging fruit is block traits, which is an object, that is created and dynamically bound to each block literal moved on stack. Simply by caching this object, cloning it and change the replacement, I've got down another almost second down to 3.47 seconds.</p>
@@ -295,6 +291,9 @@ def add_block_trait(block):
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -305,9 +304,6 @@ def add_block_trait(block):
         </li>
         <li>
           <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../Changelog.html">more</a>
     </div>

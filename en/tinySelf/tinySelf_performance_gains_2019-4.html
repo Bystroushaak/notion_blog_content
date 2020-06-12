@@ -32,6 +32,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -42,9 +45,6 @@
         </li>
         <li>
           <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../Changelog.html">more</a>
     </div>
@@ -200,53 +200,52 @@
       <h1 id="73bc718a-4a23-4000-9653-7da8e75d6d61" class="">Preallocated lists</h1>
       <p id="1fd8a227-21b3-4b39-a4a0-d2aadfc9abb2" class="">Parent lookup algorithm uses lists to iterate, and to append to one list called <code>objects</code>, from which it pops in each iteration. Then there is second list <code>visited_objects</code>, where all visited objects are stored so algorithm can `unvisit` them after it finishes the graph lookup.</p>
       <p id="20055582-2355-438d-9419-f7db05e01a59" class="">Both lists are used only once, and are not used for lookups, mode of operation is much more suited for FIFO queue. This lead me to attempt to optimize the algorithm with preallocated array and set of pointers to list:</p>
-      <pre class="code"><code><span class="k">class</span> <span class="nc">TwoPointerArray</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="n">length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">=</span> <span class="mi">0</span>
+      <pre id="8b656f32-3d4a-4351-92d3-075547c06eb9" class="code"><code>class TwoPointerArray(object):
+    def __init__(self, length):
+        self._length = length
+        self._array = [None for _ in xrange(length)]
+        self._left_pointer = 0
+        self._right_pointer = 0
 
-    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span>
+    def __len__(self):
+        return self._right_pointer - self._left_pointer
 
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">+</span> <span class="n">index</span><span class="p">]</span>
+    def __getitem__(self, index):
+        return self._array[self._left_pointer + index]
 
-    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    def __setitem__(self, key, value):
+        self._array[key] = value
 
-    <span class="k">def</span> <span class="nf">pop_first</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
+    def pop_first(self):
+        if self._left_pointer == self._right_pointer:
+            raise IndexError()
 
-        <span class="n">rval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">rval</span>
+        rval = self._array[self._left_pointer]
+        self._array[self._left_pointer] = None
+        self._left_pointer += 1
+        return rval
 
-    <span class="k">def</span> <span class="nf">pop_last</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">()</span>
+    def pop_last(self):
+        if self._left_pointer == self._right_pointer:
+            raise IndexError()
 
-        <span class="n">rval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">rval</span>
+        rval = self._array[self._right_pointer - 1]
+        self._array[self._right_pointer - 1] = None
+        self._right_pointer -= 1
+        return rval
 
-    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">return</span>
+    def append(self, item):
+        if self._right_pointer &gt;= self._length:
+            self._array.append(item)
+            self._right_pointer += 1
+            self._length += 1
+            return
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span> <span class="o">+=</span> <span class="mi">1</span>
+        self._array[self._right_pointer] = item
+        self._right_pointer += 1
 
-    <span class="k">def</span> <span class="nf">to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_array</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_left_pointer</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_pointer</span><span class="p">]</span>
-</code></pre>
+    def to_list(self):
+        return self._array[self._left_pointer: self._right_pointer]</code></pre>
       <p id="4ba6be05-d0df-40cd-8f3b-36f00cf312e8" class="">Python's lists should be preallocated under RPython, but I've found that my version has huge performance gains:</p>
       <pre id="caf58960-3db3-421e-a751-425a68e36799" class="code"><code>       3239,654852      task-clock (msec)         #    0,994 CPUs utilized          
                  9      context-switches          #    0,003 K/sec                  
@@ -307,12 +306,11 @@
        1,907438730 seconds time elapsed</code></pre>
       <h1 id="393107ba-af9c-4cc9-b254-42480f8e7103" class="">Remove pre-initialization of slots and parents</h1>
       <p id="c9910934-8ef6-46ba-b89e-417ca611bed5" class="">As it was implemented, <code>__init__()</code> method of <code>Object</code> looked like this:</p>
-      <pre class="code"><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">map</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="nb">map</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_slot_values</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_parent_slot_values</span> <span class="o">=</span> <span class="p">[]</span>
-</code></pre>
+      <pre id="47619dd2-1534-47c0-91f3-88bbbb20de54" class="code"><code>    def __init__(self, map=None):
+        self.map = map
+        self.scope_parent = None
+        self._slot_values = []
+        self._parent_slot_values = []</code></pre>
       <p id="b7e6d67a-8016-4f6d-8224-746dff13d476" class="">That means the properties <code>._slot_values</code> and <code>._parent_slot_values</code> were initialized to empty lists. Simply changing them to <code>None</code> and initializing them lazily only when they are used changed performance significantly:</p>
       <pre id="06be27b3-d849-4c55-9bfc-80478b663068" class="code"><code>       2174,622775      task-clock (msec)         #    0,991 CPUs utilized          
                 19      context-switches          #    0,009 K/sec                  
@@ -389,6 +387,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -399,9 +400,6 @@
         </li>
         <li>
           <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../Changelog.html">more</a>
     </div>

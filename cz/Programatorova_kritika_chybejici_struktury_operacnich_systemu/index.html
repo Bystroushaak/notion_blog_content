@@ -32,6 +32,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -42,9 +45,6 @@
         </li>
         <li>
           <a href="../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../Changelog.html">more</a>
     </div>
@@ -169,10 +169,9 @@
       <p id="b195441a-23b8-4287-b4b7-f8b03d577d2e" class="">Na Plan9 je úžasné, jak můžete interagovat se systémem pomocí zápisu a čtení z různých speciálních souborů. Fantastické! Revoluční! Tak úžasné, že to linux převzal například v podobě <code>/sys</code> subsystému a <a href="https://cs.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a>.</p>
       <p id="e280df65-30ca-4d9d-a8a3-04e154966539" class="">Víte co tomu chybí? Reflexe a struktura dat. Pokud si nepřečtete manuál, tak naprosto netušíte co kam zapsat.</p>
       <p id="b8630633-ccaa-456a-991c-6a9c29919b25" class="">Zde je kód pro blikání diodou na raspberry pi:</p>
-      <pre class="code"><code><span class="n">echo</span> <span class="mi">27</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span>
-<span class="n">echo</span> <span class="n">out</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">gpio27</span><span class="o">/</span><span class="n">direction</span>
-<span class="n">echo</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">gpio27</span><span class="o">/</span><span class="n">value</span>
-</code></pre>
+      <pre id="a5ef88b7-602b-4cf5-95b8-a2f269467470" class="code"><code>echo 27 &gt; /sys/class/gpio/export
+echo out &gt; /sys/class/gpio/export/gpio27/direction
+echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       <p id="d0ba90fe-6b4b-4b27-b244-ff713f557719" class="">Jak jsou řešeny chyby? Co když do <code>/sys/class/gpio/export/gpio27/value</code> zapíšu string „vánočka“? Dostanu zpět error kód z echa? Nebo se v nějakém jiném souboru něco objeví? Jak jsou zvládány paralelní zápisy? A co čtení, kde je popsáno co můžu dostat za hodnoty, když do <code>/sys/class/gpio/export/gpio27/direction</code> zapíšu <code>„in“</code> místo <code>„out“</code>?</p>
       <p id="aa3c4ca0-b3f1-4316-8cca-d3ddc3da18a3" class="">Prostě jak si to který modul udělá, tak to bude. Datové typy se neřeší. Pojďme postavit komunikaci se systémem na databázi, která si neuvědomuje že je databáze!</p>
       <p id="9c22d59c-3137-4656-bd20-6e03bb948e85" class="">Tohle je asi největší neuvědomělá snaha o zavedení čehosi jako objektů, jakou jsem kdy viděl. Ta struktura jsou objekty. Jen ten rozdíl mezi <code>sys.class.gpio.diode</code> a složkou na podobném umístění je že složka je nepopsaná <em>key-value</em> položka, podobně jako JSON, která nemá jasně dané properties, formát dat, nápovědu, nebo třeba formát a způsob vyvolávání výjimek.</p>
@@ -189,15 +188,14 @@
       <p id="56df36f1-76c6-4b59-8e41-7911eafe6279" class="">Reálně neexistuje žádný standard formátu argumentů na příkazové řádce. Některé programy používají <code>--param</code>. Jiné <code>-param</code>. Další jen <code>param</code>. Někdy se seznamy oddělují mezerami, jindy čárkami. Už jsem dokonce zažil i JSON parametry mixované s těmi normálními.</p>
       <p id="dd348a21-faac-4c78-80c9-e7efc81dedae" class="">Pokud program voláte z nějakého příkazového řádku, tak se vám do toho navíc mixuje jeho scriptovací jazyk a jeho způsob definice stringů, proměnných a bůh ví čeho dalšího (z hlavy mě napadají escape sekvence, jména funkcí, eval sekvence, wildcards znaky, <code>--</code> pro ukončení wildcardů a tak podobně). Celé je to jeden velký, gigantický bordel, který si každý patlá a parsuje, jak se mu zrovna chce.</p>
       <p id="ccab9253-900f-4bf6-a672-b53af4eab8d3" class="">A co volání ostatních programů z <em>jiných programů</em>? Ani nechci vzpomínat, kolikrát jsem viděl, či psal kód ve stylu:</p>
-      <pre class="code"><code><span class="kn">import</span> <span class="nn">subprocess</span>
+      <pre id="056d636d-391c-4bba-801f-110b77b863a5" class="code"><code>import subprocess
 
-<span class="n">sp</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-  <span class="p">[</span><span class="s1">'7z'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'Test.7z'</span><span class="p">,</span> <span class="s1">'Test'</span><span class="p">,</span> <span class="s1">'-mx9'</span><span class="p">],</span>
-  <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
-  <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
-<span class="p">)</span>
-<span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
-</code></pre>
+sp = subprocess.Popen(
+  ['7z', 'a', 'Test.7z', 'Test', '-mx9'],
+  stderr=subprocess.STDOUT,
+  stdout=subprocess.PIPE
+)
+stdout, stderr = sp.communicate()</code></pre>
       <p id="78c5403e-984a-4a0b-8dfc-6075db67e1c5" class="">Naposledy nedávno, i s celou plejádou parsování free-form výstupu. A už mě to vážně nebaví.</p>
       <p id="a7603159-d3cc-4326-a7ab-1c9c0f88e79d" class="">Pokud jsou argumenty složitější, stane se z toho rychle onanie skládání stringů, kde si navíc nemůžete být jisti bezpečností, nemáte garanci podporované znakové sady, musíte sanitizovat uživatelský vstup a volané podprogramy navíc stále můžou vykazovat chování, které je všechno, jen ne triviální. Například vám <a href="https://thraxil.org/users/anders/posts/2008/03/13/Subprocess-Hanging-PIPE-is-your-enemy/">zatuhne buffer</a> při větším výstupu. Nebo program reaguje jinak v neinteraktivním režimu, než v interaktivním a není žádný způsob, jak ho přesvědčit o opaku. Případně vám cpe escape sekvence a <code>tty</code> formátování, kam by jste nechtěli. A jak asi přenesete strukturovaná data tam a zpět?</p>
       <p id="7b442dbe-f15e-4149-b2e6-b4dcc5d518d5" class="">Přitom parametry příkazové řádky jsou většinou nějakým seznamem, nebo slovníkem s vnořenými strukturami. Chce to jednotný a na zápis jednoduchý jazyk. Něco lehčího na zápis, než JSON, ale zároveň víc expresivního.</p>
@@ -248,11 +246,9 @@
       <p id="8b7b3eb5-eddd-4d84-8e69-1c349f87475c" class="">Parametrů Dockeru je nepřeberně: <a href="https://docs.docker.com/engine/reference/run/">https://docs.docker.com/engine/reference/run/</a>. Mojí oblíbenou částí jsou volumes, tedy složky, jenž jsou mountovány dovnitř kontejneru z vnějšího hosta.</p>
       <p id="e47a4f81-a1df-4bc0-bce9-b2ef592ee6af" class="">Syntaxe je přibližně <code>-v local_path:/docs:rw</code>. Jako dobrá ukázka mi to přijde, protože se do jednoho parametru cpou tři různé hodnoty: cesta v počítači na kterém příkaz pouštíte (která navíc musí být absolutní!), cesta uvnitř kontejneru (která navíc musí být v <code>Dockerfile</code> označená pomocí <code>VOLUME</code>) a práva k zápisu.</p>
       <p id="36f24185-65d9-449b-806c-5e5b93a683ab" class="">K naprosté dokonalosti to bylo dovedeno <a href="https://docs.docker.com/storage/volumes">novým</a> parametrem <code>--mount</code>, který dělá to samé, ale zavádí pro to úplně novou syntaxi, jenž přináší úplně jiná pravidla parsování:</p>
-      <pre class="code"><code><span class="o">--</span><span class="n">mount</span> <span class="n">source</span><span class="o">=</span><span class="n">local_path</span><span class="p">,</span><span class="n">target</span><span class="o">=/</span><span class="n">docs</span>
-</code></pre>
+      <pre id="f9414646-6932-412a-bf69-68b9761536b7" class="code"><code>--mount source=local_path,target=/docs</code></pre>
       <p id="7e4ad365-23bd-4b37-ad08-3f02415695d1" class="">Komplexnější ukázka může vypadat například takto:</p>
-      <pre class="code"><code><span class="o">--</span><span class="n">mount</span> <span class="s1">'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</span>
-</code></pre>
+      <pre id="ef2b3cea-bc5f-4c70-ba0d-0bb91c95f3f7" class="code"><code>--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
       <p id="f28a5e6a-ca04-4465-aab6-48030692e9b9" class="">a zahrnuje ukázky escapování CSV parseru (!).</p>
       <p id="8415b297-4c3a-4df1-a99b-59d71a63e032" class="">Z hodnot oddělených dvojtečkami se stává úplně nový formát hodnot oddělených čárkami, definující key-value hodnoty pomocí <em>rovnítka</em> (=), ale zároveň hodnoty jako list, protože místy tam žádné <em>rovnítko</em> není, a je možné používat uvozovky a celkově .. co to sakra je?</p>
       <p id="a22280f3-e82a-4022-ac1d-7b22ec3a4972" class="">To ani nemluvím o tom jak se různě chování mění, podle toho co zrovna použijete, protože to není předmětem diskuze.</p>
@@ -261,10 +257,9 @@
       <h2 id="25a6e9bd-90a4-46b5-bf9b-4332162dc12c" class="">Dockerfile</h2>
       <p id="8093b101-03c8-4c6a-9083-1147c8d9660c" class="">Původní myšlenka Dockerfile byla hádám podobná, jako u makefile. Pustíme na to docker a on provede jednotlivé direktivy krok za krokem a sestaví nám „projekt“.</p>
       <p id="aff4d917-c9a7-41cd-bc41-047409be979f" class="">Původní idea byla jednoduchá - prostě soubor <code>KEY value</code> definic, které se budou postupně vykonávat. Může to vypadat například takto:</p>
-      <pre class="code"><code><span class="n">FROM</span> <span class="n">microsoft</span><span class="o">/</span><span class="n">nanoserver</span>
-<span class="n">COPY</span> <span class="n">testfile</span><span class="o">.</span><span class="n">txt</span> <span class="n">c</span><span class="p">:</span>\\
-<span class="n">RUN</span> <span class="nb">dir</span> <span class="n">c</span><span class="p">:</span>\
-</code></pre>
+      <pre id="d0b63989-482f-4272-bd7d-d20e2465c1f1" class="code"><code>FROM microsoft/nanoserver
+COPY testfile.txt c:\\
+RUN dir c:\</code></pre>
       <p id="48422307-25c1-4679-99ad-95014e24c1bf" class="">FROM určuje co se má použít za původní kontejner, ze kterého se bude vycházet, COPY zkopíruje soubor z počítače, na kterém je kontejner sestavován a RUN provede nějaký příkaz.</p>
       <p id="9ba0b759-ace9-4d54-be09-8dc29a86dfc7" class="">Každý kdo zná <a href="https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule">Greenspunovo desáté pravidlo</a> asi tuší, jak se to vyvíjelo dál. Přišla definice ENV proměnných a jejich nahrazování pomocí šablonování. Definice escape znaků, <code>.dockerignore</code> soubor. Příkazy jako třeba CMD získaly alternativní syntaxi, takže to nemusí být jen <code>CMD program parametr</code>, ale i <code>CMD ["program", "parametr"]</code>.</p>
       <p id="55c98cb2-c925-4940-bda2-fbcff7d36ac0" class="">Věci jako LABEL umožnily definovat další <code>key=value</code> struktury. Samozřejmě, SAMOZŘEJMĚ, že někdo potřeboval podmíněný build, tak vznikly hacky jak ho obejít přes templatování a nastavování key value hodnot z vnějšku: <a href="https://stackoverflow.com/questions/37057468/conditional-env-in-dockerfile">https://stackoverflow.com/questions/37057468/conditional-env-in-dockerfile</a></p>
@@ -277,37 +272,36 @@
       <p id="fff9433f-0840-450c-a319-9a504e58b9cd" class="">Kroutil jsem hlavou, protože jak v případě Webu, REST API či <code>oc</code> se jedná o konfiguraci nahráváním a upravováním <em>objektů</em> popsaných pomocí YAMLu či JSONu (formáty je možné zaměňovat).</p>
       <p id="62a1fbb8-dce1-4a11-9f50-ede6089f54b3" class="">Tyto <em>objekty</em> je možné definovat v takzvané <em>template</em>, která funguje jako svého druhu <a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>, postupně vykonává jednotlivé bloky a na konci by měl být výsledkem běžící systém. V rámci <em>template</em> je možné používat šablonovací systém, který umožňuje definovat a expandovat proměnné.</p>
       <p id="9395618a-83f6-45f7-a029-031fa6740ff6" class="">Tohle všechno je postavené nad YAMLem, což je poněkud méně ukecaný bratr JSONu. Ukázka template může vypadat například takto:</p>
-      <pre class="code"><code><span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">Template</span>
-<span class="n">metadata</span><span class="p">:</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">redis</span><span class="o">-</span><span class="n">template</span>
-  <span class="n">annotations</span><span class="p">:</span>
-    <span class="n">description</span><span class="p">:</span> <span class="s2">"Description"</span>
-    <span class="n">iconClass</span><span class="p">:</span> <span class="s2">"icon-redis"</span>
-    <span class="n">tags</span><span class="p">:</span> <span class="s2">"database,nosql"</span>
-<span class="n">objects</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">apiVersion</span><span class="p">:</span> <span class="n">v1</span>
-  <span class="n">kind</span><span class="p">:</span> <span class="n">Pod</span>
-  <span class="n">metadata</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">redis</span><span class="o">-</span><span class="n">master</span>
-  <span class="n">spec</span><span class="p">:</span>
-    <span class="n">containers</span><span class="p">:</span>
-    <span class="o">-</span> <span class="n">env</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">REDIS_PASSWORD</span>
-        <span class="n">value</span><span class="p">:</span> <span class="err">$</span><span class="p">{</span><span class="n">REDIS_PASSWORD</span><span class="p">}</span>
-      <span class="n">image</span><span class="p">:</span> <span class="n">dockerfile</span><span class="o">/</span><span class="n">redis</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">master</span>
-      <span class="n">ports</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">containerPort</span><span class="p">:</span> <span class="mi">6379</span>
-        <span class="n">protocol</span><span class="p">:</span> <span class="n">TCP</span>
-<span class="n">parameters</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">description</span><span class="p">:</span> <span class="n">Password</span> <span class="n">used</span> <span class="k">for</span> <span class="n">Redis</span> <span class="n">authentication</span>
-  <span class="n">from</span><span class="p">:</span> <span class="s1">'[A-Z0-9]</span><span class="si">{8}</span><span class="s1">'</span>
-  <span class="n">generate</span><span class="p">:</span> <span class="n">expression</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">REDIS_PASSWORD</span>
-<span class="n">labels</span><span class="p">:</span>
-  <span class="n">redis</span><span class="p">:</span> <span class="n">master</span>
-</code></pre>
+      <pre id="5a49bc94-1e36-417c-97e8-b8fbadb1eca2" class="code"><code>apiVersion: v1
+kind: Template
+metadata:
+  name: redis-template
+  annotations:
+    description: "Description"
+    iconClass: "icon-redis"
+    tags: "database,nosql"
+objects:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    name: redis-master
+  spec:
+    containers:
+    - env:
+      - name: REDIS_PASSWORD
+        value: ${REDIS_PASSWORD}
+      image: dockerfile/redis
+      name: master
+      ports:
+      - containerPort: 6379
+        protocol: TCP
+parameters:
+- description: Password used for Redis authentication
+  from: '[A-Z0-9]{8}'
+  generate: expression
+  name: REDIS_PASSWORD
+labels:
+  redis: master</code></pre>
       <p id="2f886b0d-a55e-427e-87ad-84bf51d71932" class="">Expanze proměnných probíhají zvenčí přes parametry příkazové řádky.</p>
       <p id="39609cbd-5474-4b8b-b794-8cb3c08573e8" class="">Dosud dobré. Jenže jak by se dalo tušit, mám k tomu spoustu výhrad:</p>
       <p id="431c5d3f-8599-47f9-9eed-b65a3a96aa3e" class="">Naprosto zde chybějí podmínky. Aby člověk mohl například podmíněně vykonat nějakou část kódu, musí použít šablonovací systém (<a href="http://jinja.pocoo.org/">Jinja2</a> třeba) nad tímhle šablonovacím systémem.</p>
@@ -319,27 +313,26 @@
       <h1 id="bd0421bc-8530-4f79-a64c-7c5428b0e8c7" class="">Ukázková studie: Ansible</h1>
       <p id="fa885297-5202-4d6d-9ce1-b55dfa5616fa" class="">Ansiblééé je krásnou ukázkou jak to dopadne, když se někdo jen tak ad-hoc pokusí podobný jazyk uvařit, aniž by nad tím nějak moc přemýšlel, nebo měl za sebou teorii programovacích jazyků.</p>
       <p id="6f6881f4-8b23-4a9a-8576-ba66bdddb7a5" class="">Původně začal jako na YAMLu založený deklarační konfigurační jazyk popisující co se má jak dělat. Zde je například ukázka deklarace instalace nginxu:</p>
-      <pre class="code"><code><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">nginx</span>
-  <span class="n">hosts</span><span class="p">:</span> <span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">ip</span>
-  <span class="n">become</span><span class="p">:</span> <span class="n">true</span>
-  <span class="n">tasks</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Add</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span> <span class="n">repo</span>
-    <span class="n">yum</span><span class="p">:</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
-      <span class="n">state</span><span class="p">:</span> <span class="n">present</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">nginx</span>
-    <span class="n">yum</span><span class="p">:</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">nginx</span>
-      <span class="n">state</span><span class="p">:</span> <span class="n">present</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Insert</span> <span class="n">Index</span> <span class="n">Page</span>
-    <span class="n">template</span><span class="p">:</span>
-      <span class="n">src</span><span class="p">:</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span>
-      <span class="n">dest</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
-  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Start</span> <span class="n">NGiNX</span>
-    <span class="n">service</span><span class="p">:</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">nginx</span>
-      <span class="n">state</span><span class="p">:</span> <span class="n">started</span>
-</code></pre>
+      <pre id="1ca3fb5c-43d9-4943-8fb0-ec1509f0b105" class="code"><code>- name: Install nginx
+  hosts: host.name.ip
+  become: true
+  tasks:
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
+  - name: Install nginx
+    yum:
+      name: nginx
+      state: present
+  - name: Insert Index Page
+    template:
+      src: index.html
+      dest: /usr/share/nginx/html/index.html
+  - name: Start NGiNX
+    service:
+      name: nginx
+      state: started</code></pre>
       <p id="356b12c2-6dfb-4b5a-9846-3cd6176667cc" class="">Celé je to poměrně jednoduše čitelná YAML key-value struktura. Samozřejmě, SAMOZŘEJMĚ že nemohlo zůstat jen u tohohle a tak někoho napadlo přidat podmínky a cykly. Samozřejmě jako YAML:</p>
       <ul id="a45b5337-e985-490f-a02f-b7ed094effff" class="bulleted-list">
         <li>
@@ -505,6 +498,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -515,9 +511,6 @@
         </li>
         <li>
           <a href="../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../Changelog.html">more</a>
     </div>

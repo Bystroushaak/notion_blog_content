@@ -32,6 +32,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -42,9 +45,6 @@
         </li>
         <li>
           <a href="../../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../../Changelog.html">more</a>
     </div>
@@ -62,11 +62,9 @@
       <p id="79fc2fd5-c2ed-4972-84cd-ec4c8ddec994" class="">Poté co objektu pošleme <em>zprávu</em>, je v paměti vyhledán obsah konkrétního slotu. Pokud se jedná o datový slot (objekt v něm uložený neobsahuje kód), je vrácen. Pokud se jedná o objekt s kódem, je vrácena hodnota zbylá po provedení kódu objektu.</p>
       <p id="50ed3495-f75b-4189-8a03-21eadc53c54d" class="">Zprávu objektu pošleme tím, že jí napíšeme napravo od něj.</p>
       <p id="3b139891-a0bc-4da1-a092-b56e85ddc008" class="">Kód</p>
-      <pre class="code"><code><span class="n">obj</span> <span class="n">zpráva</span>
-</code></pre>
+      <pre id="6e6a6d20-c4be-41c6-9817-9f91dc4873fe" class="code"><code>obj zpráva</code></pre>
       <p id="8b638e7b-0da0-446e-a1b3-8ee0fb9142c8" class="">je podobný výrazu v C-like syntaxi:</p>
-      <pre class="code"><code><span class="n">obj</span><span class="o">.</span><span class="n">zpráva</span><span class="p">()</span>
-</code></pre>
+      <pre id="5cea0c0b-c67b-42f2-be04-b04e237fb8a5" class="code"><code>obj.zpráva()</code></pre>
       <h2 id="0172a46b-6aa0-452d-a730-15ddbef6099e" class="">Syntaxe objektu</h2>
       <p id="4a937de0-1335-4fae-86c6-c8e3da14dc74" class=""><code>()</code> vytvoří prázdný objekt. To je objekt, ve kterém nejsou žádné metody a který neumí reagovat na žádné zprávy.</p>
       <p id="d5b818df-bef7-452f-b055-a8e573e1d32c" class="">Kód <code>(| a. b. |)</code> vytvoří objekt, ve kterém jsou dva sloty pojmenované jako <code>‚a‘</code> a <code>‚b‘</code>. Hodnoty obou budou nastaveny na <code>nil</code>.</p>
@@ -155,8 +153,7 @@
       <p id="0156f6a5-0b7f-4a2e-9257-4ff90c222016" class="">Na první pohled poněkud divoká konstrukce má docela zajímavé využití například při psaní parserů, kde umožňuje měnit kontext.</p>
       <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
       <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
-      <pre class="code"><code><span class="s2">"toto je komentar"</span>
-</code></pre>
+      <pre id="5c1b05c8-5bbc-44b6-9e1e-3e873c3bea83" class="code"><code>"toto je komentar"</code></pre>
       <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
       <p id="9603835d-8055-422c-9880-c44c1aca0bf9" class="">Anotace jsou způsob přidávání metadat k objektům, kterému se dokumentace překvapivě málo věnuje, přestože je použít napříč celou image.</p>
       <p id="85d3a334-fb28-46cf-9225-3d1b8276cf27" class="">Syntaxe používá složené závorky:</p>
@@ -353,8 +350,7 @@ isAlreadyKnownToBeSortedBy: cmp
 sortedBy: cmp Do: b
 sortedDo: b</code></pre>
       <h2 id="200e3aaf-0a3c-440a-9c29-007026319605" class="">Testing</h2>
-      <pre class="code"><code><span class="n">isOrdered</span>
-</code></pre>
+      <pre id="43512b24-61ae-4650-a09e-e569686f3af3" class="code"><code>isOrdered</code></pre>
       <h2 id="ab379811-7fdb-4113-b257-7e7b46e073ba" class="">Transforming</h2>
       <pre id="ca14b549-b3f1-45c5-b65e-0deb8123b9ec" class="code"><code>asByteVector
 asDictionary
@@ -606,8 +602,7 @@ mapBy: eb Into: c</code></pre>
       <p id="3a10a7d9-adb9-4d79-bef8-3950ec3ead08" class="">Pokud si chcete spustit nějaký ze scriptů, nebo načíst váš uložený modul, dají se k tomu použít dva přístupy:</p>
       <pre id="860c2cf3-615b-4973-a544-d3b2548c9c6f" class="code"><code>bootstrap read: 'name' From: 'directory'</code></pre>
       <p id="2a1ed6e6-60a0-4fe3-9196-74a44993d9fe" class="">Všimněte si že na konci name není <code>.self</code>, nebo:</p>
-      <pre class="code"><code><span class="s1">'path/to/file.self'</span> <span class="n">runScript</span>
-</code></pre>
+      <pre id="91e4fb0a-2e4f-4376-bbff-fc6741cc1bd2" class="code"><code>'path/to/file.self' runScript</code></pre>
       <p id="6ef75131-467f-4128-9885-9fce91e8d0ef" class="">Podrobnosti zde: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
       <h2 id="63819b08-9821-47bc-94ae-2c6290c37e82" class="">Radarview</h2>
       <p id="d881f75a-16f6-4271-88b3-a4870877a734" class="">Jak už jsem psal, radarView je možné zobrazit takhle:</p>
@@ -644,6 +639,9 @@ mapBy: eb Into: c</code></pre>
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -654,9 +652,6 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../../en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../../Changelog.html">more</a>
     </div>

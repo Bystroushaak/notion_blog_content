@@ -103,6 +103,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -113,9 +116,6 @@
         </li>
         <li>
           <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../../Changelog.html">more</a>
     </div>
@@ -145,14 +145,11 @@
       <p id="0ab33630-a7ef-47a1-b2ec-728b0a15ee20" class="">I don't want to load 7MB just to use a few unicode images, so I googled more to find out how to limit the subset to just used characters.</p>
       <h1 id="7f3c967b-f325-4a82-8eaf-83dd81f2f68a" class="">Create subset of the font</h1>
       <p id="3d54a9c2-134b-4bba-a116-4d7c7836dd31" class="">Install <a href="https://github.com/fonttools/fonttools">https://github.com/fonttools/fonttools</a>:</p>
-      <pre class="code"><code><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">fonttools</span>
-</code></pre>
+      <pre id="e90195bc-b08e-47c0-a4d3-2ea40e9a3ad5" class="code"><code>pip install --user fonttools</code></pre>
       <p id="55c1144d-d831-4770-9a8a-8f2ad2f96933" class="">Then run following command on the downloaded font</p>
-      <pre class="code"><code><span class="n">pyftsubset</span> <span class="n">NotoColorEmoji</span><span class="o">.</span><span class="n">ttf</span> <span class="o">--</span><span class="n">unicodes</span><span class="o">=</span><span class="s2">"U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2"</span> <span class="o">--</span><span class="n">layout</span><span class="o">-</span><span class="n">features</span><span class="o">=</span><span class="s2">""</span> <span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="s2">"woff"</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="s2">"NotoEmojiSubset.ttf"</span>
-</code></pre>
+      <pre id="59400ca0-0c43-438c-8d49-2d15025c0b68" class="code"><code>pyftsubset NotoColorEmoji.ttf --unicodes="U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2" --layout-features="" --flavor="woff" --output-file="NotoEmojiSubset.ttf"</code></pre>
       <p id="c76a0e22-b263-4558-86b2-ea86b7e70e2c" class="">and</p>
-      <pre class="code"><code><span class="n">pyftsubset</span> <span class="n">NotoColorEmoji</span><span class="o">.</span><span class="n">ttf</span> <span class="o">--</span><span class="n">unicodes</span><span class="o">=</span><span class="s2">"U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2"</span> <span class="o">--</span><span class="n">layout</span><span class="o">-</span><span class="n">features</span><span class="o">=</span><span class="s2">""</span> <span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="s2">"woff"</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="s2">"NotoEmojiSubset.woff"</span>
-</code></pre>
+      <pre id="011291a9-ad1b-46b9-a692-50f003d6d305" class="code"><code>pyftsubset NotoColorEmoji.ttf --unicodes="U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2" --layout-features="" --flavor="woff" --output-file="NotoEmojiSubset.woff"</code></pre>
       <p id="5b39e2d1-7af7-47b8-92ef-3efa4088768c" class="">for <code>woff</code> format. Files are tiny, just 8.9kB for my subset.</p>
       <h2 id="8a50a77c-0564-4c13-a4c2-06a2a63459d5" class="">Character codes</h2>
       <p id="879b4ff5-cc16-44d1-bb85-a031973b00a9" class="">I've found out what kind of unicode codes I want simply by typing it to the python shell:</p>
@@ -196,6 +193,9 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
           <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
         </li>
         <li>
@@ -206,9 +206,6 @@
         </li>
         <li>
           <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
         </li>
       </ul>& <a href="../../../Changelog.html">more</a>
     </div>
