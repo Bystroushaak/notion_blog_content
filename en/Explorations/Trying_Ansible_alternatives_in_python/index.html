@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Trying Ansible alternatives in python</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Trying Ansible alternatives in python">
+  <meta name="twitter:description" content="My VPS will soon expire, so I've decided to try to automate its deployment. After spending evening by studying Ansible alternatives, I've decided to use pyinfra, and I am quite happy with it.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Explorations/Trying_Ansible_alternatives_in_python/pyinfra_doc.png">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="keywords" content="python, deployment, devops, explorations">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment.html"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/Unicode_font_subset.html">Unicode font subset</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html">more</a>
+    </div>
+  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Explorations</a> / Trying Ansible alternatives in python
+  <article id="f1af76cf-db80-4f75-88f2-b6afeff1bf2a" class="page sans">
+    <header>
+      <h1 class="page-title">Trying Ansible alternatives in python</h1>
+    </header>
+    <div class="page-body">
+      <p id="c435940b-04bf-454d-9214-ba6a01e0b455" class=""><time>@2020/06/12</time></p>
+      <p id="3ae61d4e-2646-4e2d-b08f-9a2d44190518" class="">My VPS (Virtual Private Server) is getting old and the company that runs it announced that next month, the promotion I used will expire and it will now cost more than three times to run it. Also, I would like to update other machines I have home, as they use old Ubuntu.</p>
+      <p id="79ac70cf-22f1-4448-9605-fc563d279fc6" class="">This has led me to seek some kind of deployment automation, so I can specify my infrastructure as a code and ideally never ever again spend much time with it.</p>
+      <h1 id="3c120faf-84e8-4826-bd7a-df02bf145898" class="">Why not Ansible</h1>
+      <p id="59a4f0cc-e8dd-460a-beb6-215120773aed" class="">I really, really don't like Ansible. It's a mess of configuration files, YAML and stuff, and I don't really understand it. Yes, I can use it, but I feel mentally raped every time I am forced to do so.</p>
+      <p id="01251721-51f6-46c2-8f06-e1e21a848c82" class="">I hate YAML based configuration languages that <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html">overgrow into scripting languages</a>. It's a classic example of the <a href="https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule">Greenspun's tenth rule</a>:</p>
+      <blockquote id="e9a1e6e4-0505-4a4c-9bdd-f7735e272476" class="">
+        Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of Common Lisp.
+      </blockquote>
+      <p id="83245276-9fbf-490c-ae86-2e9610f1019c" class="">It is a nightmare to debug it, there is no support in IDE and so on.</p>
+      <p id="894a5fd7-9951-43fa-aaf4-94e2ec8e5904" class="">This has led me to explore <a href="https://github.com/topics/configuration-management?l=python&amp;o=desc&amp;s=stars">alternatives</a> to Ansible, preferably in python, which would define "recipes" or whatever as simple python code.</p>
+      <p id="dd85f723-99d0-4113-8b64-3576cae4f503" class="">As it turned out, there aren't so many.</p>
+      <h1 id="ea7409b0-506e-4938-bddb-3cb68d34b38e" class="">Fabric</h1>
+      <ul id="be5907f9-eb68-4b32-9309-e17214b563da" class="bulleted-list">
+        <li>
+          <a href="https://github.com/fabric/fabric">https://github.com/fabric/fabric</a>
+        </li>
+      </ul>
+      <p id="1d69d6ba-8383-4bc8-a724-4b2de1c14a07" class="">Almost every article on the topic of "<em>python ansible alternative</em>" mentions <em>fabric</em>. It looks great, but like something slightly different. It is a system for running commands on remote hosts. Which is definitely part of what Ansible does, but I would also like some kind of abstraction layer.</p>
+      <pre class="code"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">disk_free</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">uname</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'uname -s'</span><span class="p">,</span> <span class="n">hide</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="s1">'Linux'</span> <span class="ow">in</span> <span class="n">uname</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+<span class="o">...</span>         <span class="n">command</span> <span class="o">=</span> <span class="s2">"df -h / | tail -n1 | awk '{print $5}'"</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">hide</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="o">...</span>     <span class="n">err</span> <span class="o">=</span> <span class="s2">"No idea how to get disk space on </span><span class="si">{}</span><span class="s2">!"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uname</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">raise</span> <span class="n">Exit</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+</code></pre>
+      <p id="d53ecff1-32cc-4895-90c3-9d338280d009" class="">I mean, I don't want to manually run <code>apt install nginx</code> and then parse the output and try to decide whether the command successfully run (I did it before with <a href="http://www.paramiko.org/">paramiko</a> and it is not fun, trust me).</p>
+      <p id="b9d69672-bb54-4db5-b776-af6e72f23dd2" class="">I want something slightly more advanced, which does the parsing of standard utilities for me, and ideally with support of multiple OS, so when I decide to use CentOS instead of the Ubuntu server I am using now, it can cope with the different utilities for me.</p>
+      <h1 id="0dad59dc-34a4-45c7-a1fb-8c888a0e0476" class="">Fabtools</h1>
+      <ul id="52c05a43-ef67-4858-8f72-fff89ca4dd1b" class="bulleted-list">
+        <li>
+          <a href="https://github.com/fabtools/fabtools">https://github.com/fabtools/fabtools</a>
+        </li>
+      </ul>
+      <p id="1bd215e2-30b4-4120-8c23-b2a9e9694947" class=""><em>Fabtools</em> looks almost exactly like what I want:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fabtools</span> <span class="kn">import</span> <span class="n">require</span>
+<span class="kn">import</span> <span class="nn">fabtools</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
+    <span class="c1"># Require some Debian/Ubuntu packages</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">deb</span><span class="o">.</span><span class="n">packages</span><span class="p">([</span>
+        <span class="s1">'imagemagick'</span><span class="p">,</span>
+        <span class="s1">'libxml2-dev'</span><span class="p">,</span>
+    <span class="p">])</span>
+
+    <span class="c1"># Require a Python package</span>
+    <span class="k">with</span> <span class="n">fabtools</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">virtualenv</span><span class="p">(</span><span class="s1">'/home/myuser/env'</span><span class="p">):</span>
+        <span class="n">require</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">package</span><span class="p">(</span><span class="s1">'pyramid'</span><span class="p">)</span>
+
+    <span class="c1"># Require an email server</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">postfix</span><span class="o">.</span><span class="n">server</span><span class="p">(</span><span class="s1">'example.com'</span><span class="p">)</span>
+
+    <span class="c1"># Require a PostgreSQL server</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">postgres</span><span class="o">.</span><span class="n">server</span><span class="p">()</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">postgres</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="s1">'myuser'</span><span class="p">,</span> <span class="s1">'s3cr3tp4ssw0rd'</span><span class="p">)</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">postgres</span><span class="o">.</span><span class="n">database</span><span class="p">(</span><span class="s1">'myappsdb'</span><span class="p">,</span> <span class="s1">'myuser'</span><span class="p">)</span>
+
+    <span class="c1"># Require a supervisor process for our app</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">supervisor</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="s1">'myapp'</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="s1">'/home/myuser/env/bin/gunicorn_paster /home/myuser/env/myapp/production.ini'</span><span class="p">,</span>
+        <span class="n">directory</span><span class="o">=</span><span class="s1">'/home/myuser/env/myapp'</span><span class="p">,</span>
+        <span class="n">user</span><span class="o">=</span><span class="s1">'myuser'</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Require an nginx server proxying to our app</span>
+    <span class="n">require</span><span class="o">.</span><span class="n">nginx</span><span class="o">.</span><span class="n">proxied_site</span><span class="p">(</span><span class="s1">'example.com'</span><span class="p">,</span>
+        <span class="n">docroot</span><span class="o">=</span><span class="s1">'/home/myuser/env/myapp/myapp/public'</span><span class="p">,</span>
+        <span class="n">proxy_url</span><span class="o">=</span><span class="s1">'http://127.0.0.1:8888'</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Setup a daily cron task</span>
+    <span class="n">fabtools</span><span class="o">.</span><span class="n">cron</span><span class="o">.</span><span class="n">add_daily</span><span class="p">(</span><span class="s1">'maintenance'</span><span class="p">,</span> <span class="s1">'myuser'</span><span class="p">,</span> <span class="s1">'my_script.py'</span><span class="p">)</span>
+</code></pre>
+      <p id="3f209efb-8707-4cc3-9d86-a6c00bd467b4" class="">It has just one downside; it also looks dead.</p>
+      <p id="dc179746-2103-4ec1-8b1e-3730d517d7a9" class="">Last commit is 9 months ago, there is 78 unresolved issues, 28 waiting pull requests and list of supported operating systems is ancient:</p>
+      <ul id="738e50a9-4073-4725-a078-3e2120c0f0f9" class="bulleted-list">
+        <li>Debian family:
+          <ul id="b788954b-5010-4f4d-85cc-f1ff8bb1ac52" class="bulleted-list">
+            <li>Debian 6 (<em>squeeze</em>), 7 (<em>wheezy</em>), 8 (<em>jessie</em>)</li>
+          </ul>
+          <ul id="d8e5e842-7bde-4579-94fc-c7dee0712201" class="bulleted-list">
+            <li>Ubuntu 10.04 (<em>lucid</em>), 12.04 (<em>precise</em>), 14.04 (<em>trusty</em>)</li>
+          </ul>
+        </li>
+      </ul>
+      <p id="2f52ead8-4543-4e03-84df-777e73656109" class="">That 14 in the Ubuntu 14.04 (trusty) is the year of release: 2014.</p>
+      <p id="6a0f06cd-9341-4db3-92ac-7037ff63a506" class="">The documentation also suck, and there is weird confusion about forks.</p>
+      <h1 id="fb39edb0-b460-465c-92c6-b67a9d77b15b" class="">Fabrix</h1>
+      <ul id="956039c5-5d76-46a2-b70a-7bac0a180f8f" class="bulleted-list">
+        <li>
+          <a href="https://github.com/makhomed/fabrix">https://github.com/makhomed/fabrix</a>
+        </li>
+      </ul>
+      <p id="cde3de7c-dbb9-4b02-bd8b-c3c38b4436e5" class="">Then there is <em>Fabrix</em>, which looks like something between <em>Fabric</em> and <em>Fabtools</em>:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">fabrix.api</span> <span class="kn">import</span> <span class="n">is_file_not_exists</span><span class="p">,</span> <span class="n">yum_install</span>
+<span class="kn">from</span> <span class="nn">fabrix.api</span> <span class="kn">import</span> <span class="n">edit_file</span><span class="p">,</span> <span class="n">edit_ini_section</span><span class="p">,</span> <span class="n">replace_line</span>
+
+<span class="k">def</span> <span class="nf">install_php</span><span class="p">():</span>
+
+    <span class="k">if</span> <span class="n">is_file_not_exists</span><span class="p">(</span><span class="s2">"/etc/yum.repos.d/epel.repo"</span><span class="p">):</span>
+        <span class="n">yum_install</span><span class="p">(</span><span class="s2">"https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">is_file_not_exists</span><span class="p">(</span><span class="s2">"/etc/yum.repos.d/remi-php70.repo"</span><span class="p">):</span>
+        <span class="n">yum_install</span><span class="p">(</span><span class="s2">"https://rpms.remirepo.net/enterprise/remi-release-7.rpm"</span><span class="p">)</span>
+
+    <span class="n">edit_file</span><span class="p">(</span><span class="s2">"/etc/yum.repos.d/remi-php70.repo"</span><span class="p">,</span>
+        <span class="n">edit_ini_section</span><span class="p">(</span><span class="s2">"[remi-php70]"</span><span class="p">,</span>
+            <span class="n">replace_line</span><span class="p">(</span><span class="s2">"enabled=0"</span><span class="p">,</span> <span class="s2">"enabled=1"</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">yum_install</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">            php-cli</span>
+<span class="s2">            php-common</span>
+<span class="s2">            php-fpm</span>
+<span class="s2">            php-gd</span>
+<span class="s2">            php-mbstring</span>
+<span class="s2">            php-mysql</span>
+<span class="s2">            php-pdo</span>
+<span class="s2">            php-pear</span>
+<span class="s2">            php-pecl-imagick</span>
+<span class="s2">            php-process</span>
+<span class="s2">            php-xml</span>
+<span class="s2">            php-opcache</span>
+<span class="s2">            php-mcrypt</span>
+<span class="s2">            php-soap</span>
+<span class="s2">    """</span><span class="p">)</span>
+</code></pre>
+      <p id="a116ff58-1ed2-4a2b-be1b-39f0eb15f6f3" class="">It's kinda funny to me, because I've created something very similar with <em>paramiko</em> some time ago.</p>
+      <p id="ce3a68f5-c5ef-477c-898e-8e000cac198a" class="">It also looks dead, only 204 commits and one contributor, last commit 15 months ago. I don't want to build my system on something that is already dead.</p>
+      <h1 id="ac8df772-c615-4ac5-bdd7-b11af96b7f54" class="">pyinfra</h1>
+      <ul id="ddf169b2-80b7-481f-8430-a0ef2118eff2" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Fizzadar/pyinfra">https://github.com/Fizzadar/pyinfra</a>
+        </li>
+      </ul>
+      <p id="207d32d5-62f7-49cc-9d96-45d218d8a51e" class=""><em>pyinfra</em> looks promising and very <strong>not</strong> dead: 2233 commits, 14 contributors, last commit <em>yesterday</em>. That's what I am talking about!</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.operations</span> <span class="kn">import</span> <span class="n">apt</span>
+
+<span class="n">apt</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">'Install iftop'</span><span class="p">},</span>
+    <span class="s1">'iftop'</span><span class="p">,</span>
+    <span class="n">sudo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre>
+      <p id="0a7537b5-a4ce-44a7-b6fb-03e63de49b87" class="">Example works exactly as I wanted; declarative language, important parameters as, you know, parameters and not strings. Only weird thing is to specify description as <code>set</code>, but whatever, I can see the line of reasoning here.</p>
+      <p id="eca7d92e-9473-48d4-a71c-a054afbe1371" class=""><a href="https://pyinfra.com/">Documentation</a> is also promising:</p>
+      <figure id="a6fea12b-89ef-431d-aca0-56bae2c3fac2" class="image">
+        <a href="pyinfra_doc.png"><img style="width:528px" src="pyinfra_doc.png"></a>
+      </figure>
+      <figure id="4b34a4b0-ea21-44f9-99b2-fde8e9c71198" class="image">
+        <a href="compatibility.png"><img style="width:528px" src="compatibility_thumb.jpg"></a>
+      </figure>
+      <h1 id="15a7ea6a-5537-4109-aec6-e6a9f9436c65" class="">Trying pyinfra</h1>
+      <p id="c4889cbe-6f3c-4bac-87b4-7ff1d42b2e59" class="">As the pyinfra is the only thing that looks like it is not dead and it can do what I want, the decision is not that hard. So, lets try it:</p>
+      <pre id="ed740767-ffa7-4629-b397-a8a1500a3603" class="code"><code>$ pip install --user pyinfra</code></pre>
+      <p id="bd8d2303-3ed9-42f4-9b95-900c724789d8" class="">Now lets try hello world. I struggle with the port for a moment, because I use nonstandard port for tunneling through hotel and airport wifi, quick peek to help show that I should use <code>--port</code> parameter:</p>
+      <pre id="70d570c8-d358-4b0b-a015-1a4a0982d38c" class="code"><code>$ pyinfra kitakitsune.org --port 443 exec -- echo "hello world"
+--&gt; Loading config...
+--&gt; Loading inventory...
+
+--&gt; Connecting to hosts...
+    [kitakitsune.org] Connected
+
+--&gt; Proposed changes:
+    Ungrouped:
+    [kitakitsune.org]   Operations: 1   Commands: 1   
+
+--&gt; Beginning operation run...
+--&gt; Starting operation: Server/Shell (u'echo hello world',)
+[kitakitsune.org] hello world
+    [kitakitsune.org] Success
+
+--&gt; Results:
+    Ungrouped:
+    [kitakitsune.org]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
+      <p id="b0ce0e5c-b8d3-48ec-8c31-a5a29a0c81e2" class="">Looks good. Let's try to create a more complicated deployment for a virtual Ubuntu server, that I've created some time ago in VirtualBox. I slightly struggle with the <code>inventory.py</code> file, but then I find in the documentation correct parameters:</p>
+      <pre class="code"><code><span class="n">my_hosts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">'192.168.0.106'</span><span class="p">,</span> <span class="p">{</span><span class="s2">"ssh_port"</span><span class="p">:</span> <span class="s2">"4433"</span><span class="p">,</span> <span class="s2">"ssh_user"</span><span class="p">:</span> <span class="s2">"b"</span><span class="p">}),</span>
+<span class="p">]</span>
+</code></pre>
+      <p id="bb5cc72a-13e1-4bdf-aaf2-e11f59b015eb" class="">I quickly check whether it works with following <code>deployment.py</code> file:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">server</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">shell</span><span class="p">(</span><span class="s1">'echo "hello world"'</span><span class="p">)</span>
+</code></pre>
+      <p id="0042e0f3-7d1a-4f3f-9bc4-62f350514071" class="">Which I run using following command:</p>
+      <pre id="61ab5a55-bb0c-4f06-bee1-b8d99f1976b0" class="code"><code>pyinfra -v inventory.py deployment.py</code></pre>
+      <pre id="ad148ebb-f0a0-4d62-b907-8be7537b624f" class="code"><code>--&gt; Loading config...
+--&gt; Loading inventory...
+
+--&gt; Connecting to hosts...
+    [192.168.0.106] Connected
+
+--&gt; Preparing operations...
+    Loading: deployment.py
+    [192.168.0.106] Ready: deployment.py
+
+--&gt; Proposed changes:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Operations: 1   Commands: 1   
+
+--&gt; Beginning operation run...
+--&gt; Starting operation: Server/Shell ('echo "hello world"',)
+[192.168.0.106] &gt;&gt;&gt; sh -c 'echo "hello world"'
+[192.168.0.106] hello world
+    [192.168.0.106] Success
+
+--&gt; Results:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
+      <h2 id="b81014a8-1b4e-4efd-b087-c7b433c7463e" class="">Sudo</h2>
+      <p id="3e2501bd-69fd-496a-bdab-c1de2f5d0f9b" class="">Ok, so it works. Nice. Now lets try it with <code>--sudo</code>:</p>
+      <pre id="1142fbc2-875e-4ea2-a2bd-74d38a5c6ee7" class="code"><code>--&gt; Starting operation: Server/Shell ('echo "hello world"',)
+[192.168.0.106] &gt;&gt;&gt; sudo -S -H -n sh -c 'echo "hello world"'
+[192.168.0.106] sudo: a password is required
+    [192.168.0.106] Error
+--&gt; pyinfra error: No hosts remaining!</code></pre>
+      <p id="3e0e0f87-3388-4c45-aa93-46fbacc5f538" class="">I've googled and looked into the documentation and also source code, but it looks like there is no way how to specify sudo password, which I find extremely weird. Someone even created an issue a day before:</p>
+      <ul id="f10b91ab-ff75-479f-b6a8-99694bd0ecb4" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Fizzadar/pyinfra/issues/305">https://github.com/Fizzadar/pyinfra/issues/305</a>
+        </li>
+      </ul>
+      <p id="0185228a-eeae-4623-b3a6-73cd503b7d20" class="">It looks like the sudo with password is simply not supported. So I've disabled sudo password in <code>/etc/sudoers</code> by changing the line</p>
+      <pre id="c598222d-9f16-4281-8572-dff8470244eb" class="code"><code>%sudo    ALL=(ALL:ALL) ALL</code></pre>
+      <p id="25da3875-89a2-4fbf-af30-c6cb8bdc3005" class="">to:</p>
+      <pre id="ff008651-a519-4467-9aa3-1ffec504dc5b" class="code"><code>%sudo      ALL=(ALL:ALL) NOPASSWD:ALL</code></pre>
+      <p id="0fe839ce-d1bf-4784-bf14-69ded23863b5" class="">After this, the code now works:</p>
+      <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code"><code>pyinfra -v inventory.py deployment.py --sudo </code></pre>
+      <pre id="00596c62-7047-4c73-a3a2-786e7b26f497" class="code"><code>--&gt; Loading config...
+--&gt; Loading inventory...
+
+--&gt; Connecting to hosts...
+    [192.168.0.106] Connected
+
+--&gt; Preparing operations...
+    Loading: deployment.py
+    [192.168.0.106] Ready: deployment.py
+
+--&gt; Proposed changes:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Operations: 1   Commands: 1   
+
+--&gt; Beginning operation run...
+--&gt; Starting operation: Server/Shell ('echo "hello world"',)
+[192.168.0.106] &gt;&gt;&gt; sudo -S -H -n sh -c 'echo "hello world"'
+[192.168.0.106] hello world
+    [192.168.0.106] Success
+
+--&gt; Results:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
+      <h2 id="dc20716a-9a1b-49a6-b59c-241c3d05bb7e" class="">Setup nginx</h2>
+      <p id="d1209e95-9e03-4fa9-a097-6b1c977bf9a1" class="">Let's try something more complicated - to set up a nginx server and upload a correct config file for it:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">apt</span>
+
+
+<span class="n">SUDO</span><span class="o">=</span><span class="kc">True</span>
+
+<span class="n">apt</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s1">'nginx'</span><span class="p">,</span> <span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">present</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre>
+      <p id="4d9e24e9-0aea-421e-a406-acba5f2b14e7" class="">And it worked, with one exception, which is parsing of the output (yes, that's why parsing sucks):</p>
+      <pre id="e0988895-2f38-4535-8abe-7b54cf43e3e0" class="code"><code>Traceback (most recent call last):
+  File "src/gevent/greenlet.py", line 854, in gevent._gevent_cgreenlet.Greenlet.run
+  File "/home/bystrousak/.local/lib/python2.7/site-packages/pyinfra/api/util.py", line 471, in read_buffer
+    _print(line)
+  File "/home/bystrousak/.local/lib/python2.7/site-packages/pyinfra/api/util.py", line 455, in _print
+    line = print_func(line)
+  File "/home/bystrousak/.local/lib/python2.7/site-packages/pyinfra/api/connectors/util.py", line 61, in &lt;lambda&gt;
+    print_func=lambda line: '{0}{1}'.format(print_prefix, line),
+UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 74: ordinal not in range(128)
+2020-06-11T23:55:28Z &lt;Greenlet at 0x7fde3f4dd6b0: read_buffer('stdout', &lt;paramiko.ChannelFile from &lt;paramiko.Channel 2 (op, &lt;Queue at 0x7fde39f60f30 queue=deque([('stdout', u, print_func=&lt;function &lt;lambda&gt; at 0x7fde39f5e950&gt;, print_output=True)&gt; failed with UnicodeEncodeError
+
+    [192.168.0.106] Success
+
+--&gt; Results:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
+      <p id="e94b7b51-56a0-4d88-a648-4d45431d32a5" class="">Which again is weird, but I am probably using Czech localization, so I am not that surprised.</p>
+      <p id="9c964837-fec6-4423-989e-93ded0e39b23" class="">Running it again shows that the operation was executed successfully:</p>
+      <pre id="05cc2c1a-18a2-4003-8c1a-1471022506fc" class="code"><code>--&gt; Loading config...
+--&gt; Loading inventory...
+
+--&gt; Connecting to hosts...
+    [192.168.0.106] Connected
+
+--&gt; Preparing operations...
+    Loading: deployment.py
+    Loaded fact deb_packages
+    [192.168.0.106] Ready: deployment.py
+
+--&gt; Proposed changes:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Operations: 1   Commands: 1   
+
+--&gt; Beginning operation run...
+--&gt; Starting operation: Apt/Packages ('nginx', u'update=True', u'present=True')
+[192.168.0.106] &gt;&gt;&gt; sudo -S -H -n sh -c 'apt-get update'
+[192.168.0.106] Hit:1 http://archive.ubuntu.com/ubuntu bionic InRelease
+[192.168.0.106] Hit:2 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
+[192.168.0.106] Hit:3 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
+[192.168.0.106] Hit:4 http://archive.ubuntu.com/ubuntu bionic-security InRelease
+[192.168.0.106] Reading package lists...
+    [192.168.0.106] Success
+
+--&gt; Results:
+    Groups: my_hosts / inventory
+    [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
+      <h3 id="ab4073dc-b666-4d65-81e1-c04d1284dd58" class="">Config file</h3>
+      <p id="f2bb621d-03db-4bb2-8eff-eaceb5e5e6ff" class="">So, how do I upload a config file for the nginx?</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">files</span>
+
+<span class="n">files</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+    <span class="s1">'configs/nginx.conf'</span><span class="p">,</span>
+    <span class="s1">'/etc/nginx/nginx.conf'</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">'root'</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s1">'root'</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">'644'</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre>
+      <p id="895baf4f-cd21-48f6-b152-432cf4c1a510" class="">You can also download files, sync whole directories and so on. Quite nice.</p>
+      <h2 id="1b4403ab-97e6-4cd2-998c-3a0ab9f2ad64" class="">Start nginx</h2>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">server</span>
+
+<span class="n">init</span><span class="o">.</span><span class="n">systemd</span><span class="p">(</span><span class="s1">'nginx'</span><span class="p">,</span> <span class="n">running</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">restarted</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre>
+      <p id="a629420c-c551-4ace-a666-52acb12b7012" class="">Beautiful.</p>
+      <h1 id="aa137eb1-4849-4a00-995b-dee74922be18" class="">Conclusion</h1>
+      <p id="a634a224-1dac-4af4-8401-2598def9b9dc" class="">I really like <em>pyinfra</em>. It has its quirks, but they are just little annoyances, unlike big annoyances I find in other products, like Ansible. But unlike Ansible, it is understandable, easy to use, and it uses Python, which I know and like, and my IDE can give me autocomplete and debugger, unlike other, YAML based domain specific languages.</p>
+      <p id="046f87c0-9654-461f-961a-4c8d1297bd89" class="">Here is a whole config for the nginx deployment:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">apt</span>
+<span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">init</span>
+<span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">files</span>
+
+
+<span class="n">SUDO</span><span class="o">=</span><span class="kc">True</span>
+
+
+<span class="n">apt</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span>
+    <span class="s1">'nginx'</span><span class="p">,</span>
+    <span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">present</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">files</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+    <span class="s1">'configs/nginx.conf'</span><span class="p">,</span>
+    <span class="s1">'/etc/nginx/nginx.conf'</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">'root'</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s1">'root'</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">'644'</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">init</span><span class="o">.</span><span class="n">systemd</span><span class="p">(</span>
+    <span class="s1">'nginx'</span><span class="p">,</span>
+    <span class="n">running</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">restarted</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre>
+      <p id="c020fc6e-bb98-451f-a709-ada8dc1d8c28" class=""></p>
+    </div>
+  </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../../Tags/deployment.html">deployment</a>, <a href="../../../Tags/devops.html">devops</a>, <a href="../../../Tags/explorations.html">explorations</a>, <a href="../../../Tags/python.html">python</a></p>
+  </div>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment.html"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/Unicode_font_subset.html">Unicode font subset</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html">more</a>
+    </div>
+  </div>
+</body>
+</html>
