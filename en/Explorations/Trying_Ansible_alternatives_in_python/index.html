@@ -465,7 +465,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
 </code></pre>
       <p id="a629420c-c551-4ace-a666-52acb12b7012" class="">Beautiful.</p>
       <h1 id="aa137eb1-4849-4a00-995b-dee74922be18" class="">Conclusion</h1>
-      <p id="a634a224-1dac-4af4-8401-2598def9b9dc" class="">I really like <em>pyinfra</em>. It has its quirks, but they are just little annoyances, unlike big annoyances I find in other products, like Ansible. But unlike Ansible, it is understandable, easy to use, and it uses Python, which I know and like, and my IDE can give me autocomplete and debugger, unlike other, YAML based domain specific languages.</p>
+      <p id="a634a224-1dac-4af4-8401-2598def9b9dc" class="">I really like <em>pyinfra</em>. It has its quirks, but they are just little annoyances, unlike big annoyances I find in other products, like Ansible. But unlike Ansible, it is understandable, easy to use, and it uses Python, which I know and like. My IDE can give me autocomplete and debugger, unlike other, YAML based DSLs.</p>
       <p id="046f87c0-9654-461f-961a-4c8d1297bd89" class="">Here is a whole config for the nginx deployment:</p>
       <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">apt</span>
 <span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">init</span>
@@ -497,18 +497,45 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
 <span class="p">)</span>
 </code></pre>
       <h1 id="c020fc6e-bb98-451f-a709-ada8dc1d8c28" class="">Relevant discussion</h1>
+      <ul id="2d943230-827b-4f83-a6c2-ed6555be8377" class="bulleted-list">
+        <li>
+          <a href="https://news.ycombinator.com/item?id=23506223">hackernews</a> (85 comments)
+        </li>
+      </ul>
       <ul id="c4cc61db-28a7-426e-a752-0a4aeb16bb6e" class="bulleted-list">
         <li>
           <a href="https://www.reddit.com/r/devops/comments/h7ijk2/trying_ansible_alternatives_in_python/">/r/devops</a> (20 comments)
         </li>
       </ul>
-      <ul id="25d238c0-4ae3-4cbe-a716-6dbbcb8626c4" class="bulleted-list">
+      <ul id="b8ac8569-a4c9-4efa-865b-8268444f13a8" class="bulleted-list">
         <li>
-          <a href="https://www.reddit.com/r/Python/comments/h7igmc/trying_ansible_alternatives_in_python/">/r/python</a> (3 comments)
+          <a href="https://lobste.rs/s/iqnhov/trying_ansible_alternatives_python">lobste.rs</a> (5 comments)
         </li>
       </ul>
-      <h1 id="2d94a4d5-1d37-4e89-8e63-94820673a396" class="">Updated <time>@2020/06/12</time></h1>
-      <p id="19ddc07a-8006-4da7-a0c2-6a175911ba1d" class="">Changed heated tone about the Ansible, as this was not the point. Added callout about the VS Code Ansible addon.</p>
+      <ul id="25d238c0-4ae3-4cbe-a716-6dbbcb8626c4" class="bulleted-list">
+        <li>
+          <a href="https://www.reddit.com/r/Python/comments/h7igmc/trying_ansible_alternatives_in_python/">/r/python</a> (4 comments)
+        </li>
+      </ul>
+      <h1 id="2d94a4d5-1d37-4e89-8e63-94820673a396" class="">Update <time>@2020/06/12</time></h1>
+      <p id="19ddc07a-8006-4da7-a0c2-6a175911ba1d" class="">Changed heated tone about the Ansible, as this was not the point. Added callout about the VS Code Ansible add-on.</p>
+      <h1 id="3ee267ef-302f-4734-ba5d-73df1d227e46" class="">Update <time>@2020/06/14</time></h1>
+      <p id="71c12232-623c-4cad-a7d1-930a7337a024" class="">People on <em>hackernews</em> pointed out other python projects, that may be relevant:</p>
+      <ul id="a7848abf-f20c-4411-9b72-658f27181f79" class="bulleted-list">
+        <li>
+          <a href="https://bundlewrap.org/">https://bundlewrap.org/</a> (this looks especially interesting)
+        </li>
+      </ul>
+      <ul id="853bffc2-efcb-44bd-bba0-38f204c47b7e" class="bulleted-list">
+        <li>
+          <a href="https://www.pulumi.com/">https://www.pulumi.com/</a>
+        </li>
+      </ul>
+      <ul id="8e8c24c0-7592-4963-8212-9411d54c67a2" class="bulleted-list">
+        <li>
+          <a href="https://github.com/bearstech/nuka">https://github.com/bearstech/nuka</a>
+        </li>
+      </ul>
       <hr id="be52344c-5ed9-4c98-94e3-e83d4f45645e">
       <figure class="block-color-gray_background callout" id="1e994d03-a4d8-4041-a209-cb8eea0b2746" style="display:flex">
         <div style="font-size:1.5em">
