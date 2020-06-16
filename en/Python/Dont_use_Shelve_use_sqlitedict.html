@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Don't use Shelve, use sqlitedict</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="http://blog.rfox.eu/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:title" content="Don&amp;#x27;t use Shelve, use sqlitedict">
+  <meta name="twitter:description" content="Why you shouldn't use shelve module and what should you use instead and how.">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="description" content="Why you shouldn't use shelve module and what should you use instead and how.">
+  <meta name="keywords" content="python,shelve,sqlitedict,object_database">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+        </li>
+      </ul>& <a href="../../Changelog.html">more</a>
+    </div>
+  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">Python</a> / Don't use Shelve, use sqlitedict
+  <article id="eed24df8-0d23-4c88-8de0-b0ab0c5161ab" class="page sans">
+    <header>
+      <h1 class="page-title">Don't use Shelve, use sqlitedict</h1>
+    </header>
+    <div class="page-body">
+      <p id="d13721a6-2983-406d-93b1-f8ddd5a064f0" class=""><time>@2020/02/02</time></p>
+      <p id="56b3b544-9484-4512-9d7a-39abaa40d6e0" class="">Each and every time I try to use <a href="https://docs.python.org/3/library/shelve.html">shelve module</a> to actually store anything for some period of time, I end up with following error:</p>
+      <pre class="code"><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"/home/bystrousak/scripty/data_loger/configuration.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">44</span><span class="p">,</span> <span class="ow">in</span> <span class="n">load</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="p">{}))</span>
+  <span class="n">File</span> <span class="s2">"/usr/lib/python2.7/shelve.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">113</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">:</span>
+  <span class="n">File</span> <span class="s2">"/usr/lib/python2.7/_abcoll.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">388</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__contains__</span>
+    <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+  <span class="n">File</span> <span class="s2">"/usr/lib/python2.7/bsddb/__init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">270</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__getitem__</span>
+    <span class="k">return</span> <span class="n">_DeadlockWrap</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>  <span class="c1"># self.db[key]</span>
+  <span class="n">File</span> <span class="s2">"/usr/lib/python2.7/bsddb/dbutils.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">68</span><span class="p">,</span> <span class="ow">in</span> <span class="n">DeadlockWrap</span>
+    <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">_kwargs</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">"/usr/lib/python2.7/bsddb/__init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">270</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span>
+    <span class="k">return</span> <span class="n">_DeadlockWrap</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>  <span class="c1"># self.db[key]</span>
+<span class="n">bsddb</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">DBPageNotFoundError</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">30986</span><span class="p">,</span> <span class="s1">'BDB0075 DB_PAGE_NOTFOUND: Requested page not found'</span><span class="p">)</span>
+</code></pre>
+      <p id="1efc1da2-f5d5-4718-9312-63903c1077bf" class="">It has really wonderful ability to fuck itself up, <em>randomly</em>. And there is no easy way how to recover it from the failure.</p>
+      <p id="ddc8ed0e-a3d5-419e-9ff2-bddd97ef2d0b" class="">So, my advice is to use <a href="https://github.com/RaRe-Technologies/sqlitedict">sqlitedict</a> instead. It has a same API and generally works in similar way, but I never encountered an error while using it.</p>
+      <h1 id="2409ae11-bdd7-482b-a487-001fcddfad1c" class="">Simple object storage</h1>
+      <p id="e69d9fe5-80a8-4629-9d74-1e14d6d4a5ba" class="">For those of you who don't know what shelve does; it provides you with simple object persistence. It works as a dictionary, where you can put any object, and it is automatically serialized and stored on the disc. Next time, you can load it with just few lines.</p>
+      <p id="60eda5fb-bea6-415a-ace7-87dd7e5f251e" class="">This kind of storage is excellent when you just need to store something in some script, but you don't want to bother yourself with object serialization and configuration files. Just put the stuff you want to save (any object, remember) into the storage and then load it back next time.</p>
+      <p id="3d43f134-2976-4eae-b122-ba500a95aae9" class="">I use it for simple storage all the time:</p>
+      <pre id="2ff231a0-b0bc-4f02-b976-a660597d5ece" class="code"><code>from sqlitedict import SqliteDict
+
+class SomeData:
+  def __init__(self, text):
+    self.text = text
+
+with SqliteDict('./my_db.sqlite') as mydict:
+        if "anything" not in mydict:
+    mydict["anything"] = SomeData("some data")
+
+        my_data = mydict["anything"]</code></pre>
+      <p id="77a417f6-fbf3-4a53-a06e-0692df2cfe0e" class="">.. and next time you run the script, value is stored.</p>
+      <h1 id="adc5b1ff-bd71-432a-807e-1c34f5c52ab0" class="">Usage examples</h1>
+      <p id="a581ef45-9e40-4c9f-85ca-850111e065c3" class="">This kind of storage is excellent as simple cache. You process / download some heavy data, store them in the timestamp key in the <em>sqlitedict. T</em>hen on the next run of the script, if the timestamp delta is lower than some timeout value, just pick them and use them again. In like three lines of code.</p>
+      <p id="b3d55be8-1264-4923-b906-77f5ddc174a8" class="">I used sqlitedict in my project of analysis of <a href="https://abclinuxu.cz">abclinuxu.cz</a>, where I periodically download all blogpost published on the page and run some analysis on them. Blogpost objects with parsed trees in html parser and full state are stored in the sqlitedict and simply loaded anytime I need them again.</p>
+      <ul id="b125b962-38e3-41a1-bcb0-c59ae94bdb53" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/Abclinuxu_analysis">https://github.com/Bystroushaak/Abclinuxu_analysis</a>
+        </li>
+      </ul>
+      <p id="33bc5785-69bf-4596-832f-f08255a3c82c" class="">I also used <em>sqlitedict</em> in the project of my tag manager, where some troll vandalized tags under one of my blogpost on <em>abclinuxu</em>. Any anonymous user could come and vandalize list of tags. So I created simple script, that stores the currently used tags in the <em>sqlitedict</em>, and second script, which is periodically run, that restores the list of previously stored tags. Simple and effective.</p>
+      <p id="d90dd0fb-8527-487e-b43d-a3ab57def897" class=""></p>
+    </div>
+  </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../Tags/object_database.html">object_database</a>, <a href="../../Tags/python.html">python</a>, <a href="../../Tags/shelve.html">shelve</a>, <a href="../../Tags/sqlitedict.html">sqlitedict</a></p>
+  </div>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+        </li>
+      </ul>& <a href="../../Changelog.html">more</a>
+    </div>
+  </div>
+</body>
+</html>

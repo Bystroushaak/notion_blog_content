@@ -21,10 +21,13 @@
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="tinySelf performance gains 2019/4">
-  <meta name="twitter:description" content="tinySelf is my pet programming language inspired by Self, which I am writing in my spare time. It was slow, so I've decided to speed it up a little. Last time (Speedups of the interpreter 2019/1) was a massive success in term of speed gains, so I've had high hopes.">
+  <meta name="twitter:description" content="Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations.">
   <meta name="twitter:image" content="http://blog.rfox.eu/en/tinySelf/tinySelf_performance_gains_2019-4/profiling_thumb.jpg">
   <script src="../../../scripts.js">
   </script>
+  <meta name="description" content="Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations.">
+  <meta name="keywords" content="tinyself,selflang,diy_programming_language,debugging,rpython,python,pypy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -68,15 +71,14 @@
       </figure>
       <p id="44de260b-12b5-429c-ba0a-aa6176e0c223" class="">42% takes slot lookup, which is not much surprising. 34% of that takes parent lookup. Still, no surprise there.</p>
       <p id="d411c9dd-8339-4dcb-a948-240befb208ef" class="">A lot takes <code>_create_intermediate_params_obj()</code>. That kind of surprised me, because it was already optimized once. I will have to devise some method of caching of the parameters, maybe in the code context or something.</p>
-      <h1 id="7f41cd97-7670-4469-ade7-e7277289b759" class="">NOTE</h1>
-      <div id="f02be8a3-a7b8-4773-8ef9-ede78acd802b" class="column-list">
-        <div id="ba96e7d1-4b41-4d51-a47c-864b17cf1270" style="width:6.25%" class="column">
-          <h1 id="953937ac-5232-497a-b488-d4d18b628d3d" class="">⚠</h1>
+      <figure class="block-color-gray_background callout" id="038219f5-e8a9-4f94-abcb-053cee87dc93" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">⚠️</span>
         </div>
-        <div id="871ba5ea-82e8-4cc5-9d26-f329125ed7cd" style="width:93.75%" class="column">
-          <p id="0ee99ed8-8752-4505-ab34-58cfe20fa69d" class="">I am using several computers for development, from my notebook to my desktop, so don't look at the time in <code>perf</code> outputs, but at the number of crunched instructions.</p>
+        <div style="width:100%">
+          I am using several computers for development, from my notebook to my desktop, so don't look at the time in <code>perf</code> outputs, but at the number of crunched instructions.
         </div>
-      </div>
+      </figure>
       <h1 id="5645b496-f4eb-49c3-a06b-155db1aacdf7" class="">Intermediate parent lookup cache</h1>
       <p id="c21893f9-50cf-430d-8d3d-171430b0f516" class="">This was the first optimization which I've begun to implement. It has to do with mechanism how are parameters mapped to namespace of method calls.</p>
       <p id="42ce8da1-e9d1-492a-bf1b-a8c087479408" class="">Each time the <code>_do_send()</code> method is invoked and the message send results in code object, <code>_push_code_obj_for_interpretation()</code> method is called, which in turn calls Tail Call Optimization check and method <code>_create_intermediate_params_obj()</code>, used to map all parameters into one parent, which is then mounted as <code>scope_parent</code> for code object pushed at the top of the stack.</p>
@@ -379,6 +381,11 @@
       </ul>
     </div>
   </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../../Tags/debugging.html">debugging</a>, <a href="../../../Tags/diy_programming_language.html">diy_programming_language</a>, <a href="../../../Tags/pypy.html">pypy</a>, <a href="../../../Tags/python.html">python</a>, <a href="../../../Tags/rpython.html">rpython</a>, <a href="../../../Tags/selflang.html">selflang</a>, <a href="../../../Tags/tinyself.html">tinyself</a></p>
+  </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
   </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>

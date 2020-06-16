@@ -17,12 +17,84 @@
     
       gtag('config', 'UA-142545439-1');
   </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:title" content="Metalang">
   <meta name="twitter:description" content="Přesný jazyk, ze kterého by šlo jednoduše překládat do jiných jazyků.">
   <script src="../scripts.js">
   </script>
+  <meta name="description" content="Přesný jazyk, ze kterého by šlo jednoduše překládat do jiných jazyků.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -63,31 +135,62 @@
       <h1 class="page-title">Metalang</h1>
     </header>
     <div class="page-body">
-      <p id="0c751cab-cb1a-43bb-aeb0-f353c4c2e59b" class=""><time>@2012/03/13</time></p>
+      <p id="0c751cab-cb1a-43bb-aeb0-f353c4c2e59b" class=""><time>@2012/03/13</time>, poslední update <time>@2020/06/16</time></p>
       <p id="47a1d142-a525-426d-91c9-4d8095b35bd4" class="">Přesný jazyk, ze kterého by šlo jednoduše překládat do jiných jazyků.</p>
       <p id="39df12a5-cdf0-4190-929e-4c5e7b3cdb23" class="">Překladače do cizích jazyků ze stromových struktur použitých jako zdrojové packety.</p>
       <blockquote id="465aca37-ce47-4faa-b44e-a9869e893300" class="">
         pepa jde domu
       </blockquote>
       <p id="a80fcd69-4620-4b33-9a20-74c6ddac9468" class="">se rozloží na:</p>
-      <pre id="155a3c92-2e00-4c47-9511-cb508f070d96" class="code"><code>&lt;pohyb typ="chuze"&gt;
-        &lt;kdo&gt;
-                &lt;clovek ID="pepa"&gt;
-                        &lt;jmeno&gt;
-                                pepa
-                        &lt;/jmeno&gt;
-                &lt;/clovek&gt;
-        &lt;/kdo&gt;
-        &lt;kam&gt;
-                &lt;stavba typ="dum"&gt;
-                        &lt;resident&gt;
-                                &lt;link&gt;pepa&lt;/link&gt;
-                        &lt;/resident&gt;
-                &lt;/stavba&gt;
-        &lt;/kam&gt;
-&lt;/pohyb&gt;</code></pre>
+      <pre class="code"><code><span class="nt">&lt;pohyb</span> <span class="na">typ=</span><span class="s">"chuze"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;kdo&gt;</span>
+    <span class="nt">&lt;clovek</span> <span class="na">ID=</span><span class="s">"pepa"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;jmeno&gt;</span>
+        pepa
+      <span class="nt">&lt;/jmeno&gt;</span>
+    <span class="nt">&lt;/clovek&gt;</span>
+  <span class="nt">&lt;/kdo&gt;</span>
+  <span class="nt">&lt;kam&gt;</span>
+    <span class="nt">&lt;stavba</span> <span class="na">typ=</span><span class="s">"dum"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;resident&gt;</span>
+        <span class="nt">&lt;link&gt;</span>pepa<span class="nt">&lt;/link&gt;</span>
+      <span class="nt">&lt;/resident&gt;</span>
+    <span class="nt">&lt;/stavba&gt;</span>
+  <span class="nt">&lt;/kam&gt;</span>
+<span class="nt">&lt;/pohyb&gt;</span>
+</code></pre>
       <p id="0df503f2-4db2-4ec3-a33f-40fd97e1dbb8" class="">Narozdíl od překladačů se nesnaží pochopit psaný text, prostě kompiluje strukturovaný text do přirozené lidské řeči ve vybraném jazyce podle jeho pravidel.</p>
-      <p id="36a1491b-b2f1-4808-90bc-e11b384367f6" class="">• <a href="http://nlp.fi.muni.cz/web3/cs/LangToolsLinks">http://nlp.fi.muni.cz/web3/cs/LangToolsLinks</a> • <a href="https://joelkuiper.eu/semantic-web">https://joelkuiper.eu/semantic-web</a> • <a href="http://mttalks.ufal.ms.mff.cuni.cz/">http://mttalks.ufal.ms.mff.cuni.cz</a> • <a href="http://slidewiki.org/print/deck/11936">http://slidewiki.org/print/deck/11936</a></p>
+      <ul id="36a1491b-b2f1-4808-90bc-e11b384367f6" class="bulleted-list">
+        <li>
+          <a href="http://nlp.fi.muni.cz/web3/cs/LangToolsLinks">http://nlp.fi.muni.cz/web3/cs/LangToolsLinks</a>
+        </li>
+      </ul>
+      <ul id="df611162-9d4c-468a-8b10-c298a4a0f707" class="bulleted-list">
+        <li>
+          <a href="https://joelkuiper.eu/semantic-web">https://joelkuiper.eu/semantic-web</a>
+        </li>
+      </ul>
+      <ul id="74ef2b94-e307-4f9d-80b9-e5c30e9798e9" class="bulleted-list">
+        <li>
+          <a href="http://mttalks.ufal.ms.mff.cuni.cz/">http://mttalks.ufal.ms.mff.cuni.cz</a>
+        </li>
+      </ul>
+      <ul id="a0410d52-768a-4791-84a7-0a4fcd5d82fa" class="bulleted-list">
+        <li>
+          <a href="http://slidewiki.org/print/deck/11936">http://slidewiki.org/print/deck/11936</a>
+        </li>
+      </ul>
+      <p id="64ad9229-e8ba-413a-bbb3-eff748678140" class=""></p>
+      <ul id="7b7b158e-a6f7-4d28-b7d0-3d2fa12761a0" class="bulleted-list">
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Interlingual_machine_translation">https://en.wikipedia.org/wiki/Interlingual_machine_translation</a>
+        </li>
+      </ul>
+      <ul id="44874985-8f27-4506-b150-8dd896fc0c72" class="bulleted-list">
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Universal_Networking_Language">https://en.wikipedia.org/wiki/Universal_Networking_Language</a>
+        </li>
+      </ul>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

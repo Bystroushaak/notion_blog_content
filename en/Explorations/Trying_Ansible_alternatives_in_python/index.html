@@ -95,7 +95,9 @@
   <meta name="twitter:image" content="http://blog.rfox.eu/en/Explorations/Trying_Ansible_alternatives_in_python/pyinfra_doc.png">
   <script src="../../../scripts.js">
   </script>
-  <meta name="keywords" content="python, deployment, devops, explorations">
+  <meta name="description" content="My VPS will soon expire, so I've decided to try to automate its deployment. After spending evening by studying Ansible alternatives, I've decided to use pyinfra, and I am quite happy with it.">
+  <meta name="keywords" content="python,deployment,devops,explorations,pyinfra">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -348,6 +350,14 @@
     Groups: my_hosts / inventory
     [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
       <h2 id="b81014a8-1b4e-4efd-b087-c7b433c7463e" class="">Sudo</h2>
+      <figure class="block-color-gray_background callout" id="0733783a-2ac0-4f09-946e-3133f32bd8ff" style="display:flex">
+        <div style="font-size:1.5em">
+          <span class="icon">⚠️</span>
+        </div>
+        <div style="width:100%">
+          Basic <code>sudo</code> support was added via the issue I link down bellow, but at the moment, you have to install from git repository for latest, not yet officially released version: <code>pip install --user -U git+https://github.com/Fizzadar/pyinfra.git</code>
+        </div>
+      </figure>
       <p id="3e2501bd-69fd-496a-bdab-c1de2f5d0f9b" class="">Ok, so it works. Nice. Now lets try it with <code>--sudo</code>:</p>
       <pre id="1142fbc2-875e-4ea2-a2bd-74d38a5c6ee7" class="code"><code>--&gt; Starting operation: Server/Shell ('echo "hello world"',)
 [192.168.0.106] &gt;&gt;&gt; sudo -S -H -n sh -c 'echo "hello world"'
@@ -536,21 +546,14 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
           <a href="https://github.com/bearstech/nuka">https://github.com/bearstech/nuka</a>
         </li>
       </ul>
-      <hr id="be52344c-5ed9-4c98-94e3-e83d4f45645e">
-      <figure class="block-color-gray_background callout" id="1e994d03-a4d8-4041-a209-cb8eea0b2746" style="display:flex">
-        <div style="font-size:1.5em">
-          <span class="icon">💡</span>
-        </div>
-        <div style="width:100%">
-          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
-        </div>
-      </figure>
+      <h1 id="295b9718-c8df-4ba7-bf4a-f3199990daa6" class="">Update <time>@2020/06/16</time></h1>
+      <p id="539177e4-a13d-421a-b480-3c9f45cb744a" class="">Added information about the installation from the git repository for a <code>sudo</code> support.</p>
     </div>
   </article>
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../../../Tags/deployment.html">deployment</a>, <a href="../../../Tags/devops.html">devops</a>, <a href="../../../Tags/explorations.html">explorations</a>, <a href="../../../Tags/python.html">python</a></p>
+    <p><a href="../../../Tags/deployment.html">deployment</a>, <a href="../../../Tags/devops.html">devops</a>, <a href="../../../Tags/explorations.html">explorations</a>, <a href="../../../Tags/pyinfra.html">pyinfra</a>, <a href="../../../Tags/python.html">python</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
