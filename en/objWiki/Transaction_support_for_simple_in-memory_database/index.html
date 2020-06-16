@@ -105,23 +105,23 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">objWiki</a> / Transaction support for simple in-memory database
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="objWiki">objWiki</a> / Transaction support for simple in-memory database
   <article id="12b1c93c-940b-4870-a1b7-f178d2b4e5e7" class="page sans">
     <header>
       <h1 class="page-title">Transaction support for simple in-memory database</h1>
@@ -131,11 +131,11 @@
       <p id="7028b3e5-cee0-409c-9c5b-292aa26b8937" class="">Notes from the implementation of the transaction support to the objWiki.</p>
       <p id="75beec49-b246-46b1-b108-9de27900f253" class="">At the moment, objWiki uses a simple tree structure, where NodeTree stores a flat list of Nodes. Node can each hold a list of Inputs, and anot list of (sub)Nodes.</p>
       <figure id="a6cfca66-2123-4dba-a987-036e567ce9ac" class="image">
-        <a href="long_tree.png"><img style="width:132px" src="long_tree.png"></a>
+        <a href="long_tree.png" title="long_tree.png"><img style="width:132px" src="long_tree.png"></a>
       </figure>
       <p id="fc31bcf8-2557-4ca8-b634-46d9aa80adbf" class="">or more conveniently:</p>
       <figure id="4f2ccc88-022a-42b4-81d8-094c968cb620" class="image">
-        <a href="flat_tree.png"><img style="width:624px" src="flat_tree_thumb.jpg"></a>
+        <a href="flat_tree.png" title="flat_tree.png"><img style="width:624px" src="flat_tree_thumb.jpg"></a>
       </figure>
       <p id="99cd586a-ae75-43a1-8451-51816f3b9d66" class="">Purpose of this page is to collect all kinds of transaction mechanisms I can think of, that can be implemented on this kind of database.</p>
       <p id="889df6f2-d969-4ffb-8e22-9e2f59cfab5d" class="">By Transaction is understood database transaction mechanism, with two-phase commit protocol and rollbacks.</p>
@@ -182,7 +182,7 @@
       <p id="8327adb5-6bed-41fd-8775-6486d04aa73e" class="">Just deep copy the whole tree, work on it, then diff it and merge it back.</p>
       <p id="223778ad-7933-4a51-9430-fc4e82cbd683" class="">Maybe the deep copy could be created from partially loaded nodes, which are copied on the fly only when the transaction actually touches them.</p>
       <figure id="b59352cf-6e06-4194-8bca-e4671f350dc1" class="image">
-        <a href="lazy_tree.png"><img style="width:672px" src="lazy_tree_thumb.jpg"></a>
+        <a href="lazy_tree.png" title="lazy_tree.png"><img style="width:672px" src="lazy_tree_thumb.jpg"></a>
       </figure>
       <h3 id="819bba77-c05c-4b43-be0d-1987abe9021a" class="">Pros</h3>
       <ul id="5f834602-36c7-4d54-878c-b1063610c025" class="bulleted-list">
@@ -408,7 +408,7 @@
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../../../Tags/objwiki.html">objWiki</a>, <a href="../../../Tags/python.html">python</a>, <a href="../../../Tags/transactions.html">transactions</a></p>
+    <p><a href="../../../Tags/objwiki.html" title="objwiki">objWiki</a>, <a href="../../../Tags/python.html" title="python">python</a>, <a href="../../../Tags/transactions.html" title="transactions">transactions</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -418,21 +418,21 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

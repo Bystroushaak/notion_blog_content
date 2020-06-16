@@ -34,36 +34,36 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">Czech section</a> / <a class="breadcrumb" href="../index.html">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 2: Lexer
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="../index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 2: Lexer
   <article id="9524512c-8edc-4049-b39e-5b512821d5ee" class="page sans">
     <header>
       <h1 class="page-title">Jak se píše programovací jazyk 2: Lexer</h1>
     </header>
     <div class="page-body">
       <p id="c864860e-9b70-46e5-b852-41fd1131b488" class=""><time>@2019/02/09</time></p>
-      <p id="5f2c0a54-ca38-440b-a5d9-69db0750c99a" class="">V předchozí části (<a href="../Jak_se_pise_programovaci_jazyk_1_Motivace.html">Jak se píše programovací jazyk 1: Motivace</a>) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: <em>lexer</em>.</p>
+      <p id="5f2c0a54-ca38-440b-a5d9-69db0750c99a" class="">V předchozí části (<a href="../Jak_se_pise_programovaci_jazyk_1_Motivace.html" title="Jak se píše programovací jazyk 1: Motivace">Jak se píše programovací jazyk 1: Motivace</a>) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: <em>lexer</em>.</p>
       <h1 id="8b20632d-d3a1-4428-9fba-071aee8b6a86" class="">Self</h1>
       <p id="35bfa657-671b-4658-b31f-e45f2fbdfe8c" class="">Základní syntaxi Selfu dobře popisuje následující obrázek:</p>
       <figure id="8772dd13-3403-4daa-bfde-5edbd6d41144" class="image">
-        <a href="self_syntax_overview.png"><img style="width:1640px" src="self_syntax_overview_thumb.jpg"></a>
+        <a href="self_syntax_overview.png" title="self_syntax_overview.png"><img style="width:1640px" src="self_syntax_overview_thumb.jpg"></a>
       </figure>
-      <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../../Serial_o_Selfu.html"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
+      <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
       <h1 id="0a6fd39f-fc58-4c70-9004-c0f8b81b7385" class="">tinySelf</h1>
       <p id="85b76b84-dddf-405a-9136-ff09dc65637e" class="">tinySelf, jak jsem se kdysi nerozvážně (ukázalo se, že stejně pojmenovaný projekt už kdysi existoval) rozhodl můj jazyk nazvat, je v podstatě Self, i když trochu „vylepšený“ po stránce syntaxe.</p>
       <p id="23ea7e83-9ed6-4c1f-997a-2bae013e0097" class="">Například jsem přidal podporu pro kaskády, jak je používá Smalltalk. Nikdy jsem nechápal, proč v původním Selfu nejsou, když tam dokonale sednou. Taky jsem změnil <code>"komentář"</code> na <code># komentář</code>, protože uvozovky se podle mého názoru víc hodí na stringy, než na komentáře a také se lépe píšou na české klávesnici, než standardní Selfovské <code>'stringy'</code> psané jednoduchými uvozovkami. Pro stringy je nyní možné používat obojí, což člověku šetří escapování, pokud zrovna potřebuje napsat string s uvozovkami.</p>
@@ -227,21 +227,21 @@ lexer = lg.build()</code></pre>
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

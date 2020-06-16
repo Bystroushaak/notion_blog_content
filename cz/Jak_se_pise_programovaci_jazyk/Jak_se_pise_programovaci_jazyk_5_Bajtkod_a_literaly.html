@@ -34,23 +34,23 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">Czech section</a> / <a class="breadcrumb" href="index.html">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 5: Bajtkód a literály
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 5: Bajtkód a literály
   <article id="9532731e-b55e-4d24-81ff-fed23e1dc32e" class="page sans">
     <header>
       <h1 class="page-title">Jak se píše programovací jazyk 5: Bajtkód a literály</h1>
@@ -230,13 +230,13 @@
       <p id="a2e8f760-4642-44d0-8319-e00e97d536eb" class="">Stojí za zmínku se podívat, v čem a jak jsou vlastně bajtkódy i literály ukládány. Jedná se o třídu <code>CodeContext</code>, která obsahuje string s bajtkódy. Řešil jsem na <code>#pypy</code> v čem je nejlepší uchovávat bajtkódy, protože sám bych měl asi tendence použít <code>bytearray</code>, ale ten jednak po RPythonem funguje divně (měl jsem s tím nějaké problémy, už nevím přesně jaké), ale hlavně je pomalejší než zpracování stringů.</p>
       <p id="2249bb00-2c89-4516-acdb-a23aec802c26" class="">Dále obsahuje pole <code>literals</code> s tabulkou literálů, z nihž každý je zabalen v nějakém boxu (viz omezení RPythonu na jeden datový typ polí).</p>
       <figure id="b7f38b21-909a-42d2-baa0-c0c9bac48ca7" class="image">
-        <a href="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/code_context.png"><img style="width:731px" src="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/code_context.png"></a>
+        <a href="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/code_context.png" title="code_context.png"><img style="width:731px" src="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/code_context.png"></a>
       </figure>
       <p id="fbcf2328-ead6-45d0-814b-ba232756e3ec" class="">Pak jsou zde ještě dočasně uloženy různé speciální hodnoty, například se tu kešují dočasné mezi-objekty, které uchovávají parametry.</p>
       <h2 id="3c2092a7-db20-4121-a54b-269e934ef566" class="">Zásobníky</h2>
       <p id="af2abb54-1d86-4fcd-940e-cfa7a9757d09" class="">Zasobníky jsem implementoval jako hierarchickou strukturu tří tříd;</p>
       <figure id="a282e57a-ba3c-470d-b960-bb0636e5e0cb" class="image">
-        <a href="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/frames.png"><img style="width:896px" src="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/frames.png"></a>
+        <a href="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/frames.png" title="frames.png"><img style="width:896px" src="Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/frames.png"></a>
       </figure>
       <h3 id="753ea828-bbfa-4567-8272-3584596925bc" class="">MethodStack</h3>
       <p id="27102a6b-4b17-4871-9414-1527a929f4d8" class="">Třída <code>MethodStack</code> tvoří prostý zásobník, na jehož vrchol je možné vložit instanci <code>Objekt</code>u metodou <code>.push()</code>, sundat z vrcholu <code>Objekt</code> metodou <code>.pop()</code> a jako bonus implementuje <code>.pop_or_nil()</code>, která v případě že je zásobník prázdný vrátí singleton <code>Objekt</code>u <code>nil</code>.</p>
@@ -267,21 +267,21 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

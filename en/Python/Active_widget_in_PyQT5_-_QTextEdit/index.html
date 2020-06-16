@@ -35,23 +35,23 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">English section</a> / <a class="breadcrumb" href="../index.html">Python</a> / Active widget in PyQT5 / QTextEdit
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Python">Python</a> / Active widget in PyQT5 / QTextEdit
   <article id="a35a5d6b-ff79-4aa8-b78d-198babf0bbbc" class="page sans">
     <header>
       <h1 class="page-title">Active widget in PyQT5 / QTextEdit</h1>
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     sys.exit(app.exec_())</code></pre>
       <p id="24122370-51f6-48a2-b283-ac2a1bbcf9a9" class="">This almost works (I'll get to the details later) :</p>
       <figure id="e7a35338-8dc0-467b-b61b-fa553b1fbecf" class="image">
-        <a href="example_window.png"><img style="width:284px" src="example_window.png"></a>
+        <a href="example_window.png" title="example_window.png"><img style="width:284px" src="example_window.png"></a>
       </figure>
       <p id="0c48bfc0-1a57-4738-a898-47c49a43f59d" class="">Basically, everything important happens in the second part of the constructor:</p>
       <pre id="11d95d38-6c7e-4dd1-9d03-a0fc8abbba8a" class="code"><code>widget = QLineEdit()
@@ -158,7 +158,7 @@ self.wrap_with_text_object(text_format_id, widget)</code></pre>
     cursor.insertText(char, char_format)</code></pre>
       <p id="05887cf7-1f6c-4897-9cec-3977ab8af770" class="">That's not bad and it actually works, but the included object doesn't update itself and doesn't react to events and user input. Basically it acts as inlined image.</p>
       <figure id="0820fcd4-9e08-49f6-9102-e28b361d1652" class="image">
-        <a href="example_window.png"><img style="width:284px" src="example_window.png"></a>
+        <a href="example_window.png" title="example_window.png"><img style="width:284px" src="example_window.png"></a>
       </figure>
       <h1 id="071da08f-54f5-4534-b295-d9f7f867ba11" class="">Editability hack</h1>
       <p id="3b3077d1-2663-4ac2-858a-4c5dceade7aa" class="">Naturally, I wanted to use the inlined widget as an actual widget, not as a picture, so I experimented around and managed to come with simple solution - just add the widget on top of the image!</p>
@@ -232,7 +232,7 @@ if __name__ == '__main__':
     window.show()
     sys.exit(app.exec_())</code></pre>
       <figure id="4036bcce-ce2d-4053-b767-fe981ea7eb74" class="image">
-        <a href="text_edit_editable.png"><img style="width:288px" src="text_edit_editable.png"></a>
+        <a href="text_edit_editable.png" title="text_edit_editable.png"><img style="width:288px" src="text_edit_editable.png"></a>
       </figure>
       <p id="1beaa199-0c07-4011-b187-f0366652df07" class="">Position is updated when you type, so the widget on top of the image moves accordingly.</p>
       <p id="828b04f6-3f2f-4511-86a1-20b020b8b03a" class="">Negative effects:</p>
@@ -504,7 +504,7 @@ self.wysiwyg_editor.textChanged.connect(self.on_text_changed)</code></pre>
       </ol>
       <p id="a870615b-daf4-47a3-83cb-782d697ccfce" class="">With all this, it finally works as expected:</p>
       <figure id="28d78f43-9fb2-4e23-b286-880bae4cc0b3" class="image">
-        <a href="out.gif"><img style="width:288px" src="out.gif"></a>
+        <a href="out.gif" title="out.gif"><img style="width:288px" src="out.gif"></a>
       </figure>
       <p id="e55f1302-f203-4fda-ab7f-3ca6aa28b6c4" class="">What is missing is handling of mime-types, so copy paste and drag & drop would work, but I'll leave that for some other time.</p>
       <h1 id="283fae8f-63e9-4326-8a6c-7a5a805fe860" class="">Relevant links</h1>
@@ -569,7 +569,7 @@ self.wysiwyg_editor.textChanged.connect(self.on_text_changed)</code></pre>
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../../../Tags/pyqt5.html">PyQT5</a>, <a href="../../../Tags/objwiki.html">objWiki</a>, <a href="../../../Tags/python.html">python</a></p>
+    <p><a href="../../../Tags/pyqt5.html" title="pyqt5">PyQT5</a>, <a href="../../../Tags/objwiki.html" title="objwiki">objWiki</a>, <a href="../../../Tags/python.html" title="python">python</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -579,21 +579,21 @@ self.wysiwyg_editor.textChanged.connect(self.on_text_changed)</code></pre>
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

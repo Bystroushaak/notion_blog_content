@@ -34,23 +34,23 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html">Czech section</a> / <a class="breadcrumb" href="../index.html">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 4: Objektový layout
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="../index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 4: Objektový layout
   <article id="6f84fd21-f69e-4275-9575-d0c20719bc2c" class="page sans">
     <header>
       <h1 class="page-title">Jak se píše programovací jazyk 4: Objektový layout</h1>
@@ -132,19 +132,19 @@ class Map:
         self.parameters = []</code></pre>
       <p id="21741387-2229-43ca-891e-98ed9e53116f" class="">V jakémsi pseudoUML to vypadá takto:</p>
       <figure id="88334089-2309-4ad4-a5fc-5014522c6dce" class="image">
-        <a href="map_0.png"><img style="width:178px" src="map_0.png"></a>
+        <a href="map_0.png" title="map_0.png"><img style="width:178px" src="map_0.png"></a>
       </figure>
       <p id="c1e71aef-4661-44fe-abee-2ee157656e6c" class="">Pokud dojde ke klonování objektu, je vytvořen nový objekt obsahující pole s odkazy na hodnoty. Všechny ostatní informace, jako rodičovské sloty, seznam parametrů a kód objektu jsou pro všechny klony uložené v jedné mapě, na kterou si předávají reference. Díky tomu je možné signifikantním způsobem šetřit paměť.</p>
       <figure id="acdd3d53-0803-4da6-a4d8-1dca2f7c4925" class="image">
-        <a href="map_1.png"><img style="width:419px" src="map_1.png"></a>
+        <a href="map_1.png" title="map_1.png"><img style="width:419px" src="map_1.png"></a>
       </figure>
       <p id="df090a8a-2d00-4d66-afe1-55bb871bdb6a" class="">To platí, i když se změní hodnota konkrétního slotu:</p>
       <figure id="e4db1c86-c57b-49d4-b149-5755b676d684" class="image">
-        <a href="map_2.png"><img style="width:394px" src="map_2.png"></a>
+        <a href="map_2.png" title="map_2.png"><img style="width:394px" src="map_2.png"></a>
       </figure>
       <p id="62a8fedc-8c30-4c6f-9cdb-570e26b7ec82" class="">Celá implementace se ovšem kapku zesložiťuje v případě kdy se změní struktura, neboť je potřeba patřičně ošetřit všechny manipulace objektu tak, aby došlo k vytvoření nové mapy.</p>
       <figure id="599fe379-e581-48a1-ae32-a2b6baf81822" class="image">
-        <a href="map_3.png"><img style="width:417px" src="map_3.png"></a>
+        <a href="map_3.png" title="map_3.png"><img style="width:417px" src="map_3.png"></a>
       </figure>
       <p id="1e7521bd-f5cc-469e-a940-76b0e6b5070d" class="">To jsem osobně vyřešil spoustou <code>meta_</code> metod. Například <code>.meta_add_slot()</code>, která do klonu přidá nový slot, před tím však vytvoří <em>klon mapy</em>, takže tento nový objekt již používá vlastní mapu, kterou si může upravovat jak chce.</p>
       <p id="3a2a399c-7f46-4faa-ba47-6fe770e63211" class="">Překlad názvu slotu probíhá následujícím způsobem:</p>
@@ -156,7 +156,7 @@ class Map:
       <p id="849d0ac1-3597-40a4-9bc2-57beb4446ce2" class="">Vzhledem k tomu, že počet řádků narostl z původní několikařádkové myšlenky na pěkných pár stovek, rozhodl jsem se Objekt pro lepší čitelnost dekomponovat do několika tříd. Tato dekompozice nemá vliv na běh programu (stejně je z toho nakonec masivně <em>inlinované</em> C, které objekty nezná), je čistě jen pro lepší strukturovanost zdrojového kódu.</p>
       <p id="16286af8-76fe-4aed-80f2-e0b79521fcde" class="">Zde je UML výsledné podoby <em>objektového layoutu</em>:</p>
       <figure id="6626d9a6-07b9-489d-9d91-b7b0ad50646e" class="image">
-        <a href="object_layout.png"><img style="width:887px" src="object_layout.png"></a>
+        <a href="object_layout.png" title="object_layout.png"><img style="width:887px" src="object_layout.png"></a>
       </figure>
       <p id="6674d19f-8870-4f29-9c75-bab35b56930f" class="">Zdrojový kód je možné najít v souboru:</p>
       <ul id="6dd913c3-bca7-40eb-b8ec-d7581c8f7de7" class="bulleted-list">
@@ -190,21 +190,21 @@ class Map:
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../../Changelog.html">more</a>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

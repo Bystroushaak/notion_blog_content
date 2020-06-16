@@ -35,40 +35,40 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../Changelog.html">more</a>
+      </ul>& <a href="../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
         <li>
-          <a href="../cz/Programatorova_kritika_chybejici_struktury_operacnich_systemu.html">Programátorova kritika chybějící struktury operačních systémů</a>
+          <a href="../cz/Programatorova_kritika_chybejici_struktury_operacnich_systemu.html" title="Programátorova kritika chybějící struktury operačních systémů">Programátorova kritika chybějící struktury operačních systémů</a>
         </li>
         <li>
-          <a href="objWiki.html">objWiki</a>
+          <a href="objWiki.html" title="objWiki">objWiki</a>
         </li>
         <li>
-          <a href="Weekly_updates/Biweekly_update_2020-03-01_Publishing_success.html">Biweekly update 2020-03-01; Publishing success</a>
+          <a href="Weekly_updates/Biweekly_update_2020-03-01_Publishing_success.html" title="Biweekly update 2020-03-01; Publishing success">Biweekly update 2020-03-01; Publishing success</a>
         </li>
         <li>
-          <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+          <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="index.html">English section</a> / Programmer's critique of missing structure of operating systems
+  </div><a class="breadcrumb" href="../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="index.html" title="English section">English section</a> / Programmer's critique of missing structure of operating systems
   <article id="40070aff-5308-4338-9d57-9eaae5c1346c" class="page sans">
     <header>
       <h1 class="page-title">Programmer's critique of missing structure of operating systems</h1>
@@ -79,7 +79,7 @@
           <p id="9d926606-91a3-4f4d-8ea5-faa3af496ee1" class=""><time>@2020/02/18</time></p>
         </div>
         <div id="8e155a24-f0b2-4b72-8a2c-2ee11c025a08" style="width:81.25%" class="column">
-          <p id="5ce4ad2c-f420-4193-b7bd-c13d24086237" class="">Originally published in Czech language <time>@2018/12/10</time> here: <a href="../cz/Programatorova_kritika_chybejici_struktury_operacnich_systemu.html">Programátorova kritika chybějící struktury operačních systémů</a></p>
+          <p id="5ce4ad2c-f420-4193-b7bd-c13d24086237" class="">Originally published in Czech language <time>@2018/12/10</time> here: <a href="../cz/Programatorova_kritika_chybejici_struktury_operacnich_systemu.html" title="Programátorova kritika chybějící struktury operačních systémů">Programátorova kritika chybějící struktury operačních systémů</a></p>
         </div>
       </div>
       <p id="33d9d3ea-4fea-401b-887f-caa2002e930e" class="">Some time ago, I've come across a <a href="https://www.cs.kent.ac.uk/people/staff/srk21//research/papers/kell13operating.pdf">contemplation</a> on the topic of necessity of operating systems. I've been doing sort of <em>"research"</em> about this for almost two years, so I've decided to write up central thoughts along with links to some relevant sources of information on this topic.</p>
@@ -136,7 +136,7 @@
       <p id="85d19626-1694-4e8f-b279-d9b69c857932" class="">Think about what it really is; a limited hierarchical <em>key-value</em> database.</p>
       <p id="318d5ac4-8478-4edd-9890-54c300fc24ab" class="">It is limited because it not only limits the allowed subset and size of the <em>key</em>, which is in better cases stored as UTF, but also the <em>value</em> itself. You can only store a stream of bytes. That seems reasonable only until you realize that it is a hierarchical (tree-based) database which doesn't allow you to store structured data directly. The number of inodes (branches in the structure) is also limited to a number which is tens of thousands in the worst cases; however, it is several millions of items in one <em>directory</em> at most.</p>
       <figure id="f8cc0552-90ba-4435-b1d4-ef43474dbe7a" class="image">
-        <a href="Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"><img style="width:600px" src="Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png" title="fs_metaphor.png"><img style="width:600px" src="Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"></a>
       </figure>
       <p id="d5712813-3ff2-413f-a408-ab5a8fe3420f" class="">In two of my previous jobs we had to go around inode limitation by using stuff like <a href="http://balanceddiscstorage.readthedocs.io/">BalancedDiscStorage</a> or storing the files into three sub directories named by the first letters of the MD5 hash of the file.</p>
       <p id="2a576cc6-a8f7-462b-9bc2-33f71f0121d6" class="">Filesystem is so shitty database, that for most of the operations, atomicity is not supported and transactions are not supported at all. Parallel writes and reads work differently in different operating systems, if at all, and in fact, nothing is guaranteed at all. Compare it to the world of databases where the <a href="https://en.wikipedia.org/wiki/ACID_(computer_science)">ACID</a> is considered a matter of course.</p>
@@ -145,7 +145,7 @@
       <p id="e7e2a8c5-abb2-4d9d-9a0b-591092ae3178" class=""></p>
       <p id="d4a698e2-36a7-46cc-919c-20e0425b2af8" class=""></p>
       <figure id="f983d36d-7d10-405b-a848-bb67f65238e9" class="image">
-        <a href="Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png"><img style="width:624px" src="Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png" title="150401-erma-mark1-file-system.png"><img style="width:624px" src="Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg"></a>
       </figure>
       <p id="3168cb13-b233-4317-8e5c-78dbec21e878" class="">Original filesystems were a metaphor used for storing <em>files</em> into the <em>folders</em>. It was meant to be a mental tool, an idea given to people who were used to work with paper, so they could understand what they were doing. And among many technical limitations of the current day filesystem, this metaphor is restricting us even more because it restricts our <em>thinking</em>. I can't help but wonder whether we shouldn't drop the direction <em>"how can we improve this fifty year old metaphor"</em> (by using tags, for example) and focus on "is this really the best metaphor for storing data?" question instead.</p>
       <h2 id="3fce5548-1468-4f4e-9b71-5b25d3559002" class="">Programs</h2>
@@ -154,7 +154,7 @@
       <p id="4580cfbb-5385-45b9-aea5-678576bd3887" class="">Programs are at first written in a source code of a chosen programming language, which is then compiled and linked into one block of data. Then, it is punched on punch cards (binary data) and plugged into an appropriate box (file) in the correct section of a file cabinet.</p>
       <p id="700eab65-1422-40c7-92fc-e5ad519764ab" class="">When a user wants to run the program, he writes its name on the command line or clicks on the icon somewhere in the system. Stacked punch-cards are then taken from the box stored somewhere in the file cabinet and loaded into the memory. For a program, memory looks like one huge linear block, and thanks to the virtual memory, it seems like the program is the only thing running on the system. Binary code is then run from the first punched cards to the last, but it can conditionally jump and choose a different punched card by its address.</p>
       <figure id="98c70b49-a71b-4c43-acd2-d39581139778" class="image">
-        <a href="Programmers_critique_of_missing_structure_of_operating_systems/pe_structure.jpg"><img style="width:2653px" src="Programmers_critique_of_missing_structure_of_operating_systems/pe_structure_thumb.jpg"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/pe_structure.jpg" title="pe_structure.jpg"><img style="width:2653px" src="Programmers_critique_of_missing_structure_of_operating_systems/pe_structure_thumb.jpg"></a>
         <figcaption>
           <em>(Structure of the PE executable file. Source:</em> <a href="https://github.com/corkami/pics/"><em>https://github.com/corkami/pics/</em></a><em>.)</em>
         </figcaption>
@@ -174,7 +174,7 @@
       <p id="bcf72902-0a85-4ee0-a713-c516df4046b2" class="">So where is the problem?</p>
       <p id="52b7c647-d639-417e-8e2c-3f13f47228d4" class="">Virtually all data has its own internal structure. Whenever programmers work with the data and don't just move them around, they have to parse them, that means to slice them and create trees of structures out of the data. Even streams of bytes, for example, <a href="https://en.wikipedia.org/wiki/WAV">audio</a> or video data have their own structure of chunks to iterate over.</p>
       <figure id="8a7210a4-edfd-43c2-86de-405755236c6d" class="image">
-        <a href="Programmers_critique_of_missing_structure_of_operating_systems/Untitled.png"><img style="width:2048px" src="Programmers_critique_of_missing_structure_of_operating_systems/Untitled_thumb.jpg"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/Untitled.png" title="Untitled.png"><img style="width:2048px" src="Programmers_critique_of_missing_structure_of_operating_systems/Untitled_thumb.jpg"></a>
         <figcaption>
           <em>(Structure of the WAV file. Source:</em> <a href="https://github.com/corkami/pics/"><em>https://github.com/corkami/pics/</em></a><em>.)</em>
         </figcaption>
@@ -435,7 +435,7 @@ labels:
         </li>
       </ul>
       <p id="93a716f1-6e41-49a3-83e4-f258737c3e77" class="">You will find that decades ago there was a graphics system that fulfilled much of everything I wrote about. A system so good that it still connects groups of enthusiasts around it.</p>
-      <p id="6f06b0aa-5de6-4f2d-ac65-3daf466448bf" class="">The direct inspiration is also Self, about which I've written a lot here: <a href="Series_about_Self.html"><span class="icon">📂</span>Series about Self</a></p>
+      <p id="6f06b0aa-5de6-4f2d-ac65-3daf466448bf" class="">The direct inspiration is also Self, about which I've written a lot here: <a href="Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a></p>
       <p id="61115381-7585-44ed-a822-8e3044b71deb" class="">Also on similar topics:</p>
       <ul id="c8304976-0287-4fb2-9cc6-6da9dc6bd0cc" class="bulleted-list">
         <li>
@@ -577,7 +577,7 @@ labels:
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../Tags/os.html">os</a>, <a href="../Tags/programming_languages.html">programming_languages</a>, <a href="../Tags/python.html">python</a>, <a href="../Tags/quest_for_structure.html">quest_for_structure</a>, <a href="../Tags/selflang.html">selflang</a>, <a href="../Tags/smalltalk.html">smalltalk</a></p>
+    <p><a href="../Tags/os.html" title="os">os</a>, <a href="../Tags/programming_languages.html" title="programming_languages">programming_languages</a>, <a href="../Tags/python.html" title="python">python</a>, <a href="../Tags/quest_for_structure.html" title="quest_for_structure">quest_for_structure</a>, <a href="../Tags/selflang.html" title="selflang">selflang</a>, <a href="../Tags/smalltalk.html" title="smalltalk">smalltalk</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -587,36 +587,36 @@ labels:
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../Changelog.html">more</a>
+      </ul>& <a href="../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
         <li>
-          <a href="../cz/Programatorova_kritika_chybejici_struktury_operacnich_systemu.html">Programátorova kritika chybějící struktury operačních systémů</a>
+          <a href="../cz/Programatorova_kritika_chybejici_struktury_operacnich_systemu.html" title="Programátorova kritika chybějící struktury operačních systémů">Programátorova kritika chybějící struktury operačních systémů</a>
         </li>
         <li>
-          <a href="objWiki.html">objWiki</a>
+          <a href="objWiki.html" title="objWiki">objWiki</a>
         </li>
         <li>
-          <a href="Weekly_updates/Biweekly_update_2020-03-01_Publishing_success.html">Biweekly update 2020-03-01; Publishing success</a>
+          <a href="Weekly_updates/Biweekly_update_2020-03-01_Publishing_success.html" title="Biweekly update 2020-03-01; Publishing success">Biweekly update 2020-03-01; Publishing success</a>
         </li>
         <li>
-          <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html">Lifelog 2020-05-25; Work in progress everywhere</a>
+          <a href="Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
         </li>
       </ul>
     </div>

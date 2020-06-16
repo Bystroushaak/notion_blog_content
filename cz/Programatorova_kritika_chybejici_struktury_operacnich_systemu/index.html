@@ -34,23 +34,23 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">Czech section</a> / Programátorova kritika chybějící struktury operačních systémů
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / Programátorova kritika chybějící struktury operačních systémů
   <article id="ae480376-4afa-4e02-907a-3228370dc745" class="page sans">
     <header>
       <h1 class="page-title">Programátorova kritika chybějící struktury operačních systémů</h1>
@@ -61,7 +61,7 @@
           <p id="1c1695ec-f31f-44c4-8889-cec5cb9f706b" class=""><time>@2018/12/10</time></p>
         </div>
         <div id="d997e0e2-736c-48ac-955c-00acbbeaf2cf" style="width:81.25%" class="column">
-          <p id="7c220dcf-aad5-4a26-b981-3e7e287eb5ed" class="">Available also in English: <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems.html">Programmer's critique of missing structure of operating systems</a></p>
+          <p id="7c220dcf-aad5-4a26-b981-3e7e287eb5ed" class="">Available also in English: <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a></p>
         </div>
       </div>
       <p id="0dff7aaf-d828-4946-a76f-8d5cc7dc6c74" class="">Před nějakou dobou se mi dostalo do rukou <a href="https://www.cl.cam.ac.uk/~srk31/research/papers/kell13operating.pdf">zamyšlení</a>, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi <em>„průzkum“</em> už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací.</p>
@@ -119,14 +119,14 @@
       <p id="5f4fdf98-d70c-499a-86c4-c9f3ca933f5d" class="">Schválně se zkuste zamyslet, co to vlastně je. Vyjde vám, že je to omezená hierarchická <em>key-value</em> databáze.</p>
       <p id="d21255db-ec66-4e04-924f-e01af4b1b72e" class="">Omezená, protože omezuje nejen velikost a subset klíče, který je v lepším případě v UTF, ale i samotnou uloženou <em>hodnotu</em> na proud bajtů. To se zdá rozumné jen do chvíle, kdy si uvědomíte, že je to stromová databáze, která vám nedovoluje přímo ukládat strukturovaná data. Počet inodů (větví struktury) je navíc omezen na číslo, jenž se v horších případech pohybuje v řádu desítek až stovek tisíc, maximálně však pár milionů prvků v jednom <em>adresáři</em>.</p>
       <figure id="46e9a00c-962d-4125-b443-be480047210d" class="image">
-        <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"><img style="width:600px" src="../../en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"></a>
+        <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png" title="fs_metaphor.png"><img style="width:600px" src="../../en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"></a>
       </figure>
       <p id="e9c57347-247f-4717-973a-25243c9219bc" class="">Ve dvou z mých předchozích zaměstnáních jsme museli obcházet omezený počet inodů na složku retardací jako <a href="http://balanceddiscstorage.readthedocs.io/">BalancedDiscStorage</a>, či ukládáním souborů do tří podsložek složených z prvních tří písmen MD5 hashe souboru.</p>
       <p id="82d57a3e-9676-4fb1-950a-341acf3dd065" class="">K tomu pro většinu operací chybí atomicita, a transakce nejsou podporovány vůbec. Paralelní zápisy a čtení fungují v různých operačních systémech různě, a ve skutečnosti není garantováno naprosto nic. Schválně si to srovnejte se světem databází, kde se <a href="https://cs.wikipedia.org/wiki/Datab%C3%A1zov%C3%A1_transakce#Vlastnosti">ACID</a> považuje za samozřejmost.</p>
       <p id="f97c792f-00a4-4410-8cec-a2a4cdd80e14" class="">Filesystém je specificky omezená databáze. Každý koho znám, kdo se kdy pokusil filesystém použít pro cokoliv netriviálního, dřív nebo později tvrdě narazil. Ať už je to programátor, který si řekne, že si ty data prostě a jednoduše bude ukládat do souborů, nebo uživatel, který se v bordelu na filesystému nemůže vyznat a musí používat různé divné vyhledávání a indexování. Výkřikem techniky je, když dokáže poznat, že má poškozená data a dopočítat je zpětně ze samo-opravných kódů, pokud máte disky v RAIDu.</p>
       <p id="a44fcbc0-cc30-45ac-9530-fcc438b7b7a4" class="">Samozřejmě chápu, že pointou je něco jiného. Řeší se tu sektory na disku a žurnálování, plotny a oddíly a RAIDy a celé je to super pokrok oproti původním primitivním systémům ukládání dat. <em>Ale</em> — není to náhodou pokrok špatným směrem?</p>
       <figure id="a437aec1-4202-4a66-8997-f8d7ba41240d" class="image">
-        <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png"><img style="width:624px" src="../../en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg"></a>
+        <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png" title="150401-erma-mark1-file-system.png"><img style="width:624px" src="../../en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg"></a>
       </figure>
       <p id="62665ba8-d070-40f6-9441-059cea617da4" class="">Původní filesystémy byly metafora. Metafora pro ukládání souborů do složek, tak jako se strkají papíry do šanonů a šuplíků. Kromě mnoha technických omezení, daných stavem tehdejší výpočetní techniky, trpěly a trpí i omezením z podstaty této metafory. Přemýšlím, jestli by jsme si místo otázky <em>„jak trochu vylepšit padesát let starou metaforu“</em> (třeba pomocí tagů) neměli klást spíš otázku <em>„je to vážně ta správná metafora pro ukládání dat?“</em></p>
       <h2 id="7b504fe9-c770-4c40-844d-b5e5cc85b960" class="">Programy</h2>
@@ -134,7 +134,7 @@
       <p id="5914bc60-cd9b-4518-bb3c-369ec281274d" class="">Programy se prvně napíšou ve zdrojovém kódu příslušného jazyka, který se potom zkompiluje a slinkuje do jednoho bloku. Ten je následně vyděrován na děrné štítky (binární data) a zastrčen do patřičné krabice (souboru) ve správné sekci kartotéky (filesystému).</p>
       <p id="8e53a751-a28f-4066-961f-b46f224c7c7b" class="">Když chce uživatel program pustit, napíše jeho jméno na příkazovém řádku, nebo někde klepne na ikonu. Poskládané děrné štítky jsou následně vyndány z kartotéky a nacpány do paměti, která se pro program tváří, jako kdyby byl v celém operačním systému sám. Kód je poté prováděn od počátečních děrných štítků k těm koncovým, s tím že program může podmíněně přeskočit na konkrétní děrný štítek v krabici, která ho tvoří.</p>
       <figure id="53420a0f-08ae-497f-af2b-dfbdac6ae07b" class="image">
-        <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems/pe_structure.jpg"><img style="width:2653px" src="../../en/Programmers_critique_of_missing_structure_of_operating_systems/pe_structure_thumb.jpg"></a>
+        <a href="../../en/Programmers_critique_of_missing_structure_of_operating_systems/pe_structure.jpg" title="pe_structure.jpg"><img style="width:2653px" src="../../en/Programmers_critique_of_missing_structure_of_operating_systems/pe_structure_thumb.jpg"></a>
       </figure>
       <p id="a19641cd-eced-4efb-9e6a-d9ff137cd221" class="">Programy taky můžou číst parametry příkazového řádku, používat sdílené knihovny, volat API operačního systému, pracovat s filesystémem, posílat (číselné) signály různým jiným programům, reagovat na ně, vracet návratové hodnoty, nebo otevírat sockety.</p>
       <p id="c2fca4db-7b97-4985-a16c-ddbab02a88d3" class="">Co je na tom špatně?</p>
@@ -151,7 +151,7 @@
       <p id="c64cf61b-8e6d-4280-baf0-476feaada41f" class="">V čem je problém?</p>
       <p id="70bbbcc3-0a67-4696-9ad3-09944bfbe637" class="">Prakticky všechna data mají svou strukturu. Kdykoliv, kdy programátoři v programovacím jazyku pracují s daty, a nejedná se jen o jejich přesunutí, tak se jim snaží dát strukturu. Namapují je na různé <code>struct</code> konstrukty. Vytvoří z nich strom objektů. I u <em>streamovaných</em> věcí, jako je třeba záznam zvuku ve formátu <a href="https://cs.wikipedia.org/wiki/WAV">WAV</a>, se iteruje skrz jednotlivé <em>chunky</em>.</p>
       <figure id="2a27a936-5835-4114-87a8-148a61d948a2" class="image">
-        <a href="wav101.png"><img style="width:1488px" src="wav101_thumb.jpg"></a>
+        <a href="wav101.png" title="wav101.png"><img style="width:1488px" src="wav101_thumb.jpg"></a>
       </figure>
       <p id="a86bb881-298c-4310-8926-35b5018288f2" class=""><em>(Struktura WAV souboru. Zdroj:</em> <a href="https://github.com/corkami/pics/"><em>https://github.com/corkami/pics/</em></a><em>.)</em></p>
       <p id="0641ece5-4d5d-4035-8769-172f3690e01c" class="">Proč tedy proboha každý program vezme data, dá jim strukturu, něco nad ní udělá a tu strukturu zahodí a zkolabuje zpět na nestrukturovaná, <em>surová</em> binární data?</p>
@@ -500,21 +500,21 @@ labels:
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../../en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../en/My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../../en/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../../en/About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../../en/Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../../en/Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

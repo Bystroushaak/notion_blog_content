@@ -34,23 +34,23 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">Weekly updates</a> / Weekly update 2019/09/15; Finally the bug was found
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="Weekly updates">Weekly updates</a> / Weekly update 2019/09/15; Finally the bug was found
   <article id="1f09c664-9dd7-47f6-ae64-6aaa954c4d7d" class="page sans">
     <header>
       <h1 class="page-title">Weekly update 2019/09/15; Finally the bug was found</h1>
@@ -71,15 +71,15 @@
       <p id="9113d281-ae6f-4bf1-acfa-8a4b342f7a83" class="">Then I've thrown out old debugging dump to <a href="http://plantuml.com/">plantuml</a> and rewritten in to new method in <code>Object</code> base class. I've improved it, added much cleaner printout of parameters, slots and also source code.</p>
       <p id="10bd9792-c81b-4b83-b5bc-441cc0c3ba77" class="">Now when the code failed, I could invoke the debug method, save generated plantuml code into file and visualize the parent chain of the object.</p>
       <figure id="d8ea9192-7856-41f2-9a6d-ba441b57b2f6" class="image">
-        <a href="Weekly_update_2019-09-15_Finally_the_bug_was_found/simple_parent_map.png"><img style="width:288px" src="Weekly_update_2019-09-15_Finally_the_bug_was_found/simple_parent_map.png"></a>
+        <a href="Weekly_update_2019-09-15_Finally_the_bug_was_found/simple_parent_map.png" title="simple_parent_map.png"><img style="width:288px" src="Weekly_update_2019-09-15_Finally_the_bug_was_found/simple_parent_map.png"></a>
       </figure>
       <p id="51b02da8-0fac-4621-81eb-492679873049" class="">I've had similar system before, but now I could also modify it to printout dump of all objects in the memory and relations between them:</p>
       <figure id="b14ade10-fc22-4d11-9168-2837c02bec4a" class="image">
-        <a href="Weekly_update_2019-09-15_Finally_the_bug_was_found/x_obj_optimized2.png"><img style="width:13451px" src="Weekly_update_2019-09-15_Finally_the_bug_was_found/x_obj_optimized2_thumb.jpg"></a>
+        <a href="Weekly_update_2019-09-15_Finally_the_bug_was_found/x_obj_optimized2.png" title="x_obj_optimized2.png"><img style="width:13451px" src="Weekly_update_2019-09-15_Finally_the_bug_was_found/x_obj_optimized2_thumb.jpg"></a>
       </figure>
       <p id="8b327502-49fb-4494-bb3a-05751b4b16f5" class="">Important part is in the upper right corner.</p>
       <figure id="842fd28b-260e-45ac-91ca-e959b51cff65" class="image">
-        <a href="Weekly_update_2019-09-15_Finally_the_bug_was_found/parent_chain.png"><img style="width:2088px" src="Weekly_update_2019-09-15_Finally_the_bug_was_found/parent_chain_thumb.jpg"></a>
+        <a href="Weekly_update_2019-09-15_Finally_the_bug_was_found/parent_chain.png" title="parent_chain.png"><img style="width:2088px" src="Weekly_update_2019-09-15_Finally_the_bug_was_found/parent_chain_thumb.jpg"></a>
       </figure>
       <p id="a678fe43-0e20-44d5-a039-3e8e561ba5d4" class="">This confirmed, that the parent chain is indeed correct and everything should work, so I turned my attention towards the parent caching mechanism. And surely, when I've turned it off, everything worked as expected.</p>
       <p id="7639182c-5cff-434b-a1f1-1f6ba1f83c0a" class="">Caching mechanism is in place to prevent lookups via the whole parent chain. Instead, result of the slot lookup in parents is stored in the dictionary along with list of all parents and their versions. Each time the parent is updated (new slot is added, removed, or changed), version is increased. When the slot is resolved next time, versions of whole parent chains are compared (= only something like 5-20 numbers are compared) and only objects that had changed are used for lookups. This speeds the whole parent lookup really tremendously, as there is no need to lookup the value in several dictionaries in the parent chain. It is also source of really complicated bugs.</p>
@@ -161,21 +161,21 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

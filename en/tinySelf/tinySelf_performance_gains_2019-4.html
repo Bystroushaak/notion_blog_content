@@ -35,39 +35,39 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">tinySelf</a> / tinySelf performance gains 2019/4
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="tinySelf">tinySelf</a> / tinySelf performance gains 2019/4
   <article id="ef0d6334-f7fb-4256-a3f2-1cb90bd5db37" class="page sans">
     <header>
       <h1 class="page-title">tinySelf performance gains 2019/4</h1>
     </header>
     <div class="page-body">
       <p id="0eb58ed8-37a9-40a2-a6d7-8e6e4b012a46" class=""><time>@2019/04/19</time></p>
-      <p id="4699104b-7673-4494-8e66-0055904745a0" class=""><a href="https://github.com/Bystroushaak/tinySelf">tinySelf</a> is my pet programming language inspired by Self, which I am writing in my spare time. It was slow, so I've decided to speed it up a little. Last time (<a href="Speedups_of_the_interpreter_2019-1.html">Speedups of the interpreter 2019/1</a>) was a massive success in term of speed gains, so I've had high hopes.</p>
+      <p id="4699104b-7673-4494-8e66-0055904745a0" class=""><a href="https://github.com/Bystroushaak/tinySelf">tinySelf</a> is my pet programming language inspired by Self, which I am writing in my spare time. It was slow, so I've decided to speed it up a little. Last time (<a href="Speedups_of_the_interpreter_2019-1.html" title="Speedups of the interpreter 2019/1">Speedups of the interpreter 2019/1</a>) was a massive success in term of speed gains, so I've had high hopes.</p>
       <p id="3906e0ab-4c36-43be-b49d-ae80fe864731" class="">First of all, I've decided to run another profiling with callgrind. Here is the result from the profiler:</p>
       <figure id="5ede41ca-f8df-47de-b053-863b78d01484">
         <div class="source">
-          <a href="tinySelf_performance_gains_2019-4/callgrind.out.16306">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2035139e-e82e-42b0-a03f-7e7117c3dd24/callgrind.out.16306</a>
+          <a href="tinySelf_performance_gains_2019-4/callgrind.out.16306" title="callgrind.out.16306">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2035139e-e82e-42b0-a03f-7e7117c3dd24/callgrind.out.16306</a>
         </div>
       </figure>
       <p id="94a8fab5-4767-4c3e-9538-75fd6c43f068" class="">Unsurprisingly, it can be seen from the first glance, that 73.45% of the time is spent in the <code>_do_send()</code> method:</p>
       <figure id="c634c802-ed5d-434c-9274-8c7313ba12b4" class="image">
-        <a href="tinySelf_performance_gains_2019-4/profiling.png"><img style="width:2560px" src="tinySelf_performance_gains_2019-4/profiling_thumb.jpg"></a>
+        <a href="tinySelf_performance_gains_2019-4/profiling.png" title="profiling.png"><img style="width:2560px" src="tinySelf_performance_gains_2019-4/profiling_thumb.jpg"></a>
       </figure>
       <p id="44de260b-12b5-429c-ba0a-aa6176e0c223" class="">42% takes slot lookup, which is not much surprising. 34% of that takes parent lookup. Still, no surprise there.</p>
       <p id="d411c9dd-8339-4dcb-a948-240befb208ef" class="">A lot takes <code>_create_intermediate_params_obj()</code>. That kind of surprised me, because it was already optimized once. I will have to devise some method of caching of the parameters, maybe in the code context or something.</p>
@@ -175,11 +175,11 @@
       <p id="2baef733-6e24-484c-9093-6f4a5466b598" class="">This not only saves time because PUSH_LITERAL is skipped, but also removes the name resolution / dict lookup in <code>obj.map._slots</code> in SEND instruction.</p>
       <p id="19fa38bf-9fb4-4c33-99cf-d3f3fe86fcf4" class="">Off course, this is not really that great time saving for local sends, but it may be great for parent sends, because it potentially saves a lot of requests to several dictionaries in parents. Local sends are still great for proof of concept.</p>
       <figure id="d6d5bed3-db1b-4692-ab8c-a72dc6157829" class="image">
-        <a href="tinySelf_performance_gains_2019-4/2019-04-16_19.58.16.png"><img style="width:2798px" src="tinySelf_performance_gains_2019-4/2019-04-16_19.58.16_thumb.jpg"></a>
+        <a href="tinySelf_performance_gains_2019-4/2019-04-16_19.58.16.png" title="2019-04-16_19.58.16.png"><img style="width:2798px" src="tinySelf_performance_gains_2019-4/2019-04-16_19.58.16_thumb.jpg"></a>
       </figure>
       <p id="35f050cf-538a-4eb4-bcac-701385ee0488" class="">So, I had to put some kind of measurement into the <code>object_layout.py</code>, as it only makes sense to dynamically recompile objects which already have some slots.</p>
       <figure id="e44716b6-ee1d-41ef-8c76-106292528907" class="image">
-        <a href="tinySelf_performance_gains_2019-4/2019-04-16_19.59.32.png"><img style="width:2999px" src="tinySelf_performance_gains_2019-4/2019-04-16_19.59.32_thumb.jpg"></a>
+        <a href="tinySelf_performance_gains_2019-4/2019-04-16_19.59.32.png" title="2019-04-16_19.59.32.png"><img style="width:2999px" src="tinySelf_performance_gains_2019-4/2019-04-16_19.59.32_thumb.jpg"></a>
       </figure>
       <p id="b5637471-ce5c-456d-898a-1b485551bbfa" class="">I've implemented all this, introduced new bytecodes for local and parent sends, then split <code>._do_send()</code> method into multiple parts, which were used by new bytecodes. And it worked and it was <em>slightly</em> faster.</p>
       <p id="b804d6b2-a06f-4a25-9edc-a1d002e8d685" class="">Then I've implemented parent caches as dicts, so it was remembered what object was resolved, and then I've rewritten parent lookups to save results to this cache, but also store <em>versions</em> of whole parent tree. This is necessary, because you have to invalidate parent lookup cache when something in the tree changes. Then I've added dynamic recompilation for parents and it actually worked.</p>
@@ -328,7 +328,7 @@
       <p id="c88d76a0-4e79-4e7c-b0c3-065649bcb53b" class="">I've decided it is time to measure different kinds of LightWeightDict:</p>
       <figure id="7866f08c-2484-4312-85dc-3586c8acadaa">
         <div class="source">
-          <a href="tinySelf_performance_gains_2019-4/different_kind_of_lightweightdict.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67788e0b-72af-41ff-9545-13a947661df4/different_kind_of_lightweightdict.txt</a>
+          <a href="tinySelf_performance_gains_2019-4/different_kind_of_lightweightdict.txt" title="different_kind_of_lightweightdict.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67788e0b-72af-41ff-9545-13a947661df4/different_kind_of_lightweightdict.txt</a>
         </div>
       </figure>
       <p id="82ccc20d-b057-4a9a-98ce-9180c97cae99" class="">I've got one that uses dynamic arrays, one that uses statically allocated array before it switches to dicts internally and several versions of one which uses just number of properties (1-8) before it used internal dictionary to store data.</p>
@@ -384,7 +384,7 @@
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../../Tags/debugging.html">debugging</a>, <a href="../../Tags/diy_programming_language.html">diy_programming_language</a>, <a href="../../Tags/pypy.html">pypy</a>, <a href="../../Tags/python.html">python</a>, <a href="../../Tags/rpython.html">rpython</a>, <a href="../../Tags/selflang.html">selflang</a>, <a href="../../Tags/tinyself.html">tinyself</a></p>
+    <p><a href="../../Tags/debugging.html" title="debugging">debugging</a>, <a href="../../Tags/diy_programming_language.html" title="diy_programming_language">diy_programming_language</a>, <a href="../../Tags/pypy.html" title="pypy">pypy</a>, <a href="../../Tags/python.html" title="python">python</a>, <a href="../../Tags/rpython.html" title="rpython">rpython</a>, <a href="../../Tags/selflang.html" title="selflang">selflang</a>, <a href="../../Tags/tinyself.html" title="tinyself">tinyself</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -394,21 +394,21 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
   </div>
 </body>

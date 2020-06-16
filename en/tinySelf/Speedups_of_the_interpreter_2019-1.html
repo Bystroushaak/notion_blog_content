@@ -35,38 +35,38 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
         <li>
-          <a href="tinySelf_performance_gains_2019-4.html">tinySelf performance gains 2019/4</a>
+          <a href="tinySelf_performance_gains_2019-4.html" title="tinySelf performance gains 2019/4">tinySelf performance gains 2019/4</a>
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../index.html">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html">English section</a> / <a class="breadcrumb" href="index.html">tinySelf</a> / Speedups of the interpreter 2019/1
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="tinySelf">tinySelf</a> / Speedups of the interpreter 2019/1
   <article id="35fe6656-44f2-4f3d-9e90-77938e0f9259" class="page sans">
     <header>
       <h1 class="page-title">Speedups of the interpreter 2019/1</h1>
     </header>
     <div class="page-body">
       <p id="cd88bf70-0773-4cda-aafb-f3f2ad917681" class=""><time>@2019/01/29</time></p>
-      <p id="381a2a80-9fdf-4217-bc1b-a8c13e5dc593" class="">So, since I did some benchmarks (<a href="Simple_while_benchmark_20190106.html">Simple while benchmark 2019.01.06</a>), I had high hopes for speedup using rpython's JIT.</p>
+      <p id="381a2a80-9fdf-4217-bc1b-a8c13e5dc593" class="">So, since I did some benchmarks (<a href="Simple_while_benchmark_20190106.html" title="Simple while benchmark 2019.01.06">Simple while benchmark 2019.01.06</a>), I had high hopes for speedup using rpython's JIT.</p>
       <p id="172d60a5-0dce-4920-bc02-d9d0c19c65b9" class="">As it turned out, it didn't work at all - it actually runs many times slower (62 seconds instead of 17).</p>
       <p id="cd0408ce-6388-48d5-b0fa-985779b4246b" class="">Several attempts at tweaking the code revealed where was the problem - I had to specify almost everything as "red" variable. Even things like program counter, which I didn't expect at all.</p>
       <p id="a84a9b94-a142-453d-82b1-ccb2cab33764" class="">With those improvements, code run 20% faster than without JIT. Obviously, this wasn't acceptable, so I had to investigate.</p>
@@ -126,31 +126,31 @@ class PrimitiveIntObject(_NumberObject):
       <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code"><code>valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
       <figure id="bb40f15d-1907-443b-95e0-234b37a1f084">
         <div class="source">
-          <a href="Speedups_of_the_interpreter_2019-1/callgrind.out.2530.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57c100e6-92fb-4037-ab63-111301aee646/callgrind.out.2530.txt</a>
+          <a href="Speedups_of_the_interpreter_2019-1/callgrind.out.2530.txt" title="callgrind.out.2530.txt">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57c100e6-92fb-4037-ab63-111301aee646/callgrind.out.2530.txt</a>
         </div>
       </figure>
       <p id="f02f86f9-d87a-4692-a6b2-b34facc63bec" class="">and then</p>
       <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code"><code>kcachegrind callgrind.out.*</code></pre>
       <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
       <figure id="673efe48-d19b-4297-9615-374f379d0cef" class="image">
-        <a href="Speedups_of_the_interpreter_2019-1/profiler_1.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_1_thumb.jpg"></a>
+        <a href="Speedups_of_the_interpreter_2019-1/profiler_1.png" title="profiler_1.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_1_thumb.jpg"></a>
       </figure>
       <figure id="cdd53cf8-f9ca-472b-bc8d-5a2419a7b1dc" class="image">
-        <a href="Speedups_of_the_interpreter_2019-1/profiler_2.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_2_thumb.jpg"></a>
+        <a href="Speedups_of_the_interpreter_2019-1/profiler_2.png" title="profiler_2.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_2_thumb.jpg"></a>
       </figure>
       <figure id="0a1c9401-7d8b-4753-9932-7ba7dc1da654" class="image">
-        <a href="Speedups_of_the_interpreter_2019-1/profiler_3.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_3_thumb.jpg"></a>
+        <a href="Speedups_of_the_interpreter_2019-1/profiler_3.png" title="profiler_3.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_3_thumb.jpg"></a>
       </figure>
       <p id="135dd53a-dc37-4d6e-88fb-d434365bd3ad" class="">Few moments of clicking around clearly showed, that unholy lot of time was wasted by copying the <em>dicts</em> in the <code>add_primitive_fn</code>. I quickly realized, that each new int, float and string is created as new object and new map for this object.</p>
       <h1 id="e83a4fad-3fb4-43b9-885e-f1484ad5514b" class="">New map for each int</h1>
       <p id="5536e7dd-1981-48c2-a87f-178d7d05ed68" class="">As you may know, Self is prototype based language. That means it doesn't use classes, which means that functionality is by default in each object. Code reuse is achieved using parent slots.</p>
       <p id="37a7eca9-7504-4792-9c37-083b6bf9f4ea" class="">In class based languages, internal object representation holds just values and pointer to shared methods / description of the object's structure in the <em>class</em>. Self uses similar trick by using <em>maps</em>. When object is created, it holds only data. With object is created its map, which holds metadata - information about slots, their names and so on.</p>
       <figure id="2445f3a8-e4c0-400d-989a-f531b22e4093" class="image">
-        <a href="Speedups_of_the_interpreter_2019-1/2019-01-2400.12.08.png"><img style="width:384px" src="Speedups_of_the_interpreter_2019-1/2019-01-2400.12.08.png"></a>
+        <a href="Speedups_of_the_interpreter_2019-1/2019-01-2400.12.08.png" title="2019-01-2400.12.08.png"><img style="width:384px" src="Speedups_of_the_interpreter_2019-1/2019-01-2400.12.08.png"></a>
       </figure>
       <p id="733a7a82-ba29-49e0-aceb-db473c7d9b87" class="">On the internal level, each time object is cloned, it shares its map with the original object, until some kind of structural change is made.</p>
       <figure id="4c68e4ee-a707-4264-a14c-884f99ad1d97" class="image">
-        <a href="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11.png"><img style="width:384px" src="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11_thumb.jpg"></a>
+        <a href="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11.png" title="2019-01-2923.45.11.png"><img style="width:384px" src="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11_thumb.jpg"></a>
       </figure>
       <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again:</p>
       <pre id="be2fe417-3154-4c65-9d2a-f46acf66cba7" class="code"><code>class PrimitiveIntObject(_NumberObject):
@@ -289,7 +289,7 @@ def add_block_trait(block):
   <hr>
   <div>
     <h3>Tags</h3>
-    <p><a href="../../Tags/debugging.html">debugging</a>, <a href="../../Tags/diy_programming_language.html">diy_programming_language</a>, <a href="../../Tags/jit.html">jit</a>, <a href="../../Tags/pypy.html">pypy</a>, <a href="../../Tags/python.html">python</a>, <a href="../../Tags/rpython.html">rpython</a>, <a href="../../Tags/selflang.html">selflang</a>, <a href="../../Tags/tinyself.html">tinyself</a></p>
+    <p><a href="../../Tags/debugging.html" title="debugging">debugging</a>, <a href="../../Tags/diy_programming_language.html" title="diy_programming_language">diy_programming_language</a>, <a href="../../Tags/jit.html" title="jit">jit</a>, <a href="../../Tags/pypy.html" title="pypy">pypy</a>, <a href="../../Tags/python.html" title="python">python</a>, <a href="../../Tags/rpython.html" title="rpython">rpython</a>, <a href="../../Tags/selflang.html" title="selflang">selflang</a>, <a href="../../Tags/tinyself.html" title="tinyself">tinyself</a></p>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
@@ -299,27 +299,27 @@ def add_block_trait(block):
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html">Lifelog 2020-06-15; Todo in motion</a>
+          <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../My_Greenspuns_counter.html">My Greenspun's counter</a>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
-          <a href="../About_this_blog/What_do_I_mean_by_node.html">What do I mean by node?</a>
+          <a href="../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
         </li>
         <li>
-          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html">Trying Ansible alternatives in python</a>
+          <a href="../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
         </li>
         <li>
-          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html">Pebble smartwatches</a>
+          <a href="../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
         </li>
-      </ul>& <a href="../../Changelog.html">more</a>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
         <li>
-          <a href="tinySelf_performance_gains_2019-4.html">tinySelf performance gains 2019/4</a>
+          <a href="tinySelf_performance_gains_2019-4.html" title="tinySelf performance gains 2019/4">tinySelf performance gains 2019/4</a>
         </li>
       </ul>
     </div>
