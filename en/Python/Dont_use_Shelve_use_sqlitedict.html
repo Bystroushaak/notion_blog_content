@@ -17,6 +17,76 @@
     
       gtag('config', 'UA-142545439-1');
   </script>
+  <style>
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:title" content="Don't use Shelve, use sqlitedict">
@@ -78,17 +148,18 @@
       <p id="e69d9fe5-80a8-4629-9d74-1e14d6d4a5ba" class="">For those of you who don't know what shelve does; it provides you with simple object persistence. It works as a dictionary, where you can put any object, and it is automatically serialized and stored on the disc. Next time, you can load it with just few lines.</p>
       <p id="60eda5fb-bea6-415a-ace7-87dd7e5f251e" class="">This kind of storage is excellent when you just need to store something in some script, but you don't want to bother yourself with object serialization and configuration files. Just put the stuff you want to save (any object, remember) into the storage and then load it back next time.</p>
       <p id="3d43f134-2976-4eae-b122-ba500a95aae9" class="">I use it for simple storage all the time:</p>
-      <pre id="2ff231a0-b0bc-4f02-b976-a660597d5ece" class="code"><code>from sqlitedict import SqliteDict
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">sqlitedict</span> <span class="kn">import</span> <span class="n">SqliteDict</span>
 
-class SomeData:
-  def __init__(self, text):
-    self.text = text
+<span class="k">class</span> <span class="nc">SomeData</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
 
-with SqliteDict('./my_db.sqlite') as mydict:
-        if "anything" not in mydict:
-    mydict["anything"] = SomeData("some data")
+<span class="k">with</span> <span class="n">SqliteDict</span><span class="p">(</span><span class="s1">'./my_db.sqlite'</span><span class="p">)</span> <span class="k">as</span> <span class="n">mydict</span><span class="p">:</span>
+  <span class="k">if</span> <span class="s2">"anything"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mydict</span><span class="p">:</span>
+    <span class="n">mydict</span><span class="p">[</span><span class="s2">"anything"</span><span class="p">]</span> <span class="o">=</span> <span class="n">SomeData</span><span class="p">(</span><span class="s2">"some data"</span><span class="p">)</span>
 
-        my_data = mydict["anything"]</code></pre>
+  <span class="n">my_data</span> <span class="o">=</span> <span class="n">mydict</span><span class="p">[</span><span class="s2">"anything"</span><span class="p">]</span>
+</code></pre>
       <p id="77a417f6-fbf3-4a53-a06e-0692df2cfe0e" class="">.. and next time you run the script, value is stored.</p>
       <h1 id="adc5b1ff-bd71-432a-807e-1c34f5c52ab0" class="">Usage examples</h1>
       <p id="a581ef45-9e40-4c9f-85ca-850111e065c3" class="">This kind of storage is excellent as simple cache. You process / download some heavy data, store them in the timestamp key in the <em>sqlitedict. T</em>hen on the next run of the script, if the timestamp delta is lower than some timeout value, just pick them and use them again. In like three lines of code.</p>
