@@ -299,7 +299,7 @@
         <a href="Trying_Ansible_alternatives_in_python/compatibility.png" title="compatibility.png"><img style="width:528px" src="Trying_Ansible_alternatives_in_python/compatibility_thumb.jpg"></a>
       </figure>
       <h1 id="15a7ea6a-5537-4109-aec6-e6a9f9436c65" class="">Trying pyinfra</h1>
-      <p id="c4889cbe-6f3c-4bac-87b4-7ff1d42b2e59" class="">As the pyinfra is the only thing that looks like it is not dead and it can do what I want, the decision is not that hard. So, lets try it:</p>
+      <p id="c4889cbe-6f3c-4bac-87b4-7ff1d42b2e59" class="">As the <em>pyinfra</em> is the only thing that looks like it is not dead and it can do what I want, the decision is not that hard. So, lets try it:</p>
       <pre id="ed740767-ffa7-4629-b397-a8a1500a3603" class="code"><code>$ pip install --user pyinfra</code></pre>
       <p id="bd8d2303-3ed9-42f4-9b95-900c724789d8" class="">Now lets try hello world. I struggle with the port for a moment, because I use nonstandard port for tunneling through hotel and airport wifi, quick peek to help show that I should use <code>--port</code> parameter:</p>
       <pre id="70d570c8-d358-4b0b-a015-1a4a0982d38c" class="code"><code>$ pyinfra kitakitsune.org --port 443 exec -- echo "hello world"
@@ -357,32 +357,16 @@
     Groups: my_hosts / inventory
     [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
       <h2 id="b81014a8-1b4e-4efd-b087-c7b433c7463e" class="">Sudo</h2>
-      <figure class="block-color-gray_background callout" id="0733783a-2ac0-4f09-946e-3133f32bd8ff" style="display:flex">
-        <div style="font-size:1.5em">
-          <span class="icon">⚠️</span>
-        </div>
-        <div style="width:100%">
-          Basic <code>sudo</code> support was added via the issue I link down bellow, but at the moment, you have to install from git repository for latest, not yet officially released version: <code>pip install --user -U git+https://github.com/Fizzadar/pyinfra.git</code>
-        </div>
-      </figure>
-      <p id="3e2501bd-69fd-496a-bdab-c1de2f5d0f9b" class="">Ok, so it works. Nice. Now lets try it with <code>--sudo</code>:</p>
-      <pre id="1142fbc2-875e-4ea2-a2bd-74d38a5c6ee7" class="code"><code>--&gt; Starting operation: Server/Shell ('echo "hello world"',)
-[192.168.0.106] &gt;&gt;&gt; sudo -S -H -n sh -c 'echo "hello world"'
-[192.168.0.106] sudo: a password is required
-    [192.168.0.106] Error
---&gt; pyinfra error: No hosts remaining!</code></pre>
-      <p id="3e0e0f87-3388-4c45-aa93-46fbacc5f538" class="">I've googled and looked into the documentation and also source code, but it looks like there is no way how to specify sudo password, which I find extremely weird. Someone even created an issue a day before:</p>
-      <ul id="f10b91ab-ff75-479f-b6a8-99694bd0ecb4" class="bulleted-list">
-        <li>
-          <a href="https://github.com/Fizzadar/pyinfra/issues/305">https://github.com/Fizzadar/pyinfra/issues/305</a>
-        </li>
-      </ul>
-      <p id="0185228a-eeae-4623-b3a6-73cd503b7d20" class="">It looks like the sudo with password is simply not supported. So I've disabled sudo password in <code>/etc/sudoers</code> by changing the line</p>
-      <pre id="c598222d-9f16-4281-8572-dff8470244eb" class="code"><code>%sudo    ALL=(ALL:ALL) ALL</code></pre>
-      <p id="25da3875-89a2-4fbf-af30-c6cb8bdc3005" class="">to:</p>
-      <pre id="ff008651-a519-4467-9aa3-1ffec504dc5b" class="code"><code>%sudo      ALL=(ALL:ALL) NOPASSWD:ALL</code></pre>
-      <p id="0fe839ce-d1bf-4784-bf14-69ded23863b5" class="">After this, the code now works:</p>
-      <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code"><code>pyinfra -v inventory.py deployment.py --sudo </code></pre>
+      <p id="3e4aaef7-ad02-4f7d-a36a-4e2d4c1522c1" class="">Support for <em>sudo</em> password was added after this article was published via the <a href="https://github.com/Fizzadar/pyinfra/issues/305">#305</a> in the version <code>0.15</code> released <time>@2020/06/21</time>.</p>
+      <p id="c08372c9-a05c-49cd-a61b-f729d7b1dd2d" class="">To use <em>sudo</em>, set global variable <code>USE_SUDO_PASSWORD</code> to <code>True</code>, so the <em>pyinfra</em> will ask for it interactively, or you can set it to password and it will be used automatically. You can also use <code>--use_sudo_password</code> parameter on commandline or in <code>inventory.py</code>.</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">pyinfra.modules</span> <span class="kn">import</span> <span class="n">server</span>
+
+<span class="n">USE_SUDO_PASSWORD</span><span class="o">=</span><span class="kc">True</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">shell</span><span class="p">(</span><span class="s1">'echo "hello world"'</span><span class="p">,</span> <span class="n">sudo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre>
+      <p id="55adefd5-82fa-496d-aa4f-2599d98370bc" class=""><code>sudo=True</code> parameter says, that this command should be run with <em>sudo</em>. <code>USE_SUDO_PASSWORD</code> says that sudo uses password, as you can also have <em>sudo</em> without password by setting <code>%sudo ALL=(ALL:ALL) NOPASSWD:ALL</code> in <code>/etc/sudoers</code>.</p>
+      <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code"><code>pyinfra -v inventory.py deployment.py</code></pre>
       <pre id="00596c62-7047-4c73-a3a2-786e7b26f497" class="code"><code>--&gt; Loading config...
 --&gt; Loading inventory...
 
@@ -391,6 +375,7 @@
 
 --&gt; Preparing operations...
     Loading: deployment.py
+    Use of `pyinfra.modules` is deprecated, please use `pyinfra.operations`.
     [192.168.0.106] Ready: deployment.py
 
 --&gt; Proposed changes:
@@ -399,8 +384,7 @@
 
 --&gt; Beginning operation run...
 --&gt; Starting operation: Server/Shell ('echo "hello world"',)
-[192.168.0.106] &gt;&gt;&gt; sudo -S -H -n sh -c 'echo "hello world"'
-[192.168.0.106] hello world
+[192.168.0.106] sudo password: 
     [192.168.0.106] Success
 
 --&gt; Results:
@@ -490,6 +474,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
 
 
 <span class="n">SUDO</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">USE_SUDO_PASSWORD</span><span class="o">=</span><span class="kc">True</span>
 
 
 <span class="n">apt</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span>
@@ -555,6 +540,8 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
       </ul>
       <h1 id="295b9718-c8df-4ba7-bf4a-f3199990daa6" class="">Update <time>@2020/06/16</time></h1>
       <p id="539177e4-a13d-421a-b480-3c9f45cb744a" class="">Added information about the installation from the git repository for a <code>sudo</code> support.</p>
+      <h1 id="62c726c4-eab2-4cf2-932b-d7d6ad1b7d3e" class="">Update <time>@2020/06/22</time></h1>
+      <p id="12ade4c8-f664-4dad-aa5c-f3e78a7f9803" class="">Chapter about <em>sudo</em> updated, as the <em>pyinfra</em> was yesterday released with sudo support.</p>
     </div>
   </article>
   <hr>
