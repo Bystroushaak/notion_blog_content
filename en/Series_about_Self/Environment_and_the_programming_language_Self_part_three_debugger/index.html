@@ -6,7 +6,17 @@
   <title>Environment and the programming language Self (part three; debugger, transporter and problems)</title>
   <link rel="stylesheet" type="text/css" href="../../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Environment and the programming language Self (part three; debugger, transporter and problems)">
+  <meta name="twitter:description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_three_debugger/transporter_6.png">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
+  <meta name="keywords" content="selflang,programming_languages,quest_for_structure"><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,16 +30,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Environment and the programming language Self (part three; debugger, transporter and problems)">
-  <meta name="twitter:description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_three_debugger/transporter_6.png">
-  <script src="../../../scripts.js">
-  </script>
-  <meta name="description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
-  <meta name="keywords" content="selflang,programming_languages,quest_for_structure">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -67,14 +67,8 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Series about Self">Series about Self</a> / Environment and the programming language Self (part three; debugger, transporter and problems) <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Series about Self">Series about Self</a> / Environment and the programming language Self (part three; debugger, transporter and problems)
   <article id="a385a39b-1202-4be2-9c6d-91647a438809" class="page sans">
     <header>
       <h1 class="page-title">Environment and the programming language Self (part three; debugger, transporter and problems)</h1>
@@ -315,7 +309,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
       <p id="08fb5c14-683e-42c1-9ac0-75f35845fdfb" class="">In which we can find our object:</p>
       <figure id="bee35e93-cccd-440a-9c74-7a236b190880" class="image">
         <a href="transporter_35.png" title="transporter_35.png"><img style="width:715px" src="transporter_35.png"></a>
-      </figure>
+      </figure><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="7e30ae7a-b375-4f4b-a2e0-470be5c5a634" class="">The Debugger</h1>
       <p id="accb3f3b-3be0-45b4-8e0a-7505c263c308" class="">Self has the debugger of the Smalltalk type, from which we can interactively change the code. Short demonstration will say more than a thousand words.</p>
       <p id="d710bb4f-02d9-4a8a-a0fc-355b665ca17a" class="">I create a simple object in Shell with slot "a", where the code, which should write the value of number "1" in the standard output, is saved. But I make a "mistake" and instead of the message <code>printLine</code> I write <code>printLin</code> without the <code>e</code> at the end:</p>
@@ -446,26 +440,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -502,6 +477,24 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

@@ -6,7 +6,16 @@
   <title>Jak se píše programovací jazyk 2: Lexer</title>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Jak se píše programovací jazyk 2: Lexer">
+  <meta name="twitter:description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_2_Lexer/self_syntax_overview_thumb.jpg">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer."><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,15 +29,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Jak se píše programovací jazyk 2: Lexer">
-  <meta name="twitter:description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_2_Lexer/self_syntax_overview_thumb.jpg">
-  <script src="../../scripts.js">
-  </script>
-  <meta name="description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer.">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -66,10 +66,7 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
@@ -78,10 +75,7 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 2: Lexer <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 2: Lexer
   <article id="9524512c-8edc-4049-b39e-5b512821d5ee" class="page sans">
     <header>
       <h1 class="page-title">Jak se píše programovací jazyk 2: Lexer</h1>
@@ -94,7 +88,7 @@
       <figure id="8772dd13-3403-4daa-bfde-5edbd6d41144" class="image">
         <a href="Jak_se_pise_programovaci_jazyk_2_Lexer/self_syntax_overview.png" title="self_syntax_overview.png"><img style="width:1640px" src="Jak_se_pise_programovaci_jazyk_2_Lexer/self_syntax_overview_thumb.jpg"></a>
       </figure>
-      <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
+      <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="0a6fd39f-fc58-4c70-9004-c0f8b81b7385" class="">tinySelf</h1>
       <p id="85b76b84-dddf-405a-9136-ff09dc65637e" class="">tinySelf, jak jsem se kdysi nerozvážně (ukázalo se, že stejně pojmenovaný projekt už kdysi existoval) rozhodl můj jazyk nazvat, je v podstatě Self, i když trochu „vylepšený“ po stránce syntaxe.</p>
       <p id="23ea7e83-9ed6-4c1f-997a-2bae013e0097" class="">Například jsem přidal podporu pro kaskády, jak je používá Smalltalk. Nikdy jsem nechápal, proč v původním Selfu nejsou, když tam dokonale sednou. Taky jsem změnil <code>"komentář"</code> na <code># komentář</code>, protože uvozovky se podle mého názoru víc hodí na stringy, než na komentáře a také se lépe píšou na české klávesnici, než standardní Selfovské <code>'stringy'</code> psané jednoduchými uvozovkami. Pro stringy je nyní možné používat obojí, což člověku šetří escapování, pokud zrovna potřebuje napsat string s uvozovkami.</p>
@@ -252,26 +246,7 @@ lexer = lg.build()</code></pre>
   </article>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -316,6 +291,24 @@ lexer = lg.build()</code></pre>
         </li>
       </ul>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

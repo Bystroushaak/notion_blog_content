@@ -6,20 +6,7 @@
   <title>Transaction support for simple in-memory database</title>
   <link rel="stylesheet" type="text/css" href="../../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
-
-  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
-  </script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-142545439-1');
-  </script>
-  <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
-  </script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+  <link rel="shortcut icon" href="/favicon.ico">
   <style>
   .hll { background-color: #ffffcc }
   .c { color: #408080; font-style: italic } /* Comment */
@@ -99,7 +86,20 @@
   <script src="../../../scripts.js">
   </script>
   <meta name="description" content="I've implemented transaction support with atomic commits and rollbacks for simple in-memory database I am using in objWiki.">
-  <meta name="keywords" content="python,transactions,objWiki">
+  <meta name="keywords" content="python,transactions,objWiki"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -137,14 +137,8 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="objWiki">objWiki</a> / Transaction support for simple in-memory database <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="objWiki">objWiki</a> / Transaction support for simple in-memory database
   <article id="12b1c93c-940b-4870-a1b7-f178d2b4e5e7" class="page sans">
     <header>
       <h1 class="page-title">Transaction support for simple in-memory database</h1>
@@ -159,7 +153,7 @@
       <p id="fc31bcf8-2557-4ca8-b634-46d9aa80adbf" class="">or more conveniently:</p>
       <figure id="4f2ccc88-022a-42b4-81d8-094c968cb620" class="image">
         <a href="flat_tree.png" title="flat_tree.png"><img style="width:624px" src="flat_tree_thumb.jpg"></a>
-      </figure>
+      </figure><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <p id="99cd586a-ae75-43a1-8451-51816f3b9d66" class="">Purpose of this page is to collect all kinds of transaction mechanisms I can think of, that can be implemented on this kind of database.</p>
       <p id="889df6f2-d969-4ffb-8e22-9e2f59cfab5d" class="">By Transaction is understood database transaction mechanism, with two-phase commit protocol and rollbacks.</p>
       <p id="4aedd3fa-a77a-4ec9-9154-e64ef047122c" class="">Example: When two clients work on the same node, and then they both call <code>.commit()</code>, second transaction fails, and he second client has to repeat it. First transaction finishes successfully, as it is oldest. After that, first client's changes are now part of the database and second client has to repeat the transaction.</p>
@@ -435,26 +429,7 @@
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -491,6 +466,24 @@
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

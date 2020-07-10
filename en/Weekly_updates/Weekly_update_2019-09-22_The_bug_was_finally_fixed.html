@@ -6,7 +6,16 @@
   <title>Weekly update 2019/09/22; The bug was finally fixed</title>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Weekly update 2019/09/22; The bug was finally fixed">
+  <meta name="twitter:description" content="I've been sick whole week, so I didn't do much. I've spent Monday, Tuesday and Wednesday in bed on home office and I still feel tired and weak even after a week.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Weekly_updates/Weekly_update_2019-09-22_The_bug_was_finally_fixed/tweetdeck_thumb.jpg">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="description" content="I've been sick whole week, so I didn't do much. I've spent Monday, Tuesday and Wednesday in bed on home office and I still feel tired and weak even after a week."><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,15 +29,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Weekly update 2019/09/22; The bug was finally fixed">
-  <meta name="twitter:description" content="I've been sick whole week, so I didn't do much. I've spent Monday, Tuesday and Wednesday in bed on home office and I still feel tired and weak even after a week.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Weekly_updates/Weekly_update_2019-09-22_The_bug_was_finally_fixed/tweetdeck_thumb.jpg">
-  <script src="../../scripts.js">
-  </script>
-  <meta name="description" content="I've been sick whole week, so I didn't do much. I've spent Monday, Tuesday and Wednesday in bed on home office and I still feel tired and weak even after a week.">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -66,14 +66,8 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="Weekly updates">Weekly updates</a> / Weekly update 2019/09/22; The bug was finally fixed <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="Weekly updates">Weekly updates</a> / Weekly update 2019/09/22; The bug was finally fixed
   <article id="f1765c0f-de7d-45ce-86a5-3184a236ff84" class="page sans">
     <header>
       <h1 class="page-title">Weekly update 2019/09/22; The bug was finally fixed</h1>
@@ -104,7 +98,7 @@
       </ul>
       <p id="87070578-a904-49ab-aa78-e20d3d32b2d6" class="">And most importantly, I've finally fixed the bug. In the end, the fix was really simple; I just had to update function that caches the results so that it would always visit <code>scope_parent</code>. First I converted the <code>.scope_parent</code> to property in <a href="https://github.com/Bystroushaak/tinySelf/commit/9c7601a05d73b699decc1521eeed9927175a14a3">9c7601a</a> but then I've noticed that although it works, it has huge performance penalty, so I've rewritten it in <a href="https://github.com/Bystroushaak/tinySelf/commit/e30501e7f59c142c3d7757374fe778c486a30e71">e30501e</a> to just two lines of code, which have almost no performance cost.</p>
       <p id="3b3e03a6-4c74-4ca8-8c34-548a796ca831" class="">Other than this bugfix, I've also updated the code to latest pypy version, which has <a href="https://bitbucket.org/pypy/pypy/pull-requests/649/">my pull request</a> merged. This allowed me to <a href="https://github.com/Bystroushaak/tinySelf/commit/d33bcd1711aa440317c0bfda19c5b593b4e65e59">slightly simplify</a> the code in primitive files.</p>
-      <p id="2c3be1b4-1495-4c12-918d-ed2a90d0612c" class="">I also began the transition to typed docstrings, using the <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html">google style</a>. This allows IDE to figure out data types where it normally couldn't, so it is more useful in checking all kind of bugs and offering autocomplete. I can't use stuff like <a href="http://mypy-lang.org/">mypy</a>, because the code is written for 2.7, because whole rpython toolkit is for 2.7. Not that I mind much, because I think that mypy is mostly step in the wrong direction and I consider the docstring approach much cleaner.</p>
+      <p id="2c3be1b4-1495-4c12-918d-ed2a90d0612c" class="">I also began the transition to typed docstrings, using the <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html">google style</a>. This allows IDE to figure out data types where it normally couldn't, so it is more useful in checking all kind of bugs and offering autocomplete. I can't use stuff like <a href="http://mypy-lang.org/">mypy</a>, because the code is written for 2.7, because whole rpython toolkit is for 2.7. Not that I mind much, because I think that mypy is mostly step in the wrong direction and I consider the docstring approach much cleaner.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="21087fa5-5be0-42bc-bed6-26c7362018c0" class="">Other programming</h1>
       <p id="f80eee3b-c9ca-40d2-9cfc-34d51a397fb5" class="">I've created a project to port some of my longer articles to epub. It should grab the <a href="../Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a> and spit out correct ebook.</p>
       <p id="4a31d21a-70b8-4603-a7a4-90ce5e3573f5" class="">The reason, I've decided to follow this approach of creating complicated makefile-like transformer script, is that I want to be able to make changes in the text and add fixes and updates just by editing the blog in the wiki and it would be really annoying to backport all the changes to the epub as well.</p>
@@ -154,26 +148,7 @@
   </article>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -210,6 +185,24 @@
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

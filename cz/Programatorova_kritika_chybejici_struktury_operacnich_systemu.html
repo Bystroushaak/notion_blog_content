@@ -6,7 +6,16 @@
   <title>Programátorova kritika chybějící struktury operačních systémů</title>
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Programátorova kritika chybějící struktury operačních systémů">
+  <meta name="twitter:description" content="Před nějakou dobou se mi dostalo do rukou zamyšlení, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi „průzkum“ už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png">
+  <script src="../scripts.js">
+  </script>
+  <meta name="description" content="Před nějakou dobou se mi dostalo do rukou zamyšlení, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi „průzkum“ už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací."><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,15 +29,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Programátorova kritika chybějící struktury operačních systémů">
-  <meta name="twitter:description" content="Před nějakou dobou se mi dostalo do rukou zamyšlení, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi „průzkum“ už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png">
-  <script src="../scripts.js">
-  </script>
-  <meta name="description" content="Před nějakou dobou se mi dostalo do rukou zamyšlení, zdali je vlastně zapotřebí operační systém, či ne. Sám na toto téma provádím jakýsi „průzkum“ už přibližně dva roky. Rozhodl jsem se tedy, že bych mohl sepsat nosné myšlenky spolu s odkazy na některé relevantní zdroje informací.">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -66,10 +66,7 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
@@ -78,10 +75,7 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="index.html" title="Czech section">Czech section</a> / Programátorova kritika chybějící struktury operačních systémů <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </div><a class="breadcrumb" href="../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="index.html" title="Czech section">Czech section</a> / Programátorova kritika chybějící struktury operačních systémů
   <article id="ae480376-4afa-4e02-907a-3228370dc745" class="page sans">
     <header>
       <h1 class="page-title">Programátorova kritika chybějící struktury operačních systémů</h1>
@@ -272,7 +266,7 @@ stdout, stderr = sp.communicate()</code></pre>
       <p id="a159816a-ec9c-4ff7-a1b3-a7150b9acab2" class="">Logování mi přijde jako krásná ukázka programátorské struktury, kterou je nucen řešit prakticky každý a kterou operační systém v celé komplexitě podporuje skoro vůbec, nebo jen málo. Je to také krásná ukázka konceptu, který by si zasloužil převést na posílání strukturovaných zpráv;</p>
       <p id="973f1f97-27f9-4d4f-9883-93759a96d4d0" class="">Zprávy jsou objeky. Mají své datum odeslání, mají krátký text a většinou i dlouhý text a také „úroveň“ (v pythonu typicky <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>). Pokud s logy pracujete, skoro nikdy nechcete pracovat na úrovni textu. Chcete například omezit datum - jak to uděláte, když se jedná o text? Nebo úroveň - pokud chcete všechny zprávy úrovně <code>ERROR</code>, nechcete to <em>grepovat</em> textově, protože slovo „ERROR“ může být použito i v tělě zprávy v různých kontextech. Například „NO_ERROR“.</p>
       <p id="f5b18444-a334-4164-a54f-35777afcd97b" class="">Aplikace, do které se loguje by měla přijímat zprávy, které bude uchovávat v datové struktuře <a href="https://cs.wikipedia.org/wiki/Fronta_(datov%C3%A1_struktura)">fronta</a>. Tím by nikdy nemohlo dojít místo na disku. Starší struktury by bylo možné automaticky komprimovat, ale pro uživatele by to mělo být transparentní - pokud chce vyhledávat nad komprimovanými zprávami, ani by o tom neměl vědět.</p>
-      <p id="d2f9446d-e771-44b2-9424-1790cedb6b38" class="">Nemělo by existovat padesát způsobů logování - pro uživatele by to měla být záležitost instancování systémového loggeru a jeho následné používání, po krátké konfiguraci, kde si zvolí politiku rotace. Pak už jen loguje standardním posláním zprávy, ať už lokálně, nebo vzdáleně z internetu.</p>
+      <p id="d2f9446d-e771-44b2-9424-1790cedb6b38" class="">Nemělo by existovat padesát způsobů logování - pro uživatele by to měla být záležitost instancování systémového loggeru a jeho následné používání, po krátké konfiguraci, kde si zvolí politiku rotace. Pak už jen loguje standardním posláním zprávy, ať už lokálně, nebo vzdáleně z internetu.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="9f98a34d-96de-4009-a1b3-575caabb3fe6" class="">Ukázková studie: Docker</h1>
       <p id="4e414c48-a135-46bc-855d-ab591b696f0e" class=""><a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> je virtualizační nástroj umožňující vám sestavovat, spravovat a spouštět kontejnery virtuálních počítačů, ve kterých je specifické programové vybavení.</p>
       <p id="0e849bae-170e-4b38-b326-184d03329df2" class="">Osobně mám Docker docela rád a občas ho používám k sestavování balíčků pro cílové distribuce (například <code>.deb</code> pro Debian a <code>.rpm</code> pro RHEL).</p>
@@ -525,26 +519,7 @@ labels:
   </article>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -589,6 +564,24 @@ labels:
         </li>
       </ul>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

@@ -6,7 +6,16 @@
   <title>Jak se píše programovací jazyk 5: Bajtkód a literály</title>
   <link rel="stylesheet" type="text/css" href="../../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Jak se píše programovací jazyk 5: Bajtkód a literály">
+  <meta name="twitter:description" content="Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/code_context.png">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="description" content="Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován."><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,15 +29,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Jak se píše programovací jazyk 5: Bajtkód a literály">
-  <meta name="twitter:description" content="Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly/code_context.png">
-  <script src="../../../scripts.js">
-  </script>
-  <meta name="description" content="Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -66,14 +66,8 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="../index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 5: Bajtkód a literály <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="../index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 5: Bajtkód a literály
   <article id="9532731e-b55e-4d24-81ff-fed23e1dc32e" class="page sans">
     <header>
       <h1 class="page-title">Jak se píše programovací jazyk 5: Bajtkód a literály</h1>
@@ -91,7 +85,7 @@
       <ol id="391fed5f-22de-410d-b933-bc884c289b04" class="numbered-list" start="3">
         <li>Interpretace <em>stack based</em> bajtkódu</li>
       </ol>
-      <p id="6be00d3e-7afe-4daf-9a35-7b342b1aa181" class="">Pavel Křivánek ve své bakalářské práci <a href="http://kitakitsune.org/ltas/resources/Podpora_beztridniho_programovani_ve_Squeak_Smalltalku.pdf">Podpora beztřídního programování ve Squeak Smalltalku</a> použil pro svůj Selfem inspirovaný jazyk Marvin <em>stack based</em> (na zásobníku založený) bajtkód ve stylu forthu.</p>
+      <p id="6be00d3e-7afe-4daf-9a35-7b342b1aa181" class="">Pavel Křivánek ve své bakalářské práci <a href="http://kitakitsune.org/ltas/resources/Podpora_beztridniho_programovani_ve_Squeak_Smalltalku.pdf">Podpora beztřídního programování ve Squeak Smalltalku</a> použil pro svůj Selfem inspirovaný jazyk Marvin <em>stack based</em> (na zásobníku založený) bajtkód ve stylu forthu.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <p id="42a572a5-6ac4-4faf-8bd8-123397ca6b22" class="">Oproti tomu <a href="https://pdfs.semanticscholar.org/7a9f/b345d1372f99c47f68fbcf5187f10af87704.pdf">The Design and Implementation of the Self Compiler, an Optimizing Compiler for Object-Oriented Programming Languages</a> (dále jen <em>DISCOCOOPL</em>) zmiňuje spíše imperativní bajtkód ve stylu assembleru.</p>
       <p id="342482d0-1e71-4076-9c19-7f2415dd6725" class="">V krátké výměně mailů, které jsem Pavlovi Křivánkovi poslal zmiňoval, abych zkusil zkombinovat první a druhý přístup.</p>
       <p id="a82cb61f-3cd3-4870-863d-03869b85534a" class="">Dále zde byly dva projekty <em>Smalltalků</em> napsaných v RPythonu:</p>
@@ -284,26 +278,7 @@
   </article>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -340,6 +315,24 @@
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

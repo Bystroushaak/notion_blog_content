@@ -6,7 +6,17 @@
   <title>Speedups of the interpreter 2019/1</title>
   <link rel="stylesheet" type="text/css" href="../../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Speedups of the interpreter 2019/1">
+  <meta name="twitter:description" content="Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations, usage of JIT compiler.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/tinySelf/Speedups_of_the_interpreter_2019-1/profiler_1_thumb.jpg">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="description" content="Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations, usage of JIT compiler.">
+  <meta name="keywords" content="tinyself,selflang,diy_programming_language,debugging,rpython,python,pypy,jit"><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,16 +30,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Speedups of the interpreter 2019/1">
-  <meta name="twitter:description" content="Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations, usage of JIT compiler.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/tinySelf/Speedups_of_the_interpreter_2019-1/profiler_1_thumb.jpg">
-  <script src="../../../scripts.js">
-  </script>
-  <meta name="description" content="Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations, usage of JIT compiler.">
-  <meta name="keywords" content="tinyself,selflang,diy_programming_language,debugging,rpython,python,pypy,jit">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -67,14 +67,8 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="tinySelf">tinySelf</a> / Speedups of the interpreter 2019/1 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="tinySelf">tinySelf</a> / Speedups of the interpreter 2019/1
   <article id="35fe6656-44f2-4f3d-9e90-77938e0f9259" class="page sans">
     <header>
       <h1 class="page-title">Speedups of the interpreter 2019/1</h1>
@@ -135,7 +129,7 @@ class PrimitiveIntObject(_NumberObject):
       <p id="76595431-c228-46f0-bb42-bc68ba93b22a" class="">As you can see, every integer value is boxed inside of class, which is then bound to functions, which manipulate internal <code>.value</code> property. This is obviously highly ineffective.</p>
       <p id="0f051810-0419-4287-a8fb-46b3b308d1fb" class="">RPython should translate this into C and that in turn should optimize the code, but is there better way how to tell RPython that "this is int, so treat is as int"?</p>
       <p id="94a6e098-18d8-49ed-a15a-da3a6be718da" class="">I thought there is in <a href="https://rpython.readthedocs.io/en/latest/rlib.html#objectmodel">UnboxedValue</a>, but it turned out that I don't really remember this from reading the documentation correctly. Ouch.</p>
-      <p id="03c5f35e-2a3a-45b5-8209-6e284ee69b4b" class="">At least I've added <code>_immutable_fields_ = ["value"]</code> declaration to all constant primitives, but it turned out that this didn't improve the performance either. Ouch^2.</p>
+      <p id="03c5f35e-2a3a-45b5-8209-6e284ee69b4b" class="">At least I've added <code>_immutable_fields_ = ["value"]</code> declaration to all constant primitives, but it turned out that this didn't improve the performance either. Ouch^2.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="9d4b7871-9a00-41d4-aeac-b59ec5a5a2ed" class="">Profiling logs</h1>
       <p id="0fec2019-91ca-40a3-95f9-3cb4b35c22c9" class="">Instead of guessing, I've decided to profile the code. I've only profiled the code with profiler once before using <code>valgrind</code>, so I've just used google and found out <a href="http://www.pixelbeat.org/programming/profiling/">Linux Profiling tools and techniques</a>, which gave me two commands to run:</p>
       <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code"><code>valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
@@ -308,26 +302,7 @@ def add_block_trait(block):
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -364,6 +339,24 @@ def add_block_trait(block):
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

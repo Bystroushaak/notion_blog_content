@@ -6,7 +6,17 @@
   <title>Environment and the programming language Self (part one; environment)</title>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Environment and the programming language Self (part one; environment)">
+  <meta name="twitter:description" content="I bring you a message about a language that has been at the birth of many others, but almost no one knows it. A rumor of a graphical environment offering options like no other, but almost no one using it. I also bring information about a virtual machine supporting reflection almost to infinity, reaching almost half of the operating power of C in numerical calculations in its time, yet today forgotten.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_one_environment/222616-self-protoze-smalltalk-nebyl-dostatecne-hip-3613234652234006010_thumb.jpg">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="description" content="I bring you a message about a language that has been at the birth of many others, but almost no one knows it. A rumor of a graphical environment offering options like no other, but almost no one using it. I also bring information about a virtual machine supporting reflection almost to infinity, reaching almost half of the operating power of C in numerical calculations in its time, yet today forgotten.">
+  <meta name="keywords" content="selflang,programming_languages,quest_for_structure"><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,16 +30,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Environment and the programming language Self (part one; environment)">
-  <meta name="twitter:description" content="I bring you a message about a language that has been at the birth of many others, but almost no one knows it. A rumor of a graphical environment offering options like no other, but almost no one using it. I also bring information about a virtual machine supporting reflection almost to infinity, reaching almost half of the operating power of C in numerical calculations in its time, yet today forgotten.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_one_environment/222616-self-protoze-smalltalk-nebyl-dostatecne-hip-3613234652234006010_thumb.jpg">
-  <script src="../../scripts.js">
-  </script>
-  <meta name="description" content="I bring you a message about a language that has been at the birth of many others, but almost no one knows it. A rumor of a graphical environment offering options like no other, but almost no one using it. I also bring information about a virtual machine supporting reflection almost to infinity, reaching almost half of the operating power of C in numerical calculations in its time, yet today forgotten.">
-  <meta name="keywords" content="selflang,programming_languages,quest_for_structure">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -67,10 +67,7 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
@@ -88,10 +85,7 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="Series about Self">Series about Self</a> / Environment and the programming language Self (part one; environment) <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="Series about Self">Series about Self</a> / Environment and the programming language Self (part one; environment)
   <article id="edb7f886-2aa3-4676-98a9-fcb9bd63c0b8" class="page sans">
     <header>
       <h1 class="page-title">Environment and the programming language Self (part one; environment)</h1>
@@ -218,7 +212,7 @@ VM#</code></pre>
       <p id="983a0a79-acd9-4cdc-91a7-ef44dab33bba" class="">This is useful when we want to produce a new, "clean" image from serialized source codes. This is achieved by the gradual creation of thousands of objects forming a standard library by using several built-in primitives. It can also be seen as building a system from several axioms.</p>
       <h2 id="67e4de02-32b7-41a0-bfc4-958b3d2dd2fe" class="">Image</h2>
       <p id="4d195bb1-4ca8-4673-9b3a-8496cd5e3d22" class="">The <code>morphic.snap</code> file contains already assembled "world" made of linked objects, which together make a standard library and other useful applications. It also includes its own user interface, which is implemented completely in the Self, with several backends per graphics server (<a href="https://en.wikipedia.org/wiki/Xlib">Xlib</a> for Unix / Linux, <a href="https://en.wikipedia.org/wiki/Quartz_(graphics_layer)">Quartz</a> for OS X).</p>
-      <p id="7a71b24d-2f53-4dd8-b41a-4d1e793553e8" class="">However, Self does not force you to use this image. You can have an image where there is no graphical interface, where the numbers are not loaded, or where only the webserver is needed. Although it is possible to run a large number of applications in one image, I use several separate images myself for practical reasons.</p>
+      <p id="7a71b24d-2f53-4dd8-b41a-4d1e793553e8" class="">However, Self does not force you to use this image. You can have an image where there is no graphical interface, where the numbers are not loaded, or where only the webserver is needed. Although it is possible to run a large number of applications in one image, I use several separate images myself for practical reasons.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="0a229472-cf88-4baa-a044-8b8cc8ab0155" class="">Overview of the basics of the environment</h1>
       <p id="3307a57d-2660-49af-b3f7-01a46ec17a42" class="">Before going into the description of the language, I would like to first explain the basics of the user interface and the Self development environment.</p>
       <p id="e259977d-ef85-46d5-a9cf-eb7c57c5bd96" class="">When you start Self for the first time, you'll see a white screen, some sort of desktop. I can imagine that for many it may be a shock. When I first turned it on, I closed it again after about thirty seconds of confused looks and mouse clicks.</p>
@@ -565,26 +559,7 @@ desktop w hands first addMorph: radarView</code></pre>
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -638,6 +613,24 @@ desktop w hands first addMorph: radarView</code></pre>
         </li>
       </ul>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

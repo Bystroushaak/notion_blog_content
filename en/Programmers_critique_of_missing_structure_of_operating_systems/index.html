@@ -6,7 +6,17 @@
   <title>Programmer's critique of missing structure of operating systems</title>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Programmer's critique of missing structure of operating systems">
+  <meta name="twitter:description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
+  <meta name="keywords" content="selflang,python,smalltalk,programming_languages,quest_for_structure,os"><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,16 +30,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Programmer's critique of missing structure of operating systems">
-  <meta name="twitter:description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system_thumb.jpg">
-  <script src="../../scripts.js">
-  </script>
-  <meta name="description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
-  <meta name="keywords" content="selflang,python,smalltalk,programming_languages,quest_for_structure,os">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -67,14 +67,8 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / Programmer's critique of missing structure of operating systems <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / Programmer's critique of missing structure of operating systems
   <article id="40070aff-5308-4338-9d57-9eaae5c1346c" class="page sans">
     <header>
       <h1 class="page-title">Programmer's critique of missing structure of operating systems</h1>
@@ -118,7 +112,7 @@
         <li>Distributed architecture with multiple physical machines, which allows good scaling.</li>
       </ul>
       <p id="92c7a15e-a44c-4bd7-8901-e836182691cf" class="">If you are a programmer, you probably know what I am getting to. If many programmers create the same pattern on top of some programming library, it is not a mistake of those people, but a mistake in the design of the library.</p>
-      <p id="0d8d0547-6269-4834-9aaf-30c00a98bc82" class="">As I was thinking about it, I've realized that <em>architecture</em> of the operating system itself is wrong for this kind of job. The stuff it offers and the stuff it allows us to do, is not what we want and expect. Especially not from the <em>"programmer's user interface"</em> point of view, which is the stuff I often work with as a programmer.</p>
+      <p id="0d8d0547-6269-4834-9aaf-30c00a98bc82" class="">As I was thinking about it, I've realized that <em>architecture</em> of the operating system itself is wrong for this kind of job. The stuff it offers and the stuff it allows us to do, is not what we want and expect. Especially not from the <em>"programmer's user interface"</em> point of view, which is the stuff I often work with as a programmer.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="5c31cfe1-8940-4831-827f-f69d7353fca1" class="">Operating system</h1>
       <p id="b013c4cb-0dfe-42e9-8f45-553343f976f5" class="">When I was a kid, I thought I knew what an operating system is; <em>Windows</em>, that's for sure! That's the stuff everyone has on their computer; there is a button with "Start" on it in the left bottom corner, and if you start a computer and only black screen comes on, you'll have to type <code>win</code> to make it appear.</p>
       <p id="b40aaaef-4a61-40fd-9068-74cdb0eaddbf" class="">High school taught me a definition, by which the operating system is <em>"an equipment in form of a program, which makes the input-output devices of the computer available"</em>.</p>
@@ -587,26 +581,7 @@ labels:
   </div>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -643,6 +618,24 @@ labels:
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>

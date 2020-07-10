@@ -6,7 +6,16 @@
   <title>Prostředí a programovací jazyk Selfu (díl první; prostředí)</title>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
-  <link rel="shortcut icon" href="/favicon.ico"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Prostředí a programovací jazyk Selfu (díl první; prostředí)">
+  <meta name="twitter:description" content="Přináším vám zvěst o jazyku, který stál u zrodu mnoha dalších, leč skoro nikdo ho nezná. Zvěst o grafickém prostředí nabízejícím možnosti jako žádné jiné, leč skoro nikdo ho nepoužívá. Přináším také zvěst o virtuální mašině podporující reflexi téměř do nekonečna, a svého času dosahující v numerických výpočtech výkonu poloviny C, přesto dnes zapomenuté.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_one_environment/222616-self-protoze-smalltalk-nebyl-dostatecne-hip-3613234652234006010_thumb.jpg">
+  <script src="../../scripts.js">
+  </script>
+  <meta name="description" content="Přináším vám zvěst o jazyku, který stál u zrodu mnoha dalších, leč skoro nikdo ho nezná. Zvěst o grafickém prostředí nabízejícím možnosti jako žádné jiné, leč skoro nikdo ho nepoužívá. Přináším také zvěst o virtuální mašině podporující reflexi téměř do nekonečna, a svého času dosahující v numerických výpočtech výkonu poloviny C, přesto dnes zapomenuté."><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
   </script>
@@ -20,15 +29,6 @@
   <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
   </script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:creator" content="@Bystroushaak">
-  <meta name="twitter:title" content="Prostředí a programovací jazyk Selfu (díl první; prostředí)">
-  <meta name="twitter:description" content="Přináším vám zvěst o jazyku, který stál u zrodu mnoha dalších, leč skoro nikdo ho nezná. Zvěst o grafickém prostředí nabízejícím možnosti jako žádné jiné, leč skoro nikdo ho nepoužívá. Přináším také zvěst o virtuální mašině podporující reflexi téměř do nekonečna, a svého času dosahující v numerických výpočtech výkonu poloviny C, přesto dnes zapomenuté.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_one_environment/222616-self-protoze-smalltalk-nebyl-dostatecne-hip-3613234652234006010_thumb.jpg">
-  <script src="../../scripts.js">
-  </script>
-  <meta name="description" content="Přináším vám zvěst o jazyku, který stál u zrodu mnoha dalších, leč skoro nikdo ho nezná. Zvěst o grafickém prostředí nabízejícím možnosti jako žádné jiné, leč skoro nikdo ho nepoužívá. Přináším také zvěst o virtuální mašině podporující reflexi téměř do nekonečna, a svého času dosahující v numerických výpočtech výkonu poloviny C, přesto dnes zapomenuté.">
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -66,10 +66,7 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-    <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
@@ -81,10 +78,7 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Seriál o Selfu">Seriál o Selfu</a> / Prostředí a programovací jazyk Selfu (díl první; prostředí) <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Seriál o Selfu">Seriál o Selfu</a> / Prostředí a programovací jazyk Selfu (díl první; prostředí)
   <article id="9740cb45-6680-4c9c-b530-a61efdf8f82a" class="page sans">
     <header>
       <h1 class="page-title">Prostředí a programovací jazyk Selfu (díl první; prostředí)</h1>
@@ -213,7 +207,7 @@ VM#</code></pre>
       <p id="e85a555f-5e88-4db3-ab8f-711ff26a59af" class="">Toto se hodí, když chceme vyrobit nový, „čistý“ image ze serializovaných zdrojových kódů. Toho je docíleno postupným vytvořením tisíců objektů tvořících standardní knihovnu na základě používání několika zabudovaných primitiv. Také je na to možné nahlížet jako na vybudování systému pomocí několika axiomů.</p>
       <h2 id="1d6511e4-25c6-4a9f-be68-4e1f9d60db57" class="">Image</h2>
       <p id="f39bb073-1c8a-4e4d-ad8b-37f8de20ea7a" class="">Přiložený subor <code>morphic.snap</code> obsahuje takto sestavený svět propojených objektů, tvořící standardní knihovnu a několik užitečných aplikací. Také obsahuje vlastní uživatelské rozhraní, které je implementováno kompletně v Selfu, s několika backendy na grafický server (<a href="https://en.wikipedia.org/wiki/Xlib">Xlib</a> v případě Unixu/Linuxu, <a href="https://en.wikipedia.org/wiki/Quartz_(graphics_layer)">Quartz</a> v případě OS X).</p>
-      <p id="062fc2a2-79ce-42c8-a4ee-643af6f1d690" class="">Self vás však nenutí používat tuto image. Můžete mít image, kde vůbec není grafické rozhraní, kde nejsou nahraná čísla, nebo kde je třeba jen webserver. Ačkoliv je v jedné image možné provozovat velké množství aplikací naráz, z praktických důvodů sám provozuji několik oddělených image.</p>
+      <p id="062fc2a2-79ce-42c8-a4ee-643af6f1d690" class="">Self vás však nenutí používat tuto image. Můžete mít image, kde vůbec není grafické rozhraní, kde nejsou nahraná čísla, nebo kde je třeba jen webserver. Ačkoliv je v jedné image možné provozovat velké množství aplikací naráz, z praktických důvodů sám provozuji několik oddělených image.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
       <h1 id="7c448865-30fb-4904-8a95-cd709112043f" class="">Z hlediska základů prostředí</h1>
       <p id="e3128e51-534b-4655-b3e4-4a0a90d93129" class="">Předtím, než se pustím do popisu jazyka bych rád prvně vysvětlil základy uživatelského rozhraní a vývojového prostředí Selfu.</p>
       <p id="0eeb2f41-836b-4109-9eba-c6f38e4ae077" class="">Když Self poprvé spustíte, zobrazí se vám bílá obrazovka, jakási plocha. Umím si představit, že pro mnohé to může být šok. Když jsem sel poprvé pustil já, tak jsem ho po asi třiceti vteřinách zmateného koukání a klikání myší zase zavřel a smazal.</p>
@@ -573,26 +567,7 @@ desktop w hands first addMorph: radarView</code></pre>
   </article>
   <div class="corner-ribbon top-right red">
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
-  <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-  </script> 
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
-  </script> 
-  <script>
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#edeff5",
-      "text": "#838391"
-    },
-    "button": {
-      "background": "#4b81e8"
-    }
-  },
-  "position": "bottom-left"
-  });
-  </script> <a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
     <div id="last_five_bottom">
       <h3>New posts:</h3>
@@ -640,6 +615,24 @@ desktop w hands first addMorph: radarView</code></pre>
         </li>
       </ul>
     </div>
-  </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
 </body>
 </html>
