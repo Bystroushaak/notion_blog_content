@@ -66,7 +66,10 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
@@ -85,7 +88,10 @@
       <h1 id="2b16ba79-fb33-47cf-80e2-9410e0979e03" class="">Work</h1>
       <p id="c1b2ff5c-8b35-415a-a86d-8449d1d41648" class="">I've been doing a lot these two weeks. Specifically, I was creating integration tests for gigantic PyQt application. I have to say, that this sux much more, than expected. I've ended up creating my own pseudo-framework for testing, loosely based on <a href="https://pytest-qt.readthedocs.io/en/latest/index.html">pytest-qt</a> and strapping together all kinds of reflection in the PyQt framework to dynamically wait for dialogs.</p>
       <p id="4d458331-1486-4370-ad86-662bfea65f3d" class="">The task looked simple enough, but went to shit pretty quickly, because half of the reflection present in the PyQt segfaults randomly. For example <a href="https://doc.qt.io/archives/qt-4.8/qapplication.html#activeModalWidget"><code>QApplication.activeModalWidget()</code></a> segfaults if you call it too often, and with some weird combinations of events, like when you click on button using pytest-qtbot and then you query <code>.activeModalWidget()</code> too quickly after that. Code now mostly works, but it is padded with random <code>time.sleep()</code> and bunch of methods that should provide reflection had to be rewritten in really inefficient ways.</p>
-      <p id="7a3cf93d-6eae-4767-b1b1-4626661fd4f0" class="">I've recommended to management to buy <a href="https://www.froglogic.com/squish/">Squish</a>, which seems like only working tool, but it is really expensive (like 2-8k€ / year) and so far it isn't clear whether they'll follow my recommendation, so I'll probably continue with creating my own custom micro-framework for GUI testing. Sigh.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
+      <p id="7a3cf93d-6eae-4767-b1b1-4626661fd4f0" class="">I've recommended to management to buy <a href="https://www.froglogic.com/squish/">Squish</a>, which seems like only working tool, but it is really expensive (like 2-8k€ / year) and so far it isn't clear whether they'll follow my recommendation, so I'll probably continue with creating my own custom micro-framework for GUI testing. Sigh.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
       <h1 id="4eee6834-9a48-4176-8663-c4378ccd2694" class="">Object wiki update</h1>
       <p id="e63219ba-8959-4a47-bae8-13c1213575aa" class="">I've decided to put all kind of notes I have about my concept of personal wiki to one place, in form of mindmap:</p>
       <figure id="fb250d3d-cd42-4dc4-87ed-ce831d22058b" class="image">
@@ -229,7 +235,7 @@
     </div>
   </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
   <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
   </script> 
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
   </script> 

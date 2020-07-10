@@ -66,7 +66,10 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 3: Parser a AST
   <article id="be275547-b187-4543-b222-57949fac8c51" class="page sans">
     <header>
@@ -141,7 +144,10 @@ string: SINGLE_QUOTED_STRING | DOUBLE_QUOTED_STRING;
 SINGLE_QUOTED_STRING: "'[^\\\']*'";
 DOUBLE_QUOTED_STRING: "\\"[^\\\\"]*\\"";</code></pre>
       <p id="9322bf60-afd6-4920-b4ba-2193f37df136" class="">Poměrně záhy jsem však narazil na nedostatek dokumentace a taky na chování, které mi vysloveně vadilo (všechny ty <code>&gt;&lt;</code> a <code>&lt;&gt;</code> kolem identifikátorů, divná rekurze s <code>|</code>, mixování s reguláry atd..). Od začátku jsem to pojal jako TDD development (psatní testů před kódem) a jen díky tomu jsem se z toho nezcvokl, neměl jsem k tomu však daleko.</p>
-      <p id="6dc80472-9047-4907-a95a-575736074d5d" class="">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
+      <p id="6dc80472-9047-4907-a95a-575736074d5d" class="">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
       <h1 id="5b183968-a7db-4ca4-90dd-9c087af6e2fb" class="">RPLY</h1>
       <p id="66f9efe0-7194-43a5-8461-e7b99a089d2a" class="">Chybějící dokumentace mě časem donutila od RPythonního <code>ebnfparse</code> odejít, speciálně když jsem si procházel ostatní projekty, které používaly jiné parsery. Časem jsem narazil na <a href="https://rply.readthedocs.io/en/latest/">rply</a>, což je port parseru <a href="https://github.com/dabeaz/ply">ply</a> přímo pro RPython. Funguje tak, že píšete dekorátory funkcím ve stylu:</p>
       <pre id="5cd6046e-24b6-46cc-a94b-4401ac9b4c3c" class="code"><code>@pg.production('expression : NUMBER')
@@ -229,7 +235,7 @@ def unary_message_to_expression(p):
     </div>
   </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
   <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
   </script> 
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
   </script> 

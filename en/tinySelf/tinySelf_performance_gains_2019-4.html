@@ -67,7 +67,10 @@
           <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
-    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="tinySelf">tinySelf</a> / tinySelf performance gains 2019/4
   <article id="ef0d6334-f7fb-4256-a3f2-1cb90bd5db37" class="page sans">
     <header>
@@ -136,7 +139,10 @@
       <p id="8b80097b-39ba-4a84-840e-1017ab0a3714" class="">Time is not that important, as it was different each time a and sometimes one was faster than the other just to switch again in next measurement.</p>
       <p id="f894d67c-02fe-4b02-bab1-117169cf9ddb" class="">But overall, yeah, it is worse with new optimization. I find it quite horrible that 1 000 000 increments takes 29 316 255 135 instructions (29316 for one loop cycle), even tho that there is multiple blocks/lambdas evaluate the result and everything is highly dynamic.</p>
       <p id="8a44dd03-face-43c8-b1a6-1c8ddf0cbcc4" class="">Why is it slower? Some investigation showed that the code still creates new maps when using cached value, because <em>only in some cases</em> it writes <code>*</code> parent into it and that triggers the new map creation for the cloned object, because cloned version was structurally changed. I am trying to cache object which sometimes structurally changes, and that is obviously nonsense.</p>
-      <p id="0298bba8-cfdc-4159-a55b-3203c8693fca" class="">So, nope, wrong idea, time for rollback. At least I've found out and fixed one bug. Current status 28G7.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins>
+      <p id="0298bba8-cfdc-4159-a55b-3203c8693fca" class="">So, nope, wrong idea, time for rollback. At least I've found out and fixed one bug. Current status 28G7.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
       <h1 id="ccf759c8-4513-4831-a032-cb2d1e29dc9c" class="">Block traits</h1>
       <p id="74cac813-f2b5-4250-8774-6727d760a2c4" class="">This is an idea of the same kind as previous optimization, but for blocks. Block trait parents are created dynamically every time block object is used. So cache them for each code context, as block's code context is called many times during each <code>while</code> cycle.</p>
       <pre id="d7fede33-2fa4-48f0-93ca-38fc72a95ca7" class="code"><code> Performance counter stats for './tSelf tests/scripts/simple_while_benchmark.self':
@@ -444,7 +450,7 @@
     </div>
   </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
   <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
   </script> 
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
   </script> 
