@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>http://blog.rfox.eu/Changelog.html</loc>
-    <lastmod>2019-04-16</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
     <loc>http://blog.rfox.eu/Interesting_articles.html</loc>
     <lastmod>2019-04-18</lastmod>
     <changefreq>yearly</changefreq>
@@ -18,13 +13,23 @@
     <loc>http://blog.rfox.eu/English_section.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/Czech_section.html</loc>
-  </url>
-  <url>
     <loc>http://blog.rfox.eu/Paperclips.html</loc>
   </url>
   <url>
+    <loc>http://blog.rfox.eu/Changelog.html</loc>
+    <lastmod>2019-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Czech_section.html</loc>
+  </url>
+  <url>
     <loc>http://blog.rfox.eu/Utrzky.html</loc>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Zmeny.html</loc>
+    <lastmod>2020-07-22</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>http://blog.rfox.eu/Tags.html</loc>
@@ -193,13 +198,13 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Python/Active_widget_in_PyQT5_-_QTextEdit.html</loc>
-    <lastmod>2020-01-08</lastmod>
+    <loc>http://blog.rfox.eu/en/Python/Dont_use_Shelve_use_sqlitedict.html</loc>
+    <lastmod>2020-02-02</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Python/Dont_use_Shelve_use_sqlitedict.html</loc>
-    <lastmod>2020-02-02</lastmod>
+    <loc>http://blog.rfox.eu/en/Python/Active_widget_in_PyQT5_-_QTextEdit.html</loc>
+    <lastmod>2020-01-08</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
@@ -234,10 +239,15 @@
     <loc>http://blog.rfox.eu/en/tinySelf/Simple_while_benchmark_20190106/1_000_000_while_cycles.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/tinySelf/Simple_while_benchmark_20190106/10_000_while_cycles/Interpreted_under_Python_27.html</loc>
+    <loc>http://blog.rfox.eu/en/tinySelf/Simple_while_benchmark_20190106/10_000_while_cycles/RPython_without_JIT.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/tinySelf/Simple_while_benchmark_20190106/1_000_000_while_cycles/Interpreted_under_Pypy_27.html</loc>
+    <loc>http://blog.rfox.eu/en/tinySelf/Simple_while_benchmark_20190106/1_000_000_while_cycles/Interpreted_under_Python_27.html</loc>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_one_environment.html</loc>
+    <lastmod>2019-05-19</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language.html</loc>
@@ -255,18 +265,8 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_one_environment.html</loc>
-    <lastmod>2019-05-19</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
     <loc>http://blog.rfox.eu/en/Series_about_Self/Self_mail_conference_in_mbox.html</loc>
     <lastmod>2016-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/en/Series_about_Self/Improvement_proposals.html</loc>
-    <lastmod>2016-06-18</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
@@ -275,13 +275,18 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>http://blog.rfox.eu/en/Series_about_Self/Improvement_proposals.html</loc>
+    <lastmod>2016-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
     <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/Important_messages.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/Important_messages/addAll.html</loc>
+    <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/Important_messages/do___.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/Important_messages/do___.html</loc>
+    <loc>http://blog.rfox.eu/en/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/Important_messages/at.html</loc>
   </url>
   <url>
     <loc>http://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment.html</loc>
@@ -294,13 +299,13 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Improvements/the_Software.html</loc>
-    <lastmod>2018-04-12</lastmod>
+    <loc>http://blog.rfox.eu/en/Improvements/List_of_improvements_directions.html</loc>
+    <lastmod>2020-04-22</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Improvements/List_of_improvements_directions.html</loc>
-    <lastmod>2020-04-22</lastmod>
+    <loc>http://blog.rfox.eu/en/Improvements/the_Software.html</loc>
+    <lastmod>2018-04-12</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
@@ -346,10 +351,15 @@
     <loc>http://blog.rfox.eu/en/Improvements/Report_Monkey_occupiers/Parameters_3/Price.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Improvements/Report_Monkey_occupiers/Parameters_4/Price.html</loc>
+    <loc>http://blog.rfox.eu/en/Improvements/Report_Monkey_occupiers/Parameters_4/Difficulty.html</loc>
   </url>
   <url>
     <loc>http://blog.rfox.eu/en/Improvements/Report_Monkey_occupiers/Parameters/Price.html</loc>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/en/About_this_blog/Write_Twitter_summaries.html</loc>
+    <lastmod>2020-06-14</lastmod>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>http://blog.rfox.eu/en/About_this_blog/What_do_I_mean_by_node.html</loc>
@@ -362,13 +372,48 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/About_this_blog/Write_Twitter_summaries.html</loc>
-    <lastmod>2020-06-14</lastmod>
+    <loc>http://blog.rfox.eu/en/Data_hoarding/Where_is_Johnny_K9.html</loc>
+    <lastmod>2020-02-02</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/en/Data_hoarding/Where_is_Johnny_K9.html</loc>
-    <lastmod>2020-02-02</lastmod>
+    <loc>http://blog.rfox.eu/Paperclips/Sunburst_for_PyCharm_-_Idea.html</loc>
+    <lastmod>2019-12-15</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/Control_panels_-_alt_interface.html</loc>
+    <lastmod>2020-02-06</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/Yurtas_with_satellite_connection.html</loc>
+    <lastmod>2020-02-06</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/Graphical_lisp.html</loc>
+    <lastmod>2020-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/the_Algorithm.html</loc>
+    <lastmod>2020-02-23</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/Just_a_list_of_good_programming_memes.html</loc>
+    <lastmod>2020-05-04</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/Smart_crap_gallery.html</loc>
+    <lastmod>2020-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Paperclips/Good_youtube_channels_about_programming__lainchan.html</loc>
+    <lastmod>2020-02-06</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
@@ -472,6 +517,16 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_2_Lexer.html</loc>
+    <lastmod>2019-02-09</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_3_Parser_a_AST.html</loc>
+    <lastmod>2019-02-16</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
     <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_35_RPython.html</loc>
     <lastmod>2019-02-24</lastmod>
     <changefreq>yearly</changefreq>
@@ -482,23 +537,13 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_6_Kompilator_AST_do_bytecode.html</loc>
-    <lastmod>2019-05-05</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_2_Lexer.html</loc>
-    <lastmod>2019-02-09</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
     <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_5_Bajtkod_a_literaly.html</loc>
     <lastmod>2019-04-18</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_3_Parser_a_AST.html</loc>
-    <lastmod>2019-02-16</lastmod>
+    <loc>http://blog.rfox.eu/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_6_Kompilator_AST_do_bytecode.html</loc>
+    <lastmod>2019-05-05</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
@@ -582,7 +627,62 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Hranicni_valka.html</loc>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Agent_radu.html</loc>
+    <lastmod>2019-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Stin_skorpiona.html</loc>
+    <lastmod>2019-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Pharo_by_example.html</loc>
+    <lastmod>2017-05-31</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Martin_Eden.html</loc>
+    <lastmod>2017-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Vylevani_krve.html</loc>
+    <lastmod>2016-07-06</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Speak_dolphin.html</loc>
+    <lastmod>2019-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Pragmatic_thinking__learning.html</loc>
+    <lastmod>2019-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/JAZYKY_C_A_C.html</loc>
+    <lastmod>2019-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Pharo_by_example.html</loc>
+    <lastmod>2019-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Detstvi.html</loc>
+    <lastmod>2018-08-03</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Zeme_slidilu.html</loc>
+    <lastmod>2019-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Technik.html</loc>
     <lastmod>2019-05-03</lastmod>
     <changefreq>yearly</changefreq>
   </url>
@@ -592,13 +692,58 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Evolucni_hardware.html</loc>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Vsechny_party_zejtrka.html</loc>
+    <lastmod>2019-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Maly_bratr.html</loc>
+    <lastmod>2016-07-24</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Svetova_nabozenstvi_taoismus.html</loc>
+    <lastmod>2017-10-31</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Dokonaly_kod.html</loc>
+    <lastmod>2017-07-24</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Metal_made_flesh.html</loc>
+    <lastmod>2018-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Metal_made_flesh_Vegeance.html</loc>
+    <lastmod>2018-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Metal_made_flesh_Blood_and_oil.html</loc>
+    <lastmod>2018-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Eurolingua_English_2.html</loc>
+    <lastmod>2017-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Unix_V.html</loc>
     <lastmod>2017-10-31</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Lisp_as_the_Maxwells_equations_of_software.html</loc>
     <lastmod>2017-03-21</lastmod>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Freedom.html</loc>
+    <lastmod>2017-04-22</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
@@ -672,152 +817,31 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Flatland.html</loc>
-    <lastmod>2020-01-09</lastmod>
+    <loc>http://blog.rfox.eu/Utrzky/Fraktalni_dildo.html</loc>
+    <lastmod>2020-03-29</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Logikomiks.html</loc>
-    <lastmod>2019-05-03</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>http://blog.rfox.eu/Utrzky/Koralky.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Ghost_in_the_Shell_2_Innocence_After_the_long_goodbye.html</loc>
-    <lastmod>2016-07-24</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Packet_Radio_od_A_az_skoro_do_Z.html</loc>
-    <lastmod>2019-08-28</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/The_D_Programming_Language.html</loc>
-    <lastmod>2019-08-28</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Dekompozice_a_rekurzivni_algoritmy.html</loc>
-    <lastmod>2019-08-28</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Martin_Eden.html</loc>
-    <lastmod>2017-05-24</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Rozpoznavani_vzoru.html</loc>
-    <lastmod>2019-05-03</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Vylevani_krve.html</loc>
-    <lastmod>2016-07-06</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Maly_bratr.html</loc>
-    <lastmod>2016-07-24</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Umela_inteligence_-_Rozpoznavani_vzoru_v_dynamickych_datech.html</loc>
-    <lastmod>2019-08-28</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Svetova_nabozenstvi_taoismus.html</loc>
-    <lastmod>2017-10-31</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Pocitacove_site.html</loc>
-    <lastmod>2017-10-31</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Vsechny_party_zejtrka.html</loc>
-    <lastmod>2019-05-03</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Freedom.html</loc>
-    <lastmod>2017-04-22</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Bily_tesak.html</loc>
-    <lastmod>2018-07-08</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Programovaci_jazyk_C.html</loc>
-    <lastmod>2017-10-31</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Vocabulary_practice.html</loc>
-    <lastmod>2017-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Daemon.html</loc>
-    <lastmod>2018-07-08</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/cz/Vypustene_knihy/Tabulka_knih/Vlkodlaci.html</loc>
-    <lastmod>2016-07-24</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/Sunburst_for_PyCharm_-_Idea.html</loc>
-    <lastmod>2019-12-15</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/Control_panels_-_alt_interface.html</loc>
+    <loc>http://blog.rfox.eu/Utrzky/Protiatomove_dvere_v_Prazskem_metru.html</loc>
     <lastmod>2020-02-06</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/Paperclips/Yurtas_with_satellite_connection.html</loc>
-    <lastmod>2020-02-06</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/Graphical_lisp.html</loc>
-    <lastmod>2020-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/the_Algorithm.html</loc>
-    <lastmod>2020-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/Just_a_list_of_good_programming_memes.html</loc>
-    <lastmod>2020-05-04</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/Smart_crap_gallery.html</loc>
-    <lastmod>2020-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Paperclips/Good_youtube_channels_about_programming__lainchan.html</loc>
-    <lastmod>2020-02-06</lastmod>
+    <loc>http://blog.rfox.eu/Utrzky/Meditace__stav_cholinu_v_mozku.html</loc>
+    <lastmod>2020-01-17</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>http://blog.rfox.eu/Utrzky/CaptchaCoin.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/Utrzky/Protiatomove_dvere_v_Prazskem_metru.html</loc>
-    <lastmod>2020-02-06</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>http://blog.rfox.eu/Utrzky/SendDVD.html</loc>
+  </url>
+  <url>
+    <loc>http://blog.rfox.eu/Utrzky/Tao.html</loc>
   </url>
   <url>
     <loc>http://blog.rfox.eu/Utrzky/JTTP.html</loc>
@@ -828,35 +852,16 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/Utrzky/Tao.html</loc>
-  </url>
-  <url>
     <loc>http://blog.rfox.eu/Utrzky/Nekonecna_kniha.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/Utrzky/Lisp_PS.html</loc>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Utrzky/Fraktalni_dildo.html</loc>
-    <lastmod>2020-03-29</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>http://blog.rfox.eu/Utrzky/Datove_schranky_sajou.html</loc>
   </url>
   <url>
     <loc>http://blog.rfox.eu/Utrzky/Opera_programovani_dracich_dild.html</loc>
   </url>
   <url>
-    <loc>http://blog.rfox.eu/Utrzky/Meditace__stav_cholinu_v_mozku.html</loc>
-    <lastmod>2020-01-17</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Utrzky/Koralky.html</loc>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Utrzky/SendDVD.html</loc>
-  </url>
-  <url>
-    <loc>http://blog.rfox.eu/Utrzky/Datove_schranky_sajou.html</loc>
+    <loc>http://blog.rfox.eu/Utrzky/Lisp_PS.html</loc>
   </url>
   <url>
     <loc>http://blog.rfox.eu/Tags/alt_interface.html</loc>
