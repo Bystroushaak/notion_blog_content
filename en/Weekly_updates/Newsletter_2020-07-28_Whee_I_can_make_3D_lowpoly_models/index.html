@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">
+  <meta name="twitter:description" content="Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/3D_modeling/First_lowpoly_fox/lowpoly_fox_thumb.jpg">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="description" content="Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work."><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
+          <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Weekly updates">Weekly updates</a> / Newsletter 2020-07-28; Whee, I can make 3D lowpoly models
+  <article id="842c844c-6985-46be-8f2d-977d3f712832" class="page sans">
+    <header>
+      <h1 class="page-title">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</h1>
+    </header>
+    <div class="page-body">
+      <p id="143fc143-6229-47a4-b63c-14465df232bc" class="">Let's call this "newsletter", instead of "lifelog", "update" or whatever. Why not.</p>
+      <p id="b15bd5b1-eca3-4303-ba5a-e4c6c010417e" class="">It can be safely said, that almost everything I do takes longer than I expect. I postponed publication of this newsletter and several other blogposts, because I wanted to make structural changes on this blog. And I then had two weeks, when I didn't felt like programming outside work. But as the Book 2 of <a href="https://amzn.to/39k6yTe"><em>The Tao of Programming</em></a> says:</p>
+      <blockquote id="cfb1a573-61a7-4773-9643-239814c1a438" class="">
+        "After three days without programming, life becomes meaningless."
+      </blockquote>
+      <p id="adb9e106-5f72-4f69-aba5-5acdc7bdc890" class="">So I finally motivated myself and made changes I wanted.</p>
+      <h1 id="b36cfd97-c8e4-4ec6-8389-d37a0cb68e16" class="">Blog updates</h1>
+      <p id="64f573d6-b333-49ee-9f60-49c3366687ce" class="">I've decided to take this blog more seriously:</p>
+      <ul id="98da9e87-b2d2-4303-9b53-480d966b87bc" class="bulleted-list">
+        <li>SSL is now working.</li>
+      </ul>
+      <ul id="2fc13a40-f597-4064-bb3e-1a07edb1e157" class="bulleted-list">
+        <li>Everything is now available also on the <a href="http://rfox.eu">rfox.eu</a> domain.
+        </li>
+      </ul>
+      <ul id="e67cf522-eeb5-4b48-aca4-68b0a4c54091" class="bulleted-list">
+        <li>I am using Amazon referral links when referring books.</li>
+      </ul>
+      <ul id="a45e59a5-48ee-4801-bd37-6d9cb855ba7d" class="bulleted-list">
+        <li>I am trying ads.</li>
+      </ul>
+      <p id="5e5104d2-7bee-416f-9ad7-2b5f97341e65" class="">I realize, that the last point is controversial and I don't like ads, but please, bear with me. At the moment, it is an experiment on the topic of ad types, placement, number of ads per page, how much it can generate and so on.</p>
+      <p id="116f2ea5-82ed-4309-bc59-5bd60141581e" class="">It may look weird, but believe me; paying taxes on income from other country is more pain and will cost me more time, than I can probably ever recover from the tiny ad income (€2 so far, yay). So, really, it is more about getting the numbers and seeing how the whole ad business works, than about trying to extract value from the readers.</p>
+      <h2 id="4c6471c7-390d-4ead-8124-b3ac2d37c519" class="">Root sections separated</h2>
+      <p id="5316b364-ea66-4606-8973-2c3033217306" class="">I've separated two language mutations of this blog into separate entities. It looks the same, but things like change log, tags and others are separated.</p>
+      <p id="ec4c5734-8c8b-48ee-bdf9-0b0f8f463dd3" class="">There are people, who argument that you shouldn't even have separate language sections, and that you should put language mutations into separate domains, but I like how my blog is interconnected and it would get really hard to keep all that, so for the moment, everything will stay divided on one domain by url (<code>cz/</code> & <code>en/</code> root directories).</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <h1 id="5f9fb2c2-975a-4ae0-9c44-f4428a583d4a" class="">OpenSource / other coding</h1>
+      <p id="c80b4e70-0a4e-429e-a7c7-f8c715a04a95" class="">Apparently my code is now locked in the underground vault. Cool.</p>
+      <figure id="823cd025-5de0-4c82-bd73-f2f536c86924" class="image">
+        <a href="github_badge.png" title="github_badge.png"><img style="width:384px" src="github_badge.png"></a>
+      </figure>
+      <p id="a4022c8a-b5ce-484f-a3d3-7fc668676bb2" class="">I would really like to know what the <em>"more"</em> is.</p>
+      <h1 id="a6c2a22c-7a28-4f0d-a46c-1c79fbdf4ef3" class="">Book report</h1>
+      <p id="b614faa3-a927-4c6e-a862-4e4c06e66fd9" class="">My reading progress has slowed down. Maybe it is a third month of home office, or maybe I am just reading through very hard books (especially <a href="https://amzn.to/3hI9qwd">Atlas shrugged</a> feels like it is way too long).</p>
+      <div id="7208cf38-768d-4945-bbfc-ccab009a2277" class="column-list">
+        <div id="2341e630-120d-4fd6-b87e-c6052d26fd73" style="width:25%" class="column">
+          <figure id="026d709b-e924-4cd1-b618-38eac8fb83a3" class="image">
+            <a href="https://amzn.to/3hL3XoE"><img style="width:132px" src="neurocomic.jpg"></a>
+          </figure>
+        </div>
+        <div id="6bd0b583-fe4e-4b17-8e21-0ebbf9a7eb91" style="width:74.99999999999999%" class="column">
+          <p id="dedc2488-b907-46f8-ad68-1f49b045c0f1" class="">I've bought a <a href="https://amzn.to/3hL3XoE">Neurocomic</a>, because it caught my eye. It's a black and white western style comics about brain and neurons.</p>
+          <p id="c318ee20-02a9-4b01-a10a-9fe89c91963b" class="">It may be a good introductory to the topic, but I've felt slightly disappointed, because I already knew everything <a href="https://amzn.to/3hL3XoE">Neurocomic</a> has to offer, and it was directed more towards the kids, than the description on Amazon lets you know.</p>
+          <p id="c18d3aa1-f16e-47ed-a5b9-734e13a6466e" class="">I like the cover tho. Its one of those you can put on wall as an art.</p>
+        </div>
+      </div>
+      <div id="a7b91a91-9d26-468c-8b85-7742bc9078bd" class="column-list">
+        <div id="f661e926-b9a1-4179-89e7-d9017dd8e413" style="width:81.25%" class="column">
+          <p id="ba523e2b-9896-4fca-8d45-fe8e764c7722" class="">I am slowly crunching trough the Culture series by Ian M. Banks. Although the <a href="https://amzn.to/30TM3ZX">Excession</a> is a fifth book in the series, it was a fourth book I've read. I wanted to read something smart, and preferably something about superhuman intellects, and <a href="https://amzn.to/30TM3ZX">Excession</a> was on top of the goodreads list.</p>
+          <p id="6df9912d-b0b6-456d-89f6-d80b12edbb8e" class="">Overall, I've liked the book, but for completely different reasons. It nicely describes the Culture. I really liked how it showed the standard "human" model, and its various improvements, like trance in which people of the Culture can change their look, or even sex.</p>
+        </div>
+        <div id="5b612fba-7c54-4308-8ac9-d3f80a99c992" style="width:18.750000000000004%" class="column">
+          <figure id="7ca9fd11-6802-4374-8cbb-45104a8bdbf4" class="image">
+            <a href="https://amzn.to/30TM3ZX"><img style="width:132px" src="excession.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="a19ee615-caf2-4eac-a210-f350ac80f0b7" class="">As far as the <em>superhuman intellects</em> go, it was a letdown. <a href="https://amzn.to/3jMFzVf">Consider Phlebas</a> (first culture book) hinted the Minds and Ships as this superhuman computers submerged in the fourth dimension, but in this book, they act and feel like humans, which was mostly annoying.</p>
+      <h1 id="6ef94d05-e579-4d4c-a3f7-58a37cfdcfad" class="">Writing</h1>
+      <p id="c26c5f56-50b1-4480-85de-bb658664e3f7" class="">Some guy called Vladimir asked if he can translate my blog about pyinfra to Russian language. Here it is: <a href="https://softdroid.net/poisk-alternativ-ansible-v-python">https://softdroid.net/poisk-alternativ-ansible-v-python</a></p>
+      <p id="42c59f49-0eb5-4413-8664-27c56e183535" class="">Other than this, I've published:</p>
+      <p id="8c40180e-d90e-4787-afe7-1bc99085439f" class=""><a href="../../3D_modeling/First_lowpoly_fox.html" title="First lowpoly fox">First lowpoly fox</a></p>
+      <p id="94e577d3-d07f-495f-8373-063cae99af6f" class=""><a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a></p>
+      <h1 id="ace9e168-e280-4bab-815c-2b1ae7da61ea" class="">Improvements</h1>
+      <h2 id="548e7225-9625-46cc-b6dd-3f1823be78a2" class="">Four leaf clovers</h2>
+      <p id="58247a08-519c-43cf-8e10-9fad809535a3" class="">I've learned how to look for four leaf clovers. When I was a kid, I've lived in small village, and we had huge meadow right behind the house. I swear, that I've never found any. I've spent maybe ten hours of my childhood looking for them, but I've never had any luck.</p>
+      <figure id="35eda4d3-0f02-4279-ab60-b50178379333" class="image">
+        <a href="trava.jpg" title="trava.jpg"><img style="width:1600px" src="trava_thumb.jpg"></a>
+      </figure>
+      <p id="e079076f-30b0-42af-93ca-66592fe442db" class="">Some time ago, my gf had taught me how to look for the four leaf patterns and where, and I've found six in the time span of ten minutes. I've found some even while walking and not looking specifically for them. I've just saw it right in the grass, without even trying.</p>
+      <div id="64b2a118-e65a-484e-aada-820d389aceb1" class="column-list">
+        <div id="48843c62-190a-4135-9b2a-2d0f672599d9" style="width:50%" class="column">
+          <figure id="0534553c-fe64-43ff-bdb4-63faf1fe2b72" class="image">
+            <a href="ctyrlistky_1.jpg" title="ctyrlistky_1.jpg"><img style="width:1200px" src="ctyrlistky_1_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="94c25be9-d9b3-4ee1-a069-e34fca261204" style="width:50%" class="column">
+          <figure id="88c518a4-5dc5-4458-a6da-c26f428fe911" class="image">
+            <a href="ctyrlistky_2.jpg" title="ctyrlistky_2.jpg"><img style="width:1200px" src="ctyrlistky_2_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="40a03d78-9d5d-40b2-9f9b-7664e91d9536" class="">It kinda reminds me drunk talk with guy at the <a href="https://brmlab.cz/">brmlab</a> birthday party some years ago, where he told me that he believes that brain can create something like ad hoc hardware filters for sound, so you can pick two people talking together even in the large crowd of the ten people. I don't really get why, but I can now pick four leaf clovers without even trying. Thanks brain.</p>
+      <h2 id="c09ae28f-0d60-43e9-a791-ea170245e6f2" class="">3D modeling</h2>
+      <h3 id="d634241e-356c-48be-a142-552917715317" class="">Microtron progress</h3>
+      <p id="d6178e1d-4f9b-461b-ab8b-f0be6139e08e" class="">I've worked a lot on my microtron model. You can read about it here: <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>.</p>
+      <h3 id="ce7d929d-c7dd-4964-b89e-15a82df32ea2" class="">Lowpoly fox</h3>
+      <p id="46c308c3-9d01-4fa3-b144-4044fbc8b100" class="">I've learned how to do a lowpoly animals, so I've created this 3D model. The head still looks slightly off, but hey, it's my first animal model:</p>
+      <figure id="d57df4a7-1a3a-4ba4-bce5-f1235b647710" class="image">
+        <a href="lowpoly_fox.jpg" title="lowpoly_fox.jpg"><img style="width:1200px" src="../../3D_modeling/First_lowpoly_fox/lowpoly_fox_thumb.jpg"></a>
+      </figure>
+      <p id="8397940a-524a-4287-9a27-c73b79a1ae0a" class="">I shall play with rigging and posing next time, and the idea is to use it as kind of companion avatar for the 404 page here on blog.</p>
+      <p id="f8d8823e-bf05-4d38-a829-4b27ee4cb82b" class="">You can find the model here: <a href="../../3D_modeling/First_lowpoly_fox.html" title="First lowpoly fox">First lowpoly fox</a>.</p>
+      <h2 id="2e272dc7-1c55-4d42-9334-1c75eab0a4b6" class="">VPS upgrade</h2>
+      <p id="6c8eb138-c503-4599-ae81-cd379b4162c1" class="">I've finally migrated the old VPS running on Ubuntu 16.4 to new VPS running on Ubuntu 20.4. It took me several hours, but I've managed to put most of the operations into pyinfra recipes (see <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>). Next time I am going to port to different VPS provider, it should be relatively painless.</p>
+      <figure id="dd3796fe-b277-45a2-b5f8-f6ce5a789d18" class="image">
+        <a href="rip_vps.png" title="rip_vps.png"><img style="width:336px" src="rip_vps.png"></a>
+      </figure>
+      <p id="ab5d37b1-b7ff-449c-80cd-ca87ac473140" class="">RIP, <time>@2016/09/29 → 2020/07/27</time>.</p>
+      <h1 id="1c295d22-67de-4f63-844e-e2ea99f41f5d" class="">Stuff I didn't like</h1>
+      <h2 id="2fc05a4d-32b5-4397-a982-bc490f75dc7b" class="">Blender crap</h2>
+      <p id="a32b13ab-5b0e-4cf7-b527-19120bed6bc0" class="">I love Blender, but sometimes, I feel like that it will drive me mad. There are things, that I don't understand why would any sane person want them, ever. For example, <em>"flipped normals"</em>. Why is this even possible? It may be use-case in 0.0001% of usages, so it should be really impossible to do that without explicitly saying so. Yet it happens from time to time without even trying.</p>
+      <p id="930f5f86-f263-4a6b-a743-703a4323f1a2" class="">Also, why you have to <em>"apply transforms"</em>. This makes no sense why this is a thing, and what's a use case for <em>not applied transforms</em>.</p>
+      <h2 id="b63e1d19-5bad-4e1c-ae7a-a7a880d1ac5a" class="">Tight deadlines in work</h2>
+      <p id="9f0ce6be-787a-441b-bcd5-6a478de012da" class="">I've had several tight deadlines imposed by the <em>rule of falling shit</em> from the top management.</p>
+      <p id="3c528d92-e849-414e-9104-93a0ad03ebc3" class="">I've put extra overtime into the work, and then no one cared when I've delivered the task. In some cases, no one even did a code review for several days. I mean, there is a talk about forced overtimes, work during weekends and so on, but it's all just bullshit done so that some manager somewhere is pleased, but no one really cares whether the job is really done.</p>
+      <h1 id="4b490bea-7d1c-41b0-b540-e538bb5b978e" class="">Plans for immediate future</h1>
+      <p id="a5ce9ca4-ee2a-4f07-9a31-cfe6bab55b54" class=""><a href="http://repl.it">Repl.it</a> announced a <a href="https://blog.repl.it/langjam">The Programming Language Jam & Grant</a>, where you can get a grant for your programming language. I am thinking about subscribing with <a href="../../tinySelf.html" title="tinySelf"><span class="icon">📂</span>tinySelf</a>.</p>
+      <h1 id="87cef556-2294-482a-8075-dbd40812e0b9" class="">Random stuff</h1>
+      <p id="2634f94f-c03b-4fc8-a15b-34de42de3c36" class="">No idea what this tree is, but I thought it looked really beautiful:</p>
+      <figure id="407324fc-eb56-4262-9868-81e2bd8fb4d1" class="image">
+        <a href="tree.jpg" title="tree.jpg"><img style="width:3024px" src="tree_thumb.jpg"></a>
+      </figure>
+      <hr id="51d19728-62da-4c06-b873-ec1847553649">
+      <p id="e654c0cf-b20b-4c85-8777-6e4aeb7852b4" class="">And this picture of Prague came out really nicely:</p>
+      <figure id="924ff56f-1920-4ee9-ae78-c9abdb3fc2be" class="image">
+        <a href="prague_letna.jpg" title="prague_letna.jpg"><img style="width:4032px" src="prague_letna_thumb.jpg"></a>
+      </figure>
+      <hr id="e2dd9c44-85cc-40ce-9309-be4d7a492cda">
+      <p id="7ca5f4e4-849c-4996-9625-f295c7426b69" class="">Interesting stuff: <a href="https://www.biorxiv.org/content/10.1101/2020.07.01.183384v1.full">High-performance brain-to-text communication via imagined handwriting</a>.</p>
+      <hr id="c6a125f9-09ee-4884-aa4d-23f55b1d965f">
+      <p id="a1b4a1a0-cf6d-4536-b147-65b640793f5e" class="">Super safe low-pressure thorium nuclear <em>reactor-ships</em> with modular design:</p>
+      <figure id="5c1f7a01-34e2-465d-903f-8e18455af65b">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/oB1IrzDDI9g" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="32520a10-6c15-4cd7-a820-53d33bbeb905">
+      <p id="aa321802-f288-45ef-941e-c9c0b99c1716" class="">This article about dolphins blown my mind: <a href="https://voynichportal.com/2020/06/07/cars-and-cetacea/">Cars and Cetacea</a>. Interesting quotes:</p>
+      <blockquote id="a16908ee-5880-4a19-ac39-36053f7bc214" class="">
+        How Dolphins See<br>
+        <br>
+        Even though we feel a kinship with these intelligent creatures, a dolphin’s world is very different from ours.<br>
+        <br>
+        If you put a toy in a box and ask a dolphin to identify the toy, it doesn’t try to peek in the box with its eye. Instead, it sends out signals from a biological sonar to probe the contents of the box. Dolphins can tell you what’s inside by selecting a picture of the item from a set of flash cards. They can even distinguish one material from another in objects of similar shape.<br>
+        <br>
+        ...<br>
+        <br>
+        But where it gets elusive is when you consider that dolphin communication is shared. If one dolphin sends out a signal, the waves that radiate back are apprehended by all the dolphins. You can’t “secretly” probe something. It’s group-sight.<br>
+        <br>
+        If all the dolphins signaled at the same time, it would be cacophony, with one dolphin’s signals drowning out the others. If they want to sense their world in a rational, comprehensible way, they have to coordinate those signals so they don’t all ‘talk’ at the same time.
+      </blockquote>
+      <hr id="897c487b-dd59-418a-ab1b-12eec60ceb14">
+      <p id="6912ab99-cc7e-47db-9b52-f924091cba32" class="">New song from Wardruna. Pure brilliance:</p>
+      <figure id="aaea81f9-3ed9-469f-8024-9d5c3ba7ac51">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/VEizKmZlUAw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="0d771313-ba0b-4b42-9e16-4a22b7bdd749">
+      <p id="137e1a98-20b1-440f-abf3-163b3c9025eb" class="">Which reminds me, that I've created <a href="http://reddit.com/r/etnomix">/r/etnomix</a> for stuff like this:</p>
+      <figure id="9771f997-8ceb-43c4-9f3b-acf85f97ad8a">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/niq_aEMSjMY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="c8781cd8-b637-43bf-9664-aff76ef57eff" class="">or this:</p>
+      <figure id="7c067a42-8ac0-4426-ad06-4d1afe65a873">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/jV4ASCadZ4s?start=61" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="83eef062-e15b-48cf-8b3e-dd794dfd9186">
+      <p id="e0a3832d-288a-4726-a8e2-f298a6046ab1" class=""><a href="https://www.youtube.com/results?search_query=bardcore">Bardcore</a> now exists. Basically popular songs done in medieval style:</p>
+      <figure id="14d97c9d-4222-4718-b276-bbe7d3d08425">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/FBy0HBsOOKQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="32e3ffa9-44b4-4734-9340-e74cc7df24f9">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/cRIfsFefatg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="89c260a3-ac4b-4957-bc6b-c31cc5351713">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Kbj4bulZX2Y" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
+          <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
+</body>
+</html>
