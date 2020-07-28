@@ -37,6 +37,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -56,15 +65,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
@@ -104,7 +104,7 @@
         <a href="The_traits_float_bug_2020-1/shared_primitive_method_objects.png" title="shared_primitive_method_objects.png"><img style="width:240px" src="The_traits_float_bug_2020-1/shared_primitive_method_objects.png"></a>
       </figure>
       <p id="7fded033-ba2d-48a6-9383-f0b2a5362a4f" class="">To my surprise, what happened is that when used for the first time, it worked as expected. But when you used the primitive method in another float object, the <code>self</code> for primitive methods got redirected to the object used before. Interpreter uses this branch for handling primitive code:</p>
-      <pre id="a8ea5591-114e-4059-b71c-f828d2671c8d" class="code"><code>elif slot.has_primitive_code:
+      <pre id="a8ea5591-114e-4059-b71c-f828d2671c8d" class="code code-wrap"><code>elif slot.has_primitive_code:
     # primitives need "self" to be actually the object they are expecting,
     # for example for dicts it have to be dict, not some descendant
     # in the parent chain
@@ -122,7 +122,7 @@
       <p id="4829747e-bda7-41c0-8c48-23e652b5c3e2" class=""><code>.primitive_code()</code> method is a primitive (in rpython implemented) function expecting three parameters: <code>interpreter</code>, <code>self</code> and <code>parameters</code>.</p>
       <p id="56df5432-c4b6-4cf1-a018-798b1039deec" class="">The second parameter <code>obj</code> which is mapped to <code>self</code> in the primitive function was in this case wrong, because it was resolved from <code>traits float</code>. <code>slot_found_directly_in_obj</code> was <code>False</code>, and <code>slot</code> had <code>.scope_parent</code> property set to last object in which context it was used. This happened to be primitive from previous call.</p>
       <p id="97c61eca-cc62-4faf-a633-ce75c6759963" class="">Fixing this was easy, but figuring where to find correct object which should be used as <code>self</code> parameter for the primitive was hard. I've thought (and tried) about storing last primitive in call frame. I've explored a path to store <code>(obj, primitive)</code> pairs on the stack, or creating linked primitive stacks in each frame, and several other ways. At the end, I've solved this by looking into the <code>.scope_parent</code> of the <code>obj</code> (which is at that time currently executed method). As the parameters are mapped into the <code>.scope_parent</code> properties, this can be used as history. Code now looks like this:</p>
-      <pre id="8f06bdbf-a5c2-4a82-94de-de22da8f8677" class="code"><code>elif slot.has_primitive_code:
+      <pre id="8f06bdbf-a5c2-4a82-94de-de22da8f8677" class="code code-wrap"><code>elif slot.has_primitive_code:
     # primitives need "self" to be actually the object they are expecting,
     # for example for dicts it have to be dict, not some descendant
     # in the parent chain
@@ -139,7 +139,7 @@
     if return_value is not None and self.process is not None:
         self.process.frame.push(return_value)</code></pre>
       <p id="adc52944-4adc-47c9-8cd7-ec7cc02acb10" class="">...</p>
-      <pre id="fec5d9c0-c46a-4ee9-90ca-9fcdf84f6df0" class="code"><code>def _find_primitives_self(self, primitive_self, slot):
+      <pre id="fec5d9c0-c46a-4ee9-90ca-9fcdf84f6df0" class="code code-wrap"><code>def _find_primitives_self(self, primitive_self, slot):
     """
     In case of primitives that were resolved from traits, it is more
     complicated to find `self` parameter for the primitive function.
@@ -189,6 +189,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -208,15 +217,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>

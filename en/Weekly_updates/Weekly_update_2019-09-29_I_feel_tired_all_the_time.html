@@ -36,6 +36,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -55,15 +64,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
@@ -182,7 +182,7 @@
       <p id="7ac3334f-a7ba-4f52-800b-19515ee90c99" class="">I've refactored parent lookups and caching, so now it is slightly faster and it also shares parts of the code there were almost same.</p>
       <p id="d164a636-3a00-4c3f-8a67-5a5af26add89" class="">I did some benchmarks, and I was quite surprised by results. Generally, stuff that I thought would make code faster made it slower and by removing optimizations, I've sped the code significantly.</p>
       <p id="e057a947-97ce-4dea-ad32-f11b3380d292" class="">I am using benchmark, which is just one million while cycles:</p>
-      <pre id="f94cb805-7fe8-4bb2-828d-f17ac123e1da" class="code"><code># Just simple benchmark file to quickly measure, whether the optimization had
+      <pre id="f94cb805-7fe8-4bb2-828d-f17ac123e1da" class="code code-wrap"><code># Just simple benchmark file to quickly measure, whether the optimization had
 # any effect or not.
 
 (|
@@ -201,9 +201,9 @@
     ).
 |) run_benchmark.</code></pre>
       <p id="b96d23d9-5f84-4c38-a1b0-7045960d37fa" class="">Benchmark is then measured under the compiled version by running:</p>
-      <pre id="50c647f7-6484-461b-9dbb-67519a251b08" class="code"><code>./compile.py -q; sudo perf stat ./tSelf tests/scripts/count_to_1000000.self</code></pre>
+      <pre id="50c647f7-6484-461b-9dbb-67519a251b08" class="code code-wrap"><code>./compile.py -q; sudo perf stat ./tSelf tests/scripts/count_to_1000000.self</code></pre>
       <p id="5e1ad4e6-6d6c-43b1-a37a-77b5af59a020" class="">Which outputs something like:</p>
-      <pre id="52f24304-8e42-41fb-85d9-db808f626ff2" class="code"><code>3.211040
+      <pre id="52f24304-8e42-41fb-85d9-db808f626ff2" class="code code-wrap"><code>3.211040
 
  Performance counter stats for './tSelf tests/scripts/count_to_1000000.self':
 
@@ -218,7 +218,7 @@
 
        3,238224427 seconds time elapsed</code></pre>
       <p id="d432684a-e786-4dc0-b05f-7f1d08820674" class="">Most important measurement is this line:</p>
-      <pre id="554b0890-4d68-4a65-af7f-e4a946534fef" class="code"><code>    26 732 327 756      instructions              #    2,31  insn per cycle         </code></pre>
+      <pre id="554b0890-4d68-4a65-af7f-e4a946534fef" class="code code-wrap"><code>    26 732 327 756      instructions              #    2,31  insn per cycle         </code></pre>
       <p id="52abac20-374d-4c0f-b957-32863ed29a76" class="">This says how many instructions were executed by the process. I shorten this using <a href="https://en.wikipedia.org/wiki/Giga-">SI notation</a> prefixes. 26 billions, 732 millions is shortened to 26G7.</p>
       <p id="a92b62fb-49a7-4203-b104-310c540acaaa" class="">Optimizations I've made shortened the run from 32G to 26G7, that is, made it 8.5% faster.</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
       <script>
@@ -275,6 +275,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -294,15 +303,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>

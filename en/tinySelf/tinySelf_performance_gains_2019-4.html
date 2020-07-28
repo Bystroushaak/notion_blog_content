@@ -37,6 +37,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -56,15 +65,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
@@ -308,7 +308,7 @@
       <p id="2342ecdc-847c-4f9f-b767-fdb515957195" class="">16G5, that is 2G1 fewer instructions per benchmark.</p>
       <h1 id="3fc70fd2-c69b-4929-9a53-6908d163233e" class="">#pypy help</h1>
       <p id="cf285664-179b-4cee-b35f-1ef4bd11d9a6" class="">I've asked what are people using for profiling on <code>#pypy</code> IRC channel and <a href="https://github.com/cfbolz">cfbolz</a> took interest in my interpreter and <a href="https://github.com/Bystroushaak/tinySelf/pull/95">pushed</a> some JIT hints. JIT wasn't until this point much useful for me, but with his changes, wow:</p>
-      <pre id="0ea8894e-f723-47d9-923b-f395f8349d39" class="code"><code>        979,203041      task-clock (msec)         #    0,981 CPUs utilized          
+      <pre id="0ea8894e-f723-47d9-923b-f395f8349d39" class="code code-wrap"><code>        979,203041      task-clock (msec)         #    0,981 CPUs utilized          
                  3      context-switches          #    0,003 K/sec                  
                  1      cpu-migrations            #    0,001 K/sec                  
              2 194      page-faults               #    0,002 M/sec                  
@@ -331,13 +331,13 @@
        1,907438730 seconds time elapsed</code></pre>
       <h1 id="393107ba-af9c-4cc9-b254-42480f8e7103" class="">Remove pre-initialization of slots and parents</h1>
       <p id="c9910934-8ef6-46ba-b89e-417ca611bed5" class="">As it was implemented, <code>__init__()</code> method of <code>Object</code> looked like this:</p>
-      <pre id="47619dd2-1534-47c0-91f3-88bbbb20de54" class="code"><code>    def __init__(self, map=None):
+      <pre id="47619dd2-1534-47c0-91f3-88bbbb20de54" class="code code-wrap"><code>    def __init__(self, map=None):
         self.map = map
         self.scope_parent = None
         self._slot_values = []
         self._parent_slot_values = []</code></pre>
       <p id="b7e6d67a-8016-4f6d-8224-746dff13d476" class="">That means the properties <code>._slot_values</code> and <code>._parent_slot_values</code> were initialized to empty lists. Simply changing them to <code>None</code> and initializing them lazily only when they are used changed performance significantly:</p>
-      <pre id="06be27b3-d849-4c55-9bfc-80478b663068" class="code"><code>       2174,622775      task-clock (msec)         #    0,991 CPUs utilized          
+      <pre id="06be27b3-d849-4c55-9bfc-80478b663068" class="code code-wrap"><code>       2174,622775      task-clock (msec)         #    0,991 CPUs utilized          
                 19      context-switches          #    0,009 K/sec                  
                  1      cpu-migrations            #    0,000 K/sec                  
              1 540      page-faults               #    0,708 K/sec                  
@@ -356,7 +356,7 @@
       </figure>
       <p id="82ccc20d-b057-4a9a-98ce-9180c97cae99" class="">I've got one that uses dynamic arrays, one that uses statically allocated array before it switches to dicts internally and several versions of one which uses just number of properties (1-8) before it used internal dictionary to store data.</p>
       <p id="89ab472b-8f3a-4266-88e1-1ead6c4be837" class="">Results clearly show, that one that uses three properties and then fallback to dict is fastest.</p>
-      <pre id="e3f42558-8a6a-4395-988a-ed0c5ca63b29" class="code"><code>       1634,048187      task-clock (msec)         #    0,989 CPUs utilized
+      <pre id="e3f42558-8a6a-4395-988a-ed0c5ca63b29" class="code code-wrap"><code>       1634,048187      task-clock (msec)         #    0,989 CPUs utilized
                  3      context-switches          #    0,002 K/sec
                  0      cpu-migrations            #    0,000 K/sec
              1 407      page-faults               #    0,861 K/sec
@@ -367,7 +367,7 @@
 
        1,652842120 seconds time elapsed</code></pre>
       <p id="0a768b04-e4ea-4c3a-8858-a20fda01fd3f" class="">and with JIT:</p>
-      <pre id="91b3c9ed-1c92-4f26-beb0-45c8b459fc03" class="code"><code>        780,210821      task-clock (msec)         #    0,977 CPUs utilized          
+      <pre id="91b3c9ed-1c92-4f26-beb0-45c8b459fc03" class="code code-wrap"><code>        780,210821      task-clock (msec)         #    0,977 CPUs utilized          
                  6      context-switches          #    0,008 K/sec                  
                  0      cpu-migrations            #    0,000 K/sec                  
              2 058      page-faults               #    0,003 M/sec                  
@@ -417,6 +417,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -436,15 +445,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>

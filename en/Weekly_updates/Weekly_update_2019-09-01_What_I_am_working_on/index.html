@@ -36,6 +36,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -55,15 +64,6 @@
         </li>
         <li>
           <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
@@ -85,7 +85,7 @@
       </figure>
       <p id="fae0f182-498f-485a-b82d-7e45fb048f7b" class="">Originally, I've used notion's "publish" function to make certain nodes, like my personal blog, public, but many people hated it. Notion loads a ton of javascript into the published site, hijacks the keyboard, scrolling and generally does all kind of weird stuff with your browser. After I've received pretty negative reactions, I've hacked together <a href="https://github.com/Bystroushaak/notion_blog">notion_blog</a>, which is a simple static generator from the HTML export Notion introduced. It does some postprocessing on the CSS, URL's and so on.</p>
       <p id="581822b3-004d-4c0e-91d4-ed9553fefc3f" class="">It is still pretty lowlevel in terms of what is required by today's sites. For example, I have to generate twitter previews manually, there is no discussion, no webmentions, SEO and so on. Also, URL's are for the time being horrible, like this;</p>
-      <pre id="a5ba7532-e35a-4590-bc5c-636e14485a54" class="code"><code>http://blog.rfox.eu/Bystroushaak%20s%20blog/English%20section/Series%20about%20Self/Environment%20and%20the%20programming%20language%20Self%20part%203.html</code></pre>
+      <pre id="a5ba7532-e35a-4590-bc5c-636e14485a54" class="code code-wrap"><code>http://blog.rfox.eu/Bystroushaak%20s%20blog/English%20section/Series%20about%20Self/Environment%20and%20the%20programming%20language%20Self%20part%203.html</code></pre>
       <p id="ebce0975-0c60-44c7-8115-f99c1af89334" class="">Whole blog is deployed in really amateurish way. First, I request export on the notion website, select that I want HTML, sub pages, yeah, thank you very much, and then I wait until the <code>.zip</code> file with export is downloaded.</p>
       <figure id="4b0bf2da-63de-4e25-8990-fe916c6cd7d2" class="image">
         <a href="Snmek_obrazovky_pozen_2019-09-01_00-49-36.png" title="Snmek_obrazovky_pozen_2019-09-01_00-49-36.png"><img style="width:2112px" src="Snmek_obrazovky_pozen_2019-09-01_00-49-36_thumb.jpg"></a>
@@ -125,7 +125,7 @@
         <a href="Snmek_obrazovky_pozen_2019-09-01_00-59-05.png" title="Snmek_obrazovky_pozen_2019-09-01_00-59-05.png"><img style="width:1604px" src="Snmek_obrazovky_pozen_2019-09-01_00-59-05_thumb.jpg"></a>
       </figure>
       <p id="fc3997d8-8dd7-4588-a569-4a162c2a78f6" class="">Update in the repository is then picked up by the cron on my VPS</p>
-      <pre id="92bc7914-a2ca-4fc5-a961-14012fa5622f" class="code"><code>*/5 * * * * cd $HOME/scripty/notion_blog &amp;& git pull &gt; /dev/null 2&gt;&amp;1</code></pre>
+      <pre id="92bc7914-a2ca-4fc5-a961-14012fa5622f" class="code code-wrap"><code>*/5 * * * * cd $HOME/scripty/notion_blog &amp;& git pull &gt; /dev/null 2&gt;&amp;1</code></pre>
       <p id="2ed1773a-8d03-48c1-b566-8f874a2b753e" class="">and served via nginx on subdomain <code>blog.rfox.eu</code>.</p>
       <p id="50f18267-2e6c-47cd-b968-449ebf2bb0c0" class="">Needless to say, this is really time-consuming and elaborate process, that really puts the whole idea of <em>"simple publishing via notion"</em> on its head.</p>
       <h2 id="4763df3c-8ad7-43ae-97e0-b6f17307401a" class="">Structural pains</h2>
@@ -260,6 +260,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -279,15 +288,6 @@
         </li>
         <li>
           <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>

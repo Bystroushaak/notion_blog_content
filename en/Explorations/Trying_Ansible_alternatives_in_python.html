@@ -107,6 +107,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -127,15 +136,6 @@
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
         </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
     <script>
@@ -144,6 +144,9 @@
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
         <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
@@ -332,9 +335,9 @@
       </figure>
       <h1 id="15a7ea6a-5537-4109-aec6-e6a9f9436c65" class="">Trying pyinfra</h1>
       <p id="c4889cbe-6f3c-4bac-87b4-7ff1d42b2e59" class="">As the <em>pyinfra</em> is the only thing that looks like it is not dead and it can do what I want, the decision is not that hard. So, lets try it:</p>
-      <pre id="ed740767-ffa7-4629-b397-a8a1500a3603" class="code"><code>$ pip install --user pyinfra</code></pre>
+      <pre id="ed740767-ffa7-4629-b397-a8a1500a3603" class="code code-wrap"><code>$ pip install --user pyinfra</code></pre>
       <p id="bd8d2303-3ed9-42f4-9b95-900c724789d8" class="">Now lets try hello world. I struggle with the port for a moment, because I use nonstandard port for tunneling through hotel and airport wifi, quick peek to help show that I should use <code>--port</code> parameter:</p>
-      <pre id="70d570c8-d358-4b0b-a015-1a4a0982d38c" class="code"><code>$ pyinfra kitakitsune.org --port 443 exec -- echo "hello world"
+      <pre id="70d570c8-d358-4b0b-a015-1a4a0982d38c" class="code code-wrap"><code>$ pyinfra kitakitsune.org --port 443 exec -- echo "hello world"
 --&gt; Loading config...
 --&gt; Loading inventory...
 
@@ -364,8 +367,8 @@
 <span class="n">server</span><span class="o">.</span><span class="n">shell</span><span class="p">(</span><span class="s1">'echo "hello world"'</span><span class="p">)</span>
 </code></pre>
       <p id="0042e0f3-7d1a-4f3f-9bc4-62f350514071" class="">Which I run using following command:</p>
-      <pre id="61ab5a55-bb0c-4f06-bee1-b8d99f1976b0" class="code"><code>pyinfra -v inventory.py deployment.py</code></pre>
-      <pre id="ad148ebb-f0a0-4d62-b907-8be7537b624f" class="code"><code>--&gt; Loading config...
+      <pre id="61ab5a55-bb0c-4f06-bee1-b8d99f1976b0" class="code code-wrap"><code>pyinfra -v inventory.py deployment.py</code></pre>
+      <pre id="ad148ebb-f0a0-4d62-b907-8be7537b624f" class="code code-wrap"><code>--&gt; Loading config...
 --&gt; Loading inventory...
 
 --&gt; Connecting to hosts...
@@ -398,8 +401,8 @@
 <span class="n">server</span><span class="o">.</span><span class="n">shell</span><span class="p">(</span><span class="s1">'echo "hello world"'</span><span class="p">,</span> <span class="n">sudo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre>
       <p id="55adefd5-82fa-496d-aa4f-2599d98370bc" class=""><code>sudo=True</code> parameter says, that this command should be run with <em>sudo</em>. <code>USE_SUDO_PASSWORD</code> says that sudo uses password, as you can also have <em>sudo</em> without password by setting <code>%sudo ALL=(ALL:ALL) NOPASSWD:ALL</code> in <code>/etc/sudoers</code>.</p>
-      <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code"><code>pyinfra -v inventory.py deployment.py</code></pre>
-      <pre id="00596c62-7047-4c73-a3a2-786e7b26f497" class="code"><code>--&gt; Loading config...
+      <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code code-wrap"><code>pyinfra -v inventory.py deployment.py</code></pre>
+      <pre id="00596c62-7047-4c73-a3a2-786e7b26f497" class="code code-wrap"><code>--&gt; Loading config...
 --&gt; Loading inventory...
 
 --&gt; Connecting to hosts...
@@ -432,7 +435,7 @@
 <span class="n">apt</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s1">'nginx'</span><span class="p">,</span> <span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">present</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre>
       <p id="4d9e24e9-0aea-421e-a406-acba5f2b14e7" class="">And it worked, with one exception, which is parsing of the output (yes, that's why parsing sucks):</p>
-      <pre id="e0988895-2f38-4535-8abe-7b54cf43e3e0" class="code"><code>Traceback (most recent call last):
+      <pre id="e0988895-2f38-4535-8abe-7b54cf43e3e0" class="code code-wrap"><code>Traceback (most recent call last):
   File "src/gevent/greenlet.py", line 854, in gevent._gevent_cgreenlet.Greenlet.run
   File "/home/bystrousak/.local/lib/python2.7/site-packages/pyinfra/api/util.py", line 471, in read_buffer
     _print(line)
@@ -450,7 +453,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
     [192.168.0.106]   Successful: 1   Errors: 0   Commands: 1/1</code></pre>
       <p id="e94b7b51-56a0-4d88-a648-4d45431d32a5" class="">Which again is weird, but I am probably using Czech localization, so I am not that surprised.</p>
       <p id="9c964837-fec6-4423-989e-93ded0e39b23" class="">Running it again shows that the operation was executed successfully:</p>
-      <pre id="05cc2c1a-18a2-4003-8c1a-1471022506fc" class="code"><code>--&gt; Loading config...
+      <pre id="05cc2c1a-18a2-4003-8c1a-1471022506fc" class="code code-wrap"><code>--&gt; Loading config...
 --&gt; Loading inventory...
 
 --&gt; Connecting to hosts...
@@ -589,6 +592,15 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -609,20 +621,14 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
         </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
         <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>

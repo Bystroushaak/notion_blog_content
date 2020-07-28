@@ -34,6 +34,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         <li>
           <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
         </li>
-        <li>
-          <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
-        </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
     <script>
@@ -81,9 +81,9 @@
       <p id="d0144f52-2847-42ed-8593-61e9ec950d7d" class="">Oh god. I've spent something like 12 hours by debugging a bug, which wasn't there. I did some changes in interpreter, which were meant to make code more readable and easy to understand. I've added some tests, moved and rewritten some primitive code from python to tinySelf's stdlib.</p>
       <p id="0466252f-d768-48a0-b62a-c2de78ba262b" class="">Suddenly, blocks (equivalent of lambda / closures) stopped working. Naturally, I've thought that I've introduced the bug and literally turned the interpreter inside out. I've put in place debug messages, stepped through thousand of interpreter cycles in PyCharm's debbuger, I've even randomly tried to comment out blocks of code and see whether the behaviour will at least change. And all of this led nowhere.</p>
       <p id="265db5d7-308c-4974-ac18-68e5f5a9ba07" class="">I've fixed several other bugs found during debugging. I thought that bug may be in compiler, so I've added horribly hacked-together state-machine parser to prettify AST printouts, so instead of</p>
-      <pre id="e82832eb-f266-4170-a460-4bd17a9e3334" class="code"><code>Send(obj=Object(slots={test_while_100: Object(slots={i: IntNumber(0), i:: AssignmentPrimitive()}, code=[Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(1)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=i:, parameters=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))])), Send(obj=Self(), msg=Message(false))])])), Send(obj=Send(obj=Send(obj=Self(), msg=Message(i)), msg=Message(asString)), msg=Message(printLine))]), test_another: Object(slots={x: Nil(), x:: AssignmentPrimitive(), brekeke: Nil(), brekeke:: AssignmentPrimitive()}, code=[Send(obj=Self(), msg=KeywordMessage(name=x:, parameters=[IntNumber(0)])), Send(obj='another', msg=Message(printLine)), Send(obj=Self(), msg=Message(brekeke)), Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(x)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(2)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=x:, parameters=[Send(obj=Send(obj=Self(), msg=Message(x)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))])), Send(obj=Self(), msg=Message(nil))])])), Send(obj=Send(obj=Send(obj=Self(), msg=Message(x)), msg=Message(asString)), msg=Message(printLine))]), test_while: Object(code=[Send(obj=Self(), msg=Message(test_while_100)), Send(obj=Self(), msg=Message(test_another))])}), msg=Message(test_while))</code></pre>
+      <pre id="e82832eb-f266-4170-a460-4bd17a9e3334" class="code code-wrap"><code>Send(obj=Object(slots={test_while_100: Object(slots={i: IntNumber(0), i:: AssignmentPrimitive()}, code=[Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(1)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=i:, parameters=[Send(obj=Send(obj=Self(), msg=Message(i)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))])), Send(obj=Self(), msg=Message(false))])])), Send(obj=Send(obj=Send(obj=Self(), msg=Message(i)), msg=Message(asString)), msg=Message(printLine))]), test_another: Object(slots={x: Nil(), x:: AssignmentPrimitive(), brekeke: Nil(), brekeke:: AssignmentPrimitive()}, code=[Send(obj=Self(), msg=KeywordMessage(name=x:, parameters=[IntNumber(0)])), Send(obj='another', msg=Message(printLine)), Send(obj=Self(), msg=Message(brekeke)), Send(obj=Block(code=[Send(obj=Send(obj=Self(), msg=Message(x)), msg=BinaryMessage(name=&lt;, parameter=IntNumber(2)))]), msg=KeywordMessage(name=whileTrue:, parameters=[Block(code=[Send(obj=Self(), msg=KeywordMessage(name=x:, parameters=[Send(obj=Send(obj=Self(), msg=Message(x)), msg=BinaryMessage(name=+, parameter=IntNumber(1)))])), Send(obj=Self(), msg=Message(nil))])])), Send(obj=Send(obj=Send(obj=Self(), msg=Message(x)), msg=Message(asString)), msg=Message(printLine))]), test_while: Object(code=[Send(obj=Self(), msg=Message(test_while_100)), Send(obj=Self(), msg=Message(test_another))])}), msg=Message(test_while))</code></pre>
       <p id="04133613-386c-4b10-8f7a-c4a9b69091ce" class="">you get</p>
-      <pre id="4b676a21-28c2-4ad7-bc94-20acf3d901f8" class="code"><code>Send(
+      <pre id="4b676a21-28c2-4ad7-bc94-20acf3d901f8" class="code code-wrap"><code>Send(
   obj=Object(
     slots={
       test_while_100: Object(
@@ -347,6 +347,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -366,15 +375,6 @@
         </li>
         <li>
           <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>

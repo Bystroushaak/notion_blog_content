@@ -2,13 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>http://blog.rfox.eu/atom.xml</id>
-  <updated>2020-06-15T01:31:00+0200</updated>
+  <updated>2020-07-28T19:15:00+0200</updated>
   <link href="http://blog.rfox.eu" />
   <link href="http://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="http://blog.rfox.eu/atom.xml">
+    <title type="text">Microtron model progress 2020/07</title>
+    <id>http://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-07.html</id>
+    <updated>2020-07-28T19:15:00+0200</updated>
+    <link href="http://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-07.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;Progress on my 3D microtron model.&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://blog.rfox.eu/atom.xml">
+    <title type="text">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</title>
+    <id>http://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html</id>
+    <updated>2020-07-28T19:05:00+0200</updated>
+    <link href="http://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://blog.rfox.eu/atom.xml">
+    <title type="text">RSS / Atom feed for the Czech blogposts moved to new URL</title>
+    <id>https://blog.rfox.eu/atom_cz.xml</id>
+    <updated>2020-07-28T18:20:00+0200</updated>
+    <link href="https://blog.rfox.eu/atom_cz.xml" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;Pleas update your readers if you wish to receive updates with Czech blogposts: https://blog.rfox.eu/atom_cz.xml&lt;/em&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://blog.rfox.eu/atom.xml">
     <title type="text">Lifelog 2020-06-15; Todo in motion</title>
     <id>http://blog.rfox.eu/en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html</id>
@@ -84,39 +117,6 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;How to use unicode font subset in your CSS.&lt;/em&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://blog.rfox.eu/atom.xml">
-    <title type="text">Lifelog 2020-05-25; Work in progress everywhere</title>
-    <id>http://blog.rfox.eu/en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html</id>
-    <updated>2020-05-25T12:36:00+0200</updated>
-    <link href="http://blog.rfox.eu/en/Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;Info about tinySelf, objWiki progress, my life and what I managed to do.&lt;/em&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://blog.rfox.eu/atom.xml">
-    <title type="text">Vitamins, nootropics and other boosters</title>
-    <id>http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html</id>
-    <updated>2020-04-26T18:43:00+0200</updated>
-    <link href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;Small database of stimulants and other substances I&amp;#x27;ve tried.&lt;/em&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://blog.rfox.eu/atom.xml">
-    <title type="text">Transaction support for simple in-memory database</title>
-    <id>http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html</id>
-    <updated>2020-04-26T18:42:00+0200</updated>
-    <link href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">&lt;p class="changelog_description"&gt;&lt;em&gt;Notes from the implementation of the transaction support to the objWiki.&lt;/em&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

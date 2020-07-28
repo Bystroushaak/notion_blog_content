@@ -388,6 +388,11 @@ code {
 	padding: 1.5em 1em;
 }
 
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
 .code > code {
 	background: none;
 	padding: 0;

@@ -35,6 +35,15 @@
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
@@ -88,11 +88,11 @@
       <p id="4025450e-747e-463d-984f-986cecdb3b61" class=""><em>Firewalled computer</em> didn't even have <code>pip</code>, so I had to install it.</p>
       <h1 id="f3385ab9-e826-4c65-a78b-26c2878c2210" class="">Setuptools and PIP</h1>
       <p id="5921de38-8e77-4f20-bd88-086651470191" class="">First, I installed <code>setuptools</code>. I had to manually download last working version of the <code>setuptools</code> supporting python3.3, which is <a href="https://files.pythonhosted.org/packages/1a/04/d6f1159feaccdfc508517dba1929eb93a2854de729fa68da9d5c6b48fa00/setuptools-39.2.0.zip">39.2.0</a>. I've uploaded unpacked directory to the <em>firewalled computer</em> and run following commands:</p>
-      <pre id="de65a27b-fb25-43fc-8e73-69538e91f7a3" class="code"><code>[root@computer offline_pip_repo]# cd setuptools-39.2.0/
+      <pre id="de65a27b-fb25-43fc-8e73-69538e91f7a3" class="code code-wrap"><code>[root@computer offline_pip_repo]# cd setuptools-39.2.0/
 [root@computer setuptools-39.2.0]# ls
 bootstrap.py  docs             CHANGES.rst  LICENSE      msvc-build-launcher.cmd  PKG-INFO       pytest.ini  setup.cfg  setuptools           tests                   tox.ini
 conftest.py   easy_install.py  launcher.c   MANIFEST.in  pavement.py              pkg_resources  README.rst  setup.py   setuptools.egg-info  towncrier_template.rst</code></pre>
-      <pre id="abcf98a4-563c-4ed2-becd-de2da11a467c" class="code"><code>[root@computer setuptools-39.2.0]# python3 setup.py install
+      <pre id="abcf98a4-563c-4ed2-becd-de2da11a467c" class="code code-wrap"><code>[root@computer setuptools-39.2.0]# python3 setup.py install
 running install
 running bdist_egg
 ...
@@ -109,12 +109,12 @@ Finished processing dependencies for setuptools==39.2.0</code></pre><ins class="
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
       <p id="94b7d03a-5075-49c5-8fbb-5ccd9d3cb389" class="">Then I had to download <code>pip</code> that supports python3.3. <a href="https://pip.pypa.io/en/stable/news/">Changelog</a> told me that it was version <a href="https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz">10.0.1</a>. Again, I uploaded the unpacked archive to the <em>firewalled computer</em> and run manually <code>python3 setup.py install</code>:</p>
-      <pre id="5fcb7984-529d-4ca6-bba7-90b0a7d87c02" class="code"><code>[root@computer offline_pip_repo]# ls
+      <pre id="5fcb7984-529d-4ca6-bba7-90b0a7d87c02" class="code code-wrap"><code>[root@computer offline_pip_repo]# ls
 setuptools-39.2.0  pip-10.0.1
 [root@computer offline_pip_repo]# cd pip-10.0.1/
 [root@computer pip-10.0.1]# ls
 AUTHORS.txt  docs  LICENSE.txt  MANIFEST.in  NEWS.rst  PKG-INFO  pyproject.toml  README.rst  setup.cfg  setup.py  src</code></pre>
-      <pre id="0d627099-048a-4ac3-a0bf-2c67f6785955" class="code"><code>[root@computer pip-10.0.1]# python3 setup.py install
+      <pre id="0d627099-048a-4ac3-a0bf-2c67f6785955" class="code code-wrap"><code>[root@computer pip-10.0.1]# python3 setup.py install
 running install
 running bdist_egg
 running egg_info
@@ -129,7 +129,7 @@ Installed /usr/lib/python3.3/site-packages/pip-10.0.1-py3.3.egg
 Processing dependencies for pip==10.0.1
 Finished processing dependencies for pip==10.0.1</code></pre>
       <p id="49ec5e49-4cb9-4c65-8078-b947a134e3a0" class="">Then I've verified that <code>pip</code> was really installed correctly and it works:</p>
-      <pre id="5f4db7e6-e7e9-4d87-b4a7-ce48d59b55e3" class="code"><code>[root@computer pip-10.0.1]# pip
+      <pre id="5f4db7e6-e7e9-4d87-b4a7-ce48d59b55e3" class="code code-wrap"><code>[root@computer pip-10.0.1]# pip
 
 Usage:   
   pip &lt;command&gt; [options]
@@ -171,9 +171,9 @@ General Options:
       <h1 id="31069282-38c2-4cac-88d6-4b33e699c322" class="">Offline repository</h1>
       <p id="c19172b6-68cc-4aee-8227-ce7251a973b0" class="">I could install all dependencies by manually downloading packages and running <code>setup.py</code>, but I didn't want to spend so much time with it, so I've created offline repository with <a href="https://pypi.org/project/pip2pi/">pip2pi</a>.</p>
       <p id="16892e66-50c5-45e9-a6c2-911c7ad6a31b" class=""><code>pip2pi</code> can be installed using <code>pip</code> on my computer:</p>
-      <pre id="beb6945d-1b15-43ad-9e34-12cd2ca23aeb" class="code"><code>$ pip install --user pip2pi</code></pre>
+      <pre id="beb6945d-1b15-43ad-9e34-12cd2ca23aeb" class="code code-wrap"><code>$ pip install --user pip2pi</code></pre>
       <p id="49d90535-1b2e-43f2-8d99-7ce7493f6ee3" class="">I've then told it to download package <code>pytest</code> and <code>py</code> in specific versions (last working versions with python3.3) into directory called <code>repository</code>:</p>
-      <pre id="b8e54c43-0f64-4dee-bf01-ebbd8ea227be" class="code"><code>$ pip2tgz repository pytest==3.2.0 py==1.4.33
+      <pre id="b8e54c43-0f64-4dee-bf01-ebbd8ea227be" class="code code-wrap"><code>$ pip2tgz repository pytest==3.2.0 py==1.4.33
 WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
 Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
 To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
@@ -190,7 +190,7 @@ Successfully downloaded pytest py setuptools
 
 Done. 3 new archives currently saved in 'repository'.</code></pre>
       <p id="94190e7b-21f8-4885-90ca-1076ecb9c44c" class="">I verified that requirements were downloaded:</p>
-      <pre id="3075edab-ce47-4f3a-a895-2609869e05c4" class="code"><code>$ tree repository/
+      <pre id="3075edab-ce47-4f3a-a895-2609869e05c4" class="code code-wrap"><code>$ tree repository/
 repository/
 ├── pytest-3.2.0-py2.py3-none-any.whl
 ├── py-1.4.33-py2.py3-none-any.whl
@@ -198,9 +198,9 @@ repository/
 
 0 directories, 3 files</code></pre>
       <p id="ef5a6d8b-745b-43f3-ab31-de161295a89b" class="">Then, it was necessary to create symlinks, so that whole repository could be used with <code>pip</code>:</p>
-      <pre id="911c5aff-7e9b-48af-8aff-46b447f46473" class="code"><code>$ dir2pi repository/</code></pre>
+      <pre id="911c5aff-7e9b-48af-8aff-46b447f46473" class="code code-wrap"><code>$ dir2pi repository/</code></pre>
       <p id="0c1bc363-9474-488c-99e0-14c3ad64081e" class="">Here is what the structure looked after this command:</p>
-      <pre id="c2cae898-6321-4028-ab20-da4f375bea05" class="code"><code>$ tree repository/
+      <pre id="c2cae898-6321-4028-ab20-da4f375bea05" class="code code-wrap"><code>$ tree repository/
 repository/
 ├── simple
 │   ├── py
@@ -219,7 +219,7 @@ repository/
 
 4 directories, 10 files</code></pre>
       <p id="7931f1e5-26bc-43c3-9f0b-50557ca30a83" class="">Then I've copied <code>repository</code> directory via ssh to <em>firewalled machine</em> and run install from local <code>repository</code> directory:</p>
-      <pre id="d76163f4-7618-46bf-bf09-b32191d0b3dd" class="code"><code>[root@computer offline_pip_repo]# pip install --no-index --find-links=file:repository pytest
+      <pre id="d76163f4-7618-46bf-bf09-b32191d0b3dd" class="code code-wrap"><code>[root@computer offline_pip_repo]# pip install --no-index --find-links=file:repository pytest
 DEPRECATION: Python 3.3 supported has been deprecated and support for it will be dropped in the future. Please upgrade your Python.
 Looking in links: file:repository
 Collecting pytest
@@ -243,6 +243,15 @@ Successfully installed py-1.4.33 pytest-3.2.0</code></pre>
       <h3>New posts:</h3>
       <ul>
         <li>
+          <a href="../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
           <a href="../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
@@ -262,15 +271,6 @@ Successfully installed py-1.4.33 pytest-3.2.0</code></pre>
         </li>
         <li>
           <a href="../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
-        </li>
-        <li>
-          <a href="../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/Improvements/Vitamins_nootropics_and_other_boosters.html">Vitamins, nootropics and other boosters</a>
-        </li>
-        <li>
-          <a href="http://blog.rfox.eu/en/objWiki/Transaction_support_for_simple_in_memory_database.html">Transaction support for simple in-memory database</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>

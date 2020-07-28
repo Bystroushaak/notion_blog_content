@@ -36,7 +36,7 @@
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="https://blog.rfox.eu/cs/atom.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
+          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
         </li>
       </ul>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
@@ -124,7 +124,7 @@
       <p id="24e67227-0bf0-4064-ab12-46770d1efb61" class="">První soubor je spustitelná binárka interpretru, druhý soubor je obraz paměti, do kterého bylo uloženo před-připravené prostředí s grafickým rozhraním.</p>
       <h2 id="16386075-7bab-4799-9aa3-6f98ce2521fd" class="">Self interpret</h2>
       <p id="241f6e32-c4b0-4df3-9475-e0fe40f19b8b" class="">Po spuštění je možné nechat si vypsat nápovědu:</p>
-      <pre id="427e2594-6da7-430e-9d65-63be95581ae7" class="code"><code>$ ./Self -h
+      <pre id="427e2594-6da7-430e-9d65-63be95581ae7" class="code code-wrap"><code>$ ./Self -h
 ./Self: usage: ./Self [-f filename] [-h] [-s snapshot] ...
 Options:
   -f filenameReads filename (Self source) immediately after startup
@@ -143,7 +143,7 @@ For debugging use only:
 Other command line switches may be interpreted by the Self world</code></pre>
       <h2 id="32a34de4-0b2a-40d8-bcfb-058841ee7cdb" class="">32bitový systém</h2>
       <p id="59f0bbfe-f2fd-48c3-9832-dc4fc8406073" class="">Pokud místo nápovědy uvidíte cosi jako</p>
-      <pre id="100f273d-30f0-4aef-8e48-5d36ca2de299" class="code"><code>./Self: error while loading shared libraries: libX11.so.6: cannot open shared object file: No such file or directory</code></pre>
+      <pre id="100f273d-30f0-4aef-8e48-5d36ca2de299" class="code code-wrap"><code>./Self: error while loading shared libraries: libX11.so.6: cannot open shared object file: No such file or directory</code></pre>
       <p id="9c44df2d-a5ab-4ee7-8e0d-6c521b249b69" class="">pak používáte 64 bitový systém, který nemá nainstalovanou podporu 32 bitových programů. Na debianu je možné nainstalovat potřebnou podporu následujícím způsobem:</p>
       <pre id="fbbbe88f-d8d7-480f-ae52-90330025838a" class="code"><code>sudo dpkg --add-architecture i386
 sudo apt-get update
@@ -151,7 +151,7 @@ sudo apt-get install libx11-6:i386 libxext6:i386 libtinfo5:i386</code></pre>
       <h2 id="b0158c59-0f5b-4950-8f44-f4263e0c5293" class="">Zpět k nápovědě</h2>
       <p id="0603bf85-3d72-4756-939f-71a000537f09" class="">Zajímavé jsou v podstatě jen dva switche; <code>-f</code>, pro načtení <code>.self</code> souboru (což pravděpodobně jen tak nepoužijete) a <code>-s</code>, který načítá uložený obraz paměti. Zbytek jsou vesměs technické detaily vhodné pouze pro velmi pokročilé uživatele.</p>
       <p id="1dfc11dd-924a-4a14-9586-ef41f6c4ed05" class="">Pokud spustíte Self samotný, objeví se před vámi REPL (interaktivní režim), do kterého můžete psát příkazy:</p>
-      <pre id="795322e5-769a-4c26-a808-1ec97d44907f" class="code"><code>$ ./Self 
+      <pre id="795322e5-769a-4c26-a808-1ec97d44907f" class="code code-wrap"><code>$ ./Self 
 Self Virtual Machine Version 2017.1/13, Tue 16 May 17 00:45:42 Linux i386 (4.5.0-205-gd942ba2-dirty)
 Copyright 1989-2016 AUTHORS (type _Credits for credits)
 
@@ -164,7 +164,7 @@ for I386:  SaveOutgoingArgumentsOfPatchedFrames = true
 VM#</code></pre>
       <p id="9d420257-38a6-41be-bfec-78f974844455" class="">Vzhledem k tomu, že Self jako interpret běžně operuje na úrovni image, a já žádnou nenačetl, jsem nyní v interpretru, kde kromě několika zabudovaných primitiv není v podstatě nic. Žádná standardní knihovna, skoro žádné objekty, kterým by se daly posílat zprávy. Self v tomhle stavu ani neumí sečíst dvě čísla, protože pořádně ani neví, co čísla znamenají.</p>
       <p id="6f78769b-85ee-41df-b1b6-6f0915f1a605" class="">Nápovědu je možné vypsat posláním zprávy (podrobnosti dále) <code>help</code>:</p>
-      <pre id="0f67c2b0-00b1-4153-be22-451883a29f8d" class="code"><code>VM# help
+      <pre id="0f67c2b0-00b1-4153-be22-451883a29f8d" class="code code-wrap"><code>VM# help
 '
 To begin using Self, you must read in the world of Self objects.
 To read in the world, type:
@@ -552,7 +552,7 @@ desktop w hands first addMorph: radarView</code></pre>
       <h3>New posts:</h3>
       <ul>
         <li>
-          <a href="https://blog.rfox.eu/cs/atom.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
+          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
         </li>
       </ul>
     </div>
