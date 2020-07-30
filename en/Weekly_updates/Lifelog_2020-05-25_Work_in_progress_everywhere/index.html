@@ -48,7 +48,7 @@
           <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+          <a href="../../Programming/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
           <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
@@ -66,6 +66,55 @@
           <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../Programming/objWiki.html" title="objWiki">objWiki</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Blog categories:</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
     </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
@@ -109,7 +158,7 @@
           <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/o4-YnLpLgtk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </figure>
-      <p id="e698598d-dd3b-4a71-87b1-94f8be49a6f7" class="">So, after a long period of inactivity, I am slowly trying to return to <a href="../../tinySelf.html" title="tinySelf"><span class="icon">📂</span>tinySelf</a> development.</p>
+      <p id="e698598d-dd3b-4a71-87b1-94f8be49a6f7" class="">So, after a long period of inactivity, I am slowly trying to return to <a href="../../Programming/tinySelf.html" title="tinySelf"><span class="icon">📂</span>tinySelf</a> development.</p>
       <p id="46876734-c99d-492f-a1ad-861ce877dd11" class="">At the moment, language mostly works, but interpreter needs some upgrades. There are details, that are not really done. For example, you can have only specific amount of slots in object, because bytecode encodes the literals to one byte, so I need to add multi byte encoding and so on.</p>
       <p id="aeb7aac8-020c-40bc-9e5a-0861657e0014" class="">It would also be nice to increase performance. One big bottleneck is that each object (ehm, it's map actually) has its own <code>{string: object}</code> dictionary for slots, which is slow to create. Although it has fast lookups, you usually need to do lookup into all parent slots recursively through whole parent chain. This can be a lot of lookups, so there is a layer of caching on top of this, which creates additional dictionary, which is also slow. I think that I've maybe overthought the stuff and that there may be some simpler method to use, like one global dictionary for everything, where you encode information to the keys, or something like that.</p>
       <p id="eb25e52f-02af-4766-b042-f822c1eb20bd" class="">I am also thinking about the alternative possibilities for implementation. I want to look into implementation of the <a href="http://sprylang.se/index.html">Spry language</a> and see how lookups work there. There is also <a href="https://github.com/hpi-swa/RSqueak">RSqueak</a> and <a href="https://github.com/SOM-st/RPySOM">RPySom</a>, which were a source of inspiration in the past, but I've never really studied the implementation of the VM in the detail, only specific stuff, like for example bytecode crunching.</p>
@@ -118,13 +167,13 @@
       <p id="e0803c75-733c-41e3-9087-021610089dcf" class="">For example, it is possible to run the JIT translation and interpretation with pygame visualisation, but I have literally no idea what I am looking at and you can't really get a documentation for the whole process. Rpython also makes me constantly wonder what is actually doing at the lowlevel. Like for example, when I simply define and use an object, what it will actually translate into. Sometimes, I just need a simple structure, and there are <a href="https://rpython.readthedocs.io/en/latest/rtyper.html#structure-types">ways how to do that</a>, but the documentation is confusing and I have no idea what really happens.</p>
       <p id="24bb400f-b258-42fc-836c-fb57ad37f9b4" class="">I think that it may actually make sense to try to rewrite the whole thing into Rust, as I try to stay away from the C/C++. There may be sane ways how to add support for JIT. And then there is also GraalVM, which means Java. I've gone to the GraalVM lectures last year and I really liked the experience, so I should probably try it. But I didn't really touch Java in like ten years, so I need to do some tasks to reacquaint (eh, what a word) myself with it again. Sigh.</p>
       <h1 id="4f2ab751-9800-4478-a75f-616879de16b8" class="">Object wiki update</h1>
-      <p id="09c2bf8d-f9ef-42f8-826b-c0e5e000eca9" class="">Last time, I was talking about another developer, and work on transactions (see <a href="../../objWiki/Transaction_support_for_simple_in-memory_database.html" title="Transaction support for simple in-memory database">Transaction support for simple in-memory database</a> for details). It took me almost 100 commits, but transactions are finally working, and I've also finished and tested the basic client-server architecture.</p>
+      <p id="09c2bf8d-f9ef-42f8-826b-c0e5e000eca9" class="">Last time, I was talking about another developer, and work on transactions (see <a href="../../Programming/objWiki/Transaction_support_for_simple_in-memory_database.html" title="Transaction support for simple in-memory database">Transaction support for simple in-memory database</a> for details). It took me almost 100 commits, but transactions are finally working, and I've also finished and tested the basic client-server architecture.</p>
       <p id="19a5ea47-8cf7-4166-a09e-dc29cf8788dd" class="">The system I've created is this monstrosity, which tracks transactions on the server, and sends lazy-loaded objects to the client. Client gets transaction with NodeTree root object, which lazily loads part of the tree of Nodes and Inputs each time he accesses some property or calls some method on any of the objects he received. And it also tracks access to it and sends updates to the server, so it can use it to compute transaction conflicts.</p>
       <p id="fd90bc6b-0cd6-46f4-b9c1-3a1ad0c88b15" class="">Everything seems to work, and I've also added a lot of basic unittests, so it shouldn't be fragile. Nevertheless, I still feel like I should add much more tests and also do some kind of performance testing, because I've done things with python you normally don't do. Reflection, hooking on all kinds of lookups and so on. For example, I serialize exceptions at the server and send them pickled to client.</p>
       <h1 id="465ded3c-7a6b-4636-baff-b3696e09a048" class="">Life & philosophy; trap of overspecialization</h1>
       <p id="e39f6a3d-d213-4cad-96ec-a91680fb7f33" class="">I may have fallen into the trap of the overspecialization. I mean, I make decent money for the part of the world where I live in. Problem is, that I've kinda reached the top of what I can make, which is alright, but it limits me to try new stuff.</p>
       <p id="f0fdaf32-ea35-4d72-a792-c48f23c97ef5" class="">At the moment and at least for some time, there are several people depending on the money I make. This forces me to get a lot of money, which limits what I can do.</p>
-      <p id="c95ffa1f-03e8-49f0-8334-0d40c68603f9" class="">For example, I've watched a lot of Warhorse videos about game making, and I am really interested in the system they've made, because it is relevant to my quest for structured systems (see <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a> for details). In the past, I would simply quit my job and go work there, to get new experience and see something new. This is now a luxury I can no longer afford, because I know that as a newcomer to the field, I wouldn't even get a half of what I am now making. Maybe a third. So.. that's no longer an option.</p>
+      <p id="c95ffa1f-03e8-49f0-8334-0d40c68603f9" class="">For example, I've watched a lot of Warhorse videos about game making, and I am really interested in the system they've made, because it is relevant to my quest for structured systems (see <a href="../../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a> for details). In the past, I would simply quit my job and go work there, to get new experience and see something new. This is now a luxury I can no longer afford, because I know that as a newcomer to the field, I wouldn't even get a half of what I am now making. Maybe a third. So.. that's no longer an option.</p>
       <p id="10d656f2-6873-44d8-bd7c-208576e2e66e" class="">Same situation happened with the <a href="https://vrgineers.com/xtal/">VRginners / XTAL</a>. They are a company making this futuristic HMD headset:</p>
       <figure id="7377f2b7-5f97-40d2-9c4c-bd37a94b3057" class="image">
         <a href="Untitled.png" title="Untitled.png"><img style="width:1104px" src="Untitled_thumb.jpg"></a>
@@ -179,7 +228,7 @@
         </div>
         <div id="63db5424-3f3c-4c7a-8181-a78822649628" style="width:75%" class="column">
           <p id="7efb1cca-904a-4146-9865-3292a4b1755b" class="">"Využití atomové energie" (Usage of the atomic energy) is this great little book from the sixties, that Čestmír Šimáně published in the edition "Velká vojenská knihovna" (Big military library). From what I understand, whole edition was inaccessible to normal people.</p>
-          <p id="1fecfb0e-5141-430d-873a-9d48a4ce60ed" class="">I've bought books from Čestmír Šimáně, because of the <a href="http://www.ujf.cas.cz/cs/oddeleni/oddeleni-urychlovacu/microtron/history.html">microtron</a> and LVR-15 visit last year (see <a href="../../LVR-15_research_reactor_near_Prague.html" title="LVR-15 research reactor near Prague">LVR-15 research reactor near Prague</a> for details). He was one of the people behind czech nuclear program and I must say, that book was a pleasure. I've especially enjoyed the visualisations:</p>
+          <p id="1fecfb0e-5141-430d-873a-9d48a4ce60ed" class="">I've bought books from Čestmír Šimáně, because of the <a href="http://www.ujf.cas.cz/cs/oddeleni/oddeleni-urychlovacu/microtron/history.html">microtron</a> and LVR-15 visit last year (see <a href="../../Technological_marvels/LVR-15_research_reactor_near_Prague.html" title="LVR-15 research reactor near Prague">LVR-15 research reactor near Prague</a> for details). He was one of the people behind czech nuclear program and I must say, that book was a pleasure. I've especially enjoyed the visualisations:</p>
         </div>
       </div>
       <div id="44a442fd-4d91-4be5-8bfa-630dfc25ad8e" class="column-list">
@@ -213,7 +262,7 @@
         </div>
       </figure>
       <h1 id="13b352d5-89b9-492f-ba45-80c75ec91db5" class="">Writing</h1>
-      <p id="1c0a8057-a67f-4fe2-89ce-6d43a0d63487" class="">I've published <a href="../../Improvements/Vitamins_nootropics_and_other_boosters.html" title="Vitamins, nootropics and other boosters"><span class="icon">📂</span>Vitamins, nootropics and other boosters</a>, <a href="../../Improvements/Vitamins_nootropics_and_other_boosters/Theobromine.html" title="Theobromine">Theobromine</a>, <a href="../../objWiki/Transaction_support_for_simple_in-memory_database.html" title="Transaction support for simple in-memory database">Transaction support for simple in-memory database</a> and <a href="../../Improvements/the_Software.html" title="the Software">the Software</a>.</p>
+      <p id="1c0a8057-a67f-4fe2-89ce-6d43a0d63487" class="">I've published <a href="../../Improvements/Vitamins_nootropics_and_other_boosters.html" title="Vitamins, nootropics and other boosters"><span class="icon">📂</span>Vitamins, nootropics and other boosters</a>, <a href="../../Improvements/Vitamins_nootropics_and_other_boosters/Theobromine.html" title="Theobromine">Theobromine</a>, <a href="../../Programming/objWiki/Transaction_support_for_simple_in-memory_database.html" title="Transaction support for simple in-memory database">Transaction support for simple in-memory database</a> and <a href="../../Improvements/the_Software.html" title="the Software">the Software</a>.</p>
       <h1 id="edf6fcb6-8905-4ae0-9fed-7293d67a30fb" class="">Blender</h1>
       <p id="736c346f-a7f6-4a92-8b21-7b0f7c7bfb3d" class="">Some time ago, I've taken multiple photos of the steam room in public swimming pool, because each time I am sitting there, I am wondering about the <a href="https://en.wikipedia.org/wiki/Quaternary_numeral_system">quaternary codes</a> in the tiles.</p>
       <div id="1a34c0a4-e3c6-481d-9853-1dd7804d4f91" class="column-list">
@@ -304,7 +353,7 @@
           <a href="../Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
         </li>
         <li>
-          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+          <a href="../../Programming/My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
         </li>
         <li>
           <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
@@ -322,6 +371,14 @@
           <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../Programming/objWiki.html" title="objWiki">objWiki</a>
+        </li>
+      </ul>
     </div>
   </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
   <script>

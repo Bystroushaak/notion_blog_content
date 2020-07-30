@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Environment and the programming language Self (part three; debugger, transporter and problems)</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Environment and the programming language Self (part three; debugger, transporter and problems)">
+  <meta name="twitter:description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_6.png">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
+  <meta name="keywords" content="selflang,programming_languages,quest_for_structure"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="Environment_and_the_programming_language_Self_part_two_language.html" title="Environment and the programming language Self (part two; language)">Environment and the programming language Self (part two; language)</a>
+        </li>
+        <li>
+          <a href="Environment_and_the_programming_language_Self_part_four_community.html" title="Environment and the programming language Self (part four; community, history, future and metaphysics)">Environment and the programming language Self (part four; community, history, future and metaphysics)</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/programming_languages.html" title="programming_languages">programming_languages</a>, <a href="../../../Tags/quest_for_structure.html" title="quest_for_structure">quest_for_structure</a>, <a href="../../../Tags/selflang.html" title="selflang">selflang</a></p>
+    </div>
+    <div>
+      <h3>Blog categories:</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="index.html" title="Series about Self">Series about Self</a> / Environment and the programming language Self (part three; debugger, transporter and problems)
+  <article id="a385a39b-1202-4be2-9c6d-91647a438809" class="page sans">
+    <header>
+      <h1 class="page-title">Environment and the programming language Self (part three; debugger, transporter and problems)</h1>
+    </header>
+    <div class="page-body">
+      <p id="8b63e6d5-fd58-463e-8286-73b41d446bc3" class=""><time>@2019/07/04</time></p>
+      <div id="58233c69-0895-40b7-8743-d0cbbda3c34a" class="column-list">
+        <div id="08578fbf-2dcb-4236-a620-e90c36a0f4d2" style="width:12.5%" class="column">
+          <p id="e18fa6b7-3286-48ab-980f-f1ad9b88c57a" class="">Note:</p>
+        </div>
+        <div id="c94487b7-b1ff-47c6-a589-f11e65053afc" style="width:87.5%" class="column">
+          <p id="fd0da966-56c2-480b-83b0-c58787801461" class="">There is also a Czech version of this article: <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/index.html" title="Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)">Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)</a></p>
+        </div>
+      </div>
+      <hr id="841a8283-0fd1-48bd-8217-fc3fe92506fe">
+      <p id="44bc2f22-9c3c-4301-8534-58cd92a89269" class="">This episode is mostly about things that did not fit into other episodes (<a href="Environment_and_the_programming_language_Self_part_one_environment.html" title="Environment and the programming language Self (part one; environment)">Environment and the programming language Self (part one; environment)</a>, <a href="Environment_and_the_programming_language_Self_part_two_language.html" title="Environment and the programming language Self (part two; language)">Environment and the programming language Self (part two; language)</a>). We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.</p>
+      <h1 id="b5d195b0-3ddf-4e3d-9719-17ca31148db4" class="">The user usage of transporter</h1>
+      <p id="04fc92bb-4e54-447f-a748-152e02ee01e6" class="">I won't talk about how the transporter internally works, because you can read that in the paper <a href="http://bibliography.selflanguage.org/gold.html">Sifting Out the Gold: Delivering Compact Applications From an Exploratory Object-Oriented Environment</a>. I will focus mostly on the user's point of view, as you can see it in the video here:</p>
+      <ul id="6892358b-b943-47c9-82d9-d995a6cfc932" class="bulleted-list">
+        <li>
+          <a href="https://bluishcoder.co.nz/2015/11/19/exporting-self-objects-to-source-files-via-transporter.html">https://bluishcoder.co.nz/2015/11/19/exporting-self-objects-to-source-files-via-transporter.html</a>.
+        </li>
+      </ul>
+      <p id="ab60c46e-4495-4330-b9b4-f3010d5dd026" class="">This chapter contains many images. However, I would like to point out that there is nothing complicated going there;</p>
+      <p id="63f1c890-b6fc-4dcd-9f68-3cda8b8c4f48" class="">I will make an anonymous object. I add it into new module using the transporter. Then, I create a slot in the global hierarchy, save the anonymous object into it and add the object to an already created module. Then, I tell the transporter using an annotation to not use the default value of that slot, but to follow the object, which it points to. When this is done, I'll save everything on the disk using the transporter dialogue.</p>
+      <p id="44f06f53-5cce-45ff-8fa1-16b844fcebed" class="">I start with creating a very simple object, that contains one slot "a" with the value "1".</p>
+      <figure id="c79de64d-9901-4501-95cb-49a27a56dee2" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_0.png" title="transporter_0.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_0.png"></a>
+      </figure>
+      <figure id="76f467ec-e41b-428d-9b9c-ea30e2e4e966" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_1.png" title="transporter_1.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_1.png"></a>
+      </figure>
+      <p id="67ddca89-025f-41e4-820b-f7dac078dcee" class="">Then, I click on the outliner with the middle button (the scroll wheel) and choose "<em>Set module..."</em>:</p>
+      <figure id="74026401-962c-4825-96b4-8de5d7349cf9" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_2.png" title="transporter_2.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_2.png"></a>
+      </figure>
+      <p id="5e9a013a-9728-42a0-8116-46135530b7e7" class="">There are going to be series of dialogues, in which the transporter will ask me for different information. First, it asks about slots:</p>
+      <figure id="7b217d6d-cae2-4270-aca0-bac1dff261a3" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_3.png" title="transporter_3.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_3.png"></a>
+      </figure>
+      <p id="94bb35d4-6010-4e50-8dc5-4aac6fe3fdee" class="">I want to add all of them.</p>
+      <p id="a3a8afb8-6e9f-4e3d-bab8-657dd026f83e" class="">Next it asks for the name of module, to which it should save the object.</p>
+      <figure id="d28e8bf6-5c71-4e6e-9595-2ada24d9352e" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_4.png" title="transporter_4.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_4.png"></a>
+      </figure>
+      <p id="c1d0dc4f-dd15-4ff9-9960-1e3e40dc8d7c" class="">I want "other", which will bring an input for a name. I want to name my module "test":</p>
+      <figure id="8c37f157-6389-4204-88e5-f07bf47cd0d0" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_6.png" title="transporter_6.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_6.png"></a>
+      </figure>
+      <p id="2efc9864-687e-4e32-af8d-641344719819" class="">Dialogue is now asking me whether I really want to really create new module, or whether it was a mistake. I really want to create it:</p>
+      <figure id="1e8c4bdc-c4dd-4f5b-ab4f-af53db2f34b5" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_7.png" title="transporter_7.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_7.png"></a>
+      </figure>
+      <p id="6de38cc2-23e9-4e1b-a484-0ff1817b8e04" class="">I don't want this module to be a submodule of other modules, so I leave this field empty:</p>
+      <figure id="62778678-44fc-4470-b6bc-0f315125d11c" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_8.png" title="transporter_8.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_8.png"></a>
+      </figure>
+      <p id="5ac12b1d-dda9-4209-bf91-d8288bdf48a6" class="">I confirm it again:</p>
+      <figure id="92d5ca01-947d-4f61-aad7-dc1e8b40f99f" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_9.png" title="transporter_9.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_9.png"></a>
+      </figure>
+      <p id="a0bdfbff-7f82-45ec-a1f3-231e418b1d40" class="">I choose the folder, to which the file should be saved. I leave the default "applications":</p>
+      <figure id="247bcbb9-8aad-41a8-8516-166a5afb6077" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_10.png" title="transporter_10.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_10.png"></a>
+      </figure>
+      <p id="ab50ae46-bf9d-4f20-8d6e-d424127b0e16" class="">Now, my object is officially a part of the module, but it is still not stored under a path in <code>globals</code> hierarchy, which means that after loading it won't be easy to get a reference to it. I want to save it on the path <code>globals test</code>. So I open the outliner for <code>globals</code> by clicking the desktop with the scrolling wheel:</p>
+      <figure id="e80b0693-cfed-4a18-9ae1-dd195f5b804d" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_11.png" title="transporter_11.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_11.png"></a>
+      </figure>
+      <p id="b03c6923-e581-4918-acd8-c7ed373da39a" class="">And I open the subsection "applications":</p>
+      <figure id="16372b52-0916-4a27-84f8-237a9ca2d071" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_12.png" title="transporter_12.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_12.png"></a>
+      </figure>
+      <p id="980c2f25-4a5e-4f52-8d3b-6bd09334edee" class="">There are four applications in it. Clicking the "applications" label by the scrolling wheel, the context menu appears. I choose "Add Slot":</p>
+      <figure id="f731bbef-ec4f-42e5-b1aa-58e05ca0acc7" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_13.png" title="transporter_13.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_13.png"></a>
+      </figure>
+      <p id="f79c243e-d5e3-478a-bb2b-2f74b810c2dc" class="">Then I delete the default text hint:</p>
+      <figure id="0c9e98f3-6c67-4eb8-950f-162b21f4e727" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_14.png" title="transporter_14.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_14.png"></a>
+      </figure>
+      <p id="785689d1-da44-45a8-b1c2-2b0eb41fc377" class="">And I set the slot to <code>nil</code>. Notice that I am using <code>&lt;-</code> for assignment (rewritable slot).</p>
+      <figure id="1411100a-58e2-4df8-bbd0-87acf577f35b" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_16.png" title="transporter_16.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_16.png"></a>
+      </figure>
+      <p id="7221d1a3-42e3-4dae-8faa-67b4ae14f362" class="">I save it by clicking the green rectangle or pressing Ctrl+Enter.</p>
+      <figure id="b2544496-55e4-4372-b334-2ac12ddd446b" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_17.png" title="transporter_17.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_17.png"></a>
+      </figure>
+      <p id="c60bbf3c-e4f3-4a0d-8f08-ea29c45171d6" class="">Now I graphically transfer the reference from <code>nil</code> to my anonymous object on the desktop. But I could as well just go into my anonymous object, open shell in it and write something like <code>globals test: self</code>.</p>
+      <figure id="848f3a02-8a02-482f-8043-b8447d4d7f9e" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_18.png" title="transporter_18.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_18.png"></a>
+      </figure>
+      <figure id="48dfdcee-abe0-4d8e-831c-34627f807471" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_19.png" title="transporter_19.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_19.png"></a>
+      </figure>
+      <figure id="1c110f0c-c9dd-4af4-9f84-5396cd64e273" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_20.png" title="transporter_20.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_20.png"></a>
+      </figure>
+      <p id="aaab263a-daca-456f-b690-ace030e90aeb" class="">The slot <code>globals test</code> now points to my object, that is, my object now exists on this path.</p>
+      <p id="55f1aec1-2783-4dc4-b996-f3e1486292cb" class="">Now I only have to set the module for this slot by clicking on it with the scrolling wheel and choosing "Set module":</p>
+      <figure id="c85ab7ad-0716-4aac-bd05-a8eb9f0e6e97" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_21.png" title="transporter_21.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_21.png"></a>
+      </figure>
+      <p id="c5bce5fa-6f75-4cf8-a8f3-4276f947604d" class="">We can see a bigger menu, where I scroll completely down and choose other:</p>
+      <figure id="89b9a064-b77e-4ca6-a388-40e1af6dbbed" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_22.png" title="transporter_22.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_22.png"></a>
+      </figure>
+      <p id="0fe0de0b-26af-460f-be01-13d6eed520a1" class="">And I enter "test" again:</p>
+      <figure id="58219dc1-739c-4d16-a8a8-ab5439b75081" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_23.png" title="transporter_23.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_23.png"></a>
+      </figure>
+      <p id="0e0862f7-1a8d-4456-b22c-258f5e652bfa" class="">Because I don't have to scroll back up for a long time, I click on the empty desktop twice and choose to go "home":</p>
+      <figure id="8b4ad8e0-ea70-464c-b10c-c357645431d9" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_24.png" title="transporter_24.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_24.png"></a>
+      </figure>
+      <p id="5cc57fd0-3cf9-4e0d-9c43-e525379c9778" class="">Which sends me back to where I was before. Now need to adjust the annotation of the slot <code>globals test</code>, so I click on it with the scrolling wheel and choose "Show Annotation":</p>
+      <figure id="e54ac471-af23-4bbd-b527-8773ee405fef" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_29.png" title="transporter_29.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_29.png"></a>
+      </figure>
+      <p id="d77faeaf-1f2b-4ed3-8b9d-50e7a6b5496a" class="">In the module setting I choose "Follow", instead of "Initialize to <code>nil</code>".</p>
+      <figure id="37c5743b-d090-4a61-91e2-f8808b03960f" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_30.png" title="transporter_30.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_30.png"></a>
+      </figure>
+      <figure id="5124e412-b04b-47f5-922b-ebf4169adf50" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_31.png" title="transporter_31.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_31.png"></a>
+      </figure>
+      <p id="67ecb4bb-e770-47e2-8d9d-8edce5dff75a" class="">Now I click an empty place on the desktop with the scrolling wheel and choose "Changed Modules" from the menu:</p>
+      <figure id="abb8a5fd-2271-4492-852a-605b0e00996e" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_25.png" title="transporter_25.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_25.png"></a>
+      </figure>
+      <p id="1acd556f-6da3-4007-841e-3973e2e4ebe0" class="">The dialogue showing the changed modules shows up:</p>
+      <figure id="b8256f4c-e86f-4490-90ed-9d330e363e39" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_26.png" title="transporter_26.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_26.png"></a>
+      </figure>
+      <p id="0139a163-a61a-4312-8994-05e5ee7870cd" class="">I can save them by clicking the buttons, so I click the button "W" right next to it:</p>
+      <figure id="1f35eed3-7ced-44f3-9db8-1ac73324fe38" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_27.png" title="transporter_27.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_27.png"></a>
+      </figure>
+      <p id="8e2ca54e-2a08-4b74-820f-e4ebdd087ff2" class="">And that is all. It may seem like many steps but the process is logical and dialogs guide you thru it. Now lets look at the <code>"test.self"</code> file that was created in the folder <code>"objects/applications/"</code> in the directory at the same level as the directory that we run the Self itself (<code>../objects/applications/</code>, don't ask me why):</p>
+      <pre id="8986cc46-a101-4b1f-9d1a-23827d0a1045" class="code"><code>''
+ '
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
+'
+[ 
+"prefileIn" self] value
+
+
+ '-- Module body'
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: FollowSlot'
+        
+         test = bootstrap define: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( |
+             {} = 'ModuleInfo: Creator: globals modules test.
+
+CopyDowns:
+globals modules init. copy 
+SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory &lt;- 'applications'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString &lt;- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: FollowSlot'
+        
+         myComment &lt;- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: FollowSlot'
+        
+         postFileIn = ( |
+            | resend.postFileIn).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: InitializeToExpression: (\'30.21.0\')\x7fVisibility: public'
+        
+         revision &lt;- '30.21.0'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'modules' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames &lt;- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; () From: ( | {
+         'Category: applications\x7fModuleInfo: Module: test InitialContents: FollowSlot'
+        
+         test &lt;- bootstrap setObjectAnnotationOf: bootstrap stub -&gt; 'globals' -&gt; 'test' -&gt; () From: ( |
+             {} = 'ModuleInfo: Creator: globals test.
+'.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -&gt; 'globals' -&gt; 'test' -&gt; () From: ( | {
+         'ModuleInfo: Module: test InitialContents: FollowSlot'
+        
+         a = 1.
+        } | ) 
+
+
+
+ '-- Side effects'
+
+ globals modules test postFileIn</code></pre>
+      <p id="5b519e55-b373-4f16-838b-7acf0867cd85" class="">The exported code is really ugly at first glance. I think it is because it uses only <em>transported directives</em> You can find all kinds of metadata set in it. This file can be versioned with git and it can also be loaded to the new image:</p>
+      <figure id="f83d4013-9bfb-4fdb-83c8-212f2b7bed59" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_33.png" title="transporter_33.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_33.png"></a>
+      </figure>
+      <p id="9f65e00b-5a55-4236-9bde-027792ab4e2e" class="">This gives us metadata about the module and in the outliner for <code>globals applications</code> we can see a new slot "test":</p>
+      <figure id="6b9d88e1-243a-4cb5-9d19-c727e5a10922" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_34.png" title="transporter_34.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_34.png"></a>
+      </figure>
+      <p id="08fb5c14-683e-42c1-9ac0-75f35845fdfb" class="">In which we can find our object:</p>
+      <figure id="bee35e93-cccd-440a-9c74-7a236b190880" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_35.png" title="transporter_35.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_35.png"></a>
+      </figure><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <h1 id="7e30ae7a-b375-4f4b-a2e0-470be5c5a634" class="">The Debugger</h1>
+      <p id="accb3f3b-3be0-45b4-8e0a-7505c263c308" class="">Self has the debugger of the Smalltalk type, from which we can interactively change the code. Short demonstration will say more than a thousand words.</p>
+      <p id="d710bb4f-02d9-4a8a-a0fc-355b665ca17a" class="">I create a simple object in Shell with slot "a", where the code, which should write the value of number "1" in the standard output, is saved. But I make a "mistake" and instead of the message <code>printLine</code> I write <code>printLin</code> without the <code>e</code> at the end:</p>
+      <figure id="02e80c8f-41cd-4068-a52d-744b47f78f5a" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_0.png" title="debugger_0.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_0.png"></a>
+      </figure>
+      <p id="a520ac46-c97e-44f1-a139-b7bc1899139c" class="">This gives me an object, which I described.</p>
+      <figure id="b7d01d01-08ff-4ff3-9c23-59046691cfcc" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_1.png" title="debugger_1.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_1.png"></a>
+      </figure>
+      <p id="ee239e46-d51c-4b90-acaa-7d89a42a7920" class="">I can check, if it is really the object by putting it on the desktop and unfolding the slots:</p>
+      <figure id="be80c487-4057-4d8d-b929-b3552edc5acd" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_2.png" title="debugger_2.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_2.png"></a>
+      </figure>
+      <p id="0bed8296-7e1e-4a37-920c-5052cc22a154" class="">I open <em>subshell</em> in the object by clicking E in the right top corner and send the message "a" to the object:</p>
+      <figure id="3edd3b73-3c9f-48ef-98f4-d5384c656c6a" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_3.png" title="debugger_3.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_3.png"></a>
+      </figure>
+      <p id="8dd71904-cd64-4a7f-b3d0-38e0fd523bbf" class="">Now I click on <em>Get it</em>, which should process the code (therefore write 1 into the console) and at the same time it should also give me the result of the operation into my hand (this should be object <code>1</code>). But I have a mistake in the code, so instead I get a debugger:</p>
+      <figure id="f77155e5-c5a2-425b-96c0-b400200f2ae9" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_4.png" title="debugger_4.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_4.png"></a>
+      </figure>
+      <p id="0a8d83fe-923a-40df-95ef-2ea33825891a" class="">The debugger looks a bit similar to the outliner. A box, that can be clicked on to unfold its various parts. Here you can see it unfolded:</p>
+      <figure id="e14a4e87-f3e7-4519-ad3b-212bb48ed2eb" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_5.png" title="debugger_5.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_5.png"></a>
+      </figure>
+      <p id="5911ea4f-c25e-49b1-8c0c-2f11aab4e69e" class="">We can see the whole stack trace and even more. We can also interact with it. For example, we see number 1 on the top left side, which is the message receiver (selector). We can click the number 1 and get the object:</p>
+      <figure id="df6e4da7-8749-4a28-8e76-81ef0ab2e4e5" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_6.png" title="debugger_6.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_6.png"></a>
+      </figure>
+      <figure id="e25db528-ebe7-4c7d-86a1-0e3111209540" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_7.png" title="debugger_7.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_7.png"></a>
+      </figure>
+      <p id="585fd5d4-b79a-4ccd-9f1e-2a7b07975979" class="">In the case of number 1 it doesn't really make much sense, but with other objects, the live examination can be very useful.</p>
+      <p id="85a3bce3-e329-4f53-905a-cd598067af30" class="">We can also correct the mistake directly from the debugger:</p>
+      <figure id="e33dab98-6d46-4d11-9809-21245140318f" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_8.png" title="debugger_8.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_8.png"></a>
+      </figure>
+      <p id="119ba81c-e465-4e39-b9d4-b7f843d9fa5a" class="">The code gets adjusted after clicking on the green square. Notice the outliner next to it:</p>
+      <figure id="cd13c2e9-7c9b-4a06-9fee-d8b99a5b7629" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_9.png" title="debugger_9.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_9.png"></a>
+      </figure>
+      <p id="e7a4d69b-4864-4b77-92d0-383003252bf0" class="">Now I click on continue and the whole interpret will continue, where it would usually continue, if there wasn't any mistake. So, the number 1 gets printed on the console and I get it to the <em>hand</em> as an output.</p>
+      <figure id="04dc0654-d895-43e2-8089-7b398c2979fb" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_11.png" title="debugger_11.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_11.png"></a>
+      </figure>
+      <p id="1333c7e2-7e23-4bde-bb07-e9a7a3dabcf4" class="">Debugger now indicates that it's dead and minimizes. Now if I click the button <em>Get it</em> again, everything will work as expected;</p>
+      <figure id="d8d591ca-d385-455d-bd44-0a75e014efc8" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_13.png" title="debugger_13.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_13.png"></a>
+      </figure>
+      <h1 id="57e279f0-258c-4e5a-9a0c-04f7c9ee57f3" class="">The Problems</h1>
+      <p id="e4ce804f-e475-4d8d-80dc-06d5b06f8ba1" class="">Self is quite a sad heap from the practical point of view. I would like to say that it is usable to a big extent, but not enough for the beginners. If you need to solve something, you won't be able to google the solution. In most cases, you are probably the first one encountering such a problem. When not, there is quite a big chance that the problem hasn't been solved yet.</p>
+      <h2 id="3f5c0e48-f326-4e3f-af72-07c3cf13f614" class="">32 bit</h2>
+      <p id="c28d160d-3413-48c1-bb2f-76dc9c32993c" class="">Self is a 32 bit program. Porting it to 64 bit is possible but not trivial, so no one wants to do it. I don't think that anything will change with this in the next 10 years or so.</p>
+      <p id="4bda8903-6864-4dac-b5f5-55273f24e19e" class="">On one hand it is quite upsetting, because you can only make 4 gigabyte images, but this problem can be solved for example by using more instances, moreover you will probably find problems in something else much sooner. For example saving images is quite slow and the sizes of few tens of megabytes and gigabytes will take a few minutes.</p>
+      <h2 id="21d0dd21-0b30-4bdc-a13c-428ea63b97ea" class="">Problems of the prototypes</h2>
+      <p id="e2ec71cd-b39b-40ab-8fa6-69b9131c2b74" class="">Prototypes are easy to understand and together with the delegation (I am looking at you, JavaScript!) offer a strong and effective mechanism of code organization.</p>
+      <p id="0bde70c8-37b2-454f-a650-82c6bf23b04a" class="">But they have one disadvantage; you forget to clone once and you will rewrite half of the system.</p>
+      <p id="c57fa8a2-e6f8-4783-a35f-1aec3c2e11ad" class="">For example, you work with the prototype <code>dictionary</code> the way that you clone it and store values in it. But if you forget to clone it and you rewrite the dictionary directly, you will be writing to all new dictionaries that will ever be created by copying. This results in a quick crash of the system.</p>
+      <p id="66bc01df-650a-41f0-ba57-d50478443796" class="">Sadly, Self doesn't offer any way how to prevent this. Personally in my language, I would like to avoid this problem by locking the system objects to read only mode, so the cloning would be forced before you could write into them. Or maybe by rewriting some setters to automatic clone of the used object. It would still be possible to change the underlying prototype object, but you would need to use <em>mirrors</em>. I am sure there are more possible solutions to this.</p>
+      <h2 id="28d473de-5c53-44a8-b608-3946bd16180c" class="">Namelessness of anonymous objects</h2>
+      <p id="2238689a-5158-4a17-b2c7-ea48ef8abec7" class="">Self treats its object literals similarly as languages supporting only lambda functions. Anonymous objects are great but it is generally easier to work with named things.</p>
+      <p id="252bad57-9cef-4621-85c4-b8915ad70fbd" class="">In Self, this is solved by annotations, where you can set the name of the object, which is then showed by outliners, or by placing the object into a hierarchy. If we place the object to the path <code>globals dictionary</code>, then it's obvious that the object is a dictionary.</p>
+      <p id="fe438ae1-78b9-4d13-a1a4-4db5a85facdd" class="">It's worth to compare it to the <em>languages based on classes</em>, which usually have inverse problem when they try to name completely everything.</p>
+      <p id="0ddeaaf8-7c1e-4393-8b42-ed6d51409227" class="">What is better and more natural for people? For the object to have its clearly given name or for the object's name to be given by a variable (or a path), in which it's stored?</p>
+      <h2 id="b5f5cacf-2f71-4662-a645-f64e94e6ae12" class="">No undo</h2>
+      <p id="b9018ce7-cac0-4b1e-90f7-4c971a17e806" class="">Edit morphs do not support undo. Bummer. And all other keyboard shortcuts are some subset of default emacs keybindings.</p>
+      <h2 id="b3db9207-36a5-4965-8800-3f8a9f329d3f" class="">Ctrl+C / Ctrl+V</h2>
+      <p id="e1fdad7a-15ee-4f62-ab2b-45d152724ea5" class="">Unfortunately it doesn't work because Self uses some really antiquated X bindings. The solution is to install the program <a href="https://www.nongnu.org/autocutsel/">autocutsel</a> and run it in the background.</p>
+      <h2 id="7a876f7c-a4dc-49cb-9c97-402fe1b198cb" class="">Missing documentation</h2>
+      <p id="9769a1ab-90d2-4a00-bfff-52de15dc395c" class="">There is no other documentation but the one I already mentioned in my articles. Usually you can ask about the problem in the mail conference, but that is not an ideal scenario.</p>
+      <h2 id="88d17453-d398-4b29-ac32-f37316b4e9e0" class="">Slots are unordered</h2>
+      <p id="c11708dd-6a3c-48d0-9f24-cbd4c85b8128" class="">This situation is quite sad in case when you want to use objects to directly store some information, because it makes you use ordered collections instead.</p>
+      <h2 id="6fff2cb3-7846-4063-ac9f-69f122a054ee" class="">Self doesn't support cascading operator</h2>
+      <p id="791fb2d3-b4d6-4a6d-bc23-dca2109e4568" class="">If you don't know what it is, then you won't probably miss it. If you used Smalltalk before, it will hurt.</p>
+      <h2 id="44ffe77a-60c1-4e65-9651-ef0977639faa" class="">Unicode input / the output doesn't happen</h2>
+      <p id="5d8f087c-83ff-4959-b94c-287133c40cdf" class="">Self uses ISO 8859-1 for text encoding, which is 8-bit encoding. That means that it doesn't accept any other characters then used in this character set (literally you just can't write them) and it doesn't even know how to show them.</p>
+      <figure id="3b1ba271-bb90-471b-81de-beb1161a0601" class="image">
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/iso_table.png" title="iso_table.png"><img style="width:336px" src="Environment_and_the_programming_language_Self_part_three_debugger/iso_table.png"></a>
+      </figure>
+      <p id="e812beb0-c333-4224-853d-8897866ff1cd" class="">For people like me, who live in non-english speaking country, this means that I can't type almost anything in my native tongue. My mother's surname is literally unwritable into the Self environment.</p>
+      <p id="11ee3ce3-fc26-4cd3-a838-61220c993fd0" class="">If you would like to look more into details:</p>
+      <ul id="b26344f0-d0a4-4a2f-97a2-38662b809791" class="bulleted-list">
+        <li>
+          <a href="https://github.com/russellallen/self/issues/113">https://github.com/russellallen/self/issues/113</a>
+        </li>
+      </ul>
+      <h2 id="f79299a7-66f3-405d-b4c3-845db83c71bf" class="">Long outliners</h2>
+      <p id="c9c68845-c294-4eea-8f32-f656b1b5c459" class="">Outliners are an interesting concept, which can quite quickly become annoying. You can have a look at an example:</p>
+      <ul id="302eed37-f817-444c-aeae-d24c5ed0b8f9" class="bulleted-list">
+        <li>
+          <a href="http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display/">http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display/</a>
+        </li>
+      </ul>
+      <p id="42849ced-4bfb-4f38-b19c-b816fb12de40" class="">Or you can see the full problem here:</p>
+      <ul id="bb88abb6-dc71-4851-9b7f-e539419e72e3" class="bulleted-list">
+        <li>
+          <a href="http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display_expanded/">http://kitakitsune.org/ltas/long_outliner_is_long/traits_xlib_display_expanded/</a>
+        </li>
+      </ul>
+      <p id="f63403ac-23c8-4453-bb36-773f8e6ffa2b" class="">Also, if you are looking into a more complex stuff, you end up with tens of opened outliners scattered all around the desktop.</p>
+      <p id="f0e74a99-5add-4e8e-bbba-6cea4ab2ba22" class="">Here is a module browser in Smalltalk:</p>
+      <figure id="fe993079-896c-4cc1-b39e-ae33fbd29ac7" class="image">
+        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png" title="smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png"><img style="width:886px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png"></a>
+      </figure>
+      <h2 id="14c0e4f6-d878-4a97-a9d0-2c1f116a1aa2" class="">Self and pictures</h2>
+      <p id="5fd19187-f896-4e15-83ce-ead1f0c9f721" class="">Self doesn't know how to show pictures in any of the usual formats. The only format it can show is some <a href="https://en.wikipedia.org/wiki/Sun_Raster">Sun's raster format</a>:</p>
+      <ul id="19a20fd6-3a57-4463-8341-16ddf86091e9" class="bulleted-list">
+        <li>
+          <a href="https://bluishcoder.co.nz/2009/07/27/displaying-images-with-self.html">https://bluishcoder.co.nz/2009/07/27/displaying-images-with-self.html</a>
+        </li>
+      </ul>
+      <h1 id="2368cac7-6b5c-4545-935f-bcf8ace45a21" class="">Last episode</h1>
+      <p id="5ead13d3-c492-42c1-8559-41b5a0da9e30" class=""><a href="Environment_and_the_programming_language_Self_part_four_community.html" title="Environment and the programming language Self (part four; community, history, future and metaphysics)">Environment and the programming language Self (part four; community, history, future and metaphysics)</a> is about Self's community, history, relevant projects, possible future and there will also be some philosophical thoughts.</p>
+      <h1 id="deea07c0-0ac7-43f5-9862-5c4badbcd679" class="">Relevant discussion</h1>
+      <ul id="5f9e835d-b5e2-414a-881c-04fdc7175261" class="bulleted-list">
+        <li>
+          <a href="https://lobste.rs/s/lzbnst/environment_programming_language_self">lobste.rs</a>
+        </li>
+      </ul>
+      <p id="b466f968-abb6-47b9-a747-ba3ee03cbeb1" class=""></p>
+    </div>
+  </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../../Tags/programming_languages.html" title="programming_languages">programming_languages</a>, <a href="../../../Tags/quest_for_structure.html" title="quest_for_structure">quest_for_structure</a>, <a href="../../../Tags/selflang.html" title="selflang">selflang</a></p>
+  </div>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="Environment_and_the_programming_language_Self_part_two_language.html" title="Environment and the programming language Self (part two; language)">Environment and the programming language Self (part two; language)</a>
+        </li>
+        <li>
+          <a href="Environment_and_the_programming_language_Self_part_four_community.html" title="Environment and the programming language Self (part four; community, history, future and metaphysics)">Environment and the programming language Self (part four; community, history, future and metaphysics)</a>
+        </li>
+      </ul>
+    </div>
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
+</body>
+</html>
