@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Environment and the programming language Self (part four; community, history, future and metaphysics)</title>
+  <link rel="stylesheet" type="text/css" href="../../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Environment and the programming language Self (part four; community, history, future and metaphysics)">
+  <meta name="twitter:description" content="This episode is about the community around the Self language, its history, future and also possible consequences brought by Self.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_four_community/finder.gif">
+  <script src="../../../../scripts.js">
+  </script>
+  <meta name="description" content="This episode is about the community around the Self language, its history, future and also possible consequences brought by Self.">
+  <meta name="keywords" content="selflang,programming_languages,quest_for_structure"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../../Improvements/The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
+        </li>
+      </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../Environment_and_the_programming_language_Self_part_three_debugger.html" title="Environment and the programming language Self (part three; debugger, transporter and problems)">Environment and the programming language Self (part three; debugger, transporter and problems)</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Weekly_update_2019-09-01_What_I_am_working_on.html" title="Weekly update 2019/09/01; What I am working on">Weekly update 2019/09/01; What I am working on</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../../Tags/programming_languages.html" title="programming_languages">programming_languages</a>, <a href="../../../../Tags/quest_for_structure.html" title="quest_for_structure">quest_for_structure</a>, <a href="../../../../Tags/selflang.html" title="selflang">selflang</a></p>
+    </div>
+    <div>
+      <h3>Blog categories:</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div><a class="breadcrumb" href="../../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="../index.html" title="Series about Self">Series about Self</a> / Environment and the programming language Self (part four; community, history, future and metaphysics)
+  <article id="7a1124a1-3a96-429e-a21e-87670a04aae5" class="page sans">
+    <header>
+      <h1 class="page-title">Environment and the programming language Self (part four; community, history, future and metaphysics)</h1>
+    </header>
+    <div class="page-body">
+      <p id="c09ab8c0-a51a-43b3-9f42-ae8599eb3f8f" class=""><time>@2019/08/23</time></p>
+      <div id="b75e1d7e-ef75-4ba0-ad30-8bf49d62c22b" class="column-list">
+        <div id="09bf1eb6-203b-4941-adc2-904eb5a07994" style="width:12.5%" class="column">
+          <p id="d816e483-60e6-494a-882d-8c3005633553" class="">Note:</p>
+        </div>
+        <div id="f6e21dc3-cf57-4daa-a29f-937ce8d367af" style="width:87.5%" class="column">
+          <p id="033ffa57-c71b-47d7-8dde-05680f4c5cb5" class="">There is also a Czech version of this article: <a href="../../../../cz/Programovani/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_ctvrty_komunita_historie.html" title="Prostředí a programovací jazyk Selfu (díl čtvrtý; komunita, historie, budoucnost a metafyzika)">Prostředí a programovací jazyk Selfu (díl čtvrtý; komunita, historie, budoucnost a metafyzika)</a></p>
+        </div>
+      </div>
+      <hr id="2f67f125-8fcd-4c43-91b5-2c6e09a509b5">
+      <p id="a79a656b-df39-45b5-8ef2-0cb7d3e18131" class="">Previous episodes:</p>
+      <ol id="cd4362da-e5a3-4954-963b-4d0332b256bb" class="numbered-list" start="1">
+        <li>
+          <a href="../Environment_and_the_programming_language_Self_part_one_environment.html" title="Environment and the programming language Self (part one; environment)">Environment and the programming language Self (part one; environment)</a>
+        </li>
+      </ol>
+      <ol id="65e8ed26-90da-4481-84e2-e77eba2f4f7b" class="numbered-list" start="2">
+        <li>
+          <a href="../Environment_and_the_programming_language_Self_part_two_language.html" title="Environment and the programming language Self (part two; language)">Environment and the programming language Self (part two; language)</a>
+        </li>
+      </ol>
+      <ol id="fbd8d67f-084b-4813-8669-b91c84038d0e" class="numbered-list" start="3">
+        <li>
+          <a href="../Environment_and_the_programming_language_Self_part_three_debugger.html" title="Environment and the programming language Self (part three; debugger, transporter and problems)">Environment and the programming language Self (part three; debugger, transporter and problems)</a>
+        </li>
+      </ol>
+      <p id="d503c123-9f41-4781-9dad-0c14fa31c7a7" class="">were mostly about the language and the environment. In today's article, we'll have a look at the community around the Self language, its history, future and also possible consequences brought by Self.</p>
+      <h1 id="e37b1d2a-3d32-405d-b9bb-708fef68e4d0" class="">The Community</h1>
+      <p id="66bc658c-bcdb-4e82-979c-242374674be4" class="">The community around Self is somewhat untraditional. It is largely made up of academics and people who have been following Self for decades. They like to read the academic articles about or based on it, but they do not usually actively contribute to the language nor the discussion.</p>
+      <h2 id="d7f8af34-1ff5-4be9-b785-1b910ce66483" class="">People</h2>
+      <p id="8056f22e-10d0-4de2-ba7d-425e875fde00" class="">Self was primarily created by <a href="https://en.wikipedia.org/wiki/David_Ungar">David Ungar</a> and <a href="https://labs.oracle.com/pls/apex/f?p=labs:bio:0:118">Randall Smith</a>. Both of them join the discussions from time to time.</p>
+      <p id="1f0320aa-2e45-4359-a08b-d0fd84457b9e" class="">However, now the primary project leader is <a href="https://github.com/russellallen">Russel Allen</a>, who hosts the official GIT repository under his github account, maintains the official website and a blog, integrates merge requests and moderates the discussions.</p>
+      <p id="f0250734-942b-4bd6-ae85-15fd6dd9b6ed" class="">Another highly engaged person is <a href="https://github.com/doublec">Chris Double</a>, who often comments on github but also in the mail-list. You can also meet him on an IRC channel as <code>doublec</code>.</p>
+      <h2 id="0abc7427-bc7e-4529-93ba-0aece742aaee" class="">Mail list</h2>
+      <p id="63167d79-8a1f-45b3-b389-7004afcfdf66" class="">Most of the communication is done through <a href="https://groups.yahoo.com/neo/groups/self-interest/info">Yahoo groups mail list</a>. If you don't want to log into a Yahoo account, then:</p>
+      <ul id="0ba0cce2-faf3-4f38-852e-d71f516c824f" class="bulleted-list">
+        <li>Post Message: <a href="http://mailto:self-interest@yahoogroups.com/">self-interest[a]yahoogroups.com</a>
+        </li>
+      </ul>
+      <ul id="55927af6-4edf-4f38-a3bd-5b2020840bad" class="bulleted-list">
+        <li>Subscribe: <a href="http://mailto:self-interest-subscribe@yahoogroups.com/">self-interest-subscribe[a]yahoogroups.com</a>
+        </li>
+      </ul>
+      <ul id="c4d94497-6119-4582-8fcb-9030f255c99e" class="bulleted-list">
+        <li>Unsubscribe: <a href="http://mailto:self-interest-unsubscribe@yahoogroups.com/">self-interest-unsubscribe[a]yahoogroups.com</a>
+        </li>
+      </ul>
+      <ul id="bb4f8f67-dcf2-464d-a42c-421f944c2263" class="bulleted-list">
+        <li>List Owner: <a href="http://mailto:self-interest-owner@yahoogroups.com/">self-interest-owner[a]yahoogroups.com</a>
+        </li>
+      </ul>
+      <h2 id="41263933-cf7d-4581-92c7-b8d808c215e7" class="">NNTP</h2>
+      <p id="0643b2e4-e7de-45be-a671-8e564c1d423d" class="">If you are interested in using the aforementioned mail-list as a usenet group, I highly recommend setting up the subscription via <a href="https://cs.wikipedia.org/wiki/Network_News_Transfer_Protocol">NNTP</a> instead of an e-mail. You can use <a href="https://en.wikipedia.org/wiki/Gmane">Gmane</a>, where you can find the group as <a href="http://dir.gmane.org/gmane.comp.lang.self">gmane.comp.lang.self</a>. You can use, for example, <a href="https://www.thunderbird.net/en-US/">Thunderbird</a> to subscribe. Gmane website is not fully functional after a crash, but the NNTP interface is fine.</p>
+      <p id="e55dde18-20e8-4431-ac70-5ee824457dd5" class=""><code>news://news.gmane.org:119/gmane.comp.lang.self</code></p>
+      <p id="e04bfc27-360a-4b4d-9830-f9a60706104a" class="">By the method of trial and error I got to understand that mail-list isn't really good for any kind of discussion, which isn't connected to Self, and people actively mind that you are discussing there because they suddenly receive emails from a group, from which they have received twenty emails in the last 10 years.</p>
+      <h2 id="9e79b5df-9449-47ee-89d6-31f3f385c1b2" class="">GitHub Issues</h2>
+      <p id="a075042f-4e9b-42eb-9973-0470b6501f7c" class="">Personally, I recommend to move all technical discussions to GitHub Issues:</p>
+      <p id="efe6df3f-c84f-40c3-be11-5f7209b8a808" class=""><a href="https://github.com/russellallen/self/issues">https://github.com/russellallen/self/issues</a></p>
+      <p id="540f237d-f4b7-4d6e-8b1a-c37639ffff3d" class="">These are usually attended by people who are interested in the topic and will not hate on you when you think out loud about code and possible solutions.</p>
+      <h2 id="80f944e7-e155-437e-8efc-0eea0a2b9f94" class="">IRC channel</h2>
+      <p id="7783f691-cf3a-49ec-abb9-9680be42c425" class="">In addition, there is a semi-dead IRC channel where somebody sometimes comes and causes a discussion:</p>
+      <p id="938cfc79-4de6-4b68-b989-69da9a079799" class=""><code>irc://#self-lang@irc.freenode.org</code></p>
+      <p id="6897795f-6993-4fd5-b40f-e461979cc28e" class="">Personally, I have been idling there for over a year, and I have to say that discussions on all possible topics are welcome, it's just that most people don't actively watch that channel. Therefore it can take even <strong>days</strong> before they start to react. Certainly do not get annoyed by it and leave the client running in the background (<code>irssi</code> on a server) for a longer time, if you really want someone to answer.</p>
+      <h2 id="00015b2d-5c65-4e45-983b-e0f65f4281c4" class="">Social networks</h2>
+      <p id="58ed5c7d-dbe2-479b-af01-769578f6e5c1" class="">There is a subreddit <a href="https://www.reddit.com/r/selflanguage/">/r/selflanguage</a>, where the news notifications are being sent. Most of them are then resent to hackernews, <a href="https://www.reddit.com/r/programming/">/r/programming</a> and on <a href="http://lobste.rs/">lobsters</a>.</p>
+      <h2 id="b16a3083-b6ca-4b71-9f9b-fcf4c6ba2f0d" class="">Blog</h2>
+      <p id="4b47b8a6-34d7-4927-85bc-9da7c79232a4" class="">There is also a <a href="https://blog.selflanguage.org/">blog</a>, but with a text width of 460 pixels, it looks really bad. Also, you are not free to write there whatever you wish and if the owner doesn't like it, then he will delete part of your text (already tried that, ehm ehm). Therefore, it's not a general blogging environment, unlike other blogging services.</p>
+      <p id="86c696ad-c686-4bb3-8d01-de1422901419" class="">Personally, what bothers me most about it, is that with its format it is absolutely not suitable for writing technical texts, and I don't only mean the editing in Wordpress, mostly it's about the displaying in a horrible noodle in the center of your screen (really absurd on 4k LCDs), which brings the worst from the mobile to your computer screens.</p>
+      <p id="9f6b194f-029f-4c3a-ac1b-f201fbc4a55a" class="">If you are interested in contributing there, you can send an e-mail to Russel Allen and he will make you an account within a few days. However, I would recommend you to make your own blog.</p>
+      <p id="2d126c19-6e72-47f8-a7fa-eb926bfb0b4f" class="">You can also subscribe to receive the blog news through NNTP:</p>
+      <p id="1d91c58f-51f3-4616-9287-b7ad593c43ae" class=""><code>news://news.gmane.org:119/gwene.org.selflanguage.blog</code></p>
+      <p id="a0a7b00e-58d0-41d4-92ba-5431705c5978" class="">and RSS:</p>
+      <ul id="59e60bbb-425f-4248-bb76-ba5b0148c1a5" class="bulleted-list">
+        <li>
+          <a href="https://blog.selflanguage.org/feed/">https://blog.selflanguage.org/feed/</a>
+        </li>
+      </ul><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <h1 id="fba763c3-6a26-4545-bd07-213ee6426581" class="">Historical point of view</h1>
+      <p id="6866c16e-758d-4d24-a8c5-961bd0e58fd3" class="">The first version of Self was designed by <a href="https://en.wikipedia.org/wiki/David_Ungar">David Ungar</a> and <a href="https://labs.oracle.com/pls/apex/f?p=labs:bio:0:118">Randall B. Smith</a> in 1986 in Xerox PARC, which was also the birthplace for Smalltalk, Ethernet, laser printers and much of today's <em>graphical user interface</em> concept.</p>
+      <p id="f7808cf0-4e04-4fc0-b342-b9311de24d2a" class="">The development then continued from 1987 at the Stanford University by the team comprising of Craig Chambers, Urs Hölzle, Ole Agesen, Elgin Lee, Bay-Wei Chang and David Ungar. The first versions of the compiler and of the graphical interface based on the Morphic framework had been created at that time.</p>
+      <figure id="3a8717a9-c8f9-432b-904e-71eeee483dc2">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Ox5P7QyL774" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="c05396a2-8ec8-4f5d-aeb3-7d90a14f8fcd" class="">In 1991, the development had been transferred to Sun Microsystems, where few versions had been published together with the prominent 4.0 version in 1995. At that time, the first work on the first JIT (Just in Time) compilers was in progress. Thanks to them, Self had been optimized to the extent that it was capable of running numerical benchmarks around the speed of half of the performance of optimized C code. Also, a Smalltalk interpreter had been implemented at that time in Self that was working faster than the native compiled versions.</p>
+      <p id="c84863a7-0270-4051-b610-c56bd86e645b" class="">Then Sun decided not to support Self anymore and decided to support Java. As <a href="https://www.linkedin.com/in/cmcmanis">Chuck McManis</a>, a former employee of Sun Microsystems, wrote for a <a href="https://news.ycombinator.com/item?id=14409088#unv_14415379">thread on hackernews</a>:</p>
+      <blockquote id="90fa51cb-0883-4aef-8de4-72f5591c8f23" class="">
+        Wow. For those who don't know, there was a big 'language bake off' at Sun between TCL, Java, and Self (all being funded by Sun Labs) and Bert Sutherland (then director of Sun Labs and brother of Ivan) required that the language changes stop and then we'd look at each one, and decide which one to move forward on. When the world sort of exploded at the WWW conference held in Darmstadt Germany in 1995, Java officially 'won' and both Self and TCL were de-committed. (not canceled per-se but not getting any more funding either).<br>
+        I like to think that all three languages benefited from the competition.
+      </blockquote>
+      <p id="14c530e4-801d-485d-b8a0-35f4afe6d3d5" class="">Asked why did Java win, he replied:</p>
+      <blockquote id="8c774e3d-37fe-42a5-8ad2-494ddf5f55fc" class="">
+        At the time it was the ability to construct executable content inside a web page. Javascript now dominates that space, but up until WWWC 2 pretty much everyone was stuck with page layout primitives. It made it possible to see a path to where we are today and so everyone wanted their browser to have it, and if their browser didn't have it they could run the HotJava browser and get it.<br>
+        Bottom line, it demonstrated an answer to a problem that a lot of people were having, and it promised to answer that problem in an 'open source' kind of way.
+      </blockquote>
+      <p id="b89e624a-56cb-416a-949b-bfad7af22417" class="">That was the end for Self for many years. It's not that it would completely disappear, but in combination with hardcoded optimizations that made it run only under SPARC processors, many people stopped caring about it.</p>
+      <p id="97b44111-6100-44d4-bc9e-f9817a4146c5" class="">In 1997, Sun <a href="http://merlintec.com/old-self-interest/msg01011.html">bought</a> Animorphic Technologies, which constituted of people, who developed the JIT optimization in Self. They created a Hotspot technology, based on their development knowledge from Self. This accelerated (then) very slow and low-performing Java to usable speeds. This way Self lost important people and one of the biggest disadvantages of Java, its slowness, disappeared.</p>
+      <p id="7c3eeea4-ad4c-4ac4-b7cb-5c603bb27459" class="">First attempts to run Self on Linux began in 1999, but from what I understand, it was very uncomfortable and aimed at hardcore programmers. At that time, thanks to a port by David Ungar, it was possible for the first time to run Self on Apple hardware that used PowerPC processors. Macbooks were cheaper and more available than a Sparc workstation from Sun, so now, for the first time, Self could be used even by "mere mortals".</p>
+      <p id="7937726c-0c3b-4a77-ab96-1ad2a0dd435d" class=""></p>
+      <p id="6bf01202-69b8-407b-b6ed-72f494a1c480" class="">David Ungar <a href="http://www.aito.org/Dahl-Nygaard/2009.html">received</a> <a href="https://en.wikipedia.org/wiki/Dahl%E2%80%93Nygaard_Prize">Dahl-Nygaard price</a> for Self in 2009.</p>
+      <figure id="0b08e46e-aeed-4595-bd5b-45fe24285cd7">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/3ka4KY7TMTU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="bd03b459-55f8-4eb1-afcc-ad0b97ccda39" class="">A year later in 2010, Russel Allen published version 4.4. It was the first version that was officially natively working on Linux. It has to be said that it was possible to run Self within the project <a href="http://www.gliebe.de/self/index.html">Self4Linux</a> since 2001. However, it still wasn't an official version. Before that, the port by <a href="http://www.self-support.com/history.html">Gordon Cichon</a> from the year 1999 could also be used.</p>
+      <p id="2d6dde33-79bb-460c-87f4-43ae3bd2e26b" class="">Since the publishing of 4.4, the development is still led by just a few people. The latest version at the time of writing this article is 2017.1 <a href="https://blog.selflanguage.org/2017/05/24/self-mandarin-2017-1/">published</a> in May 2017.</p>
+      <h1 id="18daae57-31e5-4fb0-93ab-5a9969115eb2" class="">The Future</h1>
+      <h2 id="dd54b5e8-998b-4502-b24f-4d45444b7b48" class="">Progress</h2>
+      <p id="8b8c61c0-7b44-4946-ac43-5d6ea3c37e0a" class="">Nowadays, slow and sporadic works are being done on Self. They mostly consist of repairs and adjustments. I've begun to add support of Unicode to the graphic interface. Although I managed to do certain progress, I was unable to continue due to personal reasons, which made me prioritize projects and really ate my free time (I have a kid now, a different job, you know how it works..). So probably no UTF support in the foreseeable future.</p>
+      <p id="f57fbf45-c7a4-4231-9503-c68089bc60cb" class="">The graphical interface definitely needs a lot of work. It works, but by today's standards and expectations it is really uncomfortable and merciless for users in terms of error toleration. I managed to crash the whole system several times during my first half-hour just by trying different stuff. You don't need to make any big mistake, it's enough to just make a typo in your GUI code and the system will at least freeze the GUI, if not crash entirely.</p>
+      <p id="82171cce-185a-483d-ac4a-4c0134f55a4d" class="">A mechanism, which is known from some Smalltalks (Pharo for example), that would enable restoration from protocol to the point before crash, or even automatic saving of some of the restoration points, was discussed many times in the email conference, but as far as I know, no real progress was made towards this feature. Furthermore, it would be nice if it wasn't so easy to crash or freeze the system.</p>
+      <p id="4146ace8-e991-408a-909e-281ff07a12e9" class="">All internal text editors need to be improved because often they don't reach even the functionality of the Notepad in Windows. Working with copy/paste buffer needs to be updated because Self works with it only in some weird 30 years old mode and you need to have <a href="https://www.nongnu.org/autocutsel/"><code>autocutsel</code></a> running in the background to make it work.</p>
+      <p id="a00a6595-5c4d-4698-af1d-924a8155471e" class="">Personally, I think that there is a big space for improvement of the interface and the language in the form of internet project repository, from which it would be possible to install through dependency definitions. In other words; it is quite hard to distribute your own software in Self nowadays. A package manager would greatly help this situation.</p>
+      <h2 id="f85856b3-9e3a-405b-af94-ae432f588ef1" class="">Klein</h2>
+      <p id="f552b398-fb60-428d-aa3d-ff02041e4b80" class="">There used to be a project that aimed to bootstrap Self in itself called Klein.</p>
+      <p id="87f3ab27-e729-4d38-97bf-95c123452f40" class="">What's left of it can be found on Github:</p>
+      <ul id="1f69d534-aaa2-4da4-89e2-f7e5b4f6a352" class="bulleted-list">
+        <li>
+          <a href="https://github.com/AdamSpitz/klein">https://github.com/AdamSpitz/klein</a>
+        </li>
+      </ul>
+      <p id="d10b6688-c185-4c57-b614-e0df72d48656" class="">If you want to continue Self development, this could be a good starting point.</p>
+      <p id="8f13c0bc-a88e-499c-867c-e087a29b646b" class="">I find it interesting, that you could debug Klein and connect to it from the running instance of standard Self.</p>
+      <h2 id="16a6ecf7-6012-4455-b728-1c956002745f" class="">Korz</h2>
+      <p id="7de617b7-e53b-4873-839d-08d45f6b98ef" class="">Korz is a very interesting project; David Ungar had an idea about how Self would look and work if he added another dimension.</p>
+      <p id="b42ce8ef-2406-416f-9cc7-18791baca7f6" class="">Languages that support only functions, such as C or Pascal, have only one dimension. A function receives some data.</p>
+      <p id="24b02254-a2ce-4e8c-b0ee-3d0fca124a61" class="">Object-oriented languages added another dimension by interlinking functions with structures they work with. A function now receives some data and can be found in different objects which give them different meanings.</p>
+      <p id="845d17bd-b4c1-4306-9a0f-9dfdeb49d9cf" class="">Korz adds another dimension in the form of whole worlds. Objects are stored in one or more worlds. Compared to Self, not only an object and a message are specified, but also the world, to which it should be sent. Worlds can be different, in some, for example, mirrors and functions for working with a system and a disk are missing entirely, so they work like a sandbox. They can dynamically emerge and cease to exist, objects can be only in one world or in more worlds at the same time.</p>
+      <p id="65ee9a34-657a-4a1f-a20b-49c993b2f51b" class="">All of this could be simulated by using the objects, that would store other objects, but we would need to do many things manually. Korz offers this as a built-in and it's supported right at the level of a virtual machine.</p>
+      <p id="8babf0e2-e9b0-4583-8422-d7cb873f391c" class="">You can find a better description in the papers:</p>
+      <ul id="e3f90bf8-8969-407f-88c2-0c7c8b2fbcc1" class="bulleted-list">
+        <li>
+          <a href="https://dl.acm.org/citation.cfm?id=2661147">Korz: Simple, Symmetric, Subjective, Context-Oriented Programming</a>
+        </li>
+      </ul>
+      <ul id="66be1c2a-d4c0-4b75-90ba-56b7c37715ae" class="bulleted-list">
+        <li>
+          <a href="https://dl.acm.org/citation.cfm?id=2735923">Subjective, multidimensional modularity with korz</a>
+        </li>
+      </ul>
+      <p id="3012e1bc-3e2e-4b32-bf4e-6eecb54f2ff2" class="">Protip: If you don't know how to get the papers, use <em>scihub</em> (Google will help you).</p>
+      <p id="ff0f6eef-60c1-4066-b268-1649769f1a27" class="">Unfortunately, that is all that I can say about Korz. As far as I know, it is not an open source software and its author didn't talk about it too much, and he also didn't react to questions in the conference:</p>
+      <ul id="16365cd4-aafd-4bc0-a2c9-a0b453995fd3" class="bulleted-list">
+        <li>
+          <a href="https://groups.yahoo.com/neo/groups/self-interest/conversations/topics/3631">https://groups.yahoo.com/neo/groups/self-interest/conversations/topics/3631</a>
+        </li>
+      </ul>
+      <h1 id="ddb80179-f28e-4bd3-af24-fc075ca1e5fb" class="">The Metaphysics</h1>
+      <p id="57f648eb-23b7-4c43-84c1-fda1ece9b03f" class="">"Metaphysics" might be an exaggeration but I wanted to express the context, possible potential and vision of Self, which I partially picked up from the historical materials, and partially dreamed up.</p>
+      <h2 id="02982b82-b9e1-4cc6-9e7d-773875a4cb1a" class="">Tarraingim</h2>
+      <p id="17796c15-852c-4f30-96dd-ddb27d143d60" class="">Few years back while reading through <a href="https://blog.selflanguage.org/2016/06/09/self-mail-conference-in-mbox/">complete archives of Self conference</a> I found something, that still keeps on lighting up my imagination. It's a <em>proof of concept</em> of a system for working with information and visualization of programs called Tarraingim, Tgim in short. It was <a href="http://merlintec.com/old-self-interest/msg00578.html">created</a> by James "kjx" Noble as his academic work.</p>
+      <ul id="1bcaf608-9d1a-4fef-b984-c3aee50ba431" class="bulleted-list">
+        <li>
+          <a href="https://web.archive.org/web/20010813120828/http://www.mri.mq.edu.au/~kjx/tgim.html">https://web.archive.org/web/20010813120828/http://www.mri.mq.edu.au/~kjx/tgim.html</a>
+        </li>
+      </ul>
+      <ul id="541f6def-090d-4c16-841e-f282eb0dba22" class="bulleted-list">
+        <li>
+          <a href="https://web.archive.org/web/20010423002056/http://www.mri.mq.edu.au:80/~kjx/finder.html">https://web.archive.org/web/20010423002056/http://www.mri.mq.edu.au:80/~kjx/finder.html</a>
+        </li>
+      </ul>
+      <ul id="74115760-d167-4e72-8558-013303e74b68" class="bulleted-list">
+        <li>
+          <a href="https://web.archive.org/web/20010903122635/http://www.mri.mq.edu.au:80/~kjx/stack.html">https://web.archive.org/web/20010903122635/http://www.mri.mq.edu.au:80/~kjx/stack.html</a>
+        </li>
+      </ul>
+      <ul id="9494cff9-3bec-4b24-8c53-d5fdde5d5d2c" class="bulleted-list">
+        <li>
+          <a href="https://web.archive.org/web/20010309054734/http://www.mri.mq.edu.au:80/~kjx/quicksort.html">https://web.archive.org/web/20010309054734/http://www.mri.mq.edu.au:80/~kjx/quicksort.html</a>
+        </li>
+      </ul>
+      <ul id="54a9335d-9c79-4783-9506-7bd677debded" class="bulleted-list">
+        <li>
+          <a href="https://web.archive.org/web/20010824102108/http://www.mri.mq.edu.au:80/~kjx/parse.html">https://web.archive.org/web/20010824102108/http://www.mri.mq.edu.au:80/~kjx/parse.html</a>
+        </li>
+      </ul>
+      <p id="b6c9f87f-36ea-4ecb-8f7a-cf481ff4f7f5" class="">The system made it possible to display and browse objects the way we are used to browsing files, using icons and various visualizations.</p>
+      <figure id="6b1616e9-94b0-422a-b758-ef5786611da6" class="image">
+        <a href="finder.gif" title="finder.gif"><img style="width:600px" src="finder.gif"></a>
+      </figure>
+      <figure id="c66d688b-872d-4bcf-9014-6abe93c602b6" class="image">
+        <a href="parser.gif" title="parser.gif"><img style="width:1094px" src="parser_thumb.jpg"></a>
+      </figure>
+      <p id="1e2ffcfd-2407-4584-821d-524e9fe0bb93" class="">Of course, the images above do have their limitations and the original intention was more in the direction of working with programming languages. Yet, I cannot stop wondering and imagining how visualizations like this could be used for various information representations and personal wikis.</p>
+      <p id="36e8d274-9ae6-4b7c-b358-691770af278b" class="">As Alan Kay said:</p>
+      <blockquote id="0694824b-5663-41e5-9953-f90cd2368291" class="">
+        Point of view is worth 80 IQ points
+      </blockquote>
+      <p id="fe0ca1ba-68f4-4e6e-b7e5-27e7d954b1f6" class="">I think that Tarraingim was a fascinating experiment on the topic of the environment, that gives you many prepared points of view.</p>
+      <h2 id="9e644a2a-c4b9-4153-b293-3f1b7d89f78b" class="">Engelbart's MOAD</h2>
+      <p id="aeb4b022-d902-4618-a9b3-914a01c25b54" class="">It has been 50 years since, probably, the most influencing computer presentation of all time: so-called <a href="https://en.wikipedia.org/wiki/The_Mother_of_All_Demos">Mother of all demos</a> by <a href="https://en.wikipedia.org/wiki/Douglas_Engelbart">Douglas Engelbart</a>.</p>
+      <p id="bba5d515-ed67-4601-b994-6c587131c2f7" class="">More information here:</p>
+      <ul id="8c6e421b-6603-440c-88a6-8c4d036958e8" class="bulleted-list">
+        <li>
+          <a href="https://thedemoat50.org/">The 50th Anniversary of Doug Engelbart's Great Demo</a>
+        </li>
+      </ul>
+      <p id="5fca8044-c493-46d1-9130-41f590f3333c" class="">If you missed this demo, I can only recommend watching it:</p>
+      <figure id="4c60b3cf-022e-48b8-aa9f-1a4ef85ead19">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/yJDv-zdhzMY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="fd25aee1-6cca-412f-ac14-fa04897e32a5" class="">For many people, Engelbart's demo is a visionary thing. They often praise it as a precursor of modern computer technology, which predicted many modern technologies, such as graphic user interface, the Internet, interactive video calls and other conveniences of our network age. It was the first time a computer mouse was used!</p>
+      <p id="52d41816-4207-47fe-bc6e-67b8671f3fa5" class="">At first glance, it should be a phenomenal success. After all, who can predict and define the future as well as Engelbart did?</p>
+      <p id="7ac1523e-2c2c-4f9e-b3bb-70bf8e9f5743" class="">But for Engelbart it was quite a <a href="http://dougengelbart.org/content/view/223/000/">disappointment</a>. A disappointment, which can still be felt around lisp and Smalltalk communities. You can hear about it from Alan Kay, or Bret Victor;</p>
+      <ul id="90aeeea7-931a-400b-89f5-1166f3f79a93" class="bulleted-list">
+        <li>
+          <a href="https://doug-50.info/what-is-still-missing.html">What is Still Missing</a>
+        </li>
+      </ul>
+      <ul id="00b666de-94ab-4700-b1fb-a8db6d82f43a" class="bulleted-list">
+        <li>
+          <a href="https://www.youtube.com/watch?v=WN2BBNDdjgI">Education Presentation by Alan Kay @ SRI/Engelbart</a>
+        </li>
+      </ul>
+      <ul id="a301e2f4-cf79-4878-a275-0bb06cead4f5" class="bulleted-list">
+        <li>
+          <a href="http://worrydream.com/Engelbart/">A few words on Doug Engelbart</a>
+        </li>
+      </ul>
+      <ul id="f4203dbd-5787-4c57-aa55-b025b5ccf4ed" class="bulleted-list">
+        <li>
+          <a href="https://www.fastcompany.com/40435064/what-alan-kay-thinks-about-the-iphone-and-technology-now">The Father Of Mobile Computing Is Not Impressed</a>
+        </li>
+      </ul>
+      <p id="06253b10-2d4c-456f-a7db-f4e8c239e695" class="">In short only a less important part of his vision got fulfilled. The original vision was about acceleration of human progress through attempts at <a href="http://www.dougengelbart.org/content/view/194/168/"><strong>empowering the human intelligence</strong></a>.</p>
+      <p id="e9da47ac-20e2-4d9b-aab1-a43503da525c" class="">This should have been achieved by using computers as assistants, as <a href="https://cs.wikipedia.org/wiki/Vannevar_Bush">Vannevar Bush</a> defined it in his famous paper <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/">As We May Think</a>. He wanted to use the strategy of <a href="http://dougengelbart.org/content/view/187/">boostraping</a>; process improvements for <em>process improvements</em>. You can find the specific details in his work <a href="http://dougengelbart.org/content/view/138/000/">Augmenting Human Intellect: A Conceptual Framework</a>.</p>
+      <p id="4d3a56f7-c6bd-4c2e-b317-988272b84f1c" class="">He never intended to create a user interface for masses, so people could intuitively use computers and not know or understand anything about them, as it was popularized by Apple. On the contrary! His lifelong effort was concentrated on interconnecting people and computers in the tightest possible manner.</p>
+      <p id="7173d476-dcdc-4115-95f8-f199b82d5463" class="">If you allow me to use a rough analogy, then what he was trying to achieve was similar to mathematics and education in mathematics. A system, which he was creating, was supposed to be like math for a person, who is trying to build a bridge. His "conceptual framework" was supposed to give people a way of thinking and an ability to use a computer as an extension of their minds. That is in sharp contrast to how we use computers today, which is mostly a medium that allows us to record, edit, search and broadcast our digital creations.</p>
+      <p id="4e5f7598-0328-4845-a73d-ff75ce6f3ed8" class="">His idea was that a person trying to do intellectual work would be able to program the computer and instruct it as effectively as possible by creating a closed loop with it so that he could no longer tell where the person ends and the machine begins.</p>
+      <p id="3fa17d5b-471a-47a3-ab80-b2fbaf8a9ba4" class="">What I mean by this is possible to understand if you have ever used a program so much, that you no longer perceived its controls and had a feeling, that you are communicating with a computer only using your thoughts. This kind of symbiosis can be seen when you look at the programmers, who often customize their editors and use them on a day to day basis so that they are highly effective and can use all kinds of text transformations that are unavailable to untrained people.</p>
+      <p id="c9d7c4c8-ac5b-46d3-895c-5c3da54e2b3f" class="">Or a person who is modelling a 3D object in a graphical editor and after a while no longer thinks about the controls of the program, only about the modelling. Players also often forget that they are pressing <code>wasd</code> and instead feel like they are inside the game.</p>
+      <p id="4f290aa9-f0b9-4a2b-9940-5f098b862353" class="">Engelbart wanted to create a system for working with computers and information in general, in this manner. That's why he created his NLS (oN-Line System), and that is why his demo is still so amazing even today. Most of the programs of today fall behind because they are limited by paradigms of graphic interface and the effort to make them as intuitive as possible. If some program actually achieves usability envisioned by Engelbart, then it's usually a specialized matter. You can't use CAD, with which you design houses, to write a document or create your own personal information database.</p>
+      <p id="ff724932-d9ca-471a-8357-fea420ee9795" class="">If you think about it, work with information was, apart from its presentation, reduced only to office packages and writing notes in wiki. You can't, for example, download all your ratings from IMDB, correlate them with your friends and recommend them films they may like, without being a programmer.</p>
+      <h2 id="bf4ddae8-7f33-492d-9941-904411cfe5f6" class="">Self</h2>
+      <p id="a94634d2-1eab-4827-a2aa-4763ddc98f9e" class="">You may be wondering how Self is related to all of this. Personally, I hope that it is clearly visible from the already published articles that I consider Self to be the closest thing to the Engelbart's vision from everything that I am aware of.</p>
+      <p id="d11c04f5-8680-4486-8f98-7582343f66e6" class="">Just think about it:</p>
+      <ol id="0dab311c-bc99-42b5-a790-d7172d0edb87" class="numbered-list" start="1">
+        <li>An object-oriented graphical interface that can be assembled and disassembled in a relatively intuitive way to quickly construct user programs.</li>
+      </ol>
+      <ol id="04ac08c3-7a28-407e-bd4f-5ddb29c9aefb" class="numbered-list" start="2">
+        <li>Objects as an underlying structure for working with information.</li>
+      </ol>
+      <ol id="3afa285a-737b-454f-9107-e2b3c59a43e5" class="numbered-list" start="3">
+        <li>Interconnection of the programming language with the entire environment, so there is no clear separation between where one ends and the other begins.</li>
+      </ol>
+      <ol id="24140822-c13e-4b86-9ed7-fb26ec34df02" class="numbered-list" start="4">
+        <li>The resulting addressability of all items simply through messages to the objects.</li>
+      </ol>
+      <p id="e080dcdd-9ee4-4c2c-a993-42061952dc66" class="">Of course, Self is in a very desolate state. Some of the ideas were just outlined, others were put into practice sometime in 1992 and no one has touched them since. Just have a look at this short preview of a demo snapshot:</p>
+      <figure id="f88f3a70-d7f6-4653-9226-170fae0ce1f0">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/YR4pFk0xj9w?start=20" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="3a21bfa1-20a6-4443-a29c-20d01cb666c2" class="">It's hard to not compare it to the possibilities of Engelbart's NLS.</p>
+      <p id="423a2fa8-c502-4350-b43f-cbc3e8c781c0" class="">I don't want to claim that Self is what Engelbart envisioned. In my opinion, however, many of his thoughts went the same way*. If it had been finished properly, then we would have an infinitely programmable environment where everything is an addressable and callable object. A graphical interface environment with a paradigm that allows everyone to create their own graphical applications. A system that, with a little effort, can be used as an extension of one's mind.</p>
+      <p id="a18b9d02-51fb-47a8-bbe9-8139fb82df34" class="">I think it's worth thinking about.</p>
+      <p id="ab293b15-b5b6-4fb4-8bd0-d69622cc2e10" class="">* See my question in the conference about the inspiration for Self: <a href="https://groups.yahoo.com/neo/groups/self-interest/conversations/topics/3627">https://groups.yahoo.com/neo/groups/self-interest/conversations/topics/3627</a></p>
+      <h1 id="4dd80d31-9785-4f1b-b787-41272f289c5d" class="">Concluding remarks</h1>
+      <p id="0d66385d-d0d0-4883-9079-186f5b2dea78" class="">That's all I can say about Self. A small part of a facet of a polyhedral crystal, reflection of sparks of ideas, words about the thought model in motion.</p>
+      <p id="b636fc88-390c-4334-85a9-2ef0088892da" class="">Even if it didn't change my point of view on the world of programming languages, interactive environments, and graphical programmable systems, it still completely changed my thinking about <a href="https://en.wikipedia.org/wiki/Reflection_(computer_programming)"><em>reflection</em></a>. And that is something, which shows through everything that I have been lately thinking about and what I have been working on.</p>
+      <p id="782e553b-a226-40c7-9ffd-5dacafeb1e6e" class="">Things created in a computer can have any shape. And somehow, as humanity, we have made a collective decision, probably totally unconsciously and certainly wrongly, that they won't be as dynamic as they could. Self showed that there is a possibility for everything to work differently.</p>
+      <p id="fff8859a-16b0-4098-ba40-6eb88d0828e1" class="">I'm a witness to Self still hiding a lot of magic, which hasn't been seen by many. Secrets visualized by the mind. It's up to you to reach out and look at them.</p>
+      <h1 id="7c561f9b-b0f7-4456-bc97-102ab0a092f7" class="">Relevant discussions</h1>
+      <ul id="0894c5b4-8d5c-4955-974c-05fde6124693" class="bulleted-list">
+        <li>
+          <a href="https://www.reddit.com/r/smalltalk/comments/cuke5e/environment_and_the_programming_language_self/">/r/smalltalk</a>
+        </li>
+      </ul>
+      <ul id="ab6fa0db-fb07-45c9-9e7f-0a382e31303e" class="bulleted-list">
+        <li>
+          <a href="https://news.ycombinator.com/item?id=20782896">hackernews</a>
+        </li>
+      </ul>
+      <p id="f44b5090-2f20-4771-95f1-6dab2d6273d5" class=""></p>
+    </div>
+  </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../../../Tags/programming_languages.html" title="programming_languages">programming_languages</a>, <a href="../../../../Tags/quest_for_structure.html" title="quest_for_structure">quest_for_structure</a>, <a href="../../../../Tags/selflang.html" title="selflang">selflang</a></p>
+  </div>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../../../3D_modeling/Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" title="Lifelog 2020-06-15; Todo in motion">Lifelog 2020-06-15; Todo in motion</a>
+        </li>
+        <li>
+          <a href="../../My_Greenspuns_counter.html" title="My Greenspun's counter">My Greenspun's counter</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog/What_do_I_mean_by_node.html" title="What do I mean by node?">What do I mean by node?</a>
+        </li>
+        <li>
+          <a href="../../../Explorations/Trying_Ansible_alternatives_in_python.html" title="Trying Ansible alternatives in python">Trying Ansible alternatives in python</a>
+        </li>
+        <li>
+          <a href="../../../Improvements/The_Most_Personal_Device_experiment/Pebble_smartwatches.html" title="Pebble smartwatches">Pebble smartwatches</a>
+        </li>
+        <li>
+          <a href="../../../Improvements/The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog/Unicode_font_subset.html" title="Unicode font subset">Unicode font subset</a>
+        </li>
+      </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../Environment_and_the_programming_language_Self_part_three_debugger.html" title="Environment and the programming language Self (part three; debugger, transporter and problems)">Environment and the programming language Self (part three; debugger, transporter and problems)</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Weekly_update_2019-09-01_What_I_am_working_on.html" title="Weekly update 2019/09/01; What I am working on">Weekly update 2019/09/01; What I am working on</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

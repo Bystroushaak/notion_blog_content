@@ -12,7 +12,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Environment and the programming language Self (part three; debugger, transporter and problems)">
   <meta name="twitter:description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
-  <meta name="twitter:image" content="http://blog.rfox.eu/cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_6.png">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_three_debugger/transporter_6.png">
   <script src="../../../scripts.js">
   </script>
   <meta name="description" content="This episode is mostly about things that did not fit into other episodes. We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.">
@@ -139,7 +139,7 @@
           <p id="e18fa6b7-3286-48ab-980f-f1ad9b88c57a" class="">Note:</p>
         </div>
         <div id="c94487b7-b1ff-47c6-a589-f11e65053afc" style="width:87.5%" class="column">
-          <p id="fd0da966-56c2-480b-83b0-c58787801461" class="">There is also a Czech version of this article: <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/index.html" title="Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)">Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)</a></p>
+          <p id="fd0da966-56c2-480b-83b0-c58787801461" class="">There is also a Czech version of this article: <a href="../../../cz/Programovani/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a.html" title="Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)">Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)</a></p>
         </div>
       </div>
       <hr id="841a8283-0fd1-48bd-8217-fc3fe92506fe">
@@ -155,117 +155,117 @@
       <p id="63f1c890-b6fc-4dcd-9f68-3cda8b8c4f48" class="">I will make an anonymous object. I add it into new module using the transporter. Then, I create a slot in the global hierarchy, save the anonymous object into it and add the object to an already created module. Then, I tell the transporter using an annotation to not use the default value of that slot, but to follow the object, which it points to. When this is done, I'll save everything on the disk using the transporter dialogue.</p>
       <p id="44f06f53-5cce-45ff-8fa1-16b844fcebed" class="">I start with creating a very simple object, that contains one slot "a" with the value "1".</p>
       <figure id="c79de64d-9901-4501-95cb-49a27a56dee2" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_0.png" title="transporter_0.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_0.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_0.png" title="transporter_0.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_0.png"></a>
       </figure>
       <figure id="76f467ec-e41b-428d-9b9c-ea30e2e4e966" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_1.png" title="transporter_1.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_1.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_1.png" title="transporter_1.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_1.png"></a>
       </figure>
       <p id="67ddca89-025f-41e4-820b-f7dac078dcee" class="">Then, I click on the outliner with the middle button (the scroll wheel) and choose "<em>Set module..."</em>:</p>
       <figure id="74026401-962c-4825-96b4-8de5d7349cf9" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_2.png" title="transporter_2.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_2.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_2.png" title="transporter_2.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_2.png"></a>
       </figure>
       <p id="5e9a013a-9728-42a0-8116-46135530b7e7" class="">There are going to be series of dialogues, in which the transporter will ask me for different information. First, it asks about slots:</p>
       <figure id="7b217d6d-cae2-4270-aca0-bac1dff261a3" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_3.png" title="transporter_3.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_3.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_3.png" title="transporter_3.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_3.png"></a>
       </figure>
       <p id="94bb35d4-6010-4e50-8dc5-4aac6fe3fdee" class="">I want to add all of them.</p>
       <p id="a3a8afb8-6e9f-4e3d-bab8-657dd026f83e" class="">Next it asks for the name of module, to which it should save the object.</p>
       <figure id="d28e8bf6-5c71-4e6e-9595-2ada24d9352e" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_4.png" title="transporter_4.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_4.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_4.png" title="transporter_4.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_4.png"></a>
       </figure>
       <p id="c1d0dc4f-dd15-4ff9-9960-1e3e40dc8d7c" class="">I want "other", which will bring an input for a name. I want to name my module "test":</p>
       <figure id="8c37f157-6389-4204-88e5-f07bf47cd0d0" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_6.png" title="transporter_6.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_6.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_6.png" title="transporter_6.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_6.png"></a>
       </figure>
       <p id="2efc9864-687e-4e32-af8d-641344719819" class="">Dialogue is now asking me whether I really want to really create new module, or whether it was a mistake. I really want to create it:</p>
       <figure id="1e8c4bdc-c4dd-4f5b-ab4f-af53db2f34b5" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_7.png" title="transporter_7.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_7.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_7.png" title="transporter_7.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_7.png"></a>
       </figure>
       <p id="6de38cc2-23e9-4e1b-a484-0ff1817b8e04" class="">I don't want this module to be a submodule of other modules, so I leave this field empty:</p>
       <figure id="62778678-44fc-4470-b6bc-0f315125d11c" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_8.png" title="transporter_8.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_8.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_8.png" title="transporter_8.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_8.png"></a>
       </figure>
       <p id="5ac12b1d-dda9-4209-bf91-d8288bdf48a6" class="">I confirm it again:</p>
       <figure id="92d5ca01-947d-4f61-aad7-dc1e8b40f99f" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_9.png" title="transporter_9.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_9.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_9.png" title="transporter_9.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_9.png"></a>
       </figure>
       <p id="a0bdfbff-7f82-45ec-a1f3-231e418b1d40" class="">I choose the folder, to which the file should be saved. I leave the default "applications":</p>
       <figure id="247bcbb9-8aad-41a8-8516-166a5afb6077" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_10.png" title="transporter_10.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_10.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_10.png" title="transporter_10.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_10.png"></a>
       </figure>
       <p id="ab50ae46-bf9d-4f20-8d6e-d424127b0e16" class="">Now, my object is officially a part of the module, but it is still not stored under a path in <code>globals</code> hierarchy, which means that after loading it won't be easy to get a reference to it. I want to save it on the path <code>globals test</code>. So I open the outliner for <code>globals</code> by clicking the desktop with the scrolling wheel:</p>
       <figure id="e80b0693-cfed-4a18-9ae1-dd195f5b804d" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_11.png" title="transporter_11.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_11.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_11.png" title="transporter_11.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_11.png"></a>
       </figure>
       <p id="b03c6923-e581-4918-acd8-c7ed373da39a" class="">And I open the subsection "applications":</p>
       <figure id="16372b52-0916-4a27-84f8-237a9ca2d071" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_12.png" title="transporter_12.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_12.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_12.png" title="transporter_12.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_12.png"></a>
       </figure>
       <p id="980c2f25-4a5e-4f52-8d3b-6bd09334edee" class="">There are four applications in it. Clicking the "applications" label by the scrolling wheel, the context menu appears. I choose "Add Slot":</p>
       <figure id="f731bbef-ec4f-42e5-b1aa-58e05ca0acc7" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_13.png" title="transporter_13.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_13.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_13.png" title="transporter_13.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_13.png"></a>
       </figure>
       <p id="f79c243e-d5e3-478a-bb2b-2f74b810c2dc" class="">Then I delete the default text hint:</p>
       <figure id="0c9e98f3-6c67-4eb8-950f-162b21f4e727" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_14.png" title="transporter_14.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_14.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_14.png" title="transporter_14.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_14.png"></a>
       </figure>
       <p id="785689d1-da44-45a8-b1c2-2b0eb41fc377" class="">And I set the slot to <code>nil</code>. Notice that I am using <code>&lt;-</code> for assignment (rewritable slot).</p>
       <figure id="1411100a-58e2-4df8-bbd0-87acf577f35b" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_16.png" title="transporter_16.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_16.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_16.png" title="transporter_16.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_16.png"></a>
       </figure>
       <p id="7221d1a3-42e3-4dae-8faa-67b4ae14f362" class="">I save it by clicking the green rectangle or pressing Ctrl+Enter.</p>
       <figure id="b2544496-55e4-4372-b334-2ac12ddd446b" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_17.png" title="transporter_17.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_17.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_17.png" title="transporter_17.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_17.png"></a>
       </figure>
       <p id="c60bbf3c-e4f3-4a0d-8f08-ea29c45171d6" class="">Now I graphically transfer the reference from <code>nil</code> to my anonymous object on the desktop. But I could as well just go into my anonymous object, open shell in it and write something like <code>globals test: self</code>.</p>
       <figure id="848f3a02-8a02-482f-8043-b8447d4d7f9e" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_18.png" title="transporter_18.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_18.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_18.png" title="transporter_18.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_18.png"></a>
       </figure>
       <figure id="48dfdcee-abe0-4d8e-831c-34627f807471" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_19.png" title="transporter_19.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_19.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_19.png" title="transporter_19.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_19.png"></a>
       </figure>
       <figure id="1c110f0c-c9dd-4af4-9f84-5396cd64e273" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_20.png" title="transporter_20.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_20.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_20.png" title="transporter_20.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_20.png"></a>
       </figure>
       <p id="aaab263a-daca-456f-b690-ace030e90aeb" class="">The slot <code>globals test</code> now points to my object, that is, my object now exists on this path.</p>
       <p id="55f1aec1-2783-4dc4-b996-f3e1486292cb" class="">Now I only have to set the module for this slot by clicking on it with the scrolling wheel and choosing "Set module":</p>
       <figure id="c85ab7ad-0716-4aac-bd05-a8eb9f0e6e97" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_21.png" title="transporter_21.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_21.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_21.png" title="transporter_21.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_21.png"></a>
       </figure>
       <p id="c5bce5fa-6f75-4cf8-a8f3-4276f947604d" class="">We can see a bigger menu, where I scroll completely down and choose other:</p>
       <figure id="89b9a064-b77e-4ca6-a388-40e1af6dbbed" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_22.png" title="transporter_22.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_22.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_22.png" title="transporter_22.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_22.png"></a>
       </figure>
       <p id="0fe0de0b-26af-460f-be01-13d6eed520a1" class="">And I enter "test" again:</p>
       <figure id="58219dc1-739c-4d16-a8a8-ab5439b75081" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_23.png" title="transporter_23.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_23.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_23.png" title="transporter_23.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_23.png"></a>
       </figure>
       <p id="0e0862f7-1a8d-4456-b22c-258f5e652bfa" class="">Because I don't have to scroll back up for a long time, I click on the empty desktop twice and choose to go "home":</p>
       <figure id="8b4ad8e0-ea70-464c-b10c-c357645431d9" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_24.png" title="transporter_24.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_24.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_24.png" title="transporter_24.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_24.png"></a>
       </figure>
       <p id="5cc57fd0-3cf9-4e0d-9c43-e525379c9778" class="">Which sends me back to where I was before. Now need to adjust the annotation of the slot <code>globals test</code>, so I click on it with the scrolling wheel and choose "Show Annotation":</p>
       <figure id="e54ac471-af23-4bbd-b527-8773ee405fef" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_29.png" title="transporter_29.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_29.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_29.png" title="transporter_29.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_29.png"></a>
       </figure>
       <p id="d77faeaf-1f2b-4ed3-8b9d-50e7a6b5496a" class="">In the module setting I choose "Follow", instead of "Initialize to <code>nil</code>".</p>
       <figure id="37c5743b-d090-4a61-91e2-f8808b03960f" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_30.png" title="transporter_30.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_30.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_30.png" title="transporter_30.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_30.png"></a>
       </figure>
       <figure id="5124e412-b04b-47f5-922b-ebf4169adf50" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_31.png" title="transporter_31.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_31.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_31.png" title="transporter_31.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_31.png"></a>
       </figure>
       <p id="67ecb4bb-e770-47e2-8d9d-8edce5dff75a" class="">Now I click an empty place on the desktop with the scrolling wheel and choose "Changed Modules" from the menu:</p>
       <figure id="abb8a5fd-2271-4492-852a-605b0e00996e" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_25.png" title="transporter_25.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_25.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_25.png" title="transporter_25.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_25.png"></a>
       </figure>
       <p id="1acd556f-6da3-4007-841e-3973e2e4ebe0" class="">The dialogue showing the changed modules shows up:</p>
       <figure id="b8256f4c-e86f-4490-90ed-9d330e363e39" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_26.png" title="transporter_26.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_26.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_26.png" title="transporter_26.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_26.png"></a>
       </figure>
       <p id="0139a163-a61a-4312-8994-05e5ee7870cd" class="">I can save them by clicking the buttons, so I click the button "W" right next to it:</p>
       <figure id="1f35eed3-7ced-44f3-9db8-1ac73324fe38" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_27.png" title="transporter_27.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_27.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_27.png" title="transporter_27.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_27.png"></a>
       </figure>
       <p id="8e2ca54e-2a08-4b74-820f-e4ebdd087ff2" class="">And that is all. It may seem like many steps but the process is logical and dialogs guide you thru it. Now lets look at the <code>"test.self"</code> file that was created in the folder <code>"objects/applications/"</code> in the directory at the same level as the directory that we run the Self itself (<code>../objects/applications/</code>, don't ask me why):</p>
       <pre id="8986cc46-a101-4b1f-9d1a-23827d0a1045" class="code"><code>''
@@ -359,15 +359,15 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
  globals modules test postFileIn</code></pre>
       <p id="5b519e55-b373-4f16-838b-7acf0867cd85" class="">The exported code is really ugly at first glance. I think it is because it uses only <em>transported directives</em> You can find all kinds of metadata set in it. This file can be versioned with git and it can also be loaded to the new image:</p>
       <figure id="f83d4013-9bfb-4fdb-83c8-212f2b7bed59" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_33.png" title="transporter_33.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_33.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_33.png" title="transporter_33.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_33.png"></a>
       </figure>
       <p id="9f65e00b-5a55-4236-9bde-027792ab4e2e" class="">This gives us metadata about the module and in the outliner for <code>globals applications</code> we can see a new slot "test":</p>
       <figure id="6b9d88e1-243a-4cb5-9d19-c727e5a10922" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_34.png" title="transporter_34.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_34.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_34.png" title="transporter_34.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_34.png"></a>
       </figure>
       <p id="08fb5c14-683e-42c1-9ac0-75f35845fdfb" class="">In which we can find our object:</p>
       <figure id="bee35e93-cccd-440a-9c74-7a236b190880" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_35.png" title="transporter_35.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/transporter_35.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_35.png" title="transporter_35.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_35.png"></a>
       </figure><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
@@ -376,51 +376,51 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
       <p id="accb3f3b-3be0-45b4-8e0a-7505c263c308" class="">Self has the debugger of the Smalltalk type, from which we can interactively change the code. Short demonstration will say more than a thousand words.</p>
       <p id="d710bb4f-02d9-4a8a-a0fc-355b665ca17a" class="">I create a simple object in Shell with slot "a", where the code, which should write the value of number "1" in the standard output, is saved. But I make a "mistake" and instead of the message <code>printLine</code> I write <code>printLin</code> without the <code>e</code> at the end:</p>
       <figure id="02e80c8f-41cd-4068-a52d-744b47f78f5a" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_0.png" title="debugger_0.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_0.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_0.png" title="debugger_0.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_0.png"></a>
       </figure>
       <p id="a520ac46-c97e-44f1-a139-b7bc1899139c" class="">This gives me an object, which I described.</p>
       <figure id="b7d01d01-08ff-4ff3-9c23-59046691cfcc" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_1.png" title="debugger_1.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_1.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_1.png" title="debugger_1.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_1.png"></a>
       </figure>
       <p id="ee239e46-d51c-4b90-acaa-7d89a42a7920" class="">I can check, if it is really the object by putting it on the desktop and unfolding the slots:</p>
       <figure id="be80c487-4057-4d8d-b929-b3552edc5acd" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_2.png" title="debugger_2.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_2.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_2.png" title="debugger_2.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_2.png"></a>
       </figure>
       <p id="0bed8296-7e1e-4a37-920c-5052cc22a154" class="">I open <em>subshell</em> in the object by clicking E in the right top corner and send the message "a" to the object:</p>
       <figure id="3edd3b73-3c9f-48ef-98f4-d5384c656c6a" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_3.png" title="debugger_3.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_3.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_3.png" title="debugger_3.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_3.png"></a>
       </figure>
       <p id="8dd71904-cd64-4a7f-b3d0-38e0fd523bbf" class="">Now I click on <em>Get it</em>, which should process the code (therefore write 1 into the console) and at the same time it should also give me the result of the operation into my hand (this should be object <code>1</code>). But I have a mistake in the code, so instead I get a debugger:</p>
       <figure id="f77155e5-c5a2-425b-96c0-b400200f2ae9" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_4.png" title="debugger_4.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_4.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_4.png" title="debugger_4.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_4.png"></a>
       </figure>
       <p id="0a8d83fe-923a-40df-95ef-2ea33825891a" class="">The debugger looks a bit similar to the outliner. A box, that can be clicked on to unfold its various parts. Here you can see it unfolded:</p>
       <figure id="e14a4e87-f3e7-4519-ad3b-212bb48ed2eb" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_5.png" title="debugger_5.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_5.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_5.png" title="debugger_5.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_5.png"></a>
       </figure>
       <p id="5911ea4f-c25e-49b1-8c0c-2f11aab4e69e" class="">We can see the whole stack trace and even more. We can also interact with it. For example, we see number 1 on the top left side, which is the message receiver (selector). We can click the number 1 and get the object:</p>
       <figure id="df6e4da7-8749-4a28-8e76-81ef0ab2e4e5" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_6.png" title="debugger_6.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_6.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_6.png" title="debugger_6.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_6.png"></a>
       </figure>
       <figure id="e25db528-ebe7-4c7d-86a1-0e3111209540" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_7.png" title="debugger_7.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_7.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_7.png" title="debugger_7.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_7.png"></a>
       </figure>
       <p id="585fd5d4-b79a-4ccd-9f1e-2a7b07975979" class="">In the case of number 1 it doesn't really make much sense, but with other objects, the live examination can be very useful.</p>
       <p id="85a3bce3-e329-4f53-905a-cd598067af30" class="">We can also correct the mistake directly from the debugger:</p>
       <figure id="e33dab98-6d46-4d11-9809-21245140318f" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_8.png" title="debugger_8.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_8.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_8.png" title="debugger_8.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_8.png"></a>
       </figure>
       <p id="119ba81c-e465-4e39-b9d4-b7f843d9fa5a" class="">The code gets adjusted after clicking on the green square. Notice the outliner next to it:</p>
       <figure id="cd13c2e9-7c9b-4a06-9fee-d8b99a5b7629" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_9.png" title="debugger_9.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_9.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_9.png" title="debugger_9.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_9.png"></a>
       </figure>
       <p id="e7a4d69b-4864-4b77-92d0-383003252bf0" class="">Now I click on continue and the whole interpret will continue, where it would usually continue, if there wasn't any mistake. So, the number 1 gets printed on the console and I get it to the <em>hand</em> as an output.</p>
       <figure id="04dc0654-d895-43e2-8089-7b398c2979fb" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_11.png" title="debugger_11.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_11.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_11.png" title="debugger_11.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_11.png"></a>
       </figure>
       <p id="1333c7e2-7e23-4bde-bb07-e9a7a3dabcf4" class="">Debugger now indicates that it's dead and minimizes. Now if I click the button <em>Get it</em> again, everything will work as expected;</p>
       <figure id="d8d591ca-d385-455d-bd44-0a75e014efc8" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_13.png" title="debugger_13.png"><img style="width:715px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/debugger_13.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_13.png" title="debugger_13.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_13.png"></a>
       </figure>
       <h1 id="57e279f0-258c-4e5a-9a0c-04f7c9ee57f3" class="">The Problems</h1>
       <p id="e4ce804f-e475-4d8d-80dc-06d5b06f8ba1" class="">Self is quite a sad heap from the practical point of view. I would like to say that it is usable to a big extent, but not enough for the beginners. If you need to solve something, you won't be able to google the solution. In most cases, you are probably the first one encountering such a problem. When not, there is quite a big chance that the problem hasn't been solved yet.</p>
@@ -475,7 +475,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
       <p id="f63403ac-23c8-4453-bb36-773f8e6ffa2b" class="">Also, if you are looking into a more complex stuff, you end up with tens of opened outliners scattered all around the desktop.</p>
       <p id="f0e74a99-5add-4e8e-bbba-6cea4ab2ba22" class="">Here is a module browser in Smalltalk:</p>
       <figure id="fe993079-896c-4cc1-b39e-ae33fbd29ac7" class="image">
-        <a href="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png" title="smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png"><img style="width:886px" src="../../../cz/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png" title="smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png"><img style="width:886px" src="Environment_and_the_programming_language_Self_part_three_debugger/smalltalk_code_browser-b693420e-2760-41f5-be79-b9fdc4c49e4f.png"></a>
       </figure>
       <h2 id="14c0e4f6-d878-4a97-a9d0-2c1f116a1aa2" class="">Self and pictures</h2>
       <p id="5fd19187-f896-4e15-83ce-ead1f0c9f721" class="">Self doesn't know how to show pictures in any of the usual formats. The only format it can show is some <a href="https://en.wikipedia.org/wiki/Sun_Raster">Sun's raster format</a>:</p>

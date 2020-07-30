@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Prostředí a programovací jazyk Selfu (díl druhý; jazyk)</title>
+  <link rel="stylesheet" type="text/css" href="../../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="http://blog.rfox.eu/atom_cz.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Prostředí a programovací jazyk Selfu (díl druhý; jazyk)">
+  <meta name="twitter:description" content="Minulý díl Prostředí a programovací jazyk Selfu (díl první; prostředí) představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu.">
+  <meta name="twitter:image" content="http://blog.rfox.eu/en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/accessing_kategorie.png">
+  <script src="../../../../scripts.js">
+  </script>
+  <meta name="description" content="Minulý díl Prostředí a programovací jazyk Selfu (díl první; prostředí) představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu."><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+  <script data-ad-client="ca-pub-8322439660353685" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async>
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Blog categories:</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../../../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8589969791" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div><a class="breadcrumb" href="../../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="../../index.html" title="Programování">Programování</a> / <a class="breadcrumb" href="../index.html" title="Seriál o Selfu">Seriál o Selfu</a> / Prostředí a programovací jazyk Selfu (díl druhý; jazyk)
+  <article id="559e708a-2944-42b4-af79-127992196ad1" class="page sans">
+    <header>
+      <h1 class="page-title">Prostředí a programovací jazyk Selfu (díl druhý; jazyk)</h1>
+    </header>
+    <div class="page-body">
+      <p id="1d0b408f-8577-47cd-8eaa-f1a4a7ce6cb4" class=""><time>@2019/02/07</time></p>
+      <p id="3b53c04c-fe94-4c38-a3ca-57c06b7429fd" class="">Minulý díl <a href="../Prostredi_a_programovaci_jazyk_Selfu_dil_prvni_prostredi.html" title="Prostředí a programovací jazyk Selfu (díl první; prostředí)">Prostředí a programovací jazyk Selfu (díl první; prostředí)</a> představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu.</p>
+      <h1 id="4067bafb-3439-4879-9960-b4521d72a74b" class="">Z hlediska jazyka</h1>
+      <p id="5a913690-b31e-4c79-a955-8c922a416eb7" class="">Self je syntakticky inspirován Smalltalkem. Však se také zrodil na stejném místě, v Xeroxu PARC, i když o desetiletí později. V Selfu se podobně jako ve Smalltalku vše točí kolem posílání zpráv. Oproti Smalltalku ale zavádí syntaktický konstrukt pro objekty.</p>
+      <p id="96e3dbdf-9711-4624-9ee8-8d7ce0680d6e" class="">Objekt je možné vnímat jako <em>key: val</em> (<em>klíč: hodnota</em>) úložiště. Jednotlivé klíče jsou v terminologii Selfu nazývány <em>sloty</em>.</p>
+      <p id="79fc2fd5-c2ed-4972-84cd-ec4c8ddec994" class="">Poté co objektu pošleme <em>zprávu</em>, je v paměti vyhledán obsah konkrétního slotu. Pokud se jedná o datový slot (objekt v něm uložený neobsahuje kód), je vrácen. Pokud se jedná o objekt s kódem, je vrácena hodnota zbylá po provedení kódu objektu.</p>
+      <p id="50ed3495-f75b-4189-8a03-21eadc53c54d" class="">Zprávu objektu pošleme tím, že jí napíšeme napravo od něj.</p>
+      <p id="3b139891-a0bc-4da1-a092-b56e85ddc008" class="">Kód</p>
+      <pre id="6e6a6d20-c4be-41c6-9817-9f91dc4873fe" class="code"><code>obj zpráva</code></pre>
+      <p id="8b638e7b-0da0-446e-a1b3-8ee0fb9142c8" class="">je podobný výrazu v C-like syntaxi:</p>
+      <pre id="5cea0c0b-c67b-42f2-be04-b04e237fb8a5" class="code"><code>obj.zpráva()</code></pre>
+      <h2 id="0172a46b-6aa0-452d-a730-15ddbef6099e" class="">Syntaxe objektu</h2>
+      <p id="4a937de0-1335-4fae-86c6-c8e3da14dc74" class=""><code>()</code> vytvoří prázdný objekt. To je objekt, ve kterém nejsou žádné metody a který neumí reagovat na žádné zprávy.</p>
+      <p id="d5b818df-bef7-452f-b055-a8e573e1d32c" class="">Kód <code>(| a. b. |)</code> vytvoří objekt, ve kterém jsou dva sloty pojmenované jako <code>‚a‘</code> a <code>‚b‘</code>. Hodnoty obou budou nastaveny na <code>nil</code>.</p>
+      <p id="8a72c70a-a68b-45d4-943c-292bf9b5d60a" class="">Znak svislé čáry <code>|</code> uvozuje definici slotů. Jednotlivé sloty jsou odděleny tečkami. Výše uvedený objekt je „krabička“, která má v sobě dva šuplíky <code>a</code> a <code>b</code>. Ty můžou uchovávat data, či kód.</p>
+      <p id="77656745-d2ac-4c78-8957-6308db395687" class="">Objekt v Selfu funguje tak trochu jako hashmapa, či dictionary (slovník). Do konkrétního slotu se dá uložit konkrétní hodnota. Tuto hodnotu je možné přiřadit již při inicializaci:</p>
+      <pre id="3812a72b-2c71-48b9-981e-f6cc84b9a958" class="code"><code>(| a &lt;- nil. b = nil. |)</code></pre>
+      <p id="189d3c0e-0980-46ce-8560-363e8ee8eb7f" class="">V příkladu je možné vidět hned dva styly přiřazení hodnoty. Liší se od sebe tím, že první je možné později přepisovat (<code>&lt;-</code>), druhý (<code>=</code>) nikoliv.</p>
+      <p id="26eb4fca-a884-4312-948e-380a5aa9678d" class="">Ve skutečnosti dochází na nízké úrovni v prvním případě k vytvoření dvou slotů - skutečného slotu a metody pro zápis do tohoto slotu. Ve druhém případě je vytvořen jen slot samotný a není tedy možné do něj zapsat. To má své využití pro různé konstanty.</p>
+      <p id="c8d65600-b3f9-4ef5-863e-c321033d9f9d" class="">Objekt dále může obsahovat kód, který je uveden za druhou svislou čarou <code>|</code>:</p>
+      <pre id="daec0f5b-5c14-4f9c-b217-f87fee21cb88" class="code"><code>(| a = 1 | a printLine)</code></pre>
+      <p id="e5b1ab7d-35ac-4e1b-90bd-ced4bc1bdf06" class="">Výše uvedená ukázka definuje nepojmenovaný objekt, který vytváří jeden slot <code>‚a‘</code> nastavený na objekt čísla <code>1</code>. Dále obsahuje kód spočívající v poslání zprávy <code>printLine</code> slotu <code>‚a‘</code>, tedy hodnotě v tomto slotu.</p>
+      <h2 id="402eaf51-83ed-4177-a41e-be2e74cce457" class="">Parent sloty</h2>
+      <p id="52c39125-7762-419a-8c7a-6fb569b5c548" class="">Speciálním typem slotů v Selfu jsou takzvané <em>parent sloty</em> (<em>rodičovské sloty</em>). Ty způsobí, že zprávy, které nejsou nalezeny v objektu jsou delegovány do objektů, na které ukazují tyto sloty.</p>
+      <p id="102b3530-01df-412c-871f-38bd0c537907" class="">Pokud pošleme objektu</p>
+      <pre id="58e7eaf2-9b97-423a-b8ad-7cf14aed0f64" class="code"><code>(| p* = traits clonable |)</code></pre>
+      <p id="a036b1aa-1acc-4437-9835-95ad335f0378" class="">zprávu <code>clone</code>, vrátí svojí vlastní kopii, i přestože v něm není metoda uložená ve slotu <code>"clone"</code>. Ta je však definována v objektu, na který odkazuje slot <code>p*</code>, či v nějakém nadřazeném, pokud tento objekt také obsahuje <em>parent slot</em>.</p>
+      <p id="9b4fb6f1-f799-43c9-912f-0ec07d62e46a" class="">Tímto mechanismem je efektivně implementována dědičnost. Pokud se nad tím zamyslíte, podobá se chování situaci, kdy voláme metodu předka objektu dědícího z <code>"traits clonable"</code> například v pythonu.</p>
+      <h2 id="59aa87c1-a5d0-4288-a639-d33104d77681" class="">Parametry</h2>
+      <p id="e93709a4-4a41-40f8-aaea-8074abd81dc1" class="">Mezi <code>|sloty|</code> mohou být také parametry. Ty jsou uvozeny dvojtečkou v začátku názvu. Například objekt:</p>
+      <pre id="3447fd9e-ec7b-49a9-bf2e-3e03bce1a7a6" class="code"><code>(|
+    x:Y: = (| :a. :b. | a printLine)
+|)</code></pre>
+      <p id="91c29e3e-4691-4b86-aa63-e47657dc76fd" class="">obsahuje jeden slot <code>‚x:Y:‘</code>, který odkazuje na objekt-metodu přijímající parametry <code>‚a‘</code> a <code>‚b‘</code>, který pošle parametru <code>a</code> zprávu <code>printLine</code>.</p>
+      <h2 id="dce86965-c323-4e64-9764-98753fdcc7dc" class="">Zprávy</h2>
+      <p id="76c9a0f6-d55f-4ef5-b6b4-edba833fbcf6" class="">Zprávy mohou být následujících typů:</p>
+      <ul id="e80b8cb2-abe5-4d5a-8e74-c41d13bfbfd3" class="bulleted-list">
+        <li><em>Unární</em>, například: <code>first</code></li>
+      </ul>
+      <ul id="c5f547b9-fc64-4060-a91b-7bc1aeea905c" class="bulleted-list">
+        <li><em>Binární</em>, například: <code>&gt; a</code></li>
+      </ul>
+      <ul id="2e39cd32-2c30-4698-97dc-a3e478270c0d" class="bulleted-list">
+        <li><em>Keyword</em>, například <code>set: a</code>, nebo také <code>set: a And: b</code>.</li>
+      </ul>
+      <p id="d69864e9-afd8-4997-bad0-c28e5d6140cd" class=""><em>Unární</em> zprávy nemají parametry. <em>Binární</em> mají přesně jeden parametr a používají se pro operátory. <em>Keyword</em> zprávy můžou mít libovolný počet parametrů. Na rozdíl od Smalltalku začínají další slova víceparametrové zprávy vždy velkým písmenem. Díky tomu je jasně vidět kde končí.</p>
+      <p id="c9d1be63-bc6d-4d7f-96d7-98d287550daa" class="">Zpráva <code>a first</code> najde v objektu <code>‚a‘</code> slot (property) nazvaný <code>"first"</code>. Pokud jsou v něm data, vrátí se. Pokud je v něm kód, vykoná se a vrátí se výsledek (poslední příkaz).</p>
+      <p id="fcad7473-c8e9-41c8-b842-1a93e19e1779" class="">Zpráva <code>a &gt; 1</code> najde v objektu <code>‚a‘</code> slot nazvaný <code>"&gt;"</code> a předá mu parametr <code>1</code>. Ve slotu tohoto typu může být jen kód (objekt-metoda), neboť vždy přijímá přesně jeden parametr.</p>
+      <p id="9ae80f4f-c6c3-42a6-a0da-1655a16634e8" class="">Zpráva <code>x set: a And: b</code> najde v objektu <code>‚x‘</code> slot nazvaný <code>"set:And:"</code> a předá mu parametry <code>a</code> a <code>b</code>.</p>
+      <h2 id="cd653951-6420-4f9a-9696-a9f03271092f" class="">Primitiva</h2>
+      <p id="15365ed3-8067-4c38-8adb-431224282d88" class="">Čtvrtým typem zpráv jsou <em>primitivní zprávy</em>, které poznáme podle toho, že začínají podtržítkem:</p>
+      <p id="50bbb5eb-aa42-4516-9ee2-6f319f3bc3e3" class=""><code>_print</code></p>
+      <p id="b4b44a2c-5031-4f24-b90f-efb9b0930891" class=""><code>_set: s And: b</code></p>
+      <p id="f31e593c-4586-4d9c-a102-c3a837652286" class="">Tyto zprávy se od ostatních liší tím, že jsou používány pouze pro volání primitiv interpretru, tedy částí implementovaných v C++.</p>
+      <p id="a71b1001-811e-44f7-953d-0f74bdbd47b9" class="">Celý Self jako programovací prostředí je možné chápat jako jazyk vystavený na axiomech definovaných primitivy.</p>
+      <h2 id="7118b104-95de-465a-b03c-af7aab6858b7" class="">Self</h2>
+      <p id="7f2a7cb9-cde6-4924-b6ca-8d519723e8a3" class="">Self se jmenuje „Self“ protože na rozdíl od Smalltalku není třeba toto klíčové slovo uvádět před každou zprávou poslanou sama sobě.</p>
+      <p id="5005e4d8-7b40-423d-95e8-baf73dcce437" class="">Pokud objekt chce volat svojí vlastní metodu <code>print</code>, může v kódu jiné metody použít:</p>
+      <pre id="89d11fe5-4fe3-49f6-b7cb-b5feabe57d87" class="code"><code>self print</code></pre>
+      <p id="43173edf-b06f-4108-b322-1d25cee2c56a" class=""><code>self</code> však lze vynechat a zavolat pouze:</p>
+      <pre id="888b0a26-5852-49a2-bc17-520eea616f80" class="code"><code>print</code></pre>
+      <p id="0eee5216-fdee-4c54-b11d-a2c347465e41" class="">Toto je poměrně zajímavá vlastnost, která stojí za zamyšlení. Každý identifikátor, který napíšete a není najit v namespace, je delegován do objektu samotného a dále do všech <em>parent slotů</em>. Co je vlastně lokální namespace, když objekt všechno implicitně pošle sám sobě?</p>
+      <h2 id="8fc6dc95-664f-43b9-acdd-36beadbee299" class="">Bloky</h2>
+      <p id="d1c80547-d657-4801-825a-5fdaa9f2216d" class="">Bloky fungují podobně jako objekty, až na tři rozdíly: jsou vyhodnocovány až v době běhu, chovají se, jako by automaticky obsahovaly <em>parent slot</em> ukazující do <em>namespace</em> (jmenného prostoru), ve kterém byly vytvořeny a automaticky mají nastavený <code>parent*</code> na <code>traits block</code>.</p>
+      <p id="0e3b1465-118b-4d9e-84e8-467d0260a718" class="">Díky těmto vlastnostem fungují jako <em>closures</em> známé z ostatních programovacích jazyků.</p>
+      <p id="99a6d3c3-7601-403c-8010-0eaf5c30e3da" class=""><code>[]</code> tvoří prázdný blok.</p>
+      <p id="8848b682-8890-4be9-9544-60db8bb820ec" class="">Podobně jako objekty i bloky můžou obsahovat sloty: <code>[| a &lt;- 1. |]</code> vytvoří blok obsahující slot <code>‚a‘</code> o přepisovatelné hodnotě <code>1</code>.</p>
+      <p id="661f58cd-6c95-41c3-8fa0-706cdec669fa" class="">Bloky také můžou přijímat parametry: <code>[| :a | a printLine]</code> a tvořit například <em>code objekt</em>, který očekává jeden parametr a ten při zavolání vypíše. Jak blok zavolat? Stačí mu poslat zprávu <code>value</code>, případně <code>value:</code>, pokud přijímá jeden parametr a <code>value:With: .. With: ..</code> pokud jich přijímá více.</p>
+      <p id="4039c370-43bb-4d96-bd3a-40835dd01a32" class="">Pomocí bloků jsou v Selfu implementovány veškeré kontrolní prvky. Větvení if podmínkami, cykly a tak dále.</p>
+      <p id="810210a5-3dc1-47c7-93ef-93dc2cbf1942" class="">Například <em>if podmínka</em> je jen <em>keyword zpráva</em> <code>ifTrue:</code>, či <code>ifTrue:False:</code> bool objektu, které se jako parametr předává blok s kódem:</p>
+      <pre id="6903307b-c9fc-49ab-a60d-e2c616829932" class="code"><code>(| :a. :b. |
+    (a &gt; b) ifTrue: [^a] False: [^b].
+)</code></pre>
+      <p id="18b60d6d-13ef-41da-af73-400cc6bc60cb" class="">Zde vidíte <em>code object</em> přijímající parametry <code>‚a‘</code> a <code>‚b‘</code>, které porovná mezi sebou (posláním binární zprávy <code>&gt; b</code> objektu <code>a</code> a výslednému bool objektu poté pošle zprávu <code>ifTrue:False:</code> s prvním parametrem obsahujícím blok vracející <code>‚a‘</code> a druhým parametrem obsahujícím blok vracející <code>‚b‘</code>.</p>
+      <p id="bcba13e9-c854-4c2d-b36d-b357fc61d0d6" class="">Znak stříšky <code>^</code> znamená <em>return</em>. Použit v bloku, vrací hodnotu nikoliv jen ze samotného bloku, ale i z nadřazeného <em>namespace</em>. V uvedeném případě tedy dojde k vrácení hodnoty z celého <em>code-objectu</em> / metody, nikoliv jen z bloku (to lze provést pomocí zprávy <code>return:</code>).</p>
+      <p id="3d36be70-e7ee-47ea-8b4d-1679dacee226" class="">Obecně co se týče návratových hodnot, tak je možné použít <code>^</code> k vrácení hodnoty, nebo hodnotu poslední zprávy v daném kódu.</p>
+      <pre id="b450c717-731b-4139-aee1-06e04a209284" class="code"><code>(|
+    parent* = traits boolean.
+    a = (true ifTrue: [1])
+|)</code></pre>
+      <p id="ee8aa16d-5a50-421e-a53f-d4cafc1ca88c" class="">Zde vidíme definici objektu, který obsahuje <em>parent slot</em> odkazující se na <code>traits boolean</code>. Tím nám zpřístupní kromě jiného i zprávu <code>true</code>.</p>
+      <p id="ae831798-c1ff-4502-b652-d75d3906e5e0" class="">Metoda uložená ve slotu <code>‚a‘</code> potom pošle zprávu <code>true</code> sama sobě, což vrátí skrz delegaci na slot <code>true</code> definovaný někde v <code>traits boolean</code> kopii objektu obsahujíciho hodnotu <code>true</code>. Tomuto objektu je poté poslána <em>keyword zpráva</em> s blok parametrem, který obsahuje kód pouze s objektem <code>1</code>.</p>
+      <p id="72883508-2228-41c8-9898-b41b23ee00f0" class="">Protože je objekt <code>1</code> poslední hodnotou v bloku, dojde k vrácení jeho hodnoty. Výsledek ze zprávy <code>ifTrue:</code> je také vrácen a stává se tak poslední hodnotou v metodě uložené ve slotu <code>‚a‘</code> a je tedy vrácen jako hodnota.</p>
+      <h2 id="8e9a32d6-f51e-45d3-afe7-81bb13d965ec" class="">Delegace</h2>
+      <p id="d6d2a13b-a772-43aa-9a7a-626a88e1e940" class="">Jak už jsem psal - Self obsahuje cosi, co funguje jako dědičnost, ale dědičností není. Jedná se o delegaci zpráv, kterým objekt nerozumí, na objekt definovaný v <em>parent slotu</em>.</p>
+      <p id="ac1f790f-891b-4380-aa98-3e5a5c5c00b7" class="">Objekt může mít <em>parent slotů</em> víc, v některých případech je tak nuté specifikovat, z jakého <em>parent slotu</em> se má slot vybrat. To je možné takzvaným <em>resend</em> zprávou. Ta se syntakticky používá jako jméno parent slotu oddelěné tečkou od jména zprávy, například <code>parent.message</code>.</p>
+      <p id="69328809-fd21-441a-8175-12d4efaef9d9" class="">Například pokud by jsme měli objekt:</p>
+      <pre id="1b0f5eec-a9a5-400d-ba78-11a32640d31e" class="code"><code>(|
+  firstParent* = traits something.
+  secondParent* = traits different.
+|
+
+   copy.
+)</code></pre>
+      <p id="ad5039ac-9f28-4802-819e-29c77e83472b" class="">a pokud by oba objekty na které odkazují <em>parent sloty</em> definovaly slot <code>copy</code>, bylo by nutné vybrat konkrétní <em>resend</em> manuálně pomocí tečky takto: <code>secondParent.copy</code>.</p>
+      <p id="13ceeea7-e36e-4cd5-b9fc-88060cfc01f4" class="">Delegace je poměrně zajímavý koncept, který jak je vidět umožňuje jak jednoduchou, tak vícenásobnou dědičnost. Kromě toho ale umožňuje i věci, které klasické jazyky nenabízí a to je například měnit <em>parent slot</em> za běhu a efektivně tak přepínat, na který objekt jsou nenalezené zprávy delegovány.</p>
+      <p id="0156f6a5-0b7f-4a2e-9257-4ff90c222016" class="">Na první pohled poněkud divoká konstrukce má docela zajímavé využití například při psaní parserů, kde umožňuje měnit kontext.</p>
+      <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
+      <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
+      <pre id="5c1b05c8-5bbc-44b6-9e1e-3e873c3bea83" class="code"><code>"toto je komentar"</code></pre>
+      <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
+      <p id="9603835d-8055-422c-9880-c44c1aca0bf9" class="">Anotace jsou způsob přidávání metadat k objektům, kterému se dokumentace překvapivě málo věnuje, přestože je použít napříč celou image.</p>
+      <p id="85d3a334-fb28-46cf-9225-3d1b8276cf27" class="">Syntaxe používá složené závorky:</p>
+      <pre id="8581fad4-1f90-40ef-9b22-21e46cccef2c" class="code"><code>(|
+  p* = traits clonable.
+  {'Category: accessing'
+    slot = nil.
+  }
+|)</code></pre>
+      <p id="6ffc2838-15da-464f-a7f5-0269d9665f17" class="">Což například řekne grafickému rozhraní, aby slot zobrazilo v kategorii accessing:</p>
+      <figure id="cb2631b6-59c6-41cf-a3cd-bee70b296917" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/accessing_kategorie.png" title="accessing_kategorie.png"><img style="width:213px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/accessing_kategorie.png"></a>
+      </figure>
+      <p id="03d548ac-10e1-4737-a8b1-baf76e516c7b" class="">Osobně mi anotace přijdou syntakticky poněkud matoucí a podařilo se mi způsobit všelijaké druhy errorů, když jsem jen tak vytvářel anotace s různými náhodnými popisky:</p>
+      <figure id="2f2ad395-54c8-44ed-98e6-55ad7df7526e" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/errory_u_anotaci.png" title="errory_u_anotaci.png"><img style="width:430px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/errory_u_anotaci.png"></a>
+      </figure>
+      <p id="88208f5b-2e58-4fcb-affe-33e17852d7cd" class="">Přesto anotace jsou použity všude, především však pro Transporter, který si pomocí nich označuje který objekt patří do jakého modulu, kdy byl naposledy updatován a tak podobně.</p>
+      <p id="b3ff76b9-20f5-47e8-a303-08c5841360e4" class="">Anotace jako takové nejsou vidět v samotném objektu pomocí například Outlineru, k tomu je zapotřebí použít mirror (viz následující kapitola).</p><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <h1 id="d2f26ecc-4ac3-414a-93c9-7e3ba05dd3f0" class="">Z hlediska Stdlib</h1>
+      <p id="73f65547-157c-4b3c-85c2-b5868c5fec4a" class="">Chyták jednoduchých jazyků, jejichž syntaxe se příslovečně vejde na pohlednici, spočívá především v přehození složitosti na stdlib. Self v tomhle není výjimka, proto nebudu ukazovat úplně celou stdlib, jen některé části. Zvědavý čtenář si může konkrétní detaily zobrazit v samotném Selfu.</p>
+      <h1 id="23006762-6fc4-4ac9-aab3-63a4dfbca99b" class="">Podmínky</h1>
+      <p id="5ffa8e50-5e66-408c-bee5-e71e78335e1e" class="">Jak bývá v jazycích smalltakovského typu zvykem, if podmínky jsou implementovány jako zprávy objektu typu bool. K dispozici jsou zprávy:</p>
+      <ul id="55a9eb6c-e949-4f41-bbe5-e8607f1f5e0d" class="bulleted-list">
+        <li><code>ifTrue: []</code></li>
+      </ul>
+      <ul id="71b4043c-793a-4c53-b097-087ddbb4e9d4" class="bulleted-list">
+        <li><code>ifFalse: []</code></li>
+      </ul>
+      <p id="35c0773a-4a3e-436e-b95a-1cf92397d78d" class="">a jejich ekvivalenty s "else" větví:</p>
+      <ul id="6da3139c-d2d5-402b-8185-d432a5ff43da" class="bulleted-list">
+        <li><code>ifTrue: [] False: []</code></li>
+      </ul>
+      <ul id="eeda4fea-5874-40c4-89ad-022fdc64cc70" class="bulleted-list">
+        <li><code>ifFalse: [] True: []</code></li>
+      </ul>
+      <h1 id="02859bf0-5aab-4947-9697-b6ccde529188" class="">Cykly</h1>
+      <p id="c4a21e99-ea6d-45dd-88b0-c690e416241e" class="">Podobně jako podmínky, tak i cykly jsou realizovány jako zprávy posílané buďto kolekcím, nebo objektu bloku.</p>
+      <p id="8f5dd7b6-6c3f-4051-96e3-3b6e4e62853d" class="">Základní zprávou je <code>loop</code>:</p>
+      <ul id="4c3cf203-31ae-4960-a14e-48faf2da9ad5" class="bulleted-list">
+        <li><code>[ ... ] loop</code></li>
+      </ul>
+      <p id="9285b482-4830-4209-ae39-ae925181786a" class="">Toto způsobí, že tělo bloku bude voláno do nekonečna.</p>
+      <p id="a2da7eb8-bf18-43d0-8b8a-4cd229735f01" class="">Dále jsou k dispozici podmíněné smyčky:</p>
+      <ul id="82d13e2f-17b1-4095-8c58-15d1da9232e3" class="bulleted-list">
+        <li><code>[ podmínka ] whileTrue: [ ... ]</code></li>
+      </ul>
+      <p id="542f7de1-583b-4080-b5fa-04f5e7ee7bbe" class="">a ekvivalenty <code>whileFalse:</code>, <code>untilTrue:</code>, <code>ultilFalse:</code>, <code>loopExit</code> a <code>loopExitValue</code>.</p>
+      <p id="69ded5ea-7227-45f5-93de-cea01bed8ed7" class="">Dalšími cykly jsou <code>do:</code> zprávy číselným typům, s alternativami v podobě <code>to:Do:</code> a <code>to:By:Do:</code>, které cyklí od do nějaké hodnoty, podobně jako třeba iterátor <code>range()</code> v pythonu.</p>
+      <p id="7bdf7ba1-6f50-4acf-a2f3-7a315838ae84" class="">K dispozici jsou také různé transformátory a iterátory nad kolekcemi, které fungují podobně. Například lze poli poslat zprávu <code>mapBy:</code>, <code>mapBy:Into:</code>, <code>gather:</code>, <code>filterBy:</code> a tak podobně.</p>
+      <p id="16edc762-d693-42e0-9e52-7ff97b1a4423" class="">V tomhle ohledu doporučuji se vždycky podívat na danou kolekci. Zpráv tohoto druhu je tam několik desítek a umožňují vše od filtrování po vyhledávání, sortování, mapování, transformování, počítání výskytu a tak podobně. Dá se říct, že těch zpráv je víc než třeba v pythonu.</p>
+      <p id="b03742e8-633f-4f67-ab26-01b214e28125" class="">Čistě pro zajímavost, jen kolekce typu <code>list</code> reaguje na tyto zprávy:</p>
+      <pre id="b8152a26-90e4-4361-b443-6299d4b5d991" class="code"><code>&lt;= x
+&gt; x
+&gt;= x
+areKeysOrdered
+copare: x IfLess: lb Equal: eb Greater: gb
+copy
+KeyedStoreStringIfFail: fb
+max: x
+min: x</code></pre>
+      <h2 id="865ec321-eb17-4bfd-a9f7-a504d96edaa7" class="">Accessing</h2>
+      <pre id="4590197e-efed-486b-be9d-b64c3bab7bc6" class="code"><code>at: k
+at: i IfAbsent: b
+first
+first: v
+firstIfAbsent: noneBlk
+isEmpty
+last
+firstLinkFor: elem IfPresent: presentBlock ifAbsent: absentBlock
+firstLinkSatisfying: conditionBlock IfPresent: presentBlock ifAbsent: absentBlock
+ifNone: noneBlock
+ifNone: noneBlock IfOne: oneBlock IfMany: manyBlock
+keys
+last: v
+soleElement</code></pre>
+      <h2 id="53366c34-2d4a-41b0-adfc-31703a572b45" class="">Adding</h2>
+      <pre id="65f1ecb8-4b9e-451c-9e41-091d382c8a68" class="code"><code>add: elem
+add: v WithKey: k
+addAll: c
+add:allFirst: c
+addFirst: elem
+addLast: elem</code></pre>
+      <h2 id="fa1e7fcc-2ba4-4734-8c3f-7dc51b61b9cc" class="">Coercing</h2>
+      <pre id="f1243a90-5b1c-4dd1-9811-67b19da70969" class="code"><code>asList</code></pre>
+      <h2 id="f0e76968-a8e2-408e-9583-d0a900f33069" class="">Comparing</h2>
+      <pre id="6f4ca081-4679-4005-aba4-d793d5081fb0" class="code"><code>&lt; c
+= c
+compare: c IfLess: lb Equal: eb Greater: gb
+hash
+isPrefixOf: c
+isSuffixOf: c
+equalsCollection: c</code></pre>
+      <h2 id="276adcf6-9514-433d-a37f-c66645b2aedc" class="">Concatenating</h2>
+      <pre id="b5e2c0f3-7419-4772-9f0e-4c1f07b2fb06" class="code"><code>, c</code></pre>
+      <h2 id="6db618ae-a413-42ea-9275-dd77914c5fb9" class="">Copying</h2>
+      <pre id="656b2aa9-a12a-4ad0-a1f7-1435eae98c83" class="code"><code>copy
+copyContaining: c
+copyRemoveAll</code></pre>
+      <h2 id="52d43918-0492-47e2-a9eb-15ead7702133" class="">Double dispatch from universalSetOrDictionary</h2>
+      <pre id="ed99d6bf-7ffa-4d31-a108-b94e4f5a224f" class="code"><code>unsafe_with: c1 Do: b FirstKey: firstK1 FirstValue: firstV1</code></pre>
+      <h2 id="a1902ca4-6ac2-4b8f-96bc-ca603dc6d9f9" class="">Inserting</h2>
+      <pre id="b420dd8d-81f8-48ec-b983-e486113a6684" class="code"><code>insert: x AfterElementSatisfying: blk IfAbsent: aBlk
+insert: x BeforeElementSatisfying: blk IfAbsent: aBlk
+insertAll: x AfterElementSatisfying: blk IfAbsent: aBlk
+insertAll: x BeforeElementSatisfying: blk IfAbsent: aBlk</code></pre>
+      <h2 id="55779642-bed2-40d4-820d-2fc086c91059" class="">Iterating</h2>
+      <pre id="2d076775-0071-4d1c-b415-6a1cbb4537ec" class="code"><code>do: b
+doFirst: f Middle: m Last: lst IfEmpty: mt
+reverseDo:
+with: x Do: b
+with: x ReverseDo: b
+withNonindexable: c Do: b</code></pre>
+      <h2 id="4da17818-5f88-40c8-8859-6f249a69050a" class="">InteratingWithEnds</h2>
+      <pre id="c0a6e8e7-b419-4fba-acf1-1df8737908a0" class="code"><code>do: elementBlk SeparatedBy: inBetweenBlk
+doFirst: f Middle: m Last: lst
+doFirst: f Middle: m Last: lst IfEmpty: e
+doFirst: f MiddleLast: ml
+doFirst: f MiddleLast: ml IfEmpty: e
+doFirstLast: f Middle: ml
+doFirstLastt: f Middle: ml IfEmpty: e
+doFirstMiddle: fm Last: lst
+doFirstMiddle: fm Last: lst IfEmpty: e</code></pre>
+      <h2 id="314e6d09-f56f-4ae3-8eba-9e62d9694d3f" class="">Printing</h2>
+      <pre id="3d73a2ae-8531-4f10-854e-84f9313a9419" class="code"><code>collectionName
+comment1
+printStringSize: smax Depth: dmax
+statePrintString
+storeStringForUnkeyedCollectorIfFail: fb
+storeStringIfFail: fb
+storeStringNeeds
+unkeyedStoreStringIfFail: fb
+buildStringWith: block
+continued
+defaultPrintSize
+leftBracket
+minContentsSize
+minElSize
+printStringKey: k
+rightBracket
+separator
+statePrintStringOfElements
+statePrintStringOfSize</code></pre>
+      <h2 id="8ed3b9da-ec5b-46bd-8bc2-4b0c22af4262" class="">Reducing</h2>
+      <pre id="b3ae9124-6d02-48a9-95e3-a490d366774a" class="code"><code>countHowMany: testBlock
+dotProduct: aCollection
+harmonicMean
+max
+mean
+median
+min
+percentile: nth
+product
+reduceWith: b
+reduceWith: b IfSingleton: sb
+reduceWith: b IfSingleton: sb IfEmpty: mt
+rootMeanSquare
+standardDeviation
+sum</code></pre>
+      <h2 id="a24dccd8-a54e-4378-b89e-37efa3fce6a2" class="">Removing</h2>
+      <pre id="4c274a56-79a7-4870-b0c5-df5bf6f4cd04" class="code"><code>remove: x
+remove elem IfAbsent: block
+removeAll
+removeAll: aCollection
+removeFirstIfAbsent: ab
+removeLast
+removeLastIfAbsent: ab</code></pre>
+      <h2 id="1f5a375b-2dc2-4384-b819-9eea8d02aa2d" class="">Searching</h2>
+      <pre id="8ae7a7cb-ba26-479a-b8f0-3eb1ff87114a" class="code"><code>allSatisfy: b
+anySatisfy: b
+findFirst: eb IfPresent: fb
+findFirst: eb IfPresent: fb IfAbsent: fail
+includes: v
+keyOf: elem
+keyOf: elem IfAbsent: ab
+noneSatisfy: b
+occurrencesOf: v
+occurrencesOfEachElement</code></pre>
+      <h2 id="8374d20d-4af8-4230-907b-cc670f43accd" class="">setLikeOperations</h2>
+      <pre id="056ac179-08fb-45d6-8fc9-23a5c94c9ec8" class="code"><code>includesAll: c
+intersect: c
+difference: c</code></pre>
+      <h2 id="96792f18-7dad-4f30-a220-17c73a330f0a" class="">Sizing</h2>
+      <pre id="865610e1-8019-468b-901e-6c48833d1764" class="code"><code>isEmpty
+nonEmpty
+size</code></pre>
+      <h2 id="653ccb99-58b7-4356-be4f-580832fefa74" class="">Sorting</h2>
+      <pre id="9bd71137-9283-470d-b2bf-a84d7cf3df5a" class="code"><code>ascendingOrder
+comment2
+copySort
+copySortBy: cmp
+copySortBySelector: sel
+isAlreadyKnownToBeSortedBy: cmp
+sortedBy: cmp Do: b
+sortedDo: b</code></pre>
+      <h2 id="200e3aaf-0a3c-440a-9c29-007026319605" class="">Testing</h2>
+      <pre id="43512b24-61ae-4650-a09e-e569686f3af3" class="code"><code>isOrdered</code></pre>
+      <h2 id="ab379811-7fdb-4113-b257-7e7b46e073ba" class="">Transforming</h2>
+      <pre id="ca14b549-b3f1-45c5-b65e-0deb8123b9ec" class="code"><code>asByteVector
+asDictionary
+asList
+asOrderedSet
+asSequence
+asSet
+asString
+asTreeBag
+asTreeSet
+asVMByteVector
+asVector
+copyFilteredBy: eb
+copyMappedBy: eb
+filterBy: filterBlock
+filterBy: eb Into: c
+gather: aBlock
+gather: aBlock Into: aCollection
+mapBy: eb
+mapBy: eb Into: c</code></pre>
+      <p id="369e32a4-39f0-4fee-8e0b-a81580069736" class="">To není zrovna málo, že?</p>
+      <h1 id="5ca26c28-9379-4cd2-9897-14142a86147a" class="">Datové struktury</h1>
+      <p id="cbed563b-de22-457c-b4ae-f89202250a44" class="">Datové struktury jsou složené v hierarchiích traitů, které na sebe postupně vrství jednotlivou funkcionalitu.</p>
+      <p id="42cdaf4b-46ad-4bc9-9c2b-8be5d7497b17" class="">Všechny kolekce jsou založeny na key-value párech, dokonce i seznamy jsou na tomto založeny, s tím že jednotlivé prvky jsou použity zároveň jako klíče i jako hodnoty.</p>
+      <p id="35db95cc-be0d-4d17-96fc-f3e6e21ea13e" class="">Self nabízí poměrně bohatou variaci <em>setů</em>, <em>slovníků</em> a <em>stromů</em>:</p>
+      <figure id="a254da5d-fd10-47ae-bcef-9fa2b3fafb0f" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dicts_and_trees.png" title="dicts_and_trees.png"><img style="width:528px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dicts_and_trees.png"></a>
+      </figure>
+      <p id="6a2297c4-5b54-445a-a2d3-7a8801ac6c2b" class="">Stromy se od slovníků liší použití nebalancovaných binárních stromů, což může vést k degeneraci a špatnému výkonu.</p>
+      <p id="09cdaeb2-f315-4b05-9eff-cf88d6d8e26c" class="">Dále je také přítomna variace <em>seznamů</em>, <em>vektorů</em>, <em>stringů</em> a <em>front</em>:</p>
+      <figure id="b1a782b4-1e3e-4880-bbaa-c82977324044" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/lists_vectors_strings_and_queues.png" title="lists_vectors_strings_and_queues.png"><img style="width:425px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/lists_vectors_strings_and_queues.png"></a>
+      </figure>
+      <p id="b5718325-3f4e-4275-9207-951c391f7f49" class="">Mezi nejdůležitější zprávy podporované prakticky všemi kolekcemi patří:</p>
+      <div id="9851930d-2722-4119-b2eb-00626d1917cc" class="collection-content">
+        <h4 class="collection-title">Nejdůležitější zprávy</h4>
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th><span class="icon property-icon"><svg viewbox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle">
+              <path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Zpráva</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText">
+              <path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Popis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="ac99ff4a-828d-4e72-bf2b-5f9fee70eac9">
+              <td class="cell-title">
+                <a href="Nejdulezitejsi_zpravy/at.html" title="at:">at:</a>
+              </td>
+              <td class="cell-|tK0">Získej prvek na pozici / klíči.</td>
+            </tr>
+            <tr id="3dd0e4fd-6a76-47ee-b89f-13c48e94d244">
+              <td class="cell-title">
+                <a href="Nejdulezitejsi_zpravy/atPut.html" title="at:Put:">at:Put:</a>
+              </td>
+              <td class="cell-|tK0">Na pozici / klíč vlož prvek.</td>
+            </tr>
+            <tr id="9879f7d2-aeeb-40e9-893a-5d1ecedd5921">
+              <td class="cell-title">
+                <a href="Nejdulezitejsi_zpravy/add.html" title="add:">add:</a>
+              </td>
+              <td class="cell-|tK0">Přidej prvek (nakonec pokud je řazeno).</td>
+            </tr>
+            <tr id="45687271-4d16-470f-a533-aee85dddd53c">
+              <td class="cell-title">
+                <a href="Nejdulezitejsi_zpravy/addAll.html" title="addAll:">addAll:</a>
+              </td>
+              <td class="cell-|tK0">Přidej všechny prvky.</td>
+            </tr>
+            <tr id="af6aa843-e9a5-4486-ba77-8e75e077ab9b">
+              <td class="cell-title">
+                <a href="Nejdulezitejsi_zpravy/do___.html" title="do: [ .. ]">do: [ .. ]</a>
+              </td>
+              <td class="cell-|tK0">Pro každý prvek proveď.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2 id="a018c5ed-622f-4bb9-9d28-0e8720ed0d95" class="">Ukázka</h2>
+      <p id="865f3819-e253-46d1-ac13-3caeefacc62d" class="">Pokud chcete kolekci použít, prostě napíšete do shellu / kódu její jméno a naklonujete jí. To je možné provést příkazem <code>clone</code>, či <code>copy</code> (jedná se o to samé).</p>
+      <p id="b4a58bec-fb12-4624-a850-3ec774b0e413" class="">Je opravdu důležité nezapomenout kolekci naklonovat, protože ostatní prototypy si jí berou ze stejného místa a pokud do ní začnete cpát data, všechny ostatní kusy kódu s tím budou začínat!</p>
+      <figure id="9880a22e-5ca4-44b9-8691-e526a064267a" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict1.png" title="dict1.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict1.png"></a>
+      </figure>
+      <p id="899cafb4-4307-4e1f-80df-c1d49f07577f" class="">Nyní kliknu na <em>Get it</em>.</p>
+      <figure id="bfce18a1-f89d-4bb1-8ca1-785e76b28bc9" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict2.png" title="dict2.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict2.png"></a>
+      </figure>
+      <p id="f75c42eb-6753-4c25-8ae9-d6a96122dc78" class="">Objekt si položím na plochu a „rozbalím“ pomocí šipky vlevo v rohu:</p>
+      <figure id="1b3fcb79-cf16-4866-9bd4-79bbb63135f2" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict3.png" title="dict3.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict3.png"></a>
+      </figure>
+      <p id="7d816223-6741-4a4a-857f-fa9445d73e4f" class="">Vidím, že v něm je nula prvků (<code>size 0</code>). Otevřu si v něm tedy shell a zkusím do něj něco přidat:</p>
+      <figure id="704f8941-fcab-4132-82c0-bf70dab42908" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict4.png" title="dict4.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict4.png"></a>
+      </figure>
+      <p id="d5fa96a6-6a52-4331-bfa1-536168fbb613" class="">Nyní zvolím <em>Do it</em>, protože hodnotu volání zprávy nechci získat „do ruky“ jako outliner, chci jen provést kód.</p>
+      <figure id="cade47f7-882e-44b3-8204-bf0635b915a1" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict5.png" title="dict5.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict5.png"></a>
+      </figure>
+      <p id="af6e63f4-20f8-4c95-8f74-e9ecb0b47926" class="">Jak je vidět, hodnota se změnila. Nyní se můžu podívat třeba co je zač objekt vrácený na zprávu <code>values</code>.</p>
+      <figure id="f434aba8-f292-4150-a977-1f932ddfbaa0" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict6.png" title="dict6.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict6.png"></a>
+      </figure>
+      <p id="73bbd6c8-a8b6-4d9a-b846-fd5d31463129" class="">A zde je výsledek outliner. Položím si ho na plochu..</p>
+      <figure id="8400532b-bd5b-498a-81df-dcd2569202bf" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict7.png" title="dict7.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict7.png"></a>
+      </figure>
+      <p id="cecc8a49-00a9-4c88-ae05-e357ad2a55cf" class="">.. a rozbalím, abych se podíval dovnitř:</p>
+      <figure id="f876bb1f-e02f-4430-9deb-df91f9561075" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict8.png" title="dict8.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict8.png"></a>
+      </figure>
+      <p id="d4c96b57-35a6-40a1-8d8a-79c865886816" class="">Jak můžu vidět, ve vektoru je na indexu <code>1</code> hodnota <code>'value'</code>, přesně tak jak jsem chtěl. Jen připomínám, že dictionary je nesetřízený.</p>
+      <p id="65b5389d-c64f-42ed-8cfb-4cfb16471ac0" class="">Divného vzhledu shellu vlevo nahoře si nevšímejte, mám nějak rozbité ovladače na grafiku a Self používá tak prehistorické bindingy na X, že mi to celé laguje a překresluje se to divně. Na notebooku mi to funguje jak má.</p>
+      <p id="fcbfcc76-a899-48eb-9ce2-531aade4cdb5" class="">Zde je ještě ukázka, kde si pomocí zprávy <code>do:</code> nechám vypsat prvky a klíče do konzole:</p>
+      <figure id="bb1a520f-9b7b-4e21-8e44-0d6a065a6033" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do.png" title="dict_do.png"><img style="width:908px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do_thumb.jpg"></a>
+      </figure>
+      <p id="66af2734-6a1f-43f4-9d80-cf47fe729679" class=""><code>do:</code> podobně jako všechny iterátory v Selfu očekává blok, který může mít dva volitelné parametry, hodnotu a klíč pojmenované v ukázce pro jednoduchost <code>v</code> a <code>k</code>. Všimněte si poněkud divného pořadí, člověk by to logicky čekal naopak.</p>
+      <h1 id="a469eb78-9b0b-4996-b757-b43ef8d4c21d" class="">Collector</h1>
+      <p id="2356eb1f-d9a1-4328-8598-bd635c9a4356" class=""><em>Collector</em> je speciální datová struktura, která reaguje na binární zprávy <code>&</code>. V podstatě existuje protože Self nemá literál pro vytváření polí. Pokud chceme vytvořit pole, nejjednodušší způsob je použít <em>collector</em>:</p>
+      <pre id="efcc3b16-c0d4-4325-9c0c-c579c07fa7b4" class="code"><code>(1 & 2 & 3) asList</code></pre>
+      <p id="5e6a595a-c7d0-48a2-a86a-9b73b781d728" class=""><em>Collector</em> není ani pole, ani dictionary, ale dá se na všechny možné struktury zkonvertovat posláním zprávy <em>as&lt;Něco&gt;</em>, například <code>asList</code>.</p>
+      <h1 id="142e4cda-169e-43d6-a875-9a3d4bde76ee" class="">Výjimky</h1>
+      <p id="05f661c3-12db-4691-8acd-e03360568e08" class="">Výjimky v Selfu jednoduše nejsou podporovány. Zprávy, které můžou skončit nějakou chybou nabízají zpravidla alternativu v podobě keyword zprávy s parametrem <code>IfFail:</code>. Hezky to jde vidět třeba na objektu pro přístup k operačnímu systému:</p>
+      <figure id="0b8d9459-1755-46f1-baec-5ea1eea9a771" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail.png" title="IfFail.png"><img style="width:964px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail_thumb.jpg"></a>
+      </figure>
+      <p id="1dd09e95-a522-4e3f-b416-e4f44db4a841" class="">Je na programátorovi, aby použil a ošetřil patřičnou chybu (předáním parametru s blokem který na chybu reaguje). Pokud to neudělá, měl by se zobrazit debugger, nebo program spadne.</p>
+      <p id="1828e128-d786-46d0-921e-3a350f79549e" class="">Stejně tak pokud umožňujete jako programátor nějaké knihovny ošetření chyby, je třeba přidat variantu zprávy s <code>IfFail:</code> parametrem.</p>
+      <p id="25200813-49cf-4527-bca0-20cc993f6e8a" class="">Osobně mi to nepřijde jako úplně nejšťastnější řešení, ale co se dá dělat.</p>
+      <h1 id="0ad096cd-e4fd-4cb7-9bd8-2d24a7cd13c4" class="">Objektový model</h1>
+      <p id="6cf08c3c-1ec2-4ad2-9d5a-a3b717097a30" class="">Poznámka: poměrně zajímavá diskuze na téma objektového modelu Selfu se strhla zde: <a href="https://news.ycombinator.com/item?id=14409088">https://news.ycombinator.com/item?id=14409088</a></p>
+      <p id="a389d03e-79a7-472a-a1ae-8eca6d46accb" class="">Jak už jsem vysvětloval, Self používá na prototypech založený objektový model. Ten se dá shrnout pod tvrzení, že nové objekty kopírujete zprávou <code>clone</code> či <code>copy</code>, nebo vytváříte prázdné v zdrojovém kódu s odkazem na nějakého <code>parenta*</code> dodávající funkčnost podobnou dědičnosti.</p>
+      <p id="6f478383-890f-450a-9365-537febcf15ba" class="">Co se týče hierarchie různých objektů, tak ty se dělí mezi <em>traity</em> a <em>mixiny</em>.</p>
+      <h2 id="6fc3dffb-55e3-42c4-86e1-d30acabef964" class="">Traity</h2>
+      <p id="cf775111-c5f7-4435-9304-176100a7e96c" class="">Jedná se o <em>„předky“</em>, tedy objekty obsahující sdílenou funkcionalitu, které často nejsou samy o sobě plně funkční. Tyto objekty jsou vytvářeny za účelem aby na ně ostatní odkazovaly <code>parent*</code> sloty.</p>
+      <p id="33d28732-41c3-409e-b18b-6cbd4b2024c3" class="">Self má poměrně bohatou hierarchii <em>traitů</em>, jak je možné vidět například v předchozích kapitolách na ukázce kolekcí.</p>
+      <h2 id="34a38849-cd38-477d-a119-cbc09072afa7" class="">Mixiny</h2>
+      <p id="c44910a0-875d-4499-8828-0345285cb697" class="">Mixiny jsou malá klubíčka sdílené funkcionality, typicky bez <code>parent*</code> slotu, sdílená jen na nějaké úrovni. Smyslem má být funkcionalita, která je <em>zmixována</em> do objektu. Jejich ekvivalentem je něco jako interface s částečnou implementací.</p>
+      <h1 id="9e1fad02-2355-4bea-a7e2-3777d6997f07" class="">Reflexe pomocí zrcadel</h1>
+      <p id="8713c76c-7f0b-4c16-987c-0392baa61d26" class="">Zrcadla jsou specialitou Selfu, kterou jsem snad v žádném jiném programovacím jazyce neviděl. Široce používané programovací jazyky zpravidla řeší reflexí pomocí různých interních properties. Python například používá <code>.__class__</code>, či <code>.__dict__</code>, nebo <code>.__name__</code> pro přístup k interním informacím o objektu.</p>
+      <p id="735b1129-5a6a-4870-b683-e7c541584edd" class="">Self používá zrcadla. Zrcadlo vytvoříme posláním zprávy <code>reflect:</code> objektu majícímu někde v parent hierarchii <code>traits clonable</code>.</p>
+      <figure id="188d336e-71b2-476a-8f6a-233a9678ca97" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror1.png" title="mirror1.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror1.png"></a>
+      </figure>
+      <p id="a9ae9b87-3549-4a17-8be1-6332f4b7e4b3" class="">Tím získáme objekt <em>mirrorující</em> (zrcadlící) objekt předaný jako parametr.</p>
+      <figure id="339e6457-1b91-44b0-9cfc-30e28fbb900b" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror2.png" title="mirror2.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror2.png"></a>
+      </figure>
+      <p id="b1a6e3b8-f667-4f1b-b516-a6be09ae2b5d" class="">Zde můžeme vidět, že v něm je pseudoslot odkazující se na mirrorovaný objekt.</p>
+      <figure id="09b8d631-c227-4cd6-b827-92a9db34e0a2" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror3.png" title="mirror3.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror3.png"></a>
+      </figure>
+      <figure id="efd7208a-8fd3-48c8-9f62-1e63ee1da633" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror4.png" title="mirror4.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror4.png"></a>
+      </figure>
+      <p id="641c7ea6-8f0d-4326-bbb7-03404e65b464" class="">Pokud si rozklikneme parenta, můžem se podívat na co všechno za zprávy umí reagovat:</p>
+      <figure id="4817caab-0ba4-4dbe-b6f1-0235965006cd" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror5.png" title="mirror5.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror5.png"></a>
+      </figure>
+      <p id="8eec42fa-5ab0-49e6-b856-7a02c77fd315" class="">Všímejte si, že skáču po ploše doleva a doprava zkratkami WIN+šipka. Nyní jsem skočil o půl plochy doprava.</p>
+      <p id="f10db50f-a940-4297-a855-60848cdb3768" class="">V <code>traits mirrors slots</code> parentovi vidíme, že toho moc neumí, podíváme se tedy do jeho parenta:</p>
+      <figure id="89657f79-2091-4b67-9af5-e4b1dbc3bd61" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror6.png" title="mirror6.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror6.png"></a>
+      </figure>
+      <p id="6e874dd1-f541-4806-a599-850458f9c4c0" class="">Zde je vidět bohatý seznam kategorií, které nám umožňují se zrcadlem dělat všechno možné:</p>
+      <figure id="d67315a0-729f-4911-93b3-14410af83c9a" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror7.png" title="mirror7.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror7.png"></a>
+      </figure>
+      <p id="dbcc6cde-d9ec-40d8-bea4-eb09b18a13e0" class="">Například se podívat na seznam zpráv na které reaguje:</p>
+      <figure id="f0fc3581-e3c3-4e69-ace7-e88b6845a004" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror8.png" title="mirror8.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror8.png"></a>
+      </figure>
+      <p id="15f36f6e-318d-4617-b6df-4759da0fce67" class="">Což vidíme že je prázdný set:</p>
+      <figure id="3c9900b4-953e-413b-adec-5381510a11e3" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror9.png" title="mirror9.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror9.png"></a>
+      </figure>
+      <p id="2ff0a6a9-6bd9-406a-a1f1-656b55358e39" class="">Pro vysvětlenou: objekt, ke kterému jsme vytvořili mirror neobsahuje žádné zprávy, jen dva sloty. Mezi zprávy se v tomto kontextu počítají objekty vykonávající kód.</p>
+      <p id="2b27e439-4aea-429e-acb9-1aa2759c4bab" class="">Samotné sloty je možné zobrazit zprávami z kategorie <code>slotAccess</code>:</p>
+      <figure id="ca962d2b-36bd-466c-baff-2c7143314f2f" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror10.png" title="mirror10.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror10.png"></a>
+      </figure>
+      <p id="e158426d-8cb0-4101-9657-97a5d7f6afc2" class="">Zde je možné například příhodně vyzkoušet <code>firstKey</code></p>
+      <figure id="2e3cdf7b-e4b8-4e53-9235-514c9e3519ba" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror11.png" title="mirror11.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror11.png"></a>
+      </figure>
+      <p id="eb5d7977-8572-4e7f-8cc7-75e67d551ccb" class="">Odpověď byla skutečně jméno slotu „a“. Pokud si zobrazím hodnotu na klíči „a“, dostanu očekávaný výsledek:</p>
+      <figure id="275bcdee-7dca-4889-988c-bf32e5f8350a" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror12.png" title="mirror12.png"><img style="width:715px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror12.png"></a>
+      </figure>
+      <p id="f33c7408-eca1-4c0b-84da-a4f962d5e2ef" class="">Krása mirrorů je, že se dají zakázat. Prostě vám stačí odstranit z kódu, kde je chcete zakázat zprávu <code>reflect:</code> například jejím přepsáním za objekt vracející <code>nil</code>. Tím je možné relativně bezpečně vykonávat kód pomocí funkcí jako eval (samozřejmě pokud zároveň odstraníte i třeba přístup k syscalům a filesystému).</p>
+      <h1 id="2fad3332-38cb-4921-8a73-c55a54dcd733" class="">Z hlediska tipů a triků</h1>
+      <p id="d3406404-04d6-422c-90dc-ea52aa892cd8" class="">Časem jsem v osobní wiki nasbíral užitečné poznámky, tipy a triky které člověku můžou zpříjemnit programování v Selfu.</p>
+      <h2 id="62f2b713-fbac-4b87-827c-f0944c10c276" class="">Podpora copy</h2>
+      <p id="900d9945-9d89-4a1d-ab02-974bbb32f040" class="">Aby objekt podporoval zprávu <code>copy</code>, musí dědit nějakou základní funkčnost. Tu je možné najít v <code>traits clonable</code>.</p>
+      <h2 id="4675487a-bb0b-4f84-aaad-98c360f5d4a0" class="">Zobrazení parent slotů v outlineru</h2>
+      <p id="8ed74245-edb8-4fb6-8acd-8f7333400df8" class="">Je poněkud nešťastné otevírat v outlineru neustále <code>parenty*</code>, abych viděl co mám k dispozici za poděděné sloty.</p>
+      <figure id="5507ff17-2b2d-47bd-ac1c-602fe2257f70" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/shared_slots_in_parent.png" title="shared_slots_in_parent.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/shared_slots_in_parent.png"></a>
+      </figure>
+      <p id="8868f3ea-bd9c-414d-b339-f845dbcbea05" class="">Outliner se dá naštěstí jednoduše nakonfigurovat tak, aby zobrazoval i poděděné sloty nastavením:</p>
+      <pre id="3b52ae0c-66c1-44ec-b257-cf32a5fd8af3" class="code"><code>preferences outliner kevooidal: true</code></pre>
+      <p id="ffdbe854-bd35-4ad3-a017-9200c06ca3ae" class="">Ukázka:</p>
+      <figure id="658c887d-7cb4-4694-a431-df0cb940e05a" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/kevooidal.png" title="kevooidal.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/kevooidal.png"></a>
+      </figure>
+      <h2 id="34fc65c9-e1c4-44c9-97d8-82924b24639d" class="">Otevření všech podkategorií</h2>
+      <p id="12f3acf2-ec47-4124-a7cc-0954319ff369" class="">Občas je velmi otravné rozklikávat černé šipky, pokud máte víc vnořených kategorií. Dvojklik na šipku zároveň otevře i všechny podšipky.</p>
+      <h2 id="de0b8398-1d0b-4468-a8db-1bff6e84e5bc" class="">Ukončení posláním zprávy</h2>
+      <p id="2651ebdd-bcf0-43d9-b7f2-495c84dd5019" class="">Prostředí je možné ukončit zprávou <code>saveThenQuit</code> či <code>quitNoSave</code> i z kódu. Osobně si rád vytáhnu na plochu tlačítko, které po zmáčknutí volá jednu z těchto zpráv, což mi šetří trochu času.</p>
+      <figure id="0908a3d0-8781-46f3-ab16-14805572a093" class="image">
+        <a href="buttons.png" title="buttons.png"><img style="width:727px" src="buttons.png"></a>
+      </figure>
+      <h2 id="bb19be7c-ad65-4d27-b3fc-f0688c32f705" class="">Zbuildění nového světa</h2>
+      <p id="ff0e2f78-8952-45e3-85f7-faa5fa590e15" class="">Pokud nechcete používat image dodávanou s distribucí Selfu a z nějakého důvodu si chcete vybuildit vlastní, lze to provést z adresáře <code>objects/</code> v repozitáři zdrojových kódů projektu (pozor, je skutečně nutné přijít do tohoto adresáře) pustěním příkazu:</p>
+      <pre id="07b81d51-d567-4510-902a-4b82ef1516b0" class="code"><code>Self -f worldBuilder.self -o morphic</code></pre>
+      <p id="331dd9bf-752e-467f-89b2-89487e595266" class=""><code>-o</code> nespecifikuje jméno výstupního souboru (!) ale <em>overclock</em> a <code>morphic</code> parametr říká, že se má zbuildit i grafické rozhraní.</p>
+      <p id="adbc7b34-388a-45b3-9a4b-7aad5fccce49" class="">Poté co script doběhne to chce do konzole zadat:</p>
+      <pre id="771a58d0-755d-4176-bb0a-22c5d727d49c" class="code"><code>desktop open</code></pre>
+      <p id="869d3db3-c180-40b1-af0e-577fb697589e" class="">pro otevření grafického rozhraní, nebo ho můžete uložit příkazy z předchozí podkapitoly.</p>
+      <h2 id="4a76f8a0-770c-4b38-adde-5e210977d80d" class="">Vyhledávání</h2>
+      <p id="3e2292d9-a71b-407a-ab54-76fbddc43f0d" class="">Z libovolného outlineru je možné prostředním tlačítkem vyvolat menu „<em>Find slot</em>“:</p>
+      <figure id="f2d05c20-332a-4f43-b245-9c6bdf52fcd8" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot.png" title="find_slot.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot.png"></a>
+      </figure>
+      <p id="625e38bd-0405-49c9-bff4-2b45598942a1" class="">To vám dá k dispozici objekt, který vám umožňuje hledat sloty podle názvu:</p>
+      <figure id="331c3f81-afd8-4349-9dda-dc8b9f215362" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot2.png" title="find_slot2.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot2.png"></a>
+      </figure>
+      <p id="52c8e070-7677-4bb7-b6dd-9f524e9ebece" class="">Dolu se zadává root, ze kterého se bude hledat, nahoru pak co se má vyhledávat:</p>
+      <figure id="05369af9-6af4-4d9c-b43e-c2649c3f4f5f" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot3.png" title="find_slot3.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot3.png"></a>
+      </figure>
+      <p id="8f448173-cd44-4705-ba45-01ab7300df82" class="">Input bary se schvalují kliknutím na zelený čtvereček, nebo stiskem CTRL+enter. Kliknutím na šipku vlevo nahoře dojde ke spuštění vyhledávání:</p>
+      <figure id="cebe5a2d-74df-40e8-87b9-63f50a97e5ad" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot4.png" title="find_slot4.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot4.png"></a>
+      </figure>
+      <p id="ef819acf-6044-4c6f-b04d-6d35f9e5fd22" class="">Jednotlivé sloty je možné otevřít kliknutím na čtvereček vedle nich..</p>
+      <figure id="d828c6cb-2e4c-4273-9ad4-4b0a87fad7ee" class="image">
+        <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot5.png" title="find_slot5.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot5.png"></a>
+      </figure>
+      <p id="095e431d-a828-4bf8-b9c7-877da200a8bb" class="">Či z kontextového menu je možné s nimi provádět různé operace:</p>
+      <figure id="83f61eb2-77ee-44cb-be47-b828a273bf4d" class="image">
+        <a href="find_slot6.png" title="find_slot6.png"><img style="width:713px" src="find_slot6.png"></a>
+      </figure>
+      <h2 id="4b729fbf-724e-4f40-8dcb-7251e96d1f97" class="">Načtení uloženého scriptu</h2>
+      <p id="3a10a7d9-adb9-4d79-bef8-3950ec3ead08" class="">Pokud si chcete spustit nějaký ze scriptů, nebo načíst váš uložený modul, dají se k tomu použít dva přístupy:</p>
+      <pre id="860c2cf3-615b-4973-a544-d3b2548c9c6f" class="code"><code>bootstrap read: 'name' From: 'directory'</code></pre>
+      <p id="2a1ed6e6-60a0-4fe3-9196-74a44993d9fe" class="">Všimněte si že na konci name není <code>.self</code>, nebo:</p>
+      <pre id="91e4fb0a-2e4f-4376-bbff-fc6741cc1bd2" class="code"><code>'path/to/file.self' runScript</code></pre>
+      <p id="6ef75131-467f-4128-9885-9fce91e8d0ef" class="">Podrobnosti zde: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
+      <h2 id="63819b08-9821-47bc-94ae-2c6290c37e82" class="">Radarview</h2>
+      <p id="d881f75a-16f6-4271-88b3-a4870877a734" class="">Jak už jsem psal, radarView je možné zobrazit takhle:</p>
+      <pre id="99646ae1-f17f-431d-a55e-5935bbfd1556" class="code"><code>desktop worlds first addMorph: radarView</code></pre>
+      <p id="e5d3650e-77bb-4299-928c-ba76ee422ef2" class="">nebo</p>
+      <pre id="61a47ccf-454a-4fb7-9638-ce336ee0014b" class="code"><code>desktop w hands first addMorph: radarView</code></pre>
+      <h2 id="0e16bdf6-fe70-472b-acac-bf72ff58ba3e" class="">Lepší fonty</h2>
+      <p id="5290f5a9-f978-4248-9390-8c811eaa93ee" class="">Pokud vám přijde základní font Selfu hrozný, tak skutečně je. Původně hledá verdanu, ale na linuxu se mu jí nepodaří najít, takže použije fallback. Řešení je popsané tady:</p>
+      <ul id="8fc5d06f-734f-4a2a-aa62-c514c742ee7b" class="bulleted-list">
+        <li>
+          <a href="https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html">https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html</a>
+        </li>
+      </ul>
+      <h2 id="ce88eac5-b60c-40b9-bb49-806016442a30" class="">Editor morph</h2>
+      <p id="b8fb86c0-6cbd-4edd-bb27-1106a1a75fba" class="">Experimentálně jsem zjistil, že to chce <code>editorRowMorph</code>, ve kterém je zastrčený <code>editorMorph</code>. Reaguje na <code>contentsString</code>.</p>
+      <p id="8df522cf-e710-446b-9c5e-7f11e0264c72" class="">Jak se používají <code>ui2_textField</code>, <code>ui2_textBuffer</code>, <code>textViewerMorph</code> a <code>uglyTextEditorMorph</code> jsem nezjistil.</p>
+      <h1 id="274b506b-557c-432c-b3ad-d78628036f50" class="">Pokračování</h1>
+      <p id="ab684255-722c-4a90-8d3d-77101f1b8534" class="">V příštím díle se podíváme na historii Selfu, komunitu kolem něj i některé praktické aspekty programování v něm.</p>
+      <h1 id="85fe925e-8d7c-469a-8177-8b98a93ca04c" class="">Relevantní diskuze</h1>
+      <ul id="c66989dd-1e2b-4e29-b4de-93eeb7e81e6b" class="bulleted-list">
+        <li>
+          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/prostredi-a-programovaci-jazyk-selfu-dil-druhy-jazyk">Prostředí a programovací jazyk Selfu (díl druhý; jazyk)</a> (abclinuxu)
+        </li>
+      </ul>
+      <p id="5cd267ae-677c-4b4f-ad70-4cd82479ca60" class="">Zde vidíte <em>code object</em> přijímající parametry <code>‚a‘</code> a <code>‚b‘</code>, které porovná mezi sebou (posláním binární zprávy <code>&gt; b</code> objektu <code>a</code> a výslednému bool objektu poté pošle zprávu <code>ifTrue:False:</code> s prvním parametrem obsahujícím blok vracející <code>‚a‘</code> a druhým parametrem obsahujícím blok vracející <code>‚b‘</code>.</p>
+      <p id="d6d844ff-0980-4539-80da-eb62232cbe9e" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a> <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="4657737295" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false">
+  </script> 
+  <script>
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#edeff5",
+      "text": "#838391"
+    },
+    "button": {
+      "background": "#4b81e8"
+    }
+  }
+  });
+  </script>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
