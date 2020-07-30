@@ -2347,9 +2347,6 @@ location '/cz/Elon_Musk_d_l_po_d_to_sam.html' {
 location '/cz/H_bitov/index.html' {
     return 301 '/cz/Hrbitov/';
 }
-location '/cz/Library_at_Mount_Char.html' {
-    return 301 '/cz/Library_at_Mount_Char/';
-}
 location '/cz/Jak_se_p_e_programovac_jazyk/Jak_se_p_e_programovac_jazyk_6_Kompil_tor_AST_do_b.html' {
     return 301 '/cz/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_6_Kompilator_AST_do_bytecode.html';
 }
