@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>http://blog.rfox.eu/atom.xml</id>
-  <updated>2020-07-28T19:15:00+0200</updated>
+  <updated>2020-08-02T23:07:00+0200</updated>
   <link href="http://blog.rfox.eu" />
   <link href="http://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="http://blog.rfox.eu/atom.xml">
+    <title type="text">BangleJS opensource smartwatches</title>
+    <id>http://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html</id>
+    <updated>2020-08-02T23:07:00+0200</updated>
+    <link href="http://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">My quest for programmable smartwatches lead me to a lot of googling sessions, during which I&amp;#x27;ve discovered BangleJS, open source smartwatches programmable with JavaScript.</content>
+  </entry>
   <entry xml:base="http://blog.rfox.eu/atom.xml">
     <title type="text">Microtron model progress 2020/07</title>
     <id>http://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-07.html</id>
@@ -98,15 +108,5 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">I have this idea of a &amp;quot;Most Personal Device&amp;quot;, which is this little computer you always have with you, never leave it out of your sight, and use it as an authenticator and recovery seed for everything else.</content>
-  </entry>
-  <entry xml:base="http://blog.rfox.eu/atom.xml">
-    <title type="text">Unicode font subset</title>
-    <id>http://blog.rfox.eu/en/About_this_blog/Unicode_font_subset.html</id>
-    <updated>2020-06-09T00:00:00+0200</updated>
-    <link href="http://blog.rfox.eu/en/About_this_blog/Unicode_font_subset.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">How to use unicode font subset in your CSS.</content>
   </entry>
 </feed>
