@@ -197,7 +197,10 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="index.html" title="objWiki">objWiki</a> / Transaction support for simple in-memory database
+  </div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8322439660353685" data-ad-slot="9175281399" data-ad-format="auto" data-full-width-responsive="true"></ins> 
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> <a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="index.html" title="objWiki">objWiki</a> / Transaction support for simple in-memory database
   <article id="12b1c93c-940b-4870-a1b7-f178d2b4e5e7" class="page sans">
     <header>
       <h1 class="page-title">Transaction support for simple in-memory database</h1>
@@ -212,10 +215,7 @@
       <p id="fc31bcf8-2557-4ca8-b634-46d9aa80adbf" class="">or more conveniently:</p>
       <figure id="4f2ccc88-022a-42b4-81d8-094c968cb620" class="image">
         <a href="Transaction_support_for_simple_in-memory_database/flat_tree.png" title="flat_tree.png"><img style="width:624px" src="Transaction_support_for_simple_in-memory_database/flat_tree_thumb.jpg"></a>
-      </figure><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8322439660353685" data-ad-slot="8927869381"></ins> 
-      <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      </figure>
       <p id="99cd586a-ae75-43a1-8451-51816f3b9d66" class="">Purpose of this page is to collect all kinds of transaction mechanisms I can think of, that can be implemented on this kind of database.</p>
       <p id="889df6f2-d969-4ffb-8e22-9e2f59cfab5d" class="">By Transaction is understood database transaction mechanism, with two-phase commit protocol and rollbacks.</p>
       <p id="4aedd3fa-a77a-4ec9-9154-e64ef047122c" class="">Example: When two clients work on the same node, and then they both call <code>.commit()</code>, second transaction fails, and he second client has to repeat it. First transaction finishes successfully, as it is oldest. After that, first client's changes are now part of the database and second client has to repeat the transaction.</p>
