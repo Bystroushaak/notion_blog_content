@@ -320,9 +320,26 @@
       <p id="aa3df4fc-aa00-4624-8235-2f31feab2902" class="">Stochastické algoritmy jsou druh matematických algoritmů, které se snaží s co nejmenším počtem bodnutí do mapy najít ne jen nějaké údolí, ale rovnou to <strong>nejhlubší</strong> údolí. To může zahrnovat různé chytristiky, jako třeba <em>„nevzdávej se potom co narazíš na první údolí, ale zkus ještě sejít z kopce jiným směrem“</em>, nebo třeba opětovné lezení na kopec, či náhodnou změna místa do kterého teď bodáme.</p>
       <p id="ca704214-2ab2-42f8-a9a8-f5c0425bc945" class="">Tahle úloha nám může připadat lehká, ale jen protože se díváme na kopec očima, které každým pohledem přijímají miliardy fotonů odražených od kopce. Pokud bysme vnímali svět kolem sebe jen jedním fotonem, taky by bylo v našem zájmu mít algoritmus, kterým si vnímání světa kolem sebe co nejvíc zrychlíme. Každé testování kopce nás stojí bodnutí prstem do mapy, vyslání či přijmutí fotonu, nebo čistě prakticky výpočetní instrukce, a tedy čas a energii.</p>
       <p id="1fc18a09-4c86-4eec-8019-8d3fda53b018" class="">Adam je efektivní druh hledání mnohodimenzionálních údolí v mnohodimenzionálních prostorech. Způsob jakým funguje je kompromis, aby bylo v datech třeba co nejméně-krát bodnout do mapy (tedy zjistit jaká je tam hodnota a sklon), a celé to tedy fungovalo co nejrychleji a našlo to zároveň co nejhlubší údolí.</p>
-      <p id="301100ea-6f4b-4631-990f-b8a0d182458b" class="">Ta údolí se hledají proto, že typicky máme nějaký stav modelu, který vrací špatná data, a my chceme změnit jen minimální množství parametrů co nejmenším způsobem tak, aby nám vracel dobrá data.</p>
-      <p id="eb39fc26-ea37-4ea4-ae37-80f8ab8ab352" class="">To je matematicky ekvivalentní tomu, že zkoušíme najít úpravu terénu, kterou když odečteme od současné podoby modelu, tak nám najednou vrací dobrá data. Minimální úpravu terénu chceme dělat protože předpokládáme, že model pro ostatní data vrací dobré výsledky. Kdybychom tedy udělali větší úpravu než je nutné, tak by ostatní věci, co už fungovaly, najednou mohly přestat fungovat.</p>
-      <p id="88c5bac5-430b-4b22-9241-3dededff66c3" class="">Tohle celé děláme na kopci, který má 175 miliard bodů v mnoha dimenzích. Jestli to chápu z paperu správně, což možná nechápu, protože to tam není jasně řečené, tak GPT-3 používá pro <em>embeding</em> slov 12 288 dimenzí, které je možné si představit jako osy v grafu.</p>
+      <p id="fec0aba4-d1a8-4e6e-bb91-8c559a535034" class=""><a href="https://www.abclinuxu.cz/lide/hrachj">Jenda z abclinuxu</a> pěkně popsal jak se to pak používá:</p>
+      <ul id="9ec7dee6-9504-4758-ae91-29641e09650e" class="bulleted-list">
+        <li>Hodnota chybové funkce je počítaná jako „kolik procent chybí slovu „lásky“ z předchozího příkladu do 100%“, a toto posčítané přes všechny příklady z celého trénovacího setu.</li>
+      </ul>
+      <ul id="a076aee0-1e58-4bbf-a3e3-fc844daea2ab" class="bulleted-list">
+        <li>Terén je funkce R^175000000 → R. Funkci se dají aktuální váhy modelu a ona vrátí hodnotu chyby. A my ji chceme minimalizovat.</li>
+      </ul>
+      <ul id="07b52140-ec33-4662-b4fb-285d13d311b1" class="bulleted-list">
+        <li>Při minimalizaci ale nemůžeme hrabat přímo na tuto funkci, jednak protože její vyhodnocení je příšerně drahé (znamená to vyhodnotit a posčítat něco přes všechny prvky datasetu), jednak protože má lokální minima ve kterých bychom se zasekli.</li>
+      </ul>
+      <ul id="c6111ec4-e7d1-4b8a-977b-aaec2e103c84" class="bulleted-list">
+        <li>Proto děláme to, že vytáhneme z datasetu jenom pár samplů (tomu se říká minibatch), a chybu budeme vyhodnocovat na nich. Tím získáme nějaký trochu jiný terén, který snad bude podobný tomu „globálnímu“ terénu, ale dá se s ním počítat.</li>
+      </ul>
+      <ul id="e74f5485-b3a4-4e0c-90a8-47eee46bf354" class="bulleted-list">
+        <li>Nyní spočítáme aktuální výšku tohoto terénu, určíme, kterým směrem je to z kopce, a tímto směrem kousek popojdeme.</li>
+      </ul>
+      <ul id="1b4bc866-fc04-4412-bd90-1b25ce93845f" class="bulleted-list">
+        <li>Vytáhneme dalších pár samplů a opakujeme. Pro tyto jiné samply bude terén vypadat trošku jinak, a například doufáme, že lokální minima budou v jiných místech, takže pokud jsme do nějakého vstoupili, tak teď se trochu posunulo a zase z něj vylezeme.</li>
+      </ul>
+      <p id="88c5bac5-430b-4b22-9241-3dededff66c3" class="">Tohle celé děláme na kopci, který má 175 miliard dimenzí.</p>
       <h1 id="eab1d7c0-3608-4b79-8a2d-5ac7865d30e2" class="">Možnosti použití</h1>
       <p id="1dcad963-5dc9-4455-86ad-edf32e99a391" class="">Říká se, že poslední renesanční člověk byl pravděpodobně <em>Leonardo da Vinci</em>. Tedy člověk, který znal všechna umění a řemesla své doby. Od té doby, praví rčení, je svět tak složitý a specializovaný, že nikdo nemůže znát všechno.</p>
       <p id="209b2a7b-3ec7-45bb-b27f-e0f862723afc" class="">GPT-3 sice není člověk, inteligenčně je o hodně níž, ale renesanční rozhodně je. Tím že se učil čtením textů ví něco prakticky o všem, o čem něco četl. Jeho možnosti chápání, udržení kontextu a logicky odvozovat věci jsou omezené, ale jeho znalosti dost možná už v současnosti jsou větší, než libovolného jiného žijícího člověka.</p>
@@ -381,7 +398,7 @@
       </figure>
       <h2 id="279289fc-1b6d-4c5e-9a05-8af3e318e2f7" class="">GPT-4?</h2>
       <p id="4bc99410-0756-4d48-8529-2b45fdfd7a7b" class="">To že teď čteme o GPT-3 znamená, že jsme masivně pozadu, a že v OpenAI, ale pravděpodobně i na mnoha dalších místech na světě, se už vaří další verze.</p>
-      <p id="a534a16b-ea43-4b7a-83a6-76bae5e36355" class="">Zajímavý je model <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT</a> (<a href="https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270">detaily</a>), který je vyvíjený v několika jiných institucích. Za zmínku taky stojí projekt <a href="https://huggingface.co/">HugingFace</a>, který na githubu sjednocuje v jednom repozitáři všechny možné architektury a datové zdroje pro mnoho různých transformerů.</p>
+      <p id="a534a16b-ea43-4b7a-83a6-76bae5e36355" class="">Zajímavý je model <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT</a> (<a href="https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270">detaily</a>), který je vyvíjený v několika jiných institucích. Za zmínku taky stojí projekt <a href="https://huggingface.co/">HuggingFace</a>, který na githubu sjednocuje v jednom repozitáři všechny možné architektury a datové zdroje pro mnoho různých transformerů.</p>
       <p id="2ac529fa-5d2e-4c1f-8f13-a37d3e1838da" class="">Ten kdo má dnes přístup k superpočítači a možnosti tam zkoušet a zkoumat alternativní přístupy, ten může zítra doslova udělat díru do světa, jako se to povedlo třeba Tomášovi Mikolovi s word2vec.</p>
       <h2 id="695132c4-123a-4d40-adf5-03d5a2a82d80" class="">Hype</h2>
       <p id="9c8384c5-2441-4f8d-a912-374972e0666b" class="">Ačkoliv v Čechách se zatím informace o GPT-3 prakticky nedostaly ani do odborné literatury, v anglicky hovořících médiích vznikl „hype“, tedy jakýsi kult místy až přehnaného adorování.</p>
@@ -490,6 +507,12 @@
       <ul id="532a9956-8630-4ca7-9ebc-8ae1b4d310d3" class="bulleted-list">
         <li>
           <a href="https://duckduckgo.com/?q=site%3Acdn.openai.com&amp;t=hk&amp;ia=web">https://duckduckgo.com/?q=site%3Acdn.openai.com&amp;t=hk&amp;ia=web</a>
+        </li>
+      </ul>
+      <h1 id="03ec2447-0b3f-4c03-a4ca-f7ed7c18f891" class="">Relevantní diskuze</h1>
+      <ul id="5714e175-af5f-4d9c-80fc-e788bd46da6d" class="bulleted-list">
+        <li>
+          <a href="https://www.abclinuxu.cz/blog/bystroushaak/2020/8/gpt-3/diskuse">abclinuxu</a>
         </li>
       </ul>
     </div>
