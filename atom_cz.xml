@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>https://blog.rfox.eu/atom_cz.xml</id>
-  <updated>2020-07-22T01:00:00+0200</updated>
+  <updated>2020-08-19T01:48:00+0200</updated>
   <link href="https://blog.rfox.eu" />
   <link href="https://blog.rfox.eu/atom_cz.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="https://blog.rfox.eu/atom_cz.xml">
+    <title type="text">GPT-3</title>
+    <id>https://blog.rfox.eu/cz/Predstaveni/GPT-3.html</id>
+    <updated>2020-08-19T01:48:00+0200</updated>
+    <link href="https://blog.rfox.eu/cz/Predstaveni/GPT-3.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">Posledních několik týdnů rozechvívá vlny mých sociálních sítí fenomén GPT-3. Jedná se o nedávno představený druh strojového učení, vytrénovaný společností OpenAI na rekordním množství dat. A zatímco se jedná jen o jazykový model, který má za úkol predikovat další token ve větě, výsledky a možnosti využití jsou místy dech-beroucí.</content>
+  </entry>
   <entry xml:base="https://blog.rfox.eu/atom_cz.xml">
     <title type="text">Vytvořen nový Atom (RSS) feed pro českou sekci</title>
     <id>https://blog.rfox.eu/atom_cz.xml</id>
