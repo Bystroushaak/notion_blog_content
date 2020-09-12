@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>https://blog.rfox.eu/atom.xml</id>
-  <updated>2020-08-27T15:36:00+0200</updated>
+  <updated>2020-09-12T03:25:00+0200</updated>
   <link href="https://blog.rfox.eu" />
   <link href="https://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="https://blog.rfox.eu/atom.xml">
+    <title type="text">Newsletter 2020-09-12; Waves of productivity</title>
+    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html</id>
+    <updated>2020-09-12T03:25:00+0200</updated>
+    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">Some of the stuff I did in last month and a half.</content>
+  </entry>
   <entry xml:base="https://blog.rfox.eu/atom.xml">
     <title type="text">Rationality; From AI to Zombies as on demand book</title>
     <id>https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html</id>
@@ -98,15 +108,5 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">I often talk about the &amp;#x27;nodes&amp;#x27; in the blog. What do I mean by that?</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Trying Ansible alternatives in python</title>
-    <id>https://blog.rfox.eu/en/Explorations/Trying_Ansible_alternatives_in_python.html</id>
-    <updated>2020-06-12T02:24:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Explorations/Trying_Ansible_alternatives_in_python.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">My VPS will soon expire, so I&amp;#x27;ve decided to try to automate its deployment. After spending evening by studying Ansible alternatives, I&amp;#x27;ve decided to use pyinfra, and I am quite happy with it.</content>
   </entry>
 </feed>
