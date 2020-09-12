@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>https://blog.rfox.eu/atom.xml</id>
-  <updated>2020-09-12T03:25:00+0200</updated>
+  <updated>2020-09-12T03:36:00+0200</updated>
   <link href="https://blog.rfox.eu" />
   <link href="https://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="https://blog.rfox.eu/atom.xml">
+    <title type="text">Interesting graffiti I&amp;#x27;ve seen</title>
+    <id>https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html</id>
+    <updated>2020-09-12T03:36:00+0200</updated>
+    <link href="https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">Photos of graffiti I&amp;#x27;ve taken.</content>
+  </entry>
   <entry xml:base="https://blog.rfox.eu/atom.xml">
     <title type="text">Newsletter 2020-09-12; Waves of productivity</title>
     <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html</id>
@@ -98,15 +108,5 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">Every time I find Greenspun&amp;#x27;s tenth rule in the wild, I add a link to the project and update a counter. This node is not a comprehensive database, just a personal notes.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">What do I mean by node?</title>
-    <id>https://blog.rfox.eu/en/About_this_blog/What_do_I_mean_by_node.html</id>
-    <updated>2020-06-12T14:44:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/About_this_blog/What_do_I_mean_by_node.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">I often talk about the &amp;#x27;nodes&amp;#x27; in the blog. What do I mean by that?</content>
   </entry>
 </feed>
