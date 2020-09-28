@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>https://blog.rfox.eu/atom.xml</id>
-  <updated>2020-09-20T04:31:00+0200</updated>
+  <updated>2020-09-28T13:52:00+0200</updated>
   <link href="https://blog.rfox.eu" />
   <link href="https://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="https://blog.rfox.eu/atom.xml">
+    <title type="text">3D Starship in the Prague cityscape</title>
+    <id>https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html</id>
+    <updated>2020-09-28T13:52:00+0200</updated>
+    <link href="https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">In scale SpaceX&amp;#x27;s Starship in the Prague cityscape. Writeup about all kinds of difficulties with Blender and how to overcome them.</content>
+  </entry>
   <entry xml:base="https://blog.rfox.eu/atom.xml">
     <title type="text">3D ePUB icon for my articles about Self</title>
     <id>https://blog.rfox.eu/en/3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html</id>
@@ -98,15 +108,5 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">Pleas update your readers if you wish to receive updates with Czech blogposts: https://blog.rfox.eu/atom_cz.xml</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Lifelog 2020-06-15; Todo in motion</title>
-    <id>https://blog.rfox.eu/en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html</id>
-    <updated>2020-06-15T01:31:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Weekly_updates/Lifelog_2020-06-15_Todo_in_motion.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Opensource contributions, book report, improvements, stuff that I wrote and generally progress in my life.</content>
   </entry>
 </feed>

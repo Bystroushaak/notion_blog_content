@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>3D Starship in the Prague cityscape</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="3D Starship in the Prague cityscape">
+  <meta name="twitter:description" content="In scale SpaceX's Starship in the Prague cityscape. Writeup about all kinds of difficulties with Blender and how to overcome them.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape/twitter_preview.jpg">
+  <script src="../../../scripts.js">
+  </script>
+  <meta name="description" content="In scale SpaceX's Starship in the Prague cityscape. Writeup about all kinds of difficulties with Blender and how to overcome them.">
+  <meta name="keywords" content="blender,3D_models"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1">
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div id="last_five_top">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a>
+        </li>
+        <li>
+          <a href="../3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Interesting_graffiti_Ive_seen.html" title="Interesting graffiti I've seen"><span class="icon">🗒️</span>Interesting graffiti I've seen</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" title="Newsletter 2020-09-12; Waves of productivity">Newsletter 2020-09-12; Waves of productivity</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html" title="Rationality; From AI to Zombies as on demand book"><span class="icon">🗒️</span>Rationality; From AI to Zombies as on demand book</a>
+        </li>
+        <li>
+          <a href="../../Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html" title="Reply to; The Recovering Rationalist 01; A Path Forward">Reply to; The Recovering Rationalist 01; A Path Forward</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html" title="BangleJS opensource smartwatches">BangleJS opensource smartwatches</a>
+        </li>
+        <li>
+          <a href="../Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/3d_models.html" title="3d_models">3D_models</a>, <a href="../../../Tags/blender.html" title="blender">blender</a></p>
+    </div>
+    <div>
+      <h3>Blog categories:</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="3D modeling">3D modeling</a> / 3D Starship in the Prague cityscape
+  <article id="9a508cbe-a871-49ce-94eb-48d56beeee59" class="page sans">
+    <header>
+      <h1 class="page-title">3D Starship in the Prague cityscape</h1>
+    </header>
+    <div class="page-body">
+      <p id="1c045ab0-e3dd-4ed3-99af-33e6a9d44fbc" class=""><time>@2020/09/28</time></p>
+      <p id="213f395c-1c81-4e88-a1df-d7d9a73079b1" class="">The idea for this project came from the <a href="https://www.elonx.cz/starship-sn8-dostala-kridla-nadrz-sn7-1-absolvovala-destrukcni-zkousku-byl-spatren-dil-pro-prvni-super-heavy/#comment-28546">discussion on elonx.cz</a>, where someone mentioned, that Starship heavy / Star ship combination would be taller than the tallest building in Prague. Someone else corrected him that the <a href="https://en.wikipedia.org/wiki/%C5%BDi%C5%BEkov_Television_Tower">Žižkov Television Tower</a> would still be the tallest building. Then there were pictures posted, and I thought <em>"hey, lets put Starship there, just for the comparison"</em>.</p>
+      <figure id="6a2f4676-5fde-4b88-a8e5-37aba05b76cb" class="image">
+        <a href="1200px-ikovsk_vysla_a_v_Staromstsk_radnice.jpg" title="1200px-ikovsk_vysla_a_v_Staromstsk_radnice.jpg"><img style="width:899px" src="1200px-ikovsk_vysla_a_v_Staromstsk_radnice.jpg"></a>
+        <figcaption>
+          <em>(Source:</em> <em><a href="https://commons.wikimedia.org/wiki/File:%C5%BDi%C5%BEkovsk%C3%BD_vys%C3%ADla%C4%8D_a_v%C4%9B%C5%BE_Starom%C4%9Bstsk%C3%A9_radnice.jpg">https://commons.wikimedia.org/wiki/File:Žižkovský_vysílač_a_věž_Staroměstské_radnice.jpg</a></em><em>)</em>
+        </figcaption>
+      </figure>
+      <p id="ef0fe557-7906-405f-bd0f-5061f5e36620" class="">The following write-up is mostly notes for me, to remember lessons learned while trying to add Starship there.</p>
+      <h1 id="9ee493b0-8f4b-4bc0-9a74-f8d5a4d773dd" class="">Reference images</h1>
+      <div id="b8a8ea49-698a-4be2-a344-a089f5f85b49" class="column-list">
+        <div id="4d4b854d-a1fe-4d73-9cfd-ab2db09cd194" style="width:12.5%" class="column">
+          <figure id="526b9b9f-0ba2-442a-b3f3-474899caf839" class="image">
+            <a href="https://commons.wikimedia.org/wiki/File:%C5%BDi%C5%BEkov_Television_Tower_2010.jpg"><img style="width:149px" src="ikov_Television_Tower_2010.jpg"></a>
+          </figure>
+        </div>
+        <div id="bd6a3f15-e85a-416e-b6ea-ebd33c0771bd" style="width:87.5%" class="column">
+          <p id="bd3325cc-ca41-44ee-ac30-bd41ad3b3cef" class="">First step is obvious - create new blender project and import the image into it as a reference image. Then get some measurements info about the Žižkov tower and create appropriate 3D object, so the image can be scaled up to the "real" units simply by shadowing the tower with the 3D object.</p>
+          <p id="b6e98d10-c9a5-43e4-9091-ebef3a42150f" class="">From what I could find, Žižkov Television Tower has one pillar slightly bigger than the other two. It is the one we can see on the image on the right, and it is currently overshadowing the third pillar. It has 6.4 meters in diameter and all pillars are 134 meters tall.</p>
+          <p id="47120393-5ed1-44f5-9982-9e990705516f" class="">The extended part with TV broadcast aerial should be 216 meters tall. I've created two cylinders, both 6.4 meters in diameter, left one 134 meters tall and second 216 meters tall and just imposed them on the image.</p>
+          <p id="a1d28ce4-5096-4e2a-9142-5e5cac17ca0b" class="">I was worried that it is weird that they start so much "under" the houses, but the houses there are tall and the towers start 15 meters under the level of the ground, so it should be roughly ok.</p>
+        </div>
+      </div>
+      <figure id="46f4360e-9929-4273-9d83-44c6f2215640" class="image">
+        <a href="zizkov_measurements.jpg" title="zizkov_measurements.jpg"><img style="width:1600px" src="zizkov_measurements_thumb.jpg"></a>
+      </figure>
+      <p id="7cbe4e8b-2bb7-46ea-a6f8-e99341fbfb4f" class="">I've checked that the diameter matches using Blender's measurement system. Since both objects should be in the same distance and there is not much perspective going on, this should be pretty accurate.</p>
+      <figure id="9ad095dd-bd69-4bfc-9464-a956b8502414" class="image">
+        <a href="measurement.png" title="measurement.png"><img style="width:598px" src="measurement.png"></a>
+      </figure>
+      <p id="68113be8-9cd5-40a7-b6df-530b80460eed" class="">Now when I had the image scaled to roughly the right size, I could add the starship.</p>
+      <h1 id="d2afa271-ac9e-426d-bcce-655353807a39" class="">3D modeling</h1>
+      <p id="41ccf77e-11d1-4bca-bc4c-b280b38f664a" class="">As always lately, the act of creating the 3D model itself was pretty quick and I was done in no time. I just added two cylinders, one 72 meters tall for super heavy, second 50 meters tall for starship itself. Then I modeled the top cone from a few loopcuts that get smaller and smaller. For the wings, I used some random image from the internet as reference model. Wings are basically just reshaped cubes with few loopcuts and bevels.</p>
+      <figure id="9715b80d-3c36-4e70-8dfc-346d4e1f5349" class="image">
+        <a href="staship_model.jpg" title="staship_model.jpg"><img style="width:1600px" src="staship_model_thumb.jpg"></a>
+      </figure>
+      <p id="de33cce0-f709-41e2-9d87-5a8c28e902dd" class="">I added a lot of loopcuts and some deformities to the model, so it more resembles the deformed nature of the stainless steel SpaceX is using.</p>
+      <h1 id="f747a6c3-d3e9-4dd9-b33e-4b91c96ec66e" class="">Shading</h1>
+      <p id="b0d627d3-76ca-43ff-9da9-5b73ef7f4250" class="">I used the most basic stainless steel shader for the material of the Starship; just simple "<em>Glossy BDSF</em>". I've played with it, until it looked nice, (roughness set to <code>0.211444</code>).</p>
+      <figure id="8aca72e7-9641-4b33-ac5b-eaef527c9e5b" class="image">
+        <a href="nice_view.jpg" title="nice_view.jpg"><img style="width:1600px" src="nice_view_thumb.jpg"></a>
+      </figure>
+      <p id="3abaf638-8c7d-41cb-8342-19321513231b" class="">Then I added sun and a camera and switched to <em>Render preview</em>. I was quite surprised, that it looked like this:</p>
+      <figure id="a6462d2a-d3da-4eb4-b423-ab4cae7bd875" class="image">
+        <a href="potato.jpg" title="potato.jpg"><img style="width:1600px" src="potato_thumb.jpg"></a>
+      </figure>
+      <p id="53eb8e17-446b-4e05-93ac-3aa6d2ce5b92" class="">The sun was shining enough, so why it looked great in <em>Material preview mode</em>, but horrible in <em>Render preview mode</em>?</p>
+      <p id="e920fd2a-d2f5-4a5d-a5be-496ebc38ece7" class="">It took me some time, but then I remembered how some YouTubers I watch use some kind of HDR picture, which is like 360° circular picture used for background lightning. I've googled until I learned how to do that. It turned out that it is quite simple; just add <em>"Environment image"</em> node in the <em>Shader tab</em>, when you select <em>World</em> as an object.</p>
+      <figure id="5a15cc53-32f7-45bc-936c-beb5c6ac7dc8" class="image">
+        <a href="world_shading.jpg" title="world_shading.jpg"><img style="width:1600px" src="world_shading_thumb.jpg"></a>
+      </figure>
+      <p id="0762e599-3834-480f-9862-cf2a782d060e" class="">I've decided to use the same background image, but I've cut out the sky, because otherwise there was so much blue reflecting back to the camera, that you couldn't really see anything (blue rocket reflection on blue background).</p>
+      <p id="aa895193-ee63-486e-bb78-89c04ab3323e" class="">I also set the "Film" property of the "Scene" tab in the right menu to "Transparent", so the background wouldn't be present in view and the final render, but it would still affect the colors of the rocket.</p>
+      <figure id="103b0ef3-f4e2-4996-8f73-a4452f7ce22d" class="image">
+        <a href="film_transparent.png" title="film_transparent.png"><img style="width:336px" src="film_transparent.png"></a>
+      </figure>
+      <h1 id="cd12f8ca-cb45-48d9-a614-09e6e3e1d87c" class="">Render troubles</h1>
+      <p id="da94a8bf-5b75-4ddc-a664-3f53191923de" class="">Next, I've tried to render the image, but it didn't work. Only the rocket rendered. I was quite surprised (and annoyed) to discover, that Blender doesn't render reference images.</p>
+      <p id="5a1b87c8-6788-4116-84c4-cde89e5a56c3" class="">I can understand how this is useful, as you usually don't want them in the final render, but what you have to do in order to get the actual image into the scene is quite absurd:</p>
+      <p id="d44f9ea7-b70f-4f84-9076-dddec2390ac7" class="">You have to enable the <em>"Import-Export Import images as Planes"</em> add-on, then import and position the image again, and then they'll be there. Wtf Blender, are you drunk?</p>
+      <p id="06ed3653-85ae-4095-9d03-cf6cfdd75f77" class="">So I added the image this way, as a plane, scaled it up so it matched the original reference image. I discovered, that I cannot simply transfer the rotation and scale values, because reference images are the "Empty" type and you can't just use its values to newly added "Plane". When I finished, it looked like a potato again:</p>
+      <figure id="4a0a99b9-395a-4ba7-9204-96ac991ef0e1" class="image">
+        <a href="background_potato.jpg" title="background_potato.jpg"><img style="width:1600px" src="background_potato_thumb.jpg"></a>
+      </figure>
+      <p id="e90306fa-731b-43eb-b9ce-c482556dd366" class="">Luckily, this was easy enough to figure out. Blender assumed that I wanted to assign a new material with <em>Principled BSDF</em> shader.</p>
+      <figure id="ca723764-ecf8-47f2-83e8-266ffad4121d" class="image">
+        <a href="image_shader.png" title="image_shader.png"><img style="width:1128px" src="image_shader_thumb.jpg"></a>
+      </figure>
+      <p id="c7e00a59-be22-4a36-993f-6b4b8f24a59a" class="">Simply piping the image from the <em>Image node</em> to the <em>Material output node</em> did the trick.</p>
+      <figure id="5f7fcd4e-a3c0-486c-a7e2-0beb7c0e9d81" class="image">
+        <a href="simple_image_shader.png" title="simple_image_shader.png"><img style="width:480px" src="simple_image_shader.png"></a>
+      </figure>
+      <p id="6ed06220-bca0-4c37-981c-c085335cae99" class="">Now it can be rendered:</p>
+      <figure id="0fbbfc33-2f84-4e0e-bbf6-bf02557035b4" class="image">
+        <a href="first_render.jpg" title="first_render.jpg"><img style="width:1920px" src="first_render_thumb.jpg"></a>
+      </figure>
+      <h1 id="cdd35c1f-0046-4d7f-ba21-a13bdc9cbeee" class="">Illusion of placement</h1>
+      <p id="c5b58baa-0fa8-4ddf-9f72-c9cbd68abf6b" class="">But there is still something missing - specifically the lower part is visible, when it shouldn't. This has simple solution - to move part of the image closer to the viewer. I just added some loopcuts to the image:</p>
+      <figure id="d462be5c-ed93-4c85-beac-d377b8d50803" class="image">
+        <a href="add_loopcuts.jpg" title="add_loopcuts.jpg"><img style="width:384px" src="add_loopcuts.jpg"></a>
+      </figure>
+      <p id="7707693a-6597-4e39-a756-5142cc5393ba" class="">Then I selected faces that are behind the starship and extruded them closer to the camera.</p>
+      <figure id="e3224169-11cd-45f0-8da0-6adeba2bb60e" class="image">
+        <a href="extruded_background_image.jpg" title="extruded_background_image.jpg"><img style="width:1600px" src="extruded_background_image_thumb.jpg"></a>
+      </figure>
+      <p id="9e05f9bb-07f0-4b33-a2f0-0e1203af76fb" class="">It is a good idea to disable "<em>Show backface</em>" option in the right menu, as it looks and acts really weird.</p>
+      <p id="03909c59-9a2a-4479-b6e8-97221ae8d82b" class="">I also moved <em>Cursor</em> to the Camera's position, and then used it as a pivot point, so when I moved the extrusion, it faced the camera. I then resized and moved the faces a bit, until it looked right.</p>
+      <figure id="9878b12e-9c3f-4196-af97-472b398ece5f" class="image">
+        <a href="still_missing_pieces.jpg" title="still_missing_pieces.jpg"><img style="width:500px" src="still_missing_pieces.jpg"></a>
+      </figure>
+      <p id="863c676b-65a9-4957-a5e0-06ebbc28e842" class="">The sky was now blocking part of the ship, so I added a cut using knife tool, in the shape that vaguely followed the relief of houses. Then I moved the top part to the background.</p>
+      <figure id="a2d8672f-67bb-4a92-b098-b7ae5cab1b15" class="image">
+        <a href="knife_cuts.jpg" title="knife_cuts.jpg"><img style="width:1600px" src="knife_cuts_thumb.jpg"></a>
+      </figure>
+      <h1 id="50294baf-01f6-419b-a0c2-0efff823c9fc" class="">Blurry renders</h1>
+      <p id="2b276337-3c81-46db-93e9-ff93e503a864" class="">I've rendered what I thought will be the final version of this render, but it looked like the whole city is in smog:</p>
+      <figure id="13744e12-1dc3-49a0-aa3b-5268dfff9cec" class="image">
+        <a href="final_render.jpg" title="final_render.jpg"><img style="width:1200px" src="final_render_thumb.jpg"></a>
+      </figure>
+      <p id="54a7040e-f1eb-4ba7-a554-d0ed559a07ff" class="">Left part has more lively colors than the right part. I spent an hour by trying to increase number of cycles in render, trying different shaders and so on, but nothing seemed to help. Then I finally found this stack overflow thread <a href="https://blender.stackexchange.com/questions/164677/images-as-emitters-constantly-come-out-dull-white-emission-not-actually-white/164679#164679">Images as emitters constantly come out dull. White emission not actually white. What am I doing wrong?</a>. It turned out, that by default, blender uses <em>"Filmic"</em> <em>"View transform"</em>, and I wanted <em>"Standard"</em>.</p>
+      <p id="dbff5e21-bcbf-44df-894c-10e69cc4c819" class="">I also changed renderer to <em>Cycles</em>, which made the tower mirror in the surface of the Starship.</p>
+      <p id="5ea98574-7ec1-41f0-b423-894512499833" class="">There is still some loss of crispiness going on, but at this point, I was exhausted and had enough of 3D for that day.</p>
+      <h1 id="6021629e-a5b7-4e0e-a595-5c774849a4c1" class="">Final render</h1>
+      <p id="ec8ee5b2-69bf-42db-97f3-e625c124b990" class="">I also added SpaceX logo. I had problems that logo didn't want to curve itself on the surface:</p>
+      <figure id="fe3d5505-eb2c-4b79-9389-1301eb2f2645" class="image">
+        <a href="spacex_logo_shrinkwrap.jpg" title="spacex_logo_shrinkwrap.jpg"><img style="width:1600px" src="spacex_logo_shrinkwrap_thumb.jpg"></a>
+      </figure>
+      <p id="b39d88ae-c6a4-4138-9968-d8dbb6aac175" class="">Then I had realized, that it doesn't have enough geometry to curve itself, so I added a few loopcuts and everything worked as expected.</p>
+      <p id="decedc21-65eb-4372-91bf-6cbb94d03082" class="">Then I added grid fins, and some more geometry to wings, just for fun. Here is the final result.</p>
+      <figure id="b2f5098f-faea-44bb-ae47-884116c64852" class="image">
+        <a href="final_render_1.jpg" title="final_render_1.jpg"><img style="width:1200px" src="final_render_1_thumb.jpg"></a>
+      </figure>
+      <p id="2f8e2d74-f68f-4381-b584-7537277c805f" class="">The measurements should be ± right. The pillars of the TV towers should be 134 meters tall, SS/SH combination should be around 122 (72 + 50) meters tall, so slightly smaller than the pillars. Diameter of the right pillar of the TV tower is 6.4 meters, diameter of the Starship is 9 meters. Blender measurements say that this is indeed correct.</p>
+      <h1 id="f9d41223-4494-42a1-ac1c-b41c564e1c55" class="">Lessons learned</h1>
+      <p id="784e9082-8e2f-400d-93b4-f14df1926f19" class="">Although this was just a quick <em>"lets try that"</em> idea, I have learned a ton of new stuff. How to work with shaders, how to use environment shader, how to increase quality of the picture.</p>
+      <p id="cba0a0f8-d32a-4f83-802a-29a6e7b13364" class="">I am always quite amazed, how much difference is there when you learn something from the book, or maybe some YouTube tutorial, and then you have to go and do that stuff by yourself, for your project.</p>
+      <p id="52889f9f-b8cf-4503-9456-423c12d164ee" class=""></p>
+    </div>
+  </article>
+  <hr>
+  <div>
+    <h3>Tags</h3>
+    <p><a href="../../../Tags/3d_models.html" title="3d_models">3D_models</a>, <a href="../../../Tags/blender.html" title="blender">blender</a></p>
+  </div>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <div id="last_five_bottom">
+      <h3>New posts:</h3>
+      <ul>
+        <li>
+          <a href="../3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a>
+        </li>
+        <li>
+          <a href="../3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Interesting_graffiti_Ive_seen.html" title="Interesting graffiti I've seen"><span class="icon">🗒️</span>Interesting graffiti I've seen</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" title="Newsletter 2020-09-12; Waves of productivity">Newsletter 2020-09-12; Waves of productivity</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html" title="Rationality; From AI to Zombies as on demand book"><span class="icon">🗒️</span>Rationality; From AI to Zombies as on demand book</a>
+        </li>
+        <li>
+          <a href="../../Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html" title="Reply to; The Recovering Rationalist 01; A Path Forward">Reply to; The Recovering Rationalist 01; A Path Forward</a>
+        </li>
+        <li>
+          <a href="../../Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html" title="BangleJS opensource smartwatches">BangleJS opensource smartwatches</a>
+        </li>
+        <li>
+          <a href="../Microtron_model_progress_2020-07.html" title="Microtron model progress 2020/07">Microtron model progress 2020/07</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2020-07-28_Whee_I_can_make_3D_lowpoly_models.html" title="Newsletter 2020-07-28; Whee, I can make 3D lowpoly models">Newsletter 2020-07-28; Whee, I can make 3D lowpoly models</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">RSS / Atom feed for the Czech blogposts moved to new URL</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+  </div>
+</body>
+</html>
