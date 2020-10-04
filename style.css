@@ -686,6 +686,7 @@ figure iframe {
     p,
     blockquote,
     q,
+    figure,
     a {
         font-size: 130%;
     }
@@ -693,7 +694,8 @@ figure iframe {
         max-width: 1260px;
     }
     p a,
-    figure a {
+    figure a,
+    div h4 a {
         font-size: 100%;
     }
 }
