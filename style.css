@@ -676,7 +676,6 @@ figure iframe {
     width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
 @media screen and (max-width: 1850px) {
     body {
         margin-left: 12em;
@@ -711,7 +710,7 @@ figure iframe {
         position: -webkit-sticky;
         position: sticky;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-		font-size: small;
+    font-size: small;
 
         top: 0;
         margin-top: 11em;
