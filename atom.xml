@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Bystroushaak's blog</title>
   <id>https://blog.rfox.eu/atom.xml</id>
-  <updated>2020-09-28T13:52:00+0200</updated>
+  <updated>2020-10-05T15:59:00+0200</updated>
   <link href="https://blog.rfox.eu" />
   <link href="https://blog.rfox.eu/atom.xml" rel="self" />
   <author>
     <name>Bystroushaak</name>
   </author>
   <generator>PyAtom</generator>
+  <entry xml:base="https://blog.rfox.eu/atom.xml">
+    <title type="text">Tools I use: argparse builder</title>
+    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html</id>
+    <updated>2020-10-05T15:59:00+0200</updated>
+    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html" />
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <content type="text">argparse builder is a web based graphical interface for quick creation of the argparse commandline switches for your python scripts.</content>
+  </entry>
   <entry xml:base="https://blog.rfox.eu/atom.xml">
     <title type="text">3D Starship in the Prague cityscape</title>
     <id>https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html</id>
@@ -98,15 +108,5 @@
       <name>Bystroushaak</name>
     </author>
     <content type="text">Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">RSS / Atom feed for the Czech blogposts moved to new URL</title>
-    <id>https://blog.rfox.eu/atom_cz.xml</id>
-    <updated>2020-07-28T18:20:00+0200</updated>
-    <link href="https://blog.rfox.eu/atom_cz.xml" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Pleas update your readers if you wish to receive updates with Czech blogposts: https://blog.rfox.eu/atom_cz.xml</content>
   </entry>
 </feed>
