@@ -701,6 +701,11 @@ figure iframe {
     }
     p a,
     figure a,
+    figure p,
+    figure h1,
+    figure h2,
+    figure h3,
+    figure h4,
     div h4 a {
         font-size: 100%;
     }
