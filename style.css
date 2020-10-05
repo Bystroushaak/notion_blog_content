@@ -690,6 +690,12 @@ figure iframe {
     a {
         font-size: 130%;
     }
+    .code {
+        font-size: 130%;
+    }
+    img {
+        max-width: 900px;
+    }
     body {
         max-width: 1260px;
     }
