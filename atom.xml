@@ -1,112 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title type="text">Bystroushaak's blog</title>
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
-  <updated>2020-10-20T09:28:00+0200</updated>
-  <link href="https://blog.rfox.eu" />
-  <link href="https://blog.rfox.eu/atom.xml" rel="self" />
+  <title>Bystroushaak's blog</title>
+  <updated>2020-11-12T18:41:16.944183+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
-  <generator>PyAtom</generator>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Robots I&amp;#x27;ve played with</title>
-    <id>https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html</id>
-    <updated>2020-10-20T09:28:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Pictures of the robot manipulators I&amp;#x27;ve played with in the past.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Joscha Bach; Artificial Consciousness and the Nature of Reality</title>
-    <id>https://blog.rfox.eu/en/Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html</id>
-    <updated>2020-10-11T21:50:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Pointer to excellent podcast with Joscha Bach &amp;amp; Lex Friedman (podcast episode 101).</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Tools I use: argparse builder</title>
-    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html</id>
-    <updated>2020-10-05T15:59:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">argparse builder is a web based graphical interface for quick creation of the argparse commandline switches for your python scripts.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">3D Starship in the Prague cityscape</title>
-    <id>https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html</id>
-    <updated>2020-09-28T13:52:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">In scale SpaceX&amp;#x27;s Starship in the Prague cityscape. Writeup about all kinds of difficulties with Blender and how to overcome them.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">3D ePUB icon for my articles about Self</title>
-    <id>https://blog.rfox.eu/en/3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html</id>
-    <updated>2020-09-20T04:31:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Lowpoly 3D modeling I did for fun. Description of wrong turns I&amp;#x27;ve taken and time I&amp;#x27;ve waisted on that.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Interesting graffiti I&amp;#x27;ve seen</title>
-    <id>https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html</id>
-    <updated>2020-09-12T03:36:00+0200</updated>
-    <link href="https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Photos of graffiti I&amp;#x27;ve taken.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Newsletter 2020-09-12; Waves of productivity</title>
-    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html</id>
-    <updated>2020-09-12T03:25:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Some of the stuff I did in last month and a half.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Rationality; From AI to Zombies as on demand book</title>
-    <id>https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html</id>
-    <updated>2020-08-27T15:36:00+0200</updated>
-    <link href="https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Info how you can print this book in on demand service.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">Reply to; The Recovering Rationalist 01; A Path Forward</title>
-    <id>https://blog.rfox.eu/en/Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html</id>
-    <updated>2020-08-27T15:29:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html" />
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <content type="text">Reply to the blogpost `The Recovering Rationalist 01: A Path Forward`.</content>
-  </entry>
-  <entry xml:base="https://blog.rfox.eu/atom.xml">
-    <title type="text">BangleJS opensource smartwatches</title>
+  <link href="https://blog.rfox.eu" rel="alternate"/>
+  <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
+  <entry>
     <id>https://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html</id>
-    <updated>2020-08-02T23:07:00+0200</updated>
-    <link href="https://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html" />
+    <title>BangleJS opensource smartwatches</title>
+    <updated>2020-08-02T23:07:00+02:00</updated>
     <author>
       <name>Bystroushaak</name>
     </author>
-    <content type="text">My quest for programmable smartwatches lead me to a lot of googling sessions, during which I&amp;#x27;ve discovered BangleJS, open source smartwatches programmable with JavaScript.</content>
+    <link href="https://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html" rel="alternate"/>
+    <summary type="text">My quest for programmable smartwatches lead me to a lot of googling sessions, during which I&amp;#x27;ve discovered BangleJS, open source smartwatches programmable with JavaScript.</summary>
+    <published>2020-08-02T23:07:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html</id>
+    <title>Reply to; The Recovering Rationalist 01; A Path Forward</title>
+    <updated>2020-08-27T15:29:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html" rel="alternate"/>
+    <summary type="text">Reply to the blogpost `The Recovering Rationalist 01: A Path Forward`.</summary>
+    <published>2020-08-27T15:29:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html</id>
+    <title>Rationality; From AI to Zombies as on demand book</title>
+    <updated>2020-08-27T15:36:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html" rel="alternate"/>
+    <summary type="text">Info how you can print this book in on demand service.</summary>
+    <published>2020-08-27T15:36:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html</id>
+    <title>Newsletter 2020-09-12; Waves of productivity</title>
+    <updated>2020-09-12T03:25:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" rel="alternate"/>
+    <summary type="text">Some of the stuff I did in last month and a half.</summary>
+    <published>2020-09-12T03:25:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html</id>
+    <title>Interesting graffiti I&amp;#x27;ve seen</title>
+    <updated>2020-09-12T03:36:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html" rel="alternate"/>
+    <summary type="text">Photos of graffiti I&amp;#x27;ve taken.</summary>
+    <published>2020-09-12T03:36:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html</id>
+    <title>3D ePUB icon for my articles about Self</title>
+    <updated>2020-09-20T04:31:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html" rel="alternate"/>
+    <summary type="text">Lowpoly 3D modeling I did for fun. Description of wrong turns I&amp;#x27;ve taken and time I&amp;#x27;ve waisted on that.</summary>
+    <published>2020-09-20T04:31:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html</id>
+    <title>3D Starship in the Prague cityscape</title>
+    <updated>2020-09-28T13:52:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_modeling/3D_Starship_in_the_Prague_cityscape.html" rel="alternate"/>
+    <summary type="text">In scale SpaceX&amp;#x27;s Starship in the Prague cityscape. Writeup about all kinds of difficulties with Blender and how to overcome them.</summary>
+    <published>2020-09-28T13:52:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html</id>
+    <title>Tools I use: argparse builder</title>
+    <updated>2020-10-05T15:59:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html" rel="alternate"/>
+    <summary type="text">argparse builder is a web based graphical interface for quick creation of the argparse commandline switches for your python scripts.</summary>
+    <published>2020-10-05T15:59:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html</id>
+    <title>Joscha Bach; Artificial Consciousness and the Nature of Reality</title>
+    <updated>2020-10-11T21:50:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" rel="alternate"/>
+    <summary type="text">Pointer to excellent podcast with Joscha Bach &amp;amp; Lex Friedman (podcast episode 101).</summary>
+    <published>2020-10-11T21:50:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html</id>
+    <title>Robots I&amp;#x27;ve played with</title>
+    <updated>2020-10-20T09:28:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html" rel="alternate"/>
+    <summary type="text">Pictures of the robot manipulators I&amp;#x27;ve played with in the past.</summary>
+    <published>2020-10-20T09:28:00+02:00</published>
   </entry>
 </feed>
