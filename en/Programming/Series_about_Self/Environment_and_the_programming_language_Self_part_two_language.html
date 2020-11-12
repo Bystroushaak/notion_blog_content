@@ -103,6 +103,9 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
         </li>
         <li>
@@ -119,9 +122,6 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
@@ -570,7 +570,7 @@ mapBy: eb Into: c</code></pre>
       </figure>
       <p id="94521a76-079f-48c5-b449-e1c87d861589" class="">As you can see, the vector contains <code>'value'</code> string at index <code>1</code>. Keep in mind that the dictionary is unsorted.</p>
       <p id="3e6bc498-8d77-43b9-a2d3-4b31aaca1bd8" class="">Don't worry about the strange appearance of the <em>Shell</em> in the top left corner, I have broken graphics drivers and Self uses such prehistoric X bindings, that it lags and repaints it strangely. It works on my laptop as it should.</p>
-      <p id="b9587e76-2098-4bfe-950b-d4bab9a979e2" class="">Here's an example of how to use <code>to:</code> to print elements and keys in the console:</p>
+      <p id="b9587e76-2098-4bfe-950b-d4bab9a979e2" class="">Here's an example of how to use <code>do:</code> to print elements and keys in the console:</p>
       <figure id="0f6a545c-cdfe-4e76-b0b0-0f819edfbd88" class="image">
         <a href="Environment_and_the_programming_language_Self_part_two_language/dict_do.png" title="dict_do.png"><img style="width:908px" src="Environment_and_the_programming_language_Self_part_two_language/dict_do_thumb.jpg"></a>
       </figure>
@@ -578,13 +578,13 @@ mapBy: eb Into: c</code></pre>
       <h3 id="36f8c928-d921-4166-bb99-4d1232f4416e" class="">Collector</h3>
       <p id="7f8a50d9-da27-4fec-a207-fc33331a2ff4" class="">Collector is a special data structure that responds to the binary message <code>&</code>. Basically, it exists because Self does not have a literal for creating lists. To create a list, the easiest way is to use a collector:</p>
       <pre id="f2b1ca4d-1415-4140-9893-05f8a150e980" class="code"><code>(1 & 2 & 3) asList</code></pre>
-      <p id="bd40e029-3e65-45b1-8fa1-725273151dc0" class=""><em>Collector</em> is neither a list nor a dictionary. It can be converted to all possible data structures by a message called as <em>&lt;Something&gt;</em>, for example <code>asList</code>.</p>
+      <p id="bd40e029-3e65-45b1-8fa1-725273151dc0" class=""><em>Collector</em> is neither a list nor a dictionary. It can be converted to all possible data structures by a message called as<em>&lt;Something&gt;</em>, for example <code>asList</code>.</p>
       <h2 id="836bf0e2-ca69-4b59-b90a-f560d6712049" class="">Exceptions</h2>
       <p id="3282b53e-e630-4122-963b-848e05b7c35e" class="">Exceptions are not supported. Messages that might end up with an error usually offer an alternative in the form of a keyword message with the parameter <code>IfFail:</code>. You can see the example here with an object for accessing the operating system:</p>
       <figure id="2e742743-dccc-4f13-b585-8644cafc0abf" class="image">
         <a href="Environment_and_the_programming_language_Self_part_two_language/IfFail.png" title="IfFail.png"><img style="width:964px" src="Environment_and_the_programming_language_Self_part_two_language/IfFail_thumb.jpg"></a>
       </figure>
-      <p id="70d8ae73-e8fa-435d-b211-23c75920ea9f" class="">It is up to the programmer to use and handle the appropriate error (by passing the block with error handler code). If he does not, the debugger should appear, or the program will crash.</p>
+      <p id="70d8ae73-e8fa-435d-b211-23c75920ea9f" class="">It is up to the programmer to use and handle the appropriate error (by passing the block with error handler). If he does not, the debugger should appear, or the program will crash.</p>
       <p id="770592d3-2da4-4854-8fde-9b566b96a043" class="">Likewise, if you want to allow error handling as a programmer of the library, you need to add a message variant with <code>IfFail:</code> parameter.</p>
       <p id="8ee71d6a-e3f2-4eac-a2b2-c7ca4cd69071" class="">In my opinion, it doesn't seem to be the best solution, unfortunately that's how it works.</p>
       <h2 id="4828aa8d-f85e-49ec-91c6-775e9a09b23e" class="">Object model</h2>
@@ -651,7 +651,7 @@ mapBy: eb Into: c</code></pre>
       <p id="d48cbb21-ef93-472b-8bf8-dee1701fcdc7" class="">The beauty of mirrors lies in the ability to disable them. To do that, you just have to remove the proper parent from the code where you want to disable the <code>reflect:</code> message, for example, by overwriting it with an object returning <code>nil</code>. This makes it possible to execute the code relatively safely by using functions like eval (of course you have to also remove the access to syscals and filesystem).</p>
       <h1 id="16b68c2e-5d6f-4e1b-86c5-4c207b76e3ed" class="">Tips & tricks</h1>
       <p id="19a8fa2d-d0d4-42e8-91cf-49816d083585" class="">Over time, I collected useful notes, tips and tricks in my personal wiki, that can make programming in Self more pleasant.</p>
-      <h2 id="71ec5340-344f-4d79-b20a-c263554b5d14" class="">copy message support</h2>
+      <h2 id="71ec5340-344f-4d79-b20a-c263554b5d14" class=""><code>copy</code> message support</h2>
       <p id="8dc2d97a-f162-45b4-9518-db59ab1953dd" class="">To support the <code>copy</code> message, an object must inherit some basic functionality, which you can find in the <code>traits clonable</code>.</p>
       <h2 id="698a001f-6ab7-451b-b99c-13cf4a44fd3e" class="">Display parent slots in outliner</h2>
       <p id="6316893e-6ca4-4114-82c0-3a4b32b6d33d" class="">It's somewhat unfortunate to open up <code>parents*</code> in the outliner all the time just to see what's available for inherited slots.</p>
@@ -671,7 +671,7 @@ mapBy: eb Into: c</code></pre>
         <a href="Environment_and_the_programming_language_Self_part_two_language/buttons.png" title="buttons.png"><img style="width:727px" src="Environment_and_the_programming_language_Self_part_two_language/buttons.png"></a>
       </figure>
       <h2 id="285e5427-9ffe-42cc-bd32-4bd272c8818a" class="">Build new image</h2>
-      <p id="eb16fd70-f217-44e5-8171-055cc0ba4b4d" class="">If you don't want to use the default image provided with the Self distribution, and for some reason you want to build your own, you can do this from the <code>objects/</code> directory in the project's source code repository (! it is required to do it from this directory!) by using following command:</p>
+      <p id="eb16fd70-f217-44e5-8171-055cc0ba4b4d" class="">If you don't want to use the default image provided with the Self distribution, and for some reason you want to build your own, you can do this from the <code>objects/</code> directory in the project's source code repository (!it is really required to do it from this directory!) by using following command:</p>
       <pre id="0afaa068-17b0-4d13-8ba5-eb7b4886f675" class="code"><code>Self -f worldBuilder.self -o morphic</code></pre>
       <p id="d99005b2-6688-4345-b4a5-b833644a6690" class=""><code>-o</code> does not specify the output file name (!) but the <em>overclock.</em> <code>morphic</code> parameter tells the <em>worldBuilder</em> that it should include the graphical interface.</p>
       <p id="3c9dd0ab-6378-4f20-aaf0-4f048c23edbd" class="">When the script finishes, type into the console</p>
@@ -816,6 +816,9 @@ mapBy: eb Into: c</code></pre>
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
         </li>
         <li>
@@ -832,9 +835,6 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>

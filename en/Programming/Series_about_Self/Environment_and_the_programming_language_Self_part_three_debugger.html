@@ -100,6 +100,9 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
         </li>
         <li>
@@ -116,9 +119,6 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
@@ -355,7 +355,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
  '-- Side effects'
 
  globals modules test postFileIn</code></pre>
-      <p id="5b519e55-b373-4f16-838b-7acf0867cd85" class="">The exported code is really ugly at first glance. I think it is because it uses only <em>transported directives</em> You can find all kinds of metadata set in it. This file can be versioned with git and it can also be loaded to the new image:</p>
+      <p id="5b519e55-b373-4f16-838b-7acf0867cd85" class="">The exported code is really ugly at first glance. I think it is because it uses only <em>transported directives.</em> You can find all kinds of metadata set in it. This file can be versioned with git and it can also be loaded to the new image:</p>
       <figure id="f83d4013-9bfb-4fdb-83c8-212f2b7bed59" class="image">
         <a href="Environment_and_the_programming_language_Self_part_three_debugger/transporter_33.png" title="transporter_33.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/transporter_33.png"></a>
       </figure>
@@ -369,7 +369,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
       </figure>
       <h1 id="7e30ae7a-b375-4f4b-a2e0-470be5c5a634" class="">The Debugger</h1>
       <p id="accb3f3b-3be0-45b4-8e0a-7505c263c308" class="">Self has the debugger of the Smalltalk type, from which we can interactively change the code. Short demonstration will say more than a thousand words.</p>
-      <p id="d710bb4f-02d9-4a8a-a0fc-355b665ca17a" class="">I create a simple object in Shell with slot "a", where the code, which should write the value of number "1" in the standard output, is saved. But I make a "mistake" and instead of the message <code>printLine</code> I write <code>printLin</code> without the <code>e</code> at the end:</p>
+      <p id="d710bb4f-02d9-4a8a-a0fc-355b665ca17a" class="">I create a simple object in Shell with slot "a", with the code, which should write the value of number "1" in the standard output. But I make a "mistake" and instead of the message <code>printLine</code> I write <code>printLin</code> without the <code>e</code> at the end:</p>
       <figure id="02e80c8f-41cd-4068-a52d-744b47f78f5a" class="image">
         <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_0.png" title="debugger_0.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_0.png"></a>
       </figure>
@@ -418,34 +418,34 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         <a href="Environment_and_the_programming_language_Self_part_three_debugger/debugger_13.png" title="debugger_13.png"><img style="width:715px" src="Environment_and_the_programming_language_Self_part_three_debugger/debugger_13.png"></a>
       </figure>
       <h1 id="57e279f0-258c-4e5a-9a0c-04f7c9ee57f3" class="">The Problems</h1>
-      <p id="e4ce804f-e475-4d8d-80dc-06d5b06f8ba1" class="">Self is quite a sad heap from the practical point of view. I would like to say that it is usable to a big extent, but not enough for the beginners. If you need to solve something, you won't be able to google the solution. In most cases, you are probably the first one encountering such a problem. When not, there is quite a big chance that the problem hasn't been solved yet.</p>
+      <p id="e4ce804f-e475-4d8d-80dc-06d5b06f8ba1" class="">Self is quite a sad heap from the practical point of view. It is usable to a big extent, but not enough for the beginners. If you need to solve something, you won't be able to google the solution. In most cases, you are probably the first one encountering such a problem. When not, there is quite a big chance that the problem hasn't been solved yet.</p>
       <h2 id="3f5c0e48-f326-4e3f-af72-07c3cf13f614" class="">32 bit</h2>
       <p id="c28d160d-3413-48c1-bb2f-76dc9c32993c" class="">Self is a 32 bit program. Porting it to 64 bit is possible but not trivial, so no one wants to do it. I don't think that anything will change with this in the next 10 years or so.</p>
       <p id="4bda8903-6864-4dac-b5f5-55273f24e19e" class="">On one hand it is quite upsetting, because you can only make 4 gigabyte images, but this problem can be solved for example by using more instances, moreover you will probably find problems in something else much sooner. For example saving images is quite slow and the sizes of few tens of megabytes and gigabytes will take a few minutes.</p>
       <h2 id="21d0dd21-0b30-4bdc-a13c-428ea63b97ea" class="">Problems of the prototypes</h2>
-      <p id="e2ec71cd-b39b-40ab-8fa6-69b9131c2b74" class="">Prototypes are easy to understand and together with the delegation (I am looking at you, JavaScript!) offer a strong and effective mechanism of code organization.</p>
-      <p id="0bde70c8-37b2-454f-a650-82c6bf23b04a" class="">But they have one disadvantage; you forget to clone once and you will rewrite half of the system.</p>
-      <p id="c57fa8a2-e6f8-4783-a35f-1aec3c2e11ad" class="">For example, you work with the prototype <code>dictionary</code> the way that you clone it and store values in it. But if you forget to clone it and you rewrite the dictionary directly, you will be writing to all new dictionaries that will ever be created by copying. This results in a quick crash of the system.</p>
-      <p id="66bc01df-650a-41f0-ba57-d50478443796" class="">Sadly, Self doesn't offer any way how to prevent this. Personally in my language, I would like to avoid this problem by locking the system objects to read only mode, so the cloning would be forced before you could write into them. Or maybe by rewriting some setters to automatic clone of the used object. It would still be possible to change the underlying prototype object, but you would need to use <em>mirrors</em>. I am sure there are more possible solutions to this.</p>
+      <p id="e2ec71cd-b39b-40ab-8fa6-69b9131c2b74" class="">Prototypes are easy to understand and together with the delegation (I am looking at you, JavaScript) offer a strong and effective mechanism of code organization.</p>
+      <p id="0bde70c8-37b2-454f-a650-82c6bf23b04a" class="">But they have one disadvantage; you forget to call <code>clone</code> once and you will rewrite half of the system.</p>
+      <p id="c57fa8a2-e6f8-4783-a35f-1aec3c2e11ad" class="">For example, you work with the <code>dictionary</code> prototype by first cloning it, and then you store values in the clone. But if you forget to call <code>clone</code>, you will rewrite the dictionary prototype, so you will be writing to all new dictionaries that will ever be created by copying. This results in a very quick crash of the system. Which kinda makes the whole idea of the live system and environment quite hazardous.</p>
+      <p id="66bc01df-650a-41f0-ba57-d50478443796" class="">Sadly, Self doesn't offer any way how to prevent this. Personally in my language, I would like to avoid this problem by locking the system objects to read only mode, so the cloning would be forced before you could write into them. Or maybe by rewriting some setters to automatic clone of the used object. It would still be possible to change the underlying prototype object, but you would need to use <em>mirrors</em>. I am sure there is plenty of possible solutions.</p>
       <h2 id="28d473de-5c53-44a8-b608-3946bd16180c" class="">Namelessness of anonymous objects</h2>
       <p id="2238689a-5158-4a17-b2c7-ea48ef8abec7" class="">Self treats its object literals similarly as languages supporting only lambda functions. Anonymous objects are great but it is generally easier to work with named things.</p>
       <p id="252bad57-9cef-4621-85c4-b8915ad70fbd" class="">In Self, this is solved by annotations, where you can set the name of the object, which is then showed by outliners, or by placing the object into a hierarchy. If we place the object to the path <code>globals dictionary</code>, then it's obvious that the object is a dictionary.</p>
       <p id="fe438ae1-78b9-4d13-a1a4-4db5a85facdd" class="">It's worth to compare it to the <em>languages based on classes</em>, which usually have inverse problem when they try to name completely everything.</p>
       <p id="0ddeaaf8-7c1e-4393-8b42-ed6d51409227" class="">What is better and more natural for people? For the object to have its clearly given name or for the object's name to be given by a variable (or a path), in which it's stored?</p>
       <h2 id="b5f5cacf-2f71-4662-a645-f64e94e6ae12" class="">No undo</h2>
-      <p id="b9018ce7-cac0-4b1e-90f7-4c971a17e806" class="">Edit morphs do not support undo. Bummer. And all other keyboard shortcuts are some subset of default emacs keybindings.</p>
+      <p id="b9018ce7-cac0-4b1e-90f7-4c971a17e806" class="">Edit morphs do not support undo. Bummer. And all other keyboard shortcuts are some subset of prehistoric emacs keybindings.</p>
       <h2 id="b3db9207-36a5-4965-8800-3f8a9f329d3f" class="">Ctrl+C / Ctrl+V</h2>
       <p id="e1fdad7a-15ee-4f62-ab2b-45d152724ea5" class="">Unfortunately it doesn't work because Self uses some really antiquated X bindings. The solution is to install the program <a href="https://www.nongnu.org/autocutsel/">autocutsel</a> and run it in the background.</p>
       <h2 id="7a876f7c-a4dc-49cb-9c97-402fe1b198cb" class="">Missing documentation</h2>
-      <p id="9769a1ab-90d2-4a00-bfff-52de15dc395c" class="">There is no other documentation but the one I already mentioned in my articles. Usually you can ask about the problem in the mail conference, but that is not an ideal scenario.</p>
+      <p id="9769a1ab-90d2-4a00-bfff-52de15dc395c" class="">There is no other documentation but the one I already mentioned in my articles. Usually you can ask about the problem in the mail conference, but that's not an ideal scenario.</p>
       <h2 id="88d17453-d398-4b29-ac32-f37316b4e9e0" class="">Slots are unordered</h2>
-      <p id="c11708dd-6a3c-48d0-9f24-cbd4c85b8128" class="">This situation is quite sad in case when you want to use objects to directly store some information, because it makes you use ordered collections instead.</p>
+      <p id="c11708dd-6a3c-48d0-9f24-cbd4c85b8128" class="">This situation is quite sad, because when you want to use objects to directly store some information, it makes you use ordered collections instead.</p>
       <h2 id="6fff2cb3-7846-4063-ac9f-69f122a054ee" class="">Self doesn't support cascading operator</h2>
       <p id="791fb2d3-b4d6-4a6d-bc23-dca2109e4568" class="">If you don't know what it is, then you won't probably miss it. If you used Smalltalk before, it will hurt.</p>
-      <h2 id="44ffe77a-60c1-4e65-9651-ef0977639faa" class="">Unicode input / the output doesn't happen</h2>
-      <p id="5d8f087c-83ff-4959-b94c-287133c40cdf" class="">Self uses ISO 8859-1 for text encoding, which is 8-bit encoding. That means that it doesn't accept any other characters then used in this character set (literally you just can't write them) and it doesn't even know how to show them.</p>
+      <h2 id="44ffe77a-60c1-4e65-9651-ef0977639faa" class="">Unicode input / output doesn't happen</h2>
+      <p id="5d8f087c-83ff-4959-b94c-287133c40cdf" class="">Self uses ISO 8859-1 for text encoding, which is 8-bit encoding. That means that it doesn't accept any other characters then used in this character set. Literally, you can't write them, and it doesn't know how to display them.</p>
       <figure id="3b1ba271-bb90-471b-81de-beb1161a0601" class="image">
-        <a href="Environment_and_the_programming_language_Self_part_three_debugger/iso_table.png" title="iso_table.png"><img style="width:336px" src="Environment_and_the_programming_language_Self_part_three_debugger/iso_table.png"></a>
+        <a href="Environment_and_the_programming_language_Self_part_three_debugger/iso_table.png" title="iso_table.png"><img style="width:432px" src="Environment_and_the_programming_language_Self_part_three_debugger/iso_table.png"></a>
       </figure>
       <p id="e812beb0-c333-4224-853d-8897866ff1cd" class="">For people like me, who live in non-english speaking country, this means that I can't type almost anything in my native tongue. My mother's surname is literally unwritable into the Self environment.</p>
       <p id="11ee3ce3-fc26-4cd3-a838-61220c993fd0" class="">If you would like to look more into details:</p>
@@ -564,6 +564,9 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
         </li>
         <li>
@@ -580,9 +583,6 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Data_hoarding.html" title="Data hoarding">📂 Data hoarding</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
