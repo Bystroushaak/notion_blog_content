@@ -2,35 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2020-11-12T18:41:16.944183+00:00</updated>
+  <updated>2020-12-06T19:59:27.381318+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html</id>
-    <title>BangleJS opensource smartwatches</title>
-    <updated>2020-08-02T23:07:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Improvements/The_Most_Personal_Device_experiment/BangleJS_opensource_smartwatches.html" rel="alternate"/>
-    <summary type="text">My quest for programmable smartwatches lead me to a lot of googling sessions, during which I&amp;#x27;ve discovered BangleJS, open source smartwatches programmable with JavaScript.</summary>
-    <published>2020-08-02T23:07:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html</id>
-    <title>Reply to; The Recovering Rationalist 01; A Path Forward</title>
-    <updated>2020-08-27T15:29:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Philosophy/Reply_to_The_Recovering_Rationalist_01_A_Path_Forward.html" rel="alternate"/>
-    <summary type="text">Reply to the blogpost `The Recovering Rationalist 01: A Path Forward`.</summary>
-    <published>2020-08-27T15:29:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html</id>
     <title>Rationality; From AI to Zombies as on demand book</title>
@@ -118,5 +96,27 @@
     <link href="https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html" rel="alternate"/>
     <summary type="text">Pictures of the robot manipulators I&amp;#x27;ve played with in the past.</summary>
     <published>2020-10-20T09:28:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html</id>
+    <title>Microtron model progress 2020/12; Case for the crystal</title>
+    <updated>2020-12-06T20:09:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" rel="alternate"/>
+    <summary type="text">Short writeup about modeling of the microtron crystal case component.</summary>
+    <published>2020-12-06T20:09:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/Paperclips/Things_that_disappeared/PyAtom_disappeared.html</id>
+    <title>PyAtom disappeared</title>
+    <updated>2020-12-06T19:30:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/Paperclips/Things_that_disappeared/PyAtom_disappeared.html" rel="alternate"/>
+    <summary type="text">I&amp;#x27;ve used pyatom module to generate Atom feeds for my blog, but also generally for all kinds of stuff for maybe four or five years. Then it disappeared.</summary>
+    <published>2020-12-06T19:30:00+01:00</published>
   </entry>
 </feed>
