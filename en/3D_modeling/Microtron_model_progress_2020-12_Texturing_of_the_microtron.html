@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Microtron model progress 2020/12; Texturing of the microtron</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Microtron model progress 2020/12; Texturing of the microtron">
+  <meta name="twitter:description" content="Short writeup about texturing the microtron body.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron_twitter_thumb.jpg">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="Short writeup about texturing the microtron body.">
+  <meta name="keywords" content="3D_models,3D_modelling,blender,microtron"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+        <li>
+          <a href="../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
+        </li>
+        <li>
+          <a href="Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
+        </li>
+        <li>
+          <a href="../Hardware/Robots_Ive_played_with.html" title="Robots I've played with">Robots I've played with</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" title="Joscha Bach; Artificial Consciousness and the Nature of Reality">Joscha Bach; Artificial Consciousness and the Nature of Reality</a>
+        </li>
+        <li>
+          <a href="../Programming/Tools_I_use/Tools_I_use_argparse_builder.html" title="Tools I use: argparse builder">Tools I use: argparse builder</a>
+        </li>
+        <li>
+          <a href="3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a>
+        </li>
+        <li>
+          <a href="3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Interesting_graffiti_Ive_seen.html" title="Interesting graffiti I've seen"><span class="icon">🗒️</span>Interesting graffiti I've seen</a>
+        </li>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/3d_modelling.html" title="3d_modelling">3D_modelling</a>, <a href="../../Tags/3d_models.html" title="3d_models">3D_models</a>, <a href="../../Tags/blender.html" title="blender">blender</a>, <a href="../../Tags/microtron.html" title="microtron">microtron</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Data_hoarding.html" title="Data hoarding">🗎 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="English section">English section</a> / <a class="breadcrumb" href="index.html" title="3D modeling">3D modeling</a> / Microtron model progress 2020/12; Texturing of the microtron
+  <article id="949caad2-d81a-4385-97df-dd8c8637cc4e" class="page sans">
+    <header>
+      <h1 class="page-title">Microtron model progress 2020/12; Texturing of the microtron</h1>
+    </header>
+    <div class="page-body">
+      <p id="3319bf14-f33b-4b6a-9a6d-28881badae5d" class=""><time>@2020/12/25</time></p>
+      <p id="f0e16d84-c897-48cd-a721-95855e0a7fc7" class="">As mentioned in the last article, I got to the point, where I remodeled the insides of the microtron and everything was ready to be textured.</p>
+      <figure id="0d9b142c-c888-46c4-9135-ca3e946bfc0c" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron1.jpg" title="microtron1.jpg"><img style="width:1600px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron1_thumb.jpg"></a>
+      </figure>
+      <p id="1a3eed59-e6bc-43c5-a06e-ee837cdaea4f" class="">When I got to this point with the previous models, I've just loaded the model to the substance painter (which I've bought in the meantime) and put textures on the model there.</p>
+      <p id="796ab01d-63c5-474b-847b-b7370b20adce" class="">This time however, I couldn't make it work. All the booleans (frame cubes in the picture, which are used to cut parts of the objects) were interfering, and whatever I was trying, I couldn't get them out of the scene (I've tried <code>fbx</code> export without them, hiding them, and so on).</p>
+      <p id="8f6aa5e3-d3fa-4080-bec3-cf4358e1f1a2" class="">In the end, I've decided to split the model into the two parts - top and bottom, and apply all booleans. This destructively modified the models, so I couldn't easily update it without playing with mesh. Then it was finally possible to load into the substance painter, but still lead to weird results:</p>
+      <figure id="42f1acf3-77b9-4821-b88e-dee00a5c0c98" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron_textured.jpg" title="microtron_textured.jpg"><img style="width:1740px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron_textured_thumb.jpg"></a>
+      </figure>
+      <p id="f0e89936-bbf9-41aa-bf49-b6438b0755ee" class="">Some textures looked like they were placed on objects that were badly UV unwrapped, and some materials combined in weird and unexpected ways (the white stuff in the bottom of the model). I've tried to play with it for some time, but even after I've spent multiple hours trying to understand what I am doing wrong, it didn't work.</p>
+      <p id="2fc1283e-5ea8-4eae-a02b-91f389bf289c" class="">In the end, I've decided to stop wasting my time, and do the textures separately. That is to export each part individually, texture it and then put textures in the model.</p>
+      <div id="d363c812-6e4c-453d-b5f7-314f05edc23c" class="column-list">
+        <div id="8100e52b-4514-41df-adfd-688500122569" style="width:50%" class="column">
+          <figure id="93032065-52c3-4db8-a23b-e8cf2df8801c" class="image">
+            <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/body.jpg" title="body.jpg"><img style="width:719px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/body.jpg"></a>
+          </figure>
+        </div>
+        <div id="70460771-e8ce-4cef-b46d-9c7ecbfd74e6" style="width:50%" class="column">
+          <figure id="8d817414-48ef-44dd-8131-361bb0158953" class="image">
+            <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/inner_container.jpg" title="inner_container.jpg"><img style="width:759px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/inner_container.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="9f94fd9c-93a5-4bc0-bccb-f25c7a666bad" class="column-list">
+        <div id="77c1ea66-dfa3-48a2-89c6-70eff9ee2f4f" style="width:33.333333333333336%" class="column">
+          <figure id="c892d758-4730-446a-a8b8-cb834428650a" class="image">
+            <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/inside_magnets.jpg" title="inside_magnets.jpg"><img style="width:730px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/inside_magnets.jpg"></a>
+          </figure>
+        </div>
+        <div id="02153b48-8278-4010-853b-95315eaec926" style="width:33.333333333333336%" class="column">
+          <figure id="f5f693ae-d765-4904-80a6-fd5f7a3fdf31" class="image">
+            <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/ports.jpg" title="ports.jpg"><img style="width:819px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/ports.jpg"></a>
+          </figure>
+        </div>
+        <div id="07aa15f4-a00e-4ad6-879f-cf14978f59e0" style="width:33.33333333333333%" class="column">
+          <figure id="54cbeee3-1ace-471e-9cff-9a5c29ab2bb8" class="image">
+            <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/tubes.jpg" title="tubes.jpg"><img style="width:968px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/tubes_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="e69c62aa-9a83-442f-9ff4-8080e375e5c6" class="">This has lead to expected results, but I've lost the neat feature of the substance painter, where it does all kinds of analysis of the model and for example automagically puts rust on rusted surface where two parts connect together. But at this point, I was getting tired and annoyed with the model so much, that I didn't really care.</p>
+      <p id="7c365f2c-fb54-4771-a612-bba9aeb497ea" class="">I repeated the process with the top part of microtron and here is the final result when I've put everything together into one scene:</p>
+      <figure id="8a1a23bb-fa4c-42e1-925b-5afcdca957d0" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/final_result.jpg" title="final_result.jpg"><img style="width:1600px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/final_result_thumb.jpg"></a>
+      </figure>
+      <p id="6dc89817-cfe3-4373-9a51-f0931b12540a" class="">Here is the final render:</p>
+      <figure id="71e005f0-de16-46b5-a9f2-9280ee9b2980" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron_render_small.jpg" title="microtron_render_small.jpg"><img style="width:2500px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron_render_small_thumb.jpg"></a>
+      </figure>
+      <figure id="a7ceffdd-5347-4554-9c94-13a89c2c63a9" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/microtron_render_with_schema_small.jpg" title="microtron_render_with_schema_small.jpg"><img style="width:2500px" src="../../cz/Predstaveni/Mikrotron_pod_Vitkovem/microtron_render_with_schema_small_thumb.jpg"></a>
+      </figure>
+      <p id="664f6f40-a85d-4b95-9a37-2de29e18f461" class="">Next part was the animation: <a href="https://www.notion.so/Microtron-model-progress-2020-12-Animation-b7142d4a3ea348f0b9dcfd3a6f19de04">Microtron model progress 2020/12; Animation</a>.</p>
+      <p id="f9fb0b9c-c350-4dd2-8647-d720e4229d00" class="">Model is available here:</p>
+      <ul id="8c64b6f6-0033-4557-aaa5-0c2e40847985" class="bulleted-list">
+        <li>
+          <a href="https://github.com/Bystroushaak/mikrotron_3D_model">https://github.com/Bystroushaak/mikrotron_3D_model</a>
+        </li>
+      </ul>
+      <p id="8c4cbada-defd-42a5-813a-686d6808fbec" class="">I've tried to upload all the sub-models and substance painter projects I've had, but github rejected me. At this point, whole git repository of the model has something like 5&nbsp;GB.</p>
+      <h1 id="49ed7873-d95c-4770-a886-65f69384130e" class="">Conclusions</h1>
+      <p id="95f10fec-67ed-48c6-829a-fed7ea24907e" class="">This was my first big model, and I've run into all kinds of organizational problems. One of them was how to organize materials and material textures. Before, I always used one <em>uv-unwrap</em> for all parts. On the model of this complexity, this approach turned out to be unusable, so I've had to experiment and learn by trial and error how to do multiple uv-unwrapps of multiple materials / object parts, and how to then get all of this working in Substance painter. Sometimes it worked, sometimes it didn't.</p>
+      <p id="395d5fcc-38eb-4a05-9d53-7ecf57c3be3f" class="">I've also learned to use Blender's "versioning", where during the save, you can easily increment the number behind the object's name. Before, I always relied on git, but this turned not to be ideal when the model's size got to tens of megabytes.</p>
+      <p id="a20faeb3-d619-4d66-977e-163ce4e584cc" class="">I noticed, that when you choose to append some object into your scene (that is to include it), you can select the <code>.blend</code> file the object is in:</p>
+      <figure id="c7be059b-0830-4e54-978b-aab3b564d394" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/file_browser_1.png" title="file_browser_1.png"><img style="width:1610px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/file_browser_1_thumb.jpg"></a>
+      </figure>
+      <p id="395a4be2-9c1e-45ca-b6a4-9876555e53ac" class="">And blender then opens the <code>.blend</code> file like if it was a directory:</p>
+      <figure id="194f317f-1914-4d9a-ac23-1666b9b1dba0" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/file_browser_2.png" title="file_browser_2.png"><img style="width:1610px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/file_browser_2_thumb.jpg"></a>
+      </figure>
+      <p id="6928f842-6526-4d5f-8619-efd17a5774cb" class="">And you can go and select specific objects:</p>
+      <figure id="3f2b7e4f-c899-454e-af2b-1f9e63ee4b7c" class="image">
+        <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron/file_browser_3.png" title="file_browser_3.png"><img style="width:1610px" src="Microtron_model_progress_2020-12_Texturing_of_the_microtron/file_browser_3_thumb.jpg"></a>
+      </figure>
+      <p id="3731ae17-89b4-4685-b189-6fc674f138d0" class="">I wish that there was a plugin, which would during the "save" export whole <em>.blend</em> file into plain files, and automatically version them with git. This would be much better, than just trying to version resulting 50&nbsp;MB binary blobs.</p>
+      <p id="c82b9da5-71ae-475d-ac8c-202ff92cd438" class="">Overall, I still have a lot to learn. I can now pretty much create any model (mesh) I want. I am not very effective, but I eventually get the expected results. I can fight with textures and usually get after several hours what I want. But I am a total noob where it comes to scene and generally project organization, and this project showed me how much I still don't know.</p>
+      <p id="43d2f371-b2ff-47a5-b981-1b80005c4fba" class="">I should probably look into more complex works, like the blender movies and try to learn how they organize stuff. It would also be really useful to become part of some community, where I could ask for this stuff. I have a strong mindset from programming, that I generally try to solve my problems on my own. But this is contra-productive for stuff like organizing your work.</p>
+      <p id="07bea387-1b8a-45a7-a040-e254d05a8e30" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+        <li>
+          <a href="../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
+        </li>
+        <li>
+          <a href="Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
+        </li>
+        <li>
+          <a href="../Hardware/Robots_Ive_played_with.html" title="Robots I've played with">Robots I've played with</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" title="Joscha Bach; Artificial Consciousness and the Nature of Reality">Joscha Bach; Artificial Consciousness and the Nature of Reality</a>
+        </li>
+        <li>
+          <a href="../Programming/Tools_I_use/Tools_I_use_argparse_builder.html" title="Tools I use: argparse builder">Tools I use: argparse builder</a>
+        </li>
+        <li>
+          <a href="3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a>
+        </li>
+        <li>
+          <a href="3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Interesting_graffiti_Ive_seen.html" title="Interesting graffiti I've seen"><span class="icon">🗒️</span>Interesting graffiti I've seen</a>
+        </li>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/3d_modelling.html" title="3d_modelling">3D_modelling</a>, <a href="../../Tags/3d_models.html" title="3d_models">3D_models</a>, <a href="../../Tags/blender.html" title="blender">blender</a>, <a href="../../Tags/microtron.html" title="microtron">microtron</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Data_hoarding.html" title="Data hoarding">🗎 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

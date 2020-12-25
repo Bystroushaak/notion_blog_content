@@ -2,35 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2020-12-06T23:56:34.688600+00:00</updated>
+  <updated>2020-12-25T15:41:18.779958+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html</id>
-    <title>Rationality; From AI to Zombies as on demand book</title>
-    <updated>2020-08-27T15:36:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/Paperclips/Rationality_From_AI_to_Zombies_as_on_demand_book.html" rel="alternate"/>
-    <summary type="text">Info how you can print this book in on demand service.</summary>
-    <published>2020-08-27T15:36:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html</id>
-    <title>Newsletter 2020-09-12; Waves of productivity</title>
-    <updated>2020-09-12T03:25:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" rel="alternate"/>
-    <summary type="text">Some of the stuff I did in last month and a half.</summary>
-    <published>2020-09-12T03:25:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/Paperclips/Interesting_graffiti_Ive_seen.html</id>
     <title>Interesting graffiti I&amp;#x27;ve seen</title>
@@ -118,5 +96,27 @@
     <link href="https://blog.rfox.eu/Paperclips/Things_that_disappeared/PyAtom_disappeared.html" rel="alternate"/>
     <summary type="text">I&amp;#x27;ve used pyatom module to generate Atom feeds for my blog, but also generally for all kinds of stuff for maybe four or five years. Then it disappeared.</summary>
     <published>2020-12-06T19:30:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Programming/Programmers_critique_of_missing_structure_of_operating_systems.html</id>
+    <title>Programmer&amp;#x27;s critique of missing structure of operating systems</title>
+    <updated>2020-12-12T11:26:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" rel="alternate"/>
+    <summary type="text">Updated list of resources to relevant articles. Added https://weinholt.se/articles/non-posix-filesystems/ and https://raphlinus.github.io/text/2020/10/26/text-layout.html</summary>
+    <published>2020-12-12T11:26:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html</id>
+    <title>Microtron model progress 2020/12; Texturing of the microtron</title>
+    <updated>2020-12-25T15:40:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" rel="alternate"/>
+    <summary type="text">As mentioned in the last article, I got to the point, where I remodeled the insides of the microtron and everything was ready to be textured.</summary>
+    <published>2020-12-25T15:40:00+01:00</published>
   </entry>
 </feed>
