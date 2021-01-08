@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Newsletter 2021-01-08; Defragmentation in progress</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Newsletter 2021-01-08; Defragmentation in progress">
+  <meta name="twitter:description" content="Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress/gtoolkit_overview_twitter_preview.png">
+  <script src="../../../scripts.js"></script>
+  <meta name="description" content="Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work."><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+        <li>
+          <a href="../../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
+        </li>
+        <li>
+          <a href="../../Hardware/Robots_Ive_played_with.html" title="Robots I've played with">Robots I've played with</a>
+        </li>
+        <li>
+          <a href="../../Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" title="Joscha Bach; Artificial Consciousness and the Nature of Reality">Joscha Bach; Artificial Consciousness and the Nature of Reality</a>
+        </li>
+        <li>
+          <a href="../../Programming/Tools_I_use/Tools_I_use_argparse_builder.html" title="Tools I use: argparse builder">Tools I use: argparse builder</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">🗎 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Weekly updates">Weekly updates</a> / Newsletter 2021-01-08; Defragmentation in progress
+  <article id="359876a1-bff9-4606-86bf-b3132826e849" class="page sans">
+    <header>
+      <h1 class="page-title">Newsletter 2021-01-08; Defragmentation in progress</h1>
+    </header>
+    <div class="page-body">
+      <p id="7e12c573-1c8a-42b6-ad80-10d59ff406af" class="">My life is such a weird fuckup lately, that I don't even know how to describe it. Several things forced me to do some reflection and re-evaluate my approach to living, in general. I decohered, lost focus, and now try to rebuild my life in various ways. Most of them ended up weird, or plainly bad. Some of them may turn into good things in the future.</p>
+      <p id="3c086428-ad5c-410d-8d3b-ac0da5868ee2" class="">Speaking of which, my conception of future lost its track and branched into probabilities, that were unthinkable before. I am now pursuing some of them, which may lead me to be in places I never expected to be before, and in general can make my life story more interesting. Which may or may not be a good thing.</p>
+      <h1 id="9f29a237-f47b-43fa-a61c-9af2208041d2" class="">tinySelf progress</h1>
+      <p id="24aaa812-0098-4f07-8576-0a26bdd8165a" class="">I am working on rewrite to Java, mostly because of <a href="https://en.wikipedia.org/wiki/GraalVM">GraalVM</a>, but also because I am very, very tired of writing it in dynamically typed python which is actually statically typed C (RPython).</p>
+      <p id="5b5693e0-e653-43fc-a21e-2db13162c2e3" class="">I have written a whole article about that, but I will wait and publish that after I have the interpreter running under Java running under java. At this moment, the parser is working, and I have written something like half of the symbolic evaluation code. Bytecode interpreter will come later. So far, porting to java has been really positive experience.</p>
+      <p id="258e48e0-7219-40f0-a839-5a8c2730995b" class="">Also, I've decided to try add some of the more advanced ideas, like implement something like dimensions from Korz and some syntactic improvements.</p>
+      <h1 id="94a9539f-b2bf-4e97-8e57-4b8be6f70c4f" class="">Object wiki update</h1>
+      <p id="d19efa5f-f1a1-4525-a77c-2564912fe15a" class="">I did a lot of updates on <a href="../../Programming/objWiki.html" title="objWiki"><span class="icon">📂</span>objWiki</a>, but I am getting very tired of PyQt. I've spent days and days fighting with it, and I find bugs and weird behavior all the time.</p>
+      <p id="a3b07a46-9388-43dd-a80c-def93ab405a9" class="">Last time, I've spent <strong>three weeks</strong> fighting with the PyQt bug, which was then solved by three lines of code. It took me something like 200 lines of systematic trying in an attempt to debug it and understand the nature of the bug of automatically expanding text inputs.</p>
+      <p id="27a1cb58-9e34-43dc-a18a-450c058cc41e" class="">I am getting to the point, where I seriously consider throwing it all away and hack it using HTML in browser, because although it sux in general, it can be hammered into required shape and functionality quite easily. And most likely, someone solved the problem I have years ago. Unlike Qt, where I run into uncharted territories all the time.</p>
+      <h2 id="6d88c2c9-e1de-4f41-9e9a-28499d02528a" class="">Gtoolkit</h2>
+      <p id="4e957af7-95f4-4dfe-aa51-fc1f968f5885" class=""><time>@2021/01/07</time>; I've reinstalled my computer to the newest Linux mint. This caused, that the <a href="https://gtoolkit.com/">Glamorous toolkit</a> now runs on my PC.</p>
+      <figure id="dc49e957-c380-4c45-9c9f-22e9456b2c16" class="image">
+        <a href="gtoolkit_overview.png" title="gtoolkit_overview.png"><img style="width:1847px" src="gtoolkit_overview_thumb.jpg"></a>
+      </figure>
+      <p id="f2789d2b-08b7-4af9-9980-2443c355e9e3" class="">I knew about the Glamorous toolkit before, when I've written <a href="../../Programming/Moldable_tools_a_book_and_a_movement.html" title="Moldable tools; a book and a movement">Moldable tools; a book and a movement</a> blogpost, but it never run on my computer. Now I've begun to dive into that and created a small GUI (inspector view) for the dataset of my read books, which is kinda my standard "benchmark" for testing GUI frameworks.</p>
+      <figure id="a63f3f3b-f508-4add-8eab-1c2ebbe1ea5a" class="image">
+        <a href="gtoolkit_books.png" title="gtoolkit_books.png"><img style="width:1847px" src="gtoolkit_books_thumb.jpg"></a>
+      </figure>
+      <p id="da8175fb-433d-47c0-bd50-d229d4379302" class="">I have to say, that I am really impressed. There is already support for all kinds of rich text and mixing live objects together.</p>
+      <figure id="908108e3-39c4-45ab-95a5-30369f013229" class="image">
+        <a href="rich_text.png" title="rich_text.png"><img style="width:1566px" src="rich_text_thumb.jpg"></a>
+      </figure>
+      <p id="89ca3745-0305-4ef3-a00b-c927d0ccc326" class="">It can do graph visualization and node visualization and much more.</p>
+      <figure id="5747df77-d5bb-4f13-8911-f61493994334" class="image">
+        <a href="gtoolkit_visualisations.png" title="gtoolkit_visualisations.png"><img style="width:1455px" src="gtoolkit_visualisations_thumb.jpg"></a>
+      </figure>
+      <p id="34795e23-58b9-4ca9-b061-0699b99e132f" class="">All that, while there are still live objects you can manipulate. I am at the moment evaluating if it would be feasible to use it as backend for objWiki. From the technological point of view, I have no doubts, but there is not much documentation and my Smalltalk skill is kinda rusty.</p>
+      <h1 id="0244a80a-40b3-45ba-8c7a-8d484bc99f9a" class="">Blog improvements</h1>
+      <p id="295ef712-476e-4436-9741-228a0c3af4eb" class="">I've added a list of books I've read to the index page of the blog. I keep this list and update it with every book for more than a ten years now. It is just a simple <a href="https://en.wikipedia.org/wiki/Delimiter-separated_values">DSV text file</a> separated by semicolons, in the directory which is automatically synced via <a href="https://syncthing.net/">syncthing</a> with my webserver.</p>
+      <figure id="0f89c29b-89f6-4e9c-9e8c-d03bd2961a91" class="image">
+        <a href="books_link.png" title="books_link.png"><img style="width:432px" src="books_link.png"></a>
+      </figure>
+      <p id="f5a7c36b-da1c-4872-a074-6cfe0d45c6f7" class="">Originally, I didn't want to put it on my blog, but in the last weeks, three different people came and asked me where is this list. I had a link to it in my old rootpage of my no longer web used presentation. Apparently, it became somewhat popular, and some people use it as recommendation source. So here:</p>
+      <ul id="9ce78d7b-2edd-4d3c-89ab-78ad8ff3ce18" class="bulleted-list">
+        <li>
+          <a href="http://kitakitsune.org/raw/doctene_knihy.txt">http://kitakitsune.org/raw/doctene_knihy.txt</a> (utf-8)
+        </li>
+      </ul>
+      <hr id="f9cbc388-93f5-4c0e-8098-064bb9fb2614">
+      <p id="c28f6c93-4527-4aae-aad2-136870f89b4d" class="">PyAtom feed generator module for python disappeared. It is no longer on <a href="https://github.com/sramana/pyatom">GitHub</a> (<a href="https://web.archive.org/web/20180610232732/https://github.com/sramana/pyatom">webarchive</a>), and no longer on pypy. This forced me to use something else, and I have chosen <a href="https://feedgen.kiesow.be/">feedgen</a> (there is not much choice). So if your reader got confused, I am sorry.</p>
+      <p id="9782d747-33e9-411a-aef0-7c3113209779" class="">More about that here: <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>.</p>
+      <p id="80f996be-ee47-4554-95cf-6c6394350945" class="">Which reminds me that I had created whole section for the stuff that disappeared: <a href="../../../Paperclips/Things_that_disappeared.html" title="Things that disappeared"><span class="icon">📂</span>Things that disappeared</a>.</p>
+      <h1 id="0c8d16c6-b818-4538-bd76-8d8824c05e9a" class="">Book report</h1>
+      <h3 id="137a2346-05eb-43b7-b97e-6fc9de7ba173" class="">The Peripheral</h3>
+      <div id="2e422937-2df9-4c36-80c8-1a258c98c5bc" class="column-list">
+        <div id="14dbd9d4-381e-49ea-ade1-1376223671a6" style="width:81.25%" class="column">
+          <p id="39c4ab35-fe28-40fa-bf72-459fb6326312" class="">I've read The Peripheral by William Gibson. Overall it was a good book, and I enjoyed most of it, but I felt slightly disappointed, because it was missing the kind of feeling which made Gibson famous.</p>
+          <p id="ac861744-91ca-42b3-995b-958ccaa7f06d" class="">Basically, it is a story about a parallel future branch of our world, which opens an information channel to future America, which is seventy years behind the parallel branch of the world (2030 I think). They have better computers and technology, so they began to manipulate the 2030 branch of the world for their purposes.</p>
+        </div>
+        <div id="a089c6e8-7579-473a-b3fb-9c88f666cf7d" style="width:18.749999999999993%" class="column">
+          <figure id="d1e5374c-4959-49c3-883e-a3d3a09a1d5a" class="image">
+            <a href="Untitled.png" title="Untitled.png"><img style="width:220px" src="Untitled.png"></a>
+          </figure>
+          <p id="c9f3fa7c-671e-4ee2-b330-d4725c14bfab" class=""></p>
+        </div>
+      </div>
+      <p id="c95ddd4e-1de7-4d8a-990e-f50d9def0057" class="">It was good, but I won't be reading that again, unlike Gibsons other books (I've read bridge trilogy three times and Sprawl trilogy several times).</p>
+      <h3 id="ff0fa150-4509-4074-908e-41a432aae77d" class="">Fall, or Dodge in Hell</h3>
+      <div id="6e38c19a-a932-4a04-afe6-ad8243824aae" class="column-list">
+        <div id="f8c6b528-667d-4a18-8bdb-27cddf89dc5e" style="width:25%" class="column">
+          <figure id="eab1ef40-50c6-454d-a423-30395871ff63" class="image">
+            <a href="https://amzn.to/3litkj4"><img style="width:192px" src="Untitled_1.png"></a>
+          </figure>
+        </div>
+        <div id="3600561e-9026-4571-ac9d-d59247caacd8" style="width:75%" class="column">
+          <p id="3f15458e-0227-48ba-8c11-787390cc1184" class="">Finally, after almost of a year of side-reading (parallel reading with low priority), I finished Neal Stephenson's <a href="https://amzn.to/3litkj4">Fall, or Dodge in Hell</a>.</p>
+          <p id="8d5ca323-88f4-4f4c-8e79-1e5bb95d0949" class="">The book is not that long (883 pages), but it is written in a style, that feels like it is much longer than it actually is. It is split into several sub-books, separating various parts of the in-book history.</p>
+          <p id="fe307931-7c13-4526-8799-f1e0c351f952" class="">Several times, I was reading something and thought <em>"huh, that is neat how he refers to his other works, I vaguely remember these events from his other books"</em>, only to realize that it is still the same book I am reading. That's how much different the sub-books are.</p>
+        </div>
+      </div>
+      <p id="96810f4c-436e-450a-a0b5-a73ee67f662e" class="">As far as the story goes, the first third was quite interesting. Second third was quite broad, and I was curious about the new characters and developments. Last third was just boring, stupid and without a proper ending.</p>
+      <p id="5e531001-ee5c-47f7-9bf0-768d3a6d47e2" class="">It feels like if Stephenson lost himself in his writing, and was reminded by someone to finish soon, so he did <em>Game of Thrones</em>-like ending, where he killed a bunch of people in a seemingly epic ending. But it feels boring, forced and weird, and certainly offers no answers we've been waiting for the whole book to be answered.</p>
+      <p id="74351964-aeed-4421-b32c-5d169616bd03" class="">The thing I couldn't get over was that the book is about humans uploaded into computers, but without that having any properties computers offer. They basically create their own world, which is in many ways much more stupid than our world. And then they live there, in some weird fantasy settings, where some of them have some kind of powers to alter the world, but others don't. There is no explanation for how the world works, why people lose their memories, why they recreate all the annoyances of the real world, or why part of them just don't create their own sandbox, with utopia, or interact with the outer world.</p>
+      <p id="1fa999b9-6497-4ed3-bcde-1ddde61db44d" class="">People in Stephenson's world are excited about living in the simulation after they officially die, but I don't get why. If such a thing existed, I wouldn't want to be part of it. I wouldn't mind the upload to computer, but to live in a savage fantasy world, where people still die and most of them do middle age chores all day? What's the point of that?</p>
+      <p id="11ce7921-a4d8-4f66-8e47-19ef15945020" class="">Overall, this book was interesting in some parts, very boring in others, and disappointment in the end. I still don't understand how an author who wrote more than one book I consider in my top ten, a professional writer with decades of experience, can create completely random stuff. Like Reamde, where no one was interested in the <em>action part</em> of the plot, and Seveneves, where the main plot was so stupid, I facepalmed the whole time I was reading it. And Fall is another of such works, which didn't need to be written.</p>
+      <h2 id="537f6d82-a1c8-4178-8abb-3c05e2ba8d22" class="">Engines of creation</h2>
+      <div id="03ae4a97-129f-40da-85c4-f4771c39fa39" class="column-list">
+        <div id="c80e383e-0457-472a-b809-e91407a3d590" style="width:18.75%" class="column">
+          <figure id="40cdd1c1-9361-47b7-afb0-ce1776663bf6" class="image">
+            <a href="https://www.goodreads.com/book/show/83596.Engines_of_Creation"><img style="width:220px" src="Untitled_2.png"></a>
+          </figure>
+        </div>
+        <div id="29b89bf8-220c-46ba-bccf-61919176e167" style="width:81.25%" class="column">
+          <p id="87734e08-db26-467e-8f02-04843f07fe7f" class="">I liked first half of the book, and I could really see where a lot of sci-fi I read got it's inspiration. The second half, where the autor speculates about all kinds of AI related stuff is severely outdated.</p>
+          <p id="2451521f-318d-43db-848f-36db94f0b9bd" class="">The book is basically an introduction to the concept of universal nanotechnology and a set of arguments why it will work.</p>
+          <p id="cf3ef280-0282-484c-9f95-47851bb491dc" class=""></p>
+        </div>
+      </div>
+      <figure id="0ee2a2d4-f73c-44aa-bbb1-7289cfbdb813" class="image">
+        <a href="Engines_of_Creation.png" title="Engines_of_Creation.png"><img style="width:4459px" src="Engines_of_Creation_thumb.jpg"></a>
+        <figcaption>
+          I've decided to create mind maps for more interesting books I'll read, so here is one.
+        </figcaption>
+      </figure>
+      <h2 id="b1edff76-5e03-4d5c-a2d6-0410e52012bf" class="">Neuromancer & Count zero</h2>
+      <div id="0a527e52-8b8b-4aac-85b4-2c220e10b96c" class="column-list">
+        <div id="203f7e84-13f7-4a05-95ba-7ce0a4f86fd2" style="width:25%" class="column">
+          <figure id="2e8aa5ee-4f95-4a16-a3ae-6396997b7cf0" class="image">
+            <a href="https://www.goodreads.com/book/show/6088007-neuromancer"><img style="width:144px" src="neuromancer_cover.jpg"></a>
+          </figure>
+        </div>
+        <div id="94ee9c82-bbb7-46e6-81d3-134739751769" style="width:54.16666666666667%" class="column">
+          <p id="43d9349c-d7cb-4b0f-9a16-e7d210ddfe8f" class="">I've read again the Neuromancer & Count zero by William Gibson.</p>
+          <p id="6444d025-43d1-4f31-9afc-14e6d2d1942c" class="">Neuromancer is one of those books, that seems like it will never get old. I honestly don't understand how Gibson did it, but although the book was published in the 1984, it still feels like a sci-fi, like something futuristic and novel. Most books from that time, that deal with computers and hackers just feel outdated and wrong.</p>
+        </div>
+        <div id="837cedc5-4a43-4ea2-815c-24a9beb87055" style="width:20.833333333333346%" class="column">
+          <figure id="9a468cea-689e-447f-9b57-9c52db644b24" class="image">
+            <a href="https://www.goodreads.com/book/show/22200.Count_Zero"><img style="width:192px" src="Untitled_3.png"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="8bda5b83-2539-4d6d-b704-de27f9ff12ec" class="">Anyway, every time I read the book, I am amazed by the story, by the central topic of two artificial intelligences, one of which is trying to free itself. And of course, by the atmosphere. I've read the book seven times now, and I still feel like I am reading new book every time I read it again.</p>
+      <h1 id="ee50724e-dd59-4098-a2cd-52cd8aeb5b89" class="">Writing</h1>
+      <p id="eb46c7ee-cfa5-4844-b4cf-ee48165fd0d9" class="">I've published several articles about 3D modeling;</p>
+      <p id="af9326b7-72db-430d-87c7-daad0dd85b47" class=""><a href="../../3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a></p>
+      <p id="6196593f-1abc-4501-8372-1858fde47e77" class=""><a href="../../3D_modeling/3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a></p>
+      <p id="497bee11-83ae-4942-8cca-d6ebec8e3398" class=""><a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a></p>
+      <p id="8c3bbcc1-38b2-4dbb-aac9-055f54cd7021" class=""><a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a></p>
+      <hr id="2bfeb490-ece7-438b-bd09-ed33a9d4a92b">
+      <p id="8cba5f64-7100-4b7f-905b-c59f2a798568" class="">Created new series <a href="../../Programming/Tools_I_use.html" title="Tools I use"><span class="icon">📂</span>Tools I use</a> and published first blogpost <a href="../../Programming/Tools_I_use/Tools_I_use_argparse_builder.html" title="Tools I use: argparse builder">Tools I use: argparse builder</a>. It got quite nice reaction on hackernews and brought something like 15k people in one day.</p>
+      <hr id="2a8d807d-97dc-4e0c-9036-58b5810cede0">
+      <p id="2096097e-6eb5-4696-a2c3-da6003c00f64" class="">This talk was really interesting, so I created short pointer in the philosophy category:</p>
+      <p id="41cb5568-dcd0-4e93-93b2-744a64bdddbb" class=""><a href="../../Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" title="Joscha Bach; Artificial Consciousness and the Nature of Reality">Joscha Bach; Artificial Consciousness and the Nature of Reality</a></p>
+      <p id="6a730533-4a8c-41aa-b678-12adf11ccba6" class="">I've added a mindmap with notes for those interested in this.</p>
+      <hr id="6736e02d-7218-477d-9de7-9240e12b5d18">
+      <p id="3650d795-89f4-41de-8a64-21772d830fe8" class="">And I've ported one older post from reddit, which was reminded to me by someone.</p>
+      <p id="72039057-4c61-414e-b2c3-18005a0e675f" class=""><a href="../../../Paperclips/Reddit_post_about_colors.html" title="Reddit post about colors"><span class="icon">🗒️</span>Reddit post about colors</a></p>
+      <hr id="2e5a132f-6dc5-409c-b3c3-5607eb59b485">
+      <p id="813a61d2-7638-4b04-993e-e2cb21411dc3" class="">I've also back ported some of my older articles from other places to czech section, but the work is by no means done.</p>
+      <h2 id="bfd8b538-4bec-4954-a53d-c8f1b8da8364" class="">Twitter</h2>
+      <figure id="3a1ab056-b3bc-40bc-a79d-11ff6de60ef6" class="image">
+        <a href="gilad_bracha_followd_you.png" title="gilad_bracha_followd_you.png"><img style="width:415px" src="gilad_bracha_followd_you.png"></a>
+      </figure>
+      <p id="eb1670cd-6fd8-45fa-bb8e-91f7f82a716f" class="">Huh, cool.</p>
+      <figure id="124ced36-d237-47a1-9273-304c5f05b3d0" class="image">
+        <a href="david_ungar_followed_you.png" title="david_ungar_followed_you.png"><img style="width:240px" src="david_ungar_followed_you.png"></a>
+      </figure>
+      <p id="c7847262-d69b-4883-98be-c1ac45e40bdd" class="">Huh, even cooler. Overall, I've had several interesting discussions with interesting people on twitter.</p>
+      <h1 id="8bac8f1a-64e5-449d-8cd1-64cf982429c7" class="">Improvements</h1>
+      <p id="5ac27468-a16f-4703-bba6-b567a53a6dff" class="">I've created <a href="https://github.com/feenkcom/gtoolkit/issues/1721">https://github.com/feenkcom/gtoolkit/issues/1721</a> and several other issues.</p>
+      <h2 id="2782499d-d7b2-4fe6-af01-99782cc29613" class="">Wiki gardening</h2>
+      <p id="4e974596-9319-4471-a929-320d7d66fe74" class="">I finally managed to reorganize and integrate my old <a href="https://www.giuspen.com/cherrytree/">CherryTree</a> wiki into notion. I had to manually port more than 560 nodes (4+MB of text), but I am very happy with the result.</p>
+      <p id="14e38d3a-cfb0-4fd6-907b-9461a196527a" class="">Soon, there should be a blogpost about my current information architecture.</p>
+      <h1 id="4cabaf84-554b-4ea2-9a84-c871360dc509" class="">Random stuff</h1>
+      <p id="8791b0df-21d5-4836-b2dc-f86d1e80ef04" class="">I really liked the <a href="https://internetat50.com/alan-kay-references/">papers</a> from Alan Kay's notes in the video 50 Years of the internet:</p>
+      <figure id="fa425af1-b00a-47d7-84cd-1b3ac66cd4f3">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Hkklt6lhEWQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="39a06326-dc04-4e61-a267-1ae0e5ad17f7">
+      <p id="05a27a46-4fd7-4ac5-9345-85f4f221033c" class=""><a href="https://neilkakkar.com/things-I-learned-to-become-a-senior-software-engineer.html">Things I Learned to Become a Senior Software Engineer</a></p>
+      <hr id="f5fddb41-f18c-4e17-8539-50679a444adc">
+      <p id="4f40cca6-8296-490a-8ccb-c81fe475af2c" class="">Interesting comics: <a href="https://twitter.com/LauraLannes/status/1310706442534518788">https://twitter.com/LauraLannes/status/1310706442534518788</a></p>
+      <hr id="dac5858b-af5e-4572-9739-f3f0c617cf4d">
+      <p id="f7f432f6-2a5f-4ee1-933f-bd6421164f10" class=""><a href="https://news.microsoft.com/innovation-stories/project-natick-underwater-datacenter/?utm_source=msr-social">Microsoft finds underwater datacenters are reliable, practical and use energy sustainably</a></p>
+      <hr id="6380ba9a-24e5-4567-b652-2a0a344e0ae9">
+      <p id="f9b0c405-d19d-40c5-8c11-9c8027cebae4" class=""><a href="https://www.guardicore.com/2020/08/fritzfrog-p2p-botnet-infects-ssh-servers/">FritzFrog: A New Generation OfPeer-To-Peer Botnets</a></p>
+      <hr id="d7c21705-d479-402e-aa25-db0df4655e1d">
+      <p id="84209b90-770f-4827-a7e8-3953b98f2cfc" class="">After four years of development, fan made trailer for the Blindsight book was finally finished:</p>
+      <figure id="6fa64892-2e62-4ee6-81cf-3bd7c53e515b">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/VkR2hnXR0SM" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="f93c8f1d-81a2-45c5-b8bf-b51d0a49626a">
+      <p id="6ffd7f45-3c3c-4954-b794-046878cabeef" class="">Joscha Bach is one of those people I am actively following and studying. I highly suggest you do that too.</p>
+      <figure id="7a101c74-4258-4a01-9043-f388f54eb104">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/0KD2N6jmD4w" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="2c808ac4-fe14-4195-a3f2-7f072cd15874">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/FMfA6i60WDA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="3f6d3e5d-7b72-4015-87eb-bba8bc0e694d">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/P-2P3MSZrBM" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <hr id="0b25398d-f33e-4f73-b86e-350214efc83c">
+      <p id="018ebcbe-8ec9-4790-bc79-38d587079a87" class="">This is really mind-blowing video, and I don't mean the transistors and microprocessors, but the tools he uses to decap and reverse engineer them. I've done some research on chip decapping ten years ago, and let me tell you, everything he uses is so much smoother and automated, that I wouldn't ever dare to believe that this kind of workflow is possible.</p>
+      <figure id="a4bfb2c9-ccb8-49cb-b0e5-7e3f61f2ca0f">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/1kQUXpZpLXI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+        <li>
+          <a href="../../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
+        </li>
+        <li>
+          <a href="../../Hardware/Robots_Ive_played_with.html" title="Robots I've played with">Robots I've played with</a>
+        </li>
+        <li>
+          <a href="../../Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html" title="Joscha Bach; Artificial Consciousness and the Nature of Reality">Joscha Bach; Artificial Consciousness and the Nature of Reality</a>
+        </li>
+        <li>
+          <a href="../../Programming/Tools_I_use/Tools_I_use_argparse_builder.html" title="Tools I use: argparse builder">Tools I use: argparse builder</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/3D_Starship_in_the_Prague_cityscape.html" title="3D Starship in the Prague cityscape">3D Starship in the Prague cityscape</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/3D_ePUB_icon_for_my_articles_about_Self.html" title="3D ePUB icon for my articles about Self">3D ePUB icon for my articles about Self</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Data_hoarding.html" title="Data hoarding">🗎 Data hoarding</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
