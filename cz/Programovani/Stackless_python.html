@@ -1,161 +1,75 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Stackless python</title>
-  <link rel="stylesheet" type="text/css" href="../../style.css">
-  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom_cz.xml">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@Bystroushaak">
-  <meta name="twitter:title" content="Stackless python">
-  <meta name="twitter:description" content="Ukázka instalace a použití stackless pythonu.">
-  <script src="../../scripts.js"></script>
-  <meta name="description" content="Ukázka instalace a použití stackless pythonu.">
-  <meta name="keywords" content="python,stackless"><!-- Global site tag (gtag.js) - Google Analytics -->
-
-  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
-  <script>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Stackless python</title><link rel="stylesheet" type="text/css" href="../../style.css" /><link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom_cz.xml" /><link rel="shortcut icon" href="/favicon.ico" /><meta name="twitter:card" content="summary" /><meta name="twitter:site" content="@Bystroushaak" /><meta name="twitter:title" content="Stackless python" /><meta name="twitter:description" content="Ukázka instalace a použití stackless pythonu." /><script src="../../scripts.js"></script><meta name="description" content="Ukázka instalace a použití stackless pythonu." /><meta name="keywords" content="python,stackless" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'UA-142545439-1');
-  </script>
-</head>
-<body onload="on_body_load();">
-  <div id="sidebar_top">
-    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
-    <div id="last_five_top">
-      <h3>New posts</h3>
-      <ul>
-        <li>
-          <a href="../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
-        </li>
-        <li>
-          <a href="../Predstaveni/Mikrotron_pod_Vitkovem.html" title="Mikrotron pod Vítkovem">Mikrotron pod Vítkovem</a>
-        </li>
-        <li>
-          <a href="../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a>
-        </li>
-        <li>
-          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h3>Tagy</h3>
-      <p><a href="../../Tagy/python.html" title="python">python</a>, <a href="../../Tagy/stackless.html" title="stackless">stackless</a></p>
-    </div>
-    <div>
-      <h3>Blog categories</h3>
-      <ul class="no_icon">
-        <li>
-          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
-        </li>
-        <li>
-          <a href="../Programovani.html" title="Programování">📂 Programování</a>
-        </li>
-        <li>
-          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
-        </li>
-        <li>
-          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
-        </li>
-        <li>
-          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
-        </li>
-        <li>
-          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
-        </li>
-        <li>
-          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
-        </li>
-        <li>
-          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
-        </li>
-        <li>
-          <a href="../index.html" title="Czech section">📂 Czech section</a>
-        </li>
-      </ul>
-    </div>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Programování">Programování</a> / Stackless python
-  <article id="9fcd4e00-dd05-4c36-b289-5623320f26d8" class="page sans">
-    <header>
-      <h1 class="page-title">Stackless python</h1>
-    </header>
-    <div class="page-body">
-      <p id="12dd033d-33ed-4828-a0b4-42fe6fcb77a8" class=""><time>@2013/10/28</time></p>
-      <p id="4e86ff17-8e3d-448c-9828-fe92ba70b91d" class="">Možná jste někdy měli na potřebu paralelizace vašeho pythonního scriptu a thready se pro vás ukázaly jako nevhodné z důvodu jejich vysoké náročnosti (zkuste si spustit 800 threadů a pochopíte o čem mluvím). Přesně pro takovéto případy byl vytvořen&nbsp;<a href="http://www.stackless.com/">Stackless python</a>, který vám umožní používat microthready/korutiny/tasklety za použití preemptivního multitaskingu.</p>
-      <h1 id="f3d0a13f-a85f-454f-ac40-bacf31fbaafa" class="">Update</h1>
-      <p id="dc3e4aff-b45e-48b7-968a-64a78a6beb4c" class=""><strong>Na základě diskuze jsem se dozvěděl, že pythonní interpreter PyPy má v sobě podporu Stackless přímo&nbsp;</strong><a href="http://pypy.org/features.html#stackless"><strong>zabudovanou</strong></a><strong>. Pokud uvažujete o použití Stackless, tak tohle asi bude lepší cesta, než kompilace interpreteru.</strong></p>
-      <h1 id="9870b8c9-fafd-4ed9-a07c-7151ead1ed31" class="">Instalace</h1>
-      <p id="a5eacc2b-f18f-4e91-8aed-72de3c9181d3" class="">Instalaci jsem prováděl na Mintu 13, ale měla by být dost podobná na téměř všech debianovských systémech, kde již je nainstalován python 2.7. Postup je poměrně jednoduchý, ale je nutné kompilovat a upravit jeden konfigurák. Níže uvedené příkazy to automatizují tak, že je v podstatě jen stačí napastovat do konzole a občas zadat heslo na roota.</p>
-      <p id="0e108160-c8b1-4ab2-8ead-bc22fbbb16b3" class="">Návod je založený na článku&nbsp;<a href="http://architects.dzone.com/articles/install-stackless-python">Install Stackless Python on Ubuntu</a>.</p>
-      <h2 id="14afaf17-f170-4c73-bea5-fde21094b410" class="">Příprava systému</h2>
-      <pre id="3c0f31e3-c8b3-4ef0-80e2-abe110528b50" class="code"><code>sudo apt-get update
+    </script>
+    </head><body onload="on_body_load();"><div id="sidebar_top"><span>
+            <a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png" /></a>
+            &nbsp; &nbsp;
+            <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png" /></a>
+        </span><div id="last_five_top">
+<h3>New posts</h3>
+<ul>
+  <li><a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a> </li>
+  <li><a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a> </li>
+  <li><a href="../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a> </li>
+  <li><a href="../Predstaveni/Mikrotron_pod_Vitkovem.html" title="Mikrotron pod Vítkovem">Mikrotron pod Vítkovem</a> </li>
+  <li><a href="../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a> </li>
+  <li><a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a></li>
+</ul>
+
+</div><div><h3>Tagy</h3><p><a href="../../Tagy/python.html" title="python">python</a>, <a href="../../Tagy/stackless.html" title="stackless">stackless</a></p></div><div>
+<h3>Blog categories</h3>
+<ul class="no_icon">  <li><a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a></li>
+  <li><a href="../Programovani.html" title="Programování">📂 Programování</a></li>
+  <li><a href="../Povidky.html" title="Povídky">📂 Povídky</a></li>
+  <li><a href="../Knihy.html" title="Knihy">📂 Knihy</a></li>
+  <li><a href="../Predstaveni.html" title="Představení">📂 Představení</a></li>
+  <li><a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a></li>
+  <li><a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a></li>
+  <li><a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a></li>
+  <li><a href="../index.html" title="Czech section">📂 Czech section</a></li>
+</ul>
+</div></div><a class="breadcrumb" href="../../index.html" title="Bystroushaak&#x27;s blog">Bystroushaak&#x27;s blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Programování">Programování</a> / Stackless python
+
+<article id="9fcd4e00-dd05-4c36-b289-5623320f26d8" class="page sans"><header><h1 class="page-title">Stackless python</h1></header><div class="page-body"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><p id="12dd033d-33ed-4828-a0b4-42fe6fcb77a8" class=""><time>@2013/10/28</time> </p><p id="4e86ff17-8e3d-448c-9828-fe92ba70b91d" class="">Možná jste někdy měli na potřebu paralelizace vašeho pythonního scriptu a thready se pro vás ukázaly jako nevhodné z důvodu jejich vysoké náročnosti (zkuste si spustit 800 threadů a pochopíte o čem mluvím). Přesně pro takovéto případy byl vytvořen <a href="http://www.stackless.com/">Stackless python</a>, který vám umožní používat microthready/korutiny/tasklety za použití preemptivního multitaskingu.</p><h1 id="f3d0a13f-a85f-454f-ac40-bacf31fbaafa" class="">Update</h1><p id="dc3e4aff-b45e-48b7-968a-64a78a6beb4c" class=""><strong>Na základě diskuze jsem se dozvěděl, že pythonní interpreter PyPy má v sobě podporu Stackless přímo </strong><a href="http://pypy.org/features.html#stackless"><strong>zabudovanou</strong></a><strong>. Pokud uvažujete o použití Stackless, tak tohle asi bude lepší cesta, než kompilace interpreteru.</strong></p><h1 id="9870b8c9-fafd-4ed9-a07c-7151ead1ed31" class="">Instalace</h1><p id="a5eacc2b-f18f-4e91-8aed-72de3c9181d3" class="">Instalaci jsem prováděl na Mintu 13, ale měla by být dost podobná na téměř všech debianovských systémech, kde již je nainstalován python 2.7. Postup je poměrně jednoduchý, ale je nutné kompilovat a upravit jeden konfigurák. Níže uvedené příkazy to automatizují tak, že je v podstatě jen stačí napastovat do konzole a občas zadat heslo na roota.</p><p id="0e108160-c8b1-4ab2-8ead-bc22fbbb16b3" class="">Návod je založený na článku <a href="http://architects.dzone.com/articles/install-stackless-python">Install Stackless Python on Ubuntu</a>.</p><h2 id="14afaf17-f170-4c73-bea5-fde21094b410" class="">Příprava systému</h2><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="3c0f31e3-c8b3-4ef0-80e2-abe110528b50" class="code"><code>sudo apt-get update
 sudo apt-get install libreadline-dev
-sudo apt-get build-dep python2.7</code></pre>
-      <h2 id="5d05e119-2c71-4f63-9b44-27975c1a234a" class="">Stažení poslední verze stackless pythonu</h2>
-      <pre id="ea7b9cbd-7097-4bb3-ae90-163c6cd349bc" class="code"><code>cd /tmp
-LAST_SL=`wget http://www.stackless.com/binaries/ -O - 2&gt;/dev/null | grep export.tar.bz2 | grep -v md5 | cut -d '"' -f 8 | grep "stackless-2" | sort | tail -n 1`
-wget "http://www.stackless.com/binaries/$LAST_SL"
+sudo apt-get build-dep python2.7</code></pre><h2 id="5d05e119-2c71-4f63-9b44-27975c1a234a" class="">Stažení poslední verze stackless pythonu</h2><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="ea7b9cbd-7097-4bb3-ae90-163c6cd349bc" class="code"><code>cd /tmp
+LAST_SL=<span class="token variable" >`</span><spanclass="token function" >wget</span>http://www.stackless.com/binaries/-O-<spanclass="token operator" ><spanclass="token file-descriptor important" >2</span>></span>/dev/null<spanclass="token operator" >grep</span>export.tar.bz2<spanclass="token operator" >grep</span>-vmd5<spanclass="token operator" >cut</span>-d<spanclass="token string" >'"'</span>-f<spanclass="token number" >8</span><spanclass="token operator" >grep</span><spanclass="token string" >"stackless-2"</span><spanclass="token operator" >sort</span><spanclass="token operator" >|</span><spanclass="token function" >tail</span>-n<spanclass="token number" >1</span><spanclass="token variable" >`</span="">
+wget "http://www.stackless.com/binaries/<span class="token variable">$LAST_SL</span>"
  
 tar -xvf $LAST_SL
 rm $LAST_SL
-LAST_SL=`echo $LAST_SL | cut -d "." -f 1`
-cd $LAST_SL</code></pre>
-      <h2 id="3645251f-1386-4a6a-a89f-36b25a606832" class="">Kompilace a instalace</h2>
-      <pre id="c756ac7a-000f-4476-81d9-ddf5103966e3" class="code"><code>./configure --prefix=/opt/stackless --enable-unicode=ucs4
+LAST_SL=<span class="token variable" >`</span><spanclass="token builtin class-name" >echo</span>$LAST_SL<spanclass="token operator" >|</span><spanclass="token function" >cut</span>-d<spanclass="token string" >"."</span>-f<spanclass="token number" >1</span><spanclass="token variable" >`</span="">
+cd $LAST_SL</code></pre><h2 id="3645251f-1386-4a6a-a89f-36b25a606832" class="">Kompilace a instalace</h2><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="c756ac7a-000f-4476-81d9-ddf5103966e3" class="code"><code>./configure --prefix=/opt/stackless --enable-unicode=ucs4
 make
-sudo make install</code></pre>
-      <h2 id="183e8e23-4896-4182-86bb-704f66320045" class="">Poinstalační fix</h2>
-      <p id="5bac87c1-8575-4f53-ba0d-b6e7100d936c" class="">Doplnění symlinků na standardní pythonní moduly a úprava cest, kde má stackless hledat moduly. Úprava konfiguráku proběhne automaticky, použil jsem k tomu python, protože se mi nechtělo hrát si 7 hodin se&nbsp;sedem a jeho escape sekvencemi.</p>
-      <pre id="48e86243-cfc1-4cac-90e5-aa741694fb4b" class="code"><code>sudo ln -s /usr/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/site-packages
+sudo make install</code></pre><h2 id="183e8e23-4896-4182-86bb-704f66320045" class="">Poinstalační fix</h2><p id="5bac87c1-8575-4f53-ba0d-b6e7100d936c" class="">Doplnění symlinků na standardní pythonní moduly a úprava cest, kde má stackless hledat moduly. Úprava konfiguráku proběhne automaticky, použil jsem k tomu python, protože se mi nechtělo hrát si 7 hodin se sedem a jeho escape sekvencemi.</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="48e86243-cfc1-4cac-90e5-aa741694fb4b" class="code"><code>sudo ln -s /usr/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/site-packages
 sudo ln -s /usr/local/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/dist-packages
 sudo ln -s /opt/stackless/bin/python /usr/bin/stackless
  
 cd /opt/stackless/lib/python2.7/
-sudo python -c "a = '            sitepackages.append(os.path.join(prefix, \"lib\", \"site-python\"))'; print open('site.py').read().replace(a, '            sitepackages.append(os.path.join(prefix, \"lib\", \"python\" + sys.version[:3], \"dist-packages\"))\n'+a)" &gt; /tmp/site_.py
-sudo mv /tmp/site_.py site.py</code></pre>
-      <h2 id="5cff882a-ed1a-4fed-9a49-d15fd01d32f3" class="">Odstranění instalačního smetí</h2>
-      <pre id="f5df5400-5591-4109-800f-e01be3d65e0a" class="code"><code>cd /tmp
-rm -fr $LAST_SL</code></pre>
-      <h3 id="ab85fe3d-2113-4295-a0dd-14e25de3d9a3" class="">Test interpreteru</h3>
-      <p id="25af12c1-a6f6-42f7-886b-50395ccd8864" class="">Interpreter se spouští příkazem&nbsp;<code>stackless</code>.</p>
-      <pre id="4210aa2f-8508-464c-b2f5-e1d16385f084" class="code"><code>$ stackless
+sudo python -c "a = '            sitepackages.append(os.path.join(prefix, <span class="token entity" title="\&quot;">\"</span>lib<span class="token entity" title="\&quot;">\"</span>, <span class="token entity" title="\&quot;">\"</span>site-python<span class="token entity" title="\&quot;">\"</span>))'; print open('site.py').read().replace(a, '            sitepackages.append(os.path.join(prefix, <span class="token entity" title="\&quot;">\"</span>lib<span class="token entity" title="\&quot;">\"</span>, <span class="token entity" title="\&quot;">\"</span>python<span class="token entity" title="\&quot;">\"</span> + sys.version[:3], <span class="token entity" title="\&quot;">\"</span>dist-packages<span class="token entity" title="\&quot;">\"</span>))<span class="token entity" title="\n">\n</span>'+a)" > /tmp/site_.py
+sudo mv /tmp/site_.py site.py</code></pre><h2 id="5cff882a-ed1a-4fed-9a49-d15fd01d32f3" class="">Odstranění instalačního smetí</h2><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="f5df5400-5591-4109-800f-e01be3d65e0a" class="code"><code>cd /tmp
+rm -fr $LAST_SL</code></pre><h3 id="ab85fe3d-2113-4295-a0dd-14e25de3d9a3" class="">Test interpreteru</h3><p id="25af12c1-a6f6-42f7-886b-50395ccd8864" class="">Interpreter se spouští příkazem <code>stackless</code>.</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="4210aa2f-8508-464c-b2f5-e1d16385f084" class="code"><code>$ stackless
 Python 2.7.5 Stackless 3.1b3 060516 (default, Oct 28 2013, 15:34:27) 
 [GCC 4.6.3] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; import stackless
-&gt;&gt;&gt;</code></pre>
-      <h1 id="70ec54fa-2299-40c9-83b8-39f1fb6aedd2" class="">Používání</h1>
-      <p id="00f85fba-358b-4647-9087-ccd029388363" class="">Z programátorského hlediska probíhají interakce skrze modul&nbsp;<code>stackless</code>, který si ve Stackless interpreteru naimportujete. V klasickém pythonu vám importovat nepůjde, protože pro svůj běh vyžaduje úpravy interpreteru a způsobu, jakým jsou volány funkce (stackless = bez stacku).</p>
-      <h2 id="6cfabd01-d89f-4fee-ba15-53a48309fb14" class="">Vytvoření taskletu</h2>
-      <pre id="b09f238a-26b2-40aa-8c2f-527c7aa48cc6" class="code"><code>&gt;&gt;&gt; import stackless
-&gt;&gt;&gt; def funkce(parametr):
+>>> import stackless
+>>></code></pre><h1 id="70ec54fa-2299-40c9-83b8-39f1fb6aedd2" class="">Používání</h1><p id="00f85fba-358b-4647-9087-ccd029388363" class="">Z programátorského hlediska probíhají interakce skrze modul <code>stackless</code>, který si ve Stackless interpreteru naimportujete. V klasickém pythonu vám importovat nepůjde, protože pro svůj běh vyžaduje úpravy interpreteru a způsobu, jakým jsou volány funkce (stackless = bez stacku).</p><h2 id="6cfabd01-d89f-4fee-ba15-53a48309fb14" class="">Vytvoření taskletu</h2><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="b09f238a-26b2-40aa-8c2f-527c7aa48cc6" class="code"><code>>>> import stackless
+>>> def funkce(parametr):
 ...     print parametr
 ... 
-&gt;&gt;&gt; t = stackless.tasklet(funkce)("prvni")
-&gt;&gt;&gt;</code></pre>
-      <p id="e9dc9998-a8d9-4232-ac1a-3dece8ec2077" class="">Co se vlastně ve výše uvedeném kódu stalo? Vytvořil jsem funkci nazvanou poeticky&nbsp;<code>funkce</code>, která přijímá jeden&nbsp;<code>parametr</code>, jenž je vypsán na&nbsp;<code>stdout</code>. Z této funkce jsem poté udělal takzvaný&nbsp;tasklet&nbsp;a předal mu textový parametr&nbsp;„<code>první</code>“.</p>
-      <p id="833e7a6b-896c-4fa5-9cd9-8deccc58ca2f" class=""><em>Tasklet</em>&nbsp;byl automaticky přidán do interní fronty uvnitř modulu&nbsp;<code>stackless</code>. Reference na něj byla uložena do proměnné&nbsp;<code>t</code>.</p>
-      <h2 id="2b452926-b467-40f9-82c3-99867077fa60" class="">Operace nad tasklety</h2>
-      <p id="005ed073-c73e-400f-9416-30da9c57531d" class="">Jak už jsem psal, jednotlivé&nbsp;<em>tasklety</em>&nbsp;jsou uchovávány ve frontě&nbsp;taskletů, Do této fronty mohou být přidávány pomocí&nbsp;<code>.insert()</code>, která&nbsp;<em>tasklet</em>&nbsp;přidá na konec fronty a také z ní mohou být odebírány pomocí&nbsp;<code>.remove()</code>. Pokud chcete přesunout konkrétní&nbsp;<em>tasklet</em>&nbsp;na začátek fronty a spustit ho, použijte&nbsp;<code>.run()</code>. Jestli potřebujete&nbsp;tasklet&nbsp;zabít, tak&nbsp;<code>.kill()</code>.</p>
-      <p id="51c43292-47d8-48d7-9af4-83a6ab308e6f" class="">Pro úplnost dodám, že tyto metody se volají přímo nad instancí konkrétního&nbsp;taskletu, tedy nad&nbsp;t&nbsp;z ukázky, nikoliv nad modulem&nbsp;stackless.</p>
-      <h3 id="9a524905-90ed-41ae-9c78-4826a8d3fdd2" class="">Ukázka</h3>
-      <p id="b505bdbb-94a2-41df-9544-5becd9349446" class="">Pokud zavoláme nad konkrétním&nbsp;<em>taskletem</em>&nbsp;<code>.run()</code>, tak se přesune na vrchol fronty a provede:</p>
-      <pre id="b6e78b50-944d-4d4f-a578-4fcb532e7513" class="code"><code>&gt;&gt;&gt; t.run()
-prvni</code></pre>
-      <p id="9c9e3333-6f29-4f9f-91b2-a7900c6508ee" class=""><em>Tasklet</em>&nbsp;může proběhnout jen jednou, proto pokusíme-li se ho spustit znova, dostaneme chybu:</p>
-      <pre id="0f813409-3e82-44d7-b115-fa244939830e" class="code"><code>&gt;&gt;&gt; t.run()
+>>> t = stackless.tasklet(funkce)("prvni")
+>>></code></pre><p id="e9dc9998-a8d9-4232-ac1a-3dece8ec2077" class="">Co se vlastně ve výše uvedeném kódu stalo? Vytvořil jsem funkci nazvanou poeticky <code>funkce</code>, která přijímá jeden <code>parametr</code>, jenž je vypsán na <code>stdout</code>. Z této funkce jsem poté udělal takzvaný tasklet a předal mu textový parametr „<code>první</code>“.</p><p id="833e7a6b-896c-4fa5-9cd9-8deccc58ca2f" class=""><em>Tasklet</em> byl automaticky přidán do interní fronty uvnitř modulu <code>stackless</code>. Reference na něj byla uložena do proměnné <code>t</code>.</p><h2 id="2b452926-b467-40f9-82c3-99867077fa60" class="">Operace nad tasklety</h2><p id="005ed073-c73e-400f-9416-30da9c57531d" class="">Jak už jsem psal, jednotlivé <em>tasklety</em> jsou uchovávány ve frontě taskletů, Do této fronty mohou být přidávány pomocí <code>.insert()</code>, která <em>tasklet</em> přidá na konec fronty a také z ní mohou být odebírány pomocí <code>.remove()</code>. Pokud chcete přesunout konkrétní <em>tasklet</em> na začátek fronty a spustit ho, použijte <code>.run()</code>. Jestli potřebujete tasklet zabít, tak <code>.kill()</code>.</p><p id="51c43292-47d8-48d7-9af4-83a6ab308e6f" class="">Pro úplnost dodám, že tyto metody se volají přímo nad instancí konkrétního taskletu, tedy nad t z ukázky, nikoliv nad modulem stackless.</p><h3 id="9a524905-90ed-41ae-9c78-4826a8d3fdd2" class="">Ukázka</h3><p id="b505bdbb-94a2-41df-9544-5becd9349446" class="">Pokud zavoláme nad konkrétním <em>taskletem</em> <code>.run()</code>, tak se přesune na vrchol fronty a provede:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="b6e78b50-944d-4d4f-a578-4fcb532e7513" class="code"><code>>>> t.run()
+prvni</code></pre><p id="9c9e3333-6f29-4f9f-91b2-a7900c6508ee" class=""><em>Tasklet</em> může proběhnout jen jednou, proto pokusíme-li se ho spustit znova, dostaneme chybu:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="0f813409-3e82-44d7-b115-fa244939830e" class="code"><code>>>> t.run()
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-RuntimeError: You cannot run an unbound(dead) tasklet</code></pre>
-      <h2 id="b1139fc3-bf22-49a0-a33b-bb220409cdea" class="">Běh fronty taskletů</h2>
-      <p id="46718738-c389-48e7-86fb-bb4cb8189bb1" class="">Výše uvedené ukázky nejsou moc platné a v podstatě neukazují nic, co by neuměl python sám o sobě. Nyní vám předvedu, jak spustit celou frontu&nbsp;taskletů:</p>
-      <pre id="470fe753-af98-4e1a-a0a9-6df88e7d5e7e" class="code"><code>#!/usr/bin/env stackless
+  File "&lt;stdin>", line 1, in &lt;module>
+RuntimeError: You cannot run an unbound(dead) tasklet</code></pre><h2 id="b1139fc3-bf22-49a0-a33b-bb220409cdea" class="">Běh fronty taskletů</h2><p id="46718738-c389-48e7-86fb-bb4cb8189bb1" class="">Výše uvedené ukázky nejsou moc platné a v podstatě neukazují nic, co by neuměl python sám o sobě. Nyní vám předvedu, jak spustit celou frontu taskletů:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="470fe753-af98-4e1a-a0a9-6df88e7d5e7e" class="code"><code>#!/usr/bin/env stackless
 # -*- coding: utf-8 -*-
 import time
 import stackless
@@ -177,25 +91,11 @@ stackless.tasklet(funkce)("druhy")
 stackless.tasklet(funkce)("treti")
  
  
-while stackless.getruncount() &gt; 1:
+while stackless.getruncount() > 1:
     t = stackless.run(100)
  
     if t:
-        t.insert()</code></pre>
-      <p id="c9941a31-2913-4349-b6bf-69d69f8e9b44" class=""><code>funkce()</code>&nbsp;tentokrát obsahuje výpis informací pro primitivní benchmark. Všimněte si&nbsp;<code>for</code>u, který iteruje skrz&nbsp;<code>10000000</code>&nbsp;položek. Použil jsem ho záměrně místo&nbsp;<code>time.sleep()</code>. Proč se dozvíte za okamžik.</p>
-      <p id="aee61270-f2d2-4f0a-b236-8a5bd30aaf99" class="">while&nbsp;cyklus na konci scriptu obstarává veškerou práci - z fronty vyjme jeden&nbsp;tasklet, nechá ho proběhnout&nbsp;100&nbsp;python instrukcí a pokud mezi tím neskončil, tak ho vloží na konec fronty.</p>
-      <p id="6d435bc9-99fe-46bc-8348-5b4989e607ce" class="">Z výše uvedeného odstavce plynou dvě věci:</p>
-      <ol id="bd6e5e8e-d399-4c7a-9447-2c56c501cc94" class="numbered-list" start="1">
-        <li>Jedná se o&nbsp;<a href="http://cs.wikipedia.org/wiki/Multitasking#Preemptivn.C3.AD_multitasking"><strong>preemptivní</strong></a>&nbsp;multitasking.
-        </li>
-      </ol>
-      <ol id="ae60d5a1-c8a2-4ae1-9977-45ee4e869c9f" class="numbered-list" start="2">
-        <li>Multitasking se vztahuje na instrukce pythonního bytecode,&nbsp;<strong>ne na volání C API</strong>.</li>
-      </ol>
-      <p id="5e2613ad-6fd8-4132-98ce-6db2fd96fff0" class="">Nyní doufám chápete,&nbsp;<a href="http://www.stackless.com/wiki/Idioms#sleeping">proč</a>&nbsp;jsem použil místo&nbsp;<code>time.sleep()</code>&nbsp;for&nbsp;smyčku -&nbsp;<code>time.sleep()</code>&nbsp;je&nbsp;<a href="http://hg.python.org/cpython/file/2d802765d31f/Modules/timemodule.c#l53">callback</a>&nbsp;na C API, což znamená, že se na něj multitasking nevztahuje. To je dobré mít na paměti.</p>
-      <p id="4ce1abc7-ca2d-4461-b92b-1c6c4d4b596f" class="">Zatímco&nbsp;<a href="http://cs.wikipedia.org/wiki/Multitasking#Kooperativn.C3.AD_.28nepreemptivn.C3.AD.29_multitasking">kooperativního</a>&nbsp;multitaskingu lze do jisté míry dosáhnout i v obyčejném pythonu pomocí generátorů, preemptivní je možné dosáhnout pouze pomocí procesů, threadů, či Stackless pythonem, jehož tasklety jsou nejméně náročné na prostředky počítače.</p>
-      <h3 id="b6dbba75-56ab-4fe6-be6b-62a9eea4b988" class="">Výstup</h3>
-      <pre id="226a909c-8972-4580-afc6-eeefd5f0aacc" class="code"><code>$ time stackless stackless.py 
+        t.insert()</code></pre><p id="c9941a31-2913-4349-b6bf-69d69f8e9b44" class=""><code>funkce()</code> tentokrát obsahuje výpis informací pro primitivní benchmark. Všimněte si <code>for</code>u, který iteruje skrz <code>10000000</code> položek. Použil jsem ho záměrně místo <code>time.sleep()</code>. Proč se dozvíte za okamžik.</p><p id="aee61270-f2d2-4f0a-b236-8a5bd30aaf99" class="">while cyklus na konci scriptu obstarává veškerou práci - z fronty vyjme jeden tasklet, nechá ho proběhnout 100 python instrukcí a pokud mezi tím neskončil, tak ho vloží na konec fronty.</p><p id="6d435bc9-99fe-46bc-8348-5b4989e607ce" class="">Z výše uvedeného odstavce plynou dvě věci:</p><ol id="bd6e5e8e-d399-4c7a-9447-2c56c501cc94" class="numbered-list" start="1"><li>Jedná se o <a href="http://cs.wikipedia.org/wiki/Multitasking#Preemptivn.C3.AD_multitasking"><strong>preemptivní</strong></a> multitasking.</li></ol><ol id="ae60d5a1-c8a2-4ae1-9977-45ee4e869c9f" class="numbered-list" start="2"><li>Multitasking se vztahuje na instrukce pythonního bytecode, <strong>ne na volání C API</strong>.</li></ol><p id="5e2613ad-6fd8-4132-98ce-6db2fd96fff0" class="">Nyní doufám chápete, <a href="http://www.stackless.com/wiki/Idioms#sleeping">proč</a> jsem použil místo <code>time.sleep()</code> for smyčku - <code>time.sleep()</code> je <a href="http://hg.python.org/cpython/file/2d802765d31f/Modules/timemodule.c#l53">callback</a> na C API, což znamená, že se na něj multitasking nevztahuje. To je dobré mít na paměti.</p><p id="4ce1abc7-ca2d-4461-b92b-1c6c4d4b596f" class="">Zatímco <a href="http://cs.wikipedia.org/wiki/Multitasking#Kooperativn.C3.AD_.28nepreemptivn.C3.AD.29_multitasking">kooperativního</a> multitaskingu lze do jisté míry dosáhnout i v obyčejném pythonu pomocí generátorů, preemptivní je možné dosáhnout pouze pomocí procesů, threadů, či Stackless pythonem, jehož tasklety jsou nejméně náročné na prostředky počítače.</p><h3 id="b6dbba75-56ab-4fe6-be6b-62a9eea4b988" class="">Výstup</h3><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="226a909c-8972-4580-afc6-eeefd5f0aacc" class="code"><code>$ time stackless stackless.py 
 starting prvni 1382985236.72
 starting druhy 1382985237.26
 starting treti 1382985237.8
@@ -205,9 +105,7 @@ ending treti 1382985243.92 - 6.12157416344
  
 real    0m8.101s
 user    0m6.888s
-sys 0m1.136s</code></pre>
-      <p id="60f831c7-240b-462e-ac22-5ff5446b940e" class="">Pokud nechám funkci proběhnout třikrát lineárně za sebou, dostanu tyto hodnoty:</p>
-      <pre id="52484351-0b02-4531-af9b-e29b056f50db" class="code"><code>$ time stackless stackless.py 
+sys 0m1.136s</code></pre><p id="60f831c7-240b-462e-ac22-5ff5446b940e" class="">Pokud nechám funkci proběhnout třikrát lineárně za sebou, dostanu tyto hodnoty:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="52484351-0b02-4531-af9b-e29b056f50db" class="code"><code>$ time stackless stackless.py 
 starting první 1382985343.08
 ending první 1382985345.28 - 2.19586610794
 starting druhá 1382985345.28
@@ -217,16 +115,7 @@ ending třetí 1382985348.51 - 1.59492611885
  
 real    0m5.804s
 user    0m5.036s
-sys 0m0.568s</code></pre>
-      <p id="e6d540d5-b79c-4e0c-898c-e1e62d78a6ae" class="">Paralelní běh tedy trval o 2.3s déle, než běh lineární. To je daň za přepínání&nbsp;taskletů&nbsp;a hlavně za jejich spuštění a ukončení, což je dle výpisu poměrně časově náročná činnost trvající desítky/stovky milisekund.</p>
-      <h2 id="57bb31d8-5b1b-47eb-837b-e7c37c3588ef" class="">Rozdíl mezi kooperativním a preemptivním multitaskingem</h2>
-      <p id="d2de57a6-b69d-49c0-b700-ce77e875c54d" class="">Mladší ročníky, které si nepamatují doby DOSu a prvních Windows možná nebudou tušit, jaký je rozdíl mezi kooperativním a preemptivním multitaskingem.</p>
-      <p id="9bb4ce49-efc2-49a3-a13f-49c9b770bf15" class="">Kooperativní multitasking je triviálnější. Spočívá v tom, že funkci (či procesu/programu) předáte řízení a doufáte, že vám ho někdy vrátí, aby jste mohli provést zase něco jiného. Po dobu běhu funkce nemáte nad systémem žádnou kontrolu a musíte doufat, že se funkce nedostane do stavu, kde se zasekne a celý systém zamrzne.</p>
-      <p id="579b392e-40cc-4742-b512-756274844fe0" class="">V kooperativním multitaskingu může běžet víc procesů zároveň, ale je na procesech, aby běžely jen zlomky času, po kterém vždy vrátí řízení systému, který mezi nimi přepne. Pokud se náhodou nějaký proces zdrží, tak všechny běžící procesy na chvíli zmrznou.</p>
-      <p id="00baf8f2-6fdf-45c9-ab68-27bb660a89e9" class="">Preemptivní multitasking je chytřejší, i když náročnější na implementaci a na běh. Místo toho, aby procesu předal kompletní řízení mu předává řízení jen na nějaký okamžik. Může to být třeba na 1ms, nebo na 1000 instrukcí, to už záleží na konkrétní implementaci. Výhoda je v tom, že pokud se daný proces/fukce/program zasekne, tak neshodí celý systém a ostatní funkce/procesy/.. dále běží.</p>
-      <h3 id="9429939a-1752-4e6e-92b9-e75aa34a46dc" class="">Kooperativní multitasking v pythonu</h3>
-      <p id="7bd81a84-560b-41bf-9850-f90d062b224a" class="">Pokud by někoho zajímalo, jak by vypadala výše uvedená ukázka přepsaná do čistého pythonu v kooperativním režimu pomocí generátorů:</p>
-      <pre id="f9d6e007-0644-4930-a818-3e511da5ebd2" class="code"><code>#!/usr/bin/env python
+sys 0m0.568s</code></pre><p id="e6d540d5-b79c-4e0c-898c-e1e62d78a6ae" class="">Paralelní běh tedy trval o 2.3s déle, než běh lineární. To je daň za přepínání taskletů a hlavně za jejich spuštění a ukončení, což je dle výpisu poměrně časově náročná činnost trvající desítky/stovky milisekund.</p><h2 id="57bb31d8-5b1b-47eb-837b-e7c37c3588ef" class="">Rozdíl mezi kooperativním a preemptivním multitaskingem</h2><p id="d2de57a6-b69d-49c0-b700-ce77e875c54d" class="">Mladší ročníky, které si nepamatují doby DOSu a prvních Windows možná nebudou tušit, jaký je rozdíl mezi kooperativním a preemptivním multitaskingem.</p><p id="9bb4ce49-efc2-49a3-a13f-49c9b770bf15" class="">Kooperativní multitasking je triviálnější. Spočívá v tom, že funkci (či procesu/programu) předáte řízení a doufáte, že vám ho někdy vrátí, aby jste mohli provést zase něco jiného. Po dobu běhu funkce nemáte nad systémem žádnou kontrolu a musíte doufat, že se funkce nedostane do stavu, kde se zasekne a celý systém zamrzne.</p><p id="579b392e-40cc-4742-b512-756274844fe0" class="">V kooperativním multitaskingu může běžet víc procesů zároveň, ale je na procesech, aby běžely jen zlomky času, po kterém vždy vrátí řízení systému, který mezi nimi přepne. Pokud se náhodou nějaký proces zdrží, tak všechny běžící procesy na chvíli zmrznou.</p><p id="00baf8f2-6fdf-45c9-ab68-27bb660a89e9" class="">Preemptivní multitasking je chytřejší, i když náročnější na implementaci a na běh. Místo toho, aby procesu předal kompletní řízení mu předává řízení jen na nějaký okamžik. Může to být třeba na 1ms, nebo na 1000 instrukcí, to už záleží na konkrétní implementaci. Výhoda je v tom, že pokud se daný proces/fukce/program zasekne, tak neshodí celý systém a ostatní funkce/procesy/.. dále běží.</p><h3 id="9429939a-1752-4e6e-92b9-e75aa34a46dc" class="">Kooperativní multitasking v pythonu</h3><p id="7bd81a84-560b-41bf-9850-f90d062b224a" class="">Pokud by někoho zajímalo, jak by vypadala výše uvedená ukázka přepsaná do čistého pythonu v kooperativním režimu pomocí generátorů:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="f9d6e007-0644-4930-a818-3e511da5ebd2" class="code"><code>#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import time
  
@@ -248,14 +137,12 @@ fronta = [
     funkce("treti"),
 ]
  
-while len(fronta) &gt; 0:
+while len(fronta) > 0:
     for f in fronta:
         try:
             f.next()
         except StopIteration:
-            fronta.remove(f)</code></pre>
-      <p id="34df528d-83b5-44a1-a1ee-a1359791f03c" class="">a zde je výstup:</p>
-      <pre id="398430c5-4434-4b02-86da-95b2a3a7a4eb" class="code"><code>$ time ./yield.py 
+            fronta.remove(f)</code></pre><p id="34df528d-83b5-44a1-a1ee-a1359791f03c" class="">a zde je výstup:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="398430c5-4434-4b02-86da-95b2a3a7a4eb" class="code"><code>$ time ./yield.py 
 starting prvni 1382984400.16
 starting druhy 1382984400.6
 starting treti 1382984401.04
@@ -265,16 +152,7 @@ ending druhy 1382984413.44 - 12.8393118382
  
 real    0m14.347s
 user    0m12.757s
-sys 0m1.112s</code></pre>
-      <p id="a25b08cc-da18-4d4a-b455-1d58125c2e38" class="">Pokud dojde ve&nbsp;<code>for</code>smyčce, kde je vyhazován&nbsp;<code>yield</code>&nbsp;k chybě (třeba nějaký cyklus, nebo špatně vyhodnocená podmínka), celý kód se zasekne a nepoběží ani jeden ze tří generátorů.</p>
-      <p id="b8bced41-3064-431a-b379-89baa37d2bfe" class="">Zajímavé je, že kód běžel delší dobu, než v případě Stackless&nbsp;<em>taskletů</em>. Povšimněte si pořadí ukončení jednotlivých generátorů.</p>
-      <p id="6730791b-6b2a-48f2-87ab-14801b66ccc8" class="">Pro úplnost dodám, že Stackless také umožňuje kooperativní multitasking, jen místo&nbsp;yield&nbsp;voláte&nbsp;<code>stackless.schedule()</code>. Jelikož python nabízí dost podobnou funkcionalitu v základu, nebudu se tím dále zabývat.</p>
-      <h1 id="4f86f4a3-08fd-4c00-bc08-78ecbf15a292" class="">Komunikace</h1>
-      <p id="a490623b-d5eb-492e-9c08-1959e652707e" class="">Jednotlivé&nbsp;tasklety&nbsp;spolu mohou komunikovat pomocí&nbsp;<em>kanálů</em>, což je vlastnost, kterou čisté pythonní generátory až do nedávna neměly a i v dnešní době to není tak přímočaré.</p>
-      <p id="b4309427-9bd4-4e43-996b-0fef682cadec" class="">Kanál&nbsp;je možné vytvořit pomocí volání&nbsp;<code>stackless.channel()</code>. Data se odesílají přes volání&nbsp;<code>ch.send()</code>&nbsp;a přijímají přes&nbsp;<code>ch.receive()</code>. Dotaz na počet zpráv v kanálu je možné provést skrz property&nbsp;<code>ch.balance</code>&nbsp;(default <code>0</code>).</p>
-      <p id="deeed497-fc0f-4b76-89a0-e2adfdbc57be" class=""><strong>Jak příjem, tak odesílání dat je blokující a zasekne celý&nbsp;</strong><strong>tasklet</strong><strong>.</strong>&nbsp;Nemá cenu to zkoušet v singleplayeru, pokud nemáte kód, který běží paralelně tak se to prostě zasekne a nic se neděje.</p>
-      <p id="b270b323-de02-4f7d-9c99-74a4a481459c" class="">Zde je ukázka posílání dat mezi dvěma funkcemi:</p>
-      <pre id="5996c16d-1826-4cea-b353-27cf28017d9f" class="code"><code>#!/usr/bin/env stackless
+sys 0m1.112s</code></pre><p id="a25b08cc-da18-4d4a-b455-1d58125c2e38" class="">Pokud dojde ve <code>for</code>smyčce, kde je vyhazován <code>yield</code> k chybě (třeba nějaký cyklus, nebo špatně vyhodnocená podmínka), celý kód se zasekne a nepoběží ani jeden ze tří generátorů.</p><p id="b8bced41-3064-431a-b379-89baa37d2bfe" class="">Zajímavé je, že kód běžel delší dobu, než v případě Stackless <em>taskletů</em>. Povšimněte si pořadí ukončení jednotlivých generátorů.</p><p id="6730791b-6b2a-48f2-87ab-14801b66ccc8" class="">Pro úplnost dodám, že Stackless také umožňuje kooperativní multitasking, jen místo yield voláte <code>stackless.schedule()</code>. Jelikož python nabízí dost podobnou funkcionalitu v základu, nebudu se tím dále zabývat.</p><h1 id="4f86f4a3-08fd-4c00-bc08-78ecbf15a292" class="">Komunikace</h1><p id="a490623b-d5eb-492e-9c08-1959e652707e" class="">Jednotlivé tasklety spolu mohou komunikovat pomocí <em>kanálů</em>, což je vlastnost, kterou čisté pythonní generátory až do nedávna neměly a i v dnešní době to není tak přímočaré.</p><p id="b4309427-9bd4-4e43-996b-0fef682cadec" class="">Kanál je možné vytvořit pomocí volání <code>stackless.channel()</code>. Data se odesílají přes volání <code>ch.send()</code> a přijímají přes <code>ch.receive()</code>. Dotaz na počet zpráv v kanálu je možné provést skrz property <code>ch.balance</code> (default <code>0</code>).</p><p id="deeed497-fc0f-4b76-89a0-e2adfdbc57be" class=""><strong>Jak příjem, tak odesílání dat je blokující a zasekne celý </strong><strong>tasklet</strong><strong>.</strong> Nemá cenu to zkoušet v singleplayeru, pokud nemáte kód, který běží paralelně tak se to prostě zasekne a nic se neděje.</p><p id="b270b323-de02-4f7d-9c99-74a4a481459c" class="">Zde je ukázka posílání dat mezi dvěma funkcemi:</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="5996c16d-1826-4cea-b353-27cf28017d9f" class="code"><code>#!/usr/bin/env stackless
 # -*- coding: utf-8 -*-
 import time
 import stackless
@@ -292,82 +170,39 @@ stackless.tasklet(prvni)(ch)
 stackless.tasklet(druha)(ch)
  
  
-while stackless.getruncount() &gt; 1:
+while stackless.getruncount() > 1:
     t = stackless.run(100)
  
     if t:
-        t.insert()</code></pre>
-      <p id="249e5cc0-7b71-426f-b599-5b5c355de501" class="">Odeslat je možné všechno možné, nemusí to být string, ale klidně pole, číslo atp..</p>
-      <h3 id="68a0eb3b-7622-4df4-a459-ab8166033cba" class="">Výstup</h3>
-      <pre id="9b08262a-1235-43cf-8864-38a9a3d312d5" class="code"><code>$ ./stackless.py 
-druhá: odesláno z první</code></pre>
-      <h1 id="adf6dce8-9b46-425e-a80a-5bd437ecf386" class="">To je vše?</h1>
-      <p id="b250b15f-6a4d-456f-a6bb-b636070dbabb" class="">Téměř vše. Dokumentace se ještě zmiňuje o serializaci&nbsp;taskletů/kanálů, ale protože jsem to zatím neměl potřebu použít, tak jí zde nebudu rozmazávat - tenhle článek se brutálně zvrhl z osobních poznámek k instalaci, protože jsem zapomněl přestat psát. Berte ho tedy spíš jako takové představení Stackless v češtině, ne kompletní manuál.</p>
-      <p id="a64835fa-231c-4956-8a3c-fae0833fa188" class="">Pokud vás Stackless zaujal, vřele doporučuji navštívit jeho&nbsp;<a href="http://www.stackless.com/">domovskou stránku</a>&nbsp;a přečíst si dokumentaci - jedná se jen o pár stránek.</p>
-      <p id="18a80197-224a-4e1b-966a-22eb51aa7bc3" class="">Pokud by měl někdo potřebu většího tutoriálu, tak jeden drobně zastaralý (python 2.4) se dá najít zde:&nbsp;<a href="http://www.grant-olson.net/files/why_stackless.html">Introduction to Concurrent Programming with Stackless Python</a>.</p>
-      <h2 id="0d7796f8-c364-46a0-a63a-adc96425fe77" class="">Kde Stackless používám</h2>
-      <p id="43521755-d8e0-4d3c-92be-189a12ef6459" class="">Stackless u mě našel využití v paralelním síťovém kódu, který prochází webem. Jednotlivé navázání spojení je totiž časově náročnější operace, než samotné stahování. Takhle se neustále načítají nové a nové&nbsp;tasklety&nbsp;s požadavky na webové stránky, takže program pořád něco dělá, místo aby vždy čekal 2 vteřiny na navázání spojení.</p>
-      <p id="763ceb0a-2d92-44a5-b063-1802f587f742" class=""></p>
-    </div>
-  </article>
-  <div class="corner-ribbon top-right red">
-    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
-  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
-  <div id="sidebar_bottom">
-    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
-    <div id="last_five_bottom">
-      <h3>New posts</h3>
-      <ul>
-        <li>
-          <a href="../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
-        </li>
-        <li>
-          <a href="../Predstaveni/Mikrotron_pod_Vitkovem.html" title="Mikrotron pod Vítkovem">Mikrotron pod Vítkovem</a>
-        </li>
-        <li>
-          <a href="../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a>
-        </li>
-        <li>
-          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h3>Tagy</h3>
-      <p><a href="../../Tagy/python.html" title="python">python</a>, <a href="../../Tagy/stackless.html" title="stackless">stackless</a></p>
-    </div>
-    <div>
-      <h3>Blog categories</h3>
-      <ul class="no_icon">
-        <li>
-          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
-        </li>
-        <li>
-          <a href="../Programovani.html" title="Programování">📂 Programování</a>
-        </li>
-        <li>
-          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
-        </li>
-        <li>
-          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
-        </li>
-        <li>
-          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
-        </li>
-        <li>
-          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
-        </li>
-        <li>
-          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
-        </li>
-        <li>
-          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
-        </li>
-        <li>
-          <a href="../index.html" title="Czech section">📂 Czech section</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</body>
-</html>
+        t.insert()</code></pre><p id="249e5cc0-7b71-426f-b599-5b5c355de501" class="">Odeslat je možné všechno možné, nemusí to být string, ale klidně pole, číslo atp..</p><h3 id="68a0eb3b-7622-4df4-a459-ab8166033cba" class="">Výstup</h3><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="9b08262a-1235-43cf-8864-38a9a3d312d5" class="code"><code>$ ./stackless.py 
+druhá: odesláno z první</code></pre><h1 id="adf6dce8-9b46-425e-a80a-5bd437ecf386" class="">To je vše?</h1><p id="b250b15f-6a4d-456f-a6bb-b636070dbabb" class="">Téměř vše. Dokumentace se ještě zmiňuje o serializaci taskletů/kanálů, ale protože jsem to zatím neměl potřebu použít, tak jí zde nebudu rozmazávat - tenhle článek se brutálně zvrhl z osobních poznámek k instalaci, protože jsem zapomněl přestat psát. Berte ho tedy spíš jako takové představení Stackless v češtině, ne kompletní manuál.</p><p id="a64835fa-231c-4956-8a3c-fae0833fa188" class="">Pokud vás Stackless zaujal, vřele doporučuji navštívit jeho <a href="http://www.stackless.com/">domovskou stránku</a> a přečíst si dokumentaci - jedná se jen o pár stránek.</p><p id="18a80197-224a-4e1b-966a-22eb51aa7bc3" class="">Pokud by měl někdo potřebu většího tutoriálu, tak jeden drobně zastaralý (python 2.4) se dá najít zde: <a href="http://www.grant-olson.net/files/why_stackless.html">Introduction to Concurrent Programming with Stackless Python</a>.</p><h2 id="0d7796f8-c364-46a0-a63a-adc96425fe77" class="">Kde Stackless používám</h2><p id="43521755-d8e0-4d3c-92be-189a12ef6459" class="">Stackless u mě našel využití v paralelním síťovém kódu, který prochází webem. Jednotlivé navázání spojení je totiž časově náročnější operace, než samotné stahování. Takhle se neustále načítají nové a nové tasklety s požadavky na webové stránky, takže program pořád něco dělá, místo aby vždy čekal 2 vteřiny na navázání spojení.</p><p id="763ceb0a-2d92-44a5-b063-1802f587f742" class="">
+</p></div></article><div class="corner-ribbon top-right red"><a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a></div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg" /></a>
+<div id="sidebar_bottom">
+<span>
+            <a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png" /></a>
+            &nbsp; &nbsp;
+            <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png" /></a>
+        </span><div id="last_five_bottom">
+<h3>New posts</h3>
+<ul>
+  <li><a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a> </li>
+  <li><a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a> </li>
+  <li><a href="../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a> </li>
+  <li><a href="../Predstaveni/Mikrotron_pod_Vitkovem.html" title="Mikrotron pod Vítkovem">Mikrotron pod Vítkovem</a> </li>
+  <li><a href="../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a> </li>
+  <li><a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a></li>
+</ul>
+
+</div><div><h3>Tagy</h3><p><a href="../../Tagy/python.html" title="python">python</a>, <a href="../../Tagy/stackless.html" title="stackless">stackless</a></p></div><div>
+<h3>Blog categories</h3>
+<ul class="no_icon">  <li><a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a></li>
+  <li><a href="../Programovani.html" title="Programování">📂 Programování</a></li>
+  <li><a href="../Povidky.html" title="Povídky">📂 Povídky</a></li>
+  <li><a href="../Knihy.html" title="Knihy">📂 Knihy</a></li>
+  <li><a href="../Predstaveni.html" title="Představení">📂 Představení</a></li>
+  <li><a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a></li>
+  <li><a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a></li>
+  <li><a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a></li>
+  <li><a href="../index.html" title="Czech section">📂 Czech section</a></li>
+</ul>
+</div></div></body></html>

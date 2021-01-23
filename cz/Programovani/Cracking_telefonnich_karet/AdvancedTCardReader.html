@@ -22,6 +22,12 @@
     
       gtag('config', 'UA-142545439-1');
   </script>
+  <style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
+  </style>
+  <style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
+  </style>
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -29,6 +35,12 @@
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
         <li>
           <a href="../../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
         </li>
@@ -300,18 +312,18 @@ Format:
  *  Temp: -20 .. 55 °C
 */
 
-#define LEN 128       // card length - 128b in Czech republic
-#define MAX_NUM 281474976710656LL // 2 ** 48 (maximum range of challenge)
-#define CMD_BUFF_LEN 18 // len(str(MAX_NUM)) + 1 (cmd) + 1 (space) + 1 (for sure)
+#<span class="token directive keyword">define</span> LEN 128       // card length - 128b in Czech republic
+#<span class="token directive keyword">define</span> MAX_NUM 281474976710656LL // 2 ** 48 (maximum range of challenge)
+#<span class="token directive keyword">define</span> CMD_BUFF_LEN 18 // len(str(MAX_NUM)) + 1 (cmd) + 1 (space) + 1 (for sure)
 
 // port definition
-#define CLK 13
-#define RST 12
-#define VPP 11        // just formal definition, this port isn't used
-#define IO  10
+#<span class="token directive keyword">define</span> CLK 13
+#<span class="token directive keyword">define</span> RST 12
+#<span class="token directive keyword">define</span> VPP 11        // just formal definition, this port isn't used
+#<span class="token directive keyword">define</span> IO  10
 
 // CLK puls makro
-#define CLKpuls() digitalWrite(CLK, HIGH); digitalWrite(CLK, LOW);
+#<span class="token directive keyword">define</span> CLKpuls() digitalWrite(CLK, HIGH); digitalWrite(CLK, LOW);
 
 /*= setup ======================================================================
  * Initialize pins and serial line.
@@ -646,6 +658,12 @@ void loop(){
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
         <li>
           <a href="../../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
         </li>
