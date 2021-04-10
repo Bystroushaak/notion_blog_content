@@ -24,27 +24,6 @@
     
       gtag('config', 'UA-142545439-1');
   </script>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
-  <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')
-  </style>
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
@@ -52,6 +31,9 @@
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
         <li>
           <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
         </li>
@@ -84,28 +66,28 @@
       <h3>Blog categories</h3>
       <ul class="no_icon">
         <li>
-          <a href="../../../Programovani.html" title="Programování">📂 Programování</a>
-        </li>
-        <li>
-          <a href="../../../Predstaveni.html" title="Představení">📂 Představení</a>
-        </li>
-        <li>
-          <a href="../../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
-        </li>
-        <li>
-          <a href="../../../Povidky.html" title="Povídky">📂 Povídky</a>
-        </li>
-        <li>
           <a href="../../../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../../../Programovani.html" title="Programování">📂 Programování</a>
         </li>
         <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
+          <a href="../../../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
           <a href="../../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
         </li>
         <li>
           <a href="../../../index.html" title="Czech section">📂 Czech section</a>
@@ -349,15 +331,15 @@
  *
  **/
 
-#<span class="token directive keyword">undef</span> int          // bez tohodle se nenecha includnout stdio.h
-#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span>  // potrebne kvuli sprintf()
-#<span class="token directive keyword">include</span> <span class="token string">&lt;EEPROM.h&gt;</span> // kvuli ukladani do EEPROM
+#undef int          // bez tohodle se nenecha includnout stdio.h
+#include &lt;stdio.h&gt;  // potrebne kvuli sprintf()
+#include &lt;EEPROM.h&gt; // kvuli ukladani do EEPROM
 
-#<span class="token directive keyword">define</span> RST 12
-#<span class="token directive keyword">define</span> CLK 13
-#<span class="token directive keyword">define</span> IO  10      // nutne pripojit prez pull-up rezistor (3-5KOhm) k VCC!
-#<span class="token directive keyword">define</span> SNS 9       // sensor - pokud je na nej pripojeno kladne napeti, automaticky nacte dump a ulozi ho do EEPROM
-#<span class="token directive keyword">define</span> LEN 128     // velikost pameti karty (v cechach to je 128b)
+#define RST 12
+#define CLK 13
+#define IO  10      // nutne pripojit prez pull-up rezistor (3-5KOhm) k VCC!
+#define SNS 9       // sensor - pokud je na nej pripojeno kladne napeti, automaticky nacte dump a ulozi ho do EEPROM
+#define LEN 128     // velikost pameti karty (v cechach to je 128b)
 
 // Precte celou pamet karty. Data ulozi do pole predaneho v parametru.
 void readCard(byte *dump){
@@ -677,6 +659,9 @@ void loop(){
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
           <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
         </li>
         <li>
@@ -708,28 +693,28 @@ void loop(){
       <h3>Blog categories</h3>
       <ul class="no_icon">
         <li>
-          <a href="../../../Programovani.html" title="Programování">📂 Programování</a>
-        </li>
-        <li>
-          <a href="../../../Predstaveni.html" title="Představení">📂 Představení</a>
-        </li>
-        <li>
-          <a href="../../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
-        </li>
-        <li>
-          <a href="../../../Povidky.html" title="Povídky">📂 Povídky</a>
-        </li>
-        <li>
           <a href="../../../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../../../Programovani.html" title="Programování">📂 Programování</a>
         </li>
         <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
+          <a href="../../../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
           <a href="../../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
         </li>
         <li>
           <a href="../../../index.html" title="Czech section">📂 Czech section</a>
