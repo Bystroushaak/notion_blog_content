@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-04-10T14:43:17.337364+00:00</updated>
+  <updated>2021-06-22T22:45:11.551523+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html</id>
-    <title>Tools I use: argparse builder</title>
-    <updated>2020-10-05T15:59:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_argparse_builder.html" rel="alternate"/>
-    <summary type="text">argparse builder is a web based graphical interface for quick creation of the argparse commandline switches for your python scripts.</summary>
-    <published>2020-10-05T15:59:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/Philosophy/Joscha_Bach_Artificial_Consciousness_and_the_Nature_of_Reality.html</id>
     <title>Joscha Bach; Artificial Consciousness and the Nature of Reality</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_1_Headphone_holder.html" rel="alternate"/>
     <summary type="text">Design and experience of creating custom 3D printed headphone holder.</summary>
     <published>2021-01-23T12:12:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_modeling/Geometric_center_of_Prague.html</id>
+    <title>Geometric center of Prague</title>
+    <updated>2021-06-22T17:11:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_modeling/Geometric_center_of_Prague.html" rel="alternate"/>
+    <summary type="text">How to look for geometric center of Prague using Blender.</summary>
+    <published>2021-06-22T17:11:00+02:00</published>
   </entry>
 </feed>
