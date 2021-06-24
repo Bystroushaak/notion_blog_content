@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Nastavení Blenderu pro 3D tisk</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom_cz.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Nastavení Blenderu pro 3D tisk">
+  <meta name="twitter:description" content="Jak nastavit Blender pro 3D tisk.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="Jak nastavit Blender pro 3D tisk.">
+  <meta name="keywords" content="3D_tisk,blender"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
+          <a href="3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
+        <li>
+          <a href="3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
+        </li>
+        <li>
+          <a href="../Predstaveni/Mikrotron_pod_Vitkovem.html" title="Mikrotron pod Vítkovem">Mikrotron pod Vítkovem</a>
+        </li>
+        <li>
+          <a href="../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
+        </li>
+      </ul>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../Zmeny.html" title="Změny">Změny</a>
+        </li>
+        <li>
+          <a href="../../Zmeny/Untitled_e1ef8e38379945528d491f576ae728b3.html" title=""></a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../Tagy/3d_tisk.html" title="3d_tisk">3D_tisk</a>, <a href="../../Tagy/blender.html" title="blender">blender</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="3D tisk">3D tisk</a> / Nastavení Blenderu pro 3D tisk
+  <article id="d99e4637-206b-4363-9f44-d28bd1299ddb" class="page sans">
+    <header>
+      <h1 class="page-title">Nastavení Blenderu pro 3D tisk</h1>
+    </header>
+    <div class="page-body">
+      <p id="330a3cb9-4ef7-4baa-b4f7-a09f75ac0c93" class=""><time>@2021/06/24</time></p>
+      <p id="ceec0091-b8d5-493e-9742-d65c2f0ad739" class="">Používám tenhle prázdný Blender soubor jako šablonu pro nové 3D tiskové projekty.</p>
+      <p><a href="http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend">📎 template.blend</a></p>
+      <p id="b351640d-405b-4570-a0a5-e042afab02ee" class="">Není v něm nic speciálního, kromě toho že jednotky jsou nastaveny na použitelnější škálu, takže <code>STL</code> exporty fungují podle očekávání a člověk nemá problémy se škálováním ve Sliceru.</p>
+      <figure id="65e2a125-40c6-4779-a279-5266251115e9" class="image">
+        <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png" title="blender_settings.png"><img style="width:336px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png"></a>
+      </figure>
+      <p id="526afd7c-a162-491e-8d86-388b205c4726" class="">Specificky:</p>
+      <ul id="baf4080f-30a0-4f7e-86b7-7aa927e4bde7" class="bulleted-list">
+        <li>Unit scale: <code>0.001</code></li>
+      </ul>
+      <ul id="335c71f4-003b-4b58-8e36-ad66138479cf" class="bulleted-list">
+        <li>Length: <code>centimeters</code></li>
+      </ul>
+      <h1 id="143fe58b-9716-4d64-8fae-b71807b43bff" class="">Pluginy</h1>
+      <p id="65e06680-28f6-4443-9b86-9d92c5368296" class="">Občas je taky dobré zapnout dva Bleder pluginy, které se dodávají zabudované do Blenderu, ale v základním nastavení nejsou zapnuty:</p>
+      <ul id="0485f80b-7df2-4190-b91b-998fa4416f11" class="bulleted-list">
+        <li>
+          <a href="https://docs.blender.org/manual/en/latest/addons/mesh/3d_print_toolbox.html">Mesh: 3D-Print Toolbox</a>
+        </li>
+      </ul>
+      <ul id="7fd83f66-c4bf-490f-8898-142c019aac40" class="bulleted-list">
+        <li>
+          <a href="https://docs.blender.org/manual/en/latest/addons/3d_view/measureit.html">3D View: Measureit</a>
+        </li>
+      </ul>
+      <p id="49ac68d1-d304-410d-9ceb-cc1266673d0e" class="">Oba dva přidávají nové menu do toolbaru.</p>
+      <h2 id="3b555eaf-7897-49e5-81c9-73353692043e" class="">3D-Print Toolbox</h2>
+      <figure id="f06d6048-40f6-4d98-aea2-e58944c09867" class="image">
+        <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/3D_toolbox.jpg" title="3D_toolbox.jpg"><img style="width:288px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/3D_toolbox.jpg"></a>
+      </figure>
+      <p id="35b5f5c3-6d6b-458e-98d9-fcf62a890444" class="">Tenhle doplňěk umožňuje exportovat <code>STL</code> pro tisk jedním kliknutím. Taky má občas užitečná tlačítka <code>Check all</code> a <code>Make Manifold</code>, kterými jde opravit modely jenž se ve Sliceru chovají divně, protože mají divnou geometrii.</p>
+      <h2 id="35223939-7074-4635-9063-9e68803d5e15" class="">Measureit</h2>
+      <p id="9e46693d-3c88-4472-9dd7-f33371fc5ff5" class="">Jak už název napovídá, tenhle plugin umožňuje měřit, ať už vzdálenost mezi vertexy, nebo uhly a tak dál. Například se dají vybrat dva vertexy, kliknout na tlačítko <code>Segment</code>, potom na tlačítko <code>Show</code>, které je vedle ikony ducha. Výsledek vypadá nějak takhle:</p>
+      <figure id="11c459e7-d082-4677-8c94-7686e145b3a2" class="image">
+        <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/measure_it_toolbar.jpg" title="measure_it_toolbar.jpg"><img style="width:624px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/measure_it_toolbar_thumb.jpg"></a>
+      </figure>
+      <p id="47316b43-2575-4527-a4ef-ec1049918727" class="">Což občas může umožnit víc CADům podobné modelování s lepší přesností, ale neumí to přežít transofrmace a občas se to chová fakt divně, takže použitelnost je dost omezená.</p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
+          <a href="3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
+        <li>
+          <a href="3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
+        </li>
+        <li>
+          <a href="../Predstaveni/Mikrotron_pod_Vitkovem.html" title="Mikrotron pod Vítkovem">Mikrotron pod Vítkovem</a>
+        </li>
+        <li>
+          <a href="../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a>
+        </li>
+        <li>
+          <a href="https://blog.rfox.eu/atom_cz.xml">Vytvořen nový Atom (RSS) feed pro českou sekci</a>
+        </li>
+      </ul>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../Zmeny.html" title="Změny">Změny</a>
+        </li>
+        <li>
+          <a href="../../Zmeny/Untitled_e1ef8e38379945528d491f576ae728b3.html" title=""></a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../Tagy/3d_tisk.html" title="3d_tisk">3D_tisk</a>, <a href="../../Tagy/blender.html" title="blender">blender</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
