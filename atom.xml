@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-06-24T12:52:23.327155+00:00</updated>
+  <updated>2021-06-26T15:48:11.294110+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html</id>
-    <title>Robots I&amp;#x27;ve played with</title>
-    <updated>2020-10-20T09:28:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Hardware/Robots_Ive_played_with.html" rel="alternate"/>
-    <summary type="text">Pictures of the robot manipulators I&amp;#x27;ve played with in the past.</summary>
-    <published>2020-10-20T09:28:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html</id>
     <title>Microtron model progress 2020/12; Case for the crystal</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/3D_printing/How_to_set_Blender_for_3D_printing.html" rel="alternate"/>
     <summary type="text">No description.</summary>
     <published>2021-06-24T13:48:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Technological_marvels/Microtron_under_the_Vitkov_Hill.html</id>
+    <title>Microtron under the Vítkov Hill</title>
+    <updated>2021-06-26T17:26:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Technological_marvels/Microtron_under_the_Vitkov_Hill.html" rel="alternate"/>
+    <summary type="text">The Vítkov Hill in the center of Prague hides a pedestrian tunnel under it, in addition to several old tunnels for trains. But only few people know what lies behind completely inconspicuous spray-painted metal doors.</summary>
+    <published>2021-06-26T17:26:00+02:00</published>
   </entry>
 </feed>
