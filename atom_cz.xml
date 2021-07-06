@@ -2,35 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom_cz.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-06-30T14:34:40.329920+00:00</updated>
+  <updated>2021-07-06T22:51:33.848814+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom_cz.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/atom_cz.xml</id>
-    <title>Vytvořen nový Atom (RSS) feed pro českou sekci</title>
-    <updated>2020-07-22T01:00:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/atom_cz.xml" rel="alternate"/>
-    <summary type="text">V rámci rozdělování anglického a českého obsahu na mém blogu budou nadále novinky z české sekce mého blogu publikovány na adrese https://blog.rfox.eu/atom_cz.xml</summary>
-    <published>2020-07-22T01:00:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/cz/Predstaveni/GPT-3.html</id>
-    <title>GPT-3</title>
-    <updated>2020-08-19T01:48:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/cz/Predstaveni/GPT-3.html" rel="alternate"/>
-    <summary type="text">Posledních několik týdnů rozechvívá vlny mých sociálních sítí fenomén GPT-3. Jedná se o nedávno představený druh strojového učení, vytrénovaný společností OpenAI na rekordním množství dat. A zatímco se jedná jen o jazykový model, který má za úkol predikovat další token ve větě, výsledky a možnosti využití jsou místy dech-beroucí.</summary>
-    <published>2020-08-19T01:48:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/cz/Predstaveni/Mikrotron_pod_Vitkovem.html</id>
     <title>Mikrotron pod Vítkovem</title>
@@ -118,5 +96,27 @@
     <link href="https://blog.rfox.eu/cz/3D_tisk/Nastaveni_Blenderu_pro_3D_tisk.html" rel="alternate"/>
     <summary type="text">No description.</summary>
     <published>2021-06-24T13:47:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html</id>
+    <title>Algoritmus hledání programátorské práce 2021/4</title>
+    <updated>2021-07-05T15:50:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" rel="alternate"/>
+    <summary type="text">Můj osobní algoritmus hledání programátorské práce, plus různé rady kolem. Sepsáno na žádost několika bývalých kolegů, které to zajímalo.</summary>
+    <published>2021-07-05T15:50:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/Ostatni/Paromobilita_je_budoucnost.html</id>
+    <title>Paromobilita je budoucnost</title>
+    <updated>2021-07-06T22:56:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/Ostatni/Paromobilita_je_budoucnost.html" rel="alternate"/>
+    <summary type="text">Zamyšlení nad problémy elektromobility formou imaginárního rozhovoru.</summary>
+    <published>2021-07-06T22:56:00+02:00</published>
   </entry>
 </feed>
