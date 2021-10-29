@@ -2,46 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-07-06T22:51:33.795207+00:00</updated>
+  <updated>2021-10-29T20:24:42.661258+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html</id>
-    <title>Microtron model progress 2020/12; Case for the crystal</title>
-    <updated>2020-12-06T20:09:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" rel="alternate"/>
-    <summary type="text">Short writeup about modeling of the microtron crystal case component.</summary>
-    <published>2020-12-06T20:09:00+01:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/Paperclips/Things_that_disappeared/PyAtom_disappeared.html</id>
-    <title>PyAtom disappeared</title>
-    <updated>2020-12-06T19:30:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/Paperclips/Things_that_disappeared/PyAtom_disappeared.html" rel="alternate"/>
-    <summary type="text">I&amp;#x27;ve used pyatom module to generate Atom feeds for my blog, but also generally for all kinds of stuff for maybe four or five years. Then it disappeared.</summary>
-    <published>2020-12-06T19:30:00+01:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Programming/Programmers_critique_of_missing_structure_of_operating_systems.html</id>
-    <title>Programmer&amp;#x27;s critique of missing structure of operating systems</title>
-    <updated>2020-12-12T11:26:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" rel="alternate"/>
-    <summary type="text">Updated list of resources to relevant articles. Added https://weinholt.se/articles/non-posix-filesystems/ and https://raphlinus.github.io/text/2020/10/26/text-layout.html</summary>
-    <published>2020-12-12T11:26:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html</id>
     <title>Microtron model progress 2020/12; Texturing of the microtron</title>
@@ -118,5 +85,38 @@
     <link href="https://blog.rfox.eu/en/Technological_marvels/Microtron_under_the_Vitkov_Hill.html" rel="alternate"/>
     <summary type="text">The Vítkov Hill in the center of Prague hides a pedestrian tunnel under it, in addition to several old tunnels for trains. But only few people know what lies behind completely inconspicuous spray-painted metal doors.</summary>
     <published>2021-06-26T17:26:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html</id>
+    <title>Reasons why I decided to abandon RPython in tinySelf</title>
+    <updated>2021-10-29T00:18:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" rel="alternate"/>
+    <summary type="text">Story about how I deded to rewrite my toy language to Java.</summary>
+    <published>2021-10-29T00:18:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html</id>
+    <title>tinySelfEE 2021-07; let&amp;#x27;s throw away the Symbolic eval code</title>
+    <updated>2021-10-29T00:23:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" rel="alternate"/>
+    <summary type="text">Free flow thought process capturing some of my decisions regarding tinySelfEE development, specifically why I thrown away all the symbolic eval code.</summary>
+    <published>2021-10-29T00:23:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html</id>
+    <title>Newsletter 2021-10-29; Monster post</title>
+    <updated>2021-10-29T05:29:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html" rel="alternate"/>
+    <summary type="text">Some of the more important points in my year, and also general update regarding the tinySelf, objWiki and other projects of mine. Expect a lot of text.</summary>
+    <published>2021-10-29T05:29:00+02:00</published>
   </entry>
 </feed>

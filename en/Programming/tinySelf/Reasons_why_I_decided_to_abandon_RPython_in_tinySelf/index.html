@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Reasons why I decided to abandon RPython in tinySelf</title>
+  <link rel="stylesheet" type="text/css" href="../../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Reasons why I decided to abandon RPython in tinySelf">
+  <meta name="twitter:description" content="Story about how I deded to rewrite my toy language to Java.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf/rpython_jit_debugger_thumb.jpg">
+  <script src="../../../../scripts.js"></script>
+  <meta name="description" content="Story about how I deded to rewrite my toy language to Java.">
+  <meta name="keywords" content="tinySelf,java,python,diy_programming_language,rpython,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/3D_printing_exhibit_1_Headphone_holder.html" title="3D printing exhibit 1; Headphone holder">3D printing exhibit 1; Headphone holder</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+      </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../../Tags/diy_programming_language.html" title="diy_programming_language">diy_programming_language</a>, <a href="../../../../Tags/java.html" title="java">java</a>, <a href="../../../../Tags/python.html" title="python">python</a>, <a href="../../../../Tags/rpython.html" title="rpython">rpython</a>, <a href="../../../../Tags/tinyself.html" title="tinyself">tinySelf</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="../index.html" title="tinySelf">tinySelf</a> / Reasons why I decided to abandon RPython in tinySelf
+  <article id="5c0944f8-8de6-4050-86a8-3ba21f876f1b" class="page sans">
+    <header>
+      <h1 class="page-title">Reasons why I decided to abandon RPython in tinySelf</h1>
+    </header>
+    <div class="page-body">
+      <p id="1204e4d3-b879-4d41-bdbc-f12ade3c00d7" class=""><time>@2021/10/29</time></p>
+      <p id="624faf0b-76b0-48ff-8068-e11c32832830" class="">My toy programming language <a href="../../tinySelf.html" title="tinySelf"><span class="icon">📂</span>tinySelf</a>, inspired by <a href="../../Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a>, was written in the RPython toolkit, made by the creators of <a href="https://www.pypy.org/">PyPy</a> (alternative and pretty fast python interpreter). This toolkit transcompiles python source code into C, and also gives you some benefits, like garbage collector and JIT compiler for the language you are implementing in it.</p>
+      <p id="f8b870e1-55df-4483-8e1c-97c0616e6e12" class="">So, what are my reasons to abandon it?</p>
+      <h1 id="1c4ac9f5-5ed4-4512-bfb3-210f1e6d6479" class="">RPython</h1>
+      <p id="625bbfa7-6240-45e9-a484-d2549c8b574c" class="">Long story short, the biggest reason why I decided to abandon it is definitely RPython. I've written about some of my unhappiness with it before (<a href="../../../Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" title="Newsletter 2020-09-12; Waves of productivity">Newsletter 2020-09-12; Waves of productivity</a> and <a href="../../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>), but here is a recapitulation:</p>
+      <h2 id="e7bb1aed-af3e-4032-bb0c-445af1c03a48" class="">Long compilation times</h2>
+      <p id="5443c0e6-1582-4e49-8c84-411f8cacf1ff" class="">Average compilation time of the tinySelf on my system (Intel Core i5-4590 with 32G RAM) is something like one minute. And the version with JIT takes five or more minutes.</p>
+      <p id="d04d6055-4820-44d8-a72a-46c008e6c37d" class="">It's not that my project is that big because frankly, it is <strong>tiny</strong>Self, it has only ~6300 source lines of code (via <code>cloc</code>). It's because rpython is horribly slow.</p>
+      <h2 id="95ae6070-3d47-4da9-890b-1332907e4104" class="">Non-existent documentation</h2>
+      <p id="12d70ef9-9d7b-45fc-a585-da19626f3546" class="">There is <a href="https://rpython.readthedocs.io/en/latest/">official documentation</a> on the read the docs, and that's pretty much it. There are some articles, mostly about user experience with it. The official documentation is everything, but comprehensive. It touches pretty much everything, but most of the parts are only mentioned once, and in one context, and not really explained.</p>
+      <p id="b90451ce-c89a-4ac1-a148-8e64276d8ee6" class="">tinySelf was started <time>@2017/04/09</time>. I hoped, that with time, there would be more. But in the three and half years since, there was really no change.</p>
+      <p id="1297dac5-48b2-485d-87ec-40f0ce39c1b7" class="">I've read some topics many times, and I still have no idea what to think about them. For example, the part about JIT and JIT debugging was so incomprehensible, that I just copied piece of code from other projects, and to this day, I have no idea why are there some things that are there.</p>
+      <h2 id="7d05ca57-459e-470c-9829-dcb2e79d7e33" class="">Horrible debugging experience</h2>
+      <p id="2acb34e3-70bc-452d-804f-224377dfb9a5" class="">Let me tell you, I've never seen anything with such weird and cryptic error messages like rpython's compiler. There is a great article <a href="https://refi64.com/posts/the-magic-of-rpython.html">The Magic of RPython</a> about it. I've worked for telco company and in National library which used a system that was part COBOL, part Java. I've seen some shit you wouldn't believe. But not this.</p>
+      <p id="99739e11-7303-4fbd-83da-8a633fc8d8b7" class="">This is an older example. There is nothing special about it, and this is really how the errors look like. I've saved it some time ago just to be able to talk about it:</p>
+      <pre id="30d99b82-3141-46e1-a002-4b7b72f48bf4" class="code code-wrap"><code>[translation:info] 2.7.10 (5.1.2+dfsg-1~16.04, Jun 16 2016, 17:37:42)
+[PyPy 5.1.2 with GCC 5.3.1 20160413]
+[platform:msg] Set platform with 'host' cc=None, using cc='gcc', version='Unknown'
+[translation:info] Translating target as defined by src/tinySelf/target
+[translation] translate.py configuration:
+[translation] [translate]
+    targetspec = src/tinySelf/target
+[translation] translation configuration:
+[translation] [translation]
+    gc = incminimark
+    gctransformer = framework
+    list_comprehension_operations = True
+    withsmallfuncsets = 5
+[translation:info] Annotating&amp;simplifying...
+[33] {translation-task
+starting annotate
+[translation:info] with policy: rpython.annotator.policy.AnnotatorPolicy
+[f5] translation-task}
+[Timer] Timings:
+[Timer] annotate                       --- 6.1 s
+[Timer] ========================================
+[Timer] Total:                         --- 6.1 s
+[translation:info] Error:
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/translator/goal/translate.py", line 318, in main
+    drv.proceed(goals)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/translator/driver.py", line 551, in proceed
+    result = self._execute(goals, task_skip = self._maybe_skip())
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/translator/tool/taskengine.py", line 114, in _execute
+    res = self._do(goal, taskcallable, *args, **kwds)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/translator/driver.py", line 278, in _do
+    res = func()
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/translator/driver.py", line 315, in task_annotate
+    s = annotator.build_types(self.entry_point, self.inputtypes)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 92, in build_types
+    return self.build_graph_types(flowgraph, inputs_s, complete_now=complete_now)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 140, in build_graph_types
+    self.complete()
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 229, in complete
+    self.complete_pending_blocks()
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 224, in complete_pending_blocks
+    self.processblock(graph, block)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 398, in processblock
+    self.flowin(graph, block)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 501, in flowin
+    self.consider_op(op)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/annrpython.py", line 653, in consider_op
+    resultcell = op.consider(self)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/flowspace/operation.py", line 104, in consider
+    return spec(annotator, *self.args)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/unaryop.py", line 118, in simple_call_SomeObject
+    return s_func.call(argspec)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/unaryop.py", line 978, in call
+    return bookkeeper.pbc_call(self, args)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/bookkeeper.py", line 535, in pbc_call
+    s_result = unionof(*results)
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/model.py", line 771, in unionof
+    s1 = pair(s1, s2).union()
+   File "/home/bystrousak/Plocha/tests/pypy/rpython/annotator/binaryop.py", line 93, in union
+    raise UnionError(obj1, obj2)
+[translation:ERROR] UnionError:
+
+Offending annotations:
+  SomeInstance(can_be_None=True, classdef=rply.token.BaseBox)
+  SomeTuple(items=(SomeString(const='$end', no_nul=True), SomeList(listdef=&lt;[SomeString(const='$end', no_nul=True)]&gt;)))
+
+
+Occurred processing the following simple_call:
+  function at_the_top_of_the_root_is_just_expression &lt;src/tinySelf/parser.py, line 65&gt; returning
+
+  function multiple_expressions_make_code &lt;src/tinySelf/parser.py, line 70&gt; returning
+
+  function self_parser &lt;src/tinySelf/parser.py, line 82&gt; returning
+
+  function expression_number &lt;src/tinySelf/parser.py, line 88&gt; returning
+
+  function expression_string &lt;src/tinySelf/parser.py, line 94&gt; returning
+
+  function expression_strings_numbers &lt;src/tinySelf/parser.py, line 106&gt; returning
+
+  function unary_message &lt;src/tinySelf/parser.py, line 113&gt; returning
+
+  function unary_message_to_expression &lt;src/tinySelf/parser.py, line 118&gt; returning
+
+  function binary_message_to_expression &lt;src/tinySelf/parser.py, line 124&gt; returning
+
+  function keyword_message &lt;src/tinySelf/parser.py, line 133&gt; returning
+
+  function keyword_message_to_obj &lt;src/tinySelf/parser.py, line 138&gt; returning
+
+  function keyword &lt;src/tinySelf/parser.py, line 143&gt; returning
+
+  function keyword_multiple &lt;src/tinySelf/parser.py, line 148&gt; returning
+
+  function keyword_message_with_parameters &lt;src/tinySelf/parser.py, line 158&gt; returning
+
+  function keyword_message_to_self_with_parameters &lt;src/tinySelf/parser.py, line 185&gt; returning
+
+  function keyword_message_to_obj_with_parameters &lt;src/tinySelf/parser.py, line 212&gt; returning
+
+  function all_kinds_of_messages_are_message &lt;src/tinySelf/parser.py, line 239&gt; returning
+
+  function expression_is_message &lt;src/tinySelf/parser.py, line 245&gt; returning
+
+  function cascade &lt;src/tinySelf/parser.py, line 267&gt; returning
+
+  function cascades &lt;src/tinySelf/parser.py, line 281&gt; returning
+
+  function expression_cascade &lt;src/tinySelf/parser.py, line 297&gt; returning
+
+  function slot_names &lt;src/tinySelf/parser.py, line 316&gt; returning
+
+  function nil_slot_definition &lt;src/tinySelf/parser.py, line 332&gt; returning
+
+  function slot_definition &lt;src/tinySelf/parser.py, line 339&gt; returning
+
+  function slot_definition_rw &lt;src/tinySelf/parser.py, line 362&gt; returning
+
+  function nil_argument_definition &lt;src/tinySelf/parser.py, line 370&gt; returning
+
+  function slot_name_kwd_one &lt;src/tinySelf/parser.py, line 378&gt; returning
+
+  function slot_name_kwd_multiple &lt;src/tinySelf/parser.py, line 383&gt; returning
+
+  function slot_name_kwd &lt;src/tinySelf/parser.py, line 393&gt; returning
+
+    value_0 = simple_call(v0, targ_0)
+
+In &lt;FunctionGraph of (rply.parser:67)LRParser._reduce_production at 0x6f6e1e0&gt;:
+Happened at file /home/bystrousak/.local/lib/pypy2.7/site-packages/rply/parser.py line 80
+
+==&gt;             value = p.func(targ)
+
+Known variable annotations:
+ v0 = SomePBC(can_be_None=True, descriptions={...29...}, knowntype=function, subset_of=None)
+ targ_0 = SomeList(listdef=&lt;[SomeInstance(can_be_None=False, classdef=rply.token.Token)]mr&gt;)
+
+Processing block:
+ block@164[targ_0...] is a &lt;class 'rpython.flowspace.flowcontext.SpamBlock'&gt;
+ in (rply.parser:67)LRParser._reduce_production
+ containing the following operations:
+       v0 = getattr(p_0, ('func'))
+       value_0 = simple_call(v0, targ_0)
+ --end--
+[translation] start debugger...
+&gt; /home/bystrousak/Plocha/tests/pypy/rpython/annotator/binaryop.py(93)union()
+-&gt; raise UnionError(obj1, obj2)</code></pre>
+      <p id="b9f87c0d-fb64-4aca-92d2-26493078d3a9" class="">Can you spot the offending piece of code? No? Let me select it for you:</p>
+      <pre id="67eb95b0-c07c-4670-a314-9cd116a3a761" class="code code-wrap"><code>Offending annotations:
+  SomeInstance(can_be_None=True, classdef=rply.token.BaseBox)
+  SomeTuple(items=(SomeString(const='$end', no_nul=True), SomeList(listdef=&lt;[SomeString(const='$end', no_nul=True)]&gt;)))</code></pre>
+      <p id="435d546d-7313-44dd-9385-980f63c29d3b" class=""><em>"Offending annotations"</em>, what a great error. And where is the error happening? It is <em>somewhere</em> in my code, where I am probably putting string and list into the tuple. Sometimes it will tell you where, most of the time not.</p>
+      <p id="514bb8fd-476e-493f-b8de-e2e2dfee5676" class="">The best way how to not get crazy is to run compilation often, so you know you've made a mistake right when you've made it. Did I mention that one compilation run takes something like a minute?</p>
+      <h2 id="d03d54eb-54ac-4739-b17b-ccfac761e422" class="">Magical blackboxes everywhere</h2>
+      <p id="e3609992-1295-421c-99f1-bf92a146fd66" class="">Python is a dynamic high-level language, with garbage collection and stuff. RPython compiles it into C. And your interpreter / the code you are writing is somewhere in the middle.</p>
+      <p id="733a36cb-259e-449b-9e1d-b3076e1441ea" class="">I was often annoyed, that I didn't understand what the compiler does with my code. When I create a python class, and it is translated to C via RPython, what do I really get there?</p>
+      <p id="76218a6a-89ca-49ad-84fd-bb1fc6bc4df6" class="">RPython documentation offers some answers, but not all. It is also everything but easily understandable. RPython's philosophy can be summed to <em>"hey, don't worry, RPython is cool and it will take care of the lowlevel stuff for you"</em>. Which sounds great, and it mostly works, but when it doesn't, then you've got a big problem.</p>
+      <p id="223349a2-11f4-4946-a5bc-d0fd1b93308e" class="">I've got to the point, where my interpreter worked as expected, and I wanted to optimize for speed, but I was constantly running into not knowing what is really happening. When I create a class which has the last item declared as a list, and then put instances of this class into another list, how it will actually look like in the memory? What will it do? Documentation mentions that there is a way how to allocate a continuous block of memory in this way, but I couldn't really make sense of it.</p>
+      <h2 id="3bc5537e-4a63-4f17-9483-540b32239fec" class="">JIT is not the magic I thought it would be</h2>
+      <p id="ace9f4b5-37e2-44f2-a47e-deb0daa35fbd" class="">I mean, the fact that you <a href="https://morepypy.blogspot.com/2011/04/tutorial-part-2-adding-jit.html">get JIT</a> basically for free is great, but not so great as I thought. To make it effective, you still have to do a lot of fine-tuning, and that's where I've hit the wall.</p>
+      <p id="29f9ca56-5920-4e2a-89ef-1a86e9e85ced" class="">I've got some help from <a href="https://github.com/cfbolz">cfbolz</a>, (a guy behind pypy, really great programmer), and I still didn't really understand what am I doing. You have to capture the log from the JIT run, and then visualize it using a really weird script in pygame, and it is all mixed with rpython's annotation system and there is not much explanation of what are you really looking at.</p>
+      <div id="e0e05575-5e82-487c-931a-7d3046b77488" class="column-list">
+        <div id="71131d2a-6c51-4c80-a1bf-7872623a6e01" style="width:33.333333333333336%" class="column">
+          <figure id="a06fe73c-58c6-46a2-9663-a87b7dff4e1c" class="image">
+            <a href="rpython_jit_debugger.png" title="rpython_jit_debugger.png"><img style="width:1646px" src="rpython_jit_debugger_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="25b0733f-bc22-4cb5-8f8e-7db6888a9276" style="width:33.333333333333336%" class="column">
+          <figure id="b38e32a4-85ff-4268-a75d-7f244145c8cb" class="image">
+            <a href="rpython_jit_debugger_help.png" title="rpython_jit_debugger_help.png"><img style="width:1646px" src="rpython_jit_debugger_help_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="0e26933b-de64-4373-9671-6be362a0ba27" style="width:33.33333333333333%" class="column">
+          <figure id="edd459ea-6e8b-40a7-981f-070df972abae" class="image">
+            <a href="rpython_jit_debugger_zoom.png" title="rpython_jit_debugger_zoom.png"><img style="width:1646px" src="rpython_jit_debugger_zoom_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="3c264594-74b0-4ced-a0e6-b69bfbb65f77" class="image">
+        <a href="rpython_jit_debugger_data.png" title="rpython_jit_debugger_data.png"><img style="width:3840px" src="rpython_jit_debugger_data_thumb.jpg"></a>
+      </figure>
+      <p id="e31c62d4-cc84-45e6-8944-e5bbab2f1b9d" class="">WTF is this code? I can make no sense of it, and I know the code of my interpreter line by line, to the point that I am sometimes programming in my head when I am showering and then just go and rewrite it to the computer.</p>
+      <p id="dd796d6a-09b0-4901-8d71-206cb4a2d686" class="">I don't want to say that there is something wrong with the RPython's JIT. It is definitely powerful, if you know what are you doing. But I don't, and not because I didn't read the docs. I've read them multiple times.</p>
+      <h2 id="5e9040a8-c905-4d0b-9e23-1f83f7618e5f" class="">Python 2.7</h2>
+      <p id="c61ea633-5be4-4896-a7b3-a5e1e8f112e5" class="">What seems like a minor annoyance is that RPython only supports Python2.7. This version is deprecated since 2020, and also misses some of my favorite features, like ordered dicts by default. And also..</p>
+      <h2 id="cdaa8b5d-c138-4f11-9ed9-384bdd63c74d" class="">Typed Python is annoying without type hints</h2>
+      <p id="0cbc9a4d-748b-4dd8-96e6-ece3a14c1a44" class="">And there are no type hints in Python 2.7. RPython uses type hints in the form of <code>assert isinstance()</code> calls, which are actually not asserts, but expressions parsed by RPython's annotator. Sad is, that even pretty good IDE's like PyCharm don't really get this.</p>
+      <p id="842cbcd4-c0a7-4d05-b69d-3411c9cc962f" class="">I've tried to supply most of the types in the docstrings, but this is really annoying, and it doesn't really work well for nested types, like list of some objects.</p>
+      <h1 id="714ad55d-05f1-4c48-a05c-479652d26af1" class="">So.. why stick with RPython?</h1>
+      <p id="6c7c55e5-73d3-478d-a689-b56c71f1b6ad" class="">When you think about it, you don't really write Python, you write some strongly typed class-based language in Python's syntax. Everything even slightly dynamic, like accessing the range in a list is a pain in the ass, and you have to use all kinds of patterns known from statically typed OOP languages, like Java and C++. I had to create container, or "box" classes many times, where I would never need them in Python.</p>
+      <p id="8d578c5b-2de0-4b6b-b5a9-99154005497e" class="">What is left is theoretical compatibility with Python. But RPython usually requires a lot of type checks and changes in the code, so you can't really use much of the Python's gigantic software pool. It works the other way around; your RPython code is still valid Python, which may be useful for debugging, but not much more.</p>
+      <p id="40cbdf43-62f3-455b-ac60-146faf20f7bd" class="">At least there is a one good library for writing parsers (<a href="https://github.com/alex/rply">rply</a>), but you won't find any support for any kind of GUI libraries. Only C FFI, which is usually not what you want.</p>
+      <p id="2151eeee-8ef5-42bf-9ceb-cc74c52afbd3" class="">Just to recap:</p>
+      <p id="af5a9054-b43e-47f5-83d0-c10ddc2f5efe" class="">Pros:</p>
+      <ul id="4fd8e038-aa86-466b-bedf-0e82f12a5f1a" class="bulleted-list">
+        <li style="list-style-type:disc">It's python. I like python. I have huge experience with python.</li>
+      </ul>
+      <p id="81233c1e-d09e-4142-ab2f-400a483a34af" class="">Cons:</p>
+      <ul id="30dda170-e356-4ea9-a8b4-d3ee021f45e7" class="bulleted-list">
+        <li style="list-style-type:disc">Long compilation times.</li>
+      </ul>
+      <ul id="ded0d5d7-af37-4794-9db0-4991b08132dc" class="bulleted-list">
+        <li style="list-style-type:disc">Horrible debugging experience.</li>
+      </ul>
+      <ul id="fa72d320-c1cf-431f-bfcf-96dca92879f4" class="bulleted-list">
+        <li style="list-style-type:disc">Very little documentation.</li>
+      </ul>
+      <ul id="ee06099d-23e3-4365-bddb-0db3fed8ab82" class="bulleted-list">
+        <li style="list-style-type:disc">Bad IDE support for inferring type information (I've used Sublime, VS Code and PyCharm).</li>
+      </ul>
+      <p id="dbe4609f-10c9-4b93-a4d6-8a808cc78d21" class="">This is not some newbie feeling, I've arrived at this after three years of occasional hobby programming, and after several hundreds of commits (<a href="https://github.com/Bystroushaak/tinySelf">704 at the moment</a>).</p>
+      <h1 id="80bb421f-0631-49db-ace4-fbd7a7d7569d" class="">GraalVM</h1>
+      <p id="9d2b1409-1243-4615-9b39-1b1c30977f33" class="">I went to talks about GraalVM in local university here in Prague, and I must say that I've been really impressed by it. More specifically, by the speed and by the language <em>interop</em>. This allows you to transparently interface with other languages, and for example call JavaScript generators from C and so on.</p>
+      <p id="d00b4636-6897-4328-9d77-6472d0f62935" class="">If I implemented that, I could call other languages, like if it was a code in my interpreted language and vice versa.</p>
+      <h1 id="fc1a4eb7-2d19-4be3-bc3e-26d40cabab0b" class="">Java</h1>
+      <p id="62f13dfa-af41-4682-934a-ca8e5091ce8f" class="">The last draw came when I was reading <a href="https://craftinginterpreters.com/">Crafting interpreters</a> book (finally also available as a book!), which has examples in Java. I've tried to do some of the examples myself, and even though I don't like Java, and I didn't touch it for almost ten years, I could do it easily.</p>
+      <p id="5ef8aa30-4986-42d3-84e3-d6d0bef3733d" class="">What shocked me most was really how painless and streamlined was the whole experience in comparison with RPython. I've realized that I've been writing something like Java hidden in Python syntax all the time because RPython forced me to. Only, everything was really underdeveloped and user-unfriendly. So much, that writing Java now seems like fun.</p>
+      <p id="0eeef364-bf2e-4203-9653-0a7058350c8c" class="">And the tools. I can have interactive debugger? Wow. I could have it when I interpreted the code with pure Python, but it really wasn't the same. And specifically, performance measuring was a nightmare. And the compilation time is now 800 milliseconds? And I can compile it to native binaries and have language <em>interop</em>?</p>
+      <p id="98572688-44d4-4010-bdde-a66b2e0f453d" class="">I think you can see where I am going with this. RPython is an extremely cool project, and I have huge respect for the people involved with it. But I don't have a beard long enough to shield me from all the frustrations from it. So, the decision is simple.</p>
+      <h1 id="978dc087-a035-4a6e-a8b8-a272b7a6af3d" class="">Future of the tinySelf's development</h1>
+      <p id="3faf8db9-7898-44f8-931e-d9c330ddd011" class="">At the moment, I am recreating tinySelf in Java. And it is really fun for me, after a long time when it wasn't.</p>
+      <p id="146f57c2-c7ca-4f00-a614-24307d4ca787" class="">I've created handmade tokenizer rapidly, and then I've handmade parser, guided partially by the <em>Crafting interpreters</em> book, and partially by what, I thought, would work best. At the moment, the parser can parse everything the original tinySelf's parser could, with some improvements in look-ahead parsing. Now it can parse my alternative object syntax, where it is possible to omit part of the object separators. For example, it is possible to write objects like <code>(slots|)</code>, <code>(|code)</code> and <code>(slots | code)</code>, instead of the original syntax, which permits only <code>(|slots|)</code>, <code>(|| code)</code> and <code>(| slots | code)</code>.</p>
+      <p id="7a4a3fed-87ea-4a99-a0d5-389d46a80d29" class="">At the moment, I am working on parser error handling, which was nonexistent in the tinySelf, so you usually just got something like "Parser error", and no information about where it happened. Now you not only get a nice report with line and exact position with visual highlight where the error happened, but also error recovery. In theory, this should be usable in IDE / editors, to highlight multiple errors and so on.</p>
+      <p id="ac9d6363-2eac-4fcd-bb5c-8dbbe5af1088" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/3D_printing_exhibit_1_Headphone_holder.html" title="3D printing exhibit 1; Headphone holder">3D printing exhibit 1; Headphone holder</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+      </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../../Tags/diy_programming_language.html" title="diy_programming_language">diy_programming_language</a>, <a href="../../../../Tags/java.html" title="java">java</a>, <a href="../../../../Tags/python.html" title="python">python</a>, <a href="../../../../Tags/rpython.html" title="rpython">rpython</a>, <a href="../../../../Tags/tinyself.html" title="tinyself">tinySelf</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

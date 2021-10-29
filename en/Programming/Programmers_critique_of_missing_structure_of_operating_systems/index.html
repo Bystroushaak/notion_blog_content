@@ -33,6 +33,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -52,15 +61,6 @@
         </li>
         <li>
           <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -110,6 +110,9 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -120,9 +123,6 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
@@ -161,16 +161,16 @@
       <p id="c293bcd2-0cac-4083-ac4e-9fd0c83eb695" class="">I also did websites and REST services for several other companies and I've touched more exotic stuff as well. For example, I was a part of a three-man team working on a project of a video recognition system that detected objects in live video feeds from all kinds of public tunnels (Metro, road tunnels). There, I've learned a lot from the machine learning optimization tasks I was solving, from the low-level image processing and from the architecture of the whole backend code.</p>
       <p id="5bf6575c-119c-43d2-9a8d-2d913fdde45c" class="">I'm telling you this not only to establish my credibility, but also because I've seen the same pattern everywhere I worked; independently created, but approximately similar piece of software, which has naturally grown from several requirements:</p>
       <ul id="4533f765-86fb-4a6b-877e-781b47aa799f" class="bulleted-list">
-        <li>Reliable storage of a large number of small files (millions or billions of files, from megabytes to gigabytes per file), or a smaller number of large files (terabytes per file).</li>
+        <li style="list-style-type:disc">Reliable storage of a large number of small files (millions or billions of files, from megabytes to gigabytes per file), or a smaller number of large files (terabytes per file).</li>
       </ul>
       <ul id="44a818de-48c9-4e9f-85a0-26a4741d2a0b" class="bulleted-list">
-        <li>Reading and storage of configuration in some kind of structured format (INI, JSON, XML, YAML, ..).</li>
+        <li style="list-style-type:disc">Reading and storage of configuration in some kind of structured format (INI, JSON, XML, YAML, ..).</li>
       </ul>
       <ul id="248f57ae-050d-4ce2-bfb1-520d5d9748d9" class="bulleted-list">
-        <li>Structured communication between internal services, but also with external programs.</li>
+        <li style="list-style-type:disc">Structured communication between internal services, but also with external programs.</li>
       </ul>
       <ul id="a9761c69-e244-44be-bb8b-04b562066c33" class="bulleted-list">
-        <li>Distributed architecture with multiple physical machines, which allows good scaling.</li>
+        <li style="list-style-type:disc">Distributed architecture with multiple physical machines, which allows good scaling.</li>
       </ul>
       <p id="92c7a15e-a44c-4bd7-8901-e836182691cf" class="">If you are a programmer, you probably know what I am getting to. If many programmers create the same pattern on top of some programming library, it is not a mistake of those people, but a mistake in the design of the library.</p>
       <p id="0d8d0547-6269-4834-9aaf-30c00a98bc82" class="">As I was thinking about it, I've realized that <em>architecture</em> of the operating system itself is wrong for this kind of job. The stuff it offers and the stuff it allows us to do, is not what we want and expect. Especially not from the <em>"programmer's user interface"</em> point of view, which is the stuff I often work with as a programmer.</p>
@@ -298,30 +298,30 @@ stdout, stderr = sp.communicate()</code></pre>
       <p id="7b5120c0-5d44-4151-974a-d161347b9a90" class="">I understand where it comes from. I wandered in this direction too. But, why it can't be standardized and the same across the system? Ideally, as the same data format that is also a programming language used everywhere. Why can't it be just the objects themselves, stored in a proper location in the configuration namespace?</p>
       <h2 id="bbb5f353-3b7e-485a-9822-0dc25ea46c1e" class="">Logs</h2>
       <p id="cec5c0b3-c17f-4b04-8154-a7ac1352dd04" class="">Every production service needs to log information somewhere. And, each one has to solve the following problems:</p>
-      <ol id="26ea84f3-e320-4bb4-9ade-ab8207cbd9d4" class="numbered-list" start="1">
+      <ol type="1" id="26ea84f3-e320-4bb4-9ade-ab8207cbd9d4" class="numbered-list" start="1">
         <li>Structured logging. That is, to store the logs in a format that is actually parse-able, which you can query. Where you can, for example, get just logs for a given <em>time period</em>, or with a given <em>log level</em>.</li>
       </ol>
-      <ol id="7677502f-b823-4e04-aa23-ba1869c9046a" class="numbered-list" start="2">
+      <ol type="1" id="7677502f-b823-4e04-aa23-ba1869c9046a" class="numbered-list" start="2">
         <li>Parallel write access that will allow multiple applications or threads or processes to log into the same storage. It should also guarantee that individual log messages will be stored properly and won't rewrite each other.</li>
       </ol>
-      <ol id="6ddcbb1e-89c6-4f3b-b875-56a85133e761" class="numbered-list" start="3">
+      <ol type="1" id="6ddcbb1e-89c6-4f3b-b875-56a85133e761" class="numbered-list" start="3">
         <li>Log rotation. Old logs should be renamed, compressed and removed after some time.</li>
       </ol>
-      <ol id="ceb18403-9a3b-4221-9694-4a73534a1e62" class="numbered-list" start="4">
+      <ol type="1" id="ceb18403-9a3b-4221-9694-4a73534a1e62" class="numbered-list" start="4">
         <li>Actually logging. Applications have to deliver the log messages to the target platform (logserver) somehow.</li>
       </ol>
       <p id="04d4b5dc-5a63-4705-8f62-fcf2d4e01139" class="">Again, the current solutions are typically quite different; whatever anyone thought would be appropriate is used without much consideration:</p>
-      <ol id="d523d006-2413-4eca-8dd8-b31f0d03fc95" class="numbered-list" start="1">
+      <ol type="1" id="d523d006-2413-4eca-8dd8-b31f0d03fc95" class="numbered-list" start="1">
         <li>The structure of the logs is random. Virtually, everyone uses some more or less parse-able format but its shape and structure is almost always different. It is rarely defined how multiline log messages are stored and escaped. Parsing takes place largely through regexps and is practically always fragile and breakable. I often proudly show my colleagues how easy it is to break their log structure by circumventing their regexps. Then, I try to convince them to use something unbreakable by design, but only rarely they really do so.</li>
       </ol>
-      <ol id="7cd4bd7a-8009-41f6-9d03-10d983137a96" class="numbered-list" start="2">
+      <ol type="1" id="7cd4bd7a-8009-41f6-9d03-10d983137a96" class="numbered-list" start="2">
         <li>Parallel logging is usually solved by some kind of a separate logging server (process). File system, unlike almost all other databases, can't usually guarantee atomic changes, and usually also nothing like triggers or transactions. If this logging server fails, logs are lost.</li>
       </ol>
-      <ol id="90bbea57-e15f-4a24-b856-6b1748b97a90" class="numbered-list" start="3">
+      <ol type="1" id="90bbea57-e15f-4a24-b856-6b1748b97a90" class="numbered-list" start="3">
         <li>Log rotation is also often handled by an external application and practically always a matter of a periodically triggered cron job. I have not yet seen a clever logging platform that would be able to rotate logs when it's probable that there won't be soon any space left on the storage device. I've seen quite a few production services that were stopped by this trivial problem. Another problem is that applications typically keep the log file open, and if the file is "rotated" under their hands without a warning, it will break the whole thing. This is solved completely non-elegantly by sending signals to the applications, which have to be able to respond to this event asynchronously. I've recently laughed so badly when my colleague wanted to disable file logs and only log to stdout, so he changed the path of the log file to <code>/dev/null</code>. All of this worked beautifully until the Python's <a href="https://docs.python.org/3/library/logging.handlers.html#rotatingfilehandler"><code>RotatingFileHandler</code></a> decided to rotate the file and the whole application crashed.
         </li>
       </ol>
-      <ol id="2dfe4c76-d34e-4a0a-a680-255075f01b88" class="numbered-list" start="4">
+      <ol type="1" id="2dfe4c76-d34e-4a0a-a680-255075f01b88" class="numbered-list" start="4">
         <li>As for the delivery mechanism, some applications simply open the file and log into it. Others send data to UDP (syslog). Others send JSON messages to Sentry. It is done in whatever way is currently popular and which comes to someone's mind.</li>
       </ol>
       <p id="42133631-6834-4beb-a76d-f821e01e6dc0" class="">Logging seems to me as a beautiful example of pattern, which practically everyone is forced to solve and which the operating system usually doesn't support in its full complexity. It is also a beautiful example of a concept that it deserves conversion to sending structured messages;</p>
@@ -427,22 +427,22 @@ RUN dir c:\</code></pre>
       state: started</code></pre>
       <p id="5efff7a9-433a-432a-bb71-913b6be002a2" class="">It is quite easy to read YAML key-value structure. But of course, OF COURSE (!), it couldn't just stay like this. Someone thought that it would be great to add conditions and cycles. Of course, as YAML:</p>
       <ul id="65dd99cd-17be-4182-beb3-405ac7e64f0d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_conditionals.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_conditionals.html</a>
         </li>
       </ul>
       <ul id="6b966816-4dfd-4ae8-b1a1-7a740b0b0e3d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html</a>
         </li>
       </ul>
       <ul id="f3947ff8-1530-4833-be34-31db5e271e2c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html">https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html</a>
         </li>
       </ul>
       <ul id="cb9aaa9f-894c-45bb-83b8-2cdb30e982d2" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html">https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html</a>
         </li>
       </ul>
@@ -492,82 +492,91 @@ RUN dir c:\</code></pre>
       <h1 id="a3c884bf-2ab3-402b-b985-2646190b74ca" class="">Inspiration and context</h1>
       <p id="e2c18b8d-2e6c-48b4-acee-cf12d15f3d6b" class="">If you think that this is all naive crap, just go and read something about <a href="https://en.wikipedia.org/wiki/Genera_(operating_system)">Genera</a>:</p>
       <ul id="5c55e332-89fb-4096-9e20-aa41197e8bdb" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://bitsavers.trailing-edge.com/pdf/symbolics/software/genera_8/Genera_Concepts.pdf">http://bitsavers.trailing-edge.com/pdf/symbolics/software/genera_8/Genera_Concepts.pdf</a>
         </li>
       </ul>
       <p id="93a716f1-6e41-49a3-83e4-f258737c3e77" class="">You will find that decades ago there was a graphics system that fulfilled much of everything I wrote about. A system so good that it still connects groups of enthusiasts around it.</p>
       <p id="6f06b0aa-5de6-4f2d-ac65-3daf466448bf" class="">The direct inspiration is also Self, about which I've written a lot here: <a href="../Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a></p>
-      <h1 id="b9ce5b2f-d496-4cd9-becb-e8dfb4da6c9d" class="">Relevant resources, last edit <time>@2020/12/12</time></h1>
+      <h1 id="b9ce5b2f-d496-4cd9-becb-e8dfb4da6c9d" class="">Relevant resources, last edit <time>@2021/09/28</time></h1>
       <p id="61115381-7585-44ed-a822-8e3044b71deb" class="">Here is (occasionally updated) set of pointers to relevant resources with similar topics:</p>
       <ul id="c8304976-0287-4fb2-9cc6-6da9dc6bd0cc" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/">Squeak is like an operating system</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="a42bc5e6-d2cb-4453-9f2d-7f9b0cf67ef7" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/">The Operating System: Should There Be One?</a> (article + reddit discussion) (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="beddea61-e4b2-4b74-b247-f066e9f26668" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">Systems, not Programs</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="4308a1b7-95b8-4dab-919a-a44c1c1af563" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html">Things UNIX can do atomically</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="858149bd-b5f3-4305-a843-4ebbe20361e0" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.pixelbeat.org/programming/stdio_buffering/">buffering in standard streams</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="72278609-22d4-4404-b9c1-e717e06c3838" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://okmij.org/ftp/papers/DreamOSPaper.html">A dream of an ultimate OS</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="1cf25e5e-3d9b-4a88-800a-9ae54f1591a5" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://kaitai.io/">Kaitai struct</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
       <ul id="5d9781aa-1db5-4cb0-a0af-2183921c47d0" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://treenotation.org/">Tree notation</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
+      <ul id="b759906f-7652-413a-96bd-1a08c79fad25" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://shalabh.com/programmable-systems/files-and-file-formats.html">Files, Formats and Byte Arrays</a> (<time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="924685d0-6934-4a97-982c-5dfc3c1f10b2" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://djrobstep.com/posts/programs-are-a-prison">Programs are a prison: Rethinking the fundamental building blocks of computing interfaces</a> (<time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="6bce9398-d313-40cd-a96b-c390fc81afa7" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://lobste.rs/s/fw5ubn/unix_plan_9_lurking_smalltalk">Unix, Plan 9, and Lurking Smalltalk</a> (<time>@2020/02/18</time>)
+        </li>
+      </ul>
       <ul id="2e6235e0-5102-4d5d-9d90-84f0b05248b8" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://weinholt.se/articles/non-posix-filesystems/">Non-POSIX file systems</a> (added <time>@2020/12/12</time>)
         </li>
       </ul>
       <ul id="dfa53ff5-e91c-4b93-bbc2-c45cdf0a4214" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://raphlinus.github.io/text/2020/10/26/text-layout.html">Text layout is a loose hierarchy of segmentation</a> (added <time>@2020/12/12</time>)
         </li>
       </ul>
+      <ul id="b892ae60-b172-43ff-b092-b9998433bc80" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://onezero.medium.com/the-document-metaphor-desktop-gui-doesnt-work-anymore-d276271bfa40">Why We Need to Rethink the Computer ‘Desktop’ as a Concept</a> (added <time>@2021/07/12</time>)
+        </li>
+      </ul>
+      <ul id="4c7c5f35-9d5a-4905-a740-9b51eb6e17b9" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://p.janouch.name/text/on-unix-composability.html">On Unix composability</a> (added <time>@2021/09/28</time>)
+        </li>
+      </ul>
       <h1 id="01f45ad4-a28f-4e58-8daa-49ec66e30349" class="">Edit <time>@2020/02/18</time></h1>
-      <p id="6fc8a7e9-98c5-4191-a373-4cb4474411f9" class="">Since I've published this article, there has been several other relevant articles:</p>
-      <ul id="b759906f-7652-413a-96bd-1a08c79fad25" class="bulleted-list">
-        <li>
-          <a href="https://shalabh.com/programmable-systems/files-and-file-formats.html">Files, Formats and Byte Arrays</a>
-        </li>
-      </ul>
-      <ul id="924685d0-6934-4a97-982c-5dfc3c1f10b2" class="bulleted-list">
-        <li>
-          <a href="https://djrobstep.com/posts/programs-are-a-prison">Programs are a prison: Rethinking the fundamental building blocks of computing interfaces</a>
-        </li>
-      </ul>
-      <ul id="6bce9398-d313-40cd-a96b-c390fc81afa7" class="bulleted-list">
-        <li>
-          <a href="https://lobste.rs/s/fw5ubn/unix_plan_9_lurking_smalltalk">Unix, Plan 9, and Lurking Smalltalk</a>
-        </li>
-      </ul>
-      <p id="d00a1f8e-d244-4b62-bacc-e34ba948212f" class="">And <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/fi29591/">this response on reddit</a> got much of what I am trying to say right:</p>
+      <p id="d00a1f8e-d244-4b62-bacc-e34ba948212f" class=""><a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/fi29591/">This response on reddit</a> got much of what I am trying to say right:</p>
       <blockquote id="077e5975-7258-42af-808d-7504cc16cc27" class="">
         So what would be a better way to solve this?<br>
         <br>
@@ -595,7 +604,7 @@ RUN dir c:\</code></pre>
         Basically the Unix philosophy got to its limits because computers started doing all sorts of things that the original model never considered. It lost it's structure and philosophy as it adapted and exceptions became more common than the rule, and decisions that now weren't the best one had to be kept to not loose existing features. But nowadays we have a better system to solve it, one that has proven it self time and time again. I think it would be interesting to build an OS that was like this from the beginning. Unix-like scenarios could be allowed, as Unix is simply a special case of the model.
       </blockquote>
       <h1 id="b00658f3-eb1a-4f8d-b353-aac3f53b2251" class="">Edit <time>@2020/05/26</time></h1>
-      <p id="d0344899-ae3c-4986-9c86-87029803045c" class="">There has been much confusion about what I've meant by some statements. I am sorry for that. English is not my native language and sometimes, it's not really easy for me to clearly express myself.</p>
+      <p id="d0344899-ae3c-4986-9c86-87029803045c" class="">There has been much confusion about what I've meant by some statements. I am sorry for that. English is not my native language and sometimes, it's not easy for me to clearly express myself.</p>
       <p id="11818dfa-c87b-4926-81a4-1ad085c7dbeb" class="">One confusion that I've seen often is about lowlevel serialization. Here is my response on reddit:</p>
       <hr id="27af4267-d65a-4039-b14c-b12f6166f77b">
       <blockquote id="dff5e141-ef09-4900-9423-a804e4dfcaf5" class="">
@@ -610,37 +619,37 @@ RUN dir c:\</code></pre>
       <p id="7fc85c4c-d731-4943-8932-307f920685a1" class="">This may seem like a security nightmare, but there are ways how to do this, best of which I think is probably <a href="https://www.researchgate.net/publication/286619645_Korz_Simple_Symmetric_Subjective_Context-Oriented_Programming">Korz</a>.</p>
       <h1 id="afb76b10-a38e-4bf5-bca1-f7a2063fa4aa" class="">Relevant discussions</h1>
       <ul id="0e45e959-e080-4c40-bc88-db364d1bec9c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://news.ycombinator.com/item?id=22357184">hackernews</a> (193 comments)
         </li>
       </ul>
       <ul id="17f44ca8-6542-4d67-9fe5-ccb0404a6d0b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/">/r/programming</a> (73 comments)
         </li>
       </ul>
       <ul id="47a9249e-4da6-4291-97e7-6e23eecc9c14" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/osdev/comments/ffbcwb/programmers_critique_of_missing_structure_of/">/r/osdev</a> (21 comments)
         </li>
       </ul>
       <ul id="14f7a67c-1290-4ccc-bbbb-e87a99c92757" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/linux/comments/ff9zdn/programmers_critique_of_missing_structure_of/">/r/linux</a> (26 comments)
         </li>
       </ul>
       <ul id="1b77a5f2-b6b8-4fd5-97b2-3733283883e6" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/compsci/comments/g9ghr6/programmers_critique_of_missing_structure_of/">/r/compsci</a> (4 comments)
         </li>
       </ul>
       <ul id="6b18c33c-5142-422c-9ffa-f701582f262f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://lobste.rs/s/08jcgq/programmer_s_critique_missing_structure">lobste.rs thread</a> (24 comments)
         </li>
       </ul>
       <ul id="260446c8-27e9-4a8c-8e2e-b7e9bb01512e" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://tildes.net/~comp/lyl/programmers_critique_of_missing_structure_of_operating_systems">tildes</a> (6 comments)
         </li>
       </ul>
@@ -655,6 +664,15 @@ RUN dir c:\</code></pre>
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
         <li>
           <a href="../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
@@ -675,15 +693,6 @@ RUN dir c:\</code></pre>
         </li>
         <li>
           <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -733,6 +742,9 @@ RUN dir c:\</code></pre>
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -743,9 +755,6 @@ RUN dir c:\</code></pre>
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>

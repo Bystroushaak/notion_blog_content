@@ -33,6 +33,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -52,15 +61,6 @@
         </li>
         <li>
           <a href="../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -110,6 +110,9 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -120,9 +123,6 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>
@@ -195,41 +195,41 @@
       <p id="74c28930-8976-4fc4-9eed-c11fb2cbf152" class="">In the book, the author explores various possibilities of how extensibility is typically achieved. For example, he focuses on various architectures of applications, and how plugins are created in them. Among other things, he discusses and analyzes the integration of plugins within the standard API, use of connectors or a message bus. He also examines assembly of applications in the Unix style. In various studies with real users, he shows how difficult it is to create a plugin and extend the functionality of a component.</p>
       <p id="f85ca629-3523-482f-b743-ba50e0790c9e" class="">He also focuses on the ways to raise the level of domain abstraction of development tools, where he mentions two approaches:</p>
       <ul id="e50fca46-5fbb-428a-8fd4-f26e62cf035f" class="bulleted-list">
-        <li>Language adaptation</li>
+        <li style="list-style-type:disc">Language adaptation</li>
       </ul>
       <ul id="b4e56137-6af9-4056-beac-5bbe60ee4df7" class="bulleted-list">
-        <li>Tool adaptation</li>
+        <li style="list-style-type:disc">Tool adaptation</li>
       </ul>
       <p id="c98c0fb0-211f-4c5a-b1d0-4df93eb97c13" class="">General programming languages lack language constructs for specific domains. Developers must use other language elements to model domain abstractions. In Python, these elements often include objects, a context manager, or decorators.</p>
       <p id="4515bf6e-d580-435f-bc44-e9c00fc679bd" class="">In contrast, there are languages ​​that allow you to define different DSLs and use them dynamically. For example, <a href="http://scg.unibe.ch/research/helvetia">Helvetia</a>, or REBOL, which allows you to directly access the BNF parser and define new grammars. This makes it possible, for example, to use the English parser for <em>business logic</em> in the middle of a language. Also, the basic installation comes with data types and grammar for URL, email, or various currencies. Instead of having to create an object manually, as would be done in Python (<code>EmailAddress("some@adress.cz")</code>), the language directly understands the email address and directly creates a target native object. Thus, the rising of domain abstraction is achieved by modifying the language to match the domain. For example, it is possible to define native objects and a parser for customers and various transactions between them and the e-shop. Debugger and other tools then do not distinguish between the extended and non-extended parts and support greater abstraction somehow “natively”.</p>
       <p id="099da0ea-8306-4c49-b2ae-7c79a296c44e" class=""><em>Moldable tools</em>, on the other hand, focuses on adapting existing tools instead of language. Modifications are not applied to a language, but to a debugger, inspector and other instruments.</p>
       <p id="16007ae0-f17e-4fcc-b2d6-cce538550427" class="">The following principles are proposed for this:</p>
       <ul id="d65b7ed8-52b8-41bd-94f2-f7b4805abd95" class="bulleted-list">
-        <li>Identify common types of developer extensions.</li>
+        <li style="list-style-type:disc">Identify common types of developer extensions.</li>
       </ul>
       <ul id="2dda1a12-6dbd-4f5b-9bc5-2e0669107b53" class="bulleted-list">
-        <li>Optimize (complexity of) creation of new extensions.</li>
+        <li style="list-style-type:disc">Optimize (complexity of) creation of new extensions.</li>
       </ul>
       <ul id="b863c6b5-022c-4002-a0f2-d32b8373e883" class="bulleted-list">
-        <li>Don't limit possible extensions.</li>
+        <li style="list-style-type:disc">Don't limit possible extensions.</li>
       </ul>
       <p id="3460ccb2-28da-4d66-afc3-8bf8ca99ef3b" class="">Developers can then adapt and extend individual tools to fit the relevant development context by:</p>
       <ul id="fbbbea75-d9ee-42f0-b6ba-d9adff32658c" class="bulleted-list">
-        <li>Creating domain-specific extensions that capture specific abstractions.</li>
+        <li style="list-style-type:disc">Creating domain-specific extensions that capture specific abstractions.</li>
       </ul>
       <ul id="53825aa1-46b7-4b3d-803f-a9d5d4fabe5b" class="bulleted-list">
-        <li>Attaching activation predicates that the tools run and display in a specific context. This includes previous interactions with the tool.</li>
+        <li style="list-style-type:disc">Attaching activation predicates that the tools run and display in a specific context. This includes previous interactions with the tool.</li>
       </ul>
       <p id="94041e17-2c52-4a61-9704-6e67478edfc8" class="">In the book, of course, all of this is discussed and explained in great detail, and everything contained in this blog is just a quick overview.</p>
       <p id="07630359-9f14-4294-9e2c-bbbcda35edc5" class="">The author created three different tools to verify his thesis:</p>
       <ul id="41e5b288-69bf-4399-9a96-b5b1c662e92f" class="bulleted-list">
-        <li><em>Moldable inspector</em></li>
+        <li style="list-style-type:disc"><em>Moldable inspector</em></li>
       </ul>
       <ul id="d028a2b0-1e8d-4092-97c8-64ed1c6f2639" class="bulleted-list">
-        <li><em>Moldable spotter</em></li>
+        <li style="list-style-type:disc"><em>Moldable spotter</em></li>
       </ul>
       <ul id="be455b46-3760-4387-9416-51e57cbdddcb" class="bulleted-list">
-        <li><em>Moldable debugger</em></li>
+        <li style="list-style-type:disc"><em>Moldable debugger</em></li>
       </ul>
       <h1 id="c52b8ba9-a2e7-4542-b15e-f0d19b7bcac1" class="">Moldable tools</h1>
       <p id="68e1ea36-4169-4ab4-acb8-2be544ca23a3" class="">These tools allow you to explore and think about runtime objects, their behavior, and abstractions.</p>
@@ -274,16 +274,16 @@
       </figure>
       <p id="622736d6-259f-435e-909d-97c658e9bda3" class="">A typical extension consists of <em>domain-specific debugging operations</em> and <em>domain-specific view</em>, both based on a <em>debugging session</em>.</p>
       <p id="ecd49e9e-7ad7-4719-8864-db4d02925067" class="">Developers can create domain-specific extensions by:</p>
-      <ol id="a392e7cb-4db1-4372-bbe6-fd470d226d39" class="numbered-list" start="1">
+      <ol type="1" id="a392e7cb-4db1-4372-bbe6-fd470d226d39" class="numbered-list" start="1">
         <li>Extending the debugging session with additional functionality;</li>
       </ol>
-      <ol id="df60ddcf-a886-47e7-a480-63a50e97fc2f" class="numbered-list" start="2">
+      <ol type="1" id="df60ddcf-a886-47e7-a480-63a50e97fc2f" class="numbered-list" start="2">
         <li>Creating domain-specific debugging predicates and operations;</li>
       </ol>
-      <ol id="33649d0a-3d31-4de7-96bd-1b0f81a62a34" class="numbered-list" start="3">
+      <ol type="1" id="33649d0a-3d31-4de7-96bd-1b0f81a62a34" class="numbered-list" start="3">
         <li>Specifying a domain-specific debugging view;</li>
       </ol>
-      <ol id="35721449-aeec-4b45-978e-b4369087a35c" class="numbered-list" start="4">
+      <ol type="1" id="35721449-aeec-4b45-978e-b4369087a35c" class="numbered-list" start="4">
         <li>Linking debugging operations to graphical widgets.</li>
       </ol>
       <h1 id="791ca0c3-9378-4ae8-a389-0a99b2efe3f2" class="">Highlights</h1>
@@ -343,7 +343,7 @@
       <h1 id="58196356-f8ea-4bbc-9f6e-546b6d8b2e3e" class="">Download link</h1>
       <p id="8b5c7e50-118c-4f1b-bd65-788b48b39105" class="">The book is available under the Creative Commons license at the <a href="https://en.wikipedia.org/wiki/University_of_Bern">University of Bern</a>:</p>
       <ul id="cb6e6c5a-831b-4c1f-827b-cffec837e6f6" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://scg.unibe.ch/archive/phd/chis-phd.pdf">http://scg.unibe.ch/archive/phd/chis-phd.pdf</a>
         </li>
       </ul>
@@ -357,6 +357,15 @@
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
         <li>
           <a href="../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
@@ -377,15 +386,6 @@
         </li>
         <li>
           <a href="../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -435,6 +435,9 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -445,9 +448,6 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>

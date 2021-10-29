@@ -108,6 +108,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -128,15 +137,6 @@
         <li>
           <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
         </li>
-        <li>
-          <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
-        </li>
       </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
@@ -144,6 +144,9 @@
       <ul>
         <li>
           <a href="../../objWiki.html" title="objWiki">objWiki</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
         </li>
         <li>
           <a href="../../../Weekly_updates/Biweekly_update_2020-01-05_objWiki_is_coming_nicely.html" title="Biweekly update 2020-01-05; objWiki is coming nicely">Biweekly update 2020-01-05; objWiki is coming nicely</a>
@@ -185,6 +188,9 @@
           <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -195,9 +201,6 @@
         </li>
         <li>
           <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../../index.html" title="English section">📂 English section</a>
@@ -398,13 +401,13 @@
       </figure>
       <p id="1beaa199-0c07-4011-b187-f0366652df07" class="">Position is updated when you type, so the widget on top of the image moves accordingly.</p>
       <p id="828b04f6-3f2f-4511-86a1-20b020b8b03a" class="">Negative effects:</p>
-      <ol id="43461ee9-b9fc-4e65-a2a4-b01950b52ca9" class="numbered-list" start="1">
+      <ol type="1" id="43461ee9-b9fc-4e65-a2a4-b01950b52ca9" class="numbered-list" start="1">
         <li>The image (or more specifically, the character that the image is bound to) under the widget can be deleted and so it disappears, but the widget itself is still here. You need to detect whether the character is still present after each modification, and if not, then hide the object.</li>
       </ol>
-      <ol id="c578298f-f272-49cd-8d57-f3365792b481" class="numbered-list" start="2">
+      <ol type="1" id="c578298f-f272-49cd-8d57-f3365792b481" class="numbered-list" start="2">
         <li>I am fidgeting with the widget position to align it properly: <code>widget.move(rect.x() + 1, rect.y() + 1)</code>, because by default, it is off by one pixel in both directions. This can be solved simply by setting background to the widget, so the image under it won't be visible and this won't be noticeable. At least I hope so.</li>
       </ol>
-      <ol id="52a1f024-1438-4aaf-a2da-80946ff8e333" class="numbered-list" start="3">
+      <ol type="1" id="52a1f024-1438-4aaf-a2da-80946ff8e333" class="numbered-list" start="3">
         <li>Scrolling can break things. When the text area is too small and if it is in scrollable container, weird stuff happens with the Y coordinates. This will require improvements.</li>
       </ol>
       <figure class="block-color-gray_background callout" id="e7de0cf5-7211-4e4b-98b7-354afd0da07e" style="display:flex">
@@ -661,16 +664,16 @@
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">text_format_id</span><span class="p">]</span>
 </code></pre>
       <p id="0bab7941-95c2-49f5-9867-dd9e194ddcd6" class="">It may look complicated, but it's really simple:</p>
-      <ol id="f9741e4e-a6eb-45de-a219-dba9099d3865" class="numbered-list" start="1">
+      <ol type="1" id="f9741e4e-a6eb-45de-a219-dba9099d3865" class="numbered-list" start="1">
         <li>Get text indices for all <em>object replacement characters</em>.</li>
       </ol>
-      <ol id="e87b22f7-14cb-4cc8-90d2-585b5e890bd1" class="numbered-list" start="2">
+      <ol type="1" id="e87b22f7-14cb-4cc8-90d2-585b5e890bd1" class="numbered-list" start="2">
         <li>Put cursor at each index and call methods that will get you <code>text_format_id</code> for that character.</li>
       </ol>
-      <ol id="d6429bc9-436d-49f5-959a-207bd830d86d" class="numbered-list" start="3">
+      <ol type="1" id="d6429bc9-436d-49f5-959a-207bd830d86d" class="numbered-list" start="3">
         <li>Get diff of expected characters and present characters, so you get characters that were removed.</li>
       </ol>
-      <ol id="63948221-ddec-4801-a842-791c15a0ceb9" class="numbered-list" start="4">
+      <ol type="1" id="63948221-ddec-4801-a842-791c15a0ceb9" class="numbered-list" start="4">
         <li>Call <code>.hide()</code> for all widgets that correspond with removed characters.</li>
       </ol>
       <p id="a870615b-daf4-47a3-83cb-782d697ccfce" class="">With all this, it finally works as expected:</p>
@@ -680,47 +683,47 @@
       <p id="e55f1302-f203-4fda-ab7f-3ca6aa28b6c4" class="">What is missing is handling of mime-types, so copy paste and drag & drop would work, but I'll leave that for some other time.</p>
       <h1 id="283fae8f-63e9-4326-8a6c-7a5a805fe860" class="">Relevant links</h1>
       <ul id="07b2967c-f198-4152-b007-358c52c373d5" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://stackoverflow.com/questions/65135649/resizable-in-line-image-on-qtextedit">Resizable In-Line Image on QTextEdit</a> (links this blogpost)
         </li>
       </ul>
       <ul id="19bb2a50-30c5-4dfd-ae4f-8629508803dd" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://doc.qt.io/qt-5/qtextobjectinterface.html">https://doc.qt.io/qt-5/qtextobjectinterface.html</a>
         </li>
       </ul>
       <ul id="70abc4e8-636e-43b1-b9db-afb030e0d683" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html">https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html</a>
         </li>
       </ul>
       <ul id="887652a2-8643-4724-8620-66a7e741fb11" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://stackoverflow.com/questions/28956693/pyqt5-qtextedit-auto-completion">https://stackoverflow.com/questions/28956693/pyqt5-qtextedit-auto-completion</a>
         </li>
       </ul>
       <ul id="fbb22cee-8176-4dec-b6f9-72cd277059ff" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://doc.qt.io/qt-5/qtextdocument.html">https://doc.qt.io/qt-5/qtextdocument.html</a>
         </li>
       </ul>
       <ul id="4ebbe31d-4e78-4b33-b66f-242fc63b4b2e" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html">https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html</a>
         </li>
       </ul>
       <ul id="25902f6c-b07a-4e0e-bdad-7c384b22050e" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py">https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py</a>
         </li>
       </ul>
       <ul id="1000fe0f-fe5e-4605-a4e0-a19237f6cfe9" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://stackoverflow.com/questions/55909886/embed-pyqtgraph-into-pyqt-textedit">https://stackoverflow.com/questions/55909886/embed-pyqtgraph-into-pyqt-textedit</a>
         </li>
       </ul>
       <ul id="f5bf1da8-2428-40f9-941e-e26779628422" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://doc.qt.io/qt-5/qabstractitemdelegate.html#details">https://doc.qt.io/qt-5/qabstractitemdelegate.html#details</a>
         </li>
       </ul>
@@ -742,6 +745,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -762,15 +774,6 @@
         <li>
           <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
         </li>
-        <li>
-          <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
-        </li>
       </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
@@ -778,6 +781,9 @@
       <ul>
         <li>
           <a href="../../objWiki.html" title="objWiki">objWiki</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
         </li>
         <li>
           <a href="../../../Weekly_updates/Biweekly_update_2020-01-05_objWiki_is_coming_nicely.html" title="Biweekly update 2020-01-05; objWiki is coming nicely">Biweekly update 2020-01-05; objWiki is coming nicely</a>
@@ -819,6 +825,9 @@
           <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -829,9 +838,6 @@
         </li>
         <li>
           <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../../index.html" title="English section">📂 English section</a>

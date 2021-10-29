@@ -110,13 +110,13 @@
       <p id="ff814f60-f037-4789-9846-3bb68ae5d7ce" class=""><time>@2019/03/13</time></p>
       <p id="3c97b191-83e4-49fb-a500-e28593b736d7" class="">Dalším logickým krokem by mělo být vytvoření virtuálního stroje, který bude programovací jazyk interpretovat, a kompilátoru, který pro tento virtuální stroj zkompiluje zdrojový kód. Před tím, než se do toho můžu pustit je však třeba ujasnit si, nejlépe formou konkrétní implementace, jak bude vypadat reprezentace a rozložení objektů v paměti.</p>
       <p id="69dedfef-c946-4724-9bb3-516e368f5a20" class="">Specificky následující věci;</p>
-      <ol id="9155f3b2-42f6-4559-8cbc-f2f93fa5d27d" class="numbered-list" start="1">
+      <ol type="1" id="9155f3b2-42f6-4559-8cbc-f2f93fa5d27d" class="numbered-list" start="1">
         <li>Jak budou objekty reprezentovány.</li>
       </ol>
-      <ol id="b97f8cf4-920f-4249-a8a8-cb47438729ef" class="numbered-list" start="2">
+      <ol type="1" id="b97f8cf4-920f-4249-a8a8-cb47438729ef" class="numbered-list" start="2">
         <li>Kde a jak budou umístěny.</li>
       </ol>
-      <ol id="3e16d8b4-2faa-4729-abfb-9427d888d47e" class="numbered-list" start="3">
+      <ol type="1" id="3e16d8b4-2faa-4729-abfb-9427d888d47e" class="numbered-list" start="3">
         <li>Jak se s tím vším bude pracovat.</li>
       </ol>
       <h2 id="4b4efd67-d705-4425-a5bb-519ad6ae7738" class="">Selfové objekty</h2>
@@ -134,13 +134,13 @@ obj.+(anotherObj)
 obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
       <p id="3237f48e-feee-4440-96d4-216564a85f90" class="">Rozdíly oproti klasickému asociativnímu poli jsou následující:</p>
       <ul id="908de3d7-f12b-4384-a532-86827b550770" class="bulleted-list">
-        <li>Pokud je výsledkem přeložení zprávy na slot objekt <em>obsahující kód</em>, je spuštěn v kontextu volaného objektu a jsou mu předány patřičné parametry.</li>
+        <li style="list-style-type:disc">Pokud je výsledkem přeložení zprávy na slot objekt <em>obsahující kód</em>, je spuštěn v kontextu volaného objektu a jsou mu předány patřičné parametry.</li>
       </ul>
       <ul id="3ab23c08-d31a-4a67-837a-f1888fedd8cb" class="bulleted-list">
-        <li>Pokud není slot v objektu nalezen, objekt má možnost na to reagovat.</li>
+        <li style="list-style-type:disc">Pokud není slot v objektu nalezen, objekt má možnost na to reagovat.</li>
       </ul>
       <ul id="bfe9c50b-9436-44ba-8389-b7709930ed1e" class="bulleted-list">
-        <li>Pokud objekt definuje rodičovský slot, je hledání slotu při neúspěchu přeneseno do něj. Tím je řešena delegace ve stylu dědičnosti.</li>
+        <li style="list-style-type:disc">Pokud objekt definuje rodičovský slot, je hledání slotu při neúspěchu přeneseno do něj. Tím je řešena delegace ve stylu dědičnosti.</li>
       </ul>
       <p id="fe2a8bb2-8dcb-4283-8e49-f293a13c679d" class="">Objekt je možné interně reprezentovat třídou zhruba a velmi abstraktně následujícího typu:</p>
       <pre id="19297d00-31ee-4b01-8343-dc426a3c5284" class="code"><code>class Object:
@@ -211,7 +211,7 @@ class Map:
       </figure>
       <p id="6674d19f-8870-4f29-9c75-bab35b56930f" class="">Zdrojový kód je možné najít v souboru:</p>
       <ul id="6dd913c3-bca7-40eb-b8ec-d7581c8f7de7" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/Bystroushaak/tinySelf/blob/master/src/tinySelf/vm/object_layout.py">object_layout.py</a>
         </li>
       </ul>
@@ -226,7 +226,7 @@ class Map:
       <p id="129c5c3a-fda8-42ed-b823-39752e2ee7cc" class="">Příště se podíváme na bajtkód a literály a v jaké je to celé uložené datové struktuře.</p>
       <h1 id="f5e79f19-5c60-4d03-a200-06785c1f0ae2" class="">Relevantní diskuze</h1>
       <ul id="b56a086b-0194-4c2e-9d11-726e78344e1a" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/3/13/444907">Jak se píše programovací jazyk 4: Objektový layout</a> (abclinuxu)
         </li>
       </ul>

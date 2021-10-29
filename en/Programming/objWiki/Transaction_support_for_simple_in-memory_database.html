@@ -108,6 +108,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -127,15 +136,6 @@
         </li>
         <li>
           <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -176,6 +176,9 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -186,9 +189,6 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
@@ -219,38 +219,38 @@
       <p id="2beac2f1-8f56-4d04-b79b-06fd26ede07c" class="">Some kind of COW support. Writing creates copy, which is then diffed.</p>
       <h3 id="dd267259-303b-49ed-9255-014a8108f1d3" class="">Pros</h3>
       <ul id="f4232a2a-5539-401d-8075-3fc7e91440db" class="bulleted-list">
-        <li>Doesn't require so much space in memory.</li>
+        <li style="list-style-type:disc">Doesn't require so much space in memory.</li>
       </ul>
       <h3 id="c1981dc9-8bff-4d51-9115-c42fa4d4660b" class="">Cons</h3>
       <ul id="203be53a-9a52-47de-80e1-b5b9ae0bd66f" class="bulleted-list">
-        <li>Requires COW structure. I am not sure how to do that right now.
+        <li style="list-style-type:disc">Requires COW structure. I am not sure how to do that right now.
           <ul id="7ed7458b-8f87-45e5-ab57-2f818c085a3b" class="bulleted-list">
-            <li>Hmm, there is <code>.get_copy()</code> method that returns copy, maybe do this for all elements?</li>
+            <li style="list-style-type:circle">Hmm, there is <code>.get_copy()</code> method that returns copy, maybe do this for all elements?</li>
           </ul>
         </li>
       </ul>
       <ul id="07c0c2bb-1a29-4cfa-b396-877913882046" class="bulleted-list">
-        <li>Requires tree diff. Maybe just some marking of changed objects (should be known from the COW).</li>
+        <li style="list-style-type:disc">Requires tree diff. Maybe just some marking of changed objects (should be known from the COW).</li>
       </ul>
       <ul id="ef3afc27-2953-4978-a785-efaf47aa4781" class="bulleted-list">
-        <li>I've just gave up after toying with the <code>weakref</code> and <code>gc</code> modules for a while.</li>
+        <li style="list-style-type:disc">I've just gave up after toying with the <code>weakref</code> and <code>gc</code> modules for a while.</li>
       </ul>
       <h2 id="03654fdd-3885-4a65-82d1-5021a17e7626" class="">Journal, mark & transaction error</h2>
       <p id="5a7f4105-373c-45d7-8f25-db8ca3f61807" class="">Work on the original tree and mark every node that was changed. If you find an already changed element, rollback everything from journal and cancel the transaction. Or depending on the strategy, cancel the other transaction.</p>
       <p id="3f63a9b3-721d-4401-8137-29f5ad6d7e31" class="">Journal can be a list of closures with inverse operations. Should be simple.</p>
       <h3 id="708401b7-6e34-408d-91cb-1c2dde02539d" class="">Pros</h3>
       <ul id="507d9c5e-0a7f-46e0-9c71-e7b2b3d61c2e" class="bulleted-list">
-        <li>Memory cheap.</li>
+        <li style="list-style-type:disc">Memory cheap.</li>
       </ul>
       <ul id="8ca3e954-2591-4af3-9bea-1307bf8586f1" class="bulleted-list">
-        <li>Doesn't require diff.</li>
+        <li style="list-style-type:disc">Doesn't require diff.</li>
       </ul>
       <h3 id="8191ad1e-11a5-4af3-802a-a98a8b34867a" class="">Cons</h3>
       <ul id="326b5e76-d98a-4bfd-98e2-1e808d8038d1" class="bulleted-list">
-        <li>Requires rollback journal for each operation.</li>
+        <li style="list-style-type:disc">Requires rollback journal for each operation.</li>
       </ul>
       <ul id="9ac5f571-dcf4-4151-9d46-065b8f702eda" class="bulleted-list">
-        <li>Requires some kind of shadow structure.</li>
+        <li style="list-style-type:disc">Requires some kind of shadow structure.</li>
       </ul>
       <h2 id="06d4a7ad-978d-4961-95f8-ddc7c6ebfdff" class="">Deep copy, then diff</h2>
       <p id="8327adb5-6bed-41fd-8775-6486d04aa73e" class="">Just deep copy the whole tree, work on it, then diff it and merge it back.</p>
@@ -260,17 +260,17 @@
       </figure>
       <h3 id="819bba77-c05c-4b43-be0d-1987abe9021a" class="">Pros</h3>
       <ul id="5f834602-36c7-4d54-878c-b1063610c025" class="bulleted-list">
-        <li>Relatively simple.</li>
+        <li style="list-style-type:disc">Relatively simple.</li>
       </ul>
       <h3 id="ad90820a-f9ef-420a-a5b1-19a22e4d5a40" class="">Cons</h3>
       <ul id="0dd6fbf3-3a2c-465a-9d3c-6bd205eb6db1" class="bulleted-list">
-        <li>Requires a lot of memory in the not-lazy-loaded scenario.</li>
+        <li style="list-style-type:disc">Requires a lot of memory in the not-lazy-loaded scenario.</li>
       </ul>
       <ul id="7b342ec8-e1be-447e-9449-f0e65f395663" class="bulleted-list">
-        <li>Copy is probably slow.</li>
+        <li style="list-style-type:disc">Copy is probably slow.</li>
       </ul>
       <ul id="ee2a45e0-7648-49ff-90b8-9f3a432b9425" class="bulleted-list">
-        <li>Slow diff (you have to compare whole tree - could be improved with indexing).</li>
+        <li style="list-style-type:disc">Slow diff (you have to compare whole tree - could be improved with indexing).</li>
       </ul>
       <h1 id="c7633c94-85a7-4927-bfae-d359d5866865" class="">Problems</h1>
       <p id="aa41abd3-af46-4431-addc-7859a4149ca1" class="">True <em>Copy on write</em> is hard to implement in python, because you can't really work with garbage collector and weak references in good enough granularity. It would probably be possible, but quick research proved that I don't see clear path toward this goal.</p>
@@ -488,6 +488,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -507,15 +516,6 @@
         </li>
         <li>
           <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -556,6 +556,9 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -566,9 +569,6 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>

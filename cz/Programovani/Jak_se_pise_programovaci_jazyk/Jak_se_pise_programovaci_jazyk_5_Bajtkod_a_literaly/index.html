@@ -110,25 +110,25 @@
       <p id="8b9fcd90-6b9a-4352-8f35-f422f38d0a20" class=""><time>@2019/04/18</time></p>
       <p id="cf59ce1a-7bab-491e-a997-08176389c8ac" class="">Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.</p>
       <p id="fe8f0e0c-ba1e-485f-bf8c-2eb875637da5" class="">Jak už jsem zmiňoval, nejsem ani v nejmenším odborník na tvorbu programovacích jazyků. Když jsem se pustil do psaní specifikace VM, byly mi známé následující přístupy:</p>
-      <ol id="353dfee0-f421-4e4b-aec7-cddb1a70a127" class="numbered-list" start="1">
+      <ol type="1" id="353dfee0-f421-4e4b-aec7-cddb1a70a127" class="numbered-list" start="1">
         <li>Interpretace AST</li>
       </ol>
-      <ol id="caa0fa03-8b5e-431d-8b40-ec10218f9f96" class="numbered-list" start="2">
+      <ol type="1" id="caa0fa03-8b5e-431d-8b40-ec10218f9f96" class="numbered-list" start="2">
         <li>Interpretace imperativního bajtkódu</li>
       </ol>
-      <ol id="391fed5f-22de-410d-b933-bc884c289b04" class="numbered-list" start="3">
+      <ol type="1" id="391fed5f-22de-410d-b933-bc884c289b04" class="numbered-list" start="3">
         <li>Interpretace <em>stack based</em> bajtkódu</li>
       </ol>
       <p id="6be00d3e-7afe-4daf-9a35-7b342b1aa181" class="">Pavel Křivánek ve své bakalářské práci <a href="http://kitakitsune.org/ltas/resources/Podpora_beztridniho_programovani_ve_Squeak_Smalltalku.pdf">Podpora beztřídního programování ve Squeak Smalltalku</a> použil pro svůj Selfem inspirovaný jazyk Marvin <em>stack based</em> (na zásobníku založený) bajtkód ve stylu forthu.</p>
       <p id="42a572a5-6ac4-4faf-8bd8-123397ca6b22" class="">Oproti tomu <a href="https://pdfs.semanticscholar.org/7a9f/b345d1372f99c47f68fbcf5187f10af87704.pdf">The Design and Implementation of the Self Compiler, an Optimizing Compiler for Object-Oriented Programming Languages</a> (dále jen <em>DISCOCOOPL</em>) zmiňuje spíše imperativní bajtkód ve stylu assembleru.</p>
       <p id="342482d0-1e71-4076-9c19-7f2415dd6725" class="">V krátké výměně mailů, které jsem Pavlovi Křivánkovi poslal zmiňoval, abych zkusil zkombinovat první a druhý přístup.</p>
       <p id="a82cb61f-3cd3-4870-863d-03869b85534a" class="">Dále zde byly dva projekty <em>Smalltalků</em> napsaných v RPythonu:</p>
-      <ol id="2716b212-5e65-4e9b-8b95-937657314f29" class="numbered-list" start="1">
+      <ol type="1" id="2716b212-5e65-4e9b-8b95-937657314f29" class="numbered-list" start="1">
         <li>
           <a href="https://github.com/SOM-st/RPySOM">https://github.com/SOM-st/RPySOM</a>
         </li>
       </ol>
-      <ol id="069d45b3-694c-43c9-bf65-c14363fbdb8f" class="numbered-list" start="2">
+      <ol type="1" id="069d45b3-694c-43c9-bf65-c14363fbdb8f" class="numbered-list" start="2">
         <li>
           <a href="https://github.com/hpi-swa/RSqueak">https://github.com/hpi-swa/RSqueak</a> (viz paper <a href="https://www.hpi.uni-potsdam.de/hirschfeld/publications/media/FelgentreffPapeReinHirschfeld_2016_HowToBuildAHighPerformanceVmForSqueakSmalltalkInYourSpareTimeAnExperienceReportOfUsingTheRPythonToolchain_AcmDL.pdf">How to Build a High-Performance VM for Squeak/Smalltalk in Your Spare Time</a>)
         </li>
@@ -142,98 +142,98 @@
       <p id="f88784d2-5b5d-46b4-9ab7-6ed96d1f6750" class="">Bajtkód se neskládá pouze z jednotlivých instrukcí, skládá se také z tabulky literálů. V té jsou uloženy všechny konstantní hodnoty známé v době kompilace.</p>
       <p id="02c6e1db-b51b-418d-b720-3d13ea300830" class="">Mezi ně patří:</p>
       <ul id="e161e116-54ef-45ca-b94e-8189536866ed" class="bulleted-list">
-        <li>Řetězce</li>
+        <li style="list-style-type:disc">Řetězce</li>
       </ul>
       <ul id="043a27ef-775c-4c91-9f9d-d24782cc5343" class="bulleted-list">
-        <li>Čísla</li>
+        <li style="list-style-type:disc">Čísla</li>
       </ul>
       <ul id="85e14e6a-10e2-487d-9387-4f55d3480394" class="bulleted-list">
-        <li>Nil</li>
+        <li style="list-style-type:disc">Nil</li>
       </ul>
       <ul id="0307f7bc-ebf1-40f0-9735-c59043945323" class="bulleted-list">
-        <li>Object</li>
+        <li style="list-style-type:disc">Object</li>
       </ul>
       <ul id="ac4d20ca-aac8-454d-89d2-92faba47353a" class="bulleted-list">
-        <li>Block</li>
+        <li style="list-style-type:disc">Block</li>
       </ul>
       <ul id="29e4a925-21d4-4915-bd9f-631b911b5907" class="bulleted-list">
-        <li>Assignment primitive</li>
+        <li style="list-style-type:disc">Assignment primitive</li>
       </ul>
       <p id="eb6d7f2c-8cd4-47f5-9341-25d95095ce99" class="">Když pak interpreter dojde na část kde je nutné použít nějaký literál, nemusí ho v tu chvíli rekonstruovat z bajtkódu, místo toho se jednoduše podívá do tabulky literálů na patřičný index a vytvoří podle něj objekt.</p>
       <h2 id="aba5b2e7-deb0-43ff-a7a2-bc32f225a48e" class="">Bytecodes</h2>
       <p id="911f2b21-9ec9-4578-b72b-61015b965de0" class="">Pavel Křivánek navrhoval pro Marvina následující bajtkódy:</p>
       <ul id="d1baa76e-5ff7-4baa-8217-45a09016bbf7" class="bulleted-list">
-        <li><strong>send:</strong> Zašle objektu na vrcholu zásobníku zprávu identifikovanou určitým selektorem.</li>
+        <li style="list-style-type:disc"><strong>send:</strong> Zašle objektu na vrcholu zásobníku zprávu identifikovanou určitým selektorem.</li>
       </ul>
       <ul id="819a1d72-1ac9-4799-8df2-795ac4908554" class="bulleted-list">
-        <li><strong>selfSend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem.</li>
+        <li style="list-style-type:disc"><strong>selfSend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem.</li>
       </ul>
       <ul id="224396a4-0b9f-491b-b04a-5a94208b6da2" class="bulleted-list">
-        <li><strong>resend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem v kontextu předka.</li>
+        <li style="list-style-type:disc"><strong>resend:</strong> Zašle příjemci zprávu identifikovanou určitým selektorem v kontextu předka.</li>
       </ul>
       <ul id="5a2403c9-d1c3-4299-9c0d-071001c4e3aa" class="bulleted-list">
-        <li><strong>pushSelf</strong> Na vrchol zásobníku umístí příjemce zprávy.</li>
+        <li style="list-style-type:disc"><strong>pushSelf</strong> Na vrchol zásobníku umístí příjemce zprávy.</li>
       </ul>
       <ul id="236e53bb-2097-440f-84eb-75e88e4b4b50" class="bulleted-list">
-        <li><strong>pushLiteral:</strong> Na vrchol zásobníku umístí referenci na určený literál.</li>
+        <li style="list-style-type:disc"><strong>pushLiteral:</strong> Na vrchol zásobníku umístí referenci na určený literál.</li>
       </ul>
       <ul id="954086f3-18ae-4af8-896e-1e855a027b6c" class="bulleted-list">
-        <li><strong>pop</strong> Odebere jednu položku z vrcholu zásobnı́ku a získanou hodnotu zahodı́.</li>
+        <li style="list-style-type:disc"><strong>pop</strong> Odebere jednu položku z vrcholu zásobnı́ku a získanou hodnotu zahodı́.</li>
       </ul>
       <ul id="31b9c96d-7c4e-4750-b2f0-b646576e6a0f" class="bulleted-list">
-        <li><strong>returnTop</strong> Návrat z metody s vrcholem zásobnı́ku jako výsledkem.</li>
+        <li style="list-style-type:disc"><strong>returnTop</strong> Návrat z metody s vrcholem zásobnı́ku jako výsledkem.</li>
       </ul>
       <ul id="72294e5f-b2b8-4c79-8a80-147614b66f36" class="bulleted-list">
-        <li><strong>returnImplicit</strong> Implicitní návrat z kontextu.</li>
+        <li style="list-style-type:disc"><strong>returnImplicit</strong> Implicitní návrat z kontextu.</li>
       </ul>
       <p id="3c9b46b5-a2d3-4d70-aa39-e052de2c4e1a" class="">Osobně jsem se tímto setem hodně inspiroval, nakonec jsem však pro některé nenašel použití a naopak, některé které v Marvinovi nebyly mi tam přišly jako užitečné.</p>
       <p id="98aef4b6-7424-4156-8933-8807a6d5623f" class="">Nakonec jsem skončil s následujícím setem:</p>
       <ul id="018da1f3-eae3-4508-9d09-9f71a946eda2" class="bulleted-list">
-        <li>SEND</li>
+        <li style="list-style-type:disc">SEND</li>
       </ul>
       <ul id="5fe76253-135b-4715-b888-156dcfa25d42" class="bulleted-list">
-        <li>PUSH_SELF</li>
+        <li style="list-style-type:disc">PUSH_SELF</li>
       </ul>
       <ul id="11dc9017-e233-4db6-b37c-a319f6fa9202" class="bulleted-list">
-        <li>PUSH_LITERAL</li>
+        <li style="list-style-type:disc">PUSH_LITERAL</li>
       </ul>
       <ul id="9287e5a0-de9e-40a2-8972-ab74d906e1f2" class="bulleted-list">
-        <li>ADD_SLOT</li>
+        <li style="list-style-type:disc">ADD_SLOT</li>
       </ul>
       <ul id="e9e10028-0acb-4cc6-a730-cb9225e99079" class="bulleted-list">
-        <li>RETURN_TOP</li>
+        <li style="list-style-type:disc">RETURN_TOP</li>
       </ul>
       <ul id="3228e19a-16b0-4f6d-9485-52330cb7982a" class="bulleted-list">
-        <li>RETURN_IMPLICIT</li>
+        <li style="list-style-type:disc">RETURN_IMPLICIT</li>
       </ul>
       <p id="e183e1b9-9a48-46da-96cf-ca074947c83e" class="">Přičemž některé z nich jsou parametrizované a můžou tak zabrat až tři bajty. Instrukce pracují se zásobníkem, na který vkládají, či z něj odebírají hodnoty. Zásobník je tvořen zvlášť pro každou metodu, proto například chybí instrukce pro odstranění hodnot ze zásobníku - vzhledem k tomu že instrukce hodnoty ze zásobníku odebírají implicitně, na konci se prostě celý zásobník zahodí, někdy s tím, že hodnota na vrcholu je vložená na vrchol zásobníku, ze kterého vznikl tento.</p>
       <p id="f80bd24c-d708-449d-b07f-285e6cf64919" class="">Musím říct, že mě docela překvapilo, jak málo instrukcí mi stačilo. Intuitivně jsem čekal, že jich bude minimálně dvacet. Že by mi jich stačilo šest, respektive pět bez <code>ADD_SLOT</code>, která je tam jen protože je to častá operace, to mě ani ve snu nenapadlo.</p>
       <h3 id="cb224893-4199-4c92-9857-fef52822d56e" class="">PUSH_LITERAL</h3>
       <p id="f2a501ec-89e5-4b44-b7f3-ac6db2dbec4f" class="">Instrukce, kterou začíná prakticky každý set bajtkódů. Jako první vezmeme něco z tabulky literálů a vložíme to na stack.</p>
       <p id="51a18c4f-e58f-4f15-aa66-e2bceb523640" class="">Instrukce má dva parametry:</p>
-      <ol id="51bababc-2e0a-40de-a83f-d5840f4c063c" class="numbered-list" start="1">
+      <ol type="1" id="51bababc-2e0a-40de-a83f-d5840f4c063c" class="numbered-list" start="1">
         <li><code>literal_type</code></li>
       </ol>
-      <ol id="568c7bbb-81b8-43dc-b127-8c47be0efda0" class="numbered-list" start="2">
+      <ol type="1" id="568c7bbb-81b8-43dc-b127-8c47be0efda0" class="numbered-list" start="2">
         <li><code>literal_index</code></li>
       </ol>
       <p id="abc270dd-b502-4a6f-8856-4169c85cec63" class="">Druhý určuje index v tabulce, první pak typ literálů, kterým v současnosti můžou být:</p>
-      <ol id="58d11351-a3d8-4f5f-8530-f0050c9d8d36" class="numbered-list" start="1">
+      <ol type="1" id="58d11351-a3d8-4f5f-8530-f0050c9d8d36" class="numbered-list" start="1">
         <li><code>Nil</code></li>
       </ol>
-      <ol id="ce212102-644f-4d72-b0fb-c90bc6a40890" class="numbered-list" start="2">
+      <ol type="1" id="ce212102-644f-4d72-b0fb-c90bc6a40890" class="numbered-list" start="2">
         <li><code>Int</code></li>
       </ol>
-      <ol id="5347fa9f-c398-4ff0-9983-db0e3d73d7a5" class="numbered-list" start="3">
+      <ol type="1" id="5347fa9f-c398-4ff0-9983-db0e3d73d7a5" class="numbered-list" start="3">
         <li><code>String</code></li>
       </ol>
-      <ol id="8bd3523a-b707-4c0a-90cf-98e042fbf41e" class="numbered-list" start="4">
+      <ol type="1" id="8bd3523a-b707-4c0a-90cf-98e042fbf41e" class="numbered-list" start="4">
         <li><code>Object</code></li>
       </ol>
-      <ol id="2217cce4-0066-4ee4-a947-9066cfc0ba92" class="numbered-list" start="5">
+      <ol type="1" id="2217cce4-0066-4ee4-a947-9066cfc0ba92" class="numbered-list" start="5">
         <li><code>Block</code></li>
       </ol>
-      <ol id="65e505c8-8a79-4314-a374-24dfbe16dcd3" class="numbered-list" start="6">
+      <ol type="1" id="65e505c8-8a79-4314-a374-24dfbe16dcd3" class="numbered-list" start="6">
         <li><code>Assignment primitive</code></li>
       </ol>
       <p id="24d93b7d-7929-46b9-8268-33b9b01fa7f1" class="">Detaily fungování budou vysvětleny v kapitole o interpretru.</p>
@@ -260,10 +260,10 @@
       <h3 id="5f50dff6-8ded-486a-abc0-e74582ba7f4d" class="">SEND</h3>
       <p id="56fb03c5-ead7-4bc8-92cd-28ee474d64cb" class="">Nejkomplexnější instrukce, která objektu na zásobníku pošle zprávu.</p>
       <p id="502195f3-1aa7-428d-b555-90c210df1649" class="">Instrukce má dva parametry:</p>
-      <ol id="232eb688-5acf-4393-8fc7-44852be87326" class="numbered-list" start="1">
+      <ol type="1" id="232eb688-5acf-4393-8fc7-44852be87326" class="numbered-list" start="1">
         <li><code>message_type</code></li>
       </ol>
-      <ol id="b980570c-a634-4fa3-845a-5addfe882dce" class="numbered-list" start="2">
+      <ol type="1" id="b980570c-a634-4fa3-845a-5addfe882dce" class="numbered-list" start="2">
         <li><code>number_of_parameters</code></li>
       </ol>
       <p id="5672677d-bb85-44bc-8fe1-ba60aac210c0" class="">Akt poslání zprávy probíhá tak, že ze zásobníku je nejdříve vybráno <code>number_of_parameters</code> objektů do pole parametrů. V případě, že <code>message_type</code> je jeden z resend typů (<code>UNARY_RESEND</code> či <code>KEYWORD_RESEND</code>, je navíc ještě z vrcholu zásobníku sebráno jméno rodiče, kterému se má zpráva přeposlat. Dále je z vrcholu zásobníku sebráno jméno zprávy (<em>selector</em>) a objekt, kterému bude zpráva poslána.</p>
@@ -304,7 +304,7 @@
       <p id="616977c8-4cf7-4fb2-8fe6-ce889940f7ed" class="">V dalším díle se podíváme na implementace kompilátoru do výše uvedeného bajtkódu. Ačkoliv jsem intuitivně čekal, že půjde o něco složitého, nakonec se to ukázalo jako jedna z nejjednodušších věcí na celém projektu.</p>
       <h2 id="7591ff77-2b88-4a4d-ac8d-e8c1f4b8c73d" class="">Relevantní diskuze</h2>
       <ul id="383f49a2-8e01-435f-982c-cf89f0c6ea5d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/4/jak-se-pise-programovaci-jazyk-5-bajtkod-a-literaly">Jak se píše programovací jazyk 5: Bajtkód a literály</a> (abclinuxu)
         </li>
       </ul>

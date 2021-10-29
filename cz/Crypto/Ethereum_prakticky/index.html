@@ -247,45 +247,45 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <h3 id="6263d489-e6e1-492a-be8d-80a7dca2c5b2" class="">personal</h3>
       <p id="d1aa0486-be4a-4b53-98b3-f7ce87a5b41d" class="">Objekt <code>personal</code> vám umožňuje manipulovat s vaší peněženkou. Názvy jsou docela samopopisné:</p>
       <ul id="70a7583e-5ddc-4298-8f11-96e68ca85da7" class="bulleted-list">
-        <li>personal.listAccounts</li>
+        <li style="list-style-type:disc">personal.listAccounts</li>
       </ul>
       <ul id="78d435e2-1299-4af3-b53c-29a741bc2cac" class="bulleted-list">
-        <li>personal.newAccount()</li>
+        <li style="list-style-type:disc">personal.newAccount()</li>
       </ul>
       <ul id="654952e0-51ca-4ba0-9684-a0d57e141ced" class="bulleted-list">
-        <li>personal.deleteAccount()</li>
+        <li style="list-style-type:disc">personal.deleteAccount()</li>
       </ul>
       <ul id="4b72f75c-3b7e-4c7b-a7c4-34efd4fe51c9" class="bulleted-list">
-        <li>personal.unlockAccount()</li>
+        <li style="list-style-type:disc">personal.unlockAccount()</li>
       </ul>
       <h3 id="801e9bac-831d-481f-bd53-4307b543d241" class="">miner</h3>
       <p id="8b520cc7-3584-4a5b-a39a-34b906514298" class="">Jak už název napovídá, <code>miner</code> vám umožňuje kontrolovat <code>geth</code> miner zevnitř. <code>geth</code> ovšem neumí těžit v poolu, takže to není zas tak moc užitečné.</p>
       <ul id="0ac25de9-5c71-4711-ba5d-a18d49c881f2" class="bulleted-list">
-        <li>miner.start(threads)</li>
+        <li style="list-style-type:disc">miner.start(threads)</li>
       </ul>
       <ul id="8d35de9d-25b2-4afc-905f-85f1b523d0a6" class="bulleted-list">
-        <li>miner.stop()</li>
+        <li style="list-style-type:disc">miner.stop()</li>
       </ul>
       <ul id="4c4a9c56-297c-4d3f-9969-e849038bd3fc" class="bulleted-list">
-        <li>miner.hashrate</li>
+        <li style="list-style-type:disc">miner.hashrate</li>
       </ul>
       <ul id="a79b4c2b-6067-45bb-aaa4-60eb4e3947db" class="bulleted-list">
-        <li>miner.setEtherbase()</li>
+        <li style="list-style-type:disc">miner.setEtherbase()</li>
       </ul>
       <ul id="4b6b42cd-8a71-4fd0-808e-80b8a9c0aa80" class="bulleted-list">
-        <li>miner.setGasPrice()</li>
+        <li style="list-style-type:disc">miner.setGasPrice()</li>
       </ul>
       <ul id="5dab8fb6-4ac5-479a-9b02-5331cc760edd" class="bulleted-list">
-        <li>miner.makeDAG()</li>
+        <li style="list-style-type:disc">miner.makeDAG()</li>
       </ul>
       <ul id="96a9fabb-b381-473d-9fc0-a5e3914965ec" class="bulleted-list">
-        <li>miner.setExtra()</li>
+        <li style="list-style-type:disc">miner.setExtra()</li>
       </ul>
       <ul id="58e30201-1f94-4693-8ca0-8c6c62e3bd6e" class="bulleted-list">
-        <li>miner.startAutoDAG()</li>
+        <li style="list-style-type:disc">miner.startAutoDAG()</li>
       </ul>
       <ul id="5c67f6a6-0b1d-4b19-ace7-f06d62cdd8a1" class="bulleted-list">
-        <li>miner.stopAutoDAG()</li>
+        <li style="list-style-type:disc">miner.stopAutoDAG()</li>
       </ul>
       <p id="bf5c463b-85a7-44f4-bb27-5d82c4b7dbf6" class="">Zajímavé jsou hlavně první tři, které vám umožňují spustit a zastavit miner a zjistit kolik váš procesor dává <em>hashrate</em> (v H/s). Pokud chcete těžit, potřebujete taky DAG, takže doporučuji zavolat <code>miner.startAutoDAG()</code>, nebo <code>geth</code> spouštět s parametrem <code>--autodag</code>.</p>
       <p id="9bb1fdfb-a9bf-441e-9c25-c25b2b7a6110" class="">Někomu také může přijít zajímavý parametr <code>miner.setExtra("extra data")</code>, který do každého vytěženého bloku přidá <code>"extra data"</code> jako podpis. Ty se pak zobrazují v různých přehledech bloků a tak, ale k ničemu praktickému to imho není.</p>
@@ -294,159 +294,159 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <h3 id="1752a0d5-b1c2-4c45-a906-e27fe2137fde" class="">net</h3>
       <p id="f94b122e-1700-4cf3-b53e-257e3bb10933" class=""><code>net</code> je zkratka pro <code>web3.net</code>, jenž vám umožňuje zjišťovat základní info o síti.</p>
       <ul id="1d0ad10e-4d99-40eb-ab22-610f58bd57b7" class="bulleted-list">
-        <li>net.peerCount</li>
+        <li style="list-style-type:disc">net.peerCount</li>
       </ul>
       <ul id="aa7be777-f776-482d-834f-e4b7d850310c" class="bulleted-list">
-        <li>net.listening</li>
+        <li style="list-style-type:disc">net.listening</li>
       </ul>
       <p id="279db7ca-cae2-4d9e-a105-03b60ffeed79" class="">První vrací počet připojených peerů (0 = nesynchronizujete se), druhý <code>true</code> v případě že jste připojeni.</p>
       <h3 id="a156c0b7-c3ea-4741-8870-d7e4e8a8ba64" class="">eth</h3>
       <p id="885a11c7-e6b0-4b83-a4de-032d5dcdaeec" class=""><code>eth</code> je opět zkratka, tentokrát pro <code>web3.eth</code>. Jak je vidět, nachází se toho zde opravdu hodně:</p>
       <ul id="e68bdab2-409c-43f7-ab99-cc38022b3da4" class="bulleted-list">
-        <li>eth.accounts</li>
+        <li style="list-style-type:disc">eth.accounts</li>
       </ul>
       <ul id="74970245-455f-4400-bb4e-29327718cb97" class="bulleted-list">
-        <li>eth.blockNumber</li>
+        <li style="list-style-type:disc">eth.blockNumber</li>
       </ul>
       <ul id="d01b22d5-284a-4f9e-aefd-549b45c559b7" class="bulleted-list">
-        <li>eth.call()</li>
+        <li style="list-style-type:disc">eth.call()</li>
       </ul>
       <ul id="1d587be2-bdf6-4d8a-8a37-4f23b075e2bd" class="bulleted-list">
-        <li>eth.coinbase</li>
+        <li style="list-style-type:disc">eth.coinbase</li>
       </ul>
       <ul id="65fb18c2-4318-40e1-a246-bbe0e53fdf62" class="bulleted-list">
-        <li>eth.compile.lll()</li>
+        <li style="list-style-type:disc">eth.compile.lll()</li>
       </ul>
       <ul id="8afdd366-4327-4e2f-a023-042f9e4ceecc" class="bulleted-list">
-        <li>eth.compile.serpent()</li>
+        <li style="list-style-type:disc">eth.compile.serpent()</li>
       </ul>
       <ul id="760f0fc8-f625-418b-8ac5-2d05c6565e61" class="bulleted-list">
-        <li>eth.compile.solidity()</li>
+        <li style="list-style-type:disc">eth.compile.solidity()</li>
       </ul>
       <ul id="b9e63fc9-4755-4716-b4b5-b89e451e45f0" class="bulleted-list">
-        <li>eth.contract()</li>
+        <li style="list-style-type:disc">eth.contract()</li>
       </ul>
       <ul id="e737ec01-2f02-4cc6-b9fa-2f3a465e10d8" class="bulleted-list">
-        <li>eth.defaultAccount</li>
+        <li style="list-style-type:disc">eth.defaultAccount</li>
       </ul>
       <ul id="d7b105c3-ec09-4955-9ae6-d8dcb04c1479" class="bulleted-list">
-        <li>eth.defaultBlock</li>
+        <li style="list-style-type:disc">eth.defaultBlock</li>
       </ul>
       <ul id="b84cbc67-5310-47c5-9761-1ac1ee474a88" class="bulleted-list">
-        <li>eth.estimateGas()</li>
+        <li style="list-style-type:disc">eth.estimateGas()</li>
       </ul>
       <ul id="eab83f06-e767-4255-908f-e810880f8993" class="bulleted-list">
-        <li>eth.filter()</li>
+        <li style="list-style-type:disc">eth.filter()</li>
       </ul>
       <ul id="67c30cab-e8f4-40d2-9d9e-5fec52a3dd35" class="bulleted-list">
-        <li>eth.gasPrice</li>
+        <li style="list-style-type:disc">eth.gasPrice</li>
       </ul>
       <ul id="f9da16d3-8a45-4d8e-91b5-f0d1cb027e4a" class="bulleted-list">
-        <li>eth.getBalance(adresa)</li>
+        <li style="list-style-type:disc">eth.getBalance(adresa)</li>
       </ul>
       <ul id="cec3611d-89eb-47a8-becc-cbe774c5db42" class="bulleted-list">
-        <li>eth.getBlock()</li>
+        <li style="list-style-type:disc">eth.getBlock()</li>
       </ul>
       <ul id="31ef065e-767e-4fc6-ac2d-9058d20ec67d" class="bulleted-list">
-        <li>eth.getBlockTransactionCount()</li>
+        <li style="list-style-type:disc">eth.getBlockTransactionCount()</li>
       </ul>
       <ul id="4a135e0b-9fa1-425b-a986-8aa825eeae6a" class="bulleted-list">
-        <li>eth.getBlockUncleCount()</li>
+        <li style="list-style-type:disc">eth.getBlockUncleCount()</li>
       </ul>
       <ul id="900d2a27-66c9-4148-a90f-2e114eda6932" class="bulleted-list">
-        <li>eth.getCode()</li>
+        <li style="list-style-type:disc">eth.getCode()</li>
       </ul>
       <ul id="2b60b15b-c485-4291-8e5a-278b2823e6b1" class="bulleted-list">
-        <li>eth.getCompilers()</li>
+        <li style="list-style-type:disc">eth.getCompilers()</li>
       </ul>
       <ul id="47a3388d-f430-4cf6-b889-3074da3eae03" class="bulleted-list">
-        <li>eth.getStorageAt()</li>
+        <li style="list-style-type:disc">eth.getStorageAt()</li>
       </ul>
       <ul id="67565661-a85b-43f0-8069-1367bed116d2" class="bulleted-list">
-        <li>eth.getTransaction()</li>
+        <li style="list-style-type:disc">eth.getTransaction()</li>
       </ul>
       <ul id="d10bac16-0714-44a9-84d4-5d06aa7a50fb" class="bulleted-list">
-        <li>eth.getTransactionCount()</li>
+        <li style="list-style-type:disc">eth.getTransactionCount()</li>
       </ul>
       <ul id="2c8cce32-cab5-42a0-9279-a679c05dc2d5" class="bulleted-list">
-        <li>eth.getTransactionFromBlock()</li>
+        <li style="list-style-type:disc">eth.getTransactionFromBlock()</li>
       </ul>
       <ul id="d9a45a14-5c3f-4cb0-a13f-a0876c15631d" class="bulleted-list">
-        <li>eth.getTransactionReceipt()</li>
+        <li style="list-style-type:disc">eth.getTransactionReceipt()</li>
       </ul>
       <ul id="581c5f31-02d8-411e-9774-1f82ccaef766" class="bulleted-list">
-        <li>eth.getUncle()</li>
+        <li style="list-style-type:disc">eth.getUncle()</li>
       </ul>
       <ul id="7dd3dc57-f171-493b-bef0-609078fff36a" class="bulleted-list">
-        <li>eth.hashrate</li>
+        <li style="list-style-type:disc">eth.hashrate</li>
       </ul>
       <ul id="3b3e7c7f-2554-4105-a92b-13b11708014f" class="bulleted-list">
-        <li>eth.mining</li>
+        <li style="list-style-type:disc">eth.mining</li>
       </ul>
       <ul id="2aac6688-b71f-487e-b733-ad23ef879bfb" class="bulleted-list">
-        <li>eth.namereg</li>
+        <li style="list-style-type:disc">eth.namereg</li>
       </ul>
       <ul id="396c7422-d560-434b-a4ca-2f44270bf2d8" class="bulleted-list">
-        <li>eth.pendingTransactions</li>
+        <li style="list-style-type:disc">eth.pendingTransactions</li>
       </ul>
       <ul id="f4f966cf-07ba-4b8f-94f4-3e5fc18a3c52" class="bulleted-list">
-        <li>eth.resend()</li>
+        <li style="list-style-type:disc">eth.resend()</li>
       </ul>
       <ul id="0b3d37bd-119c-4181-a6e8-d6d1887e79f5" class="bulleted-list">
-        <li>eth.sendRawTransaction()</li>
+        <li style="list-style-type:disc">eth.sendRawTransaction()</li>
       </ul>
       <ul id="3964ea30-4cf4-4f74-b174-169f2711dcc7" class="bulleted-list">
-        <li>eth.sendTransaction()</li>
+        <li style="list-style-type:disc">eth.sendTransaction()</li>
       </ul>
       <ul id="09946a7c-f8f3-4878-b429-4c2d1f3e6dd4" class="bulleted-list">
-        <li>eth.sign()</li>
+        <li style="list-style-type:disc">eth.sign()</li>
       </ul>
       <p id="90f8577b-6943-4222-a4bd-16343bb88dee" class="">Co vás bude pravděpodobně zajímat je:</p>
       <ul id="c1d1ea53-62cb-4a61-93b9-51151fa15038" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcoinbase">eth.coinbase</a> -&gt; string, adresa vaší primární peněženky, kam jdou peníze když těžíte
         </li>
       </ul>
       <ul id="d043d6d4-96cb-4e57-9b69-8625b393c7c9" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethmining">eth.mining</a> -&gt; true/false, podle toho jestli těžíte, nebo ne
         </li>
       </ul>
       <ul id="c51d58be-935c-4195-9131-07a5e775ed7d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethhashrate">eth.hashrate</a> -&gt; int, vaše hashrate
         </li>
       </ul>
       <ul id="6fc5dc95-0eff-4be2-8f36-deefdb5638d4" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethaccounts">eth.accounts</a> -&gt; list, seznam vašich adres
         </li>
       </ul>
       <ul id="8b7c0ba2-2391-4ca5-9966-03f7c92e4113" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethblocknumber">eth.blockNumber</a> -&gt; int, číslo současného bloku
         </li>
       </ul>
       <ul id="748506fa-576b-40cb-8342-4f343e0e8f20" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetbalance">eth.getBalance(adresa)</a> -&gt; int, zůstatek na adrese ve <em>wei</em> (nejnižší jednotka, 10 <em>etheru</em>).
           <ul id="b47a656d-09e6-492e-8338-924bb7296a1a" class="bulleted-list">
-            <li>18</li>
+            <li style="list-style-type:circle">18</li>
           </ul>
         </li>
       </ul>
       <ul id="d1cf4052-3b6f-4405-aae3-31060c64fec1" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction">eth.sendTransaction()</a> -&gt; odesílání transakcí, již bylo vysvětleno v předchozím textu
         </li>
       </ul>
       <ul id="e033c606-f002-4bac-8bb9-cb4924062d69" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetcompilers">eth.getCompilers()</a> -&gt; přehled dostupných kompilerů na kontrakty, <code>["lll", "solidity", "serpent"]</code>, detaily viz minulý článek
         </li>
       </ul>
       <ul id="102040d3-c63c-4fa7-8e2c-270d7735bbc7" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#ethsign">eth.sign(signer_adresa, data)</a> -&gt; podpis dat
         </li>
       </ul>
@@ -457,27 +457,27 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <h2 id="d2b3f7d4-47eb-4e7d-92c6-270f54772c8e" class="">Burzy</h2>
       <p id="491b8200-1478-4bdb-b2a0-f50548594c48" class="">Burz momentálně existuje několik a dá se říct, že jen přibývají. Kompletní přehled najdete zde: <a href="https://www.cryptocompare.com/coins/eth/#/overview">https://www.cryptocompare.com/coins/eth/</a>. Zde je malý přehled burz fungujících ke dni vydání článku:</p>
       <ul id="12e7e208-72f6-4062-9f04-c56e66323124" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://poloniex.com/">https://poloniex.com/</a>
         </li>
       </ul>
       <ul id="ee53f7d4-b0fa-47bb-bbc1-2db39e1451b7" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.kraken.com/">https://www.kraken.com/</a>
         </li>
       </ul>
       <ul id="ae35137c-0c28-44ae-b79a-79184e3ccf8e" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://gatecoin.com/">https://gatecoin.com/</a>
         </li>
       </ul>
       <ul id="727a8b2c-dc64-4f10-a1da-e18d90a083f4" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.cryptsy.com/">https://www.cryptsy.com/</a>
         </li>
       </ul>
       <ul id="3a84ca8f-474e-420d-a088-f1c35c20d7de" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://bittrex.com/">https://bittrex.com/</a>
         </li>
       </ul>
@@ -498,7 +498,7 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <p id="2626b87f-d7a5-421c-9dbf-c425cbae9d04" class="">Netrpěliví lidé s nic moc hardwarem jako já tedy těží v poolech, kde se na těžení jednoho bloku skládá velký počet těžařů. Momentálně jediným mě známým poolem[3] je <a href="http://ethpool.org/">http://ethpool.org/</a>. Ten funguje bez registrace. <code>ethminer</code> nakrmíte URL, jejíž součástí je adresa vaší peněženky, vyberete <em>difficulty</em> podle vašeho hardware a můžete začít (viz příkaz výše v sekci <code>ethminer</code>).</p>
       <p id="9ff1ca67-28b0-4f50-b757-fcabc1503082" class="">Pak se již můžete posadit do křesla, dát si nohy na stůl a sledovat, jak vám naskakují <em>ethery</em>, což vypadá třeba takto:</p>
       <ul id="de35f0bf-5894-4696-96b8-4b5c5bee3bfd" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.notion.so/4a03481ad2a00ffe9c98fe145c817969">https://etherscan.io/address/0x797e99024a03481ad2a00ffe9c98fe145c817969</a>
         </li>
       </ul>
@@ -543,22 +543,22 @@ contract greeter is mortal {
       <p id="95f6f878-7d0b-4438-bd5d-eaec79b7d189" class="">Z ukázky je možné vidět, že <em>Solidity</em> je divná sprsklotina C-like jazyka a <code>go</code> s poněkud divnou syntaxí definování metod. Nevím, co vedlo tvůrce zrovna k tomuhle, ale osobně se mi to moc nelíbí, příště se tedy podívám na <a href="https://github.com/ethereum/cpp-ethereum/wiki/LLL-PoC-6">lll</a> a <a href="https://github.com/ethereum/wiki/wiki/Serpent">serpent</a>.</p>
       <p id="e70a0b1d-9edf-419a-984b-31a0bcadc1a2" class="">Pokud by někoho <em>Solidity</em> zaujalo, zde jsou další zdroje:</p>
       <ul id="f7cea68c-6723-42f7-bb6e-ca7cf87c4f47" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/Solidity-Tutorial">https://github.com/ethereum/wiki/wiki/Solidity-Tutorial</a>
         </li>
       </ul>
       <ul id="b8205cc1-6f8b-4a91-b313-16dfdf2ea09c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format">https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format</a>
         </li>
       </ul>
       <ul id="8066a0fa-45ad-4792-a821-d5986ddd09a4" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ethereumbuilders.gitbooks.io/guide/content/en/solidity_features.html">http://ethereumbuilders.gitbooks.io/guide/content/en/solidity_features.html</a>
         </li>
       </ul>
       <ul id="328f3751-00c4-4411-b83d-2b0a37855b2f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ether.fund/contracts/solidity">http://ether.fund/contracts/solidity</a>
         </li>
       </ul>
@@ -702,59 +702,59 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <h2 id="26c79897-9a61-47bd-80ad-d3148cfd80a3" class="">ADEPT od IBM/Samsungu</h2>
       <p id="41bfa5cd-7ec4-47f7-b46f-77fbf5d889de" class="">Zatímco většina se soustředí převážně na <em>kontrakty</em>, v IBM si řekli, jak moc je asi tak Ethereum použitelné jako decentralizovaná platforma pro Internet of Things. Ukázalo se, že docela hodně, díky nízkým datovým tokům, které umožňuje mít velmi tenké klienty. Provozovatel tím získává decentralizovanou komunikační platformu, po které si spolu můžou povídat nejrůznější senzory.</p>
       <ul id="5ed99583-59a9-4839-bf9e-a5c9bcdb3ef4" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.theprotocol.tv/adept-demo-ibm-samsung/">https://www.theprotocol.tv/adept-demo-ibm-samsung/</a>
         </li>
       </ul>
       <ul id="6f6234e1-fa63-45e7-b424-d16a7bd74cf1" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://rywalk.wordpress.com/2015/01/27/ethereum-ibm-adept-and-the-internet-of-things-iot/">https://rywalk.wordpress.com/2015/01/27/ethereum-ibm-adept-and-the-internet-of-things-iot/</a>
         </li>
       </ul>
       <ul id="8c961286-0b4e-4ebd-86d7-2e7acb3f455c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://dailyfintech.com/2014/09/22/the-crazy-brilliant-ibm-adept-fork-of-ethereum/">http://dailyfintech.com/2014/09/22/the-crazy-brilliant-ibm-adept-fork-of-ethereum/</a>
         </li>
       </ul>
       <h2 id="cf248c3c-4b14-4329-b92d-3818afada1ff" class="">Augur</h2>
       <p id="9864ff2c-81f7-4f28-abd8-cd8885c4c5fe" class="">Augur je decentralizovaná burza crowdsourcovaných analýz, odhadů a predikcí. Něco jako když se dělají ankety, akorát bez společnosti, co by ty ankety dělala a mohla falšovat.</p>
       <ul id="8773e3fb-b348-4e3f-9680-597642326aad" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.augur.net/">http://www.augur.net/</a>
         </li>
       </ul>
       <h2 id="7becda88-c27b-45e5-99b6-e6f55a7ae7ea" class="">BoardRoom</h2>
       <p id="02303782-e511-426b-9c50-bd79a210de61" class="">BoardRoom vypadá jako podnikový systém, přes který je možné provádět veškeré činnosti nutné k řízení a organizaci firmy. Zahrnuje různé pluginy pro zasedání, hlasování, komise, šifrovanou komunikaci a tak podobně.</p>
       <ul id="de5ee6ec-46df-4f16-a781-6237caf63494" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://boardroom.to/">http://boardroom.to/</a>
         </li>
       </ul>
       <h2 id="a345ae0e-c853-48bb-88e5-b26be14f33f7" class="">airlock</h2>
       <p id="3886ec99-7837-4fc9-ac1a-aa6c9747bac2" class="">Airlock představuje správu klíčů a přístupů k zámkům. Zámky mohou být otevřené pro všechny, pro držitele klíčů, časově, či pouze pro jedno použití.</p>
       <ul id="11b2f663-ba4a-457c-837a-ed6dc7771dc0" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://airlock.me/">http://airlock.me/</a>
         </li>
       </ul>
       <h2 id="a8cf07a2-9e0b-421b-9ce3-a44520525cf4" class="">slock.it</h2>
       <p id="834b0c74-6cb6-4af3-b0e0-d05970861e5b" class="">Sdílení přístupů k čemukoliv zamykatelnému, od praček po domy. Pokud to dokážete zamknout, oni se postarají o pronájem.</p>
       <ul id="a52387cd-e459-49c8-b389-1daf6dc8ef09" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://slock.it/">http://slock.it/</a>
         </li>
       </ul>
       <h2 id="ed167145-a0b1-4360-9eff-a660c3a1fac7" class="">Maker</h2>
       <p id="f40932ce-b27f-4ac3-8604-d3b9f22cd47d" class="">DAO starající se o půjčky. K čemu banky, když můžete svěřit své finance nemyslícím korporacím? :)</p>
       <ul id="6021ecc2-d069-4e1d-9c45-f5bf480a3ccb" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://makerdao.com/">http://makerdao.com/</a>
         </li>
       </ul>
       <h2 id="be8b6ef5-8da8-4143-b5a6-7116dd3affda" class="">WeiFund</h2>
       <p id="9aaf98b6-51fe-404e-a28a-1e88d23f1b57" class="">Decentralizovaný crowdsourcing. Představte si něco jako kickstarter, akorát bez lidí a bez cenzury. Uživatelé hlasují penězi, pokud projekty nevyjdou, jsou jim vráceny.</p>
       <ul id="c63c7045-9a3e-45a8-8e31-4bf10e288711" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://weifund.io/">http://weifund.io/</a>
         </li>
       </ul>
@@ -771,24 +771,24 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <p id="bfca0f5a-cdc3-41e0-8b6b-b444e360d7d6" class="">Kdyby se vám nechtělo číst tak silné datové toky, je zde fórum: <a href="https://forum.ethereum.org/">https://forum.ethereum.org/</a> a naprostou nutností je pak oficiální blog, kde se objevují všechna důležitá oznámení: <a href="https://blog.ethereum.org/">https://blog.ethereum.org/</a> (<a href="https://blog.ethereum.org/feed/">RSS</a>).</p>
       <p id="ae70e2b7-55ad-4ecd-aca2-2c884ad2cbcd" class="">Pro ty kdo chtějí více uživatelských a praktických informací zde mám dvě vznikající e-knihy, jenž vás obeznámí z koncepty, ale i s konkrétními programy a jazyky, které je možné použít k psaní kontraktů:</p>
       <ul id="45d13db4-b272-41be-afa0-2cdcce5ca53d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ethereum.gitbooks.io/frontier-guide/content/">http://ethereum.gitbooks.io</a>
         </li>
       </ul>
       <ul id="0045f4ff-e0c5-4447-89fb-bd882e7a4f2b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ethereumbuilders.gitbooks.io/guide/content/en/index.html">http://ethereumbuilders.gitbooks.io</a>
         </li>
       </ul>
       <p id="dba622bd-1aa3-4c76-896a-d72679b0da40" class="">Prakticky zaměřeným uživatelům se určitě bude líbit přehled všech transakcí, s možností zkoumat kdo má co na účtě a co kde běží za kontrakty:</p>
       <ul id="5b83b816-e9a9-464f-b97f-923b59381f40" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://stats.ethdev.com/">https://stats.ethdev.com/</a>
         </li>
       </ul>
       <p id="2209b4ab-efff-4b6c-b109-cfe2566d3c99" class="">Vizuálně zaměřeným pak zase statistiky sítě a přehledy právě vytěžených bloků:</p>
       <ul id="7de26f14-a9ba-4422-bc7f-7c74742d94f0" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://etherchain.org/">https://etherchain.org</a>
         </li>
       </ul>

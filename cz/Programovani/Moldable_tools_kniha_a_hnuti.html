@@ -180,41 +180,41 @@
       <p id="718a63b2-d630-4ff6-b88a-b659c1a7dd41" class="">Autor v knize zkoumá různé možnosti, jak je typicky dosahováno rozšiřitelnosti. Například se věnuje různým architekturám aplikací, a jak jsou v nich vytvářeny pluginy. Mimo jiné probírá a analyzuje integrace pluginů vůči standardnímu API, použití konektorů, či message busu. Zkoumá také skládatelnost aplikací ve stylu unixu. Na různých studiích s reálnými uživateli ukazuje, jak moc je náročné vytvoření pluginu a rozšíření funkcionality komponenty.</p>
       <p id="d5325eb0-26ea-4f7b-924c-8572f6b4005e" class="">Také se věnuje způsobům, jak zvýšit úroveň doménové abstrakce vývojářských nástrojů, kde zmiňuje dva různé přístupy:</p>
       <ul id="fefc6641-39f9-41cd-80bb-a11388cba4a3" class="bulleted-list">
-        <li>Adaptace jazyka</li>
+        <li style="list-style-type:disc">Adaptace jazyka</li>
       </ul>
       <ul id="33ac3606-e193-4183-ad56-102b36535869" class="bulleted-list">
-        <li>Adaptace nástroje</li>
+        <li style="list-style-type:disc">Adaptace nástroje</li>
       </ul>
       <p id="a27f6deb-fe15-41c0-a178-042728dc5fa4" class="">Obecné jazyky postrádají jazykové konstrukty pro specifické domény. Developeři tak musí používat různé ostatní prvky jazyka k modelování doménových abstrakcí. V Pythonu mezi tyto prvky často patří například objekty, kontext manager, nebo dekorátory.</p>
       <p id="567df224-d401-4eb7-99be-f900266c18de" class="">Oproti tomu existují jazyky, které umožňují definovat různé DSL a dynamicky je střídat. Například <a href="http://scg.unibe.ch/research/helvetia">Helvetia</a>, či REBOL, jenž umožňuje přímo přistupovat k BNF parseru a definovat do něj nové gramatiky. Díky tomu je možné například uprostřed jazyka najednou používat parser angličtiny pro <em>businessovou logiku</em>. Také již v základní instalaci přichází s datovými typy a gramatikou pro URL, email, či různé měny. Místo aby bylo nutné vytvářet objekt ručně, tak jak by se to dělalo třeba v Pythonu (<code>EmailAddress("nejaka@adresa.cz")</code>), tak jazyk rovnou rozumí emailové adrese a přímo z ní vytvoří cílový nativní objekt. K zvýšení doménové abstrakce tedy dochází úpravou jazyka, aby odpovídal doméně. Například je možné definovat nativní objekty a parser pro zákazníky a různé transakce mezi nimi a eshopem. Debugger a další nástroje poté nerozlišují, jestli se pracuje s rozšířenou či nerozšířenou částí a tedy podporují větší abstrakci jaksi „nativně“.</p>
       <p id="8d5ac8d0-edaf-44dd-86ea-359c3d621fcb" class=""><em>Moldable tools</em> se oproti tomu zaměřuje na adaptaci existujících nástrojů, místo jazyka. Nedochází k úpravám jazyka, ale debuggeru, inspektoru a dalších nástrojů.</p>
       <p id="304413dc-486f-42ac-b027-e4fda496a479" class="">K tomu jsou navrženy následující zásady:</p>
       <ul id="c24d74c2-f914-45f8-89bf-93e1ffff87f1" class="bulleted-list">
-        <li>Identifikuj časté typy developerských rozšíření.</li>
+        <li style="list-style-type:disc">Identifikuj časté typy developerských rozšíření.</li>
       </ul>
       <ul id="0ada7832-ade6-430b-9ba4-f7757b8e9ba5" class="bulleted-list">
-        <li>Optimalizuj (náročnost) vytváření nových rozšíření.</li>
+        <li style="list-style-type:disc">Optimalizuj (náročnost) vytváření nových rozšíření.</li>
       </ul>
       <ul id="5dce15c0-02a1-43bd-98a0-043ecb4b324c" class="bulleted-list">
-        <li>Nelimituj možná rozšíření.</li>
+        <li style="list-style-type:disc">Nelimituj možná rozšíření.</li>
       </ul>
       <p id="de7f8c8f-edf4-4f42-bada-40abebc58890" class="">Developeři poté můžou adaptovat a rozšiřovat jednotlivé nástroje tak aby odpovídaly relevantnímu vývojářskému kontextu, pomocí:</p>
       <ul id="8a68dd4b-1211-4b21-b95e-c3394c2eb40e" class="bulleted-list">
-        <li>Vytváření doménově specifických rozšíření, které zachytí specifické abstrakce</li>
+        <li style="list-style-type:disc">Vytváření doménově specifických rozšíření, které zachytí specifické abstrakce</li>
       </ul>
       <ul id="d6cbbf27-fcac-4034-80b9-ac08e6bccf2a" class="bulleted-list">
-        <li>Připojování aktivačních predikátů, které nástroje spustí a zobrazí v konkrétním kontextu. Mezi ten patří i předchozí interakce s nástrojem.</li>
+        <li style="list-style-type:disc">Připojování aktivačních predikátů, které nástroje spustí a zobrazí v konkrétním kontextu. Mezi ten patří i předchozí interakce s nástrojem.</li>
       </ul>
       <p id="04cf7475-b5c1-42e1-bc2e-91b745d28edb" class="">V knize je to samozřejmě všechno detailně rozebíráno a vysvětleno, zde jsem to vzal jen čistě orientačně.</p>
       <p id="4f8a33fd-d940-4918-9567-7e4c0a99d167" class="">Autor vytvořil pro ověření svých tezí tři různé nástroje:</p>
       <ul id="eb77d025-e385-4a86-bd46-fbf3c197a1d8" class="bulleted-list">
-        <li><em>Moldable inspektor</em></li>
+        <li style="list-style-type:disc"><em>Moldable inspektor</em></li>
       </ul>
       <ul id="5ae23b22-e25f-4e3e-ac23-8aac1f0f2373" class="bulleted-list">
-        <li><em>Moldable spotter</em></li>
+        <li style="list-style-type:disc"><em>Moldable spotter</em></li>
       </ul>
       <ul id="d6a0d90e-9da8-4a32-b24a-4a670e9fa200" class="bulleted-list">
-        <li><em>Moldable debugger</em></li>
+        <li style="list-style-type:disc"><em>Moldable debugger</em></li>
       </ul>
       <h1 id="e3255280-64b7-4622-a763-a22267d3de69" class="">Moldable nástroje</h1>
       <p id="1169d569-6cb4-44bf-84d6-e77499c2621d" class="">Tyto nástroje umožňují zkoumat a uvažovat nad runtime objekty, jejich chováním a abstrakcemi.</p>
@@ -259,16 +259,16 @@
       </figure>
       <p id="86bfbbe4-8987-4271-b0bd-6f223f9be51f" class="">Typické rozšíření se skládá z <em>doménově-specifikých debugovacích operací</em> a <em>doménově-specifického pohledu</em>, přičemž oboje je založeno na <em>debugovací session</em>.</p>
       <p id="ac482135-4ce6-4ebc-8ea1-2a944dcb9fe3" class="">Developeři můžou vytvářet doménové abstrakce pomocí:</p>
-      <ol id="ec7ad71b-7d5a-4a8a-beec-1c126c7a632d" class="numbered-list" start="1">
+      <ol type="1" id="ec7ad71b-7d5a-4a8a-beec-1c126c7a632d" class="numbered-list" start="1">
         <li>Rozšíření <em>debugovací session</em> přidanou funkcionalitou.</li>
       </ol>
-      <ol id="ff60698e-fb2e-4537-94dc-cc42dcea7206" class="numbered-list" start="2">
+      <ol type="1" id="ff60698e-fb2e-4537-94dc-cc42dcea7206" class="numbered-list" start="2">
         <li>Vytvoření doménově specifických predikátů a operací.</li>
       </ol>
-      <ol id="8c94b446-b46c-478c-b946-aeb965337d05" class="numbered-list" start="3">
+      <ol type="1" id="8c94b446-b46c-478c-b946-aeb965337d05" class="numbered-list" start="3">
         <li>Přidáním grafického náhledu na doménovou abstrakci.</li>
       </ol>
-      <ol id="65b5b421-ec3c-4002-8995-daed4f9e3241" class="numbered-list" start="4">
+      <ol type="1" id="65b5b421-ec3c-4002-8995-daed4f9e3241" class="numbered-list" start="4">
         <li>Připojením debugovacích operací na grafické widgety.</li>
       </ol>
       <h1 id="e5832db8-109b-47f9-bfdb-bd7222241175" class="">Zaujalo mě</h1>
@@ -328,18 +328,18 @@
       <h1 id="2f64429f-7ef8-4486-86de-8fe29e21b321" class="">Odkaz na stažení</h1>
       <p id="42ccfb02-6267-4a62-a838-2b8d0338b037" class="">Kniha je dostupná pod licencí Creative Commons na stránkách <a href="https://en.wikipedia.org/wiki/University_of_Bern">Univerzity v Bernu</a>:</p>
       <ul id="480cc76c-7e0d-4006-bcf5-630f39e2337f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://scg.unibe.ch/archive/phd/chis-phd.pdf">http://scg.unibe.ch/archive/phd/chis-phd.pdf</a>
         </li>
       </ul>
       <h1 id="4a845ce4-2d14-4265-9b3f-d3187b7160c4" class="">Relevantní diskuze</h1>
       <ul id="c994a558-1951-4d39-b7fb-dcdd64da6483" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://twitter.com/bystroushaak/status/1191746390688444417">Twitter</a>
         </li>
       </ul>
       <ul id="e038a4dc-235b-4d06-ad13-80d323f1cfe7" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.abclinuxu.cz/blog/bystroushaak/2019/11/moldable-tools-kniha-a-hnuti/diskuse">Abclinuxu</a>
         </li>
       </ul>

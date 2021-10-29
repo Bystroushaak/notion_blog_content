@@ -33,6 +33,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -52,15 +61,6 @@
         </li>
         <li>
           <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -107,6 +107,9 @@
           <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -117,9 +120,6 @@
         </li>
         <li>
           <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../../index.html" title="English section">📂 English section</a>
@@ -181,13 +181,13 @@
       <h2 id="575c6a99-b1dc-4bb8-bd85-75952c3e1d40" class="">Messages</h2>
       <p id="a8202779-6ad4-435c-81f4-f8448b7f0d7f" class="">There are three standard types of messages:</p>
       <ul id="329ac2bb-f170-4545-8194-6465d1192596" class="bulleted-list">
-        <li><em>Unary</em>, for example <code>first</code></li>
+        <li style="list-style-type:disc"><em>Unary</em>, for example <code>first</code></li>
       </ul>
       <ul id="15b2f922-732f-4996-995f-d4841a5e401e" class="bulleted-list">
-        <li><em>Binary</em>, for example <code>&gt; a</code></li>
+        <li style="list-style-type:disc"><em>Binary</em>, for example <code>&gt; a</code></li>
       </ul>
       <ul id="31b42952-6542-4b6f-928a-4703b4e648e7" class="bulleted-list">
-        <li><em>Keyword</em>, for example <code>set: a</code> or <code>set: a And: b</code></li>
+        <li style="list-style-type:disc"><em>Keyword</em>, for example <code>set: a</code> or <code>set: a And: b</code></li>
       </ul>
       <p id="79b59c3c-1781-4475-ae0b-812d5cfa5622" class=""><em>Unary</em> messages don't have parameters. <em>Binary</em> ones have exactly one parameter and are used for operators. <em>Keyword</em> messages can have any number of parameters. Unlike in Smalltalk, second and all following keywords of the multi-parameter keyword message start with a capital letter. This makes it clear where the message ends.</p>
       <p id="a757d5e2-df87-4b01-9abd-7cf00f16eb16" class="">Message <code>a first</code> causes interpreter to look for a slot called <code>first</code> in the object <code>a</code>. If the <code>first</code> slot contains data, they are returned. If it contains <em>object with code</em>, it is evaluated and value of the last expression is returned.</p>
@@ -209,13 +209,13 @@
       <p id="c3194d37-7c19-41a1-bd00-0eeb65ef2fe4" class="">Message <code>a first</code> from the previous chapter can be actually rewritten as a <code>self a first</code> message, or as a <code>(self a) first</code> message.</p>
       <h2 id="0d9ad4b2-32c5-4955-bca3-6ebf54cc4288" class="">Blocks</h2>
       <p id="f7f84031-fe0c-438e-a4ce-7eea819db5f8" class="">Blocks are similar to objects, except for three differences:</p>
-      <ol id="b931b7e8-e197-4f28-a635-691361c082b1" class="numbered-list" start="1">
+      <ol type="1" id="b931b7e8-e197-4f28-a635-691361c082b1" class="numbered-list" start="1">
         <li>They usually don't belong to the place, where they are defined, and are evaluated somewhere else.</li>
       </ol>
-      <ol id="90f49b4a-583b-4f67-9819-a27c3adbc782" class="numbered-list" start="2">
+      <ol type="1" id="90f49b4a-583b-4f67-9819-a27c3adbc782" class="numbered-list" start="2">
         <li>They act as if they contained a parent slot pointing to the namespace where they were defined.</li>
       </ol>
-      <ol id="c29fd701-8655-4f85-b4e7-9842313638be" class="numbered-list" start="3">
+      <ol type="1" id="c29fd701-8655-4f85-b4e7-9842313638be" class="numbered-list" start="3">
         <li>They automatically contain <code>parent*</code> pointing to <code>traits block</code>.</li>
       </ol>
       <p id="0344ae64-2b0b-457d-b740-ec4dd0dbf666" class="">Thanks to these features, they work as <em>a closures</em> known from the other programming languages.</p>
@@ -279,28 +279,28 @@
       <h2 id="5f1e52ed-fda5-4d2d-986c-b9c1e395e0cd" class="">Conditions</h2>
       <p id="229d5022-2a06-4242-bf56-4443b5540f94" class="">As is customary in the Smalltalk-ish languages, if conditions are implemented as messages sent to a bool object. Following messages are available:</p>
       <ul id="d6de7141-fa86-46f6-9dee-f2b2dc24f54d" class="bulleted-list">
-        <li><code>ifTrue: []</code></li>
+        <li style="list-style-type:disc"><code>ifTrue: []</code></li>
       </ul>
       <ul id="2b5979e1-b06a-4732-8075-24dfcacc152b" class="bulleted-list">
-        <li><code>ifFalse: []</code></li>
+        <li style="list-style-type:disc"><code>ifFalse: []</code></li>
       </ul>
       <p id="c1274e3c-c05f-46e1-a763-19a13896361f" class="">and their equivalents with the "else" branch:</p>
       <ul id="0015342f-c6b7-4add-ae19-528fe50a0497" class="bulleted-list">
-        <li><code>ifTrue: [] False: []</code></li>
+        <li style="list-style-type:disc"><code>ifTrue: [] False: []</code></li>
       </ul>
       <ul id="2565748d-2204-4c68-a7eb-6e5202932352" class="bulleted-list">
-        <li><code>ifFalse: [] True: []</code></li>
+        <li style="list-style-type:disc"><code>ifFalse: [] True: []</code></li>
       </ul>
       <h2 id="2870d5fb-ccea-4765-8b67-d126352cdfac" class="">Loops</h2>
       <p id="06d29776-fdd9-4159-8d50-656a63620732" class="">Like conditions, cycles are implemented as messages sent to either <em>collections</em> or to <em>block</em> objects.</p>
       <p id="ca7ca34a-ac1a-4e36-a6fd-460ab6ab21f7" class="">Basic message is <code>loop</code>:</p>
       <ul id="5d680931-4996-44c6-93d8-c342dbbdfdbe" class="bulleted-list">
-        <li><code>[ ... ] loop</code></li>
+        <li style="list-style-type:disc"><code>[ ... ] loop</code></li>
       </ul>
       <p id="0094ad84-8b0d-4c9d-af89-b07fd5788bdf" class="">This loops the body of a block unconditionally.</p>
       <p id="21124a84-6e46-480d-acaa-9b165621a164" class="">Additionally, conditional loops are available:</p>
       <ul id="6f662a4a-79cc-4f76-9a30-74b0c197a281" class="bulleted-list">
-        <li><code>[ condition ] whileTrue: [ ... ]</code></li>
+        <li style="list-style-type:disc"><code>[ condition ] whileTrue: [ ... ]</code></li>
       </ul>
       <p id="d0b7b84f-2b8d-4030-a78e-174064136165" class="">and also equivalent messages <code>whileFalse:</code>, <code>untilTrue:</code>, <code>ultilFalse:</code>, <code>loopExit</code> and <code>loopExitValue</code>.</p>
       <p id="99300224-ad57-4be9-9bfa-33df93c14263" class="">Other loops are <code>do:</code> messages sent to the numeric types, with alternative forms of <code>to:Do:</code> and <code>to:By:Do:</code>, which cycle <code>to:</code> given value <code>By:</code> some step, like for example <code>range()</code> function in Python.</p>
@@ -714,7 +714,7 @@ mapBy: eb Into: c</code></pre>
       <h2 id="b4567d55-5369-4d10-8789-00fcbef85e85" class="">Better fonts</h2>
       <p id="29134f47-9746-4911-ba0c-efb33a711fed" class="">Maybe you did notice that Self's basic font looks really awful. It is originally looking for <em>verdana</em>, which is not installed on Linux by default, so it uses fallback. The solution is described here:</p>
       <ul id="e4fc7be3-8f13-4bde-a8fd-7681b6cb3a2f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html">https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html</a>
         </li>
       </ul>
@@ -725,12 +725,12 @@ mapBy: eb Into: c</code></pre>
       <p id="52fb7fd5-57a4-4ea8-8698-3c1bb6369712" class="">Next episode <a href="../Environment_and_the_programming_language_Self_part_three_debugger.html" title="Environment and the programming language Self (part three; debugger, transporter and problems)">Environment and the programming language Self (part three; debugger, transporter and problems)</a> is about debugger, transporter and it also goes into details some of the problems with Self as a language and the environment.</p>
       <h1 id="551e6fa1-10a6-4f36-b48b-c419d8b8a0d9" class="">Relevant discussions</h1>
       <ul id="9cbee625-5ff4-4b26-8d30-d5e1d5873c82" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://lobste.rs/s/t8s2ot/environment_programming_language_self">lobste.rs</a>
         </li>
       </ul>
       <ul id="76fac4e6-05d2-4ade-86c4-6e26b9ced1e1" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/smalltalk/comments/c1so92/environment_and_the_programming_language_self/">/r/smalltalk</a>
         </li>
       </ul>
@@ -745,6 +745,15 @@ mapBy: eb Into: c</code></pre>
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../../tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
         <li>
           <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
@@ -765,15 +774,6 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../../Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../../../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -820,6 +820,9 @@ mapBy: eb Into: c</code></pre>
           <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -830,9 +833,6 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../../index.html" title="English section">📂 English section</a>

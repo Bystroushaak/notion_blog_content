@@ -209,11 +209,11 @@ while stackless.getruncount() &gt; 1:
       <p id="c9941a31-2913-4349-b6bf-69d69f8e9b44" class=""><code>funkce()</code>&nbsp;tentokrát obsahuje výpis informací pro primitivní benchmark. Všimněte si&nbsp;<code>for</code>u, který iteruje skrz&nbsp;<code>10000000</code>&nbsp;položek. Použil jsem ho záměrně místo&nbsp;<code>time.sleep()</code>. Proč se dozvíte za okamžik.</p>
       <p id="aee61270-f2d2-4f0a-b236-8a5bd30aaf99" class="">while&nbsp;cyklus na konci scriptu obstarává veškerou práci - z fronty vyjme jeden&nbsp;tasklet, nechá ho proběhnout&nbsp;100&nbsp;python instrukcí a pokud mezi tím neskončil, tak ho vloží na konec fronty.</p>
       <p id="6d435bc9-99fe-46bc-8348-5b4989e607ce" class="">Z výše uvedeného odstavce plynou dvě věci:</p>
-      <ol id="bd6e5e8e-d399-4c7a-9447-2c56c501cc94" class="numbered-list" start="1">
+      <ol type="1" id="bd6e5e8e-d399-4c7a-9447-2c56c501cc94" class="numbered-list" start="1">
         <li>Jedná se o&nbsp;<a href="http://cs.wikipedia.org/wiki/Multitasking#Preemptivn.C3.AD_multitasking"><strong>preemptivní</strong></a>&nbsp;multitasking.
         </li>
       </ol>
-      <ol id="ae60d5a1-c8a2-4ae1-9977-45ee4e869c9f" class="numbered-list" start="2">
+      <ol type="1" id="ae60d5a1-c8a2-4ae1-9977-45ee4e869c9f" class="numbered-list" start="2">
         <li>Multitasking se vztahuje na instrukce pythonního bytecode,&nbsp;<strong>ne na volání C API</strong>.</li>
       </ol>
       <p id="5e2613ad-6fd8-4132-98ce-6db2fd96fff0" class="">Nyní doufám chápete,&nbsp;<a href="http://www.stackless.com/wiki/Idioms#sleeping">proč</a>&nbsp;jsem použil místo&nbsp;<code>time.sleep()</code>&nbsp;for&nbsp;smyčku -&nbsp;<code>time.sleep()</code>&nbsp;je&nbsp;<a href="http://hg.python.org/cpython/file/2d802765d31f/Modules/timemodule.c#l53">callback</a>&nbsp;na C API, což znamená, že se na něj multitasking nevztahuje. To je dobré mít na paměti.</p>

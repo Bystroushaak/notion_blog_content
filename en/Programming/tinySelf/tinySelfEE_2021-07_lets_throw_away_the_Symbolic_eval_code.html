@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>tinySelfEE 2021-07; let's throw away the Symbolic eval code</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="tinySelfEE 2021-07; let's throw away the Symbolic eval code">
+  <meta name="twitter:description" content="Free flow thought process capturing some of my decisions regarding tinySelfEE development, specifically why I thrown away all the symbolic eval code.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code/tinyselfee_diagram_thumb.jpg">
+  <script src="../../../scripts.js"></script>
+  <meta name="description" content="Free flow thought process capturing some of my decisions regarding tinySelfEE development, specifically why I thrown away all the symbolic eval code.">
+  <meta name="keywords" content="tinyself,diy_programming_language,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/3D_printing_exhibit_1_Headphone_holder.html" title="3D printing exhibit 1; Headphone holder">3D printing exhibit 1; Headphone holder</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/diy_programming_language.html" title="diy_programming_language">diy_programming_language</a>, <a href="../../../Tags/tinyself.html" title="tinyself">tinyself</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="index.html" title="tinySelf">tinySelf</a> / tinySelfEE 2021-07; let's throw away the Symbolic eval code
+  <article id="14e9a5e7-20bb-4740-bebf-1a4876624387" class="page sans">
+    <header>
+      <h1 class="page-title">tinySelfEE 2021-07; let's throw away the Symbolic eval code</h1>
+    </header>
+    <div class="page-body">
+      <p id="12a1b565-38bc-48e1-872f-bf1c85691e7a" class=""><time>@2021/10/29</time></p>
+      <p id="eafd23df-94c4-4dca-80e6-aa13593b597f" class="">This will be a weird blogpost, here is some context:</p>
+      <p id="80b292f1-879d-4452-b4bc-9ab9352c3b08" class="">I've been working on tinySelfEE for some time, but basically, I didn't touch it for more than six months now. And I feel like I don't really know how to start, or what I was even working on before. That weird feeling, when you find ancient artifacts left by strange civilization, which was yourself in the past.</p>
+      <p id="7dea026c-5588-402d-a487-c1310cb9c353" class="">This means its <em>exploration time</em>. I am writing this blogpost to capture my thought process and to make myself work on the tinySelfEE again. It should provide me some context of where I am and what am I doing.</p>
+      <p id="71a9eec1-8959-41ff-bb63-f5a823cdde50" class=""><a href="http://cloc.sourceforge.net/">cloc</a> utility tells me that there are 3779 lines of java. I've somehow persuaded Idea to give me this diagram of classes used in the project:</p>
+      <figure id="0c5fe845-d0ab-4fb5-b1ce-24fc0bed26e0" class="image">
+        <a href="tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code/tinyselfee_diagram.png" title="tinyselfee_diagram.png"><img style="width:2311px" src="tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code/tinyselfee_diagram_thumb.jpg"></a>
+      </figure>
+      <p id="c0492286-fa2e-4c6f-8ddd-20f47e8549e6" class="">From what I remember, tokenizer is working fine. Parser is mostly done, there is still stuff that could be improved, but at the moment, it works.</p>
+      <p id="39516a4f-cdc5-4eef-b8d5-c6e2d077baf9" class="">I have the project set up so that when I run it, it parses the input file called <code>simple_send.tself</code>:</p>
+      <pre id="741ba507-e844-4099-8408-49986e2eca7b" class="code code-wrap"><code>(|
+    slot: parameter = (| var = 1. |
+        (parameter + 1) printString.
+        parameter + 1.
+    ).
+|) slot: 1</code></pre>
+      <p id="731d1eb8-de07-4031-a8a7-254017b3ea83" class="">It defines an object, which has one keyword slot called poetically <code>slot:</code>, which takes one <code>parameter</code> and defines one unused local variable <code>var</code>. When called at the last line, it should print <code>parameter + 1</code> (⇒ <code>2</code>) and then also return the resulting value <code>2</code>.</p>
+      <p id="5956aa77-e46c-4a74-a128-c28ee7e23a8f" class="">When I run it, it prints the AST:</p>
+      <pre id="83377521-b4d6-4a2d-bb82-49b4b47eee7a" class="code code-wrap"><code>Send{obj=Obj{parents=null, slots={slot:=Obj{parents=null, slots={var=NumberInt{value=1}}, arguments=[parameter], code=[Send{obj=Send{obj=Send{obj=Self{}, message=MessageUnary{message_name='parameter'}}, message=MessageBinary{message_name='+', parameter=NumberInt{value=1}}}, message=MessageUnary{message_name='printString'}}, Send{obj=Send{obj=Self{}, message=MessageUnary{message_name='parameter'}}, message=MessageBinary{message_name='+', parameter=NumberInt{value=1}}}]}}, arguments=null, code=null}, message=MessageKeyword{message_name='slot:', parameter=[NumberInt{value=1}]}}</code></pre>
+      <p id="8b2a3323-7a2e-4235-954f-c6d5c67d18fb" class="">AST is basically a tree consisting of Send, which takes as a first parameter the definition of the object, and as a second parameter definition of a message.</p>
+      <p id="11637d7d-6652-4542-b222-8e49160ade58" class="">Man, I really wish I implemented printing to the plantuml syntax because this is pretty unreadable. Lets put it into TODO.</p>
+      <p id="f56e83b7-5885-4b33-9b8c-6c8d3ae25db7" class="">That seems to be working. Then there is a result of compilation to the symbolic structure:</p>
+      <pre id="fff7a97d-b59b-4ec1-88f9-12c71757f13c" class="code code-wrap"><code>SymbolicSend(
+  SymbolicObject(
+    id: 0,
+    version: 1,
+    slots = [
+      "slot:" = SymbolicObject(
+          id: 1,
+          version: 1,
+          arguments = [
+            "parameter",
+          ],
+          slots = [
+            "var" = 1,
+          ],
+          code = [
+            SymbolicSend(
+              SymbolicSend(
+                SymbolicSend(
+                  (default) self,
+                  SymbolicMessage(
+                    message: "parameter",
+                  ),
+                ),
+
+                SymbolicMessage(
+                  message: "+",
+                  arguments = [
+                    1,
+                  ],
+                ),
+              ),
+
+              SymbolicMessage(
+                message: "printString",
+              ),
+            ),
+            SymbolicSend(
+              SymbolicSend(
+                (default) self,
+                SymbolicMessage(
+                  message: "parameter",
+                ),
+              ),
+
+              SymbolicMessage(
+                message: "+",
+                arguments = [
+                  1,
+                ],
+              ),
+            ),
+          ],
+        ),
+    ],
+  )
+  SymbolicMessage(
+    message: "slot:",
+    arguments = [
+      1,
+    ],
+  ),
+)</code></pre>
+      <p id="b65777a8-0d6c-4c2c-9741-ceaf87d7285a" class="">Hm. Lovely. I think I wanted to "compile" the AST into a more simple structure of lists of <code>SymbolicMessage</code>-s and nested <code>SymbolicSend</code>-s.</p>
+      <p id="aac1fca3-5e34-46ce-9229-ae3c9f02a7c8" class="">Which seems to be working, at least for this short example. I remember that I almost lost myself in the process because it required me to implement compile methods for all AST items, and it got weird with inheritance and interfaces.</p>
+      <p id="81124183-3462-4448-bbbf-7981ab8f8475" class="">I had to create a parallel structure for the compiled AST tree, consisting of <code>Symbolic*</code> classes.</p>
+      <ul id="447182df-ae4c-4c91-a0ef-861be9ffa1dd" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicObject</code></li>
+      </ul>
+      <ul id="179bfd86-4923-4d98-ac1a-990ea862fe8c" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicBlock</code></li>
+      </ul>
+      <ul id="aecac640-06e6-47e4-9249-99ea982375cb" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicSend</code></li>
+      </ul>
+      <ul id="c3545155-2b05-4d00-96b5-ae131bf9fc97" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicResend</code></li>
+      </ul>
+      <ul id="ba4748a0-b6c8-47a2-8f5f-8feb03542bc8" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicMessage</code></li>
+      </ul>
+      <ul id="ee782421-3d28-475b-a039-1369723a198c" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicReturn</code></li>
+      </ul>
+      <p id="e42b142f-8f0e-4816-a2c9-b62cdd4a90ac" class="">Each of them have an <code>.accept()</code> method for <code>SymbolicVisitor</code>, which is used by the debug printers and also by the <code>SymbolicCompiler</code>. They also have an <code>.evaluate()</code> method which is not yet implemented and should be used for symbolic evaluation. Then there are classes working with these:</p>
+      <ul id="caa8425f-e9c6-48ca-8f90-4e1ee6ae5f76" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicCompiler</code>, which takes AST and outputs more linearized structure consisting of symbolic classes.</li>
+      </ul>
+      <ul id="4e0f4307-801f-4640-83bc-5adbe2deb5c2" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicFrame</code>, which should be used for evaluation.</li>
+      </ul>
+      <ul id="c29013ac-d791-4759-8852-ce5983b30941" class="bulleted-list">
+        <li style="list-style-type:disc"><code>SymbolicPrinter</code> for printing the debug output you could see above.</li>
+      </ul>
+      <p id="d56680f9-1718-435e-bcbe-fbfc52cb8a20" class="">I vaguely remember that I've implemented most of the <code>SymbolicObject</code>, so that the slot lookup and parent lookup worked.</p>
+      <h1 id="3ea77705-22d2-4250-8fd4-f7e09732062a" class="">Let's work on it</h1>
+      <p id="0f26ae4b-6c28-4c24-a555-91d8b5103aa4" class="">Ok. So, what is missing. From what I understand now, the evaluation should be just a matter of calling <code>.evaluate()</code> on the root of the output from <code>SymbolicCompiler</code>. Lets try that.</p>
+      <p id="a098d464-ecbe-4768-9b59-8d5e9ca19d45" class="">My <code>Main</code> class calles this method:</p>
+      <pre id="32c8ef24-4d29-4775-9e1d-d31fd424bd2a" class="code code-wrap"><code>#lang:java
+private static void runFile(String file_path) throws IOException {
+    byte[] bytes = Files.readAllBytes(Paths.get(file_path));
+    ArrayList&lt;ASTItem&gt; ast = parseSourceAndPrintErrors(new String(bytes, StandardCharsets.UTF_8));
+
+    printRawAst(ast);
+
+    SymbolicCompiler compiler = new SymbolicCompiler();
+    compiler.compile(ast);
+    printSymbolicRepresentation(compiler.getCode());
+}</code></pre>
+      <p id="2db7c6a3-d75b-4efc-85fe-4686f6dccdb8" class="">Let's add evaluation:</p>
+      <pre id="7c8fdae6-030f-4ef8-aadd-ce3539992cc0" class="code code-wrap"><code>#lang:java
+System.out.println("---");
+System.out.println("Symbolic evaluation time:\n");
+
+SymbolicObject namespace = new SymbolicObject();
+SymbolicFrame frame = new SymbolicFrame();
+for (SymbolicEvalProtocol item : symbolic_code) {
+    item.evaluate(namespace, frame);
+}</code></pre>
+      <p id="66e9f094-9f3b-4c13-8418-e95c8b8addeb" class="">I've added an empty <code>namespace</code> object, which will in time hold default objects required for the interpreter to be able to do anything useful.</p>
+      <p id="f786ce2b-22c6-45fe-8404-0fa8c69a8395" class="">And I've added toplevel <code>frame</code>. I call it and it does .. nothing. I can't say I expected more. Let's look at the implementation of the <code>SymbolicSend</code>'s evaluate method:</p>
+      <pre id="d9428237-9025-4e20-b3d5-18f7d1477792" class="code code-wrap"><code>#lang:java
+public void evaluate(SymbolicObject namespace, SymbolicFrame frame) {
+
+}</code></pre>
+      <p id="a5d0881a-a5cc-4587-944b-71d35f515e01" class="">Unsurprisingly, it's empty. Ok.</p>
+      <h1 id="529bd2df-420c-4777-be0d-893d48305228" class="">Symbolic evaluation</h1>
+      <p id="035eca50-92f6-4c30-a2c6-86a7701d776d" class="">Hmm, how should it work. I can see, that the <code>SymbolicObject</code> has this implementation of the <code>.evaluate()</code> method:</p>
+      <pre id="80750dee-5ab9-4467-bc61-e3bd26764727" class="code code-wrap"><code>#lang:java
+@Override
+public void evaluate(SymbolicObject namespace, SymbolicFrame frame) {
+    frame.push(this);
+}</code></pre>
+      <p id="5fb7266e-583a-4476-b717-bc783e7427ff" class="">When called, it adds itself on top of the stack in the <code>frame</code>. It seems that it would be a good idea to call <code>.evaluate()</code> on the first object (<code>receiver</code>) in the symbolic send. This will also work for the case when the <code>receiver</code> is other <code>SymbolicSend</code>. But it won't work for the cases, where <code>receiver</code> is <code>self</code>.</p>
+      <p id="c83fe551-e6f9-4fb8-9edb-c4c7fba80255" class="">Because in the case we want to push <code>self</code> on the top of the stack, we have to know what is <code>self</code>. Hm.</p>
+      <p id="02c3095d-c0a2-4d0f-b6ed-c8df9caa8cf3" class="">When I look at the code, I can see that the <code>Self</code> AST is not compiled into the symbolic representation, but it is recognized in the <code>SymbolicSend</code> that it is meant for <code>self</code>. This means that I just have to have that <code>self</code> stored somewhere.</p>
+      <p id="591bdb56-8d94-4255-951a-4efb60fd41d7" class="">Okay, think about it. When the message is sent to the object, it should be looked in the object itself, and if not found, in all the parents. But if it is not found in the parent tree, it should look into the namespace. Which means:</p>
+      <ul id="16d5f51f-894b-4dc1-b4e5-90d71156ef66" class="bulleted-list">
+        <li style="list-style-type:disc">Object should somehow have context.
+          <ul id="2bfa0c19-727d-4338-a6f8-fc981ccf279a" class="bulleted-list">
+            <li style="list-style-type:circle">In tinySelf, I've injected this by the <code>IntermediateParamsObject</code>. I think. Maybe.</li>
+          </ul>
+          <ul id="8e6f95ef-d71c-4f25-abbb-3fe044b72cdf" class="bulleted-list">
+            <li style="list-style-type:circle">Or I could inject the namespace as the frame at the top of the execution stack. Hm.</li>
+          </ul>
+        </li>
+      </ul>
+      <p id="dfc1a28a-615f-421c-8528-5c9a61b001c8" class="">Bleh. I am starting to be anxious, and I feel great feel to go procrastinate. I solved and invented so much stuff in the tinySelf, that it feels really, really bad to reinvent it again in the tinySelfEE. Let's look at the <code>._do_send()</code> implementation in tinySelf:</p>
+      <pre class="code"><code><span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">_set_scope_parent_if_not_already_set</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+</code></pre>
+      <p id="ea6a2a4b-69f6-430f-bae3-03b26b444a12" class="">and:</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">_set_scope_parent_if_not_already_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">scope_parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">universe</span>
+</code></pre>
+      <p id="47e6afbd-16d2-4c66-81c4-0811402b59d0" class="">Aha. The object to which the message is sent is taken from the top of the stack frame. And the global namespace is inserted into the <code>.scope_parent</code> property if it is not already set. That makes sense.</p>
+      <p id="2eab5644-5624-4c67-a20b-00c42786ea96" class="">And there is <code>_do_push_self()</code> instruction, which takes the <code>self</code> from the frame. So the frame knows what is <code>self</code>. Ok.</p>
+      <pre class="code"><code><span class="k">def</span> <span class="nf">_do_push_self</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bc_index</span><span class="p">,</span> <span class="n">code_obj</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">self</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ONE_BYTECODE_LONG</span>
+</code></pre>
+      <p id="db8729f7-2e2f-4e96-a024-7218b9a90929" class="">And since it is bytecode inrepreter and objects are literals, when pushing new object to the frame, it stores the <code>self</code>:</p>
+      <pre class="code"><code><span class="k">elif</span> <span class="n">literal_type</span> <span class="o">==</span> <span class="n">LITERAL_TYPE_OBJ</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">boxed_literal</span><span class="p">,</span> <span class="n">ObjBox</span><span class="p">)</span>
+
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">boxed_literal</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">self</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">self</span> <span class="o">=</span> <span class="n">obj</span>
+</code></pre>
+      <p id="aec09e15-8572-4fb7-b654-6aefbd614a71" class="">Ok, this is an ugly solution. For one, I don't understand why I didn't solve this in the frame itself. I've updated the <code>push()</code> method of the frame to this:</p>
+      <pre id="740ed7c0-43e6-4391-8547-4a252681d700" class="code code-wrap"><code>ObjectRepr self;
+boolean has_self = false;
+
+public void push(ObjectRepr obj) {
+    obj_stack.add(obj);
+    pointer++;
+
+    if (! has_self) {
+        self = obj;
+        has_self = true;
+    }
+}
+
+public void pushSelf() {
+    push(self);
+}</code></pre>
+      <p id="b3e63fec-281a-4efc-b1cd-eedebd257800" class="">What next. Update <code>.evaluate()</code> of the <code>SymbolicSend</code> to call object's <code>.evaluate()</code> to push it on top of the frame and make it <code>self</code>. Ok. It now looks like this:</p>
+      <pre id="69dfaa35-f325-4d5e-9131-16474230eda7" class="code code-wrap"><code>public void evaluate(SymbolicObject namespace, SymbolicFrame frame) {
+    if (send_to_self) {
+        frame.pushSelf();
+    } else {
+        receiver.evaluate(namespace, frame);
+    }
+
+}</code></pre>
+      <p id="7c313c37-0e8d-4476-8033-8c9e956c66d9" class="">Now it would be a good idea to see if it really works and how the frame looks like when this is executed.</p>
+      <p id="411f2808-197b-41ee-a3e3-cce8f9a9fc8f" class="">*After some bugfixes*</p>
+      <pre id="65b509b2-5301-4468-ab9a-065817e7232e" class="code code-wrap"><code>Frames:
+
+SymbolicFrame(
+    depth: 0,
+    self: Object,
+    Object,
+)</code></pre>
+      <h1 id="d1ea5c42-b848-44cb-8824-1778ecc17880" class="">Revelation</h1>
+      <p id="07dc6d5d-cce8-4735-a648-5112e5c3d2a3" class="">Now I look at the result and think why I even need stack in the symbolic evaluation. Did I just used it for symbolic evaluation because I had it in tinySelf? When crunching bytecodes, it makes perfect sense, but in the symbolic evaluation, I think I can work without it.</p>
+      <p id="991fb5ac-5d64-456b-9423-837d5ff3a7e6" class="">Hm. And I study the code, and I try to implement the symbolic eval, when I realize .. why am I even doing this?</p>
+      <p id="282f9574-948c-4fcf-8306-e9d2bc86431f" class="">I mean the whole symbolic execution. I know that I want to have a working bytecode interpreter, like I had in tinySelf. And I think I was thinking at some point, that making symbolic execution work will be easy, and it should allow me to prototype some things before I get to the harder part.</p>
+      <p id="0829a216-d4c3-41f8-b7ac-bb1f62963f9f" class="">Now I see that I'll have to do a bunch of nonsense, create a whole parallel set of classes just for easier symbolic evaluation, and I'll still need to write all the hard stuff anyway. And then when I'll get to the bytecode interpreter, I'll have this stuff all over the place and just getting in the way and not being useful at all.</p>
+      <p id="24885eb1-dd00-43bb-9359-64ed89d1369b" class="">So let's just .. throw it away.</p>
+      <p id="05b57c46-ee67-4432-b92f-7f2058736b4e" class="">And I did that. I've commited everything, created new tag <code>symbolic_execution</code> and then went to delete files.</p>
+      <h1 id="4722b823-4b13-4e59-b883-7bd8668105eb" class="">TODO</h1>
+      <ul id="07e63351-f25e-4e2c-a699-82f22f8223c1" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">☐ Implement <code>plantuml</code> debug printers because the debug printouts are basically unreadable.</span>
+        </li>
+      </ul>
+      <ul id="ef9bb79d-88a1-4f76-b627-6d784363f002" class="to-do-list">
+        <li>
+          <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">☐ Suffix for the tinySelfEE scripts: <code>tse</code>? I've used <code>tself</code> now, but I don't like it anymore.</span>
+        </li>
+      </ul>
+      <p id="4adfbf65-5157-4006-b21f-c57033cb7d10" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/3D_printing_exhibit_1_Headphone_holder.html" title="3D printing exhibit 1; Headphone holder">3D printing exhibit 1; Headphone holder</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
+        </li>
+      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/diy_programming_language.html" title="diy_programming_language">diy_programming_language</a>, <a href="../../../Tags/tinyself.html" title="tinyself">tinyself</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

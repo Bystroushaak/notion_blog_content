@@ -132,13 +132,13 @@
       <p id="3849c406-8c8f-42c1-a595-ec28bee39a65" class="">5. Zadání hesla pro šifrovaný disk. Celá procedura není tak jednoduchá a uživatelsky přívětivá, jak by mohla, proto je jí věnován větší prostor.</p>
       <h2 id="c60b43b7-d2a1-49e7-941e-1cbc6bdefb7c" class="">Upozornění</h2>
       <p id="c64199ab-1298-40a3-883d-58dd469f7dea" class="">V průběhu článku budeme konfigurovat tři různé SSH servery/sessiony:</p>
-      <ol id="fb0517b5-6275-4197-9333-d8eb29de2b65" class="numbered-list" start="1">
+      <ol type="1" id="fb0517b5-6275-4197-9333-d8eb29de2b65" class="numbered-list" start="1">
         <li><strong>Preseed</strong> netinstall konzole. Tímto se připojujeme na proces instalace.</li>
       </ol>
-      <ol id="8b5f95f1-38a5-494d-aca2-727d37959faf" class="numbered-list" start="2">
+      <ol type="1" id="8b5f95f1-38a5-494d-aca2-727d37959faf" class="numbered-list" start="2">
         <li><strong>Dropbear</strong> SSH server, který slouží k zadání hesla k šifrovanému disku. Používáme certifikát (heslo se nejspíš ani nedá použít, zkoušel jsem, ale nepochodil).</li>
       </ol>
-      <ol id="ef1901ab-dd5d-4f9f-9887-9953e4c5cae8" class="numbered-list" start="3">
+      <ol type="1" id="ef1901ab-dd5d-4f9f-9887-9953e4c5cae8" class="numbered-list" start="3">
         <li><strong>OpenSSH</strong> server, který běží po <em>bootu</em> a odemčení disku na serveru.</li>
       </ol>
       <h1 id="6fb7ef43-9ace-4ac3-8b5c-648134ac1563" class="">Postup úprav</h1>
@@ -323,182 +323,182 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`</code></pre>
       <h1 id="4447bf61-8b19-4cd9-b35c-ef9772f13743" class="">Zdroje</h1>
       <p id="add9031f-722c-4613-942a-1dee53d0b3dd" class="">Přijít na celý postup a hlavně ho otestovat mi zabralo cca třináct hodin čistého času na dva zátahy. Během té doby jsem prošel nemalé množství zdrojů na tohle téma. Většina z nich je buď neaktuální, nekompletní, nebo blbě, ale přesto si myslím, že stojí za zmínku:</p>
       <ul id="5361d9e0-ede4-40a9-9402-c1824928adb2" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://alyandon.blogspot.cz/2011/06/unlocking-luks-encrypted-lvm-via-ssh-in.html">http://alyandon.blogspot.cz/2011/06/unlocking-luks-encrypted-lvm-via-ssh-in.html</a>
         </li>
       </ul>
       <ul id="35ade5a4-dcc3-42f1-926e-f2d900649ac6" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu">http://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu</a>
         </li>
       </ul>
       <ul id="2fb8325b-82b0-4ec1-ad2f-6698e6e81f8d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://askubuntu.com/questions/13106/how-can-i-install-ubuntu-on-a-headless-machine">http://askubuntu.com/questions/13106/how-can-i-install-ubuntu-on-a-headless-machine</a>
         </li>
       </ul>
       <ul id="525d984a-e0fa-45cf-be6b-5078bb4e4905" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://askubuntu.com/questions/148095/how-do-i-set-the-grub-timeout-and-the-grub-default-boot-entry">http://askubuntu.com/questions/148095/how-do-i-set-the-grub-timeout-and-the-grub-default-boot-entry</a>
         </li>
       </ul>
       <ul id="4cace6c0-1870-427b-8464-3c4f134bcebe" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://askubuntu.com/questions/178091/how-to-disable-grubs-menu-from-showing-up-after-failed-boot">http://askubuntu.com/questions/178091/how-to-disable-grubs-menu-from-showing-up-after-failed-boot</a>
         </li>
       </ul>
       <ul id="cb6c8c17-5c25-439a-9def-3795deba7711" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://askubuntu.com/questions/337726/full-system-encryption-with-luks-on-headless-server-unlock-with-dropbear-and-b">http://askubuntu.com/questions/337726/full-system-encryption-with-luks-on-headless-server-unlock-with-dropbear-and-b</a>
         </li>
       </ul>
       <ul id="06a026cd-4325-4205-8f1f-9de183df1bea" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://blog.neutrino.es/2011/unlocking-a-luks-encrypted-root-partition-remotely-via-ssh/">http://blog.neutrino.es/2011/unlocking-a-luks-encrypted-root-partition-remotely-via-ssh/</a>
         </li>
       </ul>
       <ul id="530b9232-3924-4daa-916c-28537bc77106" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://blog.nguyenvq.com/blog/2011/09/13/remote-unlocking-luks-encrypted-lvm-using-dropbear-ssh-in-ubuntu/">http://blog.nguyenvq.com/blog/2011/09/13/remote-unlocking-luks-encrypted-lvm-using-dropbear-ssh-in-ubuntu/</a>
         </li>
       </ul>
       <ul id="723c7a08-8242-4e84-b1a9-a335a86c9e6c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://dev.kakaopor.hu/early-ssh/">http://dev.kakaopor.hu/early-ssh/</a>
         </li>
       </ul>
       <ul id="a4f7045d-a553-4ec6-8d00-8fd07390d0e6" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://dev.kakaopor.hu/early-ssh/example-initialization-script-with-mdadm-luks-crypto-and-scp-copy">http://dev.kakaopor.hu/early-ssh/example-initialization-script-with-mdadm-luks-crypto-and-scp-copy</a>
         </li>
       </ul>
       <ul id="27797704-095f-4099-81a4-1f08083eae5f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://fabian-affolter.ch/blog/running-dropbear-on-port-222/">http://fabian-affolter.ch/blog/running-dropbear-on-port-222/</a>
         </li>
       </ul>
       <ul id="df27c0e5-d1e6-483e-92f6-74ea3328d6a1" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://forums.debian.net/viewtopic.php?f=5&amp;t=76966">http://forums.debian.net/viewtopic.php?f=5&amp;t=76966</a>
         </li>
       </ul>
       <ul id="5689b270-e155-4fa0-a69e-7c5caf323672" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://gpl.coulmann.de/ssh_luks_unlock.html">http://gpl.coulmann.de/ssh_luks_unlock.html</a>
         </li>
       </ul>
       <ul id="6c8717ab-5304-4c58-a51a-dc9eb1d21333" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://hacksr.blogspot.cz/2012/05/ssh-unlock-with-fully-encrypted-ubuntu.html">http://hacksr.blogspot.cz/2012/05/ssh-unlock-with-fully-encrypted-ubuntu.html</a>
         </li>
       </ul>
       <ul id="658ec574-5006-478c-b800-dd1f8f63fdd1" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://serverfault.com/questions/528674/disable-root-login-for-dropbear">http://serverfault.com/questions/528674/disable-root-login-for-dropbear</a>
         </li>
       </ul>
       <ul id="dd98be61-984d-4660-ba31-b936ecf6f768" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ubuntuforums.org/archive/index.php/t-1648319.html">http://ubuntuforums.org/archive/index.php/t-1648319.html</a>
         </li>
       </ul>
       <ul id="85df1610-a11c-4d36-8442-ff71034f9f90" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ubuntuforums.org/showthread.php?t=1648319">http://ubuntuforums.org/showthread.php?t=1648319</a>
         </li>
       </ul>
       <ul id="9c31d425-0cde-4ad3-b733-879e258bc9ec" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://ubuntuforums.org/showthread.php?t=829768">http://ubuntuforums.org/showthread.php?t=829768</a>
         </li>
       </ul>
       <ul id="47c03229-0c5b-47c3-846b-032c70ab42f3" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://unix.stackexchange.com/questions/37024/how-to-open-a-port-early-in-boot-process-to-unlock-luks-via-ssh">http://unix.stackexchange.com/questions/37024/how-to-open-a-port-early-in-boot-process-to-unlock-luks-via-ssh</a>
         </li>
       </ul>
       <ul id="4f12ae25-6301-4f6c-b304-d2c5c038553a" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://unix.stackexchange.com/questions/5017/ssh-to-decrypt-encrypted-lvm-during-headless-server-boot">http://unix.stackexchange.com/questions/5017/ssh-to-decrypt-encrypted-lvm-during-headless-server-boot</a>
         </li>
       </ul>
       <ul id="af7d2dea-94d2-4cbd-afc1-ea9485ab881e" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://wefixbugs.com/blog/Full-System-encryption-with-LUKS-on-headless-server---unlock-with-dropbear-and-busybox-How-311973.html">http://wefixbugs.com/blog/Full-System-encryption-with-LUKS-on-headless-server---unlock-with-dropbear-and-busybox-How-311973.html</a>
         </li>
       </ul>
       <ul id="4e8434f6-6cb9-46ca-a89e-f78d689f2a6a" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://wiki.openwrt.org/doc/uci/dropbear">http://wiki.openwrt.org/doc/uci/dropbear</a>
         </li>
       </ul>
       <ul id="5201e267-1122-4e85-a837-816cbb73500c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://wiki.openwrt.org/doku.php?id=oldwiki:dropbearpublickeyauthenticationhowto">http://wiki.openwrt.org/doku.php?id=oldwiki:dropbearpublickeyauthenticationhowto</a>
         </li>
       </ul>
       <ul id="291ca934-86e0-470a-955b-1616e3a44efa" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.debian-administration.org/article/579/Unlocking_a_LUKS_encrypted_root_partition_via_ssh">http://www.debian-administration.org/article/579/Unlocking_a_LUKS_encrypted_root_partition_via_ssh</a>
         </li>
       </ul>
       <ul id="8f0f13bb-11ae-41cd-93e9-eeb7be29c742" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.howtoforge.com/unlock-a-luks-encrypted-root-partition-via-ssh-on-ubuntu">http://www.howtoforge.com/unlock-a-luks-encrypted-root-partition-via-ssh-on-ubuntu</a>
         </li>
       </ul>
       <ul id="c8474410-0033-4356-9cd3-bc423f1fa89f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.ttylinux.net/Documents/multi/node32.html">http://www.ttylinux.net/Documents/multi/node32.html</a>
         </li>
       </ul>
       <ul id="c0dc7ef0-f109-4051-8c53-49151e694034" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://askubuntu.com/questions/250869/how-can-i-install-ubuntu-on-a-device-without-a-screen-nor-a-keyboard/260469#260469">https://askubuntu.com/questions/250869/how-can-i-install-ubuntu-on-a-device-without-a-screen-nor-a-keyboard/260469#260469</a>
         </li>
       </ul>
       <ul id="8493f5d3-bb13-4d07-8468-ca7feb4d7024" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://gist.github.com/timabell/9568173">https://gist.github.com/timabell/9568173</a>
         </li>
       </ul>
       <ul id="216d29f8-911f-4410-80eb-2e5881d55b4b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://gist.github.com/wolli/5295625">https://gist.github.com/wolli/5295625</a>
         </li>
       </ul>
       <ul id="1b83ff72-3877-44f5-9532-1fa741824e13" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://help.ubuntu.com/10.04/installation-guide/i386/automatic-install.html">https://help.ubuntu.com/10.04/installation-guide/i386/automatic-install.html</a>
         </li>
       </ul>
       <ul id="bc00013a-ea66-4cec-a1c6-70b5b5d35911" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://help.ubuntu.com/community/Installation/FromUSBStick">https://help.ubuntu.com/community/Installation/FromUSBStick</a>
         </li>
       </ul>
       <ul id="b233a45d-88c8-495e-a63d-461ac8af2ed5" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://help.ubuntu.com/community/Installation/NetworkConsole">https://help.ubuntu.com/community/Installation/NetworkConsole</a>
         </li>
       </ul>
       <ul id="ad917f8e-34fc-46bd-ba07-7925d65d9506" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://kiza.eu/journal/entry/697">https://kiza.eu/journal/entry/697</a>
         </li>
       </ul>
       <ul id="e5f806db-86a8-4f2d-9858-004d0b49acf8" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://projectgus.com/2013/05/encrypted-rootfs-over-ssh-with-debian-wheezy/">https://projectgus.com/2013/05/encrypted-rootfs-over-ssh-with-debian-wheezy/</a>
         </li>
       </ul>
       <ul id="ea1aadaa-17e1-461f-8c20-58c95170543d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://wiki.debian.org/DebianInstaller/Preseed">https://wiki.debian.org/DebianInstaller/Preseed</a>
         </li>
       </ul>
       <ul id="f9c3d55f-cc33-4f05-993a-a938f974d6c3" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.debian.org/releases/wheezy/example-preseed.txt">https://www.debian.org/releases/wheezy/example-preseed.txt</a>
         </li>
       </ul>

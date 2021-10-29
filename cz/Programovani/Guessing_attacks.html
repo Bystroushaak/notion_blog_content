@@ -207,13 +207,13 @@ czCube password:</code></pre>
       <h2 id="20dc4599-4fce-4053-b624-df09bd03b4da" class="">Guessing attacks</h2>
       <p id="6d87f16f-bb44-4f71-9cda-fde41f2dd055" class="">Hádací útoky si dovolím rozdělit na tři typy:</p>
       <ul id="a7591d50-c9ca-4337-92f6-5677bc292622" class="bulleted-list">
-        <li>bruteforce</li>
+        <li style="list-style-type:disc">bruteforce</li>
       </ul>
       <ul id="006c94e6-7e82-46d0-a29a-c22887ddc2e0" class="bulleted-list">
-        <li>dictionary</li>
+        <li style="list-style-type:disc">dictionary</li>
       </ul>
       <ul id="d25bcb6a-6bb6-45b2-8991-d19721e36c2b" class="bulleted-list">
-        <li>side-channel</li>
+        <li style="list-style-type:disc">side-channel</li>
       </ul>
       <p id="d4dbf0f6-16f8-4ceb-8ac7-3ad4bb3deca8" class="">Je mi jasné, že většina z vás o těchto typech již slyšela, některé možná trochu překvapí třetí typ útoku, kterému se budu v krátkosti věnovat na konec, protože nemá smysl ho tu rozpitvávat - zasloužil by si samostatnou knihu a jsem přesvědčený, že se jí dřív nebo později dočká.</p>
       <h2 id="70026cac-1b14-458e-be72-8db59e2809d6" class="">Bruteforce</h2>
@@ -222,13 +222,13 @@ czCube password:</code></pre>
       <p id="00f4a6e9-2b02-49f8-a6e9-0325b8e89071" class="">Zkoušet něco podobného ručně by u hesel s více jak pár znaky mohlo trvat opravdu dlouho, proto je vhodné činnost zautomatizovat, například scriptem v Pythonu 2.7, který je, buďme realisté, v roce 2015 stále ještě široce využíván :)</p>
       <h2 id="385a5602-0f7b-4c62-9843-d113b44d3dad" class="">czcube_cracker.py</h2>
       <p id="14015ebc-9a37-4fb0-a5ad-0377dae8e8e4" class="">Jako každý problém, i tento je možné dekomponovat na jednodušší úlohy:</p>
-      <ol id="87aae781-fb8e-47c6-a218-f4c0fefa759f" class="numbered-list" start="1">
+      <ol type="1" id="87aae781-fb8e-47c6-a218-f4c0fefa759f" class="numbered-list" start="1">
         <li>komunikace s czCube</li>
       </ol>
-      <ol id="fcc7c6a2-f2eb-4ffc-ad6c-6be8b69eb16f" class="numbered-list" start="2">
+      <ol type="1" id="fcc7c6a2-f2eb-4ffc-ad6c-6be8b69eb16f" class="numbered-list" start="2">
         <li>ověřování hesla - potřebujeme funkci, která nám řekne jestli už tam jsme</li>
       </ol>
-      <ol id="c9afb162-75d0-4e84-bc70-c1322e47a776" class="numbered-list" start="3">
+      <ol type="1" id="c9afb162-75d0-4e84-bc70-c1322e47a776" class="numbered-list" start="3">
         <li>generování řetězce</li>
       </ol>
       <h3 id="db90bc92-67d9-4a5c-af20-de019abb1acc" class="">Komunikace</h3>
@@ -376,34 +376,34 @@ cc</code></pre>
       <p id="575cb8a9-a2f2-4026-9336-f496f25e2537" class="">V době <a href="http://cs.wikipedia.org/wiki/UTF-8">UTF</a> se navíc zkoušení všech možných hesel podstatně protahuje a pokud by uživatelé serveru kam se snažíte vlámat použili vcelku krátké heslo v čínštině, asi byste byli bez šance, i kdybyste měli sebelepší cracker.</p>
       <p id="0edaa892-7303-45d5-811f-c2a8a3cbace4" class="">Pokud by vás zajímalo kolik pokusů je zapotřebí k vyzkoušení všech kombinací hesla, na internetu se dají najít různé <a href="http://www.soom.cz/index.php?name=box&amp;box=projects/bruteforce/main">kalkulačky</a>, nebo si to můžete spočítat sami - jedná se o jednoduchou <a href="http://www.matweb.cz/bezpecnost-hesla">úlohu</a> na <a href="http://cs.wikipedia.org/wiki/Variace_%28kombinatorika%29">variace</a>.</p>
       <p id="b7931836-5319-43be-9bb3-f02c0be99527" class="">Pro ilustraci; Za předpokladu, že dokážete každou vteřinu vyzkoušet milion hesel <code>a-zA-Z0-9</code>, tak:</p>
-      <ol id="e75a652a-6b89-4ebc-8ccf-4687c7604bc8" class="numbered-list" start="1">
+      <ol type="1" id="e75a652a-6b89-4ebc-8ccf-4687c7604bc8" class="numbered-list" start="1">
         <li>znak zabere 1 vteřinu</li>
       </ol>
-      <ol id="a9524856-0252-4586-8863-9e7aa7b1f94f" class="numbered-list" start="2">
+      <ol type="1" id="a9524856-0252-4586-8863-9e7aa7b1f94f" class="numbered-list" start="2">
         <li>znaky zaberou 1 vteřinu</li>
       </ol>
-      <ol id="14af414d-6cb9-455d-bd58-45f84d20e603" class="numbered-list" start="3">
+      <ol type="1" id="14af414d-6cb9-455d-bd58-45f84d20e603" class="numbered-list" start="3">
         <li>znaky zaberou 1 vteřinu</li>
       </ol>
-      <ol id="0f66d125-cfe7-437f-805a-d460246d2219" class="numbered-list" start="4">
+      <ol type="1" id="0f66d125-cfe7-437f-805a-d460246d2219" class="numbered-list" start="4">
         <li>znaky zaberou 15 vteřin</li>
       </ol>
-      <ol id="d70eef0d-4024-4efc-b1de-2e34cca9f22e" class="numbered-list" start="5">
+      <ol type="1" id="d70eef0d-4024-4efc-b1de-2e34cca9f22e" class="numbered-list" start="5">
         <li>znaků zabere 15 minut, 31 vteřin</li>
       </ol>
-      <ol id="bc3dfd4a-ede5-4f09-b999-844c9b03b81c" class="numbered-list" start="6">
+      <ol type="1" id="bc3dfd4a-ede5-4f09-b999-844c9b03b81c" class="numbered-list" start="6">
         <li>znaků zabere 16 hodin, 2 minuty a 11 vteřin</li>
       </ol>
-      <ol id="4658801f-c843-4173-94d0-b4a623ecee12" class="numbered-list" start="7">
+      <ol type="1" id="4658801f-c843-4173-94d0-b4a623ecee12" class="numbered-list" start="7">
         <li>znaků zabere 41 dní, 10 hodin, 15 minut a 46 vteřin</li>
       </ol>
-      <ol id="126e8633-07ba-4590-913a-3d2d065638fd" class="numbered-list" start="8">
+      <ol type="1" id="126e8633-07ba-4590-913a-3d2d065638fd" class="numbered-list" start="8">
         <li>znaků zabere 7 let, 11 dní, 18 hodin, 17 minut a 32 vteřin</li>
       </ol>
-      <ol id="69fe45fd-7d51-41ec-a367-fb81a2bcc3df" class="numbered-list" start="9">
+      <ol type="1" id="69fe45fd-7d51-41ec-a367-fb81a2bcc3df" class="numbered-list" start="9">
         <li>znaků zabere 435 let, 364 dní, 6 minut, 38 vteřin</li>
       </ol>
-      <ol id="88bc0a8a-7cf2-470a-b465-8eb586814aa4" class="numbered-list" start="10">
+      <ol type="1" id="88bc0a8a-7cf2-470a-b465-8eb586814aa4" class="numbered-list" start="10">
         <li>znaků zabere 27031 let, 288 dní, 51 minut, 6 vteřin</li>
       </ol>
       <p id="3c9b9a2a-61a4-476a-b016-4c661b4f65bf" class="">Shrnuto: Bruteforce je nejtriviálnější a nejméně efektivní - dá se přirovnat k slepému mlácení sekerou do dveří, což skvěle funguje v případě dřevěných dveří, ale až jednou narazíte na železné, tak spíš umřete stářím, než je prostou silou rozmlátíte.</p>
@@ -417,37 +417,37 @@ cc</code></pre>
       <p id="841cbce0-9375-48fe-bb9d-daf04e9aea0b" class="">Shánění dobrého slovníku je podstatně složitější, než napsání scriptu, který bude hesla zkoušet. Na internetu se dají relativně jednoduše najít docela rozsáhlé a dobré slovníky. Pokud budete googlit, nehledejte <em>"slovník"</em>, ale <em>"wordlist"</em>, nezapomeňte také na to, že pro Čechy bude vhodnější český.</p>
       <p id="4a67aea9-b63d-44e2-91a2-52cccc3b9637" class="">Pár odkazů:</p>
       <ul id="f345188e-1baf-4349-97e0-6191bfd5e68b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://wordlist.ic.cz/">http://wordlist.ic.cz/</a>
         </li>
       </ul>
       <ul id="3ab635d4-2cbb-4c8e-8e6d-d642d015d97a" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://verifikace.sweb.cz/">http://verifikace.sweb.cz/</a>
         </li>
       </ul>
       <ul id="f40635b1-9be9-4492-8043-953997e55914" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://wiki.airdump.cz/Wordlist">http://wiki.airdump.cz/Wordlist</a>
         </li>
       </ul>
       <ul id="aa4aa85d-0fc2-44cb-843f-5d206c93133b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://mozektevidi.cz/wordlist-download/">http://mozektevidi.cz/wordlist-download/</a>
         </li>
       </ul>
       <ul id="9d3c6241-bd22-4c64-824e-54a4123eb722" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.passwordy.net/index.php?category=2">http://www.passwordy.net/index.php?category=2</a>
         </li>
       </ul>
       <ul id="8f29872d-636b-480d-bca4-cd7c41506a00" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.soom.cz/index.php?name=download/kategorie&amp;sid=30">http://www.soom.cz/index.php?name=download/kategorie&amp;sid=30</a>
         </li>
       </ul>
       <ul id="ec6e0a9a-3058-463e-9789-61f23bed0942" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://gpsfreemaps.net/navody/security/komplexni-cesky-a-slovensky-wordlist-ke-stazeni">http://gpsfreemaps.net/navody/security/komplexni-cesky-a-slovensky-wordlist-ke-stazeni</a>
         </li>
       </ul>
@@ -471,19 +471,19 @@ cc</code></pre>
       <h2 id="f864d01c-bbbb-459e-913f-0f2f1ba53278" class="">Generování slovníku</h2>
       <p id="4ac5371b-5133-45ae-ac92-dffb0e3776c8" class="">Teď když už máme teorii hesel za sebou je čas odvést zase jednou trochu práce. Víte z čeho se heslo skládá, ale možná vám není úplně jasné, kde to vzít. Kde asi? Přece na internetu!</p>
       <p id="84094e57-0a76-44e2-929a-836f8352c96f" class="">Postup se dá rozdělit do těchto kroků:</p>
-      <ol id="2ed80c25-da8d-41c2-a9d7-7a45ab4d04c4" class="numbered-list" start="1">
+      <ol type="1" id="2ed80c25-da8d-41c2-a9d7-7a45ab4d04c4" class="numbered-list" start="1">
         <li>shromažďování</li>
       </ol>
-      <ol id="9f092f30-230d-4cba-b246-986137d3954a" class="numbered-list" start="2">
+      <ol type="1" id="9f092f30-230d-4cba-b246-986137d3954a" class="numbered-list" start="2">
         <li>normalizace</li>
       </ol>
-      <ol id="82f7127e-d98e-4ea4-a006-ca32f103744d" class="numbered-list" start="3">
+      <ol type="1" id="82f7127e-d98e-4ea4-a006-ca32f103744d" class="numbered-list" start="3">
         <li>extrakce</li>
       </ol>
-      <ol id="93d94aaf-f417-429d-92bd-74313230e27d" class="numbered-list" start="4">
+      <ol type="1" id="93d94aaf-f417-429d-92bd-74313230e27d" class="numbered-list" start="4">
         <li>filtrace</li>
       </ol>
-      <ol id="c04619d9-f68d-43a0-bcbb-1afdff8939ac" class="numbered-list" start="5">
+      <ol type="1" id="c04619d9-f68d-43a0-bcbb-1afdff8939ac" class="numbered-list" start="5">
         <li>variace</li>
       </ol>
       <h2 id="00925624-5850-479a-94b8-0678ef5e611b" class="">Shromažďování dat</h2>
@@ -528,11 +528,11 @@ wc -l wordlist.txt</code></pre>
       <p id="de623f01-4cff-4d1a-aae0-ee58d83d0625" class="">Pokud chcete, data si můžete schovat a později je vyzkoušet samotná, není zde však příliš velká šance na úspěch, protože i když je v souboru s velkou šancí <code>JehoTajemství</code> a <code>suffix</code>, potřebujete je ještě složit dohromady.</p>
       <p id="911c57bb-ef49-41cc-9ad1-a2584758936b" class="">Redukci velkosti je možné provést těmito způsoby;</p>
       <ul id="ca048d6c-e878-4005-9b28-597b52df97c1" class="bulleted-list">
-        <li>odstraněním duplikátů - v pythonu se dá elegantně vyřešit převedením na <a href="http://docs.python.org/tutorial/datastructures.html#sets">set()</a>
+        <li style="list-style-type:disc">odstraněním duplikátů - v pythonu se dá elegantně vyřešit převedením na <a href="http://docs.python.org/tutorial/datastructures.html#sets">set()</a>
         </li>
       </ul>
       <ul id="7e1377f1-bee8-419d-83da-6d4d15abee95" class="bulleted-list">
-        <li>derivací šumu (cool název pro odstranění slov bez speciálního významu)</li>
+        <li style="list-style-type:disc">derivací šumu (cool název pro odstranění slov bez speciálního významu)</li>
       </ul>
       <h3 id="c8cbd5a7-a97e-47d7-a240-ad5923fc9e75" class="">Odstranění duplikátů</h3>
       <p id="c0d8c1c5-d7be-4922-9e0f-830ab6b70737" class="">Jak už jsem psal, v pythonu stačí soubor načíst a převést na set, což je setřízená množina unikátních prvků. Nic vám samozřejmě nebrání použít k tomu programy jako <code>sort | uniq</code>, nebo si napsat vlastní sorter/deduplicator.</p>
@@ -836,13 +836,13 @@ Got it: heslo</code></pre>
       <p id="2cbfa513-54fc-44de-8542-812183398e89" class="">Co se týče side channel útoků, dále již je pitvat nebudu, pevně věřím, že každý kdo chtěl pochopil a kdo nepochopil, tomu stejně další informace nepomohou.</p>
       <h2 id="b5242070-8c63-42c2-be45-21a8fc56a36a" class="">Fail2ban</h2>
       <p id="d1fefd54-237a-471f-9777-618a63e2d7d4" class="">Jedním z největších nepřátel hádacích útoků je po nízké přenosové rychlosti a dlouhé odezvě také omezení počtu pokusů. To se dá v zásadě rozdělit na tyto typy:</p>
-      <ol id="c71c1d40-f812-4ebf-8d39-0169ded92716" class="numbered-list" start="1">
+      <ol type="1" id="c71c1d40-f812-4ebf-8d39-0169ded92716" class="numbered-list" start="1">
         <li>Omezení na uživatele</li>
       </ol>
-      <ol id="728d2b9b-d579-4402-94e3-47612b716c3e" class="numbered-list" start="2">
+      <ol type="1" id="728d2b9b-d579-4402-94e3-47612b716c3e" class="numbered-list" start="2">
         <li>Omezení na IP</li>
       </ol>
-      <ol id="37fb035c-5b37-4dfd-bc86-441abe2af3bf" class="numbered-list" start="3">
+      <ol type="1" id="37fb035c-5b37-4dfd-bc86-441abe2af3bf" class="numbered-list" start="3">
         <li>Omezení podle lokace IP</li>
       </ol>
       <h2 id="fed95ba8-5c47-43bc-815a-5aab24f6bed5" class="">Omezení na uživatele</h2>
@@ -872,7 +872,7 @@ Got it: heslo</code></pre>
       <p id="61c8a8bd-4029-403a-875e-dc0cd07b882b" class="">Článek jsem napsal, protože chci a můžu. Pokud se to někomu nelíbí, můžete si stěžovat na <a href="http://necyklopedie.wikia.com/wiki/Lamp%C3%A1rna">lampárně</a>, nebo do zdi.</p>
       <p id="461a6fcf-1ecd-4ae5-8075-2835cbcde403" class="">Pokud máte nějaké konstruktivní připomínky, nebo si chcete o článku pokecat, můžete mi napsat na:</p>
       <ul id="2b9ce547-e8fd-4614-a728-14526fdbb282" class="bulleted-list">
-        <li>bystrousak@kitakitsune.org</li>
+        <li style="list-style-type:disc">bystrousak@kitakitsune.org</li>
       </ul>
       <p id="d137d681-c84e-4658-90c6-b19dc0d0aaea" class="">Hackovat nikoho učit nebudu, tak to ani nezkoušejte, podobné maily mažu bez odpovědí, obzvlášť blbým žádostem se veřejně vysmívám na IRC.</p>
       <h2 id="61c95fd5-e665-46db-a873-632fb11ab6b7" class="">Licence</h2>

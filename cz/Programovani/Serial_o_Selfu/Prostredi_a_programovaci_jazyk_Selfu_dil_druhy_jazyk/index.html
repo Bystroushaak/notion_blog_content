@@ -157,13 +157,13 @@
       <h2 id="dce86965-c323-4e64-9764-98753fdcc7dc" class="">Zprávy</h2>
       <p id="76c9a0f6-d55f-4ef5-b6b4-edba833fbcf6" class="">Zprávy mohou být následujících typů:</p>
       <ul id="e80b8cb2-abe5-4d5a-8e74-c41d13bfbfd3" class="bulleted-list">
-        <li><em>Unární</em>, například: <code>first</code></li>
+        <li style="list-style-type:disc"><em>Unární</em>, například: <code>first</code></li>
       </ul>
       <ul id="c5f547b9-fc64-4060-a91b-7bc1aeea905c" class="bulleted-list">
-        <li><em>Binární</em>, například: <code>&gt; a</code></li>
+        <li style="list-style-type:disc"><em>Binární</em>, například: <code>&gt; a</code></li>
       </ul>
       <ul id="2e39cd32-2c30-4698-97dc-a3e478270c0d" class="bulleted-list">
-        <li><em>Keyword</em>, například <code>set: a</code>, nebo také <code>set: a And: b</code>.</li>
+        <li style="list-style-type:disc"><em>Keyword</em>, například <code>set: a</code>, nebo také <code>set: a And: b</code>.</li>
       </ul>
       <p id="d69864e9-afd8-4997-bad0-c28e5d6140cd" class=""><em>Unární</em> zprávy nemají parametry. <em>Binární</em> mají přesně jeden parametr a používají se pro operátory. <em>Keyword</em> zprávy můžou mít libovolný počet parametrů. Na rozdíl od Smalltalku začínají další slova víceparametrové zprávy vždy velkým písmenem. Díky tomu je jasně vidět kde končí.</p>
       <p id="c9d1be63-bc6d-4d7f-96d7-98d287550daa" class="">Zpráva <code>a first</code> najde v objektu <code>‚a‘</code> slot (property) nazvaný <code>"first"</code>. Pokud jsou v něm data, vrátí se. Pokud je v něm kód, vykoná se a vrátí se výsledek (poslední příkaz).</p>
@@ -244,28 +244,28 @@
       <h1 id="23006762-6fc4-4ac9-aab3-63a4dfbca99b" class="">Podmínky</h1>
       <p id="5ffa8e50-5e66-408c-bee5-e71e78335e1e" class="">Jak bývá v jazycích smalltakovského typu zvykem, if podmínky jsou implementovány jako zprávy objektu typu bool. K dispozici jsou zprávy:</p>
       <ul id="55a9eb6c-e949-4f41-bbe5-e8607f1f5e0d" class="bulleted-list">
-        <li><code>ifTrue: []</code></li>
+        <li style="list-style-type:disc"><code>ifTrue: []</code></li>
       </ul>
       <ul id="71b4043c-793a-4c53-b097-087ddbb4e9d4" class="bulleted-list">
-        <li><code>ifFalse: []</code></li>
+        <li style="list-style-type:disc"><code>ifFalse: []</code></li>
       </ul>
       <p id="35c0773a-4a3e-436e-b95a-1cf92397d78d" class="">a jejich ekvivalenty s "else" větví:</p>
       <ul id="6da3139c-d2d5-402b-8185-d432a5ff43da" class="bulleted-list">
-        <li><code>ifTrue: [] False: []</code></li>
+        <li style="list-style-type:disc"><code>ifTrue: [] False: []</code></li>
       </ul>
       <ul id="eeda4fea-5874-40c4-89ad-022fdc64cc70" class="bulleted-list">
-        <li><code>ifFalse: [] True: []</code></li>
+        <li style="list-style-type:disc"><code>ifFalse: [] True: []</code></li>
       </ul>
       <h1 id="02859bf0-5aab-4947-9697-b6ccde529188" class="">Cykly</h1>
       <p id="c4a21e99-ea6d-45dd-88b0-c690e416241e" class="">Podobně jako podmínky, tak i cykly jsou realizovány jako zprávy posílané buďto kolekcím, nebo objektu bloku.</p>
       <p id="8f5dd7b6-6c3f-4051-96e3-3b6e4e62853d" class="">Základní zprávou je <code>loop</code>:</p>
       <ul id="4c3cf203-31ae-4960-a14e-48faf2da9ad5" class="bulleted-list">
-        <li><code>[ ... ] loop</code></li>
+        <li style="list-style-type:disc"><code>[ ... ] loop</code></li>
       </ul>
       <p id="9285b482-4830-4209-ae39-ae925181786a" class="">Toto způsobí, že tělo bloku bude voláno do nekonečna.</p>
       <p id="a2da7eb8-bf18-43d0-8b8a-4cd229735f01" class="">Dále jsou k dispozici podmíněné smyčky:</p>
       <ul id="82d13e2f-17b1-4095-8c58-15d1da9232e3" class="bulleted-list">
-        <li><code>[ podmínka ] whileTrue: [ ... ]</code></li>
+        <li style="list-style-type:disc"><code>[ podmínka ] whileTrue: [ ... ]</code></li>
       </ul>
       <p id="542f7de1-583b-4080-b5fa-04f5e7ee7bbe" class="">a ekvivalenty <code>whileFalse:</code>, <code>untilTrue:</code>, <code>ultilFalse:</code>, <code>loopExit</code> a <code>loopExitValue</code>.</p>
       <p id="69ded5ea-7227-45f5-93de-cea01bed8ed7" class="">Dalšími cykly jsou <code>do:</code> zprávy číselným typům, s alternativami v podobě <code>to:Do:</code> a <code>to:By:Do:</code>, které cyklí od do nějaké hodnoty, podobně jako třeba iterátor <code>range()</code> v pythonu.</p>
@@ -678,7 +678,7 @@ mapBy: eb Into: c</code></pre>
       <h2 id="0e16bdf6-fe70-472b-acac-bf72ff58ba3e" class="">Lepší fonty</h2>
       <p id="5290f5a9-f978-4248-9390-8c811eaa93ee" class="">Pokud vám přijde základní font Selfu hrozný, tak skutečně je. Původně hledá verdanu, ale na linuxu se mu jí nepodaří najít, takže použije fallback. Řešení je popsané tady:</p>
       <ul id="8fc5d06f-734f-4a2a-aa62-c514c742ee7b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html">https://bluishcoder.co.nz/2015/01/08/improving-linux-font-support-in-self.html</a>
         </li>
       </ul>
@@ -689,7 +689,7 @@ mapBy: eb Into: c</code></pre>
       <p id="ab684255-722c-4a90-8d3d-77101f1b8534" class="">V příštím díle se podíváme na historii Selfu, komunitu kolem něj i některé praktické aspekty programování v něm.</p>
       <h1 id="85fe925e-8d7c-469a-8177-8b98a93ca04c" class="">Relevantní diskuze</h1>
       <ul id="c66989dd-1e2b-4e29-b4de-93eeb7e81e6b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/prostredi-a-programovaci-jazyk-selfu-dil-druhy-jazyk">Prostředí a programovací jazyk Selfu (díl druhý; jazyk)</a> (abclinuxu)
         </li>
       </ul>

@@ -32,6 +32,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -51,15 +60,6 @@
         </li>
         <li>
           <a href="../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -96,6 +96,9 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -106,9 +109,6 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>
@@ -128,13 +128,13 @@
         <a href="Biweekly_update_2019-10-27_Slacking_hard/tinySelf_bug_mind_map.jpg" title="tinySelf_bug_mind_map.jpg"><img style="width:1600px" src="Biweekly_update_2019-10-27_Slacking_hard/tinySelf_bug_mind_map_thumb.jpg"></a>
       </figure>
       <p id="647f971f-29c8-49e3-899d-bb67c3d087e2" class="">Basically the problem occurs when:</p>
-      <ol id="217e96a3-6eea-41b0-8389-919a0167bc8c" class="numbered-list" start="1">
+      <ol type="1" id="217e96a3-6eea-41b0-8389-919a0167bc8c" class="numbered-list" start="1">
         <li>The object has a trait.</li>
       </ol>
-      <ol id="942db4cc-cb07-46ed-85ef-00e4626535fb" class="numbered-list" start="2">
+      <ol type="1" id="942db4cc-cb07-46ed-85ef-00e4626535fb" class="numbered-list" start="2">
         <li>You add an object created at the runtime to the trait by mirror.</li>
       </ol>
-      <ol id="708761a2-306b-4ecc-b0e8-48846275406b" class="numbered-list" start="3">
+      <ol type="1" id="708761a2-306b-4ecc-b0e8-48846275406b" class="numbered-list" start="3">
         <li>This newly added object calls a "primitive" method.</li>
       </ol>
       <p id="35690ff1-4963-4865-8140-646141018055" class="">When this happens, <code>self</code> in the primitive method points to the object added in the step 2., not to the object that has a trait in the step 1. It is kinda weird why, because the object added in step 2. uses self that points to the object that has a trait from step 1. It took me some time debugging why, and the reason is because axioms that define how the interpreter should work were wrong.</p>
@@ -195,12 +195,12 @@
       <hr id="d3f4105c-89e3-4e21-88fc-025aaf57ee55">
       <h1 id="4e1ba601-706f-492c-bbd1-c71d81d9a5b5" class="">Relevant discussions</h1>
       <ul id="1af87cf1-75ff-4c66-bc45-3b474de30764" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://twitter.com/bystroushaak/status/1188590970436239360">Twitter</a>
         </li>
       </ul>
       <ul id="ac08de2d-e77e-47d1-8b1f-354ceeaf0d61" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.patreon.com/posts/biweekly-update-31091670">Patreon</a>
         </li>
       </ul>
@@ -215,6 +215,15 @@
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
         <li>
           <a href="../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
@@ -235,15 +244,6 @@
         </li>
         <li>
           <a href="../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
-        </li>
-        <li>
-          <a href="../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
         </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -280,6 +280,9 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -290,9 +293,6 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>

@@ -107,16 +107,16 @@
     <div class="page-body">
       <p id="7766cede-2d1e-4235-b3c9-23993f12dc18" class="">Po krátkém uvážení jsem se rozhodl přidat i upravenou odpověď na jeden email, kde jsme se s tazatelem bavili o rozdílu mezi kompilovanými a interpretovanými programovacími jazyky.</p>
       <p id="ab0801d4-c94e-43d2-a910-9e6a5167e3a3" class="">Existují v zásadě čtyři možné abstraktní úrovně typů programovacích jazyků:</p>
-      <ol id="37ab0b45-a1b9-4845-b977-2f748c44d6e7" class="numbered-list" start="1">
+      <ol type="1" id="37ab0b45-a1b9-4845-b977-2f748c44d6e7" class="numbered-list" start="1">
         <li>Psaní přímo ve strojovém kódu.</li>
       </ol>
-      <ol id="7c400954-ba78-45fc-8ee5-bfbbcb66909e" class="numbered-list" start="2">
+      <ol type="1" id="7c400954-ba78-45fc-8ee5-bfbbcb66909e" class="numbered-list" start="2">
         <li>Psaní v assembleru.</li>
       </ol>
-      <ol id="bbc85e56-146f-4362-93f8-462a09acdc32" class="numbered-list" start="3">
+      <ol type="1" id="bbc85e56-146f-4362-93f8-462a09acdc32" class="numbered-list" start="3">
         <li>Psaní v kompilovaných jazycích.</li>
       </ol>
-      <ol id="cf983e45-5293-4cb8-b015-3dc138687010" class="numbered-list" start="4">
+      <ol type="1" id="cf983e45-5293-4cb8-b015-3dc138687010" class="numbered-list" start="4">
         <li>Psaní v interpretovaných jazycích.</li>
       </ol>
       <p id="654359f0-bda3-4c3b-acf1-3583f84e83a2" class="">Jednotlivé úrovně se liší podle složitosti, možností, které programátorovi dávají při manipulaci s počítačem a efektivitou práce.</p>
@@ -189,13 +189,13 @@ nop</code></pre>
       <p id="53e35b1a-7092-4dda-a496-b470b06fdaaa" class="">V podstatě všechny instrukce assembleru pracují s těmito buňkami. Něco vezmou, dají to někam, provedou s tím něco a pak kamsi zapíšou výsledek. Z buňky do buňky, miliardkrát za vteřinu.</p>
       <hr id="58297e2b-54ca-478d-8dc6-97e5cf8b06db">
       <ul id="927d5653-cd60-49c7-9d23-03519170a889" class="bulleted-list">
-        <li><code>mov</code> například znamená, že přesune informace z jedno paměťové buňky do druhé.</li>
+        <li style="list-style-type:disc"><code>mov</code> například znamená, že přesune informace z jedno paměťové buňky do druhé.</li>
       </ul>
       <ul id="7e8f4deb-84ae-4aaa-a928-66ea9bc5a20e" class="bulleted-list">
-        <li><code>push</code> přidá obsah buňky na zásobník podobných buněk kdesi v paměti.</li>
+        <li style="list-style-type:disc"><code>push</code> přidá obsah buňky na zásobník podobných buněk kdesi v paměti.</li>
       </ul>
       <ul id="0011b0d1-fb95-4c92-981d-e1a90b722804" class="bulleted-list">
-        <li><code>call</code> znamená, že se zavolá podprogram, což je další sekvence podobných instrukcí. V příkladu výše se pomocí call volá funkce na adrese <code>80845a0</code> - tu najdete tak, že ve výpisu z dissassembleru by v prvním sloupci bylo číslo <code>80845a0</code>. Jméno podprogramu, který se volá je <code>_D3std4file6removeFxAaZv</code>. Všimněte si v něm slov std, file a remove. Později se k tomu vrátím.</li>
+        <li style="list-style-type:disc"><code>call</code> znamená, že se zavolá podprogram, což je další sekvence podobných instrukcí. V příkladu výše se pomocí call volá funkce na adrese <code>80845a0</code> - tu najdete tak, že ve výpisu z dissassembleru by v prvním sloupci bylo číslo <code>80845a0</code>. Jméno podprogramu, který se volá je <code>_D3std4file6removeFxAaZv</code>. Všimněte si v něm slov std, file a remove. Později se k tomu vrátím.</li>
       </ul>
       <hr id="55acf163-299c-45ed-ba3e-07c8ca8c0a77">
       <p id="5bb08de0-f878-46c2-bad9-50f1641182ed" class="">Podle toho co má instrukce za parametry se mění způsob, jakým svůj úkol provede. Například jimi lze určit, kterou buňku kam předá:</p>
@@ -256,10 +256,10 @@ os.remove("soubor.txt")</code></pre>
       <h2 id="203c85fc-b477-4d90-80f0-5cb2d5d83b82" class="">Shrnutí</h2>
       <p id="54d4d346-1c4a-46f4-918f-5fb99b389f0b" class="">Abych to shrnul, obecně platí následující vztahy:</p>
       <ul id="7117f6c5-9ec6-495b-9dbc-681b2133af79" class="bulleted-list">
-        <li>Čím blíže k číslu 1 (strojovému kódu), tím složitěji se programuje, klesá efektivita, ale na druhou stranu máte větší možnosti při manipulaci s počítačem.</li>
+        <li style="list-style-type:disc">Čím blíže k číslu 1 (strojovému kódu), tím složitěji se programuje, klesá efektivita, ale na druhou stranu máte větší možnosti při manipulaci s počítačem.</li>
       </ul>
       <ul id="140c5148-62d6-41fe-874a-7eaefc988a5e" class="bulleted-list">
-        <li>Čím blíž k číslu 4 (interpretovaným jazykům), tím jednodušší a efektivnější programování, na druhou stranu nemáte takové možnosti ovládat hardware. To ovšem ve většině případů ani není potřeba.</li>
+        <li style="list-style-type:disc">Čím blíž k číslu 4 (interpretovaným jazykům), tím jednodušší a efektivnější programování, na druhou stranu nemáte takové možnosti ovládat hardware. To ovšem ve většině případů ani není potřeba.</li>
       </ul>
       <p id="c0564ece-67b5-4219-a0c7-80e4b8a7272f" class="">Python spadá do kategorie 4 - je interpretovaný. To znamená, že je lehký na naučení, efektivní, ale některé věci, jako třeba operační systém v něm jen tak neuděláte. To se může zdát jako nevýhoda, ale jelikož to má být váš tvůj první programovací jazyk, tak to taková nevýhoda ve skutečnosti není.</p>
       <p id="7aa85eb7-03c0-4123-b8b5-17d238b0ded7" class="">Když navíc někdy narazíte na problém, že z pythonu potřebujete volat kód v úrovních 1-3, tak můžete. Python totiž umí volat knihovny napsané v jazycích nižší úrovně.</p>

@@ -11,10 +11,10 @@
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="tinySelf">
-  <meta name="twitter:description" content="tinySelf is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
+  <meta name="twitter:description" content="tinySelfEE is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
   <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/tinySelf/self_analogy.png">
   <script src="../../scripts.js"></script>
-  <meta name="description" content="tinySelf is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
+  <meta name="description" content="tinySelfEE is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
   <meta name="keywords" content="tinyself,selflang,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
@@ -33,6 +33,15 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
           <a href="../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         <li>
           <a href="../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
         </li>
-        <li>
-          <a href="Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
@@ -78,6 +78,12 @@
         </li>
         <li>
           <a href="../Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" title="Newsletter 2020-09-12; Waves of productivity">Newsletter 2020-09-12; Waves of productivity</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
         </li>
         <li>
           <a href="../Weekly_updates/Biweekly_update_2020-01-19_Productive_but_unsatisfactory_two_weeks.html" title="Biweekly update 2020-01-19; Productive, but unsatisfactory two weeks">Biweekly update 2020-01-19; Productive, but unsatisfactory two weeks</a>
@@ -119,6 +125,9 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -129,9 +138,6 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>
@@ -149,71 +155,82 @@
     <div class="page-body">
       <p id="114d1ead-9e2a-4cda-8481-ec75d0ce736c" class="">tinySelf is an experimental programming language inspired by the <a href="http://www.selflanguage.org/">Self lang</a>, with the emphasis on the word <em>experimental</em>.</p>
       <p id="c42ef001-647f-462d-bbad-b9cb059796e5" class="">I would like something like the glasswork rack you know from the chemistry pictures, but for computation.</p>
-      <figure id="9e4bec7e-16d9-4edf-8156-259adb7c2c29" class="image">
-        <a href="tinySelf/self_analogy.png" title="self_analogy.png"><img style="width:800px" src="tinySelf/self_analogy.png"></a>
+      <figure id="e005cd68-89f4-4277-bd68-3595491224fa" class="image">
+        <a href="tinySelf/self_analogy.png" title="self_analogy.png"><img style="width:772px" src="tinySelf/self_analogy.png"></a>
       </figure>
       <p id="cd769838-0b1a-4139-9e14-d63d292d9522" class="">The point of the experiment is not that much in the language itself, but all kind of different stuff that can be done with it. tinySelf should be lightweight, compact, collapsible, interchangeable, universal computational apparatus for anything I can possibly hope to make.</p>
-      <h1 id="051956c0-50f4-4f33-bbee-017eb090f023" class="">Technology</h1>
-      <p id="9d99e720-964e-4f10-aff4-61d9782b7d61" class="">Whole interpreter is written in Python, specifically in dialect of the python know as <a href="https://en.wikipedia.org/wiki/PyPy#RPython">RPython</a> (`r` as in restricted), which is provided by the makers of the <a href="https://pypy.org/">PyPy project</a> to ease the creation of new languages.</p>
-      <p id="116d6043-9af7-439c-8974-71fdd355c1c5" class="">For example, it gives you a JIT, garbage collector, ways how to bind numeric ints to your objects and so on. Also, it translates to C.</p>
+      <h1 id="191768d4-21a5-481f-a9ed-5cb7c0acc53d" class="">tinySelfEE</h1>
+      <p id="766fa9e5-ec7a-4484-bdd3-2ef7ef57537f" class="">tinySelfEE is the second iteration of my pet programming language, which I've created to explore some concepts from Self, and Smalltalk, as well as the ideas of Douglas Engelbart and Ted Nelson.</p>
+      <p id="f720f52d-af2c-4e62-a664-db8b9c4000ec" class="">I would like something like the glasswork rack you know from the chemistry pictures, but for computation:</p>
+      <p id="dba4c5b2-1c1f-4457-899d-3ca4d73977b0" class="">The point of the experiment is not that much in the language itself, but all kind of different stuff that can be done with it. tinySelf should be lightweight, compact, collapsible, interchangeable, universal computational apparatus for anything I can possibly hope to make.</p>
+      <h2 id="466f2121-47d8-4589-8d8f-abdc29e03edb" class="">EE</h2>
+      <p id="e2e2adc3-0d3d-47a6-80c7-2ddb9a08347b" class="">The second iteration is writtein in Java, hence the "tinySelfEE" (EE stands for enterprise edition, typical Java buzzword), as my friend jokingly said. In future, it should use GrallVM to gain some usable speed.</p>
       <h1 id="e04895b3-f60d-47e1-9e5e-c49925e8c896" class="">Differences from Self</h1>
       <ul id="1e3c9cd6-4a37-44ff-8095-9fe35606236d" class="bulleted-list">
-        <li>Support for cascading operator <code>;</code>.</li>
+        <li style="list-style-type:disc">Support for cascading operator <code>;</code>.</li>
       </ul>
       <ul id="edef9f04-b893-44ff-8e4d-49facc099fd9" class="bulleted-list">
-        <li>Comments using <code>#</code>.</li>
+        <li style="list-style-type:disc">Comments using <code>#</code>.</li>
       </ul>
       <ul id="f3a77ed3-afef-4b20-8624-07e9b9f93c71" class="bulleted-list">
-        <li>Standard strings using <code>"</code> and <code>'</code>.</li>
+        <li style="list-style-type:disc">Standard strings using <code>"</code> and <code>'</code>.</li>
       </ul>
       <ul id="8912eb6e-c9b8-49df-a838-446451095cb6" class="bulleted-list">
-        <li>Error handling.</li>
+        <li style="list-style-type:disc">Error handling.</li>
       </ul>
       <ul id="285ef624-3257-4dcc-afba-bf12c7f30e18" class="bulleted-list">
-        <li>Primitives are not special messages with special <code>_syntax</code>, but messages to object <code>primitives</code>.</li>
+        <li style="list-style-type:disc">Primitives are not special messages with special <code>_syntax</code>, but messages to object <code>primitives</code>.</li>
       </ul>
       <ul id="470285f6-6538-4004-a446-4aaf1ae6eb1b" class="bulleted-list">
-        <li>Stdlib is my own, and it is only loosely inspired by Self.</li>
+        <li style="list-style-type:disc">Stdlib is my own, and it is only loosely inspired by Self.</li>
       </ul>
       <ul id="0eb8e955-bfa1-461a-b450-9203d32dd20d" class="bulleted-list">
-        <li>Focus on hackability and usefulness, instead on research and academia.</li>
+        <li style="list-style-type:disc">Focus on hackability and usefulness, instead on research and academia.</li>
       </ul>
       <ul id="f628e35a-2407-472a-bb2a-ccbf7581a782" class="bulleted-list">
-        <li>More changes are in process of evaluation and design:
+        <li style="list-style-type:disc">More changes are in process of evaluation and design:
           <ul id="04b256dd-19f4-4299-b8e4-5ad4b24e6e3a" class="bulleted-list">
-            <li>Different annotations, probably more close to Smalltalk's.</li>
+            <li style="list-style-type:circle">Different annotations, probably more close to Smalltalk's.</li>
           </ul>
           <ul id="14153abd-efc6-4f96-8b65-fcdfef069b97" class="bulleted-list">
-            <li>Arbitrary string messages.</li>
+            <li style="list-style-type:circle">Arbitrary string messages.</li>
           </ul>
         </li>
       </ul>
       <h1 id="0f395acc-6340-45a0-92cf-d5b146945ad7" class="">Experiments</h1>
       <p id="da51888e-a694-48c3-ab75-1d6e26b694c5" class="">The goals of the <em>tinySelf language experiment</em> is to:</p>
-      <ol id="ea18b88c-8a30-44f3-bcfd-b5fe415820d5" class="numbered-list" start="1">
+      <ol type="1" id="ea18b88c-8a30-44f3-bcfd-b5fe415820d5" class="numbered-list" start="1">
         <li>Try representation of the data by using prototype based object oriented programming language, instead of data oriented serialization formats like JSON and XML.</li>
       </ol>
-      <ol id="0aed13d5-f22a-450d-8123-406dedc33cba" class="numbered-list" start="2">
+      <ol type="1" id="0aed13d5-f22a-450d-8123-406dedc33cba" class="numbered-list" start="2">
         <li>Prototype based user interface like Morphic and how much it is really useful for representation and working with data and information.</li>
       </ol>
-      <ol id="ed6da284-a028-4d7f-afcf-bc0e7368e42b" class="numbered-list" start="3">
+      <ol type="1" id="ed6da284-a028-4d7f-afcf-bc0e7368e42b" class="numbered-list" start="3">
         <li>Try Reflection. In interpreter, language, but also in graphic interface. I think that reflection may one of the key features for reducing cognitive load, but I have to try it to actually see how much.</li>
       </ol>
-      <ol id="cb11b404-bf33-439e-8bfe-647b0a92fd92" class="numbered-list" start="4">
+      <ol type="1" id="cb11b404-bf33-439e-8bfe-647b0a92fd92" class="numbered-list" start="4">
         <li>Philosophical concept of the <em>"explicitly structured data"</em>. If the data are objects and object have reflection and docstrings, they should be more understandable and explorable than binary formats or structures based on dictionaries.</li>
       </ol>
-      <ol id="b815d133-6654-4cda-b33f-158dbac7fbaf" class="numbered-list" start="5">
+      <ol type="1" id="b815d133-6654-4cda-b33f-158dbac7fbaf" class="numbered-list" start="5">
         <li>Implement and test some of Engelbart's ideas about working with infosphere. Object wiki which is partially also a database and API and language.</li>
       </ol>
-      <ol id="9dbb986b-14d0-4537-9a6e-5a4917e97009" class="numbered-list" start="6">
+      <ol type="1" id="9dbb986b-14d0-4537-9a6e-5a4917e97009" class="numbered-list" start="6">
         <li>Obtain platform to test some of the Alan Kay's and David Ungar's ideas.</li>
       </ol>
-      <ol id="46632a54-1b50-4459-ad25-49858f28c6f0" class="numbered-list" start="7">
+      <ol type="1" id="46632a54-1b50-4459-ad25-49858f28c6f0" class="numbered-list" start="7">
         <li>Obtain, test and describe custom-made environment for <em>tight-coupled-loop</em> technology as it was described by J. C. R. Licklider in his <a href="https://en.wikipedia.org/wiki/Man-Computer_Symbiosis">Man-Computer Symbiosis</a> paper.
         </li>
       </ol>
-      <h1 id="771ea156-0a56-4f82-b3a3-ae17b30f4f93" class="">Articles</h1>
-      <p id="ffb15404-0ed8-4f4b-888f-6c483a6c954e" class="">Here is some of my articles about tinySelf:</p>
+      <h1 id="771ea156-0a56-4f82-b3a3-ae17b30f4f93" class="">Blogs</h1>
+      <p id="ffb15404-0ed8-4f4b-888f-6c483a6c954e" class="">Here are some of my blogs about tinySelf and tinySelfEE:</p>
+      <figure id="14e9a5e7-20bb-4740-bebf-1a4876624387" class="link-to-page">
+        <h4><a class="" href="tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">📄 tinySelfEE 2021-07; let's throw away the Symbolic eval code</a> <time>(@2021-10-29)</time></h4>
+        <p style="margin-top: -1em;"><em>Free flow thought process capturing some of my decisions regarding tinySelfEE development, specifically why I thrown away all the symbolic eval code.</em></p>
+      </figure>
+      <figure id="5c0944f8-8de6-4050-86a8-3ba21f876f1b" class="link-to-page">
+        <h4><a class="" href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">📄 Reasons why I decided to abandon RPython in tinySelf</a> <time>(@2021-10-29)</time></h4>
+        <p style="margin-top: -1em;"><em>Story about how I deded to rewrite my toy language to Java.</em></p>
+      </figure>
       <figure id="baee4985-ca94-4afc-9241-0fa00939e7de" class="link-to-page">
         <h4><a class="" href="tinySelf/The_traits_float_bug_2020-1.html" title="The &quot;traits float&quot; bug 2020/1">📄 The "traits float" bug 2020/1</a> <time>(@2020-01-19)</time></h4>
         <p style="margin-top: -1em;"><em>Update from the development of my own programming language called tinySelf.</em></p>
@@ -232,8 +249,13 @@
       </figure>
       <h1 id="d2a3a41b-8ceb-4f14-beef-65190083be50" class="">Source code</h1>
       <ul id="0a6ba598-731c-4b83-9425-d44be9505791" class="bulleted-list">
-        <li>
-          <a href="https://github.com/Bystroushaak/tinySelf">https://github.com/Bystroushaak/tinySelf</a>
+        <li style="list-style-type:disc">
+          <a href="https://github.com/Bystroushaak/tinySelfEE">https://github.com/Bystroushaak/tinySelfEE</a>
+        </li>
+      </ul>
+      <ul id="d3bef042-66b0-452c-8ae8-ae33f561f89a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/Bystroushaak/tinySelf">https://github.com/Bystroushaak/tinySelf</a> (old deprecated version)
         </li>
       </ul>
       <h1 id="cf58467e-8aa9-4489-9ef5-13c2bc5bf77c" class="">Licence</h1>
@@ -249,6 +271,15 @@
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
         <li>
           <a href="../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
         </li>
@@ -270,15 +301,6 @@
         <li>
           <a href="../3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
         </li>
-        <li>
-          <a href="Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Things_that_disappeared/PyAtom_disappeared.html" title="PyAtom disappeared">PyAtom disappeared</a>
-        </li>
-        <li>
-          <a href="../3D_modeling/Microtron_model_progress_2020-12_Case_for_the_crystal.html" title="Microtron model progress 2020/12; Case for the crystal">Microtron model progress 2020/12; Case for the crystal</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
@@ -295,6 +317,12 @@
         </li>
         <li>
           <a href="../Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" title="Newsletter 2020-09-12; Waves of productivity">Newsletter 2020-09-12; Waves of productivity</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
         </li>
         <li>
           <a href="../Weekly_updates/Biweekly_update_2020-01-19_Productive_but_unsatisfactory_two_weeks.html" title="Biweekly update 2020-01-19; Productive, but unsatisfactory two weeks">Biweekly update 2020-01-19; Productive, but unsatisfactory two weeks</a>
@@ -336,6 +364,9 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -346,9 +377,6 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
-        </li>
-        <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>

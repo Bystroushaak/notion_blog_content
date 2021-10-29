@@ -142,16 +142,16 @@
       <p id="fc604cae-f9e7-4af9-ac3f-b4abef286969" class="">Všude kde jsem dělal se používal linux, databáze, a většinou i nějaká forma <em>message queue</em> předávající strukturovaná data. Někdy šlo o SQL tabulky, jindy o JSON poslaný přes RabbitMQ.</p>
       <p id="9b2855a3-b9b4-4a6e-b891-cd7644fcfd9a" class="">V každé z jmenovaných firem jsem viděl ten samý vzor - nezávisle na sobě vytvořený, přibližně podobný kus software, který přirozeně vyplynul z několika požadavků:</p>
       <ul id="79d55add-6089-4638-bef0-9aedfb743583" class="bulleted-list">
-        <li>Spolehlivé ukládání velkého počtu malých souborů (miliony souborů, s průměrně megabajty až gigabajty na soubor), či menšího počtu velkých souborů (terabajty / soubor).</li>
+        <li style="list-style-type:disc">Spolehlivé ukládání velkého počtu malých souborů (miliony souborů, s průměrně megabajty až gigabajty na soubor), či menšího počtu velkých souborů (terabajty / soubor).</li>
       </ul>
       <ul id="a4c5fa5a-2d50-47aa-8a67-435ce1eabadd" class="bulleted-list">
-        <li>Načítání a zápis konfigurace ve strukturovaném formátu (INI, JSON, XML, YAML, ..).</li>
+        <li style="list-style-type:disc">Načítání a zápis konfigurace ve strukturovaném formátu (INI, JSON, XML, YAML, ..).</li>
       </ul>
       <ul id="5590c10c-cbc2-4dc5-b98c-b400bd007d66" class="bulleted-list">
-        <li>Strukturovaná komunikace mezi vlastními, ale i s cizími programy.</li>
+        <li style="list-style-type:disc">Strukturovaná komunikace mezi vlastními, ale i s cizími programy.</li>
       </ul>
       <ul id="4df40d75-6e25-4e4b-89e4-0c1995a67599" class="bulleted-list">
-        <li>Distribuovaná architektura zahrnující vícero fyzických strojů, umožňující snadné škálování.</li>
+        <li style="list-style-type:disc">Distribuovaná architektura zahrnující vícero fyzických strojů, umožňující snadné škálování.</li>
       </ul>
       <p id="d68709dd-fabd-46c1-a005-ee809b65c2bf" class="">Pokud programujete, pravděpodobně víte, kam tím mířím. Jestliže spousta programátorů vytváří nad danou knihovnou stále stejný vzor, nejedná se o chybu programátorů, ale o špatně navrženou knihovnu.</p>
       <p id="32f496b3-4600-402a-987a-822c378a4c83" class="">Postupně, jak jsem nad tím tak přemýšlel, jsem dospěl k názoru, že je špatně samotná <em>architektura</em> operačního systému. To co nám nabízí a co umožňuje nepovídá tomu co po něm chceme a co od něj očekáváme. Především z hlediska „<em>programátorského uživatelského interface</em>“, tedy toho, s čím jako programátor pracuji.</p>
@@ -271,30 +271,30 @@ stdout, stderr = sp.communicate()</code></pre>
       <p id="0add76b8-b9c4-42b7-afc6-ce60379e6240" class="">Chápu, kde se to bere. Taky jsem touhle cestou šel. Proč to ale nemůže být standardizované a stejné napříč celým systémem? Ideálně ten samý datový formát, který je zároveň jazykem, napříč vším. Proč nemůžou být konfigurací samotné objekty uložené v patřičném umístění?</p>
       <h2 id="5f512a7e-5d07-4acc-8cfe-786f846de856" class="">Logy</h2>
       <p id="d1253cb7-362d-4b72-9812-b278fddd7b91" class="">U logování je typicky nutno řešit následující problémy:</p>
-      <ol id="a939be18-0bbc-4908-9830-43cb18a5a509" class="numbered-list" start="1">
+      <ol type="1" id="a939be18-0bbc-4908-9830-43cb18a5a509" class="numbered-list" start="1">
         <li>Strukturované logování. Ukládání ve formátu, jenž je možné následně zpracovávat, provádět nad ním dotazy a tak podobně.</li>
       </ol>
-      <ol id="29d28618-d717-4c08-9beb-82e5bd88216e" class="numbered-list" start="2">
+      <ol type="1" id="29d28618-d717-4c08-9beb-82e5bd88216e" class="numbered-list" start="2">
         <li>Paralelní přístup, aby mohlo logovat vícero aplikací do jednoho logu a jednotlivé záznamy se „nekřížily“.</li>
       </ol>
-      <ol id="070fcb27-88d8-4442-baa3-68b5afb4b281" class="numbered-list" start="3">
+      <ol type="1" id="070fcb27-88d8-4442-baa3-68b5afb4b281" class="numbered-list" start="3">
         <li>Rotování logů. Staré logy se postupně přejmenovávávají, jsou komprimovány a po čase úplně smazány.</li>
       </ol>
-      <ol id="99b6a242-d43b-453b-8bee-8eef0b8e5c7b" class="numbered-list" start="4">
+      <ol type="1" id="99b6a242-d43b-453b-8bee-8eef0b8e5c7b" class="numbered-list" start="4">
         <li>Způsob logování. Aplikace musí logy nějak dopravit do cílového úložiště.</li>
       </ol>
       <p id="e80f15c2-0dc1-4e4d-a4a6-432da386a016" class="">Současná řešení jsou opět typicky zcela různá, tak jak koho zrovna co napadlo:</p>
-      <ol id="f40a947f-8d21-4d33-93ac-9f9b52d89562" class="numbered-list" start="1">
+      <ol type="1" id="f40a947f-8d21-4d33-93ac-9f9b52d89562" class="numbered-list" start="1">
         <li>Struktura logů je nahodilá. Prakticky všichni používají nějaký více/méně parsovatelný formát, ale jeho tvar je často různý. Málokdy je definováno například jak jsou uloženy a „escapovány“ víceřádkové logy. Parsování probíhá ve velké části přes regexpy a prakticky vždy je křehké a rozbitelné. S určitou pýchou vždy ukazuji kolegům že jejich logy dokážu rozbít obejitím jejich regexpu a snažím se je přesvědčit o použití něčeho nerozbitného.</li>
       </ol>
-      <ol id="4608d3e3-5f06-4a3b-b1ae-eeaba021c4f5" class="numbered-list" start="2">
+      <ol type="1" id="4608d3e3-5f06-4a3b-b1ae-eeaba021c4f5" class="numbered-list" start="2">
         <li>Paralelní logování je řešeno separátní logovací aplikací. Filesystém, na rozdíl od většiny ostatních databází, neumí atomický přístup, ani nic jako triggery, takže pokud tahle aplikace spadne, je po lozích.</li>
       </ol>
-      <ol id="a75c7eb9-5c6a-4eff-8829-209ff6cc684f" class="numbered-list" start="3">
+      <ol type="1" id="a75c7eb9-5c6a-4eff-8829-209ff6cc684f" class="numbered-list" start="3">
         <li>Rotování je také řešeno externí aplikací, a prakticky vždycky se jedná o záležitost periodicky pouštěnou <em>cronem</em>. Ještě jsem neviděl chytré logování, které by zvládlo odrotovat log, když hrozí, že na disku kvůli němu nezbude místo, zato jsem viděl pár služeb v produkci, jenž to položilo. Další problém je, že aplikace typicky mají otevřený soubor s logem a pokud je jim „odrotován“ pod rukama, tak se to celé rozbije. Řeší se to naprosto ne-elegantně posíláním signálů, na které musí umět asynchronně reagovat. Nedávno jsem se hrozně vysmál, když kolega chtěl logovat jen na <em>stdout</em> a tak změnil cestu k souborovému logu na <code>/dev/null</code>. Celé to krásně fungovalo jen do té doby, než se pythonní <a href="https://docs.python.org/3/library/logging.handlers.html#rotatingfilehandler">RotatingFileHandler</a> rozhodl soubor odrotovat a celá aplikace spadla.
         </li>
       </ol>
-      <ol id="76e7327c-75e0-421d-a1f7-8479b9640d8c" class="numbered-list" start="4">
+      <ol type="1" id="76e7327c-75e0-421d-a1f7-8479b9640d8c" class="numbered-list" start="4">
         <li>Co se způsobu týče, tak některé aplikace prostě otevřou soubor a logují do něj. Jiné posílají data na UDP (syslog). Další zas posílají zprávy v JSONu do Sentry. Co koho napadne a co je zrovna populární, tak to bude.</li>
       </ol>
       <p id="a159816a-ec9c-4ff7-a1b3-a7150b9acab2" class="">Logování mi přijde jako krásná ukázka programátorské struktury, kterou je nucen řešit prakticky každý a kterou operační systém v celé komplexitě podporuje skoro vůbec, nebo jen málo. Je to také krásná ukázka konceptu, který by si zasloužil převést na posílání strukturovaných zpráv;</p>
@@ -396,12 +396,12 @@ labels:
       state: started</code></pre>
       <p id="356b12c2-6dfb-4b5a-9846-3cd6176667cc" class="">Celé je to poměrně jednoduše čitelná YAML key-value struktura. Samozřejmě, SAMOZŘEJMĚ že nemohlo zůstat jen u tohohle a tak někoho napadlo přidat podmínky a cykly. Samozřejmě jako YAML:</p>
       <ul id="a45b5337-e985-490f-a02f-b7ed094effff" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_conditionals.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_conditionals.html</a>
         </li>
       </ul>
       <ul id="ac6bfc05-4636-4aba-a6f2-258065b2ab9c" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html</a>
         </li>
       </ul>
@@ -449,106 +449,155 @@ labels:
       <h2 id="c6cff942-406f-41e8-bbcb-ea3dd84d9784" class="">Inspirace a kontext</h2>
       <p id="6371efdd-cbe7-4264-9ff9-899d39cfb2e6" class="">Pokud si myslíte, že jsou to všechno naivní blbosti, zkuste si přečíst něco na téma <a href="https://en.wikipedia.org/wiki/Genera_(operating_system)">Genery</a>:</p>
       <ul id="426708ad-231c-4bca-81ae-5350b281f09f" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://bitsavers.trailing-edge.com/pdf/symbolics/software/genera_8/Genera_Concepts.pdf">http://bitsavers.trailing-edge.com/pdf/symbolics/software/genera_8/Genera_Concepts.pdf</a>
         </li>
       </ul>
       <p id="4afa70a3-7a1c-43e9-9a9a-16ec82131da2" class="">Zjistíte, že před desítkami let existoval grafický systém splňující velkou část všeho, o čem jsem psal. Systém tak dobrý, že dodnes kolem sebe spojuje skupiny nadšenců.</p>
       <p id="2bd53aaa-a0bb-4ee4-952a-28d1248e3d83" class="">Dále pak na podobná témata:</p>
       <ul id="1135e172-fb7d-4bc8-83a1-193268cdce0d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/">Squeak is like an operating system</a>
         </li>
       </ul>
       <ul id="d82fbc27-079a-4f98-9c59-e2a5f1e3f6d1" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/">The Operating System: Should There Be One?</a> (article + reddit discussion)
         </li>
       </ul>
       <ul id="15d7faf6-77ef-460f-ad87-b066a0cb80e7" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">Systems, not Programs</a>
         </li>
       </ul>
       <ul id="56670107-29d8-434d-bcd8-3ba179c3c346" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html">Things UNIX can do atomically</a>
         </li>
       </ul>
       <ul id="75321a23-687f-4ee1-b595-090c8fefce8d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.pixelbeat.org/programming/stdio_buffering/">buffering in standard streams</a>
         </li>
       </ul>
       <ul id="80ebc3c7-066f-47b8-9c69-327fa3c5cc7d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://okmij.org/ftp/papers/DreamOSPaper.html">A dream of an ultimate OS</a>
         </li>
       </ul>
       <ul id="802241fb-2c61-4123-9123-b11f19f772de" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://kaitai.io/">Kaitai struct</a>
         </li>
       </ul>
       <ul id="912d2f1b-53e7-4dad-aa42-101a8bd71dc4" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="https://treenotation.org/">Tree notation</a>
         </li>
       </ul>
       <ul id="a3e56504-a976-4bc5-9b30-0ca669dc2637" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/bystroushaak/2011/2/proc-pouzivam-unix-linux">Proč používám Unix/Linux</a>
         </li>
       </ul>
       <ul id="c944e264-55d3-4dd7-a0a5-eae812900b10" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/bystroushaak/2017/7/jak-se-stat-programatorem#493">http://www.abclinuxu.cz/blog/bystroushaak/2017/7/jak-se-stat-programatorem#493</a>
         </li>
       </ul>
       <h1 id="64cb21b6-3fab-4c37-8bcf-59675e4573a1" class="">Relevantní diskuze</h1>
       <ul id="3852fb5c-47c1-4fac-8618-7fb02c4e2771" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/bystroushaak/2018/12/programatorova-kritika-chybejici-struktury-os/diskuse">Velmi plodná diskuze na abclinuxu</a>
         </li>
       </ul>
       <ul id="24a6a6bf-b0c7-4b6d-a0c3-a802b96af38d" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/foobar/2018/12/structuros-simulator-bystroushaakovho-nezmyslu">StructurOS - simulátor bystroushaakovho nezmyslu</a>
         </li>
       </ul>
       <ul id="785f9524-32ac-4c58-be5e-47ce7726f01b" class="bulleted-list">
-        <li>
+        <li style="list-style-type:disc">
           <a href="http://www.abclinuxu.cz/blog/Linux_nieje_jadro_ale_komunita/2018/12/simulator-bystroushaakovho-nezmyslu-2-tentokrat-s-videom">Simulátor bystroushaakovho nezmyslu 2, tentokrát s videom.</a>
         </li>
       </ul>
-      <h1 id="8e02d43a-f0d3-4c41-afdb-01536ca661e2" class="">Edit <time>@2020/02/18</time></h1>
-      <p id="e099fadb-3d61-44cc-8d64-c4c0b45331e4" class="">Od doby co jsem tento článek publikoval se objevilo několik zajímavých článků na tohle téma:</p>
-      <ul id="3565f250-2dd0-452c-b674-b18f46dd73a1" class="bulleted-list">
-        <li>
-          <a href="https://shalabh.com/programmable-systems/files-and-file-formats.html">Files, Formats and Byte Arrays</a>
+      <h1 id="b379814a-ff3b-4fc7-9ab5-9ba8658dcc4a" class="">Relevantní odkazy (poslední update <time>@2021/09/28</time>)</h1>
+      <p id="9e5da15f-c686-48ba-8116-26dd208d8e01" class="">Od doby co jsem tento článek publikoval se objevilo několik zajímavých článků na tohle téma:</p>
+      <ul id="571b36ec-e2ac-4635-a6a3-015c33475689" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://tekkie.wordpress.com/2007/07/19/squeak-is-like-an-operating-system/">Squeak is like an operating system</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
-      <ul id="a74ddb44-0c04-457a-9935-030e2387227d" class="bulleted-list">
-        <li>
-          <a href="https://djrobstep.com/posts/programs-are-a-prison">Programs are a prison: Rethinking the fundamental building blocks of computing interfaces</a>
+      <ul id="688a7cde-fbd8-464e-8aa7-1cad61ef7645" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.reddit.com/r/programming/comments/54z7hd/the_operating_system_should_there_be_one/">The Operating System: Should There Be One?</a> (article + reddit discussion) (added <time>@2020/02/18</time>)
         </li>
       </ul>
-      <ul id="88f7a91c-40fb-4f43-90df-694ba8a8a971" class="bulleted-list">
-        <li>
-          <a href="https://lobste.rs/s/fw5ubn/unix_plan_9_lurking_smalltalk">Unix, Plan 9, and Lurking Smalltalk</a>
+      <ul id="3db6351e-b582-4187-9c3c-46df690d2f43" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://shalabh.com/programmable-systems/systems-not-programs.html">Systems, not Programs</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
-      <ul id="3e118587-787b-4307-9436-6dbe77e1f74c" class="bulleted-list">
-        <li>
-          <a href="https://www.youtube.com/watch?v=wN6IwNriwHc">Database as Filesystem</a>
+      <ul id="7fea5d5f-d899-4d31-b916-1f7c1480f5bb" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html">Things UNIX can do atomically</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
-      <ul id="9be44191-3ce3-4390-933d-272d0e4e98a9" class="bulleted-list">
-        <li>
-          <a href="https://apenwarr.ca/log/20190216">The log/event processing pipeline you can't have</a>
+      <ul id="e659e10a-9b06-43b5-81bc-6d6498858e74" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://www.pixelbeat.org/programming/stdio_buffering/">buffering in standard streams</a> (added <time>@2020/02/18</time>)
         </li>
       </ul>
-      <p id="27dfa73c-57cc-43bd-a817-bc2894015093" class=""></p>
+      <ul id="c0bc3f5b-225d-4313-b3dc-e6ea865e3491" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://okmij.org/ftp/papers/DreamOSPaper.html">A dream of an ultimate OS</a> (added <time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="d6bb338e-c0df-4a31-9bf5-b6981b0b51e8" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://kaitai.io/">Kaitai struct</a> (added <time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="1e31bdff-0c57-4879-99b5-207fbfef8825" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://treenotation.org/">Tree notation</a> (added <time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="5bf85a8b-f61d-4f6b-a5cf-f842ea632c94" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://shalabh.com/programmable-systems/files-and-file-formats.html">Files, Formats and Byte Arrays</a> (<time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="bd816a65-0973-4d09-9176-e9fa4eb4dc9d" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://djrobstep.com/posts/programs-are-a-prison">Programs are a prison: Rethinking the fundamental building blocks of computing interfaces</a> (<time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="22d41d60-57ee-4b38-b3cc-c77d29be1ebf" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://lobste.rs/s/fw5ubn/unix_plan_9_lurking_smalltalk">Unix, Plan 9, and Lurking Smalltalk</a> (<time>@2020/02/18</time>)
+        </li>
+      </ul>
+      <ul id="667d02f2-7705-48c7-9c02-0f03c7a3cce9" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://weinholt.se/articles/non-posix-filesystems/">Non-POSIX file systems</a> (added <time>@2020/12/12</time>)
+        </li>
+      </ul>
+      <ul id="86592945-e34e-4a18-8a52-dbd1c9d2f387" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://raphlinus.github.io/text/2020/10/26/text-layout.html">Text layout is a loose hierarchy of segmentation</a> (added <time>@2020/12/12</time>)
+        </li>
+      </ul>
+      <ul id="55bb1cf3-5248-4f9d-bab6-461837821a45" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://onezero.medium.com/the-document-metaphor-desktop-gui-doesnt-work-anymore-d276271bfa40">Why We Need to Rethink the Computer ‘Desktop’ as a Concept</a> (added <time>@2021/07/12</time>)
+        </li>
+      </ul>
+      <ul id="ea00c3d1-ef9f-4d0f-bd7f-11226c956d5e" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://p.janouch.name/text/on-unix-composability.html">On Unix composability</a> (added <time>@2021/09/28</time>)
+        </li>
+      </ul>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
