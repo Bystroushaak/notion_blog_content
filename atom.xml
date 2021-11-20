@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-10-30T01:40:36.354716+00:00</updated>
+  <updated>2021-11-20T14:42:01.399496+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html</id>
-    <title>Microtron model progress 2020/12; Texturing of the microtron</title>
-    <updated>2020-12-25T15:40:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" rel="alternate"/>
-    <summary type="text">As mentioned in the last article, I got to the point, where I remodeled the insides of the microtron and everything was ready to be textured.</summary>
-    <published>2020-12-25T15:40:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html</id>
     <title>Newsletter 2021-01-08; Defragmentation in progress</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html" rel="alternate"/>
     <summary type="text">Some of the more important points in my year, and also general update regarding the tinySelf, objWiki and other projects of mine. Expect a lot of text.</summary>
     <published>2021-10-29T05:29:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html</id>
+    <title>Tools I use: PyCharm / Idea plugins</title>
+    <updated>2021-11-20T15:29:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" rel="alternate"/>
+    <summary type="text">List of all the plugins I use in PyCharm and Idea.</summary>
+    <published>2021-11-20T15:29:00+01:00</published>
   </entry>
 </feed>

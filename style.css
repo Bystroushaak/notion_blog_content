@@ -282,6 +282,17 @@ ol > li {
 	margin-right: 1em;
 }
 
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
 time {
 	opacity: 0.5;
 }

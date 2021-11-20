@@ -1,0 +1,328 @@
+LightWeightDict (9 item array, without JIT):
+
+       1786,847944      task-clock (msec)         #    0,989 CPUs utilized
+                 6      context-switches          #    0,003 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             1 443      page-faults               #    0,808 K/sec
+     6 216 040 321      cycles                    #    3,479 GHz
+    14 751 490 763      instructions              #    2,37  insn per cycle
+     2 939 469 920      branches                  # 1645,059 M/sec
+         2 826 394      branch-misses             #    0,10% of all branches
+
+       1,806325279 seconds time elapsed
+
+LightWeightDict (9 item array, JIT, -O3):
+
+        902,704710      task-clock (msec)         #    0,980 CPUs utilized
+                 4      context-switches          #    0,004 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 261      page-faults               #    0,003 M/sec
+     3 273 494 200      cycles                    #    3,626 GHz
+     7 407 990 148      instructions              #    2,26  insn per cycle
+     1 535 216 999      branches                  # 1700,686 M/sec
+           443 211      branch-misses             #    0,03% of all branches
+
+       0,921332876 seconds time elapsed
+
+LightWeightDict (5 item array, without JIT):
+
+       1713,935562      task-clock (msec)         #    0,989 CPUs utilized
+                 8      context-switches          #    0,005 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 445      page-faults               #    0,843 K/sec
+     6 184 200 764      cycles                    #    3,608 GHz
+    14 869 405 066      instructions              #    2,40  insn per cycle
+     2 948 457 513      branches                  # 1720,285 M/sec
+         3 472 612      branch-misses             #    0,12% of all branches
+
+       1,732909286 seconds time elapsed
+
+LightWeightDict (5 item array, JIT, -O3):
+
+        911,769142      task-clock (msec)         #    0,974 CPUs utilized
+                72      context-switches          #    0,079 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             2 258      page-faults               #    0,002 M/sec
+     3 304 997 915      cycles                    #    3,625 GHz
+     7 510 959 464      instructions              #    2,27  insn per cycle
+     1 546 095 792      branches                  # 1695,710 M/sec
+           457 721      branch-misses             #    0,03% of all branches
+
+       0,935909071 seconds time elapsed
+
+LightWeightDictList (9 item array, without JIT):
+
+       1683,981010      task-clock (msec)         #    0,987 CPUs utilized
+               125      context-switches          #    0,074 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 461      page-faults               #    0,868 K/sec
+     6 097 850 057      cycles                    #    3,621 GHz
+    14 749 114 263      instructions              #    2,42  insn per cycle
+     2 959 153 605      branches                  # 1757,237 M/sec
+         2 908 387      branch-misses             #    0,10% of all branches
+
+       1,706432158 seconds time elapsed
+
+LightWeightDictList (9 item array, JIT, -O3):
+
+        887,950495      task-clock (msec)         #    0,978 CPUs utilized
+                62      context-switches          #    0,070 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 265      page-faults               #    0,003 M/sec
+     3 210 526 089      cycles                    #    3,616 GHz
+     7 359 528 732      instructions              #    2,29  insn per cycle
+     1 532 037 076      branches                  # 1725,363 M/sec
+           450 639      branch-misses             #    0,03% of all branches
+
+       0,908216059 seconds time elapsed
+
+LightWeightDictList (5 item array, without JIT):
+
+       1758,364754      task-clock (msec)         #    0,977 CPUs utilized
+               310      context-switches          #    0,176 K/sec
+                 2      cpu-migrations            #    0,001 K/sec
+             1 436      page-faults               #    0,817 K/sec
+     6 316 222 200      cycles                    #    3,592 GHz
+    14 832 655 128      instructions              #    2,35  insn per cycle
+     2 960 522 181      branches                  # 1683,679 M/sec
+         2 985 425      branch-misses             #    0,10% of all branches
+
+       1,799577497 seconds time elapsed
+
+LightWeightDictList (5 item array, JIT, -O3):
+
+        906,980648      task-clock (msec)         #    0,977 CPUs utilized
+               105      context-switches          #    0,116 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 267      page-faults               #    0,002 M/sec
+     3 255 113 562      cycles                    #    3,589 GHz
+     7 453 082 601      instructions              #    2,29  insn per cycle
+     1 543 141 482      branches                  # 1701,405 M/sec
+           460 681      branch-misses             #    0,03% of all branches
+
+       0,928381029 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT, 8 properties):
+
+       1699,595020      task-clock (msec)         #    0,987 CPUs utilized
+                 9      context-switches          #    0,005 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 476      page-faults               #    0,868 K/sec
+     6 161 525 094      cycles                    #    3,625 GHz
+    14 896 764 298      instructions              #    2,42  insn per cycle
+     3 076 530 743      branches                  # 1810,155 M/sec
+         2 635 754      branch-misses             #    0,09% of all branches
+
+       1,722421554 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 8 properties):
+
+ --> No data
+
+LightWeightDictJustProperties (without JIT 7 properties):
+
+       1669,218647      task-clock (msec)         #    0,987 CPUs utilized
+               121      context-switches          #    0,072 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 552      page-faults               #    0,930 K/sec
+     6 055 004 036      cycles                    #    3,627 GHz
+    14 933 437 663      instructions              #    2,47  insn per cycle
+     3 061 432 697      branches                  # 1834,051 M/sec
+         3 179 675      branch-misses             #    0,10% of all branches
+
+       1,691929776 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 7 properties):
+
+        993,775775      task-clock (msec)         #    0,969 CPUs utilized
+                14      context-switches          #    0,014 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 385      page-faults               #    0,002 M/sec
+     3 434 445 483      cycles                    #    3,456 GHz
+     7 647 408 845      instructions              #    2,23  insn per cycle
+     1 647 864 176      branches                  # 1658,185 M/sec
+           585 076      branch-misses             #    0,04% of all branches
+
+       1,025541362 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT 6 properties):
+
+       1703,349826      task-clock (msec)         #    0,989 CPUs utilized
+                 4      context-switches          #    0,002 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 510      page-faults               #    0,886 K/sec
+     6 172 081 935      cycles                    #    3,623 GHz
+    14 837 466 555      instructions              #    2,40  insn per cycle
+     3 029 695 397      branches                  # 1778,669 M/sec
+         4 726 145      branch-misses             #    0,16% of all branches
+
+       1,722382087 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 6 properties):
+
+        917,158061      task-clock (msec)         #    0,972 CPUs utilized
+               180      context-switches          #    0,196 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             2 370      page-faults               #    0,003 M/sec
+     3 283 503 483      cycles                    #    3,580 GHz
+     7 574 939 631      instructions              #    2,31  insn per cycle
+     1 624 706 001      branches                  # 1771,457 M/sec
+           576 528      branch-misses             #    0,04% of all branches
+
+       0,943957671 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT 5 properties):
+
+       1662,599475      task-clock (msec)         #    0,986 CPUs utilized
+               124      context-switches          #    0,075 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 471      page-faults               #    0,885 K/sec
+     6 030 408 148      cycles                    #    3,627 GHz
+    14 756 265 090      instructions              #    2,45  insn per cycle
+     3 001 208 129      branches                  # 1805,130 M/sec
+         2 901 115      branch-misses             #    0,10% of all branches
+
+       1,686521370 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 5 properties):
+
+        915,117710      task-clock (msec)         #    0,979 CPUs utilized
+                10      context-switches          #    0,011 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 361      page-faults               #    0,003 M/sec
+     3 251 166 726      cycles                    #    3,553 GHz
+     7 493 352 594      instructions              #    2,30  insn per cycle
+     1 599 245 935      branches                  # 1747,585 M/sec
+           529 976      branch-misses             #    0,03% of all branches
+
+       0,934487675 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT 4 properties):
+
+       1666,550559      task-clock (msec)         #    0,986 CPUs utilized
+               126      context-switches          #    0,076 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             1 472      page-faults               #    0,883 K/sec
+     6 042 478 923      cycles                    #    3,626 GHz
+    14 691 354 970      instructions              #    2,43  insn per cycle
+     2 963 203 892      branches                  # 1778,046 M/sec
+         2 786 908      branch-misses             #    0,09% of all branches
+
+       1,689752759 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 4 properties):
+
+        903,713471      task-clock (msec)         #    0,975 CPUs utilized
+                 7      context-switches          #    0,008 K/sec
+                 2      cpu-migrations            #    0,002 K/sec
+             2 365      page-faults               #    0,003 M/sec
+     3 236 390 014      cycles                    #    3,581 GHz
+     7 429 064 157      instructions              #    2,30  insn per cycle
+     1 568 001 812      branches                  # 1735,065 M/sec
+           527 625      branch-misses             #    0,03% of all branches
+
+       0,926559543 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT 3 properties):
+
+       1634,048187      task-clock (msec)         #    0,989 CPUs utilized
+                 3      context-switches          #    0,002 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 407      page-faults               #    0,861 K/sec
+     5 922 070 772      cycles                    #    3,624 GHz
+    14 590 886 554      instructions              #    2,46  insn per cycle
+     2 927 349 398      branches                  # 1791,471 M/sec
+         3 116 034      branch-misses             #    0,11% of all branches
+
+       1,652842120 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 3 properties):
+
+        879,456571      task-clock (msec)         #    0,973 CPUs utilized
+                64      context-switches          #    0,073 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 318      page-faults               #    0,003 M/sec
+     3 181 204 179      cycles                    #    3,617 GHz
+     7 351 312 622      instructions              #    2,31  insn per cycle
+     1 541 297 867      branches                  # 1752,557 M/sec
+           593 661      branch-misses             #    0,04% of all branches
+
+       0,903769479 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT 2 properties):
+
+       1770,624691      task-clock (msec)         #    0,989 CPUs utilized
+                 5      context-switches          #    0,003 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 388      page-faults               #    0,784 K/sec
+     6 443 357 061      cycles                    #    3,639 GHz
+    14 965 754 453      instructions              #    2,32  insn per cycle
+     2 842 312 227      branches                  # 1605,260 M/sec
+         6 351 619      branch-misses             #    0,22% of all branches
+
+       1,789544242 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 2 properties):
+
+        917,383847      task-clock (msec)         #    0,976 CPUs utilized
+                 2      context-switches          #    0,002 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             2 236      page-faults               #    0,002 M/sec
+     3 314 159 555      cycles                    #    3,613 GHz
+     7 505 858 433      instructions              #    2,26  insn per cycle
+     1 421 783 121      branches                  # 1549,824 M/sec
+           502 374      branch-misses             #    0,04% of all branches
+
+       0,939720659 seconds time elapsed
+
+LightWeightDictJustProperties (without JIT 1 property):
+
+       1755,970255      task-clock (msec)         #    0,990 CPUs utilized
+                 4      context-switches          #    0,002 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             1 363      page-faults               #    0,776 K/sec
+     6 345 217 307      cycles                    #    3,614 GHz
+    15 171 366 871      instructions              #    2,39  insn per cycle
+     2 862 223 778      branches                  # 1629,996 M/sec
+         4 250 238      branch-misses             #    0,15% of all branches
+
+       1,774338591 seconds time elapsed
+
+LightWeightDictJustProperties (JIT, -O3, 1 property):
+
+        951,059708      task-clock (msec)         #    0,982 CPUs utilized
+                 2      context-switches          #    0,002 K/sec
+                 0      cpu-migrations            #    0,000 K/sec
+             2 263      page-faults               #    0,002 M/sec
+     3 440 918 374      cycles                    #    3,618 GHz
+     7 810 192 389      instructions              #    2,27  insn per cycle
+     1 462 842 910      branches                  # 1538,119 M/sec
+           479 595      branch-misses             #    0,03% of all branches
+
+       0,968948326 seconds time elapsed
+
+OrderedDict (without JIT):
+
+       1738,434937      task-clock (msec)         #    0,986 CPUs utilized
+               125      context-switches          #    0,072 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             1 388      page-faults               #    0,798 K/sec
+     6 316 508 732      cycles                    #    3,633 GHz
+    15 480 375 641      instructions              #    2,45  insn per cycle
+     2 865 010 146      branches                  # 1648,040 M/sec
+         4 326 425      branch-misses             #    0,15% of all branches
+
+       1,762294242 seconds time elapsed
+
+OrderedDict (JIT, -O3):
+
+       1071,016222      task-clock (msec)         #    0,984 CPUs utilized
+                24      context-switches          #    0,022 K/sec
+                 1      cpu-migrations            #    0,001 K/sec
+             2 271      page-faults               #    0,002 M/sec
+     3 758 408 295      cycles                    #    3,509 GHz
+     7 930 552 343      instructions              #    2,11  insn per cycle
+     1 448 445 782      branches                  # 1352,403 M/sec
+         1 019 446      branch-misses             #    0,07% of all branches
+
+       1,088381149 seconds time elapsed

@@ -7,6 +7,81 @@
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
   <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+  pre { line-height: 125%; }
+  td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+  td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
@@ -31,6 +106,9 @@
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
+        </li>
         <li>
           <a href="../en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
         </li>
@@ -57,9 +135,6 @@
         </li>
         <li>
           <a href="../en/Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
-        </li>
-        <li>
-          <a href="../en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
         </li>
       </ul>& <a href="../Changelog.html" title="Changelog">more</a>
     </div>
@@ -116,6 +191,9 @@
       <h1 class="page-title">Hm</h1>
     </header>
     <div class="page-body">
+      <p id="8e0f71ac-7e85-440e-b872-51e75ab79a09" class="">All the hm I can give.</p>
+      <h1 id="9253c74c-2b00-431a-8361-9cfdbd71ba4a" class="">Notion hm</h1>
+      <h1 id="8f869817-faed-4af2-93c0-1b486c770ba8" class="">Hm</h1>
       <h1 id="d10f68c0-aa43-48c8-8c18-2047f3806aea" class="">Hm</h1>
       <h2 id="8e507357-626a-449c-9c5e-d3fd192010cb" class="">Hm</h2>
       <h3 id="fb298746-39c7-4568-b194-28e9ce8b78e4" class="">Hm</h3>
@@ -166,7 +244,7 @@
           </tbody>
         </table>
       </div>
-      <hr id="3e452d1a-8539-45fb-b43d-61b5b3580e3c">
+      <h1 id="3f266242-3a78-4947-a013-ec25e8b80643" class="">Unicode hm</h1>
       <p id="e58e6a2d-7cd4-4230-a735-1ef341f939ae" class="">hm</p>
       <p id="c2f2930c-bad3-43ac-b868-05c3df178044" class="">𝔥𝔪</p>
       <p id="39031203-7d11-41d4-9ecd-86af19d13cd3" class="">𝖍𝖒</p>
@@ -268,7 +346,39 @@
         <li style="list-style-type:disc">•.•´¯<code>.•• 🎀 𝒽𝓂 🎀 ••.•</code>¯´•.••</li>
       </ul>
       <p id="24903663-d34f-4bb0-b438-6045e05d446b" class="">.✴ 🎀 𝒽𝓂 🎀 ✴.</p>
-      <hr id="3e4758d2-ec7a-420e-9518-d6f4552e2790">
+      <h1 id="e42ab798-beb8-453e-8325-846fbf807cc5" class="">Hm in different languages</h1>
+      <p id="4dd2db87-cee3-40b5-86ae-784425fde7e8" class="">እም</p>
+      <p id="777921d1-30a7-4031-af5d-05a7e35c428e" class="">হুম</p>
+      <p id="49843808-8d15-4292-8ca0-4ab319424151" class="">ဟမ်</p>
+      <p id="003f4b3b-923b-436b-8ebc-c4ff40b54ad1" class="">嗯</p>
+      <p id="62e8b89c-f767-4971-810b-8596a6cef987" class="">جلالة الملك</p>
+      <p id="2ac12403-8acd-4195-bbdf-957960b7752d" class="">Հմ</p>
+      <p id="a6b9ed07-45ce-4002-ab1c-1cab30a4235f" class="">Хм</p>
+      <p id="f42a37a5-87ca-4d43-a3df-58fd81935ebb" class="">хм</p>
+      <p id="f9df8da6-32e4-44a0-a382-7e8db6a348fd" class="">ჰმ</p>
+      <p id="bfb13198-c017-4c87-ada8-648ef5b87235" class="">હમ</p>
+      <p id="210b07f1-21f8-4de3-bb2b-fcb0aeec05f2" class="">הממ</p>
+      <p id="77ca7185-411a-4eb5-9bfa-89821f39bb5e" class="">एचएम</p>
+      <p id="2b5ed599-7081-447e-b796-ae6fa22d4697" class="">うーん</p>
+      <p id="351a1cdf-a150-45fe-9ff4-1fe48c2e869c" class="">המ</p>
+      <p id="4bf39f12-824d-4d3b-8644-848565f085b8" class="">ಹಾಂ</p>
+      <p id="2083757d-ed3c-499a-ad42-2f146aa46e56" class="">ហ៊ឹម</p>
+      <p id="144cf8e0-13a5-4f75-802b-0c742f4fc011" class="">흠</p>
+      <p id="d66432f4-edd8-46cc-ae79-fd10616172ec" class="">ຮມ</p>
+      <p id="2860de2f-3260-432d-bda1-22e78d26ce34" class="">हं</p>
+      <p id="20639083-9194-47cf-b6d5-f6fbe0972d6e" class="">हम्म</p>
+      <p id="245e7d95-25b6-4de9-be7f-91057a99b1e1" class="">ਹਮ</p>
+      <p id="99fc545f-5a85-4a27-a44f-089285d53f9d" class="">هوم</p>
+      <p id="528aa38d-3a1f-48a1-abb9-6f7c37e27d0d" class="">هوم</p>
+      <p id="5cb3bd4d-4b3c-4518-b5a3-f27ca6b15faf" class="">Χμ</p>
+      <p id="712025bb-617d-4031-b37e-2fb68753825e" class="">ايڇ</p>
+      <p id="62b74b99-1eaa-47f3-8826-28e1aac34b8b" class="">හ්ම්</p>
+      <p id="982f3ef3-9dfb-4822-8db7-2c66db5f0c04" class="">ம்</p>
+      <p id="f74afeef-7127-471c-9941-4e73a16f9521" class="">మ్</p>
+      <p id="51e03519-7981-45bf-b93a-e05180b8d1b6" class="">หืม</p>
+      <p id="3e129cb8-e6bf-4073-b253-c5cc20df1f8b" class="">ہم</p>
+      <h1 id="77d54d4e-5b53-44ff-bd04-50b3aba1a9e4" class="">Programming hm</h1>
+      <h2 id="55577bbc-3c9a-4c08-9963-26cbe1f86680" class="">Recursive hm</h2>
       <pre class="code"><code><span class="k">def</span> <span class="nf">hm</span><span class="p">(</span><span class="n">hm</span><span class="p">):</span>
   <span class="n">hm</span><span class="p">(</span><span class="n">hm</span><span class="p">)</span>
 
@@ -281,11 +391,17 @@
   File "&lt;stdin&gt;", line 2, in hm
   [Previous line repeated 996 more times]
 HmError: too many hm</code></pre>
-      <hr id="e83f9e03-6b36-4380-a5ed-716fe04fede8">
+      <h2 id="3841efd2-da80-4e88-9ca6-0127efe30a3d" class="">Hm stored in itself</h2>
+      <pre class="code"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">hm</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hm</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hm</span>
+<span class="p">[[</span><span class="o">...</span><span class="p">]]</span>
+</code></pre>
+      <h1 id="6c1bd1bd-4404-47d8-8932-31e645c0bcaa" class="">Complex hm molecule</h1>
       <figure id="57ef1372-c8e4-4052-92d0-69f3651885f7" class="image">
         <a href="Hm/hm_molecule.png" title="hm_molecule.png"><img style="width:395px" src="Hm/hm_molecule.png"></a>
       </figure>
-      <hr id="08a5be8a-9c86-4660-b498-79aef0ad7398">
+      <h1 id="28488385-be40-480c-921a-f700c5447303" class="">Hm in picture</h1>
       <figure id="84665574-d552-4ce5-8d3b-8df5b66ed551" class="image">
         <a href="Hm/hm.png" title="hm.png"><img style="width:750px" src="Hm/hm.png"></a>
       </figure>
@@ -296,7 +412,66 @@ HmError: too many hm</code></pre>
       <hr id="0080dc9d-f4f0-4cb8-a67e-7988303fb314">
       <figure id="ce8576db-ce46-423d-8ddc-ec72a1287e1b" class="image">
         <a href="Hm/hm_keyboard.png" title="hm_keyboard.png"><img style="width:2077px" src="Hm/hm_keyboard_thumb.jpg"></a>
+        <figcaption>
+          Can you find the hm?
+        </figcaption>
       </figure>
+      <h1 id="f66b9dca-ed93-4b91-b433-4aac08acd673" class="">Hm in movies</h1>
+      <h2 id="826232b3-e692-4e23-a814-8278e6c434e3" class="">Taboo</h2>
+      <p id="b601904e-0dfc-4452-b516-7329c53df3ff" class="">One of the greatest use of hm in dialog:</p>
+      <figure id="06bb9fc4-93a3-4f5e-8897-5422ab22aa0f">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/LbmYA5rYOVc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="b500dfd5-89ee-4f49-8f1d-2fc6906ae7e8">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/A_zbR2trnGI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <h2 id="c5477d8a-0b98-4165-8d54-7ec152399c66" class="">Mr Turner</h2>
+      <p id="89439bb3-8f1d-4642-88fb-90990766cc3c" class="">My favourite movie, full of deep hms.</p>
+      <figure id="ab897a15-ddfc-42d9-b97d-bbc16a5e084b">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/PQKxClCHX2s" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="7a7d015c-9329-4c22-a08a-33d6c4f7eedf">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/dMAVUlVcQRw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <h1 id="e4ba5685-30da-4ca1-ae19-ca0b71d44cc9" class="">Internet of hm</h1>
+      <ul id="ad2ce7e5-cb2a-4968-9085-ff0af6f377f0" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://cs.wikipedia.org/wiki/Hm...">https://cs.wikipedia.org/wiki/Hm...</a>
+        </li>
+      </ul>
+      <ul id="2392bedb-5ddd-4a90-848e-b1e751b2677a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.hmhodonin.cz/">https://www.hmhodonin.cz/</a>
+        </li>
+      </ul>
+      <ul id="518ed805-a14f-461b-b3a1-bb9ac6ca234a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://www.skupina.hm/">http://www.skupina.hm/</a>
+        </li>
+      </ul>
+      <ul id="9486315e-b5f5-4f78-8786-c675a9bd38cd" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://www.hm-metal.cz/">http://www.hm-metal.cz/</a>
+        </li>
+      </ul>
+      <ul id="f135b629-abcf-4caf-880f-6612ef2c1e61" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.toysshop.cz/hm-studio/">https://www.toysshop.cz/hm-studio/</a>
+        </li>
+      </ul>
+      <ul id="028a9fd6-a0a6-4239-bc58-5800b866523c" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://hmokna.cz/">https://hmokna.cz/</a>
+        </li>
+      </ul>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -307,6 +482,9 @@ HmError: too many hm</code></pre>
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
+        </li>
         <li>
           <a href="../en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
         </li>
@@ -333,9 +511,6 @@ HmError: too many hm</code></pre>
         </li>
         <li>
           <a href="../en/Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
-        </li>
-        <li>
-          <a href="../en/3D_modeling/Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>
         </li>
       </ul>& <a href="../Changelog.html" title="Changelog">more</a>
     </div>
