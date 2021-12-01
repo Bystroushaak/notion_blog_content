@@ -87,7 +87,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Transaction support for simple in-memory database">
   <meta name="twitter:description" content="I've implemented transaction support with atomic commits and rollbacks for simple in-memory database I am using in objWiki.">
-  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/objWiki/Transaction_support_for_simple_in-memory_database/flat_tree_thumb.jpg">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/objWiki/Transaction_support_for_simple_in-memory_database/flat_tree.png">
   <script src="../../../scripts.js"></script>
   <meta name="description" content="I've implemented transaction support with atomic commits and rollbacks for simple in-memory database I am using in objWiki.">
   <meta name="keywords" content="python,transactions,objWiki,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -107,6 +107,9 @@
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
         <li>
           <a href="../Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
         </li>
@@ -133,9 +136,6 @@
         </li>
         <li>
           <a href="../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
-        </li>
-        <li>
-          <a href="../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -176,9 +176,6 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
-        </li>
-        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -189,6 +186,9 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
@@ -209,7 +209,7 @@
       </figure>
       <p id="fc31bcf8-2557-4ca8-b634-46d9aa80adbf" class="">or more conveniently:</p>
       <figure id="4f2ccc88-022a-42b4-81d8-094c968cb620" class="image">
-        <a href="Transaction_support_for_simple_in-memory_database/flat_tree.png" title="flat_tree.png"><img style="width:624px" src="Transaction_support_for_simple_in-memory_database/flat_tree_thumb.jpg"></a>
+        <a href="Transaction_support_for_simple_in-memory_database/flat_tree.png" title="flat_tree.png"><img style="width:624px" src="Transaction_support_for_simple_in-memory_database/flat_tree.png"></a>
       </figure>
       <p id="99cd586a-ae75-43a1-8451-51816f3b9d66" class="">Purpose of this page is to collect all kinds of transaction mechanisms I can think of, that can be implemented on this kind of database.</p>
       <p id="889df6f2-d969-4ffb-8e22-9e2f59cfab5d" class="">By Transaction is understood database transaction mechanism, with two-phase commit protocol and rollbacks.</p>
@@ -256,7 +256,7 @@
       <p id="8327adb5-6bed-41fd-8775-6486d04aa73e" class="">Just deep copy the whole tree, work on it, then diff it and merge it back.</p>
       <p id="223778ad-7933-4a51-9430-fc4e82cbd683" class="">Maybe the deep copy could be created from partially loaded nodes, which are copied on the fly only when the transaction actually touches them.</p>
       <figure id="b59352cf-6e06-4194-8bca-e4671f350dc1" class="image">
-        <a href="Transaction_support_for_simple_in-memory_database/lazy_tree.png" title="lazy_tree.png"><img style="width:672px" src="Transaction_support_for_simple_in-memory_database/lazy_tree_thumb.jpg"></a>
+        <a href="Transaction_support_for_simple_in-memory_database/lazy_tree.png" title="lazy_tree.png"><img style="width:672px" src="Transaction_support_for_simple_in-memory_database/lazy_tree.png"></a>
       </figure>
       <h3 id="819bba77-c05c-4b43-be0d-1987abe9021a" class="">Pros</h3>
       <ul id="5f834602-36c7-4d54-878c-b1063610c025" class="bulleted-list">
@@ -488,6 +488,9 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
+        <li>
           <a href="../Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
         </li>
         <li>
@@ -513,9 +516,6 @@
         </li>
         <li>
           <a href="../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
-        </li>
-        <li>
-          <a href="../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -556,9 +556,6 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
-        </li>
-        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -569,6 +566,9 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>

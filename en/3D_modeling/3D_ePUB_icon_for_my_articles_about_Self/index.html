@@ -33,6 +33,9 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
+        <li>
           <a href="../../Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
         </li>
         <li>
@@ -58,9 +61,6 @@
         </li>
         <li>
           <a href="../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
-        </li>
-        <li>
-          <a href="../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -101,9 +101,6 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
-        </li>
-        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -114,6 +111,9 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>
@@ -130,13 +130,13 @@
       <p id="ed69977b-8396-4142-b5ba-f93052546f62" class="">For quite long time, I had in my TODO to <em>"add ePUB icon for the</em> <a href="../../Programming/Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a><em>"</em>. Up until today, I had the ePUB file saved in my personal wiki, and the export to HTML looked weird. Just some kind of rectangle with link in it:</p>
       <p id="ebf6aa8a-55b8-47ca-a269-ba27d2eba157" class=""></p>
       <figure id="cd622718-153b-4c34-bb91-b867f236a308" class="image">
-        <a href="old_version.png" title="old_version.png"><img style="width:480px" src="old_version_thumb.jpg"></a>
+        <a href="old_version.png" title="old_version.png"><img style="width:480px" src="old_version.png"></a>
       </figure>
       <p id="ae8c8574-42f2-49a8-b1d9-4bbc0de0056d" class=""></p>
       <p id="28f32314-c0c1-4011-a042-28997848de0d" class="">Originally, I had nothing fancy in mind. Just slap some kind of open source / Creative Commons icon in the place, so it will look nicer. I quite liked the first one I've found via google, but it wasn't properly licensed and author required that you give him credit. Nothing against that, but it seemed like overkill for my usage to dedicate part of the page for giving credit.</p>
       <p id="5f59f1d5-4060-4044-ac79-f04a288515ee" class=""></p>
       <figure id="b9d794ce-8345-4552-b961-2c5172b11e40" class="image">
-        <a href="first_icon_found_by_google.jpg" title="first_icon_found_by_google.jpg"><img style="width:480px" src="first_icon_found_by_google_thumb.jpg"></a>
+        <a href="first_icon_found_by_google.jpg" title="first_icon_found_by_google.jpg"><img style="width:480px" src="first_icon_found_by_google.jpg"></a>
       </figure>
       <p id="6e4c974e-a861-4a00-b204-2eb3458360cd" class=""></p>
       <p id="2d9a975e-8417-4b80-a510-e06bcd9ca9e1" class="">The shape of 3D book gave me an idea to try to create simple 3D model. I've decided to fire up Blender and do quick lowpoly model. I've had a pause from 3D modeling for maybe a month and in the meanwhile, new Blender version was released. To celebrate, Blender forgot my custom settings, which is probably my fault, because I didn't create custom config file and just trusted that it will remember my settings. It did not.</p>
@@ -151,18 +151,18 @@
       <h1 id="5302d111-4aa9-46b1-9af1-3bbcfcb74f01" class="">Blender is not intuitive software</h1>
       <p id="eae5e157-e00a-4943-9f37-71920f9c9fca" class="">The ridge / dent is in theory really easy. Just create a long stick, rotate it 90 degrees and do another bool modifier which will cut the dent in the book.</p>
       <figure id="422e9c3b-21dc-48d0-9103-cbb345171f68" class="image">
-        <a href="ridge.jpg" title="ridge.jpg"><img style="width:900px" src="ridge_thumb.jpg"></a>
+        <a href="ridge.jpg" title="ridge.jpg"><img style="width:900px" src="ridge.jpg"></a>
       </figure>
       <p id="5e079896-e412-4f88-8672-e95b3325ced2" class="">So I've done that and it didn't work. The result, even when I've applied the modifier, was a weird change in the mesh, which was basically invisible and certainly not what I expected.</p>
       <figure id="51ac28ab-bce9-4d3b-9de7-407fada70d71" class="image">
-        <a href="ridge_cut.jpg" title="ridge_cut.jpg"><img style="width:900px" src="ridge_cut_thumb.jpg"></a>
+        <a href="ridge_cut.jpg" title="ridge_cut.jpg"><img style="width:900px" src="ridge_cut.jpg"></a>
         <figcaption>
           This is after the boolean cut. The "stick" is set to invisible in viewport, so you can only see it's bounding box.
         </figcaption>
       </figure>
       <p id="54d74241-64db-4bdd-8616-8020372f1148" class="">I could see that there were some new loopcuts and a lot of weirdly positioned vertexes. But why didn't the boolean properly propagated into the model?</p>
       <figure id="4dacc65f-6ec0-4365-aa21-a101fb53cd7d" class="image">
-        <a href="failed_boolean.png" title="failed_boolean.png"><img style="width:900px" src="failed_boolean_thumb.jpg"></a>
+        <a href="failed_boolean.png" title="failed_boolean.png"><img style="width:900px" src="failed_boolean.png"></a>
       </figure>
       <p id="235ca793-9d6c-439e-9fb3-b6884424fc0b" class="">I've tried all kinds of tricks, like to "<em>apply transforms"</em>, add new knife cuts so that booleans have points to link themselves to, even <em>"recalculate normals"</em>, but nothing helped.</p>
       <p id="749b6877-bd55-4ac0-9e79-fafaae357401" class="">I've googled, but with no luck. After some time, I've even tried to manually cut the dent, but thrown away the whole attempt after some time when I've managed to trash it. That is really easy when you manually play with vertexes.</p>
@@ -185,7 +185,7 @@
       <p id="444fd0db-765a-4ee5-a075-a8f8ca8fa5e1" class="">I don't have any special geometry, do I? It looks pretty regular to me. I've googled more and found out article <a href="https://mcell.org/tutorials/mesh_repair.html">Repairing Meshes</a>. This had finally led me to the solution and at least gave some idea where the problem was. I probably had some vertexes near each other, which created some weirdness, like faces inside objects and blender didn't know what to do with that.</p>
       <p id="24eed948-bc12-4704-b7a8-f7748a470ce4" class="">As the article suggested, <em>Degenerate Dissolve</em> option worked:</p>
       <figure id="b2964450-da53-4e27-be3d-f0b117652d6f" class="image">
-        <a href="degenerative_dissolve.jpg" title="degenerative_dissolve.jpg"><img style="width:900px" src="degenerative_dissolve_thumb.jpg"></a>
+        <a href="degenerative_dissolve.jpg" title="degenerative_dissolve.jpg"><img style="width:900px" src="degenerative_dissolve.jpg"></a>
       </figure>
       <p id="91e15725-a9db-4ad9-a413-4e47fe5a89ad" class="">Blender shown this tiny message in the right corner:</p>
       <figure id="4607a313-d384-434c-9749-1496aa38da25" class="image">
@@ -194,11 +194,11 @@
       <p id="5500f885-3dca-44af-a6fe-0c6fb75a0968" class="">Are you fucking kidding me? 3 vertices and 3 edges somewhere where I couldn't even see them cost me several hours of my life? It would be nice to have some kind of warning, that would tell you <em>"hey, you are trying to do boolean and there are 3 vertices and 3 edges in the way!"</em></p>
       <p id="b54b6c11-2510-4469-b430-823a4e87960f" class="">I've found out that <em>Merge Vertices By Distance</em> also works:</p>
       <figure id="8b1f73aa-a727-4d03-bcc0-b9726dc0e5ee" class="image">
-        <a href="merge_by_distance.jpg" title="merge_by_distance.jpg"><img style="width:900px" src="merge_by_distance_thumb.jpg"></a>
+        <a href="merge_by_distance.jpg" title="merge_by_distance.jpg"><img style="width:900px" src="merge_by_distance.jpg"></a>
       </figure>
       <p id="3dcc62c9-195f-4379-9177-2763f0ef345e" class="">Here is the result. Please ignore that the cut goes all the way through the model, this was really just a test case to see whether the boolean works or not and I would position it differently in the original model.</p>
       <figure id="1d224160-d824-4d1e-9cca-4fd8da1a7c50" class="image">
-        <a href="boolean_working.jpg" title="boolean_working.jpg"><img style="width:900px" src="boolean_working_thumb.jpg"></a>
+        <a href="boolean_working.jpg" title="boolean_working.jpg"><img style="width:900px" src="boolean_working.jpg"></a>
       </figure>
       <h1 id="fdf68b60-a3f8-4eb8-9634-bf00cdcf0140" class="">Adding text</h1>
       <p id="211c7860-92a5-45a3-8adc-b43a352f3c8f" class="">I've never worked with text in Blender before, so I've had to see few tutorials first. Then it was quite easy. At first, I just added several text objects on top of the model, then I've made them 3D, converted them to meshes and created boolean cuts in the main model.</p>
@@ -233,7 +233,7 @@
       <p id="0543a63d-6920-4529-821a-f780fdcf740c" class="">In the end, I think that the first version was better in everything, except for the gold letters, but I've simply lost will to toy with lights for another hour, to get the results I wanted. Good enough.</p>
       <p id="45c4188e-e781-4dfe-b10f-31e99f8ff2e6" class=""></p>
       <figure id="c5500590-0af1-4cc9-b3c6-8523b1f25c29" class="image">
-        <a href="final_result_in_blog.jpg" title="final_result_in_blog.jpg"><img style="width:528px" src="final_result_in_blog_thumb.jpg"></a>
+        <a href="final_result_in_blog.jpg" title="final_result_in_blog.jpg"><img style="width:528px" src="final_result_in_blog.jpg"></a>
       </figure>
       <h1 id="40368494-0317-4358-8c89-5ac5ff55dd5e" class="">Lessons learned</h1>
       <p id="9abcf63e-280c-41d7-ae2e-6205601b590d" class="">I really wish that Blender would just throw some meaningful error, when it can't do something. It still feels like some kind of alien technology designed by people who knew way too much about 3D modeling, but at the same time knew nothing about basic human psychology. It is such weird mix of absolutely high level features, mixed with totally lowlevel knowledge. I am sure there are reasons why it can't do something, but how are you supposed to know them when you first encounter them?</p>
@@ -256,6 +256,9 @@
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
         <li>
           <a href="../../Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
         </li>
@@ -282,9 +285,6 @@
         </li>
         <li>
           <a href="../../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
-        </li>
-        <li>
-          <a href="../../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
         </li>
       </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
     </div>
@@ -325,9 +325,6 @@
           <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
-          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
-        </li>
-        <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -338,6 +335,9 @@
         </li>
         <li>
           <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../../index.html" title="English section">📂 English section</a>

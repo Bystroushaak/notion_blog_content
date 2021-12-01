@@ -11,10 +11,10 @@
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="tinySelf">
-  <meta name="twitter:description" content="tinySelfEE is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
+  <meta name="twitter:description" content="tinySelf is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
   <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/tinySelf/self_analogy.png">
   <script src="../../scripts.js"></script>
-  <meta name="description" content="tinySelfEE is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
+  <meta name="description" content="tinySelf is an experimental programming language inspired by the Self lang, with the emphasis on the word experimental.">
   <meta name="keywords" content="tinyself,selflang,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
@@ -32,6 +32,9 @@
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
         <li>
           <a href="Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
         </li>
@@ -59,14 +62,14 @@
         <li>
           <a href="../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
         </li>
-        <li>
-          <a href="../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
+        <li>
+          <a href="Series_about_Self.html" title="Series about Self">Series about Self</a>
+        </li>
         <li>
           <a href="Moldable_tools_a_book_and_a_movement.html" title="Moldable tools; a book and a movement">Moldable tools; a book and a movement</a>
         </li>
@@ -125,9 +128,6 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
-        </li>
-        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -138,6 +138,9 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>
@@ -153,18 +156,39 @@
       <h1 class="page-title">tinySelf</h1>
     </header>
     <div class="page-body">
-      <p id="114d1ead-9e2a-4cda-8481-ec75d0ce736c" class="">tinySelf is an experimental programming language inspired by the <a href="http://www.selflanguage.org/">Self lang</a>, with the emphasis on the word <em>experimental</em>.</p>
+      <p id="114d1ead-9e2a-4cda-8481-ec75d0ce736c" class=""><em>tinySelf</em> is an experimental programming language inspired by the <a href="http://www.selflanguage.org/">Self lang</a> (see <a href="Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a>), with the emphasis on the word <em>experimental</em>.</p>
       <p id="c42ef001-647f-462d-bbad-b9cb059796e5" class="">I would like something like the glasswork rack you know from the chemistry pictures, but for computation.</p>
       <figure id="e005cd68-89f4-4277-bd68-3595491224fa" class="image">
         <a href="tinySelf/self_analogy.png" title="self_analogy.png"><img style="width:772px" src="tinySelf/self_analogy.png"></a>
       </figure>
-      <p id="cd769838-0b1a-4139-9e14-d63d292d9522" class="">The point of the experiment is not that much in the language itself, but all kind of different stuff that can be done with it. tinySelf should be lightweight, compact, collapsible, interchangeable, universal computational apparatus for anything I can possibly hope to make.</p>
+      <p id="cd769838-0b1a-4139-9e14-d63d292d9522" class="">The point of the experiment is not that much in the language itself, but all kind of different stuff that can be done with it. <em>tinySelf</em> should be lightweight, compact, collapsible, interchangeable, universal computational apparatus for anything I can possibly hope to make.</p>
+      <p id="bf2b5a62-fd8a-4a0f-bd7b-a4ff2658fcd1" class="">I would like to explore some concepts from <em>Self</em>, and <em>Smalltalk</em>, as well as the ideas of Douglas Engelbart and Ted Nelson. Specifically:</p>
+      <ol type="1" id="ea18b88c-8a30-44f3-bcfd-b5fe415820d5" class="numbered-list" start="1">
+        <li>Try representation of the data by using prototype-based object-oriented programming language, instead of data-oriented serialization formats like JSON and XML. Think something closer to the <a href="http://www.rebol.com/">rebol</a>.
+        </li>
+      </ol>
+      <ol type="1" id="0aed13d5-f22a-450d-8123-406dedc33cba" class="numbered-list" start="2">
+        <li>Prototype-based user interface like Morphic and how much it is really useful for representation and working with data and information.</li>
+      </ol>
+      <ol type="1" id="ed6da284-a028-4d7f-afcf-bc0e7368e42b" class="numbered-list" start="3">
+        <li>Reflection & homoiconicity experiments. In interpreter, language, but also in graphic interface. I think that reflection may one of the key features for reducing cognitive load, but I have to try it to actually see how much.</li>
+      </ol>
+      <ol type="1" id="cb11b404-bf33-439e-8bfe-647b0a92fd92" class="numbered-list" start="4">
+        <li>Philosophical concept of the <em>"explicitly structured data"</em>. If the data are objects and object have reflection and docstrings, they should be more understandable and explorable than binary formats or structures based on dictionaries.</li>
+      </ol>
+      <ol type="1" id="b815d133-6654-4cda-b33f-158dbac7fbaf" class="numbered-list" start="5">
+        <li>Implement and test some of Engelbart's ideas about working with infosphere. Object wiki which is partially also a database and API and language.</li>
+      </ol>
+      <ol type="1" id="9dbb986b-14d0-4537-9a6e-5a4917e97009" class="numbered-list" start="6">
+        <li>Obtain platform to test some of the Alan Kay's and David Ungar's ideas. Prototype-based user interface. Usage of the language for simulation. Things related to <em>moldable development</em> (see <a href="Moldable_tools_a_book_and_a_movement.html" title="Moldable tools; a book and a movement">Moldable tools; a book and a movement</a>).
+        </li>
+      </ol>
+      <ol type="1" id="46632a54-1b50-4459-ad25-49858f28c6f0" class="numbered-list" start="7">
+        <li>Obtain, test and describe custom-made environment for <em>tight-coupled-loop</em> technology as it was described by J. C. R. Licklider in his <a href="https://en.wikipedia.org/wiki/Man-Computer_Symbiosis">Man-Computer Symbiosis</a> paper.
+        </li>
+      </ol>
       <h1 id="191768d4-21a5-481f-a9ed-5cb7c0acc53d" class="">tinySelfEE</h1>
-      <p id="766fa9e5-ec7a-4484-bdd3-2ef7ef57537f" class="">tinySelfEE is the second iteration of my pet programming language, which I've created to explore some concepts from Self, and Smalltalk, as well as the ideas of Douglas Engelbart and Ted Nelson.</p>
-      <p id="f720f52d-af2c-4e62-a664-db8b9c4000ec" class="">I would like something like the glasswork rack you know from the chemistry pictures, but for computation:</p>
-      <p id="dba4c5b2-1c1f-4457-899d-3ca4d73977b0" class="">The point of the experiment is not that much in the language itself, but all kind of different stuff that can be done with it. tinySelf should be lightweight, compact, collapsible, interchangeable, universal computational apparatus for anything I can possibly hope to make.</p>
-      <h2 id="466f2121-47d8-4589-8d8f-abdc29e03edb" class="">EE</h2>
-      <p id="e2e2adc3-0d3d-47a6-80c7-2ddb9a08347b" class="">The second iteration is writtein in Java, hence the "tinySelfEE" (EE stands for enterprise edition, typical Java buzzword), as my friend jokingly said. In future, it should use GrallVM to gain some usable speed.</p>
+      <p id="766fa9e5-ec7a-4484-bdd3-2ef7ef57537f" class=""><em>tinySelfEE</em> is the second iteration rewritten to Java, hence the EE in name (EE stands for <em>Enterprise Edition</em>, typical Java buzzword). In the future, it should use GraalVM to gain some usable speed.</p>
       <h1 id="e04895b3-f60d-47e1-9e5e-c49925e8c896" class="">Differences from Self</h1>
       <ul id="1e3c9cd6-4a37-44ff-8095-9fe35606236d" class="bulleted-list">
         <li style="list-style-type:disc">Support for cascading operator <code>;</code>.</li>
@@ -173,10 +197,10 @@
         <li style="list-style-type:disc">Comments using <code>#</code>.</li>
       </ul>
       <ul id="f3a77ed3-afef-4b20-8624-07e9b9f93c71" class="bulleted-list">
-        <li style="list-style-type:disc">Standard strings using <code>"</code> and <code>'</code>.</li>
+        <li style="list-style-type:disc">Strings use both <code>"</code> and <code>'</code>.</li>
       </ul>
       <ul id="8912eb6e-c9b8-49df-a838-446451095cb6" class="bulleted-list">
-        <li style="list-style-type:disc">Error handling.</li>
+        <li style="list-style-type:disc">Different error handling.</li>
       </ul>
       <ul id="285ef624-3257-4dcc-afba-bf12c7f30e18" class="bulleted-list">
         <li style="list-style-type:disc">Primitives are not special messages with special <code>_syntax</code>, but messages to object <code>primitives</code>.</li>
@@ -197,30 +221,6 @@
           </ul>
         </li>
       </ul>
-      <h1 id="0f395acc-6340-45a0-92cf-d5b146945ad7" class="">Experiments</h1>
-      <p id="da51888e-a694-48c3-ab75-1d6e26b694c5" class="">The goals of the <em>tinySelf language experiment</em> is to:</p>
-      <ol type="1" id="ea18b88c-8a30-44f3-bcfd-b5fe415820d5" class="numbered-list" start="1">
-        <li>Try representation of the data by using prototype based object oriented programming language, instead of data oriented serialization formats like JSON and XML.</li>
-      </ol>
-      <ol type="1" id="0aed13d5-f22a-450d-8123-406dedc33cba" class="numbered-list" start="2">
-        <li>Prototype based user interface like Morphic and how much it is really useful for representation and working with data and information.</li>
-      </ol>
-      <ol type="1" id="ed6da284-a028-4d7f-afcf-bc0e7368e42b" class="numbered-list" start="3">
-        <li>Try Reflection. In interpreter, language, but also in graphic interface. I think that reflection may one of the key features for reducing cognitive load, but I have to try it to actually see how much.</li>
-      </ol>
-      <ol type="1" id="cb11b404-bf33-439e-8bfe-647b0a92fd92" class="numbered-list" start="4">
-        <li>Philosophical concept of the <em>"explicitly structured data"</em>. If the data are objects and object have reflection and docstrings, they should be more understandable and explorable than binary formats or structures based on dictionaries.</li>
-      </ol>
-      <ol type="1" id="b815d133-6654-4cda-b33f-158dbac7fbaf" class="numbered-list" start="5">
-        <li>Implement and test some of Engelbart's ideas about working with infosphere. Object wiki which is partially also a database and API and language.</li>
-      </ol>
-      <ol type="1" id="9dbb986b-14d0-4537-9a6e-5a4917e97009" class="numbered-list" start="6">
-        <li>Obtain platform to test some of the Alan Kay's and David Ungar's ideas.</li>
-      </ol>
-      <ol type="1" id="46632a54-1b50-4459-ad25-49858f28c6f0" class="numbered-list" start="7">
-        <li>Obtain, test and describe custom-made environment for <em>tight-coupled-loop</em> technology as it was described by J. C. R. Licklider in his <a href="https://en.wikipedia.org/wiki/Man-Computer_Symbiosis">Man-Computer Symbiosis</a> paper.
-        </li>
-      </ol>
       <h1 id="771ea156-0a56-4f82-b3a3-ae17b30f4f93" class="">Blogs</h1>
       <p id="ffb15404-0ed8-4f4b-888f-6c483a6c954e" class="">Here are some of my blogs about tinySelf and tinySelfEE:</p>
       <figure id="14e9a5e7-20bb-4740-bebf-1a4876624387" class="link-to-page">
@@ -244,7 +244,7 @@
         <p style="margin-top: -1em;"><em>Description of how I gained performance in my programming language tinySelf. Rpython profiling and optimizations, usage of JIT compiler.</em></p>
       </figure>
       <figure id="eabfc270-15a2-4d5c-82ef-f232f8b4b698" class="link-to-page">
-        <h4><a class="" href="tinySelf/Simple_while_benchmark_20190106.html" title="Simple while benchmark 2019.01.06">📂 Simple while benchmark 2019.01.06</a> <time>(last update @2019-01-06, 2 subpages)</time></h4>
+        <h4><a class="" href="tinySelf/Simple_while_benchmark_20190106.html" title="Simple while benchmark 2019.01.06">📄 Simple while benchmark 2019.01.06</a> <time>(@2019-01-06)</time></h4>
         <p style="margin-top: -1em;"><em>First benchmark in my programming language tinySelf.</em></p>
       </figure>
       <h1 id="d2a3a41b-8ceb-4f14-beef-65190083be50" class="">Source code</h1>
@@ -256,6 +256,17 @@
       <ul id="d3bef042-66b0-452c-8ae8-ae33f561f89a" class="bulleted-list">
         <li style="list-style-type:disc">
           <a href="https://github.com/Bystroushaak/tinySelf">https://github.com/Bystroushaak/tinySelf</a> (old deprecated version)
+        </li>
+      </ul>
+      <h2 id="d75b2f2b-485b-4c30-ac3f-4d8a92cdf7c6" class="">Links</h2>
+      <ul id="2d2085bf-6235-4da0-be1d-433884e60332" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://selflanguage.org/">https://selflanguage.org/</a>
+        </li>
+      </ul>
+      <ul id="c1ca7daa-cd83-4df5-8c59-9a03e75be604" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/sin-ack/zigself">https://github.com/sin-ack/zigself</a> (another interesting attempt to rewrite Self).
         </li>
       </ul>
       <h1 id="cf58467e-8aa9-4489-9ef5-13c2bc5bf77c" class="">Licence</h1>
@@ -271,6 +282,9 @@
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
         <li>
           <a href="Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
         </li>
@@ -298,14 +312,14 @@
         <li>
           <a href="../3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>
         </li>
-        <li>
-          <a href="../Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" title="Newsletter 2021-01-08; Defragmentation in progress">Newsletter 2021-01-08; Defragmentation in progress</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
     </div>
     <div id="links_from_other_pages">
       <h3>Links to this page:</h3>
       <ul>
+        <li>
+          <a href="Series_about_Self.html" title="Series about Self">Series about Self</a>
+        </li>
         <li>
           <a href="Moldable_tools_a_book_and_a_movement.html" title="Moldable tools; a book and a movement">Moldable tools; a book and a movement</a>
         </li>
@@ -364,9 +378,6 @@
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
         </li>
         <li>
-          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
-        </li>
-        <li>
           <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
@@ -377,6 +388,9 @@
         </li>
         <li>
           <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>

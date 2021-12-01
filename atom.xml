@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-11-20T14:42:01.399496+00:00</updated>
+  <updated>2021-12-01T00:47:06.906935+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html</id>
-    <title>Newsletter 2021-01-08; Defragmentation in progress</title>
-    <updated>2021-01-08T00:42:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-01-08_Defragmentation_in_progress.html" rel="alternate"/>
-    <summary type="text">Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.</summary>
-    <published>2021-01-08T00:42:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html</id>
     <title>Prusa MK3S+ 3D printer - assembly and first prints</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" rel="alternate"/>
     <summary type="text">List of all the plugins I use in PyCharm and Idea.</summary>
     <published>2021-11-20T15:29:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm.html</id>
+    <title>Tools I use: PyCharm</title>
+    <updated>2021-11-30T23:11:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm.html" rel="alternate"/>
+    <summary type="text">Tour trough PyCharm &amp;amp; some of the reasons why I use it.</summary>
+    <published>2021-11-30T23:11:00+01:00</published>
   </entry>
 </feed>

@@ -534,7 +534,7 @@ mapBy: eb Into: c</code></pre>
       <p id="65b5389d-c64f-42ed-8cfb-4cfb16471ac0" class="">Divného vzhledu shellu vlevo nahoře si nevšímejte, mám nějak rozbité ovladače na grafiku a Self používá tak prehistorické bindingy na X, že mi to celé laguje a překresluje se to divně. Na notebooku mi to funguje jak má.</p>
       <p id="fcbfcc76-a899-48eb-9ce2-531aade4cdb5" class="">Zde je ještě ukázka, kde si pomocí zprávy <code>do:</code> nechám vypsat prvky a klíče do konzole:</p>
       <figure id="bb1a520f-9b7b-4e21-8e44-0d6a065a6033" class="image">
-        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do.png" title="dict_do.png"><img style="width:908px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do_thumb.jpg"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do.png" title="dict_do.png"><img style="width:908px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do.png"></a>
       </figure>
       <p id="66af2734-6a1f-43f4-9d80-cf47fe729679" class=""><code>do:</code> podobně jako všechny iterátory v Selfu očekává blok, který může mít dva volitelné parametry, hodnotu a klíč pojmenované v ukázce pro jednoduchost <code>v</code> a <code>k</code>. Všimněte si poněkud divného pořadí, člověk by to logicky čekal naopak.</p>
       <h1 id="a469eb78-9b0b-4996-b757-b43ef8d4c21d" class="">Collector</h1>
@@ -544,7 +544,7 @@ mapBy: eb Into: c</code></pre>
       <h1 id="142e4cda-169e-43d6-a875-9a3d4bde76ee" class="">Výjimky</h1>
       <p id="05f661c3-12db-4691-8acd-e03360568e08" class="">Výjimky v Selfu jednoduše nejsou podporovány. Zprávy, které můžou skončit nějakou chybou nabízají zpravidla alternativu v podobě keyword zprávy s parametrem <code>IfFail:</code>. Hezky to jde vidět třeba na objektu pro přístup k operačnímu systému:</p>
       <figure id="0b8d9459-1755-46f1-baec-5ea1eea9a771" class="image">
-        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail.png" title="IfFail.png"><img style="width:964px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail_thumb.jpg"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail.png" title="IfFail.png"><img style="width:964px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail.png"></a>
       </figure>
       <p id="1dd09e95-a522-4e3f-b416-e4f44db4a841" class="">Je na programátorovi, aby použil a ošetřil patřičnou chybu (předáním parametru s blokem který na chybu reaguje). Pokud to neudělá, měl by se zobrazit debugger, nebo program spadne.</p>
       <p id="1828e128-d786-46d0-921e-3a350f79549e" class="">Stejně tak pokud umožňujete jako programátor nějaké knihovny ošetření chyby, je třeba přidat variantu zprávy s <code>IfFail:</code> parametrem.</p>
