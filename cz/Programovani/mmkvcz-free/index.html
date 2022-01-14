@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>mmkv.cz-free</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom_cz.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="mmkv.cz-free">
+  <meta name="twitter:description" content="Pokud někdy zavítáte do Karlových Varů, pravděpodobně zjistíte, že město platí vlastní wifi síť, do které se může kdokoliv zdarma připojit. Z nepochopitelného důvodu je však doba připojení omezena na 30m, po jejímž uplynutí vám síť utne všechny probíhající spojení a musíte se opět přihlásit pomocí naprosto trapného webloginu. Štvalo mě to, tak jsem vytvořil krátký program v D, který to dělá za vás.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/mmkvcz-free/Untitled.png">
+  <script src="../../../scripts.js"></script>
+  <meta name="description" content="Pokud někdy zavítáte do Karlových Varů, pravděpodobně zjistíte, že město platí vlastní wifi síť, do které se může kdokoliv zdarma připojit. Z nepochopitelného důvodu je však doba připojení omezena na 30m, po jejímž uplynutí vám síť utne všechny probíhající spojení a musíte se opět přihlásit pomocí naprosto trapného webloginu. Štvalo mě to, tak jsem vytvořil krátký program v D, který to dělá za vás.">
+  <meta name="keywords" content="programovani,hacking,wifi,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../Povidky/Software.html" title="Software">Software</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Paromobilita_je_budoucnost.html" title="Paromobilita je budoucnost">Paromobilita je budoucnost</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" title="Algoritmus hledání programátorské práce 2021/4">Algoritmus hledání programátorské práce 2021/4</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk/Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
+        </li>
+      </ul>& <a href="../../../Zmeny.html" title="Změny">more</a>
+    </div>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../../Tagy/hacking.html" title="hacking">hacking</a>, <a href="../../../Tagy/programovani.html" title="programovani">programovani</a>, <a href="../../../Tagy/wifi.html" title="wifi">wifi</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
+          <a href="../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="../index.html" title="Programování">Programování</a> / mmkv.cz-free
+  <article id="de070c17-4646-44aa-be87-329dc3dddfa2" class="page sans">
+    <header>
+      <h1 class="page-title">mmkv.cz-free</h1>
+    </header>
+    <div class="page-body">
+      <p id="41880fb6-bdfb-4d4e-8e3c-ba9ac7d5f484" class=""><time>@2011/11/04</time></p>
+      <p id="23fcbe5e-adc3-4b83-8062-5de8e3bc52bd" class="">Pokud někdy zavítáte do Karlových Varů, pravděpodobně zjistíte, že <a href="http://vary.idnes.cz/v-karlovych-varech-budou-mit-vsichni-lide-wi-fi-zdarma-pf0-/Vary-zpravy.aspx?c=A101013_143145_vary-zpravy_sou">město platí</a> vlastní wifi síť, do které se může kdokoliv zdarma připojit. Z nepochopitelného důvodu je však doba připojení omezena na 30m, po jejímž uplynutí vám síť utne všechny probíhající spojení a musíte se opět přihlásit pomocí naprosto trapného webloginu. Štvalo mě to, tak jsem vytvořil krátký program v D, který to dělá za vás.</p>
+      <h2 id="eabf0d12-0f86-492a-bb95-b69247e03560" class="">Jak to funguje</h2>
+      <p id="d37e188a-61d3-48ae-9477-02cf80a5336d" class="">Stará Role, kde se teď pohybuji je docela dobře pokryta. Projevuje se to AccessPointy s názvem <strong>mmkv.cz-X-free</strong>, kde X je číslo.</p>
+      <p id="19333112-cc6e-42e3-b8da-116ac16eb95a" class="">Jakmile se na AP připojíte, všechny vaše HTTP požadavky jsou znásilněny a přesměrovány na stránku, kde se musíte pro pokračování zalogovat. To probíhá tak, že myší přejíždíte nad prázdnými čtverečky tak dlouho, dokud netrefíte ten s logem města, které je i v záhlaví. Jakmile se vám to povede, jste přesměrováni skoro tam kam jste chtěli, s tím že někdy jsou zahozeny všechny GET požadavky (stává se mi, že když jdu na google z firefoxího vyhledávání, hodí mě to na mainpage místo výsledků).</p>
+      <figure id="beae7c2c-60d7-48dc-82a2-daca132d81c7" class="image">
+        <a href="Untitled.png" title="Untitled.png"><img style="width:508px" src="Untitled.png"></a>
+      </figure>
+      <p id="3be166f6-9da4-4843-b979-a8c0a239c958" class="">Jak už je napsáno na přihlašovací stránce, můžete využívat porty 80 a 443. Firewall není moc chytrý, takže sleduje skutečně jen čísla portů, pokud si přez to natáhnete TOR, nebo SSH, je mu to jedno.</p>
+      <p id="49c34dd3-cfa1-4e16-9015-455a00e12043" class="">Připojení můžete využívat po 30m, poté je utnuto ze strany routeru naprosto nemilosrdně. Dá se to obejít, pokud se odhlásíte a přihlásíte sami, potom se spojení nemusí přerušit, ale ne vždy to stihnete.</p>
+      <p id="6a26b279-2c62-4f1b-bdcf-089ca7d380a0" class="">Pokud se manuálně odlogujete na adrese <code>http://ip_routeru/logout</code>, vyskočí na vás takováto tabulka:</p>
+      <figure id="744868fc-e43d-48b0-ba8e-d62cc71c0d19" class="image">
+        <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:260px" src="Untitled_1.png"></a>
+      </figure>
+      <p id="ac54898b-e133-4df3-ae44-ec15f38c471e" class="">Jakmile se zalogujete pomocí tlačítka pod tabulkou (opět přes výběr loga), jste přesměrováni na <code>http://ip_routeru/status</code>, kde se vám zobrazí toto:</p>
+      <figure id="a7bce5ad-8fd0-45d9-acd8-68e408291bb3" class="image">
+        <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:230px" src="Untitled_2.png"></a>
+      </figure>
+      <p id="79dc6132-6648-45ce-9f73-e5f42adbd322" class="">Povšimněte si username <strong>full</strong>, ještě se o něm zmíním.</p>
+      <h2 id="547285fd-0fc0-416a-bf68-e2f42352f4bf" class="">"Login"</h2>
+      <p id="d7867bfd-8eb2-405f-8927-5cd056c10312" class="">Login, pokud tomu tedy tak lze říkat, je fakt nepochopitelná kravina. Po kliknutí na tlačítko s logem města se aktivuje následující funkce v javascriptu:</p>
+      <pre id="d3e9f86f-7ed2-4d81-a688-c82805824c5d" class="code code-wrap"><code>function doLogin() {
+    document.sendin.username.value = document.login.username.value;
+    document.sendin.password.value = hexMD5('\130' + document.login.password.value + '\135\137\034\202\372\303\227\333\044\341\132\370\132\326\042\116');
+    document.sendin.submit();
+    return false;
+}</code></pre>
+      <p id="073cc7f4-4a6e-405e-89b3-41590fd24bb6" class="">Položky <code>document.login.username.value</code> a <code>document.login.password.value</code> jsou přitom po načtení stránky dalším JavaScriptem předvyplněny na slavný string "<strong>full</strong>". Salt ve funkci <code>hexMD5</code> v podobě oktetů je vkládán náhodně (pokaždé jinak), nebo na základě nějakého klíče, který jsem nepochopil.</p>
+      <p id="53d10685-333c-4fed-80cf-7d383ec75d81" class="">Form <code>sendin</code> má tento tvar:</p>
+      <pre id="7e55b8ef-931a-46af-8389-6c9bace9af36" class="code code-wrap"><code>&lt;form name="sendin" action="http://ip_routeru/login" method="post"&gt;
+    &lt;input type="hidden" name="username" /&gt;
+    &lt;input type="hidden" name="password" /&gt;
+    &lt;input type="hidden" name="dst" value="http://presmerovavany_link.tld/params" /&gt;
+    &lt;input type="hidden" name="popup" value="true" /&gt;
+&lt;/form&gt;</code></pre>
+      <h2 id="e5520e90-08af-4b67-8ba8-3ef5482b9793" class="">Demence</h2>
+      <p id="6c765eaf-e043-4b75-ac51-d454c32ccd9e" class="">Teď k pravému důvodu, proč tohle všechno píšu. Analýzou návrhu, jsem odhalil, že systém vytvořili schopní technici, kteří však ve svém kruhu mají nějakého dementa (možná šéfa). Celý výše uvedený systém totiž působí dementně a nepochopitelně. To neříkám proto, abych si zanadával, ale proto že to skutečně je nepochopitelně zkryplený systém.</p>
+      <p id="1364cffd-de47-4cbb-9bd3-e3c420176132" class="">Proč jsou povoleny jen porty 80 a 443? To nikdy neslyšeli o lidech kteří by chtěli používat ICQ, Jabber, SSH či EMAIL? Mě to takový problém nedělá, dokážu se tunelovat dle chuti, ale co ostatní?</p>
+      <p id="a83b758a-a334-4c9d-b3af-16dd43e9f975" class="">Proč je proboha maximální doba připojení 30m? To má být nějaká ochrana proti nadměrnému stahování? Slyšeli už někdy o "wget -c"? Proč potom není omezené maximální množství dat, které člověk může přenést?</p>
+      <p id="4d2f462e-f3f0-4799-bada-8fb86b4125b1" class="">Proč ten naprosto směšný, nesmyslný a dementní login? Každý kdo dokáže pochopit jak funguje mi jistě dá za pravdu, že je tam úplně k ničemu. Ten login neslouží k tomu k čemu login běžně slouží, tedy k identifikaci uživatele. Jméno i heslo jsou vždy "<strong>full</strong>", uživatel to dokonce nemá ani možnost jednoduše změnit. Kdyby ten login byl mechanická věc, jednalo by se o jasné kurvítko a zesložiťovátko, takhle je to jen nepochopitelná blbost, ke které navíc potřebujete JavaScript.</p>
+      <p id="a774c389-59ac-4aae-8c65-6acb3bd7549f" class="">Proč vůbec nějaký login? To si vážně myslí že někoho baví se logovat? Jaký to má smysl? Jediné co mě napadá je buzerace. Prostě chtěli aby si lidé byli vědomi, komu vděčí za ten požitek internetu zdarma. Taky se vám to zdá dětinské?</p>
+      <h2 id="e4681fd2-9804-4ad5-8fe5-b3033c1e0fb2" class="">Je to smrtelné pane doktore?</h2>
+      <p id="fffb8352-ac97-45fd-a5f2-0d3a352d8f7c" class="">Mám pro vás dobrou zprávu, na tenhle druh demence existuje lék.</p>
+      <p id="b0b013d6-784e-4f51-886d-34274adf7b54" class="">Napsal jsem program v D (mohl jsem to napsat i v pythonu, ale v rámci propagace D..) který vás po spuštění automaticky zaloguje a co víc, dokud běží, tak vás každých 10m (zkoušel jsem 25, ale to se neosvědčilo) automaticky odloguje a zase zaloguje, aby nedošlo k přerušení spojení.</p>
+      <p id="b1a0e38a-f8a4-4c9b-92ec-4078316ec97f" class="">Nefunguje to 100%, protože některá spojení spadnou, jiná běží. U webu to poznáte na downloadu, který se přeruší (resp. je prohlášen za hotový), SSH a TOR to vydejchají bez potíží.</p>
+      <p id="030a32ac-91e8-43de-b90d-e22d3db56859" class=""><strong>Download:</strong></p>
+      <ul id="01f35eb8-8b72-463e-8ecc-1fa9d0e445bc" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/Bystroushaak/kv_login">GitHub</a>
+        </li>
+      </ul>
+      <h2 id="f20fa91b-32d2-46e3-b989-b5cd3299b66c" class="">Tipy & triky</h2>
+      <p id="03a9a9e9-3a8b-4c25-8d33-a0461ea406b7" class="">Pokud chcete používat TOR jako proxy pro SSH, přidejte do <code>~/.ssh/config</code> následující řádek:</p>
+      <p id="aa5cfabf-2233-4597-84bf-7bc8f1f57f9a" class=""><code>ProxyCommand /bin/nc -x localhost:9050 %h %p</code></p>
+      <p id="40dee438-0d2b-432d-8a18-387bd3ef7c13" class="">Je to docela vtipné a jednoduché, dlouho jsem hledal a googli, zkoušel všelijaké <a href="http://en.wikipedia.org/wiki/Corkscrew_%28program%29">opičiny</a> a nakonec to umí samotný netcat..</p>
+      <p id="651cf9b9-b94d-451d-bd70-ad396e0fde14" class="">Pro případy stahování z internetu jsem dal dohromady tyto dva scripty:</p>
+      <p id="b341c0d1-1ab5-435e-938b-fed3b9f2d161" class=""><strong>doitfaggot</strong>:</p>
+      <pre id="aa61b12b-96f7-4e3a-b59f-88a9078c491c" class="code code-wrap"><code>#!/bin/sh
+while ! $*; do
+    :;
+#   sleep 5;
+done</code></pre>
+      <p id="3b4a83b3-5fb3-45ad-9336-42efebc0a770" class=""><strong>downer.sh</strong>:</p>
+      <pre id="5815ed70-d905-408a-bfcd-630de9d5c7cd" class="code code-wrap"><code>#! /usr/bin/env bash
+while [ 1 ]; do doitfaggot wget --no-check-certificate -c $1; done</code></pre>
+      <p id="52f7dabd-6e86-4499-8c6a-265238478afa" class="">Stahování provádějte přes <code>downer.sh</code>, protože <code>wget</code> při padlém spojení hlásí že soubor je již stažený, což není. Downer se narozdíl od doitfaggot zacyklí, dokud ho manuálně nevypnete.</p>
+      <p id="90330a16-7b2d-40ba-9788-4751723c0d0e" class="">Doitfaggot je velice užitečný na spoustu věcí. Funguje tak, že vezme zadané parametry a spouští je do té doby, dokud daný program nevrátí 0.</p>
+      <p id="e9628459-9289-42bc-a34c-ccc3359125a6" class="">V knihovně například zavedli že lze stáhnout jen ~2MB, načež rychlost stahování spadne na 10kB/s z původních 500kB/s. Obejít to můžete pomocí '<code>./doitfaggot timeout 5s wget -c http://link</code>'. Zakomentovaný sleep se někdy hodí, jindy zas ne..</p>
+      <h2 id="f23b5884-78ba-400d-90af-e80d428e2654" class="">Závěr</h2>
+      <p id="b01e259e-c254-48b4-a590-ba9a33badc29" class="">Blogpost možná mohl vyznít trochu negativně, což bylo částečně úmyslem, ale nechápejte mě špatně. Jsem rád že tu ta síť je. Líbí se mi idea, že město platí připojení pro své občany a návštěvníky a přijde mi to jako bohulibá činnost.</p>
+      <p id="7299ed42-90e3-439e-b055-fcc1f97c2094" class="">Naprosto nepochopitelné mi přijde provedení. Podobá se to fotkám baráků s nesmyslnou architekturou a prostě nedává smysl, jak takovou blbost někdo mohl spáchat.</p>
+      <div id="9ae56003-6e28-4662-ac1c-710636f203f7" class="column-list">
+        <div id="6ff7c382-3c5c-46c7-818d-066bb88f4a57" style="width:50%" class="column">
+          <figure id="fe9f0985-213e-4224-9b01-08b73a789e4e" class="image">
+            <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:500px" src="Untitled_3.png"></a>
+          </figure>
+        </div>
+        <div id="79b1df3b-a1e5-4dd0-8e58-f4bdf4318108" style="width:50%" class="column">
+          <figure id="10ce50d6-a8b9-45f8-ba9e-729a1ec9e77a" class="image">
+            <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:326px" src="Untitled_4.png"></a>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../Povidky/Software.html" title="Software">Software</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Paromobilita_je_budoucnost.html" title="Paromobilita je budoucnost">Paromobilita je budoucnost</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" title="Algoritmus hledání programátorské práce 2021/4">Algoritmus hledání programátorské práce 2021/4</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk/Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
+        </li>
+      </ul>& <a href="../../../Zmeny.html" title="Změny">more</a>
+    </div>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../../Tagy/hacking.html" title="hacking">hacking</a>, <a href="../../../Tagy/programovani.html" title="programovani">programovani</a>, <a href="../../../Tagy/wifi.html" title="wifi">wifi</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
+          <a href="../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

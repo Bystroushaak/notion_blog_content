@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Reflexe grafických rozhraní</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom_cz.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Reflexe grafických rozhraní">
+  <meta name="twitter:description" content="Před nějakou dobou proběhla na abclinuxu diskuze o desktopu, kde byl nakousnut i Smalltalk a jeho GUI, kde jsem zmíňil „morphic halo“ jako prvek, který smalltalkovským GUI umožňuje reflexi. V diskuzi jsem byl požádán o další informace, proto vám dnes přináším článek na téma reflexe grafického rozhraní nejen ve Smalltalku.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/Reflexe_grafickych_rozhrani/Untitled.png">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="Před nějakou dobou proběhla na abclinuxu diskuze o desktopu, kde byl nakousnut i Smalltalk a jeho GUI, kde jsem zmíňil „morphic halo“ jako prvek, který smalltalkovským GUI umožňuje reflexi. V diskuzi jsem byl požádán o další informace, proto vám dnes přináším článek na téma reflexe grafického rozhraní nejen ve Smalltalku.">
+  <meta name="keywords" content="smalltalk,self,programovani,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../Povidky/Software.html" title="Software">Software</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Paromobilita_je_budoucnost.html" title="Paromobilita je budoucnost">Paromobilita je budoucnost</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" title="Algoritmus hledání programátorské práce 2021/4">Algoritmus hledání programátorské práce 2021/4</a>
+        </li>
+        <li>
+          <a href="../3D_tisk/Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
+          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
+        <li>
+          <a href="../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
+        </li>
+      </ul>& <a href="../../Zmeny.html" title="Změny">more</a>
+    </div>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../Tagy/programovani.html" title="programovani">programovani</a>, <a href="../../Tagy/self.html" title="self">self</a>, <a href="../../Tagy/smalltalk.html" title="smalltalk">smalltalk</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
+          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Programování">Programování</a> / Reflexe grafických rozhraní
+  <article id="34df837a-5270-464d-ad90-48a2bf910b3e" class="page sans">
+    <header>
+      <h1 class="page-title">Reflexe grafických rozhraní</h1>
+    </header>
+    <div class="page-body">
+      <p id="3eb589e8-5085-4f76-8007-bea1bcb74106" class=""><time>@2017/01/17</time></p>
+      <p id="bbc9e13b-ce0a-4058-88bb-a96bd2ff26a6" class="">Před nějakou dobou proběhla na abclinuxu diskuze o desktopu, kde byl <a href="https://abclinuxu.cz/blog/xkucf03/2017/1/moderni-desktopove-prostredi-pro-pracovni-stanici/diskuse#33">nakousnut</a> i Smalltalk a jeho GUI, kde jsem zmíňil <em>„morphic halo“</em> jako prvek, který smalltalkovským GUI umožňuje reflexi. V diskuzi jsem byl požádán o další informace, proto vám dnes přináším článek na téma reflexe grafického rozhraní nejen ve Smalltalku.</p>
+      <h2 id="3fb3017f-116c-438b-ba8e-0111c2ccde6b" class="">Reflexe</h2>
+      <blockquote id="18c62295-0fcf-4059-a15c-c621d9558cea" class="">
+        In computer science, reflection is the ability of a computer program to examine, introspect, and modify its own structure and behavior at runtime.
+      </blockquote>
+      <p id="15bf03d9-e72d-42c4-a276-684821b90b87" class="">– <a href="https://en.wikipedia.org/wiki/Reflection_(computer_programming)">Reflection (computer programming)</a>. <em>Wikipedia</em> [online]. [cit. 2017-01-12].</p>
+      <p id="5a6b2a2b-c077-4184-b9e9-cab9eeb82e14" class="">Volně přeloženo:</p>
+      <blockquote id="5b9d749c-ebe6-4453-8e08-91db0083f920" class="">
+        Reflexe je v teoretické informace schopnost počítačového programu za běhu procházet, zkoumat, a modifikovat svou vlastní strukturu a chování.
+      </blockquote>
+      <p id="6ad7f181-25d9-48f9-b605-4dd5e0cd9f51" class="">V případě Objektově Orientovaného Programování (OOP) to typicky znamená, že je možné zjišťovat informace o objektech, například jméno třídy, ze které jsou instancovány, či kontrolovat přítomnost atributů, nebo metod. Existují ale také programovací jazyky, které takto mohou modifikovat cokoliv pomocí vyhodnocování datových struktur. K typickým zástupcům těchto jazyků patří například Lisp.</p>
+      <p id="61d0390e-3dc7-4bbb-a4cb-7f9586a1f96c" class="">V případě grafického rozhraní je reflexí chápána možnost modifikace „oken“ a jejich chování, ale také možnost modifikace samotných programů, které „okna“ generují.</p>
+      <h2 id="3e3aa530-b9e7-4c49-8fbe-e09ddfcedd56" class="">Reflexe grafického rozhraní v X Window / Gnome</h2>
+      <p id="d2ebea56-d156-4c19-b793-62e65be3df25" class="">Budu předpokládat, že všichni znáte a používáte grafické uživatelské rozhraní v nějaké jeho formě. Já osobně používám Linux Mint s grafickým prostředím Mate, což je fork Gnome 2. Toto prostředí je ve svých principech podobné všem ostatním linuxovým grafickým rozhraním s okny - myší a klávesnicí můžete pohybovat s okny na jedné, či více plochách. Okna můžete zavírat, minimalizovat, maximalizovat a tak podobně.</p>
+      <p id="d520abc4-7274-457f-b62f-221763cc31ad" class="">Grafické rozhraní v typických linuxových desktop managerech funguje všechno podobně. Program pomocí bindingů (napojení) na knihovny grafického serveru (xlib) generuje po svém spuštění nějaké „okno“. Grafický server reaguje na informace, které jsou mu bindingy předávány a uživatelské zprávy posílá zpět programu, který na ně může, ale nemusí nějak reagovat.</p>
+      <figure id="ebd0da82-6c37-4429-85c5-46c80fcffc9d" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled.png" title="Untitled.png"><img style="width:513px" src="Reflexe_grafickych_rozhrani/Untitled.png"></a>
+        <figcaption>
+          <em>Princip fungování X Window System. Zdroj:</em> <a href="http://menehune.opt.wfu.edu/Kokua/Irix_6.5.21_doc_cd/usr/share/Insight/library/SGI_bookshelves/SGI_Developer/books/XLib_PG/sgi_html/ch01.html"><em>Volume One: Xlib Programming Manual</em></a><em>.</em>
+        </figcaption>
+      </figure>
+      <figure id="d82d9e02-3cea-4d27-b07f-8d3f029c849d" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_1.png" title="Untitled_1.png"><img style="width:315px" src="Reflexe_grafickych_rozhrani/Untitled_1.png"></a>
+        <figcaption>
+          <em>Detailnější schéma principu fungování X Window Systému. Zdroj:</em> <a href="https://goo.gl/images/RDfjkC"><em>google dotaz</em></a> <em>v obrázcích na „</em><a href="https://www.google.com/search?q=x+window+system+architecture&amp;safe=off&amp;client=ubuntu&amp;hs=tDk&amp;source=lnms&amp;tbm=isch&amp;sa=X"><em>x window system architecture</em></a><em>“</em>
+        </figcaption>
+      </figure>
+      <p id="5fcf21c7-af8d-4dc2-8d1f-42a907b84269" class="">Co se týče běžného uživatele, pro něj většinou žádná reflexe kromě té, kterou mu nabízí samotný program, přítomná není. Uživatel může myší či klávesovými zkratkami okno zmenšovat, zvětšovat, různě přesouvat a případně zavřít. Pokud mu to neumožní program, tak například nemůže změnit titulek běžící aplikace, či přidávat a ubírat položky v menu. Většina programů podobné chování uživatelům nenabízí, i když jsem již potkal takové, které tuto funkcionalitu umožňovaly.</p>
+      <p id="98e5fa11-297a-46ed-80df-2447b7e9e0a2" class="">Pokročilý uživatel má možnost používat nástroje, které jsou typicky s X Window systémem distribuovány. Jedná se například o program <a href="http://linuxcommand.org/man_pages/xev1.html"><code>xev</code></a>, který uživateli umožňuje testovat klávesnici a myš.</p>
+      <figure id="b1754760-89e7-4563-9c4d-b5b2690d3929" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_2.png" title="Untitled_2.png"><img style="width:890px" src="Reflexe_grafickych_rozhrani/Untitled_2.png"></a>
+        <figcaption>
+          <em>Výstup z programu xev spolu s grafickým oknem. V konzoli je možné vidět ID okna aplikace, názvy eventů a kódy stisknutých kláves.</em>
+        </figcaption>
+      </figure>
+      <p id="ae3d2254-db7f-47d8-8f0b-75e9a0a7b0be" class="">Dále pak třeba program <a href="http://www.xfree86.org/4.2.1/xwininfo.1.html"><code>xwininfo</code></a>, který umožňuje zobrazit informace pro okno, na které kliknete:</p>
+      <figure id="88844d27-2862-4c06-8a7e-712a6e265ccc" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_3.png" title="Untitled_3.png"><img style="width:890px" src="Reflexe_grafickych_rozhrani/Untitled_3.png"></a>
+      </figure>
+      <p id="4c0c2a95-90cb-4f07-9f9b-9969cb9c19e6" class="">Tyto informace je pak možné používat s programy jako třeba <a href="http://tripie.sweb.cz/utils/wmctrl/">wmctrl</a>, či <a href="https://help.ubuntu.com/community/Devilspie">devilspie</a>, které na základě nich umožňují okna přesouvat a obecně ovládat například z nějakého scriptu, či programu, který si pokročilý uživatel napíše. Do velké míry se však stále jedná pouze o jiný přístup ke klasickému ovládání počítače, protože informace získané reflexí oken není možné využít například k přidání nového prvku do menu programu.</p>
+      <p id="9ba07ed1-b24c-485a-a4ca-22208bf2afc8" class="">Pokud by uživatel něco takového chtěl udělat, nezbývalo by mu nic jiného, než získat přístup ke zdrojovým kódům aplikace, upravit je, zkompilovat a program znovu spustit s upravenými změnami. Obecně lze tedy říct, že ačkoliv klasický přístup k ovládání počítače reflexi nabízí, je velmi malá a špatně použitelná.</p>
+      <h2 id="e6fdfd07-bf59-4470-9e74-24ee2ba4bdc0" class="">Reflexe v prostředí Endless OS</h2>
+      <p id="acdb2b36-acdc-41a9-a260-dab977b10963" class="">Před několika týdny se zde mihla <a href="https://www.notion.so/zpravicky/nove-pocitace-od-endless-mission-mini-a-mission-one">zprávička</a> zmiňující <a href="https://endlessos.com/">Endless OS</a>, která mě na první pohled zaujala velmi netradičním přístupem k reflexi grafického rozhraní. Součástí zprávičky je <a href="https://twitter.com/jonobacon/status/817059475437879305">video</a> (<a href="https://www.youtube.com/watch?v=4I6mXn5mbW8">youtube záloha</a>), kde je prezentována schopnost „otočit“ aplikaci a ihned začít upravovat zdrojové kódy:</p>
+      <figure id="658af260-7ade-4e07-a6a6-61d11e456637" class="image">
+        <a href="Reflexe_grafickych_rozhrani/223397-morphic-halo-9138792192158687119.gif" title="223397-morphic-halo-9138792192158687119.gif"><img style="width:320px" src="Reflexe_grafickych_rozhrani/223397-morphic-halo-9138792192158687119.gif"></a>
+      </figure>
+      <p id="0b033c4b-585f-47c9-82aa-e57b88a2dff0" class="">Pod videem se nachází diskuze:</p>
+      <blockquote id="bc14301e-8d08-41d2-8154-30d7ce8ecd49" class="">
+        &lt;Havoc Pennington&gt; does it live-update the front of the window with your changes?<br>
+        &lt;Jono Bacon&gt; I don't think it does right now, but I believe that is the plan. This is an early cut of the feature.<br>
+        &lt;jrb&gt; definitely the plan and it does, though it's fragile.
+      </blockquote>
+      <p id="f1d2bcbf-6673-41c0-998a-3083b0c28a07" class="">Volně přeloženo:</p>
+      <blockquote id="958d04de-272e-4f41-878d-1e5b7665874b" class="">
+        &lt;Havoc Pennington&gt; dochází se změnami k úpravám přední strany okna?<br>
+        &lt;Jono Bacon&gt; Nemyslím, že teď ano, ale věřím, že takový je plán. Jedná se o první verzi téhle funkcionality.<br>
+        &lt;jrb&gt; rozhodně je to v plánu a funguje to tak, i když je to křehké
+      </blockquote>
+      <p id="b99c6472-da3a-4eb3-81e2-759c2b0bc52e" class="">V podstatě se jedná o podobnou reflexi, jako v případě klasického desktopu, ale zajímavě zautomatizovanou tak, že kroky [editace - kompilace - běh aplikace] jsou notně usnadněny a zjednodušeny.</p>
+      <p id="50487dc9-74a6-4a35-87bf-fe4c9f5d0b8a" class="">Osobně musím říct, že na mě toto demo velmi zapůsobilo. Rozhodně se jedná o krok zajímavým směrem a budu sledovat, jak moc se ujme. Endless OS jsem si stáhl a chtěl vyzkoušet možnosti úpravy aplikací, v současném release zatím ale tato funkcionalita naneštěstí není přibalená.</p>
+      <p id="b5a9cdd7-5ba7-4287-9bc5-cb429e5b5bf0" class="">Doufám, že se nebude jednat jen o věc pro vývojáře a dokáži si představit systém, kde by uvedená funkcionalita byla v každé části grafického rozhraní a každé aplikaci. Zatím však bohužel nic takového neexistuje.</p>
+      <h2 id="ef073c84-36ad-472e-ab8e-df93454c7ee1" class="">Reflexe grafického rozhraní ve Smalltalku</h2>
+      <p id="2590e5f2-6768-4a1a-a901-d67b8c7df2ff" class=""><a href="https://en.wikipedia.org/wiki/Smalltalk">Smalltalk</a> je programovací jazyk, který vznikl v roce 1972 a tehdy také fungoval jako „operační systém“ pro počítače Xerox Alto.</p>
+      <figure id="deef9c54-5398-4388-a7ba-9262fe9360d8" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_4.png" title="Untitled_4.png"><img style="width:900px" src="Reflexe_grafickych_rozhrani/Untitled_4.png"></a>
+        <figcaption>
+          <em>Zrekonstruovaný počítač Xerox Alto. Zdroj:</em> <a href="http://www.righto.com/2016/10/restoring-ycs-xerox-alto-day-9-tracing.html"><em>http://www.righto.com/2016/10/restoring-ycs-xerox-alto-day-9-tracing.html</em></a>
+        </figcaption>
+      </figure>
+      <p id="90b37c99-6056-4bff-84fd-c39489ed6f75" class="">Smalltalk se celý točí kolem konceptu image - virtuálního počítače, ve kterém běží jak grafické rozhraní, tak i celý jazyk a aplikace. Virtuální počítač je možné pauzovat, ukládat a znovu spouštět tam, kde jste přestali.</p>
+      <p id="9c8b47ea-381e-4b73-97d6-2a5f7a8fa136" class="">Abych se vrátil k původnímu tématu reflexe grafického rozhraní ve Smalltalku - celý koncept je postavený kolem ovládacího prvku nazvaného „morphic halo“. Dovolím si ukázku s kódem;</p>
+      <h3 id="a62d002c-ac40-4ea4-97f4-fc60363809ae" class="">Morphic halo</h3>
+      <p id="2e18a96c-0cd0-45c9-b669-bec5960c0157" class="">Začnu tím tím, že si vytvořím widget modrého čverečku, jako ukázkový <em>morph</em> (prvek grafického rozhraní <a href="http://wiki.squeak.org/squeak/morphic"><em>Morphic</em></a>), takové malé hello world. To udělám tak, že do <em>Playgroundu</em> (ekvivalent konzole) napíši <code>aMorph := Morph new openInWorld</code>.</p>
+      <figure id="ff6d7c5b-d7d3-4628-8ab5-94fbadac57df" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_5.png" title="Untitled_5.png"><img style="width:417px" src="Reflexe_grafickych_rozhrani/Untitled_5.png"></a>
+      </figure>
+      <p id="22b6cbf3-05ac-49c1-8d83-e73557b675b1" class="">Pak text vyberu, kliknu na „Do it“ a tím kód vykonám - berte to podobně, jako kdybych ho napsal do terminálu;</p>
+      <figure id="a9a6f836-dd71-4513-8a0e-cf58c95559ca" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_6.png" title="Untitled_6.png"><img style="width:423px" src="Reflexe_grafickych_rozhrani/Untitled_6.png"></a>
+      </figure>
+      <p id="dfdfb1d2-64a5-4a02-bd69-3e4f663afdd6" class="">Tím vznikne proměnná <code>aMorph</code>, ve které je uložena reference na objekt, který se zároveň zobrazí na obrazovce.</p>
+      <figure id="74e1dc17-40fc-401e-82da-cdc6ebd40e68" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_7.png" title="Untitled_7.png"><img style="width:436px" src="Reflexe_grafickych_rozhrani/Untitled_7.png"></a>
+      </figure>
+      <p id="0e4998cc-66ae-4831-a5b5-11e4df31120b" class="">„Morphic halo“ je dialog, který se objeví okolo prvku na obrazovce po použití speciální klávesovo-myšové zkratky <code>ALT+SHIFT+Kolečko</code>:</p>
+      <figure id="b9218fd3-f796-4e45-aada-9851c07d0d74" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_8.png" title="Untitled_8.png"><img style="width:138px" src="Reflexe_grafickych_rozhrani/Untitled_8.png"></a>
+      </figure>
+      <p id="9fcbef2b-890d-43a0-afbd-ea3dd3a87600" class="">V tomhle případě je tím prvkem který chci prozkoumat modrý čtvereček (ukázkový demo <em>morph</em>), okolo kterého se objevila spousta <em>ťuplíků</em>, na které se dá kliknout. K čemu jednotlivé <em>ťuplíky</em> slouží? Pokud nad nimi podržíte myš, zobrazí se krátká nápověda. Zde je přehled všech nápověd:</p>
+      <figure id="da7487cd-3838-49d2-aea7-c38beff5f3de" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_9.png" title="Untitled_9.png"><img style="width:394px" src="Reflexe_grafickych_rozhrani/Untitled_9.png"></a>
+      </figure>
+      <p id="626fdd8a-c30a-419e-afc4-930592cc2776" class=""><em>Ťuplíky</em> jsou vytvářeny dynamicky a u různých <em>morphů</em> (prvků grafického rozhraní) se zobrazují různé. Zde například chybí <em>ťuplík</em> pro rotaci <em>morphu</em>.</p>
+      <h3 id="6a90734d-e58e-4ce6-a0f0-f402b43f9330" class="">Objekty</h3>
+      <p id="67439bb0-cdf8-4787-b86d-dbb87e7f23fe" class="">Trochu odbočím; považuji za důležité vysvětlit, že jakýkoliv viditelný i neviditelný prvek ve Smalltalku je objekt. Modrý čtvereček na obrazovce je objekt. Tlačítka morphic halo jsou objekty. Co mají objekty společného? Reagují na zprávy. Zprávy fungují podobně, jako volání metod v jiných programovacích jazycích.</p>
+      <p id="d7a7c01b-2919-42af-8ad7-c561b5fcce5f" class="">Morphic halo nedělá nic jiného, než že vám zpřístupňuje interface pro posílání zpráv objektu, který je na pozadí grafického rozhraní. Pokud s objektem pohnete pomocí <em>morphic halo</em>, nebo třeba změníte barvu či velikost, <em>morphic halo</em> posílá (někdy zprostředkovaně přes zbytek morphic frameworku) objektu zprávy, aby se změnil a ten se na základě toho změní.</p>
+      <p id="607d14c6-78af-46d9-b3c1-93777cda7140" class="">Zajímavý je v tomhle ohledu ťuplík „Debug“, který vám umožňí otevřít si <em>Inspector</em>. <em>Inspector</em> je grafický pohled na interní stav objektu. Jakékoliv změny provedené v objektu se propisují do <em>Inspectoru</em> a naopak.</p>
+      <figure id="16cd4e58-8c0d-4afa-b3af-8154aa9a528a" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_10.png" title="Untitled_10.png"><img style="width:744px" src="Reflexe_grafickych_rozhrani/Untitled_10.png"></a>
+      </figure>
+      <p id="ea1975cc-081c-4c1d-93e7-cc39765b41f0" class="">V <em>Inspectoru</em> můžete vidět jednotlivé properties objektu, jako třeba <code>color</code> (objekt <code>Color blue</code> - objekt vrácený jako odpověď na zprávu <code>blue</code> poslanou objektu <code>Color</code>), nebo <code>bounds</code> (rozměry čverce).</p>
+      <p id="45574e65-c110-4148-93eb-f858905b5e00" class="">V dolní části <em>Inspectoru</em> pak máte textovou plochu, která funguje podobně jako <em>playground</em>, tedy jako jakýsi shell. Cokoliv co sem napíšete se vykonává v kontextu objektu. Například můžete poslat zprávu <code>self color</code> a dostanete zpět objekt modré barvy. Stejně tak můžete například přiřadit jinou barvu, čímž změníte objekt na pozadí, což změní i reprezentaci na obrazovce a čtverec třeba zčervená.</p>
+      <p id="7f4f9e06-67ee-4d7e-aa45-72657523b064" class="">V <em>Inspectoru</em> je také možné zobrazit si poděděné metody objektu a spoustu dalších vecí:</p>
+      <figure id="364bfece-33ea-40d4-a88d-8c2f3efd316a" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_11.png" title="Untitled_11.png"><img style="width:744px" src="Reflexe_grafickych_rozhrani/Untitled_11.png"></a>
+      </figure>
+      <p id="c7c8cad0-4545-4a3a-825e-54672ddc9b05" class="">Jakýkoliv prvek grafického rozhraní může být takto zkoumán a upravován. Následující sekvence obrázků to ilustruje:</p>
+      <figure id="d940f22d-ae9e-4b3c-af2d-78f78914bea8" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_12.png" title="Untitled_12.png"><img style="width:744px" src="Reflexe_grafickych_rozhrani/Untitled_12.png"></a>
+        <figcaption>
+          <em>Zde v okně označím pomocí morphic halo titulek.</em>
+        </figcaption>
+      </figure>
+      <figure id="3f1eb316-5231-400b-9e7c-e98ae07b80ed" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_13.png" title="Untitled_13.png"><img style="width:744px" src="Reflexe_grafickych_rozhrani/Untitled_13.png"></a>
+        <figcaption>
+          <em>Titulek přenesu vedle.</em>
+        </figcaption>
+      </figure>
+      <figure id="082316aa-3bef-46c2-963e-c91bb595b14f" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_14.png" title="Untitled_14.png"><img style="width:744px" src="Reflexe_grafickych_rozhrani/Untitled_14.png"></a>
+        <figcaption>
+          <em>A pak ho zrotuji o 45° pomocí „morphic halo“ prvku vlevo dole.</em>
+        </figcaption>
+      </figure>
+      <p id="7238678f-660e-4b21-bf4b-2cc8f96cabea" class=""><em>Morphic halo</em> je podle mého názoru geniální koncept, který vám umožňuje měnit prvky grafického rozhraní, zkoumat je a hrát si s nimi. Pokud vám něco nevyhovuje, prostě to vezmete a změníte dle vlastního uvážení. Díky tomu, že Smalltalk je postavený okolo konceptu <em>image</em> dává celý koncept smysl. Prostě si paměťovou mapu uložíte a příště začínáte tam, kde jste naposledy skončili, tedy i s upraveným grafickým rozhraním.</p>
+      <p id="15302d2b-477d-4f6a-8183-e2eefea69a37" class="">Přesto zde stále existují nevýhody tohoto konceptu a způsobu úprav grafického rozhraní, ke kterým se za chvíli vrátím.</p>
+      <h2 id="3f0969cb-3070-4496-90a7-e3fa3f823206" class="">Reflexe grafického rozhraní v Selfu</h2>
+      <p id="dd073638-37c1-4199-8a9b-cef53626cc05" class="">John Malloney, autor grafického toolkitu <em>Morphic</em> ho původně vytvořil pro programovací jazyk <a href="http://www.selflanguage.org/">Self</a>. Troufám si tvrdit, že v Selfu dává <em>Morphic</em> o hodně větší smysl, než ve Smalltalku. Proč? Protože Self je <em>prototype-based</em> (čti: na prototypech založený). Co to znamená?</p>
+      <p id="9ab4314c-aaf6-42d6-a584-d4b9c02fa3b4" class="">V Selfu neexistují třídy. To má jeden ne zcela zřejmý vedlejší efekt; není v něm přítomný implicitní konstrukční a dekonstrukční mechanismus. Celý systém s tím počítá a je postavený kolem této myšlenky.</p>
+      <p id="f25b1a1d-544e-4aa3-874a-5910f1a06c83" class="">Je mi jasné, že všem nebude jasné co to znamená, proto to ještě rozvedu:</p>
+      <p id="e25e7920-7a05-4e73-a71e-4fc37102df15" class=""><em>Class-based</em> (čti: <em>na třídách založené</em>) jazyky, jako třeba Smalltalk, nebo Java, C++, či C# fungují na principu vytvoření popisu objektu, který chcete dostat. Tomu popisu se říká <em>třída</em>. Z tohoto popisu poté nějakým více, či méně přímým mechanismem vytváříte <em>instanci</em>, tedy samotný objekt, se kterým poté můžete pracovat. Při vytvoření instance objektu je zavolán <em>konstruktor</em> - speciální metoda, která nastaví nějaké hodnoty a například inicializuje reprezentaci objektu v grafickém rozhraní. Při rušení objektu je zavolán <em>destruktor</em>, který provede uklizení po objektu.</p>
+      <figure id="a1713f26-2f21-4ca5-b69c-4a41fd2fc2cc" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_15.png" title="Untitled_15.png"><img style="width:450px" src="Reflexe_grafickych_rozhrani/Untitled_15.png"></a>
+        <figcaption>
+          <em>Rozdíl mezi třídou a instancí. Zdroj:</em> <a href="http://www.java67.com/2014/11/difference-between-instance-and-object-in-java.html"><em>Difference between instance and Object in Java</em></a><em>.</em>
+        </figcaption>
+      </figure>
+      <p id="00b0c054-7bf9-41ff-8a18-c97524fb51a4" class="">Self patří k jazykům, které jsou <em>objektově orientované</em>, oproti spoustě ostatních jde však do extrému - výslovně zde není nic jiného, než objekty. Nejsou zde ani třídy, tedy popisy toho, jaký chcete vyrobit objekt. Když chcete vytvořit nový objekt, vezmete nějaký již existující (například prázdný objekt), ten <em>zkopírujete</em> a pak do něj přidáte, změníte, nebo uberete co v něm chcete mít. Místo dědičnosti je zde delegace, ať již přímá, nebo nepřímá, kde říkáte „když se v objektu něco nenachází, má se to hledat tady a tady“.</p>
+      <p id="239ab093-1062-44af-836a-4306aa22f7ac" class="">Programy v Selfu je možné psát, nebo <em>skládat</em>. To funguje tak, že vezmete nějaký objekt, přidáváte do něj jiné objekty a některé ubíráte a sem tam přidáte trochu kódu a jinde změníte vlastnosti, ať již kódem, nebo pomocí nástrojů grafického rozhraní.</p>
+      <p id="640979e3-7f72-40a6-b5ac-6edb463ac2d9" class="">Stejným způsobem můžete vzít samotné prvky grafického rozhraní, třeba tlačítko, pak ho zkopírovat, změnit jeho popisek a akci po kliknutí a pak ho přidat k dalším prvkům. Když jste s výsledkem spokojeni, celý si ho uložíte do vašeho původního objektu, který tvoří celou aplikaci.</p>
+      <p id="a7a321f8-ed4c-4be3-9289-bf2d3d0c4da5" class="">Po celou dobu nemusíte (ale můžete) vytvářet <em>popis</em> toho co chcete dělat, můžete to přímo dělat na objektech v paměti pomocí reflexe. Pak tyto objekty učiníte několika kliknutími součástí vaší aplikace, kterou můžete dále distribuovat a serializovat do zdrojového kódu. O to se stará <em>Transporter</em>.</p>
+      <p id="8205adc7-1c14-4ec0-b9b3-32c3b7d2b56f" class="">Důvod, proč jsem psal, že <em>Morphic</em> dává větší smysl v Selfu, než ve Smalltalku je nyní doufám jasný. Přestože v Smalltalku můžete vyvolat na libovolné komponentě <em>Morphic halo</em> a tuto komponentu živě zkoumat a upravovat, není zde přítomný princip, jak upravenou komponentu učinit součást vaší aplikace. I když vezmu titulek playgroundu a otočím ho o 180°, příště až otevřu <em>playground</em>, titulek bude opět stejný, jako byl na začátku. Kdybych ho chtěl změnit, musel bych změnit popis objektu - zdrojový kód ve třídě a otočit ho o 180° tam, i když jsem ho změnil přímo na své obrazovce.</p>
+      <p id="e74b46a5-3eaa-41ba-8f8e-77e9362c6042" class="">V Selfu bych mohl změnit přímo graficky pouze prototyp titulku a tím změnit i všechny příště vytvářené <em>kopie</em> stromu objektů, ze kterých je titulek složený.</p>
+      <p id="24662321-a8fc-47e6-b039-4f806b225b3d" class="">Samozřejmě, že pokud by byla v Selfu použita například metoda, která titulek vytváří zdrojovým kódem z popisu, tak by byla situace stejná jako ve Smalltalku, principiálně je ale možné pracovat čistě způsobem úprav přímo konkrétních objektů.</p>
+      <p id="68dfbe8d-4f19-4bee-ab75-0a70dcc25ea4" class="">Autoři jazyka vás přímo podporují v myšlence, abyste aplikace a grafické rozhraní tvořili tak, že rozeberete kopii nějakého objektu, který se vám líbí a ze kterého budete vycházet. K tomu slouží i <code>Factory window</code>, které automaticky zkopíruje každý element, který z něj „chytnete“ myší. Ten poté můžete přenést na volnou plochu a začít z něj skládat aplikaci.</p>
+      <h3 id="dd5a6104-b3a9-49ff-b44a-3a5d9afeb55d" class="">Core sampler</h3>
+      <p id="3f6b72cd-ed3c-4d7c-a0d1-aa2934fcc0ed" class="">Autoři jazyka použili v Selfu poněkud jiný přístup, než je Smalltalkovské <em>Morphic halo</em>. Vytvořili takzvaný <em>Core sampler</em>:</p>
+      <figure id="2ffc1eac-f613-4dd7-bb0b-9afd0cfc8e25" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_16.png" title="Untitled_16.png"><img style="width:229px" src="Reflexe_grafickych_rozhrani/Untitled_16.png"></a>
+      </figure>
+      <p id="3216ee8d-fd67-4e86-8831-7d368278a6be" class="">To je aplikace (ehm, objekt), který vám ukazuje z čeho jsou složené objekty na které namíříte křížek v zaměřovači.</p>
+      <figure id="9475d1dc-ee9f-4a05-8451-789f7248a9f9" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_17.png" title="Untitled_17.png"><img style="width:335px" src="Reflexe_grafickych_rozhrani/Untitled_17.png"></a>
+        <figcaption>
+          <em>Core sampler v Core sampleru. Vidíme, že se skládá z</em> <code><em>coreSamplerMorph</em></code><em>.</em>
+        </figcaption>
+      </figure>
+      <figure id="f73431b6-611d-4b6a-8e68-df12fd6e0059" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_18.png" title="Untitled_18.png"><img style="width:400px" src="Reflexe_grafickych_rozhrani/Untitled_18.png"></a>
+        <figcaption>
+          <em>Core sampler v Core sampleru v Core sampleru. Vidíme, že zatímco první C.S. se skládá jen z</em> <code><em>coreSamplerMorphu</em></code><em>, na vrcholu druhého je</em> <code><em>labelMorph</em></code> <em>sedící na</em> <code><em>proxyMorph</em></code> <em>a tvořící nápis „coreSamplerMorph“.</em>
+        </figcaption>
+      </figure>
+      <p id="482cbc9b-b135-4383-bc6b-447842a6a90d" class=""><em>Core sampler</em> vám umožňuje s morphy pracovat - díky němu můžete upravovat cokoliv na obrazovce, i když je to jinak nedotknutelné. Také můžete zobrazit <em>Outliner</em> pro daný objekt. <em>Outliner</em> plní podobnou funkci jako <em>Inspector</em> v Selfu - v podstatě se jedná o tabulkový pohled na stav objektu, zároveň je to ale také hlavní způsob, jak objekty vytvářet a upravovat, což Smalltalkovský <em>Inspector</em> není (ten slouží k průzkumu objektů, ne k psaní popisů objektů - tříd). Díky outlineru získáváte přístup přímo k objektu, který <em>tvoří</em> samotnou aplikaci, k jeho zdrojovému kódu a properties.</p>
+      <figure id="d839137f-e041-4d66-a742-46114573fa48" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_19.png" title="Untitled_19.png"><img style="width:390px" src="Reflexe_grafickych_rozhrani/Untitled_19.png"></a>
+        <figcaption>
+          <em>Menu pro otevření outlineru.</em>
+        </figcaption>
+      </figure>
+      <figure id="87997a24-ba77-4284-8b64-7d810df1b916" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_20.png" title="Untitled_20.png"><img style="width:702px" src="Reflexe_grafickych_rozhrani/Untitled_20.png"></a>
+        <figcaption>
+          <em>Outliner zobrazující různé sloty, z nichž některé obsahují odkazy na další objekty, jiné metody [slot</em> <code><em>prototype</em></code><em>].</em>
+        </figcaption>
+      </figure>
+      <figure id="eb0344f1-91d1-43d1-b80d-efaea2309cb7" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_21.png" title="Untitled_21.png"><img style="width:714px" src="Reflexe_grafickych_rozhrani/Untitled_21.png"></a>
+        <figcaption>
+          <em>Ukázka změny property</em> <code><em>myLabel</em></code> <em>grafickým přetažením reference na outliner objektu stringu</em> <code><em>'something else'</em></code><em>.</em>
+        </figcaption>
+      </figure>
+      <figure id="95cbbae1-77d5-4199-a1af-eca0e8f80196" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_22.png" title="Untitled_22.png"><img style="width:681px" src="Reflexe_grafickych_rozhrani/Untitled_22.png"></a>
+        <figcaption>
+          <em>Ukázka změny property</em> <code><em>myLabel</em></code> <em>posláním zprávy</em> <code><em>myLabel: 'different thing'</em></code> <em>objektu, který je reprezentován Outlinerem.</em>
+        </figcaption>
+      </figure>
+      <h3 id="a8af0f40-1863-4a50-8754-187250ed99ab" class="">Ukázka konstrukce aplikace</h3>
+      <p id="7d74cc2a-16db-49bd-9b58-acb289f79d13" class="">Jak jsem psal, aplikace v Selfu je možné skládat. Jak to vypadá ukazuje následující sekvence obrázků:</p>
+      <figure id="75d63461-eec4-4bb0-98e2-8a94d81f2b7d" class="image">
+        <a href="Reflexe_grafickych_rozhrani/Untitled_23.png" title="Untitled_23.png"><img style="width:467px" src="Reflexe_grafickych_rozhrani/Untitled_23.png"></a>
+      </figure>
+      <p id="beaec8c8-2646-40d2-aa16-1bf0ec80ed79" class="">Pro praktickou aplikaci by samozřejmě bylo nutné přidat ještě další prvky, jako tlačítka, různé gridy a zarovnání, aby aplikace tvořila skutečně okno. V principu je ale možné postupovat stejným principem. Jako zdroj všemožných widgetů slouží „Factory window“ - okno s ukázkami všemožných widgetů, které z něj můžeme přetahovat na plochu:</p>
+      <p id="cc939c71-4d3b-4506-9d21-5d02f773ccf1" class="">Jakmile by bylo vše hotovo, bylo by třeba ještě o-anotovat všechny objekty a přiřadit je do společného modulu. Pak by již bylo možné je například uložit na disk a verzovat pomocí gitu, či je distribuovat dalším uživatelům Selfu.</p>
+      <h3 id="011f0d30-2197-436c-a6d1-027983afe96c" class="">Kritika</h3>
+      <p id="0ae71e6a-3542-4f54-8c77-1cbbd5535ee3" class="">Přestože Self nabízí velmi zajímavé možnosti vytváření grafického rozhraní, je nutné také zmínit negativní části.</p>
+      <p id="c82c0f8c-e08f-45f3-8770-86c7e4f11626" class="">Specificky jde o jistou nepřehlednost co do anotace objektů, kdy je někdy možné některé objekty špatně o-anotovat, což může mít za následek export pouze části aplikace.</p>
+      <p id="b85f394f-220c-43e1-bb5e-661f27db1971" class="">Dále jsou občas problémy s mixováním procedurálního a prototypového stylu programování, kdy může být složité zjistit, kde se vlastně daný <em>morph</em> bere a jestli náhodou není generován procedurálně nějakou metodou, namísto aby byl uložen jeho prototyp v nějaké property. Pokud dochází ke kopírování <em>morphu</em> před jeho zobrazením, může být nesnadné zjistit, z čeho je morph vlastně kopírován.</p>
+      <p id="71aad1b8-2d00-4945-ad67-7f2b1887bea4" class="">Tyto problémy je obecně možné řešit lepšími nástroji, nutné je ovšem dodat, že vzhledem k minimální komunitě okolo Selfu (za poslední rok se konference účastnilo cca 10 uživatelů celosvětově) momentálně žádné takové nástroje nevznikají. I přes tyto nevýhody je však programování v Selfu zajímavé, když už pro nic jiného, tak pro svou odlišnost od zbytku světa.</p>
+      <h2 id="f953da74-55b7-4607-bd82-0f99e1b97984" class="">Závěr</h2>
+      <p id="85ae8655-9d8b-4058-8f65-06176c4d5de2" class="">V blogu jsem prezentoval několik různých druhů a způsobů reflexe grafického uživatelského rozhraní, ani zdaleka se však nejedná o všechny.</p>
+      <p id="eb99ec43-626b-417a-9a0a-98d8492bda95" class="">Jestliže vás zaujal Self, časem se pravděpodobně dočkáte seriálu, nebo si můžete přečíst <a href="http://kitakitsune.org/self/handbook/">oficiální příručku</a>. V případě, že vás zaujal Smalltalk, můžu doporučit <a href="http://pharo.org/">http://pharo.org</a>, resp. knihu <a href="http://files.pharo.org/books/">Pharo by example</a>, či starší <a href="https://www.youtube.com/playlist?list=PLqbtQ7OkSta2LcMyGRbZoDS1IDW_59HT4">tutorial Squeaku na youtube</a>.</p>
+      <p id="694464dc-2a02-4bda-8814-0c05831f9a91" class="">Pokud znáte nějaký jiný způsob reflexe grafického rozhraní, či pokud máte nějaké dotazy, nebo připomínky, nezapomeňte se ozvat v diskuzi.</p>
+      <p id="495e3117-6a94-493b-b9de-12c63d75e097" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../Povidky/Software.html" title="Software">Software</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Paromobilita_je_budoucnost.html" title="Paromobilita je budoucnost">Paromobilita je budoucnost</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" title="Algoritmus hledání programátorské práce 2021/4">Algoritmus hledání programátorské práce 2021/4</a>
+        </li>
+        <li>
+          <a href="../3D_tisk/Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
+        </li>
+        <li>
+          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
+        </li>
+        <li>
+          <a href="../3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>
+        </li>
+      </ul>& <a href="../../Zmeny.html" title="Změny">more</a>
+    </div>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../Tagy/programovani.html" title="programovani">programovani</a>, <a href="../../Tagy/self.html" title="self">self</a>, <a href="../../Tagy/smalltalk.html" title="smalltalk">smalltalk</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
+          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

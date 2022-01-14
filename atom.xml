@@ -2,35 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2021-12-01T00:47:06.906935+00:00</updated>
+  <updated>2022-01-14T04:51:19.039000+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html</id>
-    <title>Prusa MK3S+ 3D printer - assembly and first prints</title>
-    <updated>2021-01-15T00:00:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_printing/Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" rel="alternate"/>
-    <summary type="text">Assembly of the printer and first impressions.</summary>
-    <published>2021-01-15T00:00:00+01:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_1_Headphone_holder.html</id>
-    <title>3D printing exhibit 1; Headphone holder</title>
-    <updated>2021-01-23T12:12:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_1_Headphone_holder.html" rel="alternate"/>
-    <summary type="text">Design and experience of creating custom 3D printed headphone holder.</summary>
-    <published>2021-01-23T12:12:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/3D_modeling/Geometric_center_of_Prague.html</id>
     <title>Geometric center of Prague</title>
@@ -118,5 +96,27 @@
     <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm.html" rel="alternate"/>
     <summary type="text">Tour trough PyCharm &amp;amp; some of the reasons why I use it.</summary>
     <published>2021-11-30T23:11:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_modeling/Antenna_from_my_dreams_3D_render.html</id>
+    <title>Antenna from my dreams (3D render)</title>
+    <updated>2022-01-14T05:19:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_modeling/Antenna_from_my_dreams_3D_render.html" rel="alternate"/>
+    <summary type="text">I&amp;#x27;ve had a dream and then I&amp;#x27;ve modelled it using Blender.</summary>
+    <published>2022-01-14T05:19:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Organization_of_information/How_I_use_personal_wiki.html</id>
+    <title>How I use personal wiki</title>
+    <updated>2022-01-14T05:28:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Organization_of_information/How_I_use_personal_wiki.html" rel="alternate"/>
+    <summary type="text">Tour over my personal wiki layout.</summary>
+    <published>2022-01-14T05:28:00+01:00</published>
   </entry>
 </feed>

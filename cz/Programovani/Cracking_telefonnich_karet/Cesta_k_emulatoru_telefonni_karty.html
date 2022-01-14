@@ -12,7 +12,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Cesta k emulátoru telefonní karty">
   <meta name="twitter:description" content="Popis a analýza různých strategií vedoucích k výrobě crackeru telefonních karet.">
-  <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/Cracking_telefonnich_karet/Cesta_k_emulatoru_telefonni_karty/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png">
   <script src="../../../scripts.js"></script>
   <meta name="description" content="Popis a analýza různých strategií vedoucích k výrobě crackeru telefonních karet."><!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -63,6 +63,14 @@
         </li>
       </ul>& <a href="../../../Zmeny.html" title="Změny">more</a>
     </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="AdvancedTCardReader.html" title="AdvancedTCardReader">AdvancedTCardReader</a>
+        </li>
+      </ul>
+    </div>
     <div>
       <h3>Blog categories</h3>
       <ul class="no_icon">
@@ -79,9 +87,6 @@
           <a href="../../Programovani.html" title="Programování">📂 Programování</a>
         </li>
         <li>
-          <a href="../../Crypto.html" title="Crypto">📂 Crypto</a>
-        </li>
-        <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -91,7 +96,13 @@
           <a href="../../Predstaveni.html" title="Představení">📂 Představení</a>
         </li>
         <li>
+          <a href="../../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
           <a href="../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
         </li>
         <li>
           <a href="../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
@@ -119,27 +130,23 @@
       <p id="a92309b8-e7c8-4225-8cae-216d6ad40f32" class="">Pokud jste pozorně četli předchozí odstavec, možná vás napadlo, jak jsou jednotky na kartě uloženy a jestli by je nešlo po provolání zase přidat. Bohužel, u moderních karet by něco podobného opravdu nešlo.</p>
       <p id="757d0cc8-6b6c-4a70-b9d9-6a0e470ec4f8" class="">V dobách dávno minulých byly jednotky na kartě reprezentovány (EE)PROM pamětí, kterou automat po každém čtení dekrementoval o 1. Jak je asi každému jasné, brzo se našli lidé, kteří zjistili jak na EEPROM zapisovat a začali si karty dobíjet, popřípadě z EEPROM pamětí vytvořili emulátory PROM karet. Telefonní společnosti na to reagovaly tak, že k jednoduché paměti přidali mikroprocesor, který dovolil pouze odečítat jednotky. Aby kartu nebylo možné jednoduše emulovat, byl přidán i mechanismus, který umožnil ověřit jestli je karta pravá. Tento mechanismus se nazývá challenge/response a bude o něm řeč v další části článku.</p>
       <p id="d1433f4b-c02c-413f-aee2-6036461c6faf" class="">Pokud někoho zajímají podrobnosti o hardware karty, dají se najít zde; <a href="http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt">http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt</a>, nebo v ISO normách.</p>
-      <p id="41a4d380-fafc-4182-89b2-bff64aee430d" class="">Dle <a href="http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html">článku na serveru hw.cz</a> vypadá průběh ověřování přibližně takto:</p>
-      <h2 id="e5d52324-573a-488e-80a4-baae02dffbb3" class="">Úvod</h2>
-      <p id="b5b5133e-175c-45d1-94e9-d322a58c54f6" class="">Tento text jsem sepsal abych si utřídil myšlenky a zároveň shrnul na internetu volně dostupné informace o zabezpečení telefonních karet do krátkého článku v češtině. Článek dále předkládá teoretické možnosti jak toto zabezpečení zlomit, přičemž se (bohužel ;) nejedná o návod, ale pouze o informace, které by měly podnítit další diskuzi a posunout tak tuto myšlenkovou hru do dalšího kola.</p>
-      <p id="d75b7ed5-ff7d-4ec9-a2ef-b1fb962ee27a" class="">Možná že někoho napadne proč se vlastně snažit, když má dnes v podstatě každý svůj vlastní mobil, popřípadě může volat přes VoIP? Obecnou odpověď na tuto otázku nemám, ale za sebe můžu říct, že je docela zábava snažit se proniknout do technologie o které se toho moc neví a která navíc zůstává po dlouhá léta nepokořená (alespoň nevím že by se někomu povedlo emulovat moderní karty).</p>
       <h2 id="ac768a17-a72b-4244-a52d-42b69952979c" class="">Popis challenge/response protokolu</h2>
       <p id="150528a4-3070-466f-9b6f-a4ebe4641144" class="">Dle <a href="http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html">článku na serveru hw.cz</a> vypadá průběh ověřování přibližně takto:</p>
       <h3 id="dc2058d6-3e4a-47fd-883f-4121ec0e4b16" class="">Telefonní automat si po vložení karty vyžádá její obsah</h3>
       <figure id="6a7a8542-9b0a-43d4-b7e4-56fc1e6e6ac9" class="image">
-        <a href="Cesta_k_emulatoru_telefonni_karty/drawing_skaUBmJDPx-o6MroRkxgU2g_25.png" title="drawing_skaUBmJDPx-o6MroRkxgU2g_25.png"><img style="width:400px" src="Cesta_k_emulatoru_telefonni_karty/drawing_skaUBmJDPx-o6MroRkxgU2g_25.png"></a>
+        <a href="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_skaUBmJDPx-o6MroRkxgU2g_25.png" title="drawing_skaUBmJDPx-o6MroRkxgU2g_25.png"><img style="width:400px" src="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_skaUBmJDPx-o6MroRkxgU2g_25.png"></a>
       </figure>
       <h3 id="8bd25968-c6c9-427b-8bb6-f95702108925" class="">Automat na obsah uplatní hash funkci, do které spolu s obsahem karty vstupuje i 48b náhodné číslo</h3>
       <figure id="41928336-3a1d-4b11-b76b-969e0e36860c" class="image">
-        <a href="Cesta_k_emulatoru_telefonni_karty/drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png" title="drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png"><img style="width:400px" src="Cesta_k_emulatoru_telefonni_karty/drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png"></a>
+        <a href="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png" title="drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png"><img style="width:400px" src="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png"></a>
       </figure>
       <h3 id="3509602a-cb62-429d-9bd0-3a779e29b932" class="">Telefonní automat pošle kartě stejné náhodné číslo (challenge)</h3>
       <figure id="8a58200a-89ca-4eb4-b2ce-b24850ea2fa4" class="image">
-        <a href="Cesta_k_emulatoru_telefonni_karty/drawing_suu7y0AKD916o4hsvJE9DYQ_14.png" title="drawing_suu7y0AKD916o4hsvJE9DYQ_14.png"><img style="width:400px" src="Cesta_k_emulatoru_telefonni_karty/drawing_suu7y0AKD916o4hsvJE9DYQ_14.png"></a>
+        <a href="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_suu7y0AKD916o4hsvJE9DYQ_14.png" title="drawing_suu7y0AKD916o4hsvJE9DYQ_14.png"><img style="width:400px" src="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_suu7y0AKD916o4hsvJE9DYQ_14.png"></a>
       </figure>
       <h3 id="562c9e6d-a96c-408b-bb0d-70d40e135aa0" class="">Telefonní karta pomocí stejné hash funkce spočítá odpověď (response) a odešle jí automatu</h3>
       <figure id="ab5cfe7a-837d-42fa-afba-2214d51fcee1" class="image">
-        <a href="Cesta_k_emulatoru_telefonni_karty/drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png" title="drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png"><img style="width:400px" src="Cesta_k_emulatoru_telefonni_karty/drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png"></a>
+        <a href="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png" title="drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png"><img style="width:400px" src="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png"></a>
       </figure>
       <h3 id="609f0614-0d77-419e-a901-bfe087c4250a" class="">Pokud se obě čísla schodují, je karta uznána jako platná</h3>
       <p id="cdee4432-ccc3-489f-a9ec-20f5bb58d498" class="">Poněkud odlišný popis se dá najít zde;</p>
@@ -354,7 +361,7 @@
       </ul>
       <p id="75f994cb-5ffd-43d4-a3e2-766b8ea19d62" class="">Z výše uvedeného vyplývá, že algoritmus by měl vypadat nějak takhle:</p>
       <figure id="5ca005c3-c4ff-4104-95b3-1c8992a62391" class="image">
-        <a href="Cesta_k_emulatoru_telefonni_karty/drawing_seT-uCA2crHUT848MxtJMeg_328.png" title="drawing_seT-uCA2crHUT848MxtJMeg_328.png"><img style="width:600px" src="Cesta_k_emulatoru_telefonni_karty/drawing_seT-uCA2crHUT848MxtJMeg_328.png"></a>
+        <a href="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_seT-uCA2crHUT848MxtJMeg_328.png" title="drawing_seT-uCA2crHUT848MxtJMeg_328.png"><img style="width:600px" src="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_seT-uCA2crHUT848MxtJMeg_328.png"></a>
       </figure>
       <h2 id="d1b5fca9-24f8-488b-8990-fe7b4746cb9a" class="">Možnosti rekonstrukce algoritmu</h2>
       <p id="931a24d4-4083-4111-afea-ec764cbede50" class="">Podle mě v úvahu připadají pouze tyto dvě techniky:</p>
@@ -394,7 +401,7 @@
       <p id="8ebc5feb-037a-4d88-8dcd-bb0c6829b305" class="">Útok hrubou silou by měl být značně zjednodušený, protože známe vstup, výstup, přibližný počet instrukcí a navíc víme které operace nejspíš algoritmus generování hashe využívá a které ne. Jediné co zbývá je napsat program, který se pokusí odhalit v jakém pořadí jsou operace aplikovány, čímž odhalí algoritmus a umožní stavbu emulátoru.</p>
       <p id="ebc322a9-b68c-453e-9952-00697d9b3774" class="">Cracker by měl dle mého názoru vypadat přibližně takto:</p>
       <figure id="f26d91c5-f770-4f06-aaf2-ffd06d4b5ab5" class="image">
-        <a href="Cesta_k_emulatoru_telefonni_karty/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png" title="drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png"><img style="width:600px" src="Cesta_k_emulatoru_telefonni_karty/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png"></a>
+        <a href="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png" title="drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png"><img style="width:600px" src="../../../en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png"></a>
       </figure>
       <h3 id="0f2f77ff-8121-4b92-a20e-20af320760f9" class="">Popis crackeru</h3>
       <ul id="083b222b-be65-4c9b-8cd4-a698f64c5c07" class="bulleted-list">
@@ -424,7 +431,6 @@
       <p id="edb3e481-9e59-4605-8736-cce4ffcd7197" class="">Nakonec bych chtěl ještě zdůraznit že tento článek není dokonalý, já nejsem dokonalý, dokonce nejsem ani odborník na mikroprocesory nebo zabezpečení karet a proto zde existuje poměrně slušná pravděpodobnost že článek obsahuje chyby nebo nepřesnosti. Je možné že některé metody a možnosti které jsem popsal jsou nesmyslné, nebo nefunkční.</p>
       <p id="b1bbe9f2-c83d-4460-9ce6-c658b0b51ffc" class="">Tento článek neměl a nemá sloužit jako návod, ale k podnícení diskuze nad popsanými metodami. Pokud někoho napadne nějaká připomínka nebo věcná kritika, budu rád když jí uvede v diskuzi k článku, nebo mi jí pošle jinou cestou.</p>
       <h1 id="5d66e8ac-9179-4c48-9eda-97ad5878522d" class="">Zdroje</h1>
-      <p id="d3b785ea-e1a3-419f-9017-c8ef98211a66" class=""></p>
       <ul id="771e7b35-d329-476a-9143-da48cdab1809" class="bulleted-list">
         <li style="list-style-type:disc">
           <a href="http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html">http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html</a>
@@ -488,6 +494,14 @@
         </li>
       </ul>& <a href="../../../Zmeny.html" title="Změny">more</a>
     </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="AdvancedTCardReader.html" title="AdvancedTCardReader">AdvancedTCardReader</a>
+        </li>
+      </ul>
+    </div>
     <div>
       <h3>Blog categories</h3>
       <ul class="no_icon">
@@ -504,9 +518,6 @@
           <a href="../../Programovani.html" title="Programování">📂 Programování</a>
         </li>
         <li>
-          <a href="../../Crypto.html" title="Crypto">📂 Crypto</a>
-        </li>
-        <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -516,7 +527,13 @@
           <a href="../../Predstaveni.html" title="Představení">📂 Představení</a>
         </li>
         <li>
+          <a href="../../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
           <a href="../../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
         </li>
         <li>
           <a href="../../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>

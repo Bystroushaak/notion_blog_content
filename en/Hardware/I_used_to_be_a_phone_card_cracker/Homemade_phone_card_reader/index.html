@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Homemade phone card reader</title>
+  <link rel="stylesheet" type="text/css" href="../../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Homemade phone card reader">
+  <meta name="twitter:description" content="Článek o konstrukci čtečky telefonních karet + program který umí přečíst základní metadata.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Hardware/I_used_to_be_a_phone_card_cracker/Homemade_phone_card_reader/DSCF0321.jpg">
+  <script src="../../../../scripts.js"></script>
+  <meta name="description" content="Článek o konstrukci čtečky telefonních karet + program který umí přečíst základní metadata."><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../../twitter_icon.png"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+        <li>
+          <a href="../../../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
+        <li>
+          <a href="../../../Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../../../Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../../../Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
+        </li>
+      </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../Decapping_of_the_phone_card_chip.html" title="Decapping of the phone card chip">Decapping of the phone card chip</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a class="breadcrumb" href="../../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../../index.html" title="Hardware">Hardware</a> / <a class="breadcrumb" href="../index.html" title="I used to be a phone card cracker">I used to be a phone card cracker</a> / Homemade phone card reader
+  <article id="5fa3d42e-4a50-4425-8c39-c3625a6dcded" class="page sans">
+    <header>
+      <h1 class="page-title">Homemade phone card reader</h1>
+    </header>
+    <div class="page-body">
+      <p id="98cd33e7-c264-4802-98af-5d2a4190dbdd" class=""><time>@2009/06/15</time>, thx to Joenash & (#freedom99, irc.c0renet.sk:6667)</p>
+      <h2 id="96aad244-612b-49a7-a217-d43711a12064" class="">Deklarace</h2>
+      <p id="435c4d46-90a5-46e2-89ba-3faf182d4901" class="">This text discusses the design of a card reader for pay phones (ISO 7816-2) from commonly available materials. Of course, you can buy a reader, but I don't think it's worth the money.</p>
+      <p id="dd170bf6-92b2-48a0-9ae5-ccc58b2cbcaf" class="">V textu není řešen protokol kterým karta komunikuje - to už popsali jiní a lépe než bych to zvládl já. Pokud Vás protol zajmá, na konci dokumentu jsou odkazy na články, které se problematice věnují.</p>
+      <p id="31bf30c8-329a-4a7e-9630-5fc9c069669a" class="">The text does not address the protocol which the card uses for communication. This has been described by others and better than I could. If you are interested in protocol, there are links at the end of the document addressing the issue.</p>
+      <div id="fb0bd790-a5da-4e25-a0c4-b9fa184e7a85" class="column-list">
+        <div id="3f5974ee-d5ea-4e37-a112-e740dbadf3fd" style="width:50%" class="column">
+          <figure id="6927e50a-fe11-4657-a692-85b65e87ed96" class="image">
+            <a href="DSCF0309.jpg" title="DSCF0309.jpg"><img style="width:800px" src="DSCF0309.jpg"></a>
+          </figure>
+          <figure id="9adcb3d5-827d-47da-8732-4e55bfe6c89e" class="image">
+            <a href="DSCF0314.jpg" title="DSCF0314.jpg"><img style="width:800px" src="DSCF0314.jpg"></a>
+          </figure>
+        </div>
+        <div id="77abf0dc-c59b-45f1-ad0f-8baa578a53a4" style="width:50%" class="column">
+          <figure id="1c6e2693-36e2-4b9d-8ca1-5881be5224ec" class="image">
+            <a href="DSCF0312.jpg" title="DSCF0312.jpg"><img style="width:800px" src="DSCF0312.jpg"></a>
+          </figure>
+          <figure id="e28afe38-20ee-4c17-997d-701d807ed3aa" class="image">
+            <a href="DSCF0321.jpg" title="DSCF0321.jpg"><img style="width:800px" src="DSCF0321.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="62d9dcea-f47e-4cc5-9434-2667b33de492" class="image">
+        <a href="DSCF0323.jpg" title="DSCF0323.jpg"><img style="width:800px" src="DSCF0323.jpg"></a>
+      </figure>
+      <div id="11918ab0-bb2d-42a9-86f5-f2e6430d7ceb" class="column-list">
+        <div id="95a1c61c-b9ce-4448-af59-e66bb9565402" style="width:50%" class="column">
+          <figure id="70faf547-7572-4e8b-91da-ef211bc36dfb" class="image">
+            <a href="DSCF0327.jpg" title="DSCF0327.jpg"><img style="width:800px" src="DSCF0327.jpg"></a>
+          </figure>
+        </div>
+        <div id="aaef2c42-15cc-4791-ab7b-5240cc283090" style="width:50%" class="column">
+          <figure id="e4032045-33f4-490d-a385-c8b9ce6e9137" class="image">
+            <a href="DSCF0330.jpg" title="DSCF0330.jpg"><img style="width:1024px" src="DSCF0330.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <h2 id="b5faadf7-66a3-42f9-a8fc-bf72922542d1" class="">Necessities</h2>
+      <ul id="69d60ac7-5a86-46d0-8cec-7a01affacc52" class="bulleted-list">
+        <li style="list-style-type:disc">Tools
+          <ul id="50bfa6ae-132c-40d1-81ef-f608a9f3f836" class="bulleted-list">
+            <li style="list-style-type:circle">Soldering gun</li>
+          </ul>
+          <ul id="49ecb5e8-4294-4160-9b46-32e03a2d7649" class="bulleted-list">
+            <li style="list-style-type:circle">Glue gun</li>
+          </ul>
+          <ul id="a483702c-873e-4e50-be93-b277c49fb7e7" class="bulleted-list">
+            <li style="list-style-type:circle">Splitting pliers</li>
+          </ul>
+          <ul id="000a9afa-1110-4e1c-8c63-14995600e2ae" class="bulleted-list">
+            <li style="list-style-type:circle">Knife</li>
+          </ul>
+          <ul id="3fa20d50-542f-42d4-a3c5-7969fa8f1f46" class="bulleted-list">
+            <li style="list-style-type:circle">Screwdriver</li>
+          </ul>
+          <ul id="293f52b5-2935-413f-a728-e40972fbcf2d" class="bulleted-list">
+            <li style="list-style-type:circle">Multimeter</li>
+          </ul>
+          <ul id="3dd080f2-4cde-481c-a077-e3592c13ad8c" class="bulleted-list">
+            <li style="list-style-type:circle">Phone card</li>
+          </ul>
+          <ul id="c9c53403-12e7-4ae2-a2b8-ffe0bd736225" class="bulleted-list">
+            <li style="list-style-type:circle">Arduino diecimilia</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="1b98bd5f-91af-49d6-bdac-03058b77066d" class="bulleted-list">
+        <li style="list-style-type:disc">Resources
+          <ul id="cd29e836-e491-4d53-a96e-df152e8ea8b4" class="bulleted-list">
+            <li style="list-style-type:circle">Card case (often given as a cover for credit card, or you can get it from a stationery shop)</li>
+          </ul>
+          <ul id="92e767b7-9396-4f90-a721-168cdbd5c48b" class="bulleted-list">
+            <li style="list-style-type:circle">SIM reader from an old mobile phone</li>
+          </ul>
+          <ul id="fd574e6b-d4ae-42a3-ae2b-2a501d43c19c" class="bulleted-list">
+            <li style="list-style-type:circle">A piece of network (UTP) cable</li>
+          </ul>
+          <ul id="aab3b9e4-66a6-4de6-9da6-897d967e331c" class="bulleted-list">
+            <li style="list-style-type:circle">3-5 KOhm rezistor</li>
+          </ul>
+          <ul id="ae0641ee-7338-4534-be39-07f9dec3fe20" class="bulleted-list">
+            <li style="list-style-type:circle">Solder</li>
+          </ul>
+          <ul id="41426596-7b8b-40e9-875c-16e9e347b5d7" class="bulleted-list">
+            <li style="list-style-type:circle">Rosin</li>
+          </ul>
+          <ul id="752a8245-e396-4cd8-87a2-c648c65b8f4d" class="bulleted-list">
+            <li style="list-style-type:circle">Glue for glue gun</li>
+          </ul>
+        </li>
+      </ul>
+      <h2 id="0394c9ee-bc9e-4f28-997b-75cc5bdce863" class="">Howto</h2>
+      <p id="4311466d-d23a-4c5e-b302-650044f3ee3c" class="">First, it is necessary to prepare all the tools and raw materials that are needed to make the reader. It is also advisable to make room on the table, etc ..</p>
+      <h3 id="4698d958-0f94-4ea3-92a6-3e2586eb6de2" class="">1) Prepare the case</h3>
+      <p id="0150f7a7-daff-4af9-81e7-0b306e2fa611" class="">We have to cut a hole in the card case, to which a modified SIM card reader will be attached later. To do this, insert the card into the case, mark where the contact surfaces of the chip are located, and after removing the card, cut out a hole with a break-off knife (if you find it blunt, break off a piece from it). I recommend cutting a hole in both sides of the case - it will make it easier for you to adjust the pins of the reader to stick it on.</p>
+      <h3 id="d4ce941a-cbdd-42b8-9f5a-079e50028976" class="">2) Preparing SIM card reader</h3>
+      <p id="6d846c8c-1910-4a13-ace0-4498a600bccc" class="">Dál je na řadě úprava čtečky SIM karet; Štípačkami z ní odštípejte všechny nepotřebné kusy plastu tak, aby šla přiložit nožičkami těsně k pouzdru. Tuto činnost si radši dopředu promyslete, ať se nestane že odstřihnete něco, po čem se čtečka rozpadne. S ohýbáním nožiček aby pasovaly na piny karty se prozatím nezabývejte - jelikož drží v tenkém kousku plastu, dokud čtečku nezalepíte silikonem, lehce se utrhnou.</p>
+      <p id="7f2a0837-39bf-4189-b414-9033344ba963" class="">Next is a SIM card reader modification; use the pliers to chip off any unnecessary pieces of plastic so that it can be placed with its feet close to the case. You'd better think about this activity in advance, lest it happen that you cut off something that makes the reader fall apart. Don't worry about bending the legs to fit the pins of the card for now. They are held in a thin piece of plastic, and until the reader is sealed with silicone, they tear off easily.</p>
+      <h3 id="77d7cdc1-f6a8-40a9-9d51-b2e6fe49aeb4" class="">3) Attaching the SIM card reader to the casing</h3>
+      <p id="91c23aeb-9045-4b38-b71f-f631bcd96fe8" class="">Once you have the reader adjusted, it's time to heat up the glue gun (don't forget to put a piece of paper underneath it, the glue often comes out all the time). When the gun is warmed up, place the card in the case and position the reader so that its pins touch the correct spots on the card. Then carefully fix the reader on the sides and wait until the silicone (or whatever it is) solidifies. Then carefully bend the output wires from it (not the contact pins!) down and up.</p>
+      <h3 id="6c5166ea-36f2-4b78-90fe-4374586e48ce" class="">4) Preparing the UTP cable</h3>
+      <p id="98623e5d-07b5-43a9-a9cf-e15df81f7151" class="">It is now advisable to prepare the cable. I have chosen the classic UTP cable, which should not be a problem to get (in a computer shop, in an electrical shop, etc.). It is good to fix one side of the cable (e.g. with pliers, or to make a knot on it) so that the wires inside don't move.</p>
+      <p id="0b164a6c-3656-4dc6-8099-3cb36ce3fa5a" class="">On the free (non-fixed) side, remove the cover and subsequently the insulation from three pairs of wires. Cut off one remaining pair (e.g. brown) as it is not needed and would ultimately only get in the way. It is advisable to cut all the insulated ends to the same size (I have left about 3mm) and tint the wires. This will make your work much easier when attaching wires to the reader.</p>
+      <h3 id="6068aa74-25e0-4f5f-aae3-09a835a0d8bf" class="">5) Connecting the pull-up resistor and cable to the reader</h3>
+      <p id="6a028251-e075-4767-83cf-2100e329b7f6" class="">If you've never soldered anything before, I suggest you find some instructions on the net and try it by them until you learn it really well. Once you're sure soldering isn't a problem, use the multimeter to locate the output from the UCC and I/O pad (see diagram at part 9) and attach a pull-up resistor (without it the reader won't work) between them (to the output, of course - where you solder the wires) and then solder the individual wires of the UTP cable to each output.</p>
+      <h3 id="b744c9e8-b2db-4314-b724-27e8476f71fc" class="">6) Insulation of soldered wires</h3>
+      <p id="41187ea5-e60c-4623-918e-1c1499e5c831" class="">Once all the wires are soldered, it is necessary to seal the connections (and overall the entire outer part of the reader except for the holes above the feet) with silicone. Be careful not to touch the cables with the stripped parts!</p>
+      <p id="e92cc644-b111-4227-967e-4aa24af44d68" class="">It is good to spread the gluing over several steps and always wait for the previous side to dry.</p>
+      <h3 id="6ff81047-829d-4398-93f3-7dd8664f6d58" class="">7) Short circuit check</h3>
+      <p id="c3b9740a-2cbc-4d2c-9af5-55d0da5d8abe" class="">Now that you have the main structure ready, it is necessary to isolate the UTP cable from the other side and measure it (with the card removed, of course). You want to be certain, that you don't have a short circuit somewhere between the connections.</p>
+      <p id="1a1abb27-f406-43c0-894b-b9cc90f46a9e" class="">If you followed the instructions carefully, there won't be any. If the meter does show a short circuit (zero resistance - not pull-up resistor resistance!), you need to heat the screwdriver and separate the short-circuited wires sealed with silicone.</p>
+      <h3 id="77ad180f-dafd-473b-978b-2e4274262924" class="">8) Bending the reader pins</h3>
+      <p id="22454954-d225-4eee-8043-4215b3f42255" class="">If you have successfully measured everything, it is time to carefully (!) bend the pins of the reader so that they reach the card. Thanks to the fact that you (I hope) cut the case from the other side, it is a relatively easy matter. Watch out for the number of bends - the pins won't withstand much movement and if you twist them longer than necessary, they will simply fall off.</p>
+      <p id="b1fe2ce4-ee16-4d05-aa67-aee1ee804379" class="">!!! Make sure to keep the arc shape of the pins, otherwise they will tear off/bend after inserting/ejecting the card (I know what I'm talking about, I destroyed one of the readers like this) !!!</p>
+      <h3 id="a23e44f1-f564-47af-bd83-e3da9eabae58" class="">9) Cable mapping</h3>
+      <p id="7cfece1b-e202-4abc-9530-95e6bdaeb022" class="">Insert the card into the reader and find out where you soldered each wire. Measure by inserting the tip of the meter from the top of the reader (through the hole above the pads), placing it on the surface of the card (not on the pad of the reader - this way you find out if the pad has the right touch to the card) and then looking for which wire fits it.</p>
+      <p id="d7dfc75c-a7e6-4dbf-b709-eff262805cc4" class="">It is good to write down the results - for example like this:</p>
+      <pre id="ee786e41-f190-460f-9984-218f7cdae99d" class="code"><code>   ________________________
+  |          |             | 
+  | 1 UCC    |      4 GND  | 
+  |_______   |  ___________|
+  |       \ /   \          |                                     
+  | 2 RST  |     |  5 VPP  | 
+  |_______/ \   /._________| 
+  |          | |           |
+  | 3 CLK    | |    6 I/O  |
+  `----------^-^-----------'</code></pre>
+      <h3 id="f533a603-337e-481a-8f6d-4d78bfee7948" class="">Wiring to my reader:</h3>
+      <ol type="1" id="97743668-7792-4cc9-b366-63109280ee5d" class="numbered-list" start="1">
+        <li>UCC == Orange-white</li>
+      </ol>
+      <ol type="1" id="40e49561-2886-486d-9e50-7f442925b7ee" class="numbered-list" start="2">
+        <li>RST == Green</li>
+      </ol>
+      <ol type="1" id="3dcbb95a-abc5-47fb-a197-b53dc02b2402" class="numbered-list" start="3">
+        <li>CLK == Green-white</li>
+      </ol>
+      <ol type="1" id="075caff4-cb83-4123-8b99-a1472468617f" class="numbered-list" start="4">
+        <li>GND == Blue</li>
+      </ol>
+      <ol type="1" id="d23693ea-cba4-4f01-859c-0d46f70f87c3" class="numbered-list" start="5">
+        <li>VPP == Blue-white (usually not used)</li>
+      </ol>
+      <ol type="1" id="7a6baa1e-bb7d-4493-9d2f-5170e4feb535" class="numbered-list" start="6">
+        <li>I/O == Orange</li>
+      </ol>
+      <p id="e8f5aee8-8612-4f30-8a44-3d4397797729" class="">If you haven't found the corresponding cable to the surface, you need to bend the reader's pins more - with the card extended, of course. Once you've found out which wire belongs to which, you can declare the construction finished.</p>
+      <h2 id="0ed97981-2ce0-4521-917a-7af2abc280c0" class="">Reading</h2>
+      <p id="5b329f85-7dcb-43f1-ba8c-e412f9291760" class="">To read the card, I wrote a program for Arduino diecimilia that can read a phone card's memory and display a few details about it (serial number, number of units on the card). If anyone would like to create their own, there are links to articles describing the protocol in the links at the end of the article.</p>
+      <p id="df9e8a2e-4821-43e9-86e6-ee393d056701" class="">Connect the reader to the arduino. RST to dig. port 10, CLK to 11 and I/O to 12. You can connect a button to port 13 to start loading from the reader into the internal EEPROM memory of the arduino - this is useful for example if you don't have a PC but only the arduino and the reader.</p>
+      <p id="5cf89df5-990a-40b2-bc44-2a2d78727fc0" class="">The program communicates (as is customary with arduino) by means of serial communication. You can control it by using the software for arduino, or by using your own program or by using a serial terminal connected to dig. pin 0 and 1.</p>
+      <h3 id="7c8fb3d6-160d-49ce-9696-193833eef218" class="">Menu</h3>
+      <pre id="b36e67fb-910c-4c64-a81d-6b70c61a9fac" class="code"><code>  Prikazy:
+      r - Nacist dump z ctecky
+      n - Nacist dump z EEPROM
+      u - Ulozit dump do EEPROM
+
+      d - Zobrazit dump
+      a - Zobrazit alternativni (zjednoduseny) dump
+
+      i - Zobrazit info o karte</code></pre>
+      <h3 id="38a715f2-9cbb-4bb4-a7dc-31bf28c0020b" class="">Dump example</h3>
+      <pre id="cc1c3e67-a744-459f-82bb-cd8b5b1719e3" class="code"><code>  Byte  Index    DEC  HEX     BIN
+    0  000-007:  161   A1  1010 0001 
+    1  008-015:   43   2B  0010 1011 
+    2  016-023:   99   63  0110 0011 
+    3  024-031:    0   00  0000 0000 
+    4  032-039:   70   46  0100 0110 
+    5  040-047:  205   CD  1100 1101 
+    6  048-055:  151   97  1001 0111 
+    7  056-063:   35   23  0010 0011 
+    8  064-071:    0   00  0000 0000 
+    9  072-079:    0   00  0000 0000 
+   10  080-087:  127   7F  0111 1111 
+   11  088-095:   63   3F  0011 1111 
+   12  096-103:    1   01  0000 0001 
+   13  104-111:  254   FE  1111 1110 
+   14  112-119:   34   22  0010 0010 
+   15  120-127:   97   61  0110 0001</code></pre>
+      <h3 id="acfe54f1-a8b5-493a-b502-b001efb6fa97" class="">Alternative dump example</h3>
+      <pre id="9cea662c-57a8-4c8d-9a68-64c9d4f63fd7" class="code"><code>  A1 2B 63 00 46 CD 97 23 00 00 7F 3F 01 FE 22 61 
+  unsigned char dump[]= {0xA1, 0x2B, 0x63, 0x00, 0x46, 0xCD, 0x97, 0x23, 0x00, 0x00, 0x7F, 0x3F, 0x01, 0xFE, 0x22, 0x61};  // C array
+  dump= [0xA1, 0x2B, 0x63, 0x00, 0x46, 0xCD, 0x97, 0x23, 0x00, 0x00, 0x7F, 0x3F, 0x01, 0xFE, 0x22, 0x61]  # python array</code></pre>
+      <h3 id="8b6958ac-c3f0-4704-9707-c58a0de27c04" class="">Example of the information about card</h3>
+      <pre id="1c85b975-097f-451c-bc81-2ddc2634ef4b" class="code"><code>  Pocet impulzu: 49 (nikoli korun!)
+  Seriove cislo: 0004640151</code></pre>
+      <h3 id="a947a3da-4eeb-4f2a-90f6-d709da22c618" class="">Source code</h3>
+      <pre id="fb0cf492-0278-470e-b858-a052610dbb4c" class="code code-wrap"><code>/* APCReader [Arduino Phone Card Reader] v1.0.0 (09.06.09)
+ * by Bystroushaak (bystrousak@kitakitsune.org) 
+ *
+ * Popis:
+ *   Jednoduchy programek, ktery pomoci homemade ctecky precte obsah telefonni 
+ *   (ISO 7816-2 - to je ta 6 pinnova, nebo 8 pinnova se dvema nezapojenyma) 
+ *   karty.
+ *
+ * Lang:     Wiring
+ * Platform: Arduino Diecimila
+ * Licence:  CC by-nc-sa (http://creativecommons.org/licenses/by-nc-sa/3.0/cz/)
+ *
+ *******************************************************************************
+ *
+ * Reset a čtení:
+ * -------------
+ *   Address counter (ukazatel adresy) se resetuje na 0, pokud přijde CLK pulz
+ * ve chvíli kdy je Reset v log. 1. {Poznamka: pokud zrovna AC ukazuje na adresu
+ * z rozsahu 0 až 7, reset neproběhne}
+ *
+ *       __________________
+ * _____|                  |_____________________________________________ Reset
+ *      :                  :
+ *      :        _____     :  _____       _____       _____       _____
+ * _____:_______|     |____:_|     |_____|     |_____|     |_____|     |_ Clk
+ *      :       :          : :     :     :     :     :     :     :     :
+ * _____:_______:__________:_:_____:_____:_____:_____:_____:_____:_____:_
+ * _____:___n___|_____0____:_|_____1_____|_____2_____|_____3_____|___4_:_(Address)
+ *      :                  :       :           :           :           :
+ * _____:                  :_______:___________:___________:___________:_
+ * _____XXXXXXXXXXXXXXXXXXXX_______|___________|___________|___________|_ Data
+ * Bit n                      Bit 0    Bit 1        Bit2       Bit3
+ * 
+ *   Address counter je inkrementován o 1 pokaždé, když na CLK přijde impulz 
+ * během doby, kdy Reset zůstane v log. 0. Data na adrese jsou poslána na I/O pin
+ * po každé sestupné CLK hraně. Address counter není možné dekrementovat. Pokud
+ * se chceme dostat na bit který již byl přečten, musíme resetovat Address 
+ * counter a inkrementovat do doby než se dostanem na požadovanou adresu. 
+ *
+ * (volný překlad z http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt)
+ *
+ **/
+
+#undef int          // bez tohodle se nenecha includnout stdio.h
+#include &lt;stdio.h&gt;  // potrebne kvuli sprintf()
+#include &lt;EEPROM.h&gt; // kvuli ukladani do EEPROM
+
+#define RST 12
+#define CLK 13
+#define IO  10      // nutne pripojit prez pull-up rezistor (3-5KOhm) k VCC!
+#define SNS 9       // sensor - pokud je na nej pripojeno kladne napeti, automaticky nacte dump a ulozi ho do EEPROM
+#define LEN 128     // velikost pameti karty (v cechach to je 128b)
+
+// Precte celou pamet karty. Data ulozi do pole predaneho v parametru.
+void readCard(byte *dump){
+  // reset adresniho pocitadla na 0
+  digitalWrite(RST, HIGH);
+  delay(1);
+  digitalWrite(CLK, HIGH);
+  delay(1);
+  digitalWrite(CLK, LOW);
+  delay(1);
+  digitalWrite(RST, LOW);
+  delay(1);
+  
+  // cteni obsahu pameti karty
+  byte dec = 0, cnt = 0;
+  for(int i = 0; i &lt; LEN; i++){
+    // prevod z binarnich cisel na dekadicka
+    dec &lt;&lt;= 1;
+    if (digitalRead(IO)){
+      dec++;
+    }
+    // ulozeni dekadickeho cisla
+    if (cnt++ == 7){
+      *dump++ = dec; 
+      cnt= 0;
+    }
+    
+    // clk pulz - inkrementace Address counteru
+    digitalWrite(CLK, HIGH);
+    delay(1);
+    digitalWrite(CLK, LOW);
+    delay(1);
+  }
+  
+  // nulovani vystupu
+  digitalWrite(CLK, LOW);
+  digitalWrite(RST, LOW);
+}
+
+// Vypise binarni reprezentaci promenne var
+void printBin(byte var){
+    char tmp = 0;
+    int pocetbitu = sizeof(var) * 8;
+    
+    int i;
+    for(i = 0; i &lt; pocetbitu; i++){
+        tmp = var &gt;&gt; (pocetbitu - i - 1) & 1;
+        if (tmp){
+            Serial.print('1');
+        }else{
+            Serial.print('0');
+        }
+        if ((i + 1) % 4 == 0){  // vypise oddelovaci mezeru po kazdych 4 vypsanych znacich
+            Serial.print(' ');
+        }
+    }
+}
+
+// zobrazi naformatovany dump
+void printDump(byte *dump){
+  char buffer[30];
+  
+  printClr();
+  Serial.println("Byte  Index    DEC  HEX     BIN");
+  
+  byte i, cnt= 0, n;
+  for (i = 0; i &lt; (LEN / 8); i++){
+    n = *dump++;
+    sprintf(buffer, " %2d  %03d-%03d:  %3d   %02X  ", i, cnt, cnt + 7, n, n);
+    Serial.print(buffer);
+    printBin(n);
+    Serial.println();
+    cnt += 8;
+  }
+}
+
+// Vypise na jednom radku jako Hexa, na dalsim jako C pole
+// a na poslednim jako python pole - vhodne pro pozdejsi
+// zpracovani udaju
+void printRaw(byte *dump){
+  char buffer[2];
+  byte *tmp = dump;
+  
+  printClr();
+  
+  // hexa
+  int i;
+  for (i = 0; i &lt; (LEN / 8); i++){
+    sprintf(buffer, "%02X ", *tmp++);
+    Serial.print(buffer);
+  }
+  
+  // c pole
+  Serial.println();
+  tmp= dump;
+  Serial.print("unsigned char dump[]= {");
+  for (i = 0; i &lt; (LEN / 8); i++){
+    sprintf(buffer, "0x%02X", *tmp++);
+    Serial.print(buffer);
+    if (i &lt; ((LEN / 8) - 1)){
+      Serial.print(", ");
+    }
+  }
+  Serial.println("};  // C array");
+  
+  // python pole
+  tmp= dump;
+  Serial.print("dump= [");
+  for (i = 0; i &lt; (LEN / 8); i++){
+    sprintf(buffer, "0x%02X", *tmp++);
+    Serial.print(buffer);
+    if (i &lt; ((LEN / 8) - 1)){
+      Serial.print(", ");
+    }
+  }
+  Serial.print("]  # python array");
+}
+
+// Vrati hodnotu bitu na pozici n promenne var
+int getBit(int var, int n){
+    return var & (1 &lt;&lt; n) &amp;& 1;
+}
+
+// parsovani dat z karty a jejich vypis
+// uznavam ze tahle fce je trochu chuda, pokud nekoho napadne co jeste zobrazit, 
+// popr. sezene popis pameti ceske (ne slovenske!) karty, muj mail mate..
+void printInf(byte *dump){
+  char buffer[40];
+  
+  printClr();
+  
+  // pocet jednotek - timhle si nejsem moc jistej, protoze moje karta je uz 
+  // prosla, tidiz se nemuzu podivat v automatu kolik jednotek na ni opravdu je
+  // pokud by zde nekdo nasel chybu, budu rad za kratky report na mail
+  int i, j = 0, o = 0;
+  for(i = 0; i &lt; 8; i++){
+    if (getBit(dump[12], i)){
+      j++;
+    }
+    if (getBit(dump[11], i)){
+      o++;
+    }
+  }
+  sprintf(buffer, "Pocet impulzu: %d (nikoli korun!)", o * 8 + j);
+  Serial.println(buffer);
+  
+  // seriove cislo ceske karty
+  long int snum = 0;
+  snum |= dump[4];
+  snum &lt;&lt;= 8;
+  snum |= dump[5];
+  snum &lt;&lt;= 8;
+  snum |= dump[6];
+  sprintf(buffer, "Seriove cislo: %010lu", snum);
+  Serial.println(buffer);
+}
+
+// vypise oddelovac
+void printClr(void){
+  Serial.println();
+  for(int i = 0; i &lt; 80; i++){
+    Serial.print('-');
+  }
+  Serial.println();
+}
+
+void printMenu(void){
+  printClr();
+  Serial.println("APCReader v1.0.0 (09.06.09) by Bystroushaak (bystrousak@kitakitsune.org)");
+  Serial.println();
+  Serial.println("Prikazy:");
+  Serial.println("    r - Nacist dump z ctecky");
+  Serial.println("    n - Nacist dump z EEPROM");
+  Serial.println("    u - Ulozit dump do EEPROM");
+  Serial.println();
+  Serial.println("    d - Zobrazit dump");
+  Serial.println("    a - Zobrazit alternativni (zjednoduseny) dump");
+  Serial.println();
+  Serial.println("    i - Zobrazit info o karte");
+  Serial.println();  
+}
+
+void dump2EEPROM(byte *dump){
+  int i;
+  for(i = 0; i &lt; LEN / 8; i++){
+    EEPROM.write(i, dump[i]);
+  }
+}
+
+// inicializace pinu a seriove konzole
+void setup(){
+  pinMode(RST, OUTPUT);
+  pinMode(CLK, OUTPUT);
+  digitalWrite(RST, LOW);   // toto nejspis neni nutne
+  digitalWrite(CLK, LOW);
+  
+  pinMode(IO, INPUT);
+  pinMode(SNS, INPUT);
+  
+  Serial.begin(9600);
+  delay(200);               // seriova komunikace potrebuje chvili na ustanoveni
+}
+
+void loop(){
+  byte dump[LEN];
+  char cmd, loaded=0;
+  
+  printMenu();
+  
+  while (true){    
+    if (Serial.available() &gt; 0) {
+      cmd= (char) Serial.read();
+        
+      switch(cmd){
+        case 'r':          // nacist dump ze ctecky
+          readCard(dump);
+          
+          loaded = 1;
+          Serial.println("Nacteno.");
+          
+          break;
+        case 'u':         // ulozit dump do eeprom
+          dump2EEPROM(dump);
+          
+          loaded = 1;
+          Serial.println("Ulozeno.");
+          
+          break;
+        case 'n':         // nacist dump z eeprom
+          int i;
+          for(i = 0; i &lt; LEN / 8; i++){
+            dump[i] = EEPROM.read(i);
+          }
+          
+          loaded = 1;
+          Serial.println("Nacteno.");
+          
+          break;
+        case 'd':         // vypsat dump 
+          if (!loaded){
+            Serial.println("ZATIM NEBYL NACTEN DUMP!");
+            break;
+          }
+          printDump(dump);
+          break;
+        case 'a':         // vypsat cisty dump
+          if (!loaded){
+            Serial.println("ZATIM NEBYL NACTEN DUMP!");
+            break;
+          }
+          printRaw(dump);
+          break;
+        case 'i':         // vypsat informace o karte 
+          if (!loaded){
+            Serial.println("ZATIM NEBYL NACTEN DUMP!");
+            break;
+          }
+          printInf(dump);
+          break;   
+      }
+      
+      printMenu();
+    }
+    
+    // pokud je alespon na 200ms pripojeno na SNS (sensor) napeti, 
+    // nacte dump karty ze ctecky a ulozi ji do EEPROM
+    if (digitalRead(SNS)){
+      delay(200);
+      if (digitalRead(SNS)){
+        readCard(dump);
+        dump2EEPROM(dump);
+      }
+    }
+  }
+}</code></pre>
+      <h2 id="3af92718-02ec-4f58-bf8c-692e03361a8e" class="">Interesting links</h2>
+      <ul id="1b8a04df-b111-443b-92b8-91e73a580692" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART193-Ctecka-telefonnich-karet.html">Čtečka telefonních karet</a>
+        </li>
+      </ul>
+      <ul id="a3620921-b070-4cd0-ae98-eb83dc114f38" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://hw.cz/Teorie-a-praxe/Dokumentace/ART643-Popis-telefonne-karty-pouzivane-na-Slovensku.html">Popis telefonní karty používané naSlovensku</a>
+        </li>
+      </ul>
+      <ul id="9325e33f-5ad9-4819-b79e-f631ef0fb46a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html">Slovenské telefonní karty po druhé</a>
+        </li>
+      </ul>
+      <ul id="d9c70f1f-1635-4b09-a0bf-bf2704050732" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt">What you need to know about electronicstelecards</a>
+        </li>
+      </ul>
+      <ul id="a2dc3d29-36f0-4c74-b7f8-cfc832222495" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://is.muni.cz/th/139625/fi_b/">Archiv závěrečné práce - Tomáš Pyszko; Čipové karty v oblasti telekomunikací</a>
+        </li>
+      </ul>
+      <ul id="9802b54d-6544-4a2d-9e56-d8edd8e4ebd8" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://www.arduino.cz/">Stránky českého distributora Arduina</a> <a href="http://www.arduino.cc/en/Guide/HomePage">Arduino Guide</a>
+        </li>
+      </ul>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../../twitter_icon.png"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../../../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+        <li>
+          <a href="../../../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
+        <li>
+          <a href="../../../Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../../../Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+        <li>
+          <a href="../../../Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" title="Reasons why I decided to abandon RPython in tinySelf">Reasons why I decided to abandon RPython in tinySelf</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/Microtron_under_the_Vitkov_Hill.html" title="Microtron under the Vítkov Hill">Microtron under the Vítkov Hill</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
+        </li>
+      </ul>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../Decapping_of_the_phone_card_chip.html" title="Decapping of the phone card chip">Decapping of the phone card chip</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
