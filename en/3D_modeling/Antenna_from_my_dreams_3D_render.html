@@ -33,6 +33,9 @@
       <h3>New posts</h3>
       <ul>
         <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
           <a href="../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
         </li>
         <li>
@@ -59,10 +62,15 @@
         <li>
           <a href="../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
         </li>
-        <li>
-          <a href="Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+      </ul>
     </div>
     <div>
       <h3>Tags</h3>
@@ -141,7 +149,7 @@
       <figure id="5e5a233e-9112-4e11-acab-b2e3799684b7" class="image">
         <a href="Antenna_from_my_dreams_3D_render/Screenshot_from_2022-01-02_17-38-26.jpg" title="Screenshot_from_2022-01-02_17-38-26.jpg"><img style="width:1509px" src="Antenna_from_my_dreams_3D_render/Screenshot_from_2022-01-02_17-38-26_thumb.jpg"></a>
       </figure>
-      <p id="94d9c75e-a925-404e-90b9-6618540535ae" class="">I’ve also played with the constraints for the first time in my life, without really watching tutorials and reading documentation. The default behavior, when you rotate something is this:</p>
+      <p id="94d9c75e-a925-404e-90b9-6618540535ae" class="">I’ve also played with the constraints for the first time in my life, without really watching tutorials and reading documentation. The default behavior, when you rotate something, is this:</p>
       <figure id="9ade92cb-1b73-4b0b-be8c-f4f2656c468b" class="image">
         <a href="Antenna_from_my_dreams_3D_render/Peek_2022-01-14_04-24.gif" title="Peek_2022-01-14_04-24.gif"><img style="width:336px" src="Antenna_from_my_dreams_3D_render/Peek_2022-01-14_04-24.gif"></a>
       </figure>
@@ -152,13 +160,13 @@
           <em>(Not only size, but the angle now changes more or less correctly.)</em>
         </figcaption>
       </figure>
-      <p id="ac957781-5e43-4600-acf9-3c48838536ab" class="">Then there are the hydraulic cables, which had to stretch and accommodate the rotation of the changing angle of the piston. I won’t lie, it took me something like 6 hours until I finally understood what I am doing and how everything works. I’ve played with tracking constraints, hooks, and attempts with empties which copy rotation from different objects. But I’ve learned a lot, definitely worth the investmen</p>
+      <p id="ac957781-5e43-4600-acf9-3c48838536ab" class="">Then there are the hydraulic cables, which had to stretch and accommodate the rotation of the changing angle of the piston. I won’t lie, it took me something like 6 hours until I finally understood what I am doing and how everything works. I’ve played with tracking constraints, hooks, and attempts with empties which copy rotation from different objects. But I’ve learned a lot, so it was definitely worth the investment.</p>
       <figure id="cbbb7b41-4738-48a5-b2be-bb829f723680" class="image">
         <a href="Antenna_from_my_dreams_3D_render/Screenshot_from_2022-01-14_04-10-15.jpg" title="Screenshot_from_2022-01-14_04-10-15.jpg"><img style="width:2137px" src="Antenna_from_my_dreams_3D_render/Screenshot_from_2022-01-14_04-10-15_thumb.jpg"></a>
       </figure>
       <h1 id="3023166d-b4db-4bf4-b0f2-f4b0eab15e4e" class="">Texturing</h1>
-      <p id="b9893e29-7762-4a2f-8e61-34b8d36c7c20" class="">Then came time for the part I feared the most. I have bought Substance painter in 2020 (my most complex model and texture up to that point was <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>). But using it means I have to export all of the models, collapse the nondestructive geometry to meshes and then later import them again into blender, which sux hard.</p>
-      <p id="f9d4171e-cfe1-486f-954c-54183e9774fd" class="">I’ve tried, but then failed on several points;</p>
+      <p id="b9893e29-7762-4a2f-8e61-34b8d36c7c20" class="">Then came time for the part I feared the most. I have bought Substance painter in 2020 (my most complex model and texture up to this point was <a href="Microtron_model_progress_2020-12_Texturing_of_the_microtron.html" title="Microtron model progress 2020/12; Texturing of the microtron">Microtron model progress 2020/12; Texturing of the microtron</a>). But using it means I have to export all of the models, collapse the nondestructive geometry to meshes and then later import them again into blender, which sux hard.</p>
+      <p id="f9d4171e-cfe1-486f-954c-54183e9774fd" class="">I’ve tried it anyway, but failed due to several reasons;</p>
       <ol type="1" id="4c71c52c-e31e-42c8-9276-1c040e46613c" class="numbered-list" start="1">
         <li><code>fbx</code> export from Blender to Substance painter was without UV maps, some parts like curves weren’t unwrappable.</li>
       </ol>
@@ -183,7 +191,7 @@
       </figure>
       <h1 id="0462010c-bd0f-47fc-bc2e-fa7b73c358e1" class="">Final composition</h1>
       <p id="ac74bb64-6ffe-49de-826b-685f48de81bb" class="">Now when the antenna itself was ready, it came time to import it back to the original scene with some ground and stuff around it. The ground itself was created using blender’s <a href="https://docs.blender.org/manual/en/latest/addons/add_mesh/ant_landscape.html">A.N.T. Landscape</a> plugin.</p>
-      <p id="21c6a31a-dc2e-42a0-9721-4e52a816cb3d" class="">I quickly found that trying to create grass and trees would take probably another week or two, so I’ve bought another super useful plugin called <a href="https://blendermarket.com/products/botaniq-trees">Botaniq</a> and bought it. I’ve bought the full version, but in the end, the “lite” version would be enough.</p>
+      <p id="21c6a31a-dc2e-42a0-9721-4e52a816cb3d" class="">I quickly found that trying to create grass and trees would take probably another week or two, so I’ve found another super useful plugin called <a href="https://blendermarket.com/products/botaniq-trees">Botaniq</a> and bought it. I’ve bought the full version, but ultimately, the “lite” version would be enough.</p>
       <p id="09db37fe-08a0-4344-88b8-7a0b12982aad" class="">Botaniq allows you to paint parts of the “ground” and then scatter the premade assets (all kinds of grass and trees) automatically.</p>
       <figure id="dc020e45-ef08-4268-9cb4-489759a6ec9e" class="image">
         <a href="Antenna_from_my_dreams_3D_render/Screenshot_from_2022-01-14_04-44-35.jpg" title="Screenshot_from_2022-01-14_04-44-35.jpg"><img style="width:1200px" src="Antenna_from_my_dreams_3D_render/Screenshot_from_2022-01-14_04-44-35_thumb.jpg"></a>
@@ -198,6 +206,9 @@
       <p id="c77b4b37-f03e-4107-84c4-af9e4445d211" class="">Now it just needed tweaking with the lighting, background HDRI and countless small details, which add story to the picture, like electric wires, little path, fence and stuff like that.</p>
       <figure id="ee1f273d-5c05-4783-a7d2-3a3128714689" class="image">
         <a href="Antenna_from_my_dreams_3D_render/rotations.jpg" title="rotations.jpg"><img style="width:1200px" src="Antenna_from_my_dreams_3D_render/rotations_thumb.jpg"></a>
+        <figcaption>
+          <em>(Trying to find optimal lightning by rotating the HDRI texture.)</em>
+        </figcaption>
       </figure>
       <p id="106b1343-3cde-4ce6-a50c-e658c836b819" class="">Then just wait almost five hours until the final version renders itself.</p>
       <figure id="45cc2696-b5f6-46b8-825e-7e7cbcad4889" class="image">
@@ -210,8 +221,9 @@
           <em>(Click on the image to enlarge it.)</em>
         </figcaption>
       </figure>
-      <p id="654027df-88f4-45a2-be39-2796bcf2af1a" class="">I’ve learned so much, that I wouldn’t believe it. But most of all, I’ve got some confidence that I can model</p>
-      <p id="4f7b4a9c-2e04-400c-820a-3ee1192f33dc" class="">Oh, and I’ve also realized that I need a new computer, my old poor i5 from 2016 is getting killed even in the material preview. A lot of the times, I had horrible framerate. I am talking about <em>one-frame-every-three-seconds</em> horrible. That’s awful when you want to quickly rotate something or edit some small detail.</p>
+      <p id="654027df-88f4-45a2-be39-2796bcf2af1a" class="">I’ve learned so much, that I wouldn’t believe it. But most of all, I’ve got some confidence that I can model anything I want, except for humans (humans are hard, like really, really hard).</p>
+      <p id="4f7b4a9c-2e04-400c-820a-3ee1192f33dc" class="">Oh, and I’ve also realized that I need a new computer, my old poor i5 from 2016 is getting killed even in the material preview. A lot of the times, I had horrible framerate. I am talking about <em>one-frame-every-three-seconds</em> horrible. That’s awful when you want to quickly rotate something or edit some small detail. And when I am in material preview, it takes literally minutes to even load the textures and I can forget free movement.</p>
+      <p id="4c726573-04d3-4122-8bab-5707dad70c89" class="">Anyway, that’s it, I hope you like it.</p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -222,6 +234,9 @@
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
         <li>
           <a href="../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
         </li>
@@ -249,10 +264,15 @@
         <li>
           <a href="../3D_printing/How_to_set_Blender_for_3D_printing.html" title="How to set Blender for 3D printing">How to set Blender for 3D printing</a>
         </li>
-        <li>
-          <a href="Geometric_center_of_Prague.html" title="Geometric center of Prague">Geometric center of Prague</a>
-        </li>
       </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+      </ul>
     </div>
     <div>
       <h3>Tags</h3>

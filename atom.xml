@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2022-01-14T04:51:19.039000+00:00</updated>
+  <updated>2022-02-20T20:58:57.499807+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_modeling/Geometric_center_of_Prague.html</id>
-    <title>Geometric center of Prague</title>
-    <updated>2021-06-22T17:11:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_modeling/Geometric_center_of_Prague.html" rel="alternate"/>
-    <summary type="text">How to look for geometric center of Prague using Blender.</summary>
-    <published>2021-06-22T17:11:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/3D_printing/How_to_set_Blender_for_3D_printing.html</id>
     <title>How to set Blender for 3D printing</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/Organization_of_information/How_I_use_personal_wiki.html" rel="alternate"/>
     <summary type="text">Tour over my personal wiki layout.</summary>
     <published>2022-01-14T05:28:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2022-02-20_Small_projects.html</id>
+    <title>Newsletter 2022-02-20; Small projects</title>
+    <updated>2022-02-20T20:51:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2022-02-20_Small_projects.html" rel="alternate"/>
+    <summary type="text">Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.</summary>
+    <published>2022-02-20T20:51:00+01:00</published>
   </entry>
 </feed>
