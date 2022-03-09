@@ -11,7 +11,7 @@
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Programmer's critique of missing structure of operating systems">
-  <meta name="twitter:description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
+  <meta name="twitter:description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &quot;structured&quot; systems.">
   <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png">
   <script src="../../scripts.js"></script>
   <meta name="description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
@@ -86,22 +86,22 @@
       <h3>Blog categories</h3>
       <ul class="no_icon">
         <li>
-          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
-        </li>
-        <li>
-          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
         </li>
         <li>
           <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
         </li>
         <li>
-          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
         </li>
         <li>
-          <a href="../Programming.html" title="Programming">📂 Programming</a>
+          <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
         </li>
         <li>
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
@@ -110,16 +110,16 @@
           <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
-          <a href="../Books.html" title="Books">📂 Books</a>
-        </li>
-        <li>
-          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
-        </li>
-        <li>
           <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
         </li>
         <li>
-          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>
@@ -358,36 +358,36 @@ RUN dir c:\</code></pre>
       <p id="e2dc428e-a982-4748-b2f8-905000905210" class="">I was shaking my head because, as in the case of the Web, REST API or <code>oc</code>, this is a configuration by uploading and editing <em>objects</em> described by YAML or JSON (formats can be interchanged freely).</p>
       <p id="80637914-f0ea-4bd5-a03f-0b040b2ed95f" class="">These <em>objects</em> can be defined in a so-called <em>template</em> which functions as a kind of <a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>, executes each block sequentially and at the end should result in a running system. Within a <em>template,</em> it is possible to use another <em>template system</em> that allows you to define and expand variables.</p>
       <p id="53367578-00dc-4d10-a1ad-3028b8a6bc27" class="">All of this is built on top of YAML which is somewhat less chatty brother of JSON. For example, a template example might look like this:</p>
-      <pre class="code"><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Template</span>
+      <pre class="code"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Template</span>
 <span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis-template</span>
-  <span class="nt">annotations</span><span class="p">:</span>
-    <span class="nt">description</span><span class="p">:</span> <span class="s">"Description"</span>
-    <span class="nt">iconClass</span><span class="p">:</span> <span class="s">"icon-redis"</span>
-    <span class="nt">tags</span><span class="p">:</span> <span class="s">"database,nosql"</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis-template</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"Description"</span>
+<span class="w">    </span><span class="nt">iconClass</span><span class="p">:</span><span class="w"> </span><span class="s">"icon-redis"</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="s">"database,nosql"</span>
 <span class="nt">objects</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-  <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Pod</span>
-  <span class="nt">metadata</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis-master</span>
-  <span class="nt">spec</span><span class="p">:</span>
-    <span class="nt">containers</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">env</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">REDIS_PASSWORD</span>
-        <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${REDIS_PASSWORD}</span>
-      <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockerfile/redis</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
-      <span class="nt">ports</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
-        <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="w">  </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis-master</span>
+<span class="w">  </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDIS_PASSWORD</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REDIS_PASSWORD}</span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dockerfile/redis</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6379</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
 <span class="nt">parameters</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Password used for Redis authentication</span>
-  <span class="nt">from</span><span class="p">:</span> <span class="s">'[A-Z0-9]{8}'</span>
-  <span class="nt">generate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expression</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">REDIS_PASSWORD</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Password used for Redis authentication</span>
+<span class="w">  </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">'[A-Z0-9]{8}'</span>
+<span class="w">  </span><span class="nt">generate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expression</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDIS_PASSWORD</span>
 <span class="nt">labels</span><span class="p">:</span>
-  <span class="nt">redis</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 </code></pre>
       <p id="b38759f2-8bec-4840-b436-1efb4aa392c0" class="">Variables are expanded from the outside via command line parameters.</p>
       <p id="a850548f-e9f9-40ec-a7ae-746b0bf8921f" class="">So far, so good. But, as you might guess, I have a lot of reservations:</p>
@@ -715,22 +715,22 @@ RUN dir c:\</code></pre>
       <h3>Blog categories</h3>
       <ul class="no_icon">
         <li>
-          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
-        </li>
-        <li>
-          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
         </li>
         <li>
           <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
         </li>
         <li>
-          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
         </li>
         <li>
-          <a href="../Programming.html" title="Programming">📂 Programming</a>
+          <a href="../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
         </li>
         <li>
           <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
@@ -739,16 +739,16 @@ RUN dir c:\</code></pre>
           <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
         </li>
         <li>
-          <a href="../Books.html" title="Books">📂 Books</a>
-        </li>
-        <li>
-          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
-        </li>
-        <li>
           <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
         </li>
         <li>
-          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
         </li>
         <li>
           <a href="../index.html" title="English section">📂 English section</a>
