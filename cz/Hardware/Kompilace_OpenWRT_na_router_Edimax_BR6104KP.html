@@ -28,7 +28,7 @@
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
-    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img src="../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a></span>
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
@@ -48,7 +48,7 @@
           <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
         </li>
         <li>
-          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
         </li>
         <li>
           <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
@@ -109,7 +109,7 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../index.html" title="Czech section">Czech section</a> / <a class="breadcrumb" href="index.html" title="Hardware">Hardware</a> / Kompilace OpenWRT na router Edimax BR6104KP
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Hardware">Hardware</a> / Kompilace OpenWRT na router Edimax BR6104KP
   <article id="f79d78f0-c171-4c6b-b1ad-515ce3e6269e" class="page sans">
     <header>
       <h1 class="page-title">Kompilace OpenWRT na router Edimax BR6104KP</h1>
@@ -234,7 +234,7 @@ Kernel hacking
       <h2 id="35df809d-d294-4e9d-8905-9c308f502be5" class="">Příprava flashdisku</h2>
       <p id="779d0fc9-9a0a-4900-b1be-d67b85e3e153" class="">Nyní je dobré si připravit flashdisk. Rozdělte ho (například v <a href="http://gparted.sourceforge.net/">Gparted</a>) tak, aby první partišna byla typu <em>ext3</em> a druhá <em>swap</em>. Je důležité dodržet pořadí a obě dvě nechat jako primární. Velikost <em>swapu</em> nechám na vás, já jsem si udělal 64MB, ale klidně to může být dvojnásobek. Pamatujte že čím větší bude <em>swap</em>, tím více paměti budete mít k dispozici a tím rychleji odejde příslušná část flashdisku do křemíkového nebe.</p>
       <p id="71cea477-571f-4318-a7a1-ebfb5ada287a" class="">Poté co disk rozdělíte ho naformátujte.</p>
-      <p id="e16ec1e2-e1ff-4dc5-96d4-b391357d6f5d" class=""><del>Jakmile bude disk naformátovaný, je dobré si na něj stáhnout všechny možné balíky, protože</del> <a href="http://wiki.openwrt.org/doc/techref/opkg"><del>opkg</del></a> <del>(package manager) má problém s busybox</del> <a href="https://www.notion.so/software/internet/stahovani/wget"><del>wgetem</del></a><del>, kterému předává argument že má stáhnout informace do neexistující složky, kterou si wget neumí vytvořit :S</del></p>
+      <p id="e16ec1e2-e1ff-4dc5-96d4-b391357d6f5d" class=""><del>Jakmile bude disk naformátovaný, je dobré si na něj stáhnout všechny možné balíky, protože</del> <a href="http://wiki.openwrt.org/doc/techref/opkg"><del>opkg</del></a> <del>(package manager) má problém s busybox wgetem, kterému předává argument že má stáhnout informace do neexistující složky, kterou si wget neumí vytvořit :S</del></p>
       <p id="17242a4d-0d28-4959-a459-fb9083cf3cfa" class=""><del>Přejděte do disku a vytvořte v něm složku třeba ipk, do které stáhnete všechny dostupné balíky.</del></p>
       <pre id="5f0cf080-5c50-401d-b30b-79e20a158d83" class="code code-wrap"><code>mkdir ipk
 cd ipk
@@ -354,7 +354,7 @@ wget is /usr/bin/wget</code></pre>
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
   </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
-    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img style="width: 3em;" src="../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../twitter_icon.png"></a></span>
+    <span><a href="https://blog.rfox.eu/atom_cz.xml"><img src="../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a></span>
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
@@ -374,7 +374,7 @@ wget is /usr/bin/wget</code></pre>
           <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
         </li>
         <li>
-          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)"><span class="icon">🗒️</span>Pošta (poezie)</a>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
         </li>
         <li>
           <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>

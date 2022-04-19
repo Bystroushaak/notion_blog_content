@@ -27,7 +27,7 @@
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
-    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../../twitter_icon.png"></a></span>
+    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../../../twitter_icon.png" style="width: 3em;"></a></span>
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
@@ -115,16 +115,15 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../../index.html" title="Hardware">Hardware</a> / <a class="breadcrumb" href="../index.html" title="I used to be a phone card cracker">I used to be a phone card cracker</a> / Homemade phone card reader
+  </div><a href="../../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../../index.html" class="breadcrumb" title="Hardware">Hardware</a> / <a href="../index.html" class="breadcrumb" title="I used to be a phone card cracker">I used to be a phone card cracker</a> / Homemade phone card reader
   <article id="5fa3d42e-4a50-4425-8c39-c3625a6dcded" class="page sans">
     <header>
       <h1 class="page-title">Homemade phone card reader</h1>
     </header>
     <div class="page-body">
       <p id="98cd33e7-c264-4802-98af-5d2a4190dbdd" class=""><time>@2009/06/15</time>, thx to Joenash & (#freedom99, irc.c0renet.sk:6667)</p>
-      <h2 id="96aad244-612b-49a7-a217-d43711a12064" class="">Deklarace</h2>
+      <h2 id="96aad244-612b-49a7-a217-d43711a12064" class="">Declaration</h2>
       <p id="435c4d46-90a5-46e2-89ba-3faf182d4901" class="">This text discusses the design of a card reader for pay phones (ISO 7816-2) from commonly available materials. Of course, you can buy a reader, but I don't think it's worth the money.</p>
-      <p id="dd170bf6-92b2-48a0-9ae5-ccc58b2cbcaf" class="">V textu není řešen protokol kterým karta komunikuje - to už popsali jiní a lépe než bych to zvládl já. Pokud Vás protol zajmá, na konci dokumentu jsou odkazy na články, které se problematice věnují.</p>
       <p id="31bf30c8-329a-4a7e-9630-5fc9c069669a" class="">The text does not address the protocol which the card uses for communication. This has been described by others and better than I could. If you are interested in protocol, there are links at the end of the document addressing the issue.</p>
       <div id="fb0bd790-a5da-4e25-a0c4-b9fa184e7a85" class="column-list">
         <div id="3f5974ee-d5ea-4e37-a112-e740dbadf3fd" style="width:50%" class="column">
@@ -218,7 +217,6 @@
       <h3 id="4698d958-0f94-4ea3-92a6-3e2586eb6de2" class="">1) Prepare the case</h3>
       <p id="0150f7a7-daff-4af9-81e7-0b306e2fa611" class="">We have to cut a hole in the card case, to which a modified SIM card reader will be attached later. To do this, insert the card into the case, mark where the contact surfaces of the chip are located, and after removing the card, cut out a hole with a break-off knife (if you find it blunt, break off a piece from it). I recommend cutting a hole in both sides of the case - it will make it easier for you to adjust the pins of the reader to stick it on.</p>
       <h3 id="d4ce941a-cbdd-42b8-9f5a-079e50028976" class="">2) Preparing SIM card reader</h3>
-      <p id="6d846c8c-1910-4a13-ace0-4498a600bccc" class="">Dál je na řadě úprava čtečky SIM karet; Štípačkami z ní odštípejte všechny nepotřebné kusy plastu tak, aby šla přiložit nožičkami těsně k pouzdru. Tuto činnost si radši dopředu promyslete, ať se nestane že odstřihnete něco, po čem se čtečka rozpadne. S ohýbáním nožiček aby pasovaly na piny karty se prozatím nezabývejte - jelikož drží v tenkém kousku plastu, dokud čtečku nezalepíte silikonem, lehce se utrhnou.</p>
       <p id="7f2a0837-39bf-4189-b414-9033344ba963" class="">Next is a SIM card reader modification; use the pliers to chip off any unnecessary pieces of plastic so that it can be placed with its feet close to the case. You'd better think about this activity in advance, lest it happen that you cut off something that makes the reader fall apart. Don't worry about bending the legs to fit the pins of the card for now. They are held in a thin piece of plastic, and until the reader is sealed with silicone, they tear off easily.</p>
       <h3 id="77d7cdc1-f6a8-40a9-9d51-b2e6fe49aeb4" class="">3) Attaching the SIM card reader to the casing</h3>
       <p id="91c23aeb-9045-4b38-b71f-f631bcd96fe8" class="">Once you have the reader adjusted, it's time to heat up the glue gun (don't forget to put a piece of paper underneath it, the glue often comes out all the time). When the gun is warmed up, place the card in the case and position the reader so that its pins touch the correct spots on the card. Then carefully fix the reader on the sides and wait until the silicone (or whatever it is) solidifies. Then carefully bend the output wires from it (not the contact pins!) down and up.</p>
@@ -673,7 +671,7 @@ void loop(){
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
   </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
-    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../../twitter_icon.png"></a></span>
+    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../../../twitter_icon.png" style="width: 3em;"></a></span>
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>

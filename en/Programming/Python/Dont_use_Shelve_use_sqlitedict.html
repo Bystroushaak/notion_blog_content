@@ -101,7 +101,7 @@
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
-    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a></span>
     <div id="last_five_top">
       <h3>New posts</h3>
       <ul>
@@ -185,7 +185,7 @@
         </li>
       </ul>
     </div>
-  </div><a class="breadcrumb" href="../../../index.html" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a class="breadcrumb" href="../../index.html" title="English section">English section</a> / <a class="breadcrumb" href="../index.html" title="Programming">Programming</a> / <a class="breadcrumb" href="index.html" title="Python">Python</a> / Don't use Shelve, use sqlitedict
+  </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../index.html" class="breadcrumb" title="Programming">Programming</a> / <a href="index.html" class="breadcrumb" title="Python">Python</a> / Don't use Shelve, use sqlitedict
   <article id="eed24df8-0d23-4c88-8de0-b0ab0c5161ab" class="page sans">
     <header>
       <h1 class="page-title">Don't use Shelve, use sqlitedict</h1>
@@ -211,7 +211,7 @@
       <p id="1efc1da2-f5d5-4718-9312-63903c1077bf" class="">It has really wonderful ability to fuck itself up, <em>randomly</em>. And there is no easy way how to recover it from the failure.</p>
       <p id="ddc8ed0e-a3d5-419e-9ff2-bddd97ef2d0b" class="">So, my advice is to use <a href="https://github.com/RaRe-Technologies/sqlitedict">sqlitedict</a> instead. It has a same API and generally works in similar way, but I never encountered an error while using it.</p>
       <h1 id="2409ae11-bdd7-482b-a487-001fcddfad1c" class="">Simple object storage</h1>
-      <p id="e69d9fe5-80a8-4629-9d74-1e14d6d4a5ba" class="">For those of you who don't know what shelve does; it provides you with simple object persistence. It works as a dictionary, where you can put any object, and it is automatically serialized and stored on the disc. Next time, you can load it with just few lines.</p>
+      <p id="e69d9fe5-80a8-4629-9d74-1e14d6d4a5ba" class="">For those of you who don't know what shelve does; it provides you with simple object persistence. It works as a dictionary, where you can put any object, and it is automatically serialized and stored on the disc. Next time, you can load it with just a few lines.</p>
       <p id="60eda5fb-bea6-415a-ace7-87dd7e5f251e" class="">This kind of storage is excellent when you just need to store something in some script, but you don't want to bother yourself with object serialization and configuration files. Just put the stuff you want to save (any object, remember) into the storage and then load it back next time.</p>
       <p id="3d43f134-2976-4eae-b122-ba500a95aae9" class="">I use it for simple storage all the time:</p>
       <pre class="code"><code><span class="kn">from</span> <span class="nn">sqlitedict</span> <span class="kn">import</span> <span class="n">SqliteDict</span>
@@ -229,13 +229,13 @@
       <p id="77a417f6-fbf3-4a53-a06e-0692df2cfe0e" class="">.. and next time you run the script, value is stored.</p>
       <h1 id="adc5b1ff-bd71-432a-807e-1c34f5c52ab0" class="">Usage examples</h1>
       <p id="a581ef45-9e40-4c9f-85ca-850111e065c3" class="">This kind of storage is excellent as simple cache. You process / download some heavy data, store them in the timestamp key in the <em>sqlitedict. T</em>hen on the next run of the script, if the timestamp delta is lower than some timeout value, just pick them and use them again. In like three lines of code.</p>
-      <p id="b3d55be8-1264-4923-b906-77f5ddc174a8" class="">I used sqlitedict in my project of analysis of <a href="https://abclinuxu.cz">abclinuxu.cz</a>, where I periodically download all blogpost published on the page and run some analysis on them. Blogpost objects with parsed trees in html parser and full state are stored in the sqlitedict and simply loaded anytime I need them again.</p>
+      <p id="b3d55be8-1264-4923-b906-77f5ddc174a8" class="">I used sqlitedict in my analysis of <a href="https://abclinuxu.cz">abclinuxu.cz</a>, where I periodically download all blogposts published on the page and run analysis on them. Blogpost objects with parsed trees in html parser and full state are stored in the sqlitedict and simply loaded anytime I need them again.</p>
       <ul id="b125b962-38e3-41a1-bcb0-c59ae94bdb53" class="bulleted-list">
         <li style="list-style-type:disc">
           <a href="https://github.com/Bystroushaak/Abclinuxu_analysis">https://github.com/Bystroushaak/Abclinuxu_analysis</a>
         </li>
       </ul>
-      <p id="33bc5785-69bf-4596-832f-f08255a3c82c" class="">I also used <em>sqlitedict</em> in the project of my tag manager, where some troll vandalized tags under one of my blogpost on <em>abclinuxu</em>. Any anonymous user could come and vandalize list of tags. So I created simple script, that stores the currently used tags in the <em>sqlitedict</em>, and second script, which is periodically run, that restores the list of previously stored tags. Simple and effective.</p>
+      <p id="33bc5785-69bf-4596-832f-f08255a3c82c" class="">I also used <em>sqlitedict</em> in the project of my tag manager, where some troll vandalized tags under one of my blogpost on <em>abclinuxu</em>. Any anonymous user could come and vandalize list of tags. So I created simple script, that stores the currently used tags in the <em>sqlitedict</em>, and second script, which is periodically run, that restores the tags. Simple and effective.</p>
       <p id="d90dd0fb-8527-487e-b43d-a3ab57def897" class=""></p>
     </div>
   </article>
@@ -243,7 +243,7 @@
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
   </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
-    <span><a href="https://blog.rfox.eu/atom.xml"><img style="width: 3em;" src="../../../rss_icon.png"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img style="width: 3em;" src="../../../twitter_icon.png"></a></span>
+    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a></span>
     <div id="last_five_bottom">
       <h3>New posts</h3>
       <ul>
