@@ -2,46 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2022-04-19T21:26:28.222717+00:00</updated>
+  <updated>2022-04-28T15:49:26.796957+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_printing/How_to_set_Blender_for_3D_printing.html</id>
-    <title>How to set Blender for 3D printing</title>
-    <updated>2021-06-24T13:48:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_printing/How_to_set_Blender_for_3D_printing.html" rel="alternate"/>
-    <summary type="text">Quick informal blog with guide how to set Blender template for 3D printing.</summary>
-    <published>2021-06-24T13:48:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Technological_marvels/Microtron_under_the_Vitkov_Hill.html</id>
-    <title>Microtron under the Vítkov Hill</title>
-    <updated>2021-06-26T17:26:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Technological_marvels/Microtron_under_the_Vitkov_Hill.html" rel="alternate"/>
-    <summary type="text">The Vítkov Hill in the center of Prague hides a pedestrian tunnel under it, in addition to several old tunnels for trains. But only few people know what lies behind completely inconspicuous spray-painted metal doors.</summary>
-    <published>2021-06-26T17:26:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html</id>
-    <title>Reasons why I decided to abandon RPython in tinySelf</title>
-    <updated>2021-10-29T00:18:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Programming/tinySelf/Reasons_why_I_decided_to_abandon_RPython_in_tinySelf.html" rel="alternate"/>
-    <summary type="text">Story about how I deded to rewrite my toy language to Java.</summary>
-    <published>2021-10-29T00:18:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html</id>
     <title>tinySelfEE 2021-07; let's throw away the Symbolic eval code</title>
@@ -118,5 +85,38 @@
     <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2022-02-20_Small_projects.html" rel="alternate"/>
     <summary type="text">Opensource contributions, book report, improvements, published blogposts and generally progress in my life and work.</summary>
     <published>2022-02-20T20:51:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Explorations/List_of_notionso_python_API_libraries_2022-04.html</id>
+    <title>List of notion.so python API libraries 2022-04</title>
+    <updated>2022-04-28T16:26:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Explorations/List_of_notionso_python_API_libraries_2022-04.html" rel="alternate"/>
+    <summary type="text">I've looked into various opensource libraries for notion.so API.</summary>
+    <published>2022-04-28T16:26:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Stories/HireRight_experience_spoiler_it_was_bad.html</id>
+    <title>HireRight experience (spoiler; it was bad)</title>
+    <updated>2022-04-28T16:44:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Stories/HireRight_experience_spoiler_it_was_bad.html" rel="alternate"/>
+    <summary type="text">Story about HireRight, and "unparalleled experiences for you and your candidates" they provided for me and my friends.</summary>
+    <published>2022-04-28T16:44:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Philosophy/Creating_spaces_by_opening_dimensions.html</id>
+    <title>Creating spaces by opening dimensions</title>
+    <updated>2022-04-28T17:26:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Philosophy/Creating_spaces_by_opening_dimensions.html" rel="alternate"/>
+    <summary type="text">Essay about opening new dimensions and creating spaces which others can fill with creativity.</summary>
+    <published>2022-04-28T17:26:00+02:00</published>
   </entry>
 </feed>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>List of notion.so python API libraries 2022-04</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+  pre { line-height: 125%; }
+  td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+  td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  .hll { background-color: #ffffcc }
+  .c { color: #408080; font-style: italic } /* Comment */
+  .err { border: 1px solid #FF0000 } /* Error */
+  .k { color: #008000; font-weight: bold } /* Keyword */
+  .o { color: #666666 } /* Operator */
+  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+  .cp { color: #BC7A00 } /* Comment.Preproc */
+  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .gd { color: #A00000 } /* Generic.Deleted */
+  .ge { font-style: italic } /* Generic.Emph */
+  .gr { color: #FF0000 } /* Generic.Error */
+  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .gi { color: #00A000 } /* Generic.Inserted */
+  .go { color: #888888 } /* Generic.Output */
+  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .gs { font-weight: bold } /* Generic.Strong */
+  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .gt { color: #0044DD } /* Generic.Traceback */
+  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+  .kp { color: #008000 } /* Keyword.Pseudo */
+  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+  .kt { color: #B00040 } /* Keyword.Type */
+  .m { color: #666666 } /* Literal.Number */
+  .s { color: #BA2121 } /* Literal.String */
+  .na { color: #7D9029 } /* Name.Attribute */
+  .nb { color: #008000 } /* Name.Builtin */
+  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+  .no { color: #880000 } /* Name.Constant */
+  .nd { color: #AA22FF } /* Name.Decorator */
+  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .nf { color: #0000FF } /* Name.Function */
+  .nl { color: #A0A000 } /* Name.Label */
+  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .nv { color: #19177C } /* Name.Variable */
+  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .w { color: #bbbbbb } /* Text.Whitespace */
+  .mb { color: #666666 } /* Literal.Number.Bin */
+  .mf { color: #666666 } /* Literal.Number.Float */
+  .mh { color: #666666 } /* Literal.Number.Hex */
+  .mi { color: #666666 } /* Literal.Number.Integer */
+  .mo { color: #666666 } /* Literal.Number.Oct */
+  .sa { color: #BA2121 } /* Literal.String.Affix */
+  .sb { color: #BA2121 } /* Literal.String.Backtick */
+  .sc { color: #BA2121 } /* Literal.String.Char */
+  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+  .s2 { color: #BA2121 } /* Literal.String.Double */
+  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .sx { color: #008000 } /* Literal.String.Other */
+  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .s1 { color: #BA2121 } /* Literal.String.Single */
+  .ss { color: #19177C } /* Literal.String.Symbol */
+  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+  .fm { color: #0000FF } /* Name.Function.Magic */
+  .vc { color: #19177C } /* Name.Variable.Class */
+  .vg { color: #19177C } /* Name.Variable.Global */
+  .vi { color: #19177C } /* Name.Variable.Instance */
+  .vm { color: #19177C } /* Name.Variable.Magic */
+  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="List of notion.so python API libraries 2022-04">
+  <meta name="twitter:description" content="I've looked into various opensource libraries for notion.so API.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Explorations/List_of_notionso_python_API_libraries_2022-04/Untitled.png">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="I've looked into various opensource libraries for notion.so API.">
+  <meta name="keywords" content="python,notion,libraries,explorations,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a></span>
+    <div id="last_five_top">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+        <li>
+          <a href="../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
+        <li>
+          <a href="../Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/explorations.html" title="explorations">explorations</a>, <a href="../../Tags/libraries.html" title="libraries">libraries</a>, <a href="../../Tags/notion.html" title="notion">notion</a>, <a href="../../Tags/python.html" title="python">python</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="Explorations">Explorations</a> / List of notion.so python API libraries 2022-04
+  <article id="36574d4b-046a-4345-b21b-3f4eb15371b4" class="page sans">
+    <header>
+      <h1 class="page-title">List of notion.so python API libraries 2022-04</h1>
+    </header>
+    <div class="page-body">
+      <p id="9acc659a-03ed-4bdd-bde9-5cc8652bac15" class=""><time>@2022/04/16</time></p>
+      <p id="1a5883ca-6652-423f-9761-18f75ee460c9" class="">My use case is simple; I have a table page (or in notion terminology, <em>a database</em>) defined in my <a href="http://notion.so">notion.so</a> namespace. I have set up an integration token, which can access this page. And I need to iterate over all the items in the table.</p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="f497987f-c6bc-44c6-990c-6b8dce0c64f4">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          Tldr; It's not good. There is no library, which would do a <em>good job</em>.
+        </div>
+      </figure>
+      <p id="09548319-37e2-4fbf-a827-4612ad8edd0e" class="">My definition of a <em>good job</em> is:</p>
+      <p id="d34f3588-4a42-41cd-a344-6f8a1faac6a3" class="">Provide object-oriented API for the calls. So that I can for example reference the table-page by the ID and then iterate over it like this:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">imaginary_notion_api</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">notion</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s2">"secret_token"</span><span class="p">)</span>
+
+<span class="n">changelog_db</span> <span class="o">=</span> <span class="n">notion</span><span class="o">.</span><span class="n">Database</span><span class="p">(</span><span class="s2">"DATABASE_ID"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">changelog_db</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">updated</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+      <p id="cb4d9622-a135-4d54-af17-57ab6f4da9c5" class="">Maybe also add new values by calling <code>.append()</code> and other native python operations, like square bracket access and so on. I want to avoid being bothered with lowlevel operations, the fact that for listing the database, you have to do an empty query, or that the API returns some kind of JSON.</p>
+      <p id="5c604817-726d-409a-9564-a9ee11ec04d9" class="">Basically, what I want is an API which has a high-enough level of abstraction which corresponds with the things you want to do, on the object level, and with python’s syntax constructs (context managers, iterator API, and so on). I am not really interested in thin wrapper over the API which returns JSONs that you need to parse separately.</p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="8e205bad-1dd2-4db4-9cb1-19d1b6597d30">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          Once upon a time, I’ve created something like this on top of lowlevel library for accessing sharepoint in office365; <a href="https://github.com/Bystroushaak/o365_sharepoint_connector">https://github.com/Bystroushaak/o365_sharepoint_connector</a>
+        </div>
+      </figure>
+      <h2 id="f19e6b0e-86e9-4bba-8242-e7ad120292e8" class="">notion-sdk</h2>
+      <ul id="a5f0dd5e-e1ad-4256-92ea-a43f80c0b2d3" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/getsyncr/notion-sdk">https://github.com/getsyncr/notion-sdk</a>
+        </li>
+      </ul>
+      <ul id="b10264fa-25e5-49bc-b225-5405b099b302" class="bulleted-list">
+        <li style="list-style-type:disc">Status: 48 commits, last update 3 months ago.</li>
+      </ul>
+      <p id="21525b8c-a916-4955-bdf1-04408b0071e1" class="">I’ve tried to use it because at first glance, it seems like it works. Except it doesn’t. It does a good job at defining all the types returned from the Notion API, but that’s pretty much it.</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">notion</span> <span class="kn">import</span> <span class="n">NotionClient</span>
+
+<span class="n">notion</span> <span class="o">=</span> <span class="n">NotionClient</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="s2">"secret_token"</span><span class="p">)</span>
+
+<span class="n">changelog_db</span> <span class="o">=</span> <span class="n">notion</span><span class="o">.</span><span class="n">databases</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s2">"DATABASE_ID"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">changelog_db</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">changelog_db</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre>
+      <p id="c7ea9608-cac9-4c8f-897b-491ed4f76b1b" class="">Great. I get back the Database object, which has no methods, and I can’t figure how to iterate over values. Looking into the code itself doesn’t help. There seem to be no methods.</p>
+      <p id="33e0bd3d-9275-4e5a-9f96-60323bd125e8" class="">Documentation is missing:</p>
+      <figure id="2c444e89-5106-493c-86e2-e0ce4413fad7" class="image">
+        <a href="List_of_notionso_python_API_libraries_2022-04/Untitled.png" title="Untitled.png"><img style="width:192px" src="List_of_notionso_python_API_libraries_2022-04/Untitled.png"></a>
+      </figure>
+      <p id="d86fbd95-b045-4532-9c5c-207faa460d3c" class="">And the <code>examples/</code> directory is similarly useless:</p>
+      <figure id="eb96aaf8-f160-4ad0-b6f6-8f3c79b159c3" class="image">
+        <a href="List_of_notionso_python_API_libraries_2022-04/Untitled_1.png" title="Untitled_1.png"><img style="width:192px" src="List_of_notionso_python_API_libraries_2022-04/Untitled_1.png"></a>
+      </figure>
+      <p id="002e5ed1-dfb0-44ad-b3a6-56f7c9e4fbc1" class="">Edit: Okay, so I figured it out by reading notion API documentation. You have to query the database with the empty query, to really get the content. Sadly, when I try it, I get the very, very long traceback full of:</p>
+      <pre id="a47d0d30-000a-41d7-803e-c8bc22a293c4" class="code code-wrap"><code>Traceback (most recent call last):
+  File "/home/bystrousak/Plocha/xlit/notion_blog_generator/lib/preprocessors/apitest.py", line 14, in &lt;module&gt;
+    changelog_db = notion.databases.query("DATABASE_ID")
+  File "/home/bystrousak/Plocha/xlit/notion_blog_generator/venv/lib/python3.8/site-packages/notion/endpoints/sync.py", line 94, in query
+    return PaginatedList[Page].parse_obj(
+  File "pydantic/main.py", line 511, in pydantic.main.BaseModel.parse_obj
+  File "pydantic/main.py", line 331, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1326 validation errors for PaginatedList[Page]
+results -&gt; 0 -&gt; properties -&gt; Updated -&gt; type
+  unexpected value; permitted: &lt;PropertyValueType.TITLE: 'title'&gt; (type=value_error.const; given=date; permitted=[&lt;PropertyValueType.TITLE: 'title'&gt;])
+results -&gt; 0 -&gt; properties -&gt; Updated -&gt; title
+  field required (type=value_error.missing)
+results -&gt; 0 -&gt; properties -&gt; Updated -&gt; type
+  unexpected value; permitted: &lt;PropertyValueType.RICH_TEXT: 'rich_text'&gt; (type=value_error.const; given=date; permitted=[&lt;PropertyValueType.RICH_TEXT: 'rich_text'&gt;])
+results -&gt; 0 -&gt; properties -&gt; Updated -&gt; rich_text</code></pre>
+      <p id="73701904-e4f5-4412-bd79-77a9906a08fb" class="">Which continues like this for several hundred of lines. <em>Typing</em>, huh?</p>
+      <p id="c4f40ec9-4bdc-4816-ba81-c04bfb4aefd9" class=""><code>.next()</code></p>
+      <h2 id="43813e17-d1f6-492a-a524-25afb7549488" class=""><strong>notion-py</strong></h2>
+      <ul id="916bd4a9-121c-454b-ac6a-c73e8833cf69" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/jamalex/notion-py">https://github.com/jamalex/notion-py</a>
+        </li>
+      </ul>
+      <ul id="0dba44b8-50ad-492b-b1c8-c3c6dadab0b8" class="bulleted-list">
+        <li style="list-style-type:disc">Status: 233 commits, last update 15 months ago.</li>
+      </ul>
+      <p id="e397eb19-b360-4f53-96d7-01b1e39f6a07" class="">This looks great, it seems to support all the features I need. The only problem is, that it uses <strong>unofficial API</strong>. This basically means, that they reverse-engineered the API calls notion itself does, and implemented it by writing a custom wrapper.</p>
+      <p id="d5839920-0870-4f76-98bf-1e87dc78706a" class="">Before notion published API, this was the only way how to do it, and I’ve used it in the past myself. But this has two serious problems:</p>
+      <ul id="b7d9dc7a-54c0-4541-8c64-0f12564b6b5d" class="bulleted-list">
+        <li style="list-style-type:disc">Internal API can and do change.</li>
+      </ul>
+      <ul id="fa79e8df-a235-4508-9f51-2f186af51621" class="bulleted-list">
+        <li style="list-style-type:disc">You have to use token from the browser. And that changes every month or so.</li>
+      </ul>
+      <p id="2c981b91-0dbd-471d-8e25-ca6831aed7fe" class="">Especially the second point is annoying. Every time notion logs you out, you have to go to developer console in your browser and copy the token from the Cookie. Which is the extra manual step you don’t want to do in your <em>automation</em>.</p>
+      <p id="db2e8aca-d9a5-4b5d-8a4a-edf6cd1f7ebf" class=""><code>.next()</code></p>
+      <h2 id="1c23fcbb-a28f-44e1-96a0-1355225de08a" class="">notion-database</h2>
+      <ul id="9c8eb90c-c25d-4d35-a745-5d3660dae0ea" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/minwook-shin/notion-database">https://github.com/minwook-shin/notion-database</a>
+        </li>
+      </ul>
+      <ul id="44f03439-c9c1-4fbd-99ac-6e7cb7d36994" class="bulleted-list">
+        <li style="list-style-type:disc">Status: 23 commits, last update 20 days ago.</li>
+      </ul>
+      <p id="b1647110-4969-45cf-880d-189fd4660d31" class="">From the README and the name, you could expect that this will be precisely what I am looking for, right?</p>
+      <p id="6d7ca5db-d1ca-47cb-bbf2-50b3da8f09a4" class="">The code looks straightforward:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">notion_database.database</span> <span class="kn">import</span> <span class="n">Database</span>
+
+<span class="n">database</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span>
+    <span class="n">integrations_token</span><span class="o">=</span><span class="s2">"secret_token"</span>
+<span class="p">)</span>
+<span class="n">database</span><span class="o">.</span><span class="n">retrieve_database</span><span class="p">(</span>
+    <span class="n">database_id</span><span class="o">=</span><span class="s2">"DATABASE_ID"</span><span class="p">,</span> <span class="n">get_properties</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">properties_list</span><span class="p">)</span>
+</code></pre>
+      <p id="29beb5d8-9d1a-4eb7-ba11-77435f0f9c1c" class="">Except it prints only the names of the column and internal ID’s:</p>
+      <pre id="83d08973-0c0f-410e-9c6d-1f1cfad43c85" class="code code-wrap"><code>[{'id': 'LE~%7D', 'name': 'Updated', 'type': 'date', 'date': {}}, {'id': 'YtoI', 'name': 'Title', 'type': 'rich_text', 'rich_text': {}}]</code></pre>
+      <p id="da4b20f9-5587-4d47-ac76-21232ecb06d3" class="">Well. Okay, so how do I iterate over the actual values? Documentation doesn’t share this secret knowledge. And I can’t see it from the debugger:</p>
+      <pre id="fa208697-6b02-4741-b827-238b1181e7fa" class="code code-wrap"><code>dir(database)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'create_database', 'find_all_page', 'list_databases', 'properties_list', 'query_database', 'request', 'result', 'retrieve_database', 'run_query_database', 'update_database', 'url']</code></pre>
+      <p id="9c1f9042-ba97-4f5f-b54d-e67a3864de7d" class="">Should I query the database with the ID’s from the properties? I am looking into the code itself, and it doesn’t look like a promising approach:</p>
+      <pre class="code"><code>                <span class="k">def</span> <span class="nf">query_database</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Not Implemented</span>
+        <span class="k">pass</span>
+</code></pre>
+      <p id="340e2a4b-774b-4a42-b36e-8ef52e0e9cc2" class="">Am I missing something? I’ve tried different methods, and they return basically nothing of any value.</p>
+      <p id="baa22301-2f1b-40cc-a978-995a901ab2de" class="">I look into the documentation, and then I see it:</p>
+      <pre class="code"><code><span class="kn">from</span> <span class="nn">notion_database.database</span> <span class="kn">import</span> <span class="n">Database</span>
+
+<span class="n">database</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span>
+    <span class="n">integrations_token</span><span class="o">=</span><span class="s2">"secret_token"</span>
+<span class="p">)</span>
+<span class="n">database</span><span class="o">.</span><span class="n">find_all_page</span><span class="p">(</span><span class="n">database_id</span><span class="o">=</span><span class="s2">"DATABASE_ID"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+</code></pre>
+      <p id="17915e6a-5531-4443-9edd-f2a644089e4a" class="">This seems to return some kind of json / dict with all the rows. Finally!</p>
+      <p id="a0901ef1-a4a5-496b-accc-6ae267774b1e" class="">But at this point, I could construct the query myself in like ten lines of code. It appears that the library is mostly useless because all I get is JSON and not python objects. I mean, I could have done the same thing with the code straight from the <a href="https://developers.notion.com/reference/post-database-query">documentation</a>, and it would be only slightly longer and functionally the same:</p>
+      <pre class="code"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.notion.com/v1/databases/DATABASE_ID/query"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"page_size"</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Accept"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
+    <span class="s2">"Notion-Version"</span><span class="p">:</span> <span class="s2">"2022-02-22"</span><span class="p">,</span>
+    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
+    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer secret_token"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+      <p id="94fbc627-1c4a-48e8-bab5-55c746614795" class=""><code>.next()</code></p>
+      <h2 id="4989ea7c-044a-4924-a9ff-e21653f44199" class="">notion-sdk-py</h2>
+      <ul id="a07e102b-04de-45ef-aec4-80de08856967" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/ramnes/notion-sdk-py">https://github.com/ramnes/notion-sdk-py</a>
+        </li>
+      </ul>
+      <ul id="f0824c06-51f8-4a96-bc4c-3c91c85f70d2" class="bulleted-list">
+        <li style="list-style-type:disc">Status: 139 commits, last update 2 months ago.</li>
+      </ul>
+      <p id="0225fca5-b467-4df7-abfd-9a38ecb925dd" class="">This seems like an actively developed project, but it has the same problem as the previous one: it provides only a thin wrapper over the abstractions. You can query the values using python API, but you’ll get JSON / dict back.</p>
+      <p id="4d2efab7-f723-4ff4-86a8-42cb5d88dc22" class=""><code>.next()</code></p>
+      <h2 id="e6eb5c6a-e66c-4a6f-b5ef-f623584ad050" class="">Other libraries</h2>
+      <p id="cd0980db-41db-4ba1-92c9-035fb479a2f3" class="">Uh oh. It seems like we’ve got to the end. When I <a href="https://github.com/search?o=desc&amp;p=1&amp;q=notion+python&amp;s=stars&amp;type=Repositories">search</a> the GitHub, I can see that there are several other projects, but mostly in worse shape than the ones already discussed:</p>
+      <ul id="e3d9b101-c78d-4212-ae47-bb2ac58094e5" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/ngviethoang/notiondb">https://github.com/ngviethoang/notiondb</a> (status: 3 commits, last 17 days ago)
+          <ul id="6e7f51b0-2887-43d3-9bb7-5872bbb6b5b4" class="bulleted-list">
+            <li style="list-style-type:circle">Similar to the notion-database, also really lowlevel abstraction.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="b5db810c-38f5-47e2-8d2f-98e9ab9ce3a0" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/jacksalici/notion-cli-list-manager">https://github.com/jacksalici/notion-cli-list-manager</a> (status: 57 commits, last 3 months ago)
+          <ul id="60e9e8aa-4bf7-4698-b379-266209b8e3a6" class="bulleted-list">
+            <li style="list-style-type:circle">Commandline tool, which does exactly what I want. Not a python library.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="b1a3a181-735d-49e9-bfbd-76b9d1e17849" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/bradleyhurley/PyNotion">https://github.com/bradleyhurley/PyNotion</a> (status: 5 commits, last 8 months ago)
+          <ul id="b896a8bb-ba07-4dcf-b543-0af0612e9dfc" class="bulleted-list">
+            <li style="list-style-type:circle">Unfinished project, looks like it works with unofficial API.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="9abaab56-a9be-445e-856a-0ac200779508" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/lastorel/pytion">https://github.com/lastorel/pytion</a> (status: 62 commits, last 6 days ago)
+          <ul id="0275389a-8ddc-4f26-9ff9-b2aa2c5fa426" class="bulleted-list">
+            <li style="list-style-type:circle">It seems like an interesting candidate for an API library, but so far in the development.</li>
+          </ul>
+          <ul id="2a2af77c-0b81-42fc-83f0-d2d308890065" class="bulleted-list">
+            <li style="list-style-type:circle">There is no package, no documentation, and everything seems like it is being worked on.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="ea45b253-3c82-4b67-8fa6-e636697f342b" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/visheshdvivedi/Notion-API-Python">https://github.com/visheshdvivedi/Notion-API-Python</a> (status: 9 commits, last 11 months ago)
+          <ul id="089317e5-37a9-4597-bf14-1bdfd88feecc" class="bulleted-list">
+            <li style="list-style-type:circle">Some kind of data dumper.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="1484e903-8fec-49a4-9862-aa4a6ed39a2b" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/avlm/zotion">https://github.com/avlm/zotion</a> (status: 2 commits, last 11 months ago)
+          <ul id="818b6cbe-c09f-4020-a330-241c804feb7e" class="bulleted-list">
+            <li style="list-style-type:circle">Abandoned project.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="19942e3b-0fc5-4f6f-ad49-364b7e51a636" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/bustrama/Notion-API">https://github.com/bustrama/Notion-API</a> (status: 4 commits, last 11 months ago)
+          <ul id="d961a3bf-d27c-4335-a566-bc743ac9bf43" class="bulleted-list">
+            <li style="list-style-type:circle">Another abandoned project.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="5b1c898c-3233-49f1-8168-2d5eb42df9cd" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/thomashirtz/notion-utilities">https://github.com/thomashirtz/notion-utilities</a> (status: 17 commits, last 27 days ago)
+          <ul id="3b9f6349-3957-4e35-80ad-e4e025bf9ef3" class="bulleted-list">
+            <li style="list-style-type:circle">Some kind of utilities which make some transformations, not really an API.</li>
+          </ul>
+        </li>
+      </ul>
+      <h1 id="cf303d6b-3995-40b7-b204-5c9321a83787" class="">Conclusion</h1>
+      <p id="76a4176b-f560-40b0-8c1e-44e24712e66a" class="">It seems to me, that the situation is not improving. I've done the same “research” approximately a year ago, concluded that there isn’t any good library, and hoped, that something would appear since then. It didn’t.</p>
+      <p id="e925b4ec-5c3b-4b2e-bd8d-cc41ec1368c6" class="">Now I have to think about what to do:</p>
+      <ul id="451c44bf-75fd-48d4-afb0-d603ca3b813a" class="bulleted-list">
+        <li style="list-style-type:disc">Use lowlevel API, work with JSONs.</li>
+      </ul>
+      <ul id="7e255355-2a12-405e-ad73-f7bbb25a0b07" class="bulleted-list">
+        <li style="list-style-type:disc">Wait longer.</li>
+      </ul>
+      <ul id="beb35a36-7699-4714-8fcd-ee434d568b30" class="bulleted-list">
+        <li style="list-style-type:disc">Create something myself.</li>
+      </ul>
+      <p id="3edc8048-b564-455b-a9ad-4e496f60f56d" class="">The problem is, that I don’t really want to do any of this. *Sigh*.</p>
+      <p id="7a045a5b-8a59-43a4-81c0-9088c4dd76bd" class="">I mean, I can probably create something, but I don’t actually want to maintain it in the long term. It could be partially fixed by using some kind of code generators, but that seems fragile, and it will break all the time. I’ve look and there doesn’t seem to be any kind of formal specification, like swagger definition, or something like that.</p>
+      <p id="e4572666-8643-473e-87d5-58a6e57d32fc" class="">Sure, I can use lowlevel API, but this has its own issues. For this use case, it is fine, but when I'll make something more complicated, the result will be messy code, which is pretty badly maintainable.</p>
+      <h2 id="64b24016-b38e-4c83-b1ab-7edb6c1517f5" class="">Edit</h2>
+      <p id="d3de5a50-8402-4355-b0eb-4b7b61a2bd01" class="">Eventually, I’ve <a href="https://github.com/Bystroushaak/notion_blog_generator/blob/f3fd8b284b043a3d3be69e22e0eeac6ca76a3c6a/lib/preprocessors/fix_changelogs.py#L24">used</a> raw <code>requests</code> calls to get the job done, but it wasn’t a pleasant experience. Especially to have to dig the data from the four or five level deep nested JSON arrays and objects is really annoying and unreadable.</p>
+      <p id="b33da30d-d26d-4259-b3a5-6566c8168f7b" class="">At the moment, I am trying to create proof-of-concept experimental library for notion API, but I am not sure if I’ll continue to develop it. Mostly I wanted to see how hard it would be to create it with some auto-generation of types and so on.</p>
+      <p id="54530595-8479-4e46-a9ea-f5c4102ac2b5" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a></span>
+    <div id="last_five_bottom">
+      <h3>New posts</h3>
+      <ul>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+        <li>
+          <a href="../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
+        </li>
+        <li>
+          <a href="../Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" title="Tools I use: PyCharm / Idea plugins">Tools I use: PyCharm / Idea plugins</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2021-10-29_Monster_post.html" title="Newsletter 2021-10-29; Monster post">Newsletter 2021-10-29; Monster post</a>
+        </li>
+        <li>
+          <a href="../Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
+        </li>
+      </ul>& <a href="../../Changelog.html" title="Changelog">more</a>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/explorations.html" title="explorations">explorations</a>, <a href="../../Tags/libraries.html" title="libraries">libraries</a>, <a href="../../Tags/notion.html" title="notion">notion</a>, <a href="../../Tags/python.html" title="python">python</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
