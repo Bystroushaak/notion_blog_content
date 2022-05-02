@@ -9,27 +9,27 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <style>
   pre { line-height: 125%; }
-  td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-  span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-  td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
   span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
   .hll { background-color: #ffffcc }
-  .c { color: #408080; font-style: italic } /* Comment */
+  .c { color: #3D7B7B; font-style: italic } /* Comment */
   .err { border: 1px solid #FF0000 } /* Error */
   .k { color: #008000; font-weight: bold } /* Keyword */
   .o { color: #666666 } /* Operator */
-  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-  .cp { color: #BC7A00 } /* Comment.Preproc */
-  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-  .c1 { color: #408080; font-style: italic } /* Comment.Single */
-  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+  .cp { color: #9C6500 } /* Comment.Preproc */
+  .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+  .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
   .gd { color: #A00000 } /* Generic.Deleted */
   .ge { font-style: italic } /* Generic.Emph */
-  .gr { color: #FF0000 } /* Generic.Error */
+  .gr { color: #E40000 } /* Generic.Error */
   .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-  .gi { color: #00A000 } /* Generic.Inserted */
-  .go { color: #888888 } /* Generic.Output */
+  .gi { color: #008400 } /* Generic.Inserted */
+  .go { color: #717171 } /* Generic.Output */
   .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
   .gs { font-weight: bold } /* Generic.Strong */
   .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
@@ -42,15 +42,15 @@
   .kt { color: #B00040 } /* Keyword.Type */
   .m { color: #666666 } /* Literal.Number */
   .s { color: #BA2121 } /* Literal.String */
-  .na { color: #7D9029 } /* Name.Attribute */
+  .na { color: #687822 } /* Name.Attribute */
   .nb { color: #008000 } /* Name.Builtin */
   .nc { color: #0000FF; font-weight: bold } /* Name.Class */
   .no { color: #880000 } /* Name.Constant */
   .nd { color: #AA22FF } /* Name.Decorator */
-  .ni { color: #999999; font-weight: bold } /* Name.Entity */
-  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .ni { color: #717171; font-weight: bold } /* Name.Entity */
+  .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
   .nf { color: #0000FF } /* Name.Function */
-  .nl { color: #A0A000 } /* Name.Label */
+  .nl { color: #767600 } /* Name.Label */
   .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
   .nt { color: #008000; font-weight: bold } /* Name.Tag */
   .nv { color: #19177C } /* Name.Variable */
@@ -67,11 +67,11 @@
   .dl { color: #BA2121 } /* Literal.String.Delimiter */
   .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
   .s2 { color: #BA2121 } /* Literal.String.Double */
-  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
   .sh { color: #BA2121 } /* Literal.String.Heredoc */
-  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
   .sx { color: #008000 } /* Literal.String.Other */
-  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .sr { color: #A45A77 } /* Literal.String.Regex */
   .s1 { color: #BA2121 } /* Literal.String.Single */
   .ss { color: #19177C } /* Literal.String.Symbol */
   .bp { color: #008000 } /* Name.Builtin.Pseudo */
@@ -101,9 +101,11 @@
 </head>
 <body onload="on_body_load();">
   <div id="sidebar_top">
-    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a></span>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
     <div id="last_five_top">
-      <h3>New posts</h3>
       <ul>
         <li>
           <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
@@ -135,8 +137,8 @@
         <li>
           <a href="../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
         </li>
-      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
-    </div>
+      </ul>
+    </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
     <div>
       <h3>Tags</h3>
       <p><a href="../../../Tags/object_database.html" title="object_database">object_database</a>, <a href="../../../Tags/python.html" title="python">python</a>, <a href="../../../Tags/shelve.html" title="shelve">shelve</a>, <a href="../../../Tags/sqlitedict.html" title="sqlitedict">sqlitedict</a></p>
@@ -246,9 +248,9 @@
     <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
   </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
   <div id="sidebar_bottom">
-    <span><a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a> &nbsp; &nbsp; <a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a></span>
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
-      <h3>New posts</h3>
       <ul>
         <li>
           <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
@@ -280,8 +282,9 @@
         <li>
           <a href="../tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" title="tinySelfEE 2021-07; let's throw away the Symbolic eval code">tinySelfEE 2021-07; let's throw away the Symbolic eval code</a>
         </li>
-      </ul>& <a href="../../../Changelog.html" title="Changelog">more</a>
+      </ul>
     </div>
+    <p>You can find <a href="../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
     <div>
       <h3>Tags</h3>
       <p><a href="../../../Tags/object_database.html" title="object_database">object_database</a>, <a href="../../../Tags/python.html" title="python">python</a>, <a href="../../../Tags/shelve.html" title="shelve">shelve</a>, <a href="../../../Tags/sqlitedict.html" title="sqlitedict">sqlitedict</a></p>
@@ -332,6 +335,10 @@
           <a href="../../index.html" title="English section">📂 English section</a>
         </li>
       </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../patreon.png" style="width: 5em;"></a>
     </div>
   </div>
 </body>
