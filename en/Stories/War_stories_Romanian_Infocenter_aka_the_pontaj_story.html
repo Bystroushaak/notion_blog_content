@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>War stories: Romanian Infocenter aka the pontaj story</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:title" content="War stories: Romanian Infocenter aka the pontaj story">
+  <meta name="twitter:description" content="Story about one deployment into the production, and also musing on the devops trends.">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="Story about one deployment into the production, and also musing on the devops trends.">
+  <meta name="keywords" content="job,programming,war_stories,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+      </ul>
+    </div>& <a href="../../Changelog.html" title="Changelog">more</a>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/job.html" title="job">job</a>, <a href="../../Tags/programming.html" title="programming">programming</a>, <a href="../../Tags/war_stories.html" title="war_stories">war_stories</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="Stories">Stories</a> / War stories: Romanian Infocenter aka the pontaj story
+  <article id="3007cd4f-f5e2-4099-bdac-41205e69a329" class="page sans">
+    <header>
+      <h1 class="page-title">War stories: Romanian Infocenter aka the pontaj story</h1>
+    </header>
+    <div class="page-body">
+      <p id="93cbfcee-d34f-48d1-a01d-c629236ec0b3" class=""><time>@2023/01/16</time></p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="cab4abd5-6f17-4703-982a-0d3c28207032">
+        <div style="font-size:1.5em">
+          <span class="icon">⚠️</span>
+        </div>
+        <div style="width:100%">
+          Just because I enjoy living my life without legal drama; This blog was published more than 3 years after it was written. All names, characters, and incidents portrayed here are fictitious. No identification with actual persons (living or deceased), companies, places, buildings, and products is intended or should be inferred. I work somewhere else now, and the company where this happened also works differently now.
+        </div>
+      </figure>
+      <p id="016a79b4-aa5e-4694-a1fa-bb2fb81bd454" class="">Let me tell you a story about a deployment to the production. I work in a big company, compared to the local standards. Most people in the country where I live heard about "us". More than 1/14 of all citizens living here are our customers.</p>
+      <p id="657ebff2-dd39-4f45-bb91-2b238b764506" class="">It is thus, quite natural, that we have several hundred employees in the <em>research and development</em> division. I am part of a small team of 14 developers and testers. I develop software in python, that runs on Linux. Mostly backend, and sometimes also PyQt apps. You can probably say, that I am a senior developer.</p>
+      <p id="f1dbf1b7-c2be-4ed2-a1ac-947122efd952" class="">I am telling you all of this to get some context. We are a big corporate company, and we have processes, which mostly work. I've worked most of my life in smaller startups, so I was quite impressed when I've got in the company because everything was quite smooth. I didn't have to set up anything, everything was already done, debugged long time ago, used by sane programmers doing their job.</p>
+      <p id="932bec95-66a8-4c68-8120-ac49d41d77ea" class="">I am not talking about bureaucratic specifics, but the basic stuff. The stuff that even total amateurs quickly discover — the things which are often a difference between sanity and insanity. Things typical startups have half broken or not implemented.</p>
+      <p id="03483a4f-f341-4e6e-8a97-918ad4d26ea5" class="">For example; Use SCM (git). Test your code in dev environment. Do code reviews. Write tests, or run your changes via testers. Only the stuff reviewed by someone else can get into the production. Talk to the infra guys about network requirements and access <em>before</em> the deployment, not after. And so on.</p>
+      <p id="980628f6-42bc-4b56-addc-b97ac49959b3" class="">We also have architects, who think about the big picture and how various technical parts of the multinational company talk to each other via all kinds of API. And also analysts, who think about business requirements.</p>
+      <p id="ec9abea8-b06b-4d09-bf0b-1164379d3bf9" class="">What I find most fascinating about these guys is that they actually really saved my time. They oiled the gears for me before I went and did the programming. That's something I wasn't used to.</p>
+      <p id="3ec9d0d1-2432-42aa-b1a1-03301b00bca5" class="">To sum it up; our processes work, and without much bullshit. Really. It's all almost a miracle.</p>
+      <p id="d16530ba-c7bf-46e6-b7b4-de17f8be8b79" class="">Some time ago, our company expanded to other markets. We bought companies in the Poland, Slovakia, and Romania. Poland and Slovakia were already integrated into our software stack, and we were preparing for the integration of the Romania for more than half of the year. New localization was added, configuration, network access, countless changes in the apps because of the different legal requirements.</p>
+      <p id="4bade27d-156a-4d82-acee-7645d687aa88" class="">The big release was expected to be next month. All of Romania retail shops shall switch to our software platform. Instead of their old Windows-based system, they'll now use a Linux stack with our solution.</p>
+      <h1 id="67290ce7-0d44-4bbf-9372-c58ec1375acc" class="">Help with packaging</h1>
+      <p id="c6071bbf-6b79-44c8-91b6-f879113e0605" class="">I am doing my job, when suddenly, I am invited to a new group in MS Teams. <em>I hate MS Teams.</em></p>
+      <p id="0f681bdd-0bae-4b4b-8ab4-fdc393e88634" class=""><em>"Hi"</em> writes the guy I'll call John. I've worked with him before. He is an infra guy, sysadmin with a lot of knowledge about Linux, who is weirdly obsessed with security. Weirdly, because most of the time, it doesn't make any sense. He always pushes things like using self-signed HTTPS in network, that already uses encrypted VPN. Or to sign RPM packages that are downloaded from the repository, which uses password for login and SSL for communication. But most of the time, he can be reasoned with, and he has a lot of skill. He knows what he is doing, when it comes to the topic of his job.</p>
+      <p id="57d8abff-629a-4c67-8471-68b0b1054d4a" class="">Anyway, I reply with greetings. He explains that he needs help with creating an RPM package of three python applications developed “externally”. They apparently should be part of the upcoming official release in Romania. One of them is a thing called “<em>Infocenter”</em>, and he explains, that that's the important stuff, and that he needs it, quickly.</p>
+      <p id="52b8dca3-3973-4bc0-83d0-f8ebfd1fe22e" class=""><em>"Okay, give me the sources, I'll help you."</em></p>
+      <p id="fd7b04b1-6c15-41bf-8076-f0bbd77d304e" class=""><em>"I don't have the sources"</em>, he writes. <em>"I am just trying to explain the whole process to this guy."</em> And I look, and I see that there is another person in the chat, whom I'll call Sindibad.</p>
+      <p id="7a0c4f4e-26d8-453e-8db2-45470137d2ee" class=""><em>"Sindibad is not a Linux developer, he is a PHP web developer, and he knows only windows"</em>, writes John.</p>
+      <p id="7107f48f-028c-40f9-b4fb-7f92a90352b1" class="">I can do external apps. I can do packaging. But teaching someone who has literally no python and no Linux background? No way. That would take far too much time. And to do it remotely?</p>
+      <p id="c0ef91ce-c5cb-404d-b01e-d6e4ee3030a5" class=""><em>"Sorry guys, this would take too much time, and I have other tasks to do"</em>, I write. And really, I've got my share of tasks to finish, and other people depend on me being on time. Just because I want to avoid letting them hang, I post links to several articles about python and Linux packaging. I've used them as a reference in the past, and I'm certain that if not Sindibad, then John can do the job if he reads them.</p>
+      <p id="b2218aca-228a-4316-a7f6-80f533b2c62f" class="">Sindibad is optimistic. "<em>Thanks man, I'll look into it and create the package in no time!</em>"</p>
+      <p id="58c31119-4fd0-4113-a52b-9a420d7cfe68" class="">Yeah. Sure.</p>
+      <p id="c70f357b-68c9-4ad9-b727-9af44e1c0205" class="">Three days later, some woman I've never seen before pops into the group chat. Let's call her Simone. She is asking how it is going.</p>
+      <p id="733b10f4-6ec9-4d85-ba15-cc8b9bc83a56" class=""><em>"We're on the right path"</em>, Sindibad replies. <em>"I hope by the end of this week everything should be alright"</em>.</p>
+      <h1 id="29bb55ce-49bd-4729-8524-5ae4b77b6884" class="">Most important app</h1>
+      <p id="d32648ee-0da2-4781-a5ae-bd6536804660" class="">Several weeks go by, and I've already forgotten about the whole incident. I am doing my job, this sprint it is mostly adding new menus into our main GUI program, with a lot of weird validation rules dictated by business. I am also connecting the app to the backend services, and I even have time to do some refactoring.</p>
+      <p id="ca2674ad-136e-4d0c-bbc3-c2debbf50bad" class="">Suddenly, I am added to another <em>MS teams</em> group chat. <em>*Sigh*</em>. I <em>really</em> hate when people do this. This time, there is about a dozen of people, and I don't know half of them. I can see Simone, John some higher ups from our branch and a lot of Romanian sounding names.</p>
+      <p id="24271626-f23e-464b-9e3b-7a1419f69e92" class="">There is a lot of passive aggressivity flying around. The message is clear; management people are not happy that the <em>Infocenter app</em> is not yet packaged. We need it for our big release! It's a critical app, and it can delay the whole release!</p>
+      <p id="2729f459-bc92-4917-9992-8dd368e6b78d" class="">Simone is sending impolite messages left and right. The content can be reduced to the fact, that the app was promised to be packaged last week (several weeks after I've first heard the promise that it will be done at the end of the week). She is really on the edge because the lack of Infocenter app threatened to stop the whole deployment to Romania, something hundreds of people worked on.</p>
+      <p id="5a66df40-abe3-43d7-8ad3-23ebca45c419" class="">What a weird drama. Last time I've seen this, there was no ticket, there were no business requirements, just a remote colleague asking for help. What happened? And who promised it?</p>
+      <p id="7ceb86ea-2854-463a-aaf0-25663c3fb39a" class="">I am quite surprised to see my <em>"product owner"</em> popping into the chat. The guy, who is something like my boss, but not really, he just gives me tasks and generally says what I should do.</p>
+      <p id="80f8a164-7b15-46c8-a569-560f585da52d" class="">I am even more surprised to see him promise to everyone, that I will look into the issue of packaging and make it done.</p>
+      <h1 id="3630cc87-5cf8-4a76-9d19-ca4a7a3b068e" class="">The Infocenter</h1>
+      <p id="dc76bb20-da6c-4417-9f7d-d9cdc6dd039f" class=""><em>Charles Babbage</em> began his book <em>Passages from the Life of the Philosopher</em> with meditation about names:</p>
+      <figure id="e09eb3c0-13b8-4b2b-bcc3-c3901dcb2dd5" class="image">
+        <a href="War_stories_Romanian_Infocenter_aka_the_pontaj_story/Untitled.png" title="Untitled.png"><img style="width:850px" src="War_stories_Romanian_Infocenter_aka_the_pontaj_story/Untitled.png"></a>
+      </figure>
+      <p id="690c69dd-a5c2-42ca-9f9f-853867fff63f" class="">If he was still alive, I could show him, that this is not always the case. Some names resonate with people and make them assume things. For example "<em>Infocenter"</em>.</p>
+      <p id="6439cd25-9539-4862-9510-ad34c71f58eb" class="">What would you expect?</p>
+      <p id="52a02870-5b85-455c-bd88-c5f8b95da1e5" class="">I can tell you, that many people expected many things about the app. It is an externally developed app. It is a critical app, and the release can't go without it. I've got direct messages from three random people I've never seen before, urging me to do the job quickly.</p>
+      <p id="2d684184-8493-4a66-8a5e-bac005b05b24" class="">So, I did what I always do; asked for access to the git repository.</p>
+      <p id="e89cb549-32b6-41de-9034-6156317b7012" class=""><em>"There is no git repository. Please, contact Sindibad, he knows all the details."</em></p>
+      <p id="a8ef3d2f-bb6f-41f2-a8db-ddff45cb04e0" class="">Of course, I write to Sindibad, asking for the git repository. It is quite weird to have it offline and not uploaded to the Bitbucket, like everything else and every other externally developed app, but whatever.</p>
+      <p id="c392ba00-c2f0-4602-b17b-0cacb062c7c5" class="">Sindibad replies:</p>
+      <p id="611018d2-4669-42e4-bbc5-9ee39934f101" class=""><em>"There is no git. Here, have a zip file with compiled sources."</em></p>
+      <p id="eb7500f7-b321-46d7-9788-8096e21d55a2" class="">No git, huh. Okay. Maybe he uses some weird old system of managing the source codes, something like SVN. And what's with the <em>compiled sources</em>? Did someone really compile the python <em>source code</em> into <em>bytecode</em> (<code>.pyc</code>) files? That's weird, we usually request sources even for the externally developed stuff.</p>
+      <p id="b2c62be4-c599-410b-80d0-c085d5915dfa" class="">I download the zip file (I really hate <em>MS Teams</em>, which tries to be smart and show me all kinds of weird previews into the file instead of just downloading it), unpack them and look unbelievably at the 415 files, many of which are <code>.so</code> (shared library binaries). From the directory structure, it looks like someone compiled half of the python's standard library, with all kinds of dependencies.</p>
+      <p id="df6e9961-112f-4e92-b416-5b44a3e3f7ae" class="">What the hell? Did <em>someone</em> compile the source codes using something like <a href="https://cx-freeze.readthedocs.io/en/latest/">cx_freeze</a>? It really makes no sense as a security or copyright measure because you can unpack the original sources from the binaries.</p>
+      <p id="97cb01d3-7c92-4ab2-81a7-6dc91a8750d2" class=""><em>"I couldn't make the compiled version run on Linux, but it works on Windows"</em>, writes Sindibad.</p>
+      <p id="52fc2d5b-f940-4518-ac4b-b876f2c7e52c" class=""><em>Wait, what?</em> The suspicion grows in me, so I ask him; <em>"are you the developer of this app?"</em>. And he confirms it and gives me a some info about the app.</p>
+      <p id="523c45b4-b29a-41ea-9b82-f1a1490fe0ed" class="">He developed it two years ago, and just compiled it into the <code>.exe</code>, which run as a service on the windows. The app is just one big popup window, which jumps into the foreground when there is a new message on the intranet, or when the people in the retail store didn't log data into their timesheet. You can click on the left button, which opens Firefox, or the right, which closes the app for the next five minutes. Then it pops on you again.</p>
+      <figure id="b1be4bf9-04de-4eed-aac4-3dc99a97f111" class="image">
+        <a href="War_stories_Romanian_Infocenter_aka_the_pontaj_story/Untitled_1.png" title="Untitled_1.png"><img style="width:269px" src="War_stories_Romanian_Infocenter_aka_the_pontaj_story/Untitled_1.png"></a>
+        <figcaption>
+          <em>(Recreation of the app using Salt wireframes)</em>
+        </figcaption>
+      </figure>
+      <p id="4306455d-fa96-497b-853a-82f224c4be8b" class="">It takes a bit of persuasion, but I finally manage to get him to send me the source code. I open the directory and here I see the whole infamous <em>Infocenter</em>. It's just one script with 181 lines of code.</p>
+      <p id="5a70c685-02f0-4ec6-9b8a-962747d9f89b" class="">There is no configuration (hardcoded URLs with no possibility to run it in test environment for example), no i18n (multi-language support, <em>limba romana bebelus!</em>), no tests, no proper logging, although there is some attempt to catch some exceptions and log them to the file called <code>Errors.txt</code>. But it is created in the directory where the script runs, and it won't work in production. There are no comments, no business requirements that would say what the app should actually do.</p>
+      <p id="901c1347-fa93-4b72-868e-e78365470f69" class="">This may sound bureaucratic to you, but trust me, you will appreciate it when your Romanian colleague wants you to add new features.</p>
+      <p id="265351f9-4115-4bd3-928c-b78c3d30325a" class="">Everything is crammed into three functions and all variable names are in Romanian language. Half of them starts with the prefix <code>pontaj_</code>, which I can't make any sense of, even using Google Translate. There is not even a commandline argument parser (it would be nice to have something like <code>--test</code> for test runs).</p>
+      <p id="934a0041-8483-47d9-ab6f-35a0ce623949" class="">This is <em>the Most Important App ©®</em> no one has seen up to this point, which made many people do several meetings, write countless messages and generally do fuss all over in our R&amp;D division. I am talking about high ranked managers, bosses of dozens of people, who are themselves bosses of people.</p>
+      <h1 id="320d6407-f694-4ef7-bd25-0dba7a4b948e" class="">Quality</h1>
+      <p id="e375ac4a-3f47-4716-b487-236b31f22829" class="">When I first learned how to drive a car, I thought that's it. I've learned the rules and I knew how to operate a car, so I am now a driver. Then I've begun to discover things like how to actually drive smoothly so that it feels "normal" to the people who ride with you. How to predict other people on the roads, and how to signal my intentions to them. How to use gear shift correctly and in the right way. How to use engine to lower your speed before you use brakes. How to conserve gas.</p>
+      <p id="50294998-9fe4-4604-95cd-fa5255248148" class="">If you learn to use all of this correctly, you can drive very pleasantly and defensively. Your driving is now about conservation of momentum and signaling to the others, not just about making the box on the wheels move in the direction you want. You don't make sudden changes, and people expect you to behave in a certain way. Like some dance, or maybe tai chi. Or maybe you can learn to drive quickly and aggressively, and drive like a racer. There are many styles that you can optimize to.</p>
+      <p id="75491050-c5eb-44d5-a8a4-376a00aefa01" class="">In short, there is a lot more to the driving, than just the ability to drive and the knowledge of the rules in your country.</p>
+      <p id="fff52aae-6c72-45e7-a08b-c239c84aafb8" class="">Like every other field of human knowledge, the programming is the same. When you learn some programming language, you are only at the beginning. The deployment to the production requires a lot more, and to actually write smooth, understandable and clean code is whole different knowledge.</p>
+      <p id="bc8dc9cd-e402-4384-953d-902b81d166c0" class="">It is like with human languages; the ability to speak is great, but the ability to write a story is something different. And the ability to write a great story, that is something that takes time and a lot of learning. You can't just be a master of the language, you also have to know about the architecture of stories. About human archetypes. Otherwise, it is just a poetic mess.</p>
+      <p id="aa4fab92-2dff-4c00-83b3-ac5524d81a02" class="">When I first saw the source code for <em>the Infocenter app</em>, I've immediately understood, that Sindibad barely knew python, and had zero experience with everything else. Why he was tasked with packaging and deployment of the app, or even the development, was beyond my understanding. It was clearly beyond his abilities. He could probably learn all of that in time, but not in the available timeframe.</p>
+      <p id="d07f2fe9-935c-45bf-9917-cea34e1755c6" class="">I've chatted with him and proposed, that I'll create a git repository for the app, do some refactoring, add missing stuff and maybe rewrite the app to the PyQt. He had some issues with Tkinter, or more specifically with PIL (Python Imaging Library), which he used for reading an image, and he didn't understand what to do because it wasn't available in our CentOS package repository.</p>
+      <p id="f9e224b3-cf5f-4d82-a29e-911a8cea2f29" class="">He agreed. Basically, my overall message for him was <em>"don't worry, I'll make all necessary changes and then give the project back to you, or maybe take it under our team"</em>. After all, he doesn't do python apps, and we have several people, including me, doing just that.</p>
+      <p id="0b5003cb-be03-4bcd-a2ba-951e75dc66ba" class="">During this time, several people sent me either direct messages, or messages in group chats, urging me to package the app. I've summed our agreement to some group chats. People were generally happy because I've given them a clear timeframe and set of steps that will be done.</p>
+      <p id="d1025995-5a4f-4e29-8fcd-128a81df53e3" class="">I've also asked my boss to create a git repository for the project because for some weird reason, I don't have permissions to create it in our namespace.</p>
+      <p id="bf970baa-560d-4ca4-b24a-2e2b01e63b28" class="">That was all I managed to do on this project on Monday.</p>
+      <h1 id="629ef414-41ab-4f6a-bb5b-165da8e588cf" class="">Git</h1>
+      <p id="d4559dc6-8aad-4d4b-8303-d96ab511511f" class="">For those of you who don't know what the git is, here is a short explanation.</p>
+      <p id="7c6e8778-ed68-4146-afc0-896715b8d653" class="">Git is an SCM — <em>Source Code Management</em> system. It works by creating snapshots of the directory, where you initialize it. You make some modifications to your files (text, source code, pictures, anything really), then let the git scan the directory, describe the change you've made and then commit it.</p>
+      <p id="97e155ec-3a77-40fc-995f-be6262f17f53" class="">In this sense, it is similar to how Wikipedia works; you introduce some changes to some article, and then you save the changes, with the description. This creates a list of changes (history) people made to articles as the time goes.</p>
+      <figure id="2f24bd24-82bf-4a11-bd38-22401f9dea89" class="image">
+        <a href="War_stories_Romanian_Infocenter_aka_the_pontaj_story/wikipedia_git_changes.jpg" title="wikipedia_git_changes.jpg"><img style="width:1806px" src="War_stories_Romanian_Infocenter_aka_the_pontaj_story/wikipedia_git_changes_thumb.jpg"></a>
+        <figcaption>
+          <em>(List of changes for the</em> <a href="https://en.wikipedia.org/wiki/Git"><em>wikipedia page about git</em></a><em>.)</em>
+        </figcaption>
+      </figure>
+      <p id="c6b17d99-cb02-42ba-a3b9-ac78a7ec4da8" class="">You can then at any time return to the saved version, or compare it with other versions. Unlike Wikipedia, git works on any files, not just articles. What's more, it can synchronize these changes in a decentralized manner, from computer to computer, from user to user. You can have alternative histories called "branches", and do all kind of crazy stuff with them. It is like if everyone had their pocket Wikipedia, made changes in their version and then sent the changes to other people.</p>
+      <p id="d0f8a793-7fa1-4b5b-8d61-e8b851f70009" class="">I can for example make changes in the source code repository, commit them with git, and then send the changes, or the whole repository, to you. We can both continue working on the project. Git offers us a way how to synchronize the files between our computers, and also how to solve conflicts, for example when we both work on the same file and make changes to the same part.</p>
+      <p id="4b6ec27b-8fe8-462b-b30a-2c44809aab87" class="">Countless people use git nowadays. And the people who don't use git use some other SCM, for example <a href="https://www.mercurial-scm.org/">mercurial</a>, or <a href="https://pijul.org/">pijul</a>. To create source code for some program without some kind of SCM is really a madness. You live in `now`, only with changes you've just made. Any mistake can torpedo your project at any time.</p>
+      <p id="340e8dd9-1dd6-4fbc-98a3-1a470122ee5c" class="">These days, it is also typical to have all kind of other systems connected to your git repository. You can have revision system, where you can write comments to the changes made by others, and approve or disapprove their work. You can have a ticket system connected to the git, so your colleagues know what you are working on, and the ticket automatically changes status as you work on it.</p>
+      <p id="9a916b4b-a6c0-43e2-a266-0bc6c9b3f560" class="">In our company, we have all this (JIRA + Bitbucket), along with a build system (Jenkins), which automatically checks the code for bugs, and in the case of projects that do have packages, also creates those packages automatically for you. You as a programmer can just make the changes, click on a button and the automation system does a lot of hard work for you, in a matter of seconds.</p>
+      <p id="c6e7b6bb-b98b-4b2d-a948-b52711f9fde7" class="">You can now, maybe better understand, why I was so surprised that there was no git repository in <em>the Infocenter</em> case. Not only that, it is really weird to keep the source codes only on your computer because when there is some kind of hardware failure, thievery or mistake, you lose everything. But also, your colleagues can't easily share or discuss your code. And there is no automation happening.</p>
+      <p id="8fcd555f-3317-4d7c-8a6d-fce69956892c" class="">It's really amateurish madness to have <em>production code,</em> which should run on thousands of computers directly generating revenue for the whole company, stored only on some dude's computer. People will need to modify it as the time goes by, do hotfixes when the bugs are found. <em>What were they thinking?</em></p>
+      <h1 id="5e1b3af6-ea6f-4607-95d7-96eee0abe982" class="">Refactoring</h1>
+      <p id="df97a1a5-c5b7-4642-835e-301258d07f51" class="">The next day, I added the initial commit to the git repository. I've faked the author under the Sindibad's name, just so that he has some history in the repo and everyone can see that it was his project. After all, I felt it would be better not to "steal" his contribution.</p>
+      <p id="c903e526-2fe9-4fdb-af47-e84e2f4f41ba" class="">First thing I've decided to do then was to run the project. I've asked Sindibad for test data from the API because I obviously wasn't getting the right data I wanted. I could see, in the code, that the API used the hostname of my computer to decide what to show me. So, I've replaced the function that used to download the data from the API to return the mock data for now.</p>
+      <p id="0e003014-550c-494c-b63f-8d4e58629ccb" class="">Then I've decided to refactor the project because frankly, it was a mess. The whole structure was so tangled and chaotic, that it reminded me of the game <a href="https://lagged.com/play/842/">untangle</a>, where you have connected points, and you have to untangle them so that the connections between them don't cross.</p>
+      <figure id="80f99fc0-5473-4c5a-844a-1753ab942e8c" class="image">
+        <a href="War_stories_Romanian_Infocenter_aka_the_pontaj_story/untangle.png" title="untangle.png"><img style="width:900px" src="War_stories_Romanian_Infocenter_aka_the_pontaj_story/untangle.png"></a>
+      </figure>
+      <p id="349a0be1-2779-4841-9869-bc655ec91732" class="">The first part of the refactoring was really the same principle; to rearrange the code, so that cognitive load is lower, and you don't have to stare into the code for so long, trying to untangle it in your head. Like untangle game, but you don't even see the picture, just the text description of it. In random order.</p>
+      <p id="c156cb74-3049-45dc-8779-8ebe1da09797" class="">One of the weirdest things was that Sindibad defined the graphical interface as kind of the table with several rows, and then added data into the rows. The weird part was that he added the data non-linearly. First, he added the first row. Then sixth. Then second. Then fourth. It was so weird to see many lines of code just jump all over the logical order of things. I've linearized it and in the process also removed unnecessary parts of the code, which were obviously redundant, once you could see the whole structure clearly.</p>
+      <p id="f1534579-055b-4be1-9f88-553ba0091495" class="">Then I've renamed the variables that were named in Romanian language. It took me a while with Google Translate, and I also had to ask what the <code>pontaj</code> means because it was all over the place and made no sense (if I recall correctly, it was something like "timesheet").</p>
+      <p id="b554659c-db3b-4c2e-b3a7-c63f61e9bf3e" class="">I've split the code into smaller variables, rewritten the error handling, and factored out constants, so instead of the stuff like "<code>#FF0000</code>" all over the place, you can now clearly see something like <code>Colors.red</code>.</p>
+      <p id="ffdc6ee1-f0a8-469b-905f-61b734ca79da" class="">When it all worked, I've added an <a href="https://docs.python.org/3/library/argparse.html">argparse</a> interface, so you could modify the behavior of the program with commandline switches. I've added <code>--debug</code> and <code>--mock</code> for purposes of debugging on the systems which had a hostname that the API didn't know.</p>
+      <p id="5368c698-9c53-407a-bd4d-5d15042caf7f" class="">I was quite unsure why Sindibad used PIL to load the images in the first place. I don't really know <code>tkinter</code>, but a quick google query showed me that you don't really need to use PIL. So, I've removed the PIL dependency and used different methods to load the images and it worked.</p>
+      <p id="e7e4c13d-aac3-4c1e-92a4-583dd28b5788" class="">I won't mention all <a href="https://docs.quantifiedcode.com/python-anti-patterns/index.html">antipatterns</a> I've seen in the Sindibad's code. Just to give you a quick review, I've removed reused variables, some of which were used three or four times in different contexts in several places all over the project. Sindibad later asked what is the cost of the variable initialization in python. It took me some time to explain to him, that the way how it works, and in the project of this size, this is really irrelevant question and premature optimization. Other antipattern was super long <code>try:except:</code> blocks, which I've refactored to function calls.</p>
+      <p id="3845a2e3-375f-499f-8abc-89f72bf1d2df" class="">There were hardcoded expectations about the system, which I've mostly changed to multiplatform calls, and there was a hardcoded path to the Firefox (browser) binary on the Sindibad's computer, so I rewrote that to <code>xdg-open</code>.</p>
+      <p id="1e8dc483-c708-40bb-b706-831f4a159d5c" class="">That was just about everything for day two. I wrote about the progress made that day to the group chats on MS Teams (in English and in Czech languages), and said that I'll work on the build pipeline next day.</p>
+      <p id="6a889a77-bbd8-4249-89aa-4713371f8188" class="">Sindibad wrote something positive. And then he casually mentioned that he <em>rewrote the project</em>.</p>
+      <p id="12afc830-7480-471c-8243-0f50f08ed419" class=""><em>Whaaat?</em> I was quite certain that he didn't yet have access to the repository I've filled with changes that day. Our user support guys don't work that fast. I quickly checked, and confirmed that there are no changes in the repository I've created for the app. How could he <em>rewrite</em> the project?</p>
+      <p id="dbd2a9c1-49a8-4274-9860-601ca41d9a18" class="">I hoped that he didn't work on the old version, which was now approximately twenty commits behind the version I've just pushed to the repository. That would be crazy. And why would he do that? We had a clear agreement yesterday, that I'll make my changes and then hand the project back to him.</p>
+      <h1 id="6eef261c-17b3-41ef-82dd-77d7ddd63b8a" class="">RPM build</h1>
+      <p id="967e2b0d-55ff-4ae5-9f79-2f79b0c122e1" class="">Day after that, I've tried to get hold of Sindibad, but he wasn't available. I've decided to ignore his remarks about "<em>rewrite</em>" and continue to work on the project.</p>
+      <p id="641da757-310a-4ed4-be16-3ba0304ad196" class="">We use CentOS on the target machines, and Spacewalk as a Linux package repository. So, I had to create <code>.rpm</code> package.</p>
+      <p id="104bb9f4-b1af-4522-9170-cff604891b31" class="">First thing I've done was to create <code>setup.py</code>, the metadata file used for python packages. I've used PyCharm's built-in functionality and basically just filled the simple table in PyCharm with information like project's name, author and so on. Then I've run <code>python3 setup.py bdist_rpm</code>, which created the rpm file.</p>
+      <p id="a0dcb820-c403-4369-88d3-2b72a158aac5" class="">This file usually can't be directly used, as the metadata are incomplete. You can probably create the rpm file directly from <code>setup.py</code>, but python's build system is really arcane and full of historical layers filled with pitfalls, so I tend to avoid it for building <code>.rpm</code>.</p>
+      <p id="bd347a64-4fbd-469f-848c-1f053b60f02a" class="">I've extracted the <code>.spec</code> file from the generated RPM and put it to the Infocenter directory. This file is the most important part for the RPM packages. I've filled missing metadata (RPM requirements and so on) and then added some parts that say how to convert <code>.tar.gz</code> source packages created by the <a href="http://setup.py"><code>setup.py</code></a> to source RPM packages.</p>
+      <p id="0a286d5e-1f0c-4fa8-95eb-e3f93c1a1852" class="">When I've tested the conversion with <code>rpmbuild</code> run on my computer, it seemed to work.</p>
+      <h2 id="45c7612a-7782-45cc-b199-922bbc520e5b" class="">Build pipeline</h2>
+      <p id="df26acbf-dbdb-45f9-8840-114211ca2224" class="">Another step was to create build pipeline. You see, the state the project was at that moment was that a knowledgeable developer with properly set system could create the RPM package. I wanted to simplify and automate the project so that anyone could do that with one click.</p>
+      <p id="9488497c-9a42-4175-a6bd-de75eecf0b91" class="">The way how we do it in our company is to create Docker image which will build the package. Docker is this way how to run virtual computers inside your computer. You can specify, in form of code (<code>Dockerfile</code>), how the system in the virtual computer should work. Then you create the <em>image</em>, a binary copy of the system described in the <code>Dockerfile</code>. The image is then pushed to the <em>image repository</em>, from which everyone can use it without the need to build it themselves.</p>
+      <p id="faf5eeb0-d59c-4dae-9282-885ddeb30b83" class="">I've created <code>Dockerfile</code> in the specific git repository we use to share such files (just about everything is in some git repository). I've reused a big part of the Dockerfile from another project, and then fought with several weird errors and specific problems, like different path and env variables transported from the host system to the virtual computers. It took me several hours to make it work as I wanted since this project was supposed to run on CentOS 8, and the rest of our projects, except one, run on CentOS 7.</p>
+      <p id="7682c0ae-0b5c-4605-9af2-bd011cb4791e" class="">I've then uploaded the virtual image to the image repository and pushed the <code>Dockerfile</code> to the git repository for Docker files used as build systems. I've referenced the ticket or "issue" I've had from my project manager in all commits I've made. Anyone could see from the git history that the changes I've made were relevant to this issue. This also works the other way around; anyone who opens the issue, even many years in the future, could see all the changes I've made in all the repositories, and that they are relevant to this issue.</p>
+      <p id="38f147e0-224f-4a61-a4e0-3c4d07ae979b" class="">Then I've created <code>Jenkinsfile</code> in git repository for Jenkins files. Jenkins is a system with web interface, from which you can run all kinds of tasks defined in <em>Jenkins files</em>. It uses Groovy as a programming language, which I, as a python programmer, find pretty annoying, but I've been able to copy and paste most of the code from other repositories.</p>
+      <p id="413b3666-347c-4037-b4c3-335064ef6fef" class=""><em>Jenkinsfile</em> uses the Docker image I've created before. It is re-downloaded each time the job is run and the image changed. It then downloads the git repository for <em>the Infocenter</em>, builds the <code>rpm</code> package, extracts it from the target directory, stores the artifacts and offers you to push it to the <em>Spacewalk</em> (package repository). The computers in retails can then use this to install the app.</p>
+      <p id="7e4fc1a3-6304-4d2e-bf14-07450fcbd8ff" class="">Then I added the code to the other repository with other Jenkins (Groovy) file, where I've told a specific Jenkins job to look for the first <code>Jenkinsfile</code>. When you run the job called poetically <code>000seed</code>, it creates the <em>Jenkins Job</em> I've specified in the first <code>Jenkinsfile</code>. Talk about meta, huh. <em>Jenkins jobs</em> creating <em>Jenkins jobs</em>.</p>
+      <p id="f4dc8cc6-f72a-457c-817f-31776c41b0ac" class="">Once I had my pipeline created, I run it and did several iterations to fix stuff that didn't work.</p>
+      <p id="2034da5f-9ce3-4f25-af6b-e4e1eb817149" class="">It may sound both easy, and complicated. In fact, it took me more than twelve hours to make all of this work. If anyone asked for my opinion about the whole process, it would be something like <em>"layers of shit built on top of shit"</em>. You can read why in my older article <a href="../Programming/Programmers_critique_of_missing_structure_of_operating_systems.html" title="Programmer's critique of missing structure of operating systems">Programmer's critique of missing structure of operating systems</a>.</p>
+      <p id="927668ae-b343-44f5-8abd-2858eb09cacc" class="">Last part was testing. I was building the package in <em>Jenkins</em>, downloading the package to my computer, and uploading it via <code>scp</code> to the test machine. Then I had to log via <code>ssh</code> and install it with <code>yum</code>, and then run <code>xfreerdp</code> to connect to the graphical interface and test that it all work. That also took several hours of fine-tuning.</p>
+      <p id="501e56de-1580-4ced-be3e-59bbab18d06e" class="">I've finished around midnight that day. Then I've found out, that some Romanian manager wrote an email the day before, where he was really quite annoying. He, for example, required, that we don't do the job, but teach Sindibad how to do it. Mind that there were two weeks before final release date, when everything should go to the production. And he seemed to be pissed off that it takes so long, even though I was assigned to the job only a few days before. And why were we suggesting that we can take <em>the Infocenter</em> under our team? Preposterous! Sindibad probably spoke with his boss about what I offered him and there were some misunderstandings.</p>
+      <p id="b698b300-b3fc-4779-bbaf-0e54efc717aa" class="">Maybe because I was exhausted, but also still in the zone from the productive day, I wrote a really long email as a reply to all involved, where I basically politely criticized the whole <em>Infocenter</em> stuff.</p>
+      <p id="518365e6-05de-4ab1-bcc6-663fa8f4ec89" class="">I wrote that Sindibad never had any chance to do this job, and that I don't understand why it was his job in the first place. I wrote about all steps that were required and described how it took me several days even though I knew exactly what to do. And I also added some suggestions about what's from my perspective necessary. In the end, I've got so fired up, that I've told all involved, that they should stop treating this stuff like some amateurish piece of homegrown project someone does for fun.</p>
+      <p id="3ac82b7c-a820-4bec-88c5-0d6d3c4b4d68" class="">Of the stuff I've recommended was for example to talk to the network guys before they deploy <em>the Infocenter</em> because it tries to access intranet over the MPLS network, and it doesn't work on the test machines I've had access to. That they should create business requirements for the project, and also some documentation in our documentation system (Confluence). That they should create tickets for change requests and do code reviews. Give the project to testers. And so on.</p>
+      <p id="63b06c2c-bc37-4031-b0f7-b04d0368deee" class="">I've put passion and also a bit of hate in the email, so that the involved managers would realize how badly they were doing at the moment. Then I went to sleep.</p>
+      <h1 id="2a08b6d2-1ed9-4ade-bfa3-66720f4add14" class="">"Watchdog"</h1>
+      <p id="49d8ff82-018c-4962-9e7e-8ab66dd16e11" class="">The last part that needed to be finished was the watchdog script; a script that will be launched by <code>systemd</code> (Linux stuff), and it will check the <code>pid</code> file and time of the last update of the file and restart the main GUI process with proper DISPLAY env var if the program fails.</p>
+      <p id="12dd3bb1-97c9-446f-a8ce-56907bd19796" class="">This is because we (ehm, Sindibad) want to be sure that the process is always somewhere on the background and can annoy the user of the computer with blinking messages in Romanian language. Sindibad yesterday casually mentioned that he needs this.</p>
+      <p id="1af6b423-c9fc-4ba8-b226-e08d288d9c4c" class="">He also suggested solution with recursively called function. I've told him that I'll create the script for him, as it was apparent to me, that he was having trouble understanding everything involved and that you can't do it the way he suggested. Python doesn't have <em>tail call optimization,</em> and it will run out of stack call frames, and really, he doesn't know that <code>systemd</code> exists and what daemons are and other stuff.</p>
+      <p id="7d86afea-c7a8-4d03-98f6-68a048798503" class="">So, I am working on the script, when suddenly, MS Teams pops in, and I see:</p>
+      <blockquote id="a3a4fa08-18e7-48dc-bd72-0473646071dd" class="">
+        S: Hi man<br>
+        S: Thank you very much for all the hard work<br>
+        S: And for your kind words that you wrote in that mail<br>
+        S: Meanwhile, I rewrote the app using QT5<br>
+        S: I've used sched package which is included in python default packages to create that watchdog
+      </blockquote>
+      <p id="40a0c349-7ebe-4bc7-88fa-e197f1e5be81" class=""><em>Well, fuck</em>. He rewrote it again. Didn't I tell him to stop doing that? And what's with the <code>shed</code> package? Quick googling leads to <a href="https://docs.python.org/3/library/sched.html">man page</a>. And proves my suspicion; this is not a watchdog, this is just an event scheduler. WTF. The difference is that it doesn't make sure that your program runs, it only allows you to specify that some action should run after some time. But only in your process, and if that fails, it will fail as well.</p>
+      <p id="ef2e7a04-c6ad-422d-b707-599f4ee50aeb" class="">I look into the sources he sent me (again, <code>.zip</code> without git, <em>*sigh*</em>):</p>
+      <pre id="10c0c213-b842-47c8-8234-03e1c808431d" class="code code-wrap"><code>import shed
+
+...
+
+s = sched.scheduler(time.time, time.sleep)                  
+
+def app_scheduler():
+    s.enter(30, 1, job)
+    s.run()
+    app_scheduler()
+
+def init_check():
+    run = False
+    try:
+        for pid in psutil.pids():
+            p = psutil.Process(pid)
+            if p.name() == "infocenter":
+                run  = True
+    except:
+        err = errors.ErrorHandle()
+        err.saveError()
+
+    return run
+
+running = init_check() 
+        
+if not running: 
+    app_scheduler()</code></pre>
+      <p id="467115a2-a29b-4091-82ef-3112c9888517" class="">Well. This will run out of stack because of the infinite recursion. And it checks the <code>pid</code> file only at start. And it only checks <em>the app</em>, but doesn't restart it, but he somehow joined the watchdog with the GUI together and .. wtf.</p>
+      <p id="b22cbd9b-54af-477a-948d-0d3456b76db6" class="">I’ve decided to ignore his attempt, finish my watchdog, and test it on the target machine. I also added <a href="http://settings.py"><code>settings.py</code></a>, and proper logging of the program state, watchdog and really of everything, to the log file. Log files are defined in the <code>settings.py</code>, so that both watchdog and <em>the Infocenter</em> use the same files. <code>settings.py</code> is just code for now, but it can be quickly extended to load configuration files if necessary.</p>
+      <p id="3a372f0e-4ba2-40e7-8d85-0df20f3b65d0" class="">I've tweaked the log file rotations and toyed with target executable names, did several test runs on the target machines. When I was happy, I pushed everything into the repo and also shared a working version of the package with our infra guys and several group chats.</p>
+      <p id="374976f0-6b0e-4350-bbf2-042d33b4ed17" class="">Everyone seemed to be pleased. I considered my work done. I even sent an offline copy of the git repository to Sindibad, so he can make changes and whatever he wants with the code, even though he is still waiting for his access to Bitbucket.</p>
+      <h1 id="64d3ac09-65be-4656-924c-cf4507f5d76e" class="">Next week</h1>
+      <p id="8ec4934d-dab1-49ec-af3c-b071d69460c9" class="">When I thought that my job is done, I was probably too optimistic. Sindibad writes me every day. Sometimes even with other people. New group chats are created all the time.</p>
+      <p id="60455910-fcc0-4b8e-945b-36966273625f" class="">They ask me for all kind of stuff. For example, how to give Sindibad access to the Jenkins job, and the online Git repository in Bitbucket. I've sent him URLs for both, so they know how to access them, but they don't have permissions.</p>
+      <p id="299c0fda-a3dc-44cf-bfa2-9b67bdecccbc" class="">I explain to them how <em>ticket system</em> and <em>user support</em> work, and I am quite weirded out, that they don't know this. I mean, this is basic. When I joined the company, my boss had to create several tickets for <em>user support</em>, so that my <em>Active Directory</em> account can access all kinds of stuff that I needed to access. How is it possible that Sindibad's bosses don't know this? What kind of amateur show are they running, that they don't even know how to ask for access to stuff in the company where they work in as full-time employees?</p>
+      <p id="3ab027e3-c4a7-41f9-bf3f-8221cb2ac721" class="">There are other more or less humorous stories from that week. I explain to Sindibad for the sixth time, that no, you really don't compile python the way he tries. Occasionally, when you need performance, you can use <code>cython</code>, or <code>rpython</code>, but the <code>cx_freeze</code> he is using is really not the way to go with production code, unless you have clear reasons. He finally seems to get it, when I explain to him, that there is already python installed in the Linux systems where it will be deployed.</p>
+      <p id="d06c3aac-06e0-4f46-ae20-df7c15b088bc" class="">I also explain to him how package repositories work, and that each Linux system is using several repositories. He is quite happy when he finally understands why his question <em>"why can't I find a Skype package in our company spacewalk"</em> was a misunderstanding of how it all works. We use our company repository only for our company stuff. The rest is from the distribution maintainers.</p>
+      <p id="46ca40df-7500-4749-ab81-9b018c789ecd" class="">I kind of burst during our regular team "retrospective", which is part of our sprint ceremonies. Basically, we all share feelings from the sprint that ended and suggest improvements for processes and the next sprint. I rant for a while on the topic of Romania. Mostly, I am pissed about what is going on with the Romanians. Weren't they provided any information about our company? They are part of the company for more than two years. Why don't they know about our processes? Why are they so outside our R&amp;D division, when they are officially part of it? They don't even bother with business requirements, or even consulting this stuff with anyone, before they decide to put it into production?</p>
+      <p id="057b1e4f-203b-4738-8b45-3ad082bb8826" class="">Sindibad finishes the week when he does some update to the project's spec file, still without access to the main git repository. He found a bug that manifests itself while updating the package and fixed it.</p>
+      <p id="812dab9e-4109-4ab6-a31d-8bb6b4de0a40" class="">I was almost proud, except that he then decided that instead of increasing the version number of <em>the Infocenter</em>, which I've finished at <code>1.2.2</code>, it would be nice to have a round number. So, he decreases the number to <code>1.0.0</code>, which was already both in the git and package repository, and had its <em>git tag</em>.</p>
+      <p id="b4fef6fc-cd13-4e1f-969b-300c9e7a6c7e" class="">It takes some explaining about how versions work, and that they should only ever increase. But at this point, I am quite .. Stoical.</p>
+      <h1 id="f8664f20-f725-4d49-bbca-817ac63e84c0" class="">Final thoughts about the whole DevOps thing</h1>
+      <p id="a3ab7961-0140-4b38-837f-ed7c20ff8cb7" class="">I am in the “industry” long enough, that I’ve seen the trend of “DevOps” being implemented in several companies where I’ve worked. And so far, only once, I’ve seen it working as expected.</p>
+      <p id="305afc5c-7f0d-4064-939b-105f85e827e4" class="">Often I wonder, how much it really helped us (as an industry). On the one hand, it is great when programmers can make deployments themselves. On the other hand, I still remember <em>“good old days”</em>, when I could just come to our dedicated Linux sysadmin, and he would solve the whole deployment problem in minutes. I didn’t have to learn everything about Linux, Docker, Jenkins, Groovy, HELM, Kubernetes, Mustache, YAML, Gradle, Spinnaker, AWS, ELB, <code>lv</code> and <code>pv</code> groups, databases, enterprise hardware, RAIDs, and twenty other things. I didn’t have the control, sure, but <em>“the system”</em> as a whole was much more effective.</p>
+      <p id="28d6f93d-d76c-4640-9374-7a6314abaf51" class="">The longer I work in the field, the more I can recognize, that specialization matters. And it feels like that the whole DevOps thing was reduced mostly to just <em>“make the programmer deploy it, no matter how long it takes, at least we save some money and don’t need the ops guys anymore”</em>. Entirely ignoring, that programmer’s time is usually more valuable than admin’s time (at least when it comes to salary). And also that when people have a certain specialization, they can be ten or more times effective than people who see the stuff for the first time.</p>
+      <p id="c3a4cefa-660b-4801-97ed-aa160019dc7d" class="">This whole story was quite a nice example. A Random PHP guy got a job to rewrite his application to python. Then he got a task to make it work on Linux, and to prepare production deployment, even though he knew nothing about Linux, python, or deployment into production. This is completely in spirit with how the DevOps thing usually turns out in almost all the companies where I’ve worked in.</p>
+      <p id="ddbf422b-df31-4b0a-b900-ddc24a74f70c" class="">Usually, it’s not <em>“let’s have DevOps guys”</em>, but <em>“our programmers are now DevOps, let them deal with all this shit and get rid of our old ops guys”</em>. The result is madness in the better cases, complete Cthulhu in the worst ones. Layers and layers of technical debt, technologies no one understands, piled on top of each other by some stressed out programmer who has no idea what he is doing.</p>
+      <p id="ec9ae76e-6478-43f3-94d6-397a094250d7" class="">Let me be clear; I am not exactly complaining. I fill the sweet spot of the <em>“full-stack engineer”</em>, where they pay me like a king to deal with this kind of stuff, usually when the shit layered on top of other shit crumbles, and falls on their heads (or in corpo speak, <em>“technical debt becomes unmaintainable”</em>). I am just baffled why.</p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/job.html" title="job">job</a>, <a href="../../Tags/programming.html" title="programming">programming</a>, <a href="../../Tags/war_stories.html" title="war_stories">war_stories</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

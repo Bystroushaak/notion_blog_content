@@ -12,7 +12,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Prostředí a programovací jazyk Selfu (díl druhý; jazyk)">
   <meta name="twitter:description" content="Minulý díl představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu.">
-  <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/Serial_o_Selfu/Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/accessing_kategorie.png">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/accessing_kategorie.png">
   <script src="../../../scripts.js"></script>
   <meta name="description" content="Minulý díl představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu.">
   <meta name="keywords" content="self,programovani,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -239,11 +239,11 @@
 |)</code></pre>
       <p id="6ffc2838-15da-464f-a7f5-0269d9665f17" class="">Což například řekne grafickému rozhraní, aby slot zobrazilo v kategorii accessing:</p>
       <figure id="cb2631b6-59c6-41cf-a3cd-bee70b296917" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/accessing_kategorie.png" title="accessing_kategorie.png"><img style="width:213px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/accessing_kategorie.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/accessing_kategorie.png" title="accessing_kategorie.png"><img style="width:213px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/accessing_kategorie.png"></a>
       </figure>
       <p id="03d548ac-10e1-4737-a8b1-baf76e516c7b" class="">Osobně mi anotace přijdou syntakticky poněkud matoucí a podařilo se mi způsobit všelijaké druhy errorů, když jsem jen tak vytvářel anotace s různými náhodnými popisky:</p>
       <figure id="2f2ad395-54c8-44ed-98e6-55ad7df7526e" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/errory_u_anotaci.png" title="errory_u_anotaci.png"><img style="width:430px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/errory_u_anotaci.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/errory_u_anotaci.png" title="errory_u_anotaci.png"><img style="width:430px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/errory_u_anotaci.png"></a>
       </figure>
       <p id="88208f5b-2e58-4fcb-affe-33e17852d7cd" class="">Přesto anotace jsou použity všude, především však pro Transporter, který si pomocí nich označuje který objekt patří do jakého modulu, kdy byl naposledy updatován a tak podobně.</p>
       <p id="b3ff76b9-20f5-47e8-a303-08c5841360e4" class="">Anotace jako takové nejsou vidět v samotném objektu pomocí například Outlineru, k tomu je zapotřebí použít mirror (viz následující kapitola).</p>
@@ -451,12 +451,12 @@ mapBy: eb Into: c</code></pre>
       <p id="42cdaf4b-46ad-4bc9-9c2b-8be5d7497b17" class="">Všechny kolekce jsou založeny na key-value párech, dokonce i seznamy jsou na tomto založeny, s tím že jednotlivé prvky jsou použity zároveň jako klíče i jako hodnoty.</p>
       <p id="35db95cc-be0d-4d17-96fc-f3e6e21ea13e" class="">Self nabízí poměrně bohatou variaci <em>setů</em>, <em>slovníků</em> a <em>stromů</em>:</p>
       <figure id="a254da5d-fd10-47ae-bcef-9fa2b3fafb0f" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dicts_and_trees.png" title="dicts_and_trees.png"><img style="width:336px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dicts_and_trees.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dicts_and_trees.png" title="dicts_and_trees.png"><img style="width:336px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dicts_and_trees.png"></a>
       </figure>
       <p id="6a2297c4-5b54-445a-a2d3-7a8801ac6c2b" class="">Stromy se od slovníků liší použití nebalancovaných binárních stromů, což může vést k degeneraci a špatnému výkonu.</p>
       <p id="09cdaeb2-f315-4b05-9eff-cf88d6d8e26c" class="">Dále je také přítomna variace <em>seznamů</em>, <em>vektorů</em>, <em>stringů</em> a <em>front</em>:</p>
       <figure id="b1a782b4-1e3e-4880-bbaa-c82977324044" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/lists_vectors_strings_and_queues.png" title="lists_vectors_strings_and_queues.png"><img style="width:288px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/lists_vectors_strings_and_queues.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/lists_vectors_strings_and_queues.png" title="lists_vectors_strings_and_queues.png"><img style="width:288px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/lists_vectors_strings_and_queues.png"></a>
       </figure>
       <p id="b5718325-3f4e-4275-9207-951c391f7f49" class="">Mezi nejdůležitější zprávy podporované prakticky všemi kolekcemi patří:</p>
       <table id="9851930d-2722-4119-b2eb-00626d1917cc" class="simple-table">
@@ -493,41 +493,41 @@ mapBy: eb Into: c</code></pre>
       <p id="865f3819-e253-46d1-ac13-3caeefacc62d" class="">Pokud chcete kolekci použít, prostě napíšete do shellu / kódu její jméno a naklonujete jí. To je možné provést příkazem <code>clone</code>, či <code>copy</code> (jedná se o to samé).</p>
       <p id="b4a58bec-fb12-4624-a850-3ec774b0e413" class="">Je opravdu důležité nezapomenout kolekci naklonovat, protože ostatní prototypy si jí berou ze stejného místa a pokud do ní začnete cpát data, všechny ostatní kusy kódu s tím budou začínat!</p>
       <figure id="9880a22e-5ca4-44b9-8691-e526a064267a" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict1.png" title="dict1.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict1.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict1.png" title="dict1.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict1.png"></a>
       </figure>
       <p id="899cafb4-4307-4e1f-80df-c1d49f07577f" class="">Nyní kliknu na <em>Get it</em>.</p>
       <figure id="bfce18a1-f89d-4bb1-8ca1-785e76b28bc9" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict2.png" title="dict2.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict2.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict2.png" title="dict2.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict2.png"></a>
       </figure>
       <p id="f75c42eb-6753-4c25-8ae9-d6a96122dc78" class="">Objekt si položím na plochu a „rozbalím“ pomocí šipky vlevo v rohu:</p>
       <figure id="1b3fcb79-cf16-4866-9bd4-79bbb63135f2" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict3.png" title="dict3.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict3.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict3.png" title="dict3.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict3.png"></a>
       </figure>
       <p id="7d816223-6741-4a4a-857f-fa9445d73e4f" class="">Vidím, že v něm je nula prvků (<code>size 0</code>). Otevřu si v něm tedy shell a zkusím do něj něco přidat:</p>
       <figure id="704f8941-fcab-4132-82c0-bf70dab42908" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict4.png" title="dict4.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict4.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict4.png" title="dict4.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict4.png"></a>
       </figure>
       <p id="d5fa96a6-6a52-4331-bfa1-536168fbb613" class="">Nyní zvolím <em>Do it</em>, protože hodnotu volání zprávy nechci získat „do ruky“ jako outliner, chci jen provést kód.</p>
       <figure id="cade47f7-882e-44b3-8204-bf0635b915a1" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict5.png" title="dict5.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict5.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict5.png" title="dict5.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict5.png"></a>
       </figure>
       <p id="af6e63f4-20f8-4c95-8f74-e9ecb0b47926" class="">Jak je vidět, hodnota se změnila. Nyní se můžu podívat třeba co je zač objekt vrácený na zprávu <code>values</code>.</p>
       <figure id="f434aba8-f292-4150-a977-1f932ddfbaa0" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict6.png" title="dict6.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict6.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict6.png" title="dict6.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict6.png"></a>
       </figure>
       <p id="73bbd6c8-a8b6-4d9a-b846-fd5d31463129" class="">A zde je výsledek outliner. Položím si ho na plochu..</p>
       <figure id="8400532b-bd5b-498a-81df-dcd2569202bf" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict7.png" title="dict7.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict7.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict7.png" title="dict7.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict7.png"></a>
       </figure>
       <p id="cecc8a49-00a9-4c88-ae05-e357ad2a55cf" class="">.. a rozbalím, abych se podíval dovnitř:</p>
       <figure id="f876bb1f-e02f-4430-9deb-df91f9561075" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict8.png" title="dict8.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict8.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict8.png" title="dict8.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict8.png"></a>
       </figure>
       <p id="d4c96b57-35a6-40a1-8d8a-79c865886816" class="">Jak můžu vidět, ve vektoru je na indexu <code>1</code> hodnota <code>'value'</code>, přesně tak jak jsem chtěl. Jen připomínám, že dictionary je nesetřízený.</p>
       <p id="65b5389d-c64f-42ed-8cfb-4cfb16471ac0" class="">Divného vzhledu shellu vlevo nahoře si nevšímejte, mám nějak rozbité ovladače na grafiku a Self používá tak prehistorické bindingy na X, že mi to celé laguje a překresluje se to divně. Na notebooku mi to funguje jak má.</p>
       <p id="fcbfcc76-a899-48eb-9ce2-531aade4cdb5" class="">Zde je ještě ukázka, kde si pomocí zprávy <code>do:</code> nechám vypsat prvky a klíče do konzole:</p>
       <figure id="bb1a520f-9b7b-4e21-8e44-0d6a065a6033" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict_do.png" title="dict_do.png"><img style="width:908px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/dict_do.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do.png" title="dict_do.png"><img style="width:908px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/dict_do.png"></a>
       </figure>
       <p id="66af2734-6a1f-43f4-9d80-cf47fe729679" class=""><code>do:</code> podobně jako všechny iterátory v Selfu očekává blok, který může mít dva volitelné parametry, hodnotu a klíč pojmenované v ukázce pro jednoduchost <code>v</code> a <code>k</code>. Všimněte si poněkud divného pořadí, člověk by to logicky čekal naopak.</p>
       <h1 id="a469eb78-9b0b-4996-b757-b43ef8d4c21d" class="">Collector</h1>
@@ -537,7 +537,7 @@ mapBy: eb Into: c</code></pre>
       <h1 id="142e4cda-169e-43d6-a875-9a3d4bde76ee" class="">Výjimky</h1>
       <p id="05f661c3-12db-4691-8acd-e03360568e08" class="">Výjimky v Selfu jednoduše nejsou podporovány. Zprávy, které můžou skončit nějakou chybou nabízají zpravidla alternativu v podobě keyword zprávy s parametrem <code>IfFail:</code>. Hezky to jde vidět třeba na objektu pro přístup k operačnímu systému:</p>
       <figure id="0b8d9459-1755-46f1-baec-5ea1eea9a771" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/IfFail.png" title="IfFail.png"><img style="width:964px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/IfFail.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail.png" title="IfFail.png"><img style="width:964px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/IfFail.png"></a>
       </figure>
       <p id="1dd09e95-a522-4e3f-b416-e4f44db4a841" class="">Je na programátorovi, aby použil a ošetřil patřičnou chybu (předáním parametru s blokem který na chybu reaguje). Pokud to neudělá, měl by se zobrazit debugger, nebo program spadne.</p>
       <p id="1828e128-d786-46d0-921e-3a350f79549e" class="">Stejně tak pokud umožňujete jako programátor nějaké knihovny ošetření chyby, je třeba přidat variantu zprávy s <code>IfFail:</code> parametrem.</p>
@@ -555,52 +555,52 @@ mapBy: eb Into: c</code></pre>
       <p id="8713c76c-7f0b-4c16-987c-0392baa61d26" class="">Zrcadla jsou specialitou Selfu, kterou jsem snad v žádném jiném programovacím jazyce neviděl. Široce používané programovací jazyky zpravidla řeší reflexí pomocí různých interních properties. Python například používá <code>.__class__</code>, či <code>.__dict__</code>, nebo <code>.__name__</code> pro přístup k interním informacím o objektu.</p>
       <p id="735b1129-5a6a-4870-b683-e7c541584edd" class="">Self používá zrcadla. Zrcadlo vytvoříme posláním zprávy <code>reflect:</code> objektu majícímu někde v parent hierarchii <code>traits clonable</code>.</p>
       <figure id="188d336e-71b2-476a-8f6a-233a9678ca97" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror1.png" title="mirror1.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror1.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror1.png" title="mirror1.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror1.png"></a>
       </figure>
       <p id="a9ae9b87-3549-4a17-8be1-6332f4b7e4b3" class="">Tím získáme objekt <em>mirrorující</em> (zrcadlící) objekt předaný jako parametr.</p>
       <figure id="339e6457-1b91-44b0-9cfc-30e28fbb900b" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror2.png" title="mirror2.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror2.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror2.png" title="mirror2.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror2.png"></a>
       </figure>
       <p id="b1a6e3b8-f667-4f1b-b516-a6be09ae2b5d" class="">Zde můžeme vidět, že v něm je pseudoslot odkazující se na mirrorovaný objekt.</p>
       <figure id="09b8d631-c227-4cd6-b827-92a9db34e0a2" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror3.png" title="mirror3.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror3.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror3.png" title="mirror3.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror3.png"></a>
       </figure>
       <figure id="efd7208a-8fd3-48c8-9f62-1e63ee1da633" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror4.png" title="mirror4.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror4.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror4.png" title="mirror4.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror4.png"></a>
       </figure>
       <p id="641c7ea6-8f0d-4326-bbb7-03404e65b464" class="">Pokud si rozklikneme parenta, můžem se podívat na co všechno za zprávy umí reagovat:</p>
       <figure id="4817caab-0ba4-4dbe-b6f1-0235965006cd" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror5.png" title="mirror5.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror5.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror5.png" title="mirror5.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror5.png"></a>
       </figure>
       <p id="8eec42fa-5ab0-49e6-b856-7a02c77fd315" class="">Všímejte si, že skáču po ploše doleva a doprava zkratkami WIN+šipka. Nyní jsem skočil o půl plochy doprava.</p>
       <p id="f10db50f-a940-4297-a855-60848cdb3768" class="">V <code>traits mirrors slots</code> parentovi vidíme, že toho moc neumí, podíváme se tedy do jeho parenta:</p>
       <figure id="89657f79-2091-4b67-9af5-e4b1dbc3bd61" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror6.png" title="mirror6.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror6.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror6.png" title="mirror6.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror6.png"></a>
       </figure>
       <p id="6e874dd1-f541-4806-a599-850458f9c4c0" class="">Zde je vidět bohatý seznam kategorií, které nám umožňují se zrcadlem dělat všechno možné:</p>
       <figure id="d67315a0-729f-4911-93b3-14410af83c9a" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror7.png" title="mirror7.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror7.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror7.png" title="mirror7.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror7.png"></a>
       </figure>
       <p id="dbcc6cde-d9ec-40d8-bea4-eb09b18a13e0" class="">Například se podívat na seznam zpráv na které reaguje:</p>
       <figure id="f0fc3581-e3c3-4e69-ace7-e88b6845a004" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror8.png" title="mirror8.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror8.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror8.png" title="mirror8.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror8.png"></a>
       </figure>
       <p id="15f36f6e-318d-4617-b6df-4759da0fce67" class="">Což vidíme že je prázdný set:</p>
       <figure id="3c9900b4-953e-413b-adec-5381510a11e3" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror9.png" title="mirror9.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror9.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror9.png" title="mirror9.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror9.png"></a>
       </figure>
       <p id="2ff0a6a9-6bd9-406a-a1f1-656b55358e39" class="">Pro vysvětlenou: objekt, ke kterému jsme vytvořili mirror neobsahuje žádné zprávy, jen dva sloty. Mezi zprávy se v tomto kontextu počítají objekty vykonávající kód.</p>
       <p id="2b27e439-4aea-429e-acb9-1aa2759c4bab" class="">Samotné sloty je možné zobrazit zprávami z kategorie <code>slotAccess</code>:</p>
       <figure id="ca962d2b-36bd-466c-baff-2c7143314f2f" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror10.png" title="mirror10.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror10.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror10.png" title="mirror10.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror10.png"></a>
       </figure>
       <p id="e158426d-8cb0-4101-9657-97a5d7f6afc2" class="">Zde je možné například příhodně vyzkoušet <code>firstKey</code></p>
       <figure id="2e3cdf7b-e4b8-4e53-9235-514c9e3519ba" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror11.png" title="mirror11.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror11.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror11.png" title="mirror11.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror11.png"></a>
       </figure>
       <p id="eb5d7977-8572-4e7f-8cc7-75e67d551ccb" class="">Odpověď byla skutečně jméno slotu „a“. Pokud si zobrazím hodnotu na klíči „a“, dostanu očekávaný výsledek:</p>
       <figure id="275bcdee-7dca-4889-988c-bf32e5f8350a" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror12.png" title="mirror12.png"><img style="width:715px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/mirror12.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror12.png" title="mirror12.png"><img style="width:715px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/mirror12.png"></a>
       </figure>
       <p id="f33c7408-eca1-4c0b-84da-a4f962d5e2ef" class="">Krása mirrorů je, že se dají zakázat. Prostě vám stačí odstranit z kódu, kde je chcete zakázat zprávu <code>reflect:</code> například jejím přepsáním za objekt vracející <code>nil</code>. Tím je možné relativně bezpečně vykonávat kód pomocí funkcí jako eval (samozřejmě pokud zároveň odstraníte i třeba přístup k syscalům a filesystému).</p>
       <h1 id="2fad3332-38cb-4921-8a73-c55a54dcd733" class="">Z hlediska tipů a triků</h1>
@@ -610,13 +610,13 @@ mapBy: eb Into: c</code></pre>
       <h2 id="4675487a-bb0b-4f84-aaad-98c360f5d4a0" class="">Zobrazení parent slotů v outlineru</h2>
       <p id="8ed74245-edb8-4fb6-8acd-8f7333400df8" class="">Je poněkud nešťastné otevírat v outlineru neustále <code>parenty*</code>, abych viděl co mám k dispozici za poděděné sloty.</p>
       <figure id="5507ff17-2b2d-47bd-ac1c-602fe2257f70" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/shared_slots_in_parent.png" title="shared_slots_in_parent.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/shared_slots_in_parent.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/shared_slots_in_parent.png" title="shared_slots_in_parent.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/shared_slots_in_parent.png"></a>
       </figure>
       <p id="8868f3ea-bd9c-414d-b339-f845dbcbea05" class="">Outliner se dá naštěstí jednoduše nakonfigurovat tak, aby zobrazoval i poděděné sloty nastavením:</p>
       <pre id="3b52ae0c-66c1-44ec-b257-cf32a5fd8af3" class="code"><code>preferences outliner kevooidal: true</code></pre>
       <p id="ffdbe854-bd35-4ad3-a017-9200c06ca3ae" class="">Ukázka:</p>
       <figure id="658c887d-7cb4-4694-a431-df0cb940e05a" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/kevooidal.png" title="kevooidal.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/kevooidal.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/kevooidal.png" title="kevooidal.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/kevooidal.png"></a>
       </figure>
       <h2 id="34fc65c9-e1c4-44c9-97d8-82924b24639d" class="">Otevření všech podkategorií</h2>
       <p id="12f3acf2-ec47-4124-a7cc-0954319ff369" class="">Občas je velmi otravné rozklikávat černé šipky, pokud máte víc vnořených kategorií. Dvojklik na šipku zároveň otevře i všechny podšipky.</p>
@@ -635,23 +635,23 @@ mapBy: eb Into: c</code></pre>
       <h2 id="4a76f8a0-770c-4b38-adde-5e210977d80d" class="">Vyhledávání</h2>
       <p id="3e2292d9-a71b-407a-ab54-76fbddc43f0d" class="">Z libovolného outlineru je možné prostředním tlačítkem vyvolat menu „<em>Find slot</em>“:</p>
       <figure id="f2d05c20-332a-4f43-b245-9c6bdf52fcd8" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot.png" title="find_slot.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot.png" title="find_slot.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot.png"></a>
       </figure>
       <p id="625e38bd-0405-49c9-bff4-2b45598942a1" class="">To vám dá k dispozici objekt, který vám umožňuje hledat sloty podle názvu:</p>
       <figure id="331c3f81-afd8-4349-9dda-dc8b9f215362" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot2.png" title="find_slot2.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot2.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot2.png" title="find_slot2.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot2.png"></a>
       </figure>
       <p id="52c8e070-7677-4bb7-b6dd-9f524e9ebece" class="">Dolu se zadává root, ze kterého se bude hledat, nahoru pak co se má vyhledávat:</p>
       <figure id="05369af9-6af4-4d9c-b43e-c2649c3f4f5f" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot3.png" title="find_slot3.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot3.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot3.png" title="find_slot3.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot3.png"></a>
       </figure>
       <p id="8f448173-cd44-4705-ba45-01ab7300df82" class="">Input bary se schvalují kliknutím na zelený čtvereček, nebo stiskem CTRL+enter. Kliknutím na šipku vlevo nahoře dojde ke spuštění vyhledávání:</p>
       <figure id="cebe5a2d-74df-40e8-87b9-63f50a97e5ad" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot4.png" title="find_slot4.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot4.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot4.png" title="find_slot4.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot4.png"></a>
       </figure>
       <p id="ef819acf-6044-4c6f-b04d-6d35f9e5fd22" class="">Jednotlivé sloty je možné otevřít kliknutím na čtvereček vedle nich..</p>
       <figure id="d828c6cb-2e4c-4273-9ad4-4b0a87fad7ee" class="image">
-        <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot5.png" title="find_slot5.png"><img style="width:713px" src="Prostredi_a_programovaci_jazyk_Selfu_dil_druhy_jazyk/find_slot5.png"></a>
+        <a href="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot5.png" title="find_slot5.png"><img style="width:713px" src="../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/find_slot5.png"></a>
       </figure>
       <p id="095e431d-a828-4bf8-b9c7-877da200a8bb" class="">Či z kontextového menu je možné s nimi provádět různé operace:</p>
       <figure id="83f61eb2-77ee-44cb-be47-b828a273bf4d" class="image">

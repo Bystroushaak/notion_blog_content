@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Decapping of the phone card chip</title>
+  <link rel="stylesheet" type="text/css" href="../../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Decapping of the phone card chip">
+  <meta name="twitter:description" content="A lot of pictures documenting how I decapped microprocessors used in the phone cards, and what I've seen under the microscope.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Hardware/I_used_to_be_a_phone_card_cracker/Decapping_of_the_phone_card_chip/DSCF0784.jpg">
+  <script src="../../../../scripts.js"></script>
+  <meta name="description" content="A lot of pictures documenting how I decapped microprocessors used in the phone cards, and what I've seen under the microscope."><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../../../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+      </ul>
+    </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../../index.html" class="breadcrumb" title="Hardware">Hardware</a> / <a href="../index.html" class="breadcrumb" title="I used to be a phone card cracker">I used to be a phone card cracker</a> / Decapping of the phone card chip
+  <article id="dc07888b-d29a-445f-826d-bfbc3a727596" class="page sans">
+    <header>
+      <h1 class="page-title">Decapping of the phone card chip</h1>
+    </header>
+    <div class="page-body">
+      <p id="94def327-a2da-4390-b400-42f2bfa98f61" class=""><time>@2012/03/17</time></p>
+      <p id="5fb53990-3fff-4e5b-a9e9-94f30b329903" class="">In the last article, I outlined the various options for cracking a phone card. That was some time ago. Since then, I've searched the internet several times and thought about different options. I've found that there is a group of people in the world who, for fun, remove microchip covers and <a href="https://web.archive.org/web/20170127084044/http://www.slideshare.net:80/guest3bd2a12/advanced-hardware-hacking-techniques-presentation">examine their structure</a>.</p>
+      <p id="5933a7fa-2a56-4046-808c-c139ef5eb202" class="">I became interested in it and tried different methods of decapping at home. Of course, I still don't have access to the lab or dangerous acids, so I've only tried commonly available methods.</p>
+      <h2 id="32729646-7e34-4841-b1ea-8b61bf931bbd" class="">Stocks</h2>
+      <p id="7f9b4e53-26c1-4a36-a6bb-fd696cb2be07" class="">Since I only had one phone card and no one around me had any, I bought a supply of cards from a collector for 200 CZK (~8€). Thanks to that, I had enough of them and I didn't have to be afraid to destroy one here and there.</p>
+      <figure id="04d1fedc-caf7-42d1-bc4f-68954acc41cc" class="image">
+        <a href="reserves.jpg" title="reserves.jpg"><img style="width:800px" src="reserves.jpg"></a>
+      </figure>
+      <h2 id="64513748-6856-4dfe-9286-7135250d40f0" class="">Card readers</h2>
+      <p id="964d9ebf-4e84-48ff-a3aa-7051a6bb2a55" class="">I originally created a card reader from a card case and an Ethernet cable (<a href="../Homemade_phone_card_reader.html" title="Homemade phone card reader">Homemade phone card reader</a>). After a while, the concept no longer suited me, so I decided to create another version that would be easier to connect to Arduino. Unfortunately, this version does not work for some reason. I suspect the power supply.</p>
+      <p id="43f858d3-dd25-4ef3-987d-e070e52c2d8e" class="">This created the need to quickly get a makeshift reader, so I created another version, which connects directly to the chip. I then debugged <a href="../AdvancedTCardReader.html" title="AdvancedTCardReader">AdvancedTCardReader</a> on this, which is a program that allows challenge / response authentication.</p>
+      <p id="e110852c-a330-4b98-ad75-6e73b8e6d111" class="">I was a little surprised that the used hash function returns the same values for a quadratically increasing set of inputs (at the beginning it has the original answer for the first input, then it has the same for the next two, then for four, etc..). It sounds weird to me, so I think I could have made a mistake somewhere. I haven't been in the mood to look into it yet.</p>
+      <h2 id="d5440c7b-f3ca-47bf-98ee-3970b7af3862" class="">Chip decapping</h2>
+      <p id="c94df711-19cc-45a3-913e-d7160647cf01" class="">Before attempting to remove the cover layer, I always cut out the chip case from the card first. The core itself is encased in something black and hard. Attempting to scratch with the tip of a pin leaves traces visible to the eye. It is an <strong>epoxy</strong> within which the core is encapsulated during production.</p>
+      <p id="218de140-48d2-466e-99fd-e7670b1f8c3e" class="">Once the chip casing is cut out, it can be broken - you get a core which is about a millimeter in size, coated with a little epoxy.</p>
+      <figure id="88958f05-c238-40cc-aec4-53001418770f" class="image">
+        <a href="DSCF0410.jpg" title="DSCF0410.jpg"><img style="width:640px" src="DSCF0410.jpg"></a>
+      </figure>
+      <p id="acf13375-8142-43fd-9523-2b512b4b6d69" class="">I gradually tried several methods to remove epoxy from the core. Some were functional, others were not. I bought a cheap children's microscope for 21 Czech crowns (1€) so I can observe how suitable the given method is.</p>
+      <div id="04267fc2-6a25-4742-90bb-2f93073cc640" class="column-list">
+        <div id="0aacb6bf-5989-4cc8-8c8b-c673c2193cf5" style="width:50%" class="column">
+          <figure id="39e4392a-9e26-462b-8c10-ec917f0b3ea2" class="image">
+            <a href="DSCF0555.jpg" title="DSCF0555.jpg"><img style="width:800px" src="DSCF0555.jpg"></a>
+          </figure>
+          <figure id="a60645f2-5783-4085-97f9-f0c8018c5ea3" class="image">
+            <a href="DSCF0784.jpg" title="DSCF0784.jpg"><img style="width:640px" src="DSCF0784.jpg"></a>
+          </figure>
+        </div>
+        <div id="52733ae3-9ce5-4ad9-9832-4d7adc7b6415" style="width:50%" class="column">
+          <figure id="0a8e026f-568f-4552-a761-bad1731348cc" class="image">
+            <a href="DSCF0603.jpg" title="DSCF0603.jpg"><img style="width:600px" src="DSCF0603.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="782c7f0f-d676-42b7-abc2-ed392bb28f19" class="">The biological microscope is not entirely suitable for examining the structure, it is really only suitable to find out how much epoxy is left on the chip.</p>
+      <h3 id="9c864e0b-5502-4943-a45d-ca331ae7922f" class="">Burning out the epoxy</h3>
+      <p id="6f63ece2-96dd-48d5-8604-4a403efc88bd" class="">The first thing I've tried was the simplest method - removing the epoxy by burning it. I heated the chip case with a lighter (on the second attempt with a gas burner) to 800-900 °C until the case cracked and dropped. After searching the charred remains, I found the core of the chip. It is necessary to state that during this experiment I was unaware that the core can be broken out of the chip, so I fried it with the contacts.</p>
+      <div id="3d815759-8cf0-440e-baaf-e40528ea2e34" class="column-list">
+        <div id="3673ea96-623a-4852-ab9f-620290cf818b" style="width:50%" class="column">
+          <figure id="1c5c3a40-8534-466e-80cb-28a4ef7b4633" class="image">
+            <a href="dscf0012.jpg" title="dscf0012.jpg"><img style="width:400px" src="dscf0012.jpg"></a>
+          </figure>
+        </div>
+        <div id="0ac20a1e-a688-4d1a-9d0a-b35afcc7108e" style="width:50%" class="column">
+          <figure id="b3403386-d4b5-4b79-a4b5-8e19d05f6052" class="image">
+            <a href="dscf0014.jpg" title="dscf0014.jpg"><img style="width:400px" src="dscf0014.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="3d8ac731-853b-44f4-89f6-eba480caadb6" class=""></p>
+      <div id="1f4f8715-6c44-4ac9-b283-e91e3f73d513" class="column-list">
+        <div id="f598c2ca-fb66-4b3f-a375-f7fea9a56914" style="width:50%" class="column">
+          <figure id="1a982b3d-055c-4566-8256-88b122d94d76" class="image">
+            <a href="dscf0016.jpg" title="dscf0016.jpg"><img style="width:600px" src="dscf0016.jpg"></a>
+          </figure>
+        </div>
+        <div id="2c9b9231-5987-49da-8357-00106395fa54" style="width:50%" class="column">
+          <figure id="1d3caca5-5395-4e3c-9b89-332473339dec" class="image">
+            <a href="dscf0019.jpg" title="dscf0019.jpg"><img style="width:640px" src="dscf0019.jpg"></a>
+          </figure>
+          <p id="56c3cf20-20e3-4925-a199-41fb2a7202d2" class=""></p>
+        </div>
+      </div>
+      <div id="1a632820-c2ab-4fb9-b528-31e1d94cf909" class="column-list">
+        <div id="5b1ac9c7-cb2a-473d-89c9-5e109c8beda0" style="width:50%" class="column">
+          <figure id="91d591ef-6d12-4c1a-868a-6baeb4340c6e" class="image">
+            <a href="dscf0021.jpg" title="dscf0021.jpg"><img style="width:400px" src="dscf0021.jpg"></a>
+          </figure>
+        </div>
+        <div id="58a8b1ec-32fa-4a15-8d72-66d03ac3dea8" style="width:50%" class="column">
+          <figure id="96859d7b-2d1f-4095-970d-59d049bcbadd" class="image">
+            <a href="dscf0027.jpg" title="dscf0027.jpg"><img style="width:600px" src="dscf0027.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="b1e36cac-92a6-47a4-bbbf-85323d685408" class="column-list">
+        <div id="5ce29ed7-4eaa-4d8a-9761-41b5642b8194" style="width:50%" class="column">
+          <figure id="7d2375ea-881b-47e4-9e4c-93b8f38a8b84" class="image">
+            <a href="dscf0035.jpg" title="dscf0035.jpg"><img style="width:640px" src="dscf0035.jpg"></a>
+          </figure>
+        </div>
+        <div id="64b71efb-be5f-4384-973e-a9143a7874e1" style="width:50%" class="column">
+          <figure id="f0b6d202-c212-478d-9d09-c9138d4a99c8" class="image">
+            <a href="dscf0037.jpg" title="dscf0037.jpg"><img style="width:640px" src="dscf0037.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="af6e3b5b-d583-4903-9149-dc0c99c8f2d2" class="column-list">
+        <div id="5bf4f223-b072-497a-a44c-29fea2ee4c13" style="width:50%" class="column">
+          <figure id="4c050fac-8b0e-4a16-9bfb-36bc3ac5c930" class="image">
+            <a href="dscf0054.jpg" title="dscf0054.jpg"><img style="width:640px" src="dscf0054.jpg"></a>
+          </figure>
+        </div>
+        <div id="9d01c002-e1d4-495e-a1fb-c8eb4d1ab748" style="width:50%" class="column">
+          <figure id="2d72073d-5806-4fa0-a86e-bb5a47af98c9" class="image">
+            <a href="dscf0059.jpg" title="dscf0059.jpg"><img style="width:800px" src="dscf0059.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="7e4cffd1-d5cf-4e6a-ac58-111a39489646" class="column-list">
+        <div id="ff771d96-ed0d-408f-993b-c8e44e51f16e" style="width:50%" class="column">
+          <figure id="203929cd-b9a6-4374-9b0d-d889d543dea0" class="image">
+            <a href="dscf0068.jpg" title="dscf0068.jpg"><img style="width:600px" src="dscf0068.jpg"></a>
+          </figure>
+        </div>
+        <div id="102b9708-ba74-431b-8ef6-19dabcc904c0" style="width:50%" class="column">
+          <figure id="2db28830-b1d8-4a24-9cb1-1519fd4d8156" class="image">
+            <a href="dscf0070.jpg" title="dscf0070.jpg"><img style="width:1252px" src="dscf0070_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="5398323d-80f6-4f87-9aad-fa38ca4c0f07" class="">At that time, I did not have a microscope, so I tried to scan the core of the chip in the highest resolution that our home scanner was capable of, 1200 DPI. However, the result was not encouraging:</p>
+      <figure id="97a7d0ab-fd22-4b93-84cc-fb735112fa5e" class="image">
+        <a href="pic_from_scanner.png" title="pic_from_scanner.png"><img style="width:200px" src="pic_from_scanner.png"></a>
+      </figure>
+      <p id="20096813-cc1a-4bc2-9068-3fbcce128a41" class="">After I bought a microscope, I found that I had lost the original core, so I was forced to try again. Here are the results at about 200x magnification:</p>
+      <figure id="c3be24ea-5388-45ae-ad5f-ea2b89be1b00" class="image">
+        <a href="DSCF0573.jpg" title="DSCF0573.jpg"><img style="width:400px" src="DSCF0573.jpg"></a>
+      </figure>
+      <p id="0bc242d0-f3ad-4b68-92b1-993ea43d52b3" class="">The core of the chip is covered with charred remnants of insulating material. The residue holds relatively firmly, and their removal would result in damage to the structure of the core. This method therefore proved to be completely inappropriate.</p>
+      <h3 id="9a4a96b9-2e9e-4627-948f-94e5e6233114" class="">Heat gun</h3>
+      <p id="18f3922e-5738-4eef-9624-7718045844f8" class="">I placed the core in foil and then heated it with a hot air gun (320 °C) for about 3 minutes. This technique has proven ineffective because the epoxy needs to be peeled from the core manually, which of course is not possible in the foil.</p>
+      <p id="d651e3f2-b0d1-4408-9f44-1c21560f9911" class="">On the second attempt, I fastened the pistol to the vice and with the help of two sharp tweezers, I almost cleaned the core. Since I was doing it for the first time, I managed to drop it several times and a few times I had a hard time to find a small dot of the core on the floor.</p>
+      <div id="6b834d67-1c4b-41dd-b266-3b0eaa02cc5a" class="column-list">
+        <div id="73d51a94-64eb-484a-a494-64cc635f7552" style="width:50%" class="column">
+          <figure id="f701b8d6-6c56-41ed-8055-95c8524f5763" class="image">
+            <a href="DSCF0408.jpg" title="DSCF0408.jpg"><img style="width:640px" src="DSCF0408.jpg"></a>
+          </figure>
+        </div>
+        <div id="3470fd72-376f-4cac-959c-72236b993672" style="width:50%" class="column">
+          <figure id="f9d0b728-9665-42c1-8a72-4bfcf1dfbe62" class="image">
+            <a href="DSCF0410_1.jpg" title="DSCF0410_1.jpg"><img style="width:640px" src="DSCF0410_1.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="f28d3f51-590d-4578-8472-0b96def6c690" class="column-list">
+        <div id="53451963-dc94-48d8-9266-35dfb5781288" style="width:50%" class="column">
+          <figure id="60fac228-e869-4ad2-aa66-9c91318396f7" class="image">
+            <a href="DSCF0422.jpg" title="DSCF0422.jpg"><img style="width:640px" src="DSCF0422.jpg"></a>
+          </figure>
+        </div>
+        <div id="f115d556-5f5e-4513-9734-aa93be2f6985" style="width:50%" class="column">
+          <figure id="21970548-6650-4989-8750-8120de0647cc" class="image">
+            <a href="DSCF0428.jpg" title="DSCF0428.jpg"><img style="width:800px" src="DSCF0428.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="bb2aef16-70ee-43d1-936e-22e923c972cf" class="column-list">
+        <div id="1566f0a8-dc5f-4334-855c-9e65f106fa61" style="width:50%" class="column">
+          <figure id="0b3f9af7-6c4d-4ead-8086-dc22a2d8d043" class="image">
+            <a href="DSCF0438.jpg" title="DSCF0438.jpg"><img style="width:800px" src="DSCF0438.jpg"></a>
+          </figure>
+        </div>
+        <div id="d27dff30-9f98-452d-8c98-1d6304ef9044" style="width:50%" class="column">
+          <figure id="d351089c-0eaf-41ed-9a1a-3e4e7c1bf76c" class="image">
+            <a href="DSCF0440.jpg" title="DSCF0440.jpg"><img style="width:698px" src="DSCF0440.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="05588e30-ed2f-4bd6-b4c7-dea9f34954be" class="">The results are not so bad:</p>
+      <div id="5a97710a-1a4e-4672-b689-8df5200df80a" class="column-list">
+        <div id="fa4d8cca-91ce-41af-a80e-39cad989fb04" style="width:50%" class="column">
+          <figure id="f1bb3772-6ac6-45df-b4e1-a5a895fea1e4" class="image">
+            <a href="DSCF0448.jpg" title="DSCF0448.jpg"><img style="width:588px" src="DSCF0448.jpg"></a>
+          </figure>
+        </div>
+        <div id="39d70340-4335-4ecd-91f9-82881683cfdb" style="width:50%" class="column">
+          <figure id="f20fb859-c283-4871-80c1-ed7a4511006e" class="image">
+            <a href="DSCF0450.jpg" title="DSCF0450.jpg"><img style="width:800px" src="DSCF0450.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="71221e09-eccd-4492-8f4e-43025d097d8f" class="image">
+        <a href="DSCF0454.jpg" title="DSCF0454.jpg"><img style="width:800px" src="DSCF0454.jpg"></a>
+      </figure>
+      <p id="59fcc256-6181-4703-9190-87687e9558c4" class="">Under the microscope, however, it looks differently:</p>
+      <figure id="a6c45ea5-1318-4252-a168-4cecea6240b4" class="image">
+        <a href="DSCF0582.jpg" title="DSCF0582.jpg"><img style="width:800px" src="DSCF0582.jpg"></a>
+      </figure>
+      <p id="d9d3621b-e254-4030-acd3-6b6f51beeaf9" class="">The core is coated with epoxy residues, which are almost impossible to remove. So, this method also turned out to be insufficient.</p>
+      <h3 id="82de75a0-3600-4aae-9899-8cbc3a1907f7" class="">Paint thinner</h3>
+      <p id="e6e71c25-0e25-4732-9027-d352b776f15c" class="">According to some sources, one way to remove the epoxide is to use acetone and gasoline. If the epoxy is left soaked in it for a long time, it can be removed. We didn't have pure acetone at home and I preferred not to pump the gas out of the car, so I used paint thinner. It didn't have a label on it, but if my memory serves me right, it contains acetone.</p>
+      <div id="c7c4dc45-e01e-4952-bc4f-06b0aae5a39e" class="column-list">
+        <div id="d3e35ac2-7c68-4ec9-ae46-bb4b384cab1c" style="width:50%" class="column">
+          <figure id="15031e70-59d7-4459-aba7-b85afe2569dc" class="image">
+            <a href="DSCF0431.jpg" title="DSCF0431.jpg"><img style="width:800px" src="DSCF0431.jpg"></a>
+          </figure>
+        </div>
+        <div id="f0799e59-6514-4a89-86d8-f9e24f934af1" style="width:50%" class="column">
+          <figure id="551a34d2-0d21-45bd-b3db-c7ccd15d6332" class="image">
+            <a href="DSCF0435.jpg" title="DSCF0435.jpg"><img style="width:362px" src="DSCF0435.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="28cd3ba0-8270-441d-8b40-b0c4937a85c1" class="">I left the chip core in acetone for several weeks and then tried to mechanically remove the epoxy layer. Unfortunately, the epoxy softened a bit and became more brittle, but I did not manage to remove the layer that covered the core.</p>
+      <h3 id="320c38db-9e3c-464c-bd17-30c4407479cc" class="">Rosin</h3>
+      <p id="420c160e-8e73-41b1-8090-fe78250f992b" class="">An article <a href="https://hackaday.com/2010/07/16/decapping-integrated-circuits-with-sap/">was published on the hackaday</a> stating that the epoxy can be dissolved in rosin. I couldn't help but try it right away.</p>
+      <p id="3077cc20-b3c5-4c8d-8120-19942623a00c" class="">I put the core and contacts in the test tube (which is not very clever, details below) and covered it with rosin. For heating, I used a gas burner (900 °C) at a reasonable distance so that the rosin boiled only lightly. When it starts to foam, the burner is too close.</p>
+      <p id="5fdd1458-79fb-41e5-a0a1-183e323f0876" class="">The whole boiling process took place in an open window and in my absence - the steam from the boiling rosin is said to be relatively toxic. After about 20 minutes, I turned off the burner and allowed the tube to cool. Then I used a lighter to heat the tube so that the rosin flowed out. I collected pieces that looked like they contained metal and washed them in thinner. After a moment of soaking, the rosin dissolved, and I was left with a core and a few fused pieces of copper metal from contacts (probably there was tin somewhere). I realized how lucky I am that the core didn't melt between the pieces of copper, next time I have to throw the core there alone! I poured the remaining thinner on a piece of newspaper and burned it in the stove.</p>
+      <div id="89b25483-b3b4-4b82-b7e7-a508eee1b11f" class="column-list">
+        <div id="adc8013b-81f9-40d5-980b-a27348eb478e" style="width:50%" class="column">
+          <figure id="c299de07-3271-4592-809f-86b59047a778" class="image">
+            <a href="DSCF0462.jpg" title="DSCF0462.jpg"><img style="width:800px" src="DSCF0462.jpg"></a>
+          </figure>
+        </div>
+        <div id="262a0d36-6080-4c9f-a04d-b9589253ca92" style="width:50%" class="column">
+          <figure id="5cec7243-ad9e-4227-abe3-8216f6b59b98" class="image">
+            <a href="DSCF0470.jpg" title="DSCF0470.jpg"><img style="width:600px" src="DSCF0470.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="171c4a6d-6c5b-4cb3-9e36-f01dca0702fc" class="column-list">
+        <div id="e382bb50-e85d-4bd1-9e6e-e6e25e28be32" style="width:50%" class="column">
+          <figure id="4310d34b-aeb1-4055-a96a-fb3085fd4eea" class="image">
+            <a href="DSCF0475.jpg" title="DSCF0475.jpg"><img style="width:640px" src="DSCF0475.jpg"></a>
+          </figure>
+        </div>
+        <div id="56b2d417-a895-4095-9aed-360ebe4b31e1" style="width:50%" class="column">
+          <figure id="0a6746c6-a87c-4d5d-9dd6-80c213856244" class="image">
+            <a href="DSCF0476.jpg" title="DSCF0476.jpg"><img style="width:800px" src="DSCF0476.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="ac430ff3-5864-4310-a7bb-acf7342a9d40" class="column-list">
+        <div id="51ae5a75-cf6f-4cb4-96cc-f77c2120a9ee" style="width:50%" class="column">
+          <figure id="2cba1201-1823-4a2e-8fe3-27541ca0388d" class="image">
+            <a href="DSCF0477.jpg" title="DSCF0477.jpg"><img style="width:640px" src="DSCF0477.jpg"></a>
+          </figure>
+        </div>
+        <div id="b4c0a844-5e5f-44f3-8f8c-5631b1b23617" style="width:50%" class="column">
+          <figure id="ce254391-554e-4a8f-8719-66d6f7621da4" class="image">
+            <a href="DSCF0484.jpg" title="DSCF0484.jpg"><img style="width:800px" src="DSCF0484.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="9ab039fe-1f70-4340-974b-47347c151de8" class="column-list">
+        <div id="884328b2-6476-4e78-a8d6-9fb850a38a82" style="width:50%" class="column">
+          <figure id="e751506f-3820-40c5-a37d-1098aa6c331e" class="image">
+            <a href="DSCF0486.jpg" title="DSCF0486.jpg"><img style="width:800px" src="DSCF0486.jpg"></a>
+          </figure>
+        </div>
+        <div id="6db9bc22-f558-4b6c-80c3-cfa2655006c7" style="width:50%" class="column">
+          <figure id="74729761-6177-40cd-b65c-1af5fc55bc66" class="image">
+            <a href="DSCF0492.jpg" title="DSCF0492.jpg"><img style="width:640px" src="DSCF0492.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="6a3db989-5256-4cc8-ac23-0575873e3d30" class="column-list">
+        <div id="d3692300-afd0-462c-b35e-be7e1cba73fe" style="width:50%" class="column">
+          <figure id="058153c4-59f5-4e3a-b56b-f8998458531f" class="image">
+            <a href="DSCF0496.jpg" title="DSCF0496.jpg"><img style="width:800px" src="DSCF0496.jpg"></a>
+          </figure>
+        </div>
+        <div id="29afe91b-93eb-4900-b25f-50301709fed3" style="width:50%" class="column">
+          <figure id="09cc9fc4-4b94-443d-9866-915b34ff95b8" class="image">
+            <a href="DSCF0497.jpg" title="DSCF0497.jpg"><img style="width:640px" src="DSCF0497.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="c56c375f-19f3-4c84-b817-4fae2599942b" class="column-list">
+        <div id="e3cf2381-2601-4a70-93e0-261162dc5e7b" style="width:50%" class="column">
+          <figure id="b68cffdd-2b09-4b9b-abf0-2235ef0dba81" class="image">
+            <a href="DSCF0498.jpg" title="DSCF0498.jpg"><img style="width:640px" src="DSCF0498.jpg"></a>
+          </figure>
+        </div>
+        <div id="1f3f3e4d-0358-4bb9-b96a-2e0a6df17b6e" style="width:50%" class="column">
+          <figure id="8b4e4ef0-2838-4ddb-9495-f099dc7e243c" class="image">
+            <a href="DSCF0503.jpg" title="DSCF0503.jpg"><img style="width:351px" src="DSCF0503.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="d88786a4-3ad0-4ddf-a380-f02f0f24254b" class="">The core of the chip is beautifully clean and even just using the magnifying glass, the individual structures can be seen:</p>
+      <figure id="87599945-7d76-4ef6-801b-44f4605f7cdb" class="image">
+        <a href="DSCF0509.jpg" title="DSCF0509.jpg"><img style="width:800px" src="DSCF0509.jpg"></a>
+      </figure>
+      <p id="01bb67e1-d471-4104-9a30-04b22c11add9" class="">This is what it looks like under a microscope:</p>
+      <div id="b4a76f9c-3f73-4fb5-876c-01acc0eac2e7" class="column-list">
+        <div id="b00c7253-4bf4-441d-988a-d43302a0668e" style="width:50%" class="column">
+          <figure id="8894d5de-6c10-40b8-988c-cc3d904e41b7" class="image">
+            <a href="DSCF0595.jpg" title="DSCF0595.jpg"><img style="width:640px" src="DSCF0595.jpg"></a>
+          </figure>
+        </div>
+        <div id="99431bb4-397f-4e9e-855f-a5bc0c05093c" style="width:50%" class="column">
+          <figure id="a9f5d219-848a-4e1e-8fbe-6af377dae6e0" class="image">
+            <a href="DSCF0608.jpg" title="DSCF0608.jpg"><img style="width:640px" src="DSCF0608.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="e7e274a0-ca3c-460d-b54b-090c1b15cb3b" class="column-list">
+        <div id="e8222f5c-5eaf-480f-a2fc-b471bc12b57b" style="width:50%" class="column">
+          <figure id="959dbb7a-c17f-41cc-be57-1706a6227fc3" class="image">
+            <a href="DSCF0613.jpg" title="DSCF0613.jpg"><img style="width:640px" src="DSCF0613.jpg"></a>
+          </figure>
+        </div>
+        <div id="ab5fcc92-c4c5-438c-a26c-8e67a3d3dcbe" style="width:50%" class="column">
+          <figure id="42bca178-7dcf-43cb-af50-7b6e71bdf7ca" class="image">
+            <a href="DSCF0653.jpg" title="DSCF0653.jpg"><img style="width:640px" src="DSCF0653.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="44914ea5-a90e-4ec3-acdc-1ff41b6d0e49" class="column-list">
+        <div id="68687ab9-37bd-4e80-bf9b-73a297a20d5b" style="width:50%" class="column">
+          <figure id="d0153ff7-fc8e-4a1b-8217-956c18622c8b" class="image">
+            <a href="HPIM1397.jpg" title="HPIM1397.jpg"><img style="width:400px" src="HPIM1397.jpg"></a>
+          </figure>
+        </div>
+        <div id="9ce4d86c-4ef6-4ee0-93cb-47447f941d93" style="width:50%" class="column">
+          <figure id="792135c8-17d4-4e44-bef5-b3773d0444cf" class="image">
+            <a href="HPIM1401.jpg" title="HPIM1401.jpg"><img style="width:520px" src="HPIM1401.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="6192a0c2-bcfb-4bb2-9f36-956caab265ef" class="">This method seems to me to be the best so far - it is not expensive, nor does it threaten you with an ugly death, like when you work with aggressive acids.</p>
+      <h2 id="4061a77e-5603-41e1-8c32-ca5f28df636e" class="">Conclusion</h2>
+      <p id="c021c0af-6c64-4331-8542-23aeeeddf319" class="">Now that I've found a simple and reliable method of uncovering the chip's core, it's time to examine it under a microscope. Unfortunately, this requires a relatively expensive microscope (metallurgical, electron, etc.), not a bargain deal microscope for 21 CZK. It will also be necessary to get a source of UV light, which will cause the individual paths on the chip to shine in different colors.</p>
+      <figure id="9abc1caf-4ab4-416d-a7aa-38ab7fd45e5a" class="image">
+        <a href="map.jpg" title="map.jpg"><img style="width:600px" src="map.jpg"></a>
+      </figure>
+      <p id="1c6bbe52-9595-421e-afd6-e55f51a7bdbc" class="">If someone with access to the necessary equipment (high-quality microscope) is found, I'll be happy to send him the core in exchange for the resulting photos so that he can document it</p>
+      <figure id="7f2e4ed1-47bc-4cbc-954a-032f8a71bf13" class="image">
+        <a href="DSCF0635.jpg" title="DSCF0635.jpg"><img style="width:800px" src="DSCF0635.jpg"></a>
+      </figure>
+      <div id="9890728a-5853-4317-beaa-6ddee43f11f7" class="column-list">
+        <div id="bda3016e-97f3-4642-aab0-d76291cd08e8" style="width:50%" class="column">
+          <figure id="8041d86d-64b8-4756-a372-abb909654aee" class="image">
+            <a href="DSCF0643.jpg" title="DSCF0643.jpg"><img style="width:640px" src="DSCF0643.jpg"></a>
+          </figure>
+        </div>
+        <div id="77bddc4c-d836-46ac-8107-eb6ae8896768" style="width:50%" class="column">
+          <figure id="48d11d0c-4306-46cb-82c2-24213b68088f" class="image">
+            <a href="DSCF0644.jpg" title="DSCF0644.jpg"><img style="width:640px" src="DSCF0644.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="d1b46393-6cac-4bb4-9b26-ab70f64fcfb0" class="column-list">
+        <div id="38c36607-7340-4463-9fe9-a42621afbcbc" style="width:50%" class="column">
+          <figure id="0ae94f45-b412-4e60-a637-d06c63e598b5" class="image">
+            <a href="DSCF0646.jpg" title="DSCF0646.jpg"><img style="width:640px" src="DSCF0646.jpg"></a>
+          </figure>
+        </div>
+        <div id="cbc5642c-5d00-4efd-82aa-86bb014dcdf8" style="width:50%" class="column">
+          <figure id="6ac00417-3a79-47ae-90cf-aedb91c82613" class="image">
+            <a href="DSCF0648.jpg" title="DSCF0648.jpg"><img style="width:640px" src="DSCF0648.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="6b8b9dc1-5367-479a-9946-0e1166ac54cc" class="image">
+        <a href="DSCF0649.jpg" title="DSCF0649.jpg"><img style="width:640px" src="DSCF0649.jpg"></a>
+      </figure>
+      <div id="ff9b2875-e90d-4440-ac90-f9f3c267a5cc" class="column-list">
+        <div id="1115fc4b-843d-468c-b416-7eb75ab3e303" style="width:50%" class="column">
+          <figure id="bd808310-eb8a-4b8a-9bc9-b4091c0b40d5" class="image">
+            <a href="DSCF0652.jpg" title="DSCF0652.jpg"><img style="width:640px" src="DSCF0652.jpg"></a>
+          </figure>
+        </div>
+        <div id="cc11c031-cce9-4d5d-8935-3e0c20b9b2e7" style="width:50%" class="column">
+          <figure id="1d52b1a9-cd40-45c3-b248-eea2cb0a2790" class="image">
+            <a href="DSCF0720.jpg" title="DSCF0720.jpg"><img style="width:600px" src="DSCF0720.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="740ccd60-c727-49ee-970e-e4716ab441f6" class="column-list">
+        <div id="9af4051b-a616-4963-9ea9-3d35857e9679" style="width:50%" class="column">
+          <figure id="0e5a9ea5-80c8-4021-a563-218975243bee" class="image">
+            <a href="DSCF0732.jpg" title="DSCF0732.jpg"><img style="width:800px" src="DSCF0732.jpg"></a>
+          </figure>
+        </div>
+        <div id="14766290-6b8e-413b-8893-2ef18e5e49c3" style="width:50%" class="column">
+          <figure id="e83da2c3-e097-4c97-a5d1-6e1d49ca3092" class="image">
+            <a href="DSCF0754.jpg" title="DSCF0754.jpg"><img style="width:640px" src="DSCF0754.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="6fd0cbbf-798c-4ab9-a634-3ff091dc3828" class="image">
+        <a href="DSCF0757.jpg" title="DSCF0757.jpg"><img style="width:640px" src="DSCF0757.jpg"></a>
+      </figure>
+      <div id="8b3060e7-ab01-44fa-a1e1-77d11193aed9" class="column-list">
+        <div id="a00ac36c-0047-4317-95a8-7ea5a94d0290" style="width:50%" class="column">
+          <figure id="45623e3e-dddf-44a9-80ce-52d20fd54398" class="image">
+            <a href="DSCF0759.jpg" title="DSCF0759.jpg"><img style="width:640px" src="DSCF0759.jpg"></a>
+          </figure>
+        </div>
+        <div id="fd287aa0-31eb-483a-9b0f-d8b74c9cf92a" style="width:50%" class="column">
+          <figure id="d5e587ec-3a2d-4f90-8b96-48627e32b562" class="image">
+            <a href="DSCF0782.jpg" title="DSCF0782.jpg"><img style="width:640px" src="DSCF0782.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="8b1748d8-61f2-4b38-b57f-ebdec2b28da3" class="image">
+        <a href="DSCF0778.jpg" title="DSCF0778.jpg"><img style="width:640px" src="DSCF0778.jpg"></a>
+      </figure>
+      <div id="0cd7a857-7d01-4c75-8ce9-0e8459aff197" class="column-list">
+        <div id="0c1fb43c-a45f-4d49-837a-0ded42459446" style="width:50%" class="column">
+          <figure id="68f87548-7d02-416e-9b6f-8ee8eea0eddd" class="image">
+            <a href="DSCF0697.jpg" title="DSCF0697.jpg"><img style="width:3264px" src="DSCF0697_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="dbfe1c11-91a5-48f8-a28e-188026c62879" style="width:50%" class="column">
+          <figure id="eee84734-6781-45e7-af0d-6645494cf652" class="image">
+            <a href="DSCF0707.jpg" title="DSCF0707.jpg"><img style="width:672px" src="DSCF0707_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="09a3e490-74bd-4ef0-a341-6d18417eeec7" class="column-list">
+        <div id="6ba7fe1a-55dd-4f08-9217-5b6aead3fa9d" style="width:50%" class="column">
+          <figure id="61f3a962-babf-44ef-bc48-e53b7f7cd745" class="image">
+            <a href="DSCF0710.jpg" title="DSCF0710.jpg"><img style="width:3264px" src="DSCF0710_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="b97c4c0e-f83a-4c79-b904-4242358a2e04" style="width:50%" class="column">
+          <figure id="60838c4a-88f9-4bdc-b135-c4efd3c08e08" class="image">
+            <a href="DSCF0716.jpg" title="DSCF0716.jpg"><img style="width:3264px" src="DSCF0716_thumb.jpg"></a>
+          </figure>
+          <p id="6fcb7d05-e862-4617-8e36-072071499215" class=""></p>
+        </div>
+      </div>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../../../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

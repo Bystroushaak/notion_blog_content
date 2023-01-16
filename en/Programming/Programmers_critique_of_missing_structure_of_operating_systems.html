@@ -12,7 +12,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Programmer's critique of missing structure of operating systems">
   <meta name="twitter:description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &quot;structured&quot; systems.">
-  <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/150401-erma-mark1-file-system.png">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png">
   <script src="../../scripts.js"></script>
   <meta name="description" content="Patterns and structures of current operating systems and some thoughts about how that could be improved, with lessons learnt from Self, Smalltalk and other &amp;quote;structured&amp;quote; systems.">
   <meta name="keywords" content="selflang,python,smalltalk,programming_languages,quest_for_structure,os,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,6 +34,9 @@
     <h3>New posts</h3>
     <div id="last_five_top">
       <ul>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
@@ -61,9 +64,6 @@
         <li>
           <a href="../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
         </li>
-        <li>
-          <a href="Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
-        </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
     <div id="links_from_other_pages">
@@ -74,6 +74,9 @@
         </li>
         <li>
           <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
         <li>
           <a href="../Weekly_updates/Biweekly_update_2020-03-01_Publishing_success.html" title="Biweekly update 2020-03-01; Publishing success">Biweekly update 2020-03-01; Publishing success</a>
@@ -202,7 +205,7 @@
       <p id="85d19626-1694-4e8f-b279-d9b69c857932" class="">Think about what it really is; a limited hierarchical <em>key-value</em> database.</p>
       <p id="318d5ac4-8478-4edd-9890-54c300fc24ab" class="">It is limited because it not only limits the allowed subset and size of the <em>key</em>, which is in better cases stored as UTF, but also the <em>value</em> itself. You can only store a stream of bytes. That seems reasonable only until you realize that it is a hierarchical (tree-based) database, which doesn't allow you to store structured data directly. The number of inodes (branches in the structure) is also limited to a number which is tens of thousands in the worst cases; however, it is several millions of items in one <em>directory</em> at most.</p>
       <figure id="f8cc0552-90ba-4435-b1d4-ef43474dbe7a" class="image">
-        <a href="../../cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/fs_metaphor.png" title="fs_metaphor.png"><img style="width:600px" src="../../cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/fs_metaphor.png"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png" title="fs_metaphor.png"><img style="width:600px" src="Programmers_critique_of_missing_structure_of_operating_systems/fs_metaphor.png"></a>
       </figure>
       <p id="d5712813-3ff2-413f-a408-ab5a8fe3420f" class="">In two of my previous jobs, we had to go around inode limitation by using stuff like <a href="http://balanceddiscstorage.readthedocs.io/">BalancedDiscStorage</a> or storing the files into three subdirectories named by the first letters of the MD5 hash of the file.</p>
       <p id="2a576cc6-a8f7-462b-9bc2-33f71f0121d6" class="">Filesystem is so shitty database, that for most of the operations, atomicity is not supported and transactions are not supported at all. Parallel writes and reads work differently in different operating systems, if at all, and in fact, nothing is guaranteed at all. Compare it to the world of databases where the <a href="https://en.wikipedia.org/wiki/ACID_(computer_science)">ACID</a> is considered a matter of course.</p>
@@ -211,7 +214,7 @@
       <p id="e7e2a8c5-abb2-4d9d-9a0b-591092ae3178" class=""></p>
       <p id="d4a698e2-36a7-46cc-919c-20e0425b2af8" class=""></p>
       <figure id="f983d36d-7d10-405b-a848-bb67f65238e9" class="image">
-        <a href="../../cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/150401-erma-mark1-file-system.png" title="150401-erma-mark1-file-system.png"><img style="width:624px" src="../../cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/150401-erma-mark1-file-system.png"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png" title="150401-erma-mark1-file-system.png"><img style="width:624px" src="Programmers_critique_of_missing_structure_of_operating_systems/150401-erma-mark1-file-system.png"></a>
       </figure>
       <p id="3168cb13-b233-4317-8e5c-78dbec21e878" class="">Original filesystems were a metaphor used for storing <em>files</em> into the <em>folders</em>. It was meant to be a mental tool, an idea given to people who were used to work with paper, so they could understand what they were doing. And among many technical limitations of the current day filesystem, this metaphor is restricting us even more because it restricts our <em>thinking</em>. I can't help but wonder whether we shouldn't drop the direction <em>"how can we improve this fifty-year-old metaphor"</em> (by using tags, for example) and focus on "is this really the best metaphor for storing data?" question instead.</p>
       <h2 id="3fce5548-1468-4f4e-9b71-5b25d3559002" class="">Programs</h2>
@@ -220,7 +223,7 @@
       <p id="4580cfbb-5385-45b9-aea5-678576bd3887" class="">Programs are at first written in a source code of a chosen programming language, which is then compiled and linked into one block of data. Then, it is punched on punch cards (binary data) and plugged into an appropriate box (file) in the correct section of a file cabinet.</p>
       <p id="700eab65-1422-40c7-92fc-e5ad519764ab" class="">When a user wants to run the program, he writes its name on the command line or clicks on the icon somewhere in the system. Stacked punch-cards are then taken from the box stored somewhere in the file cabinet and loaded into the memory. For a program, memory looks like one huge linear block, and thanks to the virtual memory, it seems like the program is the only thing running on the system. Binary code is then run from the first punched cards to the last, but it can conditionally jump and choose a different punched card by its address.</p>
       <figure id="98c70b49-a71b-4c43-acd2-d39581139778" class="image">
-        <a href="../../cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/pe_structure.jpg" title="pe_structure.jpg"><img style="width:2653px" src="../../cz/Programovani/Programatorova_kritika_chybejici_struktury_operacnich_systemu/pe_structure_thumb.jpg"></a>
+        <a href="Programmers_critique_of_missing_structure_of_operating_systems/pe_structure.jpg" title="pe_structure.jpg"><img style="width:2653px" src="Programmers_critique_of_missing_structure_of_operating_systems/pe_structure_thumb.jpg"></a>
         <figcaption>
           <em>(Structure of the PE executable file. Source:</em> <a href="https://github.com/corkami/pics/"><em>https://github.com/corkami/pics/</em></a><em>.)</em>
         </figcaption>
@@ -675,6 +678,9 @@ RUN dir c:\</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
         <li>
@@ -701,9 +707,6 @@ RUN dir c:\</code></pre>
         <li>
           <a href="../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
         </li>
-        <li>
-          <a href="Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
-        </li>
       </ul>
     </div>
     <p>You can find <a href="../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
@@ -715,6 +718,9 @@ RUN dir c:\</code></pre>
         </li>
         <li>
           <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
         <li>
           <a href="../Weekly_updates/Biweekly_update_2020-03-01_Publishing_success.html" title="Biweekly update 2020-03-01; Publishing success">Biweekly update 2020-03-01; Publishing success</a>

@@ -87,7 +87,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Geometric center of Prague">
   <meta name="twitter:description" content="How to look for geometric center of Prague using Blender.">
-  <meta name="twitter:image" content="https://blog.rfox.eu/cz/3D_modelovani/Geometricky_stred_Prahy/twitter_image.png">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/3D_modeling/Geometric_center_of_Prague/twitter_image.png">
   <script src="../../scripts.js"></script>
   <meta name="description" content="How to look for geometric center of Prague using Blender.">
   <meta name="keywords" content="blender,prague,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -109,6 +109,9 @@
     <h3>New posts</h3>
     <div id="last_five_top">
       <ul>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
@@ -135,9 +138,6 @@
         </li>
         <li>
           <a href="Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
-        </li>
-        <li>
-          <a href="../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -215,7 +215,7 @@
       </figure>
       <p id="7796457f-f945-44c9-bfde-1c6279b836b1" class="">I was quite sad, that they didn't. They just picker most east, west, north and south points of Prague, drawn a line between them and then picked intersection it as a center. So, how can we find geometric center?</p>
       <figure id="00b1e696-5aa8-4bcb-b6e1-c0b35588314d" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/kluci_mapa.jpg" title="kluci_mapa.jpg"><img style="width:1670px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/kluci_mapa_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/kluci_mapa.jpg" title="kluci_mapa.jpg"><img style="width:1670px" src="Geometric_center_of_Prague/kluci_mapa_thumb.jpg"></a>
         <figcaption>
           <em>(Source of the image:</em> <em><a href="https://www.youtube.com/watch?v=Hj5V6Gh0mOs">https://www.youtube.com/watch?v=Hj5V6Gh0mOs</a></em><em>)</em>
         </figcaption>
@@ -224,64 +224,64 @@
       <h1 id="d7413b3a-0986-4419-a7f9-ca80e7b971a5" class="">Get a polygon map of Prague</h1>
       <p id="328ac917-5714-4b07-8786-c7a23901ff3a" class="">This is quite tricky. Fortunately, you can just google for suitable SVG. I've found <a href="https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg">this one</a>:</p>
       <figure id="c1686e26-c72c-427c-8093-c7db46bffa0b" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/Obec_Praha_okres_Hlavn_msto_Praha.svg" title="Obec_Praha_okres_Hlavn_msto_Praha.svg"><img style="width:670px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/Obec_Praha_okres_Hlavn_msto_Praha.svg"></a>
+        <a href="Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha.svg" title="Obec_Praha_okres_Hlavn_msto_Praha.svg"><img style="width:670px" src="Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha.svg"></a>
         <figcaption>
           <em>(Source:</em> <em><a href="https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg">https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg</a></em><em>, licensed under</em> <em><a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY SA</a></em><em>.)</em>
         </figcaption>
       </figure>
       <p id="3231389d-8b3a-467e-86e5-39fe66d1c6bb" class="">I've opened it in text editor and removed everything else except the polygon itself:</p>
       <figure id="52c22998-1619-4798-ace0-f09d790fb0dd" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/Obec_Praha_okres_Hlavn_msto_Praha_1.svg" title="Obec_Praha_okres_Hlavn_msto_Praha_1.svg"><img style="width:670px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/Obec_Praha_okres_Hlavn_msto_Praha_1.svg"></a>
+        <a href="Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha_1.svg" title="Obec_Praha_okres_Hlavn_msto_Praha_1.svg"><img style="width:670px" src="Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha_1.svg"></a>
       </figure>
       <h1 id="77b13157-fc82-4ddb-9705-011223658a54" class="">Blender magic</h1>
       <p id="bba5f90f-0128-4465-ab3a-79da08c61fe0" class="">This SVG file can be imported to <a href="https://www.blender.org/">Blender</a>:</p>
       <figure id="c57bde2d-f1ab-4ee3-958d-1457cd49d85a" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_1.png" title="svg_import_1.png"><img style="width:2109px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_1_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/svg_import_1.png" title="svg_import_1.png"><img style="width:2109px" src="Geometric_center_of_Prague/svg_import_1_thumb.jpg"></a>
       </figure>
       <p id="743d6189-9635-40be-9a01-6fafd981b666" class="">Scaled up:</p>
       <figure id="9ec15bfd-0bfe-4d65-83e6-f7a46f2a4125" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_2.png" title="svg_import_2.png"><img style="width:1936px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_2_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/svg_import_2.png" title="svg_import_2.png"><img style="width:1936px" src="Geometric_center_of_Prague/svg_import_2_thumb.jpg"></a>
       </figure>
       <p id="01251641-df3e-4f2c-80c5-b6454d75f316" class="">In the middle of the screen, you can see "<em>origin point</em>", in the middle of the 3D cursor. Little yellow dot. Blender has this neat feature, where you can quickly move "origin point" to the center of the geometry. In 3D modeling, you use this all the time because you want to do some kind of modification (rotation and so on) relevant to the centroid (mass) of the geometry.</p>
       <figure id="a9042e50-1698-42f1-bd9a-78871c69f4ca" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_3.png" title="svg_import_3.png"><img style="width:1936px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_3_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/svg_import_3.png" title="svg_import_3.png"><img style="width:1936px" src="Geometric_center_of_Prague/svg_import_3_thumb.jpg"></a>
       </figure>
       <p id="be8fbccd-5187-4f44-a4ba-6b9222fed48f" class="">Then it is easy to just move the object (<em>polygon map</em>) to the cursor and rotate it 180° because for some reason it is upside-down:</p>
       <figure id="b8b91722-b58a-4c0b-97b6-4c017636279a" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_4.png" title="svg_import_4.png"><img style="width:1936px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/svg_import_4_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/svg_import_4.png" title="svg_import_4.png"><img style="width:1936px" src="Geometric_center_of_Prague/svg_import_4_thumb.jpg"></a>
       </figure>
       <p id="9d7cfdbe-eeaf-41a7-b613-ba5352ec72f8" class="">Now it would be nice to fit it to some visual map, to get the point. I've used <a href="https://www.praha.eu/jnp/cz/doprava/cyklisticka/cyklisticka_old_zaloha/tistena_cyklomapa_a_dalsi_tistene.html">a map from the official Prague website</a>. Then I've rotated and scaled the <em>map polygon</em> until it matched the contours in the <em>picture map</em>.</p>
       <p id="e1ce9d8a-0699-4a6e-9b5c-5e4315190bce" class="">Rotation is required because SVG data points I've used are for some reason slightly rotated in the original and then visually corrected by SVG transformation. Eh.</p>
       <figure id="73d4ae56-132a-4379-8559-ba312c21af99" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/polygon_with_center_in_geometry.jpg" title="polygon_with_center_in_geometry.jpg"><img style="width:3840px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/polygon_with_center_in_geometry_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/polygon_with_center_in_geometry.jpg" title="polygon_with_center_in_geometry.jpg"><img style="width:3840px" src="Geometric_center_of_Prague/polygon_with_center_in_geometry_thumb.jpg"></a>
         <figcaption>
           <em>(Source of map:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
         </figcaption>
       </figure>
       <p id="91d7663f-f932-4f5f-b274-5a50e6d030a5" class="">Zoomed in, you can see where the center of the polygon actually is:</p>
       <figure id="e930578e-92d7-4959-8cad-ce52b6492148" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/polygon_with_center_in_geometry_zoomed.jpg" title="polygon_with_center_in_geometry_zoomed.jpg"><img style="width:3840px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/polygon_with_center_in_geometry_zoomed_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed.jpg" title="polygon_with_center_in_geometry_zoomed.jpg"><img style="width:3840px" src="Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed_thumb.jpg"></a>
         <figcaption>
           <em>(Source of map:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
         </figcaption>
       </figure>
       <h1 id="c192e26c-7a79-48ab-914c-ff724dcf4fa7" class="">Results</h1>
       <figure id="34896ae0-ed36-4217-b031-a10be99d4c2a" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/polygon_with_center_in_geometry_zoomed2.jpg" title="polygon_with_center_in_geometry_zoomed2.jpg"><img style="width:804px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/polygon_with_center_in_geometry_zoomed2.jpg"></a>
+        <a href="Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed2.jpg" title="polygon_with_center_in_geometry_zoomed2.jpg"><img style="width:804px" src="Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed2.jpg"></a>
         <figcaption>
           <em>(Source:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
         </figcaption>
       </figure>
       <p id="dee44849-2d5a-4747-a0bb-c1ca5496d2c6" class="">Which is by my estimation <a href="https://en.mapy.cz/zakladni?x=14.4432308&amp;y=50.0579764&amp;z=18&amp;q=50.0579333N%2C%2014.4434400E&amp;source=coor&amp;id=14.44344%2C50.0579333">50.0579333N, 14.4434400E</a>.</p>
       <figure id="1eed8b50-b880-4a03-b1fa-299102d32213" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/seznam_mapy.jpg" title="seznam_mapy.jpg"><img style="width:767px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/seznam_mapy.jpg"></a>
+        <a href="Geometric_center_of_Prague/seznam_mapy.jpg" title="seznam_mapy.jpg"><img style="width:767px" src="Geometric_center_of_Prague/seznam_mapy.jpg"></a>
         <figcaption>
           <em>(Source:</em> <em><a href="https://en.mapy.cz/zakladni?x=14.4432308&amp;y=50.0579764&amp;z=18&amp;q=50.0579333N%2C%2014.4434400E&amp;source=coor&amp;id=14.44344%2C50.0579333">http://mapy.cz</a></em><em>)</em>
         </figcaption>
       </figure>
       <p id="1108dfab-4fa1-4b0f-be6a-b70e414c83a4" class="">Quite different point, eh? I find it funny that it is in the middle of the street.</p>
       <figure id="12f80679-774a-4b04-803e-9ce1def8e43b" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/difference.jpg" title="difference.jpg"><img style="width:1206px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/difference_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/difference.jpg" title="difference.jpg"><img style="width:1206px" src="Geometric_center_of_Prague/difference_thumb.jpg"></a>
         <figcaption>
           <em>(Source:</em> <em><a href="https://en.mapy.cz/zakladni?x=14.4569154&amp;y=50.0838426&amp;z=13&amp;q=50.0579333N%2C%2014.4434400E%2050%C2%B05%2740%2C236%22N%2C%2014%C2%B028%2750%2C281%E2%80%9CE">http://mapy.cz</a></em><em>)</em>
         </figcaption>
@@ -290,12 +290,12 @@
       <h1 id="4f896c8a-228a-4012-9298-a5dca1271e17" class="">Definition of the center</h1>
       <p id="a05c67fe-65c5-4cde-be58-cdaf8bfcea55" class="">It doesn't matter where the center really is. No matter what, it will depend on the person interpreting the meaning of "center". Someone will see it in the point where north-south and east-west lines cross. Someone will see it in the center of geometry. And psychologically, I would point out to an entirely different place on the map, which feels more in the center.</p>
       <figure id="98190b41-1f53-476d-bd2f-fdc1ed368962" class="image">
-        <a href="../../cz/3D_modelovani/Geometricky_stred_Prahy/centers.jpg" title="centers.jpg"><img style="width:1603px" src="../../cz/3D_modelovani/Geometricky_stred_Prahy/centers_thumb.jpg"></a>
+        <a href="Geometric_center_of_Prague/centers.jpg" title="centers.jpg"><img style="width:1603px" src="Geometric_center_of_Prague/centers_thumb.jpg"></a>
       </figure>
       <p id="f5103c0a-d805-4882-baf5-af4312778aab" class="">I've enjoyed looking for the geometric center. It feels nice to be <a href="https://forensic-architecture.org/investigation/chemical-attacks-in-douma">able</a> to do things like this, and utlize Blender to whatever I need at that time.</p>
       <h1 id="5233c5a3-f4c6-4c38-af99-556b9a29cd84" class="">Source</h1>
       <p id="d18ce818-fc0b-4d1b-95f0-0782558d84f6" class="">Blender file:</p>
-      <p><a href="http://kitakitsune.org/storage/notion_retardace/geometricky_stred_prahy/geometricky_stred_prahy.blend">📎 geometricky_stred_prahy.blend</a></p>
+      <p><a href="Geometric_center_of_Prague/geometricky_stred_prahy.blend" title="geometricky_stred_prahy.blend">📎 geometricky_stred_prahy.blend</a></p>
       <p id="747e7089-c613-426d-97b7-281ca223f921" class="">If you want to get a set of points that define the polygon of the map, you can use following script. Note: it works only if you have the SVG curve selected.</p>
       <pre class="code"><code><span class="kn">import</span> <span class="nn">bpy</span>
 
@@ -322,6 +322,9 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
         <li>
@@ -347,9 +350,6 @@
         </li>
         <li>
           <a href="Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
-        </li>
-        <li>
-          <a href="../Programming/Tools_I_use/Tools_I_use_PyCharm.html" title="Tools I use: PyCharm">Tools I use: PyCharm</a>
         </li>
       </ul>
     </div>

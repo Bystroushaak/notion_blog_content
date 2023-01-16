@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2023-01-16T07:28:58.013198+00:00</updated>
+  <updated>2023-01-16T08:07:35.095390+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm.html</id>
-    <title>Tools I use: PyCharm</title>
-    <updated>2021-11-30T23:11:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm.html" rel="alternate"/>
-    <summary type="text">Tour trough PyCharm &amp; some of the reasons why I use it.</summary>
-    <published>2021-11-30T23:11:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/3D_modeling/Antenna_from_my_dreams_3D_render.html</id>
     <title>Antenna from my dreams (3D render)</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/Technological_marvels/SLAM.html" rel="alternate"/>
     <summary type="text">Backport of my old blogpost about SLAM - Supersonic Low Altitude Missile.</summary>
     <published>2023-01-16T07:06:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html</id>
+    <title>War stories: Romanian Infocenter aka the pontaj story</title>
+    <updated>2023-01-16T08:50:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" rel="alternate"/>
+    <summary type="text">Story about one deployment into the production, and also musing on the devops trends.</summary>
+    <published>2023-01-16T08:50:00+01:00</published>
   </entry>
 </feed>

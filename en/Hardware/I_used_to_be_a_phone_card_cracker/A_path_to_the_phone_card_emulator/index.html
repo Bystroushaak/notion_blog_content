@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>A path to the phone card emulator</title>
+  <link rel="stylesheet" type="text/css" href="../../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="A path to the phone card emulator">
+  <meta name="twitter:description" content="Description and analysis of various strategies which can lead to the creation of the phone card cracker.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Hardware/I_used_to_be_a_phone_card_cracker/A_path_to_the_phone_card_emulator/drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png">
+  <script src="../../../../scripts.js"></script>
+  <meta name="description" content="Description and analysis of various strategies which can lead to the creation of the phone card cracker."><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../../../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+      </ul>
+    </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../AdvancedTCardReader.html" title="AdvancedTCardReader">AdvancedTCardReader</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../../index.html" class="breadcrumb" title="Hardware">Hardware</a> / <a href="../index.html" class="breadcrumb" title="I used to be a phone card cracker">I used to be a phone card cracker</a> / A path to the phone card emulator
+  <article id="0710248d-c09d-495a-a881-1ad1c62e1175" class="page sans">
+    <header>
+      <h1 class="page-title">A path to the phone card emulator</h1>
+    </header>
+    <div class="page-body">
+      <p id="9bbc11d1-ca23-4d20-90e3-dc2a8533fb07" class=""><time>@2009/12/07</time></p>
+      <h1 id="f67a94e8-66db-46db-9107-e6a36cb94d54" class="">Declaration</h1>
+      <p id="f7532b9d-35ba-46c5-aba9-a363cf84e1cf" class="">This article is something like a mind game, something like chess without a chessboard. This game proposes individual actions and counteractions, attacks and defense, the discussion discusses what would happen if ..</p>
+      <p id="f7cedb79-13e6-4dd8-850b-c2a095e7b7c3" class="">If anyone decides to commit a crime on the basis of this article, it is only their decision and the author of this article definitely refuses to have anything to do with it. In other words; The author does not take any responsibility for the way in which readers may deal with the information contained in the article. If you, as a potential reader, disagree with this, plan to break the law or suspect that you would not be able to keep the information acquired in a theoretical way, I, as the author, do not give you permission to read the article any further. Otherwise, you may proceed.</p>
+      <h1 id="bc178898-5f08-4b70-9725-88e804f8b7af" class="">Introduction</h1>
+      <p id="56c4a3c3-9ea8-41d6-99d2-2433bc33ffca" class="">I wrote this text to organize my thoughts and at the same time summarize freely available information on phone card security on the Internet in a short article. The article further presents theoretical possibilities how to break the security, while (unfortunately ;) not giving a guide, but only information that should stimulate further discussion and thus move this thought game to the next round.</p>
+      <p id="16f4c6eb-eec1-44f2-9b0a-6a3180628402" class="">Maybe someone will think why even try, when today basically everyone has their own mobile phone, or can call via VoIP? I don't have a general answer to this question, but I can say that it's quite fun to try to get into a technology about which not much is known and which, moreover, remains uncracked for years (at least I don't know that anyone managed to emulate modern cards).</p>
+      <h1 id="c16d08e0-bd2a-4a49-915f-c5f2e8c47e11" class="">Phone card</h1>
+      <p id="f4634d68-2bfe-4103-95c4-b071950b1b28" class="">As everyone probably knows, a phone card is a device that allows you to make calls, send SMS and emails from a so-called pay phone. Each card has information about the number of units stored in it in some way. If we insert the card into the machine, the card is validated first using the so-called challenge/response protocol. If the check is done correctly, the machine allows you to make calls (send emails, SMS, etc..) as long as there is a sufficient number of some kind of credit on the card. If the card verification is not done correctly, or there are no units on the card, the machine makes a high whistling sound and a prompt to remove the card appears on the display.</p>
+      <p id="b79eb592-f681-432e-8587-c70e8046d88f" class="">If you have read the previous paragraph carefully, you may have wondered how the units are stored on the card and whether it would be possible to add them again after the call. Unfortunately, with modern cards, something like this would not be possible.</p>
+      <p id="227036bd-138c-4068-9899-e4404d5047b6" class="">In times long past, the units on the card were represented by (EE)PROM memory, which the automaton decremented by 1 after each reading. As is probably obvious to everyone, there were soon people who found out how to write on EEPROM and started to recharge their cards, or from EEPROM memory created emulators of PROM cards. Phone companies responded by adding a microprocessor to the simple memory, which allowed only to read the units. To make it impossible to emulate the card easily, a mechanism was added to verify if the card was genuine. This mechanism is called challenge/response and will be discussed in the next part of the article.</p>
+      <p id="c1aad7f5-ab06-466e-ae92-fb734023391e" class="">If someone is interested in the hardware details of the card, they can be found here; <a href="http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt">http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt</a>, or in ISO standards.</p>
+      <h2 id="af93668b-5e85-4e71-aa13-599ddd1c1ae8" class="">Description of the challenge/response protocol</h2>
+      <h3 id="052a7f42-33b5-4e60-95ae-c41a6097af2f" class="">The pay phone will ask for the content of the card after it has been inserted</h3>
+      <figure id="b78a7962-7410-4308-8882-162cd216e77e" class="image">
+        <a href="drawing_skaUBmJDPx-o6MroRkxgU2g_25.png" title="drawing_skaUBmJDPx-o6MroRkxgU2g_25.png"><img style="width:400px" src="drawing_skaUBmJDPx-o6MroRkxgU2g_25.png"></a>
+      </figure>
+      <h3 id="1380b2f1-30fa-4f94-9803-e152de904801" class="">The pay phone applies a hash function, into which 48b random number enters along with the card's contents</h3>
+      <figure id="0b6975dd-548b-4c1d-958d-5938f28e02ad" class="image">
+        <a href="drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png" title="drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png"><img style="width:400px" src="drawing_spyvjLV6CYpaiFBTyhSjqdQ_40.png"></a>
+      </figure>
+      <h3 id="081623e3-7c66-431e-8dc0-012382e38d95" class="">A pay phone sends a card the same random number (challenge)</h3>
+      <figure id="0c0cc02f-2d87-47e9-a07f-20dd1a8aab76" class="image">
+        <a href="drawing_suu7y0AKD916o4hsvJE9DYQ_14.png" title="drawing_suu7y0AKD916o4hsvJE9DYQ_14.png"><img style="width:400px" src="drawing_suu7y0AKD916o4hsvJE9DYQ_14.png"></a>
+      </figure>
+      <h3 id="3565bb8c-790d-4377-b170-b1fe59710412" class="">The phone card uses the same hash function to calculate the response and send it to the phone</h3>
+      <figure id="fbc2bbe8-6c8e-44d8-b183-c8f57305534a" class="image">
+        <a href="drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png" title="drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png"><img style="width:400px" src="drawing_sVosRyOBrNjXrYz7Zrnc-fw_2.png"></a>
+      </figure>
+      <h3 id="32ea031e-8394-4005-9203-38c6c761face" class="">If both numbers match, the card is recognised as valid</h3>
+      <p id="96735eab-652a-4e99-9752-df4d1721ff42" class="">A somewhat different description can be found here;</p>
+      <ul id="4b2bb094-4612-4094-a214-7836790d06b0" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://www.ciscom.ru/hackersrussia/Cards/Syncro/Eurochip.txt">http://www.ciscom.ru/hackersrussia/Cards/Syncro/Eurochip.txt</a>
+        </li>
+      </ul>
+      <p id="64b911f1-ba8c-4d08-a8fe-e40dec95558f" class="">It follows from the above procedure that the only thing preventing the building of the card emulator is knowledge of the hash algorithm. Unfortunately, the algorithm is not easy to find, so I see only one possibility to find it using the methods below.</p>
+      <h1 id="6b1c9973-6100-4838-87f2-4b3a52807682" class="">Possibilites of cracking the c/r</h1>
+      <h2 id="cd40c333-0665-4e9d-96a5-c6489dbbc993" class="">MITM sniffer</h2>
+      <p id="758d84ae-9608-4114-91ec-b1d3200c7285" class="">One of the easier options is to build a device to intercept the communication between the card and the machine. After collecting a certain number of records of the communication, it should then be enough to build a bruteforce cracker (discussed below) and try to break the algorithm.</p>
+      <h3 id="bb4aacc1-981d-4008-b8ed-e2ae5c3443c0" class="">Advantages</h3>
+      <ul id="863c2d40-e96d-4250-a005-1edec5d809a3" class="bulleted-list">
+        <li style="list-style-type:disc">Low cost</li>
+      </ul>
+      <ul id="d4a422ec-af85-4825-9fe9-73b4d36fa005" class="bulleted-list">
+        <li style="list-style-type:disc">Should be relatively easy</li>
+      </ul>
+      <h3 id="43f07818-9dc1-4e82-b2f7-5f19334001e2" class="">Disadvantages</h3>
+      <ul id="96179125-64c8-4c91-bf11-4d38ffb97881" class="bulleted-list">
+        <li style="list-style-type:disc">Long time needed to collect the information
+          <ul id="a12a00e5-335b-4505-aaea-b078758b3c27" class="bulleted-list">
+            <li style="list-style-type:circle">Every time a card is inserted, an authentication is performed</li>
+          </ul>
+          <ul id="22120500-135e-4d93-a4c3-8124dc3064e0" class="bulleted-list">
+            <li style="list-style-type:circle">After the unit is subtracted (~1 minute) the authentication takes place</li>
+          </ul>
+          <ul id="f69b7341-826c-48c3-9a3e-14baa6f6d6b8" class="bulleted-list">
+            <li style="list-style-type:circle">After the card is taken out, the machine needs about 5-10s to restart</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="ee1804ae-78d6-413b-b4f4-da9b9be34b81" class="bulleted-list">
+        <li style="list-style-type:disc">Need to connect memory to the collection device (laptop?)</li>
+      </ul>
+      <ul id="0c95c956-94e9-4e10-b036-9ff32a227586" class="bulleted-list">
+        <li style="list-style-type:disc">The need for an operator to pull and paste the card</li>
+      </ul>
+      <h3 id="aaeb8fec-4eba-4333-badd-554882571e26" class="">Inspiration</h3>
+      <ul id="f687a369-1ef4-4cf9-8673-f33515424dd5" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://ciscom.ru/hackersrussia/Cards/Syncro/Fotos/Fotos.php">http://ciscom.ru/hackersrussia/Cards/Syncro/Fotos/Fotos.php</a>
+        </li>
+      </ul>
+      <h2 id="324d6409-04d8-44ba-ae4b-ec7326ef9c1c" class="">Reverse engineering of the phone</h2>
+      <p id="bf838ff9-476a-409f-945f-5701258e4413" class="">This would involve stealing the machine and dissecting and examining it, searching for data in the memory, detecting protections and ultimately the possibility of MITM interception between the card and the machine at home.</p>
+      <h3 id="b5ca3a87-61aa-40bc-a8d2-33aed0379283" class="">Advantages</h3>
+      <ul id="1c1a9514-b451-44bd-83d9-45e706bb5303" class="bulleted-list">
+        <li style="list-style-type:disc">Speed of MITM
+          <ul id="d345171c-78f9-40a9-ab4e-8e1c55eae60f" class="bulleted-list">
+            <li style="list-style-type:circle">MITM will be accelerated if there is the possibility to conduct eavesdropping undisturbed e.g. all night long</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="c718e308-0147-4d1f-9d14-2aed5f26d64a" class="bulleted-list">
+        <li style="list-style-type:disc">Possibility to find an easier way to retrieve data
+          <ul id="ff813794-d18f-4bfd-b5cd-3a83c0c38d62" class="bulleted-list">
+            <li style="list-style-type:circle">There may be a chip in the phone that performs the data hashing - by examining it, the algorithm might be detected</li>
+          </ul>
+          <ul id="04f0c560-fc63-44ae-8e20-10ff88f4ecd1" class="bulleted-list">
+            <li style="list-style-type:circle">If I export the chip to my own board, I won't have to wait for the reset of the machine - this only affects when getting data using the MITM attack</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="f6e7ad62-2661-4023-9125-328c954656c9" class="bulleted-list">
+        <li style="list-style-type:disc">Possibility to use an encryption chip in an emulator
+          <ul id="64117cba-e9db-4728-8ff0-ca502072f7ea" class="bulleted-list">
+            <li style="list-style-type:circle">Some Russian sites suggest that the encryption chip and memory can be used as an emulator</li>
+          </ul>
+        </li>
+      </ul>
+      <h3 id="3719f690-9b15-4148-bce5-68ab347662d3" class="">Disadvantages</h3>
+      <ul id="5ce7dfa5-5863-4813-a762-b3ebd42db884" class="bulleted-list">
+        <li style="list-style-type:disc">The need to steal the phone machine
+          <ul id="7ec352c9-4cb7-4b3b-92f2-0fa013c28420" class="bulleted-list">
+            <li style="list-style-type:circle">It can be hard</li>
+          </ul>
+          <ul id="c0ae9046-2a26-4960-ab27-1af1afa6b351" class="bulleted-list">
+            <li style="list-style-type:circle">You can be reported by random witnesses</li>
+          </ul>
+          <ul id="1848abb8-fb85-4414-a521-2ecf12fc8bce" class="bulleted-list">
+            <li style="list-style-type:circle">A stolen phone machine gets noticed, you can't hide it at home</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="322588fc-7d34-463b-8e86-29d2ac8e8a5c" class="bulleted-list">
+        <li style="list-style-type:disc">Possibility of injury during theft (230V in the machine)</li>
+      </ul>
+      <ul id="c915c2cd-a7ab-476e-9eee-5de9e7cf1e93" class="bulleted-list">
+        <li style="list-style-type:disc">Ultimately, it may be useless</li>
+      </ul>
+      <h1 id="b4201555-fcec-4295-b610-368c55fe1380" class="">Reverse engineering of the card</h1>
+      <h2 id="ba08f670-a998-4d32-baa7-77f17d8fd87a" class="">Fake phone</h2>
+      <p id="6e24bb9c-4817-42e7-b2d8-90519c2ed5f1" class="">Basically, build a device that will act as the pay phone. If it sends random numbers to the card, the hash results of the function can be stored on the computer for later bruteforce, eliminating the need to build a MITM sniffer.</p>
+      <h3 id="f69b9045-55fa-4e57-b799-abe7e5449a33" class="">Advantages</h3>
+      <ul id="b86e2d62-54c1-4641-b1c0-abfd53cac6d2" class="bulleted-list">
+        <li style="list-style-type:disc">Very Low Cost</li>
+      </ul>
+      <ul id="85f75ef4-6f95-4231-b452-9c650a9b921e" class="bulleted-list">
+        <li style="list-style-type:disc">High rate of response retrieval (several per second, I reckon)</li>
+      </ul>
+      <ul id="a5b9b793-2fd0-44b4-96e5-70e39f9e9431" class="bulleted-list">
+        <li style="list-style-type:disc">Subtlety</li>
+      </ul>
+      <h3 id="e66a3a62-152d-4049-805d-18d3f9518b9e" class="">Disadvantages</h3>
+      <ul id="c2f13a18-cc3b-4264-8c34-70b2369621fd" class="bulleted-list">
+        <li style="list-style-type:disc">Essentially, none</li>
+      </ul>
+      <h2 id="08a407f0-294b-4aad-bbfc-db361af1af45" class="">Attack on card hardware</h2>
+      <ul id="9ba0b384-b0e5-4f93-a165-c9bc16dddf87" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <strong>Active</strong>
+          <ul id="5713547d-9fb9-457b-8207-57b92ea22743" class="bulleted-list">
+            <li style="list-style-type:circle">This involves dissolving off the chip's cover layer and exploring its structure</li>
+          </ul>
+          <ul id="04b14c8a-9d77-4486-8205-eb8f7d954de5" class="bulleted-list">
+            <li style="list-style-type:circle">In this process, it is possible to read (P)ROM memories directly</li>
+          </ul>
+          <ul id="3cca65fd-22a3-4764-8506-f9b20f513cb1" class="bulleted-list">
+            <li style="list-style-type:circle">It is possible to interfere with the operation of the card, or eavesdrop on the various parts of the chip</li>
+          </ul>
+          <ul id="c9c92013-b195-4904-a077-6c6e74ab2eaa" class="bulleted-list">
+            <li style="list-style-type:circle">Inspiration
+              <ul id="bac8e5a4-dd60-4c1f-9722-bc31ef263743" class="bulleted-list">
+                <li style="list-style-type:square"><span style="border-bottom:0.05em solid"><a href="http://web.archive.org/web/20080612172433/www.flylogic.net/blog/?p=26">http://web.archive.org/web/20080612172433/www.flylogic.net/blog/?p=26</a></span></li>
+              </ul>
+              <ul id="3458cdee-84d3-4a84-8dc0-5ec55405f539" class="bulleted-list">
+                <li style="list-style-type:square"><span style="border-bottom:0.05em solid"><a href="http://microblog.routed.net/2008/07/15/how-to-write-an-ic-friday-post/">http://microblog.routed.net/2008/07/15/how-to-write-an-ic-friday-post/</a></span></li>
+              </ul>
+              <ul id="65cd7b75-6c10-4b6a-ad80-fe1ad6801211" class="bulleted-list">
+                <li style="list-style-type:square"><span style="border-bottom:0.05em solid"><a href="http://www.wired.com/politics/security/news/2008/05/tarnovsky">http://www.wired.com/politics/security/news/2008/05/tarnovsky</a></span> <span style="border-bottom:0.05em solid">(video)</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="e32daa02-51cc-41cf-9bed-7a0acfa00649" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <strong>Passive</strong>
+          <ul id="d854b170-8162-4dc3-a87b-1fcee24c471b" class="bulleted-list">
+            <li style="list-style-type:circle">Essentially, it's an effort to examine the structure of the card using e.g. X-rays, or a terahertz camera, or some similar non-invasive device</li>
+          </ul>
+          <ul id="2c034930-7417-4fc3-a145-14cdd5dd439a" class="bulleted-list">
+            <li style="list-style-type:circle">Assuming the program is in the (P)ROM, it should be easy to read it</li>
+          </ul>
+          <ul id="4ddde0bb-1957-4b4f-a62e-d04be1a2d22b" class="bulleted-list">
+            <li style="list-style-type:circle">Unfortunately, the X-ray microscope doesn't seem to be used much (use an electron microscope instead?)</li>
+          </ul>
+          <ul id="f7c2ca10-3c1f-43b1-b7df-12024392508d" class="bulleted-list">
+            <li style="list-style-type:circle">Instead of a microscope, wouldn't a very sensitive film be enough?</li>
+          </ul>
+          <ul id="ebdadb71-160c-4f13-a0a6-d6cea7d7d44f" class="bulleted-list">
+            <li style="list-style-type:circle">Inspiration
+              <ul id="249d5cc9-5d42-4c01-a7b7-797fc747c6c6" class="bulleted-list">
+                <li style="list-style-type:square">
+                  <a href="http://www.bunniestudios.com/blog/?p=692">http://www.bunniestudios.com/blog/?p=692</a>
+                </li>
+              </ul>
+              <ul id="78ff09d4-9907-4c5a-8b63-0be781864410" class="bulleted-list">
+                <li style="list-style-type:square">
+                  <a href="http://www.danyk.wz.cz/rtg7.html">http://www.danyk.wz.cz/rtg7.html</a>
+                </li>
+              </ul>
+              <ul id="8a2707c9-8bde-48d2-a65c-3ba80d01351a" class="bulleted-list">
+                <li style="list-style-type:square">
+                  <a href="http://www.ualberta.ca/~mingchen/chip.htm">http://www.ualberta.ca/~mingchen/chip.htm</a>
+                </li>
+              </ul>
+              <ul id="40dab11c-3ee1-4668-9eb8-a28b37abf009" class="bulleted-list">
+                <li style="list-style-type:square">
+                  <a href="http://www.assurancetechnology.com/FA1.asp">http://www.assurancetechnology.com/FA1.asp</a>
+                </li>
+              </ul>
+              <ul id="f60ba45d-8923-4213-92aa-583c360ab9d2" class="bulleted-list">
+                <li style="list-style-type:square">
+                  <a href="http://www.bgtu.net/">http://www.bgtu.net/</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h3 id="445a962c-eaf2-4f20-b65c-2fd9bf841e8e" class="">Advantages</h3>
+      <ul id="33d14bc6-19d2-4dcd-9b6f-707ce1c282a5" class="bulleted-list">
+        <li style="list-style-type:disc">Getting the algorithm as it is stored on the card</li>
+      </ul>
+      <ul id="3b72d268-8480-4efe-b698-082937be79e8" class="bulleted-list">
+        <li style="list-style-type:disc">Possibility of manipulating the chip, getting some interesting images :)</li>
+      </ul>
+      <h3 id="9ccb8cee-4a35-4523-95d2-94efff5fc573" class="">Disadvantages</h3>
+      <ul id="94c3140f-e3dd-48ec-a254-777420b71759" class="bulleted-list">
+        <li style="list-style-type:disc">Need for access to advanced laboratory</li>
+      </ul>
+      <ul id="c0acfa2f-ed93-4dd3-879b-4fb84aac7668" class="bulleted-list">
+        <li style="list-style-type:disc">Need to obtain necessary toxic substances, or X-ray machine</li>
+      </ul>
+      <ul id="da032dad-712e-47f2-8f5b-4d3b4dfe7729" class="bulleted-list">
+        <li style="list-style-type:disc">Knowledge of working with violently toxic substances</li>
+      </ul>
+      <ul id="cb0499fb-fccb-4603-b7dc-0e851bfab9c7" class="bulleted-list">
+        <li style="list-style-type:disc">Need for experience with similar work</li>
+      </ul>
+      <h1 id="05321f27-0914-4023-b00a-a159736045a5" class="">Obtaining an algorithm from collected data</h1>
+      <p id="8e18e787-45d2-4c20-bd51-1f838f32c777" class=""><a href="http://www.ciscom.ru/hackersrussia/Cards/Syncro/Eurochip.txt">Certain sources</a> indicate that the algorithm is based on the hardware functions of the processor, using the <strong>48b</strong> sliding register, XOR and <strong>NXOR</strong>. The processor also contains three <strong>9b</strong>, <strong>6b</strong> and <strong>5b</strong> counters with unknown function. Furthermore, there is a not inconsiderable probability that the algorithm resembles a CRC calculation.</p>
+      <p id="c1262e9e-512c-44ef-a181-51232dfc5bf8" class="">The article on <a href="http://hw.cz/">hw.cz</a> mentions that to get one bit of hash it is necessary to send the card 160x CLK pulse. This implies that the algorithm runs sequentially for each bit and is theoretically made up of max. 160 instructions.</p>
+      <ul id="01cff8c1-236b-4d74-b82e-3890a282e1f7" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://ciscom.ru/hackersrussia/Cards/Syncro/Algoritm.php">http://ciscom.ru/hackersrussia/Cards/Syncro/Algoritm.php</a> (<a href="http://translate.google.com/translate?hl=cs&amp;sl=ru&amp;tl=cs&amp;u=http%3A%2F%2Fciscom.ru%2Fhackersrussia%2FCards%2FSyncro%2FAlgoritm.php">google translator</a>)
+        </li>
+      </ul>
+      <p id="2e019b96-62cc-4f43-84f5-b396e9b823cf" class="">It follows from the above that the algorithm should look something like this:</p>
+      <figure id="0e389309-efdb-4ab1-9b0c-421d76162735" class="image">
+        <a href="drawing_seT-uCA2crHUT848MxtJMeg_328.png" title="drawing_seT-uCA2crHUT848MxtJMeg_328.png"><img style="width:600px" src="drawing_seT-uCA2crHUT848MxtJMeg_328.png"></a>
+      </figure>
+      <h2 id="35f23e87-f809-4a08-b835-4033eb2bf0cc" class="">Possibilities for algorithm reconstruction</h2>
+      <p id="31cc261f-e9ee-407f-b664-b0b72547f756" class="">I think that there are only two possible techniques:</p>
+      <ul id="fe508e86-a0fc-4455-87ed-6e08ec7499fa" class="bulleted-list">
+        <li style="list-style-type:disc">Mathematical analysis
+          <ul id="39bad812-053b-4f55-a999-0392b7c62a97" class="bulleted-list">
+            <li style="list-style-type:circle">It takes a cryptoanalyst with a deep knowledge of mathematics to make it happen.</li>
+          </ul>
+          <ul id="a7ca7184-6a88-41f8-adae-2c4cb4a50916" class="bulleted-list">
+            <li style="list-style-type:circle">Downside; capable cryptoanalysts are a bit hard to come by.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="b69af557-47ab-42c8-b0cb-e652e79fd93c" class="bulleted-list">
+        <li style="list-style-type:disc">Bruteforce
+          <ul id="88d26889-6a57-4be1-9bc6-dd6160d65677" class="bulleted-list">
+            <li style="list-style-type:circle">Since the microchip has very little power, I daresay the algorithm won't be very long because even the memory size for the program will be relatively small.</li>
+          </ul>
+          <ul id="cabfcf4a-2f4e-42d9-8f02-57abddf2d0e5" class="bulleted-list">
+            <li style="list-style-type:circle">The algorithm needs <strong>160 CLK pulses</strong> to calculate one of the 16b hashes, which means the program should contain a <strong>max. 160 instructions</strong>.
+              <ul id="f89a4198-c2eb-483b-96be-632891d69c77" class="bulleted-list">
+                <li style="list-style-type:square">However, it has to be taken into account that some operations may need multiple CLK pulses for one result, so ultimately it may be less.</li>
+              </ul>
+              <ul id="d0330518-5073-468c-adee-624a7fa8f221" class="bulleted-list">
+                <li style="list-style-type:square">On the other hand, some operations (such as incrementing a counter) can occur at the same time as other instructions, so there will actually be more primitive operations than 160. This fact will have to be taken into account when designing the cracker.</li>
+              </ul>
+            </li>
+          </ul>
+          <ul id="631cbc3b-7961-41ae-8743-995ccdad3a4d" class="bulleted-list">
+            <li style="list-style-type:circle">An attack requires a mediocre programmer and a lot of power, which shouldn't be such a problem these days, especially if parallelism is used.</li>
+          </ul>
+        </li>
+      </ul>
+      <p id="9646f981-a638-4eff-82bd-1a277e5f5a2a" class="">Since the first choice is somewhat out of the realm of the ordinary geek, I think a brute-force attack will have to do.</p>
+      <h2 id="68df9786-e589-4bee-b66f-83a6411b094e" class="">Bruteforce cracker</h2>
+      <p id="851c1f26-3930-460f-aa00-438e30ae5993" class="">A brute force attack should be greatly simplified because we know the input, the output, the approximate number of instructions, plus we know which operations the hash generation algorithm is probably using and which are not. All that remains is to write a program that attempts to reveal in what order the operations are applied, revealing the algorithm and allowing the emulator to be built.</p>
+      <p id="b5c97b82-5fef-4dc6-a012-bfb1a0515ac2" class="">Cracker, in my opinion, should look something like this:</p>
+      <figure id="5b543e58-bf2c-4072-8e80-6011ff8e2a9b" class="image">
+        <a href="drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png" title="drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png"><img style="width:600px" src="drawing_sz04u9KlXrXtxLxwQ3wJ_VA_353.png"></a>
+      </figure>
+      <h3 id="ae462036-f627-4d7c-836e-b3c7b5e33562" class="">Description of the cracker</h3>
+      <ul id="868f054a-dbbd-44eb-aaf9-d48ff63aca2a" class="bulleted-list">
+        <li style="list-style-type:disc">Load the captured <strong>card contents</strong>, <strong>the random number</strong> and the resulting <strong>hash</strong>.</li>
+      </ul>
+      <ul id="c25bf8a4-eba4-4fe6-aa52-be2b82961489" class="bulleted-list">
+        <li style="list-style-type:disc">The <strong>permutator</strong> generates a <strong>sequence of instructions</strong> to send to the <strong>interpreter</strong>.</li>
+      </ul>
+      <ul id="d47fa40c-5ef7-4c8b-900f-1b9da3c6eed6" class="bulleted-list">
+        <li style="list-style-type:disc"><strong>The interpreter</strong> gradually executes <strong>instructions</strong>, stores the captured <strong>card contents</strong> and a <strong>random number</strong> in registers or memory.</li>
+      </ul>
+      <ul id="a6e92a6e-69e9-45a8-bae7-9e43b615f53c" class="bulleted-list">
+        <li style="list-style-type:disc">The size of the output from the <strong>interpreter</strong> is measured - if it does not equal <strong>16b</strong>, it proceeds directly to the next iteration.</li>
+      </ul>
+      <ul id="3b2c90ec-9c80-448a-8690-2028b0f74cf0" class="bulleted-list">
+        <li style="list-style-type:disc">If the <strong>hash</strong> has passed the size test, it is compared to the <strong>recorded hash</strong>. If the hashes are the same, <strong>the current instruction sequence</strong> is stored in a <strong>log</strong> and the next recorded hash, card content and random number are loaded. Same instruction sequence is applied.
+          <ul id="99be91d3-4687-4bfc-8540-43d0383fc61a" class="bulleted-list">
+            <li style="list-style-type:circle">If the hash passes even now, we can repeat the previous step, or write the instructions into a file and declare that the <strong>algorithm has been broken</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="c9f4b80a-8e62-46e8-a4ac-f88f2fb38504" class="bulleted-list">
+        <li style="list-style-type:disc">If it fails to compare with the recorded <strong>hash</strong>, we send a signal to the <strong>permutator</strong> to generate a <strong>new sequence</strong> and the process is repeated.</li>
+      </ul>
+      <p id="cdcae0dc-9cea-4a8a-b330-39304a9e0bbd" class="">It might be a good idea to build genetic algorithms into the cracker, but since I don't know much about them, I don't know how much their implementation would be appropriate in this case.</p>
+      <h1 id="e10758e6-8906-4a59-b6cb-30ce68cf4984" class="">Conclusion</h1>
+      <p id="e4c3fe28-d82b-431f-8269-ed2d4e374875" class="">Finally, I would like to point out that this article is not perfect, I am not perfect, I am not even an expert on microprocessors or card security and therefore there is a relatively good probability that the article contains errors or inaccuracies. It is possible that some of the methods and options I have described are meaningless, or not working.</p>
+      <p id="603e4cb4-378e-4511-831b-dc2bbda02f27" class="">This article was not intended and is not intended to serve as a guide, but to stimulate a discussion about the described methods. If anyone comes up with a comment or a substantive criticism, I'll be glad if he mentions it in the discussion on the article, or sends it to me in another way.</p>
+      <h1 id="6e916c8f-825f-4a6b-bbba-b56f6c021d04" class="">Sources</h1>
+      <ul id="c83a4d7f-f716-4015-a6f6-1dd98bdd3853" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html">http://hw.cz/Teorie-a-praxe/Navrhy-vyvojare/ART1444-Slovenske-telefonne-karty-po-druhe.html</a>
+        </li>
+      </ul>
+      <ul id="b1f9ce76-ba52-4424-8bff-7ad2120d0e18" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://gsho.thur.de/gsho/phonecard/advanced_e.htm">http://gsho.thur.de/gsho/phonecard/advanced_e.htm</a>
+        </li>
+      </ul>
+      <ul id="a72cc803-93f9-4ecb-90d6-fb368f67dccc" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt">http://gsho.thur.de/gsho/phonecard/bin/phonecards_204.txt</a>
+        </li>
+      </ul>
+      <ul id="be677ff4-31c0-4512-9a45-bb28e7ad4807" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="http://www.ciscom.ru/hackersrussia/Cards/Syncro/Eurochip.txt">http://www.ciscom.ru/hackersrussia/Cards/Syncro/Eurochip.txt</a>
+        </li>
+      </ul>
+      <p id="9988ceab-0210-48d0-9de7-be0e6c66a3e8" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../../../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates/Newsletter_2022-02-20_Small_projects.html" title="Newsletter 2022-02-20; Small projects">Newsletter 2022-02-20; Small projects</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information/How_I_use_personal_wiki.html" title="How I use personal wiki">How I use personal wiki</a>
+        </li>
+        <li>
+          <a href="../../../3D_modeling/Antenna_from_my_dreams_3D_render.html" title="Antenna from my dreams (3D render)">Antenna from my dreams (3D render)</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../AdvancedTCardReader.html" title="AdvancedTCardReader">AdvancedTCardReader</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>
