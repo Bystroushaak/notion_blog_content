@@ -2,46 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2022-05-02T00:28:38.824219+00:00</updated>
+  <updated>2023-01-16T07:28:58.013198+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html</id>
-    <title>tinySelfEE 2021-07; let's throw away the Symbolic eval code</title>
-    <updated>2021-10-29T00:23:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Programming/tinySelf/tinySelfEE_2021-07_lets_throw_away_the_Symbolic_eval_code.html" rel="alternate"/>
-    <summary type="text">Free flow thought process capturing some of my decisions regarding tinySelfEE development, specifically why I thrown away all the symbolic eval code.</summary>
-    <published>2021-10-29T00:23:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html</id>
-    <title>Newsletter 2021-10-29; Monster post</title>
-    <updated>2021-10-29T05:29:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Weekly_updates/Newsletter_2021-10-29_Monster_post.html" rel="alternate"/>
-    <summary type="text">Some of the more important points in my year, and also general update regarding the tinySelf, objWiki and other projects of mine. Expect a lot of text.</summary>
-    <published>2021-10-29T05:29:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html</id>
-    <title>Tools I use: PyCharm / Idea plugins</title>
-    <updated>2021-11-20T15:29:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm_-_Idea_plugins.html" rel="alternate"/>
-    <summary type="text">List of all the plugins I use in PyCharm and Idea.</summary>
-    <published>2021-11-20T15:29:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/Programming/Tools_I_use/Tools_I_use_PyCharm.html</id>
     <title>Tools I use: PyCharm</title>
@@ -118,5 +85,38 @@
     <link href="https://blog.rfox.eu/en/Philosophy/Creating_spaces_by_opening_dimensions.html" rel="alternate"/>
     <summary type="text">Essay about opening new dimensions and creating spaces which others can fill with creativity.</summary>
     <published>2022-04-28T17:26:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/Paperclips/Weird_invitations.html</id>
+    <title>Weird invitations</title>
+    <updated>2023-01-16T06:58:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/Paperclips/Weird_invitations.html" rel="alternate"/>
+    <summary type="text">Added new paperclip.</summary>
+    <published>2023-01-16T06:58:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html</id>
+    <title>3D printing exhibit 2; Window shield for portable air conditioner</title>
+    <updated>2023-01-16T07:03:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" rel="alternate"/>
+    <summary type="text">Short log of how I've built a shield into the window for the portable air conditioner.</summary>
+    <published>2023-01-16T07:03:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Technological_marvels/SLAM.html</id>
+    <title>SLAM</title>
+    <updated>2023-01-16T07:06:00+01:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Technological_marvels/SLAM.html" rel="alternate"/>
+    <summary type="text">Backport of my old blogpost about SLAM - Supersonic Low Altitude Missile.</summary>
+    <published>2023-01-16T07:06:00+01:00</published>
   </entry>
 </feed>
