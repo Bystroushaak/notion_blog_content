@@ -227,14 +227,19 @@ nop</code></pre>
       <pre id="d45df750-d244-4091-b613-627efadf8eb4" class="code"><code> __ __ __ __ __ __ __ __ __ __ __
 |73|6f|75|62|6f|72|2e|74|78|74|00|
  -- -- -- -- -- -- -- -- -- -- --</code></pre>
-      <p id="43bf4d9a-a831-4b4b-8cf3-7f1614c9b836" class="">Poté stačí zavolat nějakou funkci jádra operačního systému, které někam (třeba do buňky eax) uloží adresu začátku této sekvence čísel. Funkce operačního systému si pak přečte buňky na které jste jí dali adresu (kde má skončit pozná podle nuly na konci), smazala soubor z disku a uložila návratový kód do nějaké standardní buňky (třeba zase <code>eax</code>). Podle tohoto kódu by jste pak zjistili, jestli došlo k chybě, nebo se podařilo soubor smazat v pořádku.</p>
+      <p id="43bf4d9a-a831-4b4b-8cf3-7f1614c9b836" class="">Poté stačí zavolat nějakou funkci jádra operačního systému, které někam (třeba do buňky <code>eax</code>) uloží adresu začátku této sekvence čísel. Funkce operačního systému si pak přečte buňky na které jste jí dali adresu (kde má skončit pozná podle nuly na konci), smazala soubor z disku a uložila návratový kód do nějaké standardní buňky (třeba zase <code>eax</code>). Podle tohoto kódu by jste pak zjistili, jestli došlo k chybě, nebo se podařilo soubor smazat v pořádku.</p>
       <p id="22f48305-d626-4408-83d0-18fa13068a97" class="">Když se někdo koukne na kód takového programu, bude mít stovky až tisíce řádek různých instrukcí a bude velice nepřehledný, takže se v něm za půl roku pravděpodobně nevyznáte a ni vy a to jste jeho tvůrci.</p>
-      <hr id="9b87425e-c9eb-4bec-95b3-f2ff18e799e1">
-      <p id="2f016179-502d-45c6-b5ce-39ddfcf03a91" class="">Pokud se někde uvádí, že procesor funguje na frekvenci třeba 3GHz, znamená to, že provede 3 000 000 000 taktů za vteřinu. Během jednoho taktu moderní procesory zpracují jednu, či více instrukcí, takže, když to pro názornost podstatně zjednoduším a vynechám některé důležité detaily, dá se zjednodušeně říct, že procesor vykoná za vteřinu 3 000 000 000 řádek assembleru.</p>
-      <p id="9f70753f-5ba1-40d4-88d1-eb0cff46c1af" class="">Docela dobré, ne?</p>
-      <hr id="7bfd2cf5-dd47-43a5-8688-e407ac76343b">
-      <p id="ee10ec8b-979d-4832-a26e-1160259ca7a8" class="">Další věc je, že assemblery jsou pro každý druh procesoru jiné. Jiný assembler má tvůj počítač, jiný má tvůj mobil a jiný má počítač v autě, nebo ten co řídí semafor. Někde se buňka eax jmenuje jinak, jinde vůbec neexistuje. Některé mají minimální šířku 8 bitů, jiné 64.</p>
-      <p id="13c3cdea-ca61-408b-9f14-40b86e66a8f2" class="">Proto se moc nevyplatí v něm programovat, protože pro každý procesor se musíš naučit nový assembler a programy, které jdou na procesoru typu x86_64 nepůjdou na x86, či mipsel.</p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="60d24657-3d86-495e-a879-3ddee23f28e3">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          Pokud se někde uvádí, že procesor funguje na frekvenci třeba 3GHz, znamená to, že provede 3 000 000 000 taktů za vteřinu. Během jednoho taktu moderní procesory zpracují jednu, či více instrukcí, takže, když to pro názornost podstatně zjednoduším a vynechám některé důležité detaily, dá se zjednodušeně říct, že procesor vykoná za vteřinu 3 000 000 000 (tři miliardy) řádek assembleru.
+          <p id="6d6a953f-232f-4ee1-ac7e-c6bd2af70287" class="">Docela dobré, ne?</p>
+        </div>
+      </figure>
+      <p id="ee10ec8b-979d-4832-a26e-1160259ca7a8" class="">Další věc je, že assemblery jsou pro každý druh procesoru jiné. Jiný assembler má tvůj počítač, jiný má tvůj mobil a jiný má počítač v autě, nebo ten co řídí semafor. Někde se buňka <code>eax</code> jmenuje jinak, jinde vůbec neexistuje. Některé mají minimální šířku 8 bitů, jiné 64.</p>
+      <p id="13c3cdea-ca61-408b-9f14-40b86e66a8f2" class="">Proto se moc nevyplatí v něm programovat, protože pro každý procesor se musíš naučit nový assembler a programy, které jdou na procesoru typu <code>x86_64</code> nepůjdou na <code>x86</code>, či <code>mipsel</code>.</p>
       <h2 id="630b36a6-dad8-4832-abcb-be4b04a27617" class="">3. Psaní v kompilovaných jazycích</h2>
       <p id="2399f685-5e18-436d-8c90-10eeaf7689d2" class="">Jak jste měli možnost vidět - assembler je sice o dost přehlednější než strojový kód, ale pořád je dost nízkoúrovňový a programování v něm jej docela náročné a složité.</p>
       <p id="b65c4c7a-e0b8-43e5-9849-23f5961e4de1" class="">Proto vznikly takzvané kompilované jazyky - jedná se o jazyky, kde programátor popíše v nějakém relativně příjemném jazyku co chce aby se stalo do textového souboru. <strong>Zd</strong>rojový kód může vypadat třeba takto:</p>
@@ -251,9 +256,15 @@ int main(string[] args){
       <p id="4a10ee48-9d2d-440b-bc12-1e7145aa423e" class="">Výše uvedená ukázka je v programovacím jazyce D. Je už docela přehledná - všimni si řádku s nápisem:</p>
       <pre id="b6b08f47-a6d1-4308-bbf3-682d62dff7fa" class="code"><code>remove("soubor.txt");</code></pre>
       <p id="0ef2ee66-a9d6-4a18-8b0e-1f8610360345" class="">To už je docela přehledné, ne? I začátečník v angličtině z toho pozná, o co jde.</p>
-      <hr id="fc9358e6-b5b2-4277-b936-f8d75d1c8960">
-      <p id="2fb9793a-2bbc-4d9d-af52-18d728886caf" class="">Osm řádků v programovacím jazyce D se přeloží na 74985 řádků kódu v assembleru, což představuje 728KB strojového kódu.</p>
-      <p id="f616b250-d102-470a-b62e-a545e1543e5d" class="">To znamená, že kompilátor za mě vytvořil desítky tisíc řádků v assembleru. Prakticky by jich mohlo být o dost méně, ale použil jsem jazyk, který mi to jako programátorovi dost usnadňuje. Kdybych to psal v C, je výsledek obvykle menší .exe, ale zase bych toho musel obvykle napsat víc (což nutně neplatí pro tuhle ukázku).</p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="56f93b91-05fa-4ec7-bb8d-a3b206358841">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          Osm řádků v programovacím jazyce D se přeloží na 74985 řádků kódu v assembleru, což představuje 728KB strojového kódu.
+          <p id="9a50d9f1-2620-4a6b-b578-15cbc0676952" class="">To znamená, že kompilátor za mě vytvořil desítky tisíc řádků v assembleru. Prakticky by jich mohlo být o dost méně, ale použil jsem jazyk, který mi to jako programátorovi dost usnadňuje. Kdybych to psal v C, je výsledek obvykle menší .exe, ale zase bych toho musel obvykle napsat víc (což nutně neplatí pro tuhle ukázku).</p>
+        </div>
+      </figure>
       <h2 id="36d492ab-d765-4672-ac2e-004ff5fb3c3f" class="">4. Psaní v interpretovaných jazycích</h2>
       <p id="a86b55c1-471e-4bc3-9187-01ddd65487f6" class="">Program v assembleru měl stovky až tisíce řádků. Zdrojový soubor v kompilovaném programovacím jazyce D měl osm řádků, program v interpretovaném jazyce python jde ještě dále a bude mít jen dva:</p>
       <pre id="e67c5685-730a-4082-9531-504d9cf41dd4" class="code"><code>import os

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>SolarPi experiment 1: The PiJuice Fiasco</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="SolarPi experiment 1: The PiJuice Fiasco">
+  <meta name="twitter:description" content="I wanted to create a home server that was capable of running on solar power. I failed. Mostly because I was too naive and believed that a specific product would solve this problem for me, and it didn’t. At least I can share the experience with you, so you don’t need to repeat my mistake.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco/twitter_thumb.jpg">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="I wanted to create a home server that was capable of running on solar power. I failed. Mostly because I was too naive and believed that a specific product would solve this problem for me, and it didn’t. At least I can share the experience with you, so you don’t need to repeat my mistake.">
+  <meta name="keywords" content="hardware,server,raspberry,solar,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../Programming/objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+      </ul>
+    </div>& <a href="../../Changelog.html" title="Changelog">more</a>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/hardware.html" title="hardware">hardware</a>, <a href="../../Tags/raspberry.html" title="raspberry">raspberry</a>, <a href="../../Tags/server.html" title="server">server</a>, <a href="../../Tags/solar.html" title="solar">solar</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="Hardware">Hardware</a> / SolarPi experiment 1: The PiJuice Fiasco
+  <article id="b8ae57cc-9f62-4d8a-bdcf-85b0dc919e2e" class="page sans">
+    <header>
+      <h1 class="page-title">SolarPi experiment 1: The PiJuice Fiasco</h1>
+    </header>
+    <div class="page-body">
+      <p id="9c7135e1-765c-4ec7-ad58-be4731c72695" class=""><time>@2023/03/10</time></p>
+      <p id="b6f3c7a9-5a44-43a0-a21c-ef4a4399b6d1" class=""><em>*Sigh*</em>. It’s not a good practice to start blogs with sighs, but this blog really required one.</p>
+      <p id="3f866da1-de0a-4304-9add-25b5cae8b11f" class="">Anyway, some time ago, I wondered how hard it would be to build a solar-powered server. I did some basic exploration, people seemed to <a href="https://www.lowtechmagazine.com/2020/01/how-sustainable-is-a-solar-powered-website.html">do that</a>; slap together a few Raspberry Pi components, and you are done. My curiosity was satisfied.</p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="b685255c-a599-4daf-9cc7-3b7958ffe937">
+        <div style="font-size:1.5em">
+          <span class="icon">⚠️</span>
+        </div>
+        <div style="width:100%">
+          This blogpost was written during a long span of time. It took me at least nine months to finish it, so it may contain plenty of inconsistencies when it comes to time. For example, in one part, I am writing about summer in present tense, in the other about winter. Sorry.
+        </div>
+      </figure>
+      <p id="93a18dbe-d6fa-41e7-ac65-a8da22110e7a" class="">Fast-forward several months. War in Ukraine, dependency of the Czech Republic on Russian gas and oil and economic sanctions were just a few of the things which contributed to the price of electricity here in the Czech Republic doing this:</p>
+      <figure id="c9d78889-b44a-4c3e-a6ee-1db890b68b24" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/price_of_electricity_czk.png" title="price_of_electricity_czk.png"><img style="width:1012px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/price_of_electricity_czk.png"></a>
+        <figcaption>
+          <em>(It actually started way before the war with the crash of some energy companies)</em>
+        </figcaption>
+      </figure>
+      <p id="16851fd1-78e9-4dc8-9141-58310bd3a74e" class="">I’ve bought my <a href="https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c03793258">old server</a> <time>@April 14, 2017</time>, when the 1&nbsp;MWh cost something like 29.5 CZK. Since then, it costs 1433% more. Our government is now passing laws which will restrict the temperature people can use to warm their houses during the winter, and they are asking us, citizens, to lower our consumption of electricity. In expectation of shortages (both electricity and components), I’ve decided to be proactive, and revisit the idea of the solar-powered Raspberry Pi now, while I can still get the components. And so, this journey started sometime in July 2022.</p>
+      <h1 id="e9c93b20-2445-4658-a7ba-7eaf9a32a22a" class="">Requirements for new server</h1>
+      <p id="3aebe0f1-82bb-4786-b6ac-306827ae13e2" class="">Replacing my old server with a Raspberry Pi is good even without the solar power because it consumes roughly 1/8 of electricity, while providing similar compute power. It is also much smaller, and it doesn’t make noise (which my old server does).</p>
+      <p id="7130ed6d-e295-4670-b589-95626d69d019" class="">My requirements were:</p>
+      <ol type="1" id="c221703f-362d-490c-85de-bfdc5e387753" class="numbered-list" start="1">
+        <li>Microserver that consumes much less electricity.</li>
+      </ol>
+      <ol type="1" id="4188517a-ed86-4a51-ae34-fc2dcc7b83c4" class="numbered-list" start="2">
+        <li>At least 1&nbsp;TB of storage space, ideally using SSD. I have a ton of bad experiences with SD cards and flash disks.</li>
+      </ol>
+      <ol type="1" id="0202c4ff-b886-4745-8cb1-60b90abcab9c" class="numbered-list" start="3">
+        <li>8 GiB of RAM.</li>
+      </ol>
+      <ol type="1" id="d02c551b-bb6a-4f51-a5d6-101c908c13c5" class="numbered-list" start="4">
+        <li>Solar power, ideally in non-invasive and temporary form (you can pack it and take with you into the new apartment, it doesn’t take a lot of space, doesn’t require special mounting points).</li>
+      </ol>
+      <p id="cd1e6fc2-f4b6-4209-92cb-4c82f0008fe6" class="">The university where I’ve studied did some experiments with solar back in the 200x. They did measurements, compiled a map of the usability of solar power through the Czech Republic, regarding weather, seasons, elevation, and other relevant things. What they got was quite depressive, as it was obvious, that we are not the best part of the world for solar power.</p>
+      <p id="3169afa3-6263-4fb3-8dc5-639e114eddc5" class="">With that in mind, I wasn’t expecting that I could power the server from the solar panel for the whole day and night. Just some kind of offset, something like 6–10 hours from solar, will be good enough.</p>
+      <h1 id="95fb3098-bcfe-4f3c-a4c1-a9ff31955b66" class="">Components</h1>
+      <p id="059c0ada-9a29-4540-a46b-4210eadaaf56" class="">After some exploration, I’ve decided to use <a href="https://github.com/PiSupply/PiJuice">PiJuice Hat</a> as the main driver for battery & solar power. This is a circuit board which you put on top of the Raspberry, and it handles stuff like charging of your battery, powering the Raspberry, switching between power supplies and so on.</p>
+      <p id="08c0f06e-cfed-47fb-8539-0d5451674fe7" class="">A couple of my friends asked me why I didn’t use some kind of Powerbank. There are a couple of reasons:</p>
+      <ol type="1" id="3fc3dabc-2838-4fa7-a360-ee93a760b8f6" class="numbered-list" start="1">
+        <li>Handling the power from solar. I need circuitry which is fine with power being strong at one moment, weak at the next and nonexistent in another. I wouldn’t bet on powerbanks being designed to work with solar power. The circuitry is probably designed with a constant supply of current in mind.</li>
+      </ol>
+      <ol type="1" id="010e02b8-1db7-4529-804b-0eface743e5a" class="numbered-list" start="2">
+        <li>Ability to provide power while charging. See <a href="https://goughlui.com/2021/09/03/note-potential-issues-of-using-a-usb-powerbank-as-a-ups/">Note: Potential Issues of Using a USB Powerbank as a UPS</a> for details.
+        </li>
+      </ol>
+      <ol type="1" id="7bba0dfb-6a77-4d88-8252-84f7d230e99b" class="numbered-list" start="3">
+        <li>24/7 use in mind.</li>
+      </ol>
+      <ol type="1" id="43bececf-fa6d-40b7-9da8-d143a17a7243" class="numbered-list" start="4">
+        <li>Ability to switch between different power sources. I want to charge it from solar and to switch to the grid if there is not enough sun.</li>
+      </ol>
+      <ol type="1" id="1f2760d0-9b68-4f62-8e91-507904fa2576" class="numbered-list" start="5">
+        <li>Watchdog. If your battery is low, the server should know about it.</li>
+      </ol>
+      <p id="2eb1028f-9c2a-415e-b59f-db3765fdd92a" class="">While it is entirely possible that you could just slap powerbank to the Raspberry, and it would work fine, I was not willing to make that bet and I wanted something that was designed for this use.</p>
+      <p id="f24762e4-6af2-406c-a5db-0e79763f29f6" class=""></p>
+      <div id="9d3fa7ab-0ce9-49ef-b8b2-7357259f4d58" class="collection-content">
+        <h4 class="collection-title">Component table</h4>
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle">
+              <path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Component</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber">
+              <path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>Price CZK</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula">
+              <path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Price $</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula">
+              <path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Price €</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="1175f4db-b44f-4369-9138-0c09d6f772fa">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/Raspberry_Pi_48GB_RAM.html" title="Raspberry Pi 4.8GB RAM">Raspberry Pi 4.8GB RAM</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;4,556.48</td>
+              <td class="cell-ZE}K">188.674120082816</td>
+              <td class="cell-hgNr">185.072298943948</td>
+            </tr>
+            <tr id="f99b665e-1a5b-4918-a400-207b42769f35">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/PiJuice_Solar_Panel_-_40W.html" title="PiJuice Solar Panel - 40W">PiJuice Solar Panel - 40W</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;4,145.00</td>
+              <td class="cell-ZE}K">171.635610766046</td>
+              <td class="cell-hgNr">168.359057676686</td>
+            </tr>
+            <tr id="3c8184ca-39d9-428b-bb09-fc0ec2cd84fd">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/Verbatim_VI560_S3_1TB_M2_SSD.html" title="Verbatim VI560 S3 1TB M.2 SSD">Verbatim VI560 S3 1TB M.2 SSD</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;2,179.00</td>
+              <td class="cell-ZE}K">90.227743271222</td>
+              <td class="cell-hgNr">88.505280259951</td>
+            </tr>
+            <tr id="897d7df1-69c3-47d7-867b-1c99aa3804c3">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/PiJuice_HAT_.html" title="PiJuice HAT +">PiJuice HAT +</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;2,052.00</td>
+              <td class="cell-ZE}K">84.968944099379</td>
+              <td class="cell-hgNr">83.346872461413</td>
+            </tr>
+            <tr id="bc947ade-1e78-41c5-9990-8c7d5ef7013d">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/Li-Pol_PiJuice_12000mAh_1S_37V.html" title="Li-Pol PiJuice 12000mAh 1S 3,7V">Li-Pol PiJuice 12000mAh 1S 3,7V</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;842.00</td>
+              <td class="cell-ZE}K">34.865424430642</td>
+              <td class="cell-hgNr">34.199837530463</td>
+            </tr>
+            <tr id="65f00690-8ab4-40cf-89df-9a2ccd98834b">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/Suptronics_X862_M2_NGFF_SATA_SSD_Shield.html" title="Suptronics X862 M.2 NGFF SATA SSD Shield">Suptronics X862 M.2 NGFF SATA SSD Shield</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;799.00</td>
+              <td class="cell-ZE}K">33.084886128364</td>
+              <td class="cell-hgNr">32.453290008123</td>
+            </tr>
+            <tr id="ae73cb02-fe66-4eeb-85a7-59e603242086">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/rPI_power_source.html" title="rPI power source">rPI power source</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;289.00</td>
+              <td class="cell-ZE}K">11.966873706004</td>
+              <td class="cell-hgNr">11.738424045491</td>
+            </tr>
+            <tr id="88bd910a-f4e7-49db-b76f-dde1ce60955a">
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Component_table/Raspberry_Pi_RB-Heatsink.html" title="Raspberry Pi RB-Heatsink">Raspberry Pi RB-Heatsink</a>
+              </td>
+              <td class="cell-u:eB">CZK&nbsp;82.00</td>
+              <td class="cell-ZE}K">3.395445134576</td>
+              <td class="cell-hgNr">3.330625507717</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="a74788c3-79ca-4757-b7e1-8f11ea34dcb2" class="">Getting most of the components was relatively easy, except for the Raspberry Pi itself, which was sold out here in the Czech Republic in the 8&nbsp;GB variant (I literally couldn’t find a single eshop which would have them on stock). In the end, I’ve ordered it from German Amazon and paid double the usual price still listed on local eshops. Apparently, there is already a shortage.</p>
+      <p id="7e80e866-59ee-4c35-b067-1992f75b91be" class="">Notice, that I’ve also bought a 40W PiJuice solar panel, even though it’s not cheap and the Raspberry Pi consumes only something like 5W. My line of reasoning was simple; I want to overdo the solar part; the bigger, the better. As I mentioned, the Czech Republic doesn’t get much of the sun, and maybe with the bigger panel, it may run the whole night.</p>
+      <p id="4a50aea3-94e5-4d21-8bc5-b5bfb912cd3b" class=""><code>&lt;ominous_foreshadowing&gt;</code>Also, the solar panel is sold as a PiJuice component, so it should work as intended, right?<code>&lt;/ominous_foreshadowing&gt;</code></p>
+      <p id="23e080f5-6a7d-430e-8f1a-daa9027076ce" class="">PiJuice comes with a tiny 1820mAh battery, and since the beginning, it was clear that this is not good enough, so I’ve bought the biggest battery I could find (12000mAh). The default battery could theoretically provide roughly 6.7Wh (~1.3 hour of runtime), the one I bought could in theory provide 44.4Wh (~8 hours of runtime).</p>
+      <h1 id="8a60bebe-d1e3-44af-a8fa-90f3729f3657" class="">Assembly</h1>
+      <p id="777c5731-007d-4dd9-852d-f2736c39d660" class="">Nothing really complicated, just put things into things until you have one big thing.</p>
+      <div id="b25c64ca-7747-4ce3-99f6-c0c31a52eadd" class="column-list">
+        <div id="d3645264-5d06-4c87-8f3a-ab0cce8e9812" style="width:56.25%" class="column">
+          <figure id="ae6ca70e-3c5d-4788-87a9-dcc03d4509c0" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/components_in_packages.jpg" title="components_in_packages.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/components_in_packages_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="5764c3e0-03ac-4b5f-a150-751786f93fad" style="width:43.75%" class="column">
+          <figure id="1fc0a362-28b5-4828-bab4-3fbf42f29fe6" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/solar_panel_unpacked.jpg" title="solar_panel_unpacked.jpg"><img style="width:1465px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/solar_panel_unpacked_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="fca0a4c1-7225-455e-ba07-81d144826562" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/all_components_unpacked.jpg" title="all_components_unpacked.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/all_components_unpacked_thumb.jpg"></a>
+      </figure>
+      <div id="27839c0d-2520-4dbc-904c-a930a6eb6c29" class="column-list">
+        <div id="502e82d0-53d8-4fc5-a55e-22e662ab57fe" style="width:33.333333333333336%" class="column">
+          <figure id="999b5741-151f-44ff-b828-61214bd35601" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/pijuice_zoomed.jpg" title="pijuice_zoomed.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/pijuice_zoomed_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="e03ad2ef-963c-4d7f-82a0-ca04bdbc80d9" style="width:33.333333333333336%" class="column">
+          <figure id="79ea68e4-4826-463a-93af-66348398ac01" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/rpi_zoomed.jpg" title="rpi_zoomed.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/rpi_zoomed_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="a6c2e295-3e54-4a5c-acaf-258015c077af" style="width:33.33333333333333%" class="column">
+          <figure id="6a2edc52-5edd-4e84-b95a-c16bd96ee4e8" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_shield_zoomed.jpg" title="ssd_shield_zoomed.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_shield_zoomed_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="82e2937b-fcd7-47d8-9b92-240fab9e8009" class="column-list">
+        <div id="bd475ded-274e-440c-bd50-a435567bcd82" style="width:50%" class="column">
+          <figure id="df2edd9b-17a8-42f2-9cdd-964bb3d20c96" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_disk_installed.jpg" title="ssd_disk_installed.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_disk_installed_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="ec24fa11-9386-42d3-bf5d-01f746e65e11" style="width:50%" class="column">
+          <figure id="e787a740-5d54-4be1-a648-1b7a8aaa145a" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_disk_installed_1.jpg" title="ssd_disk_installed_1.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_disk_installed_1_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="5a981aa0-7eef-4882-9dfb-6619989118c8" class="column-list">
+        <div id="71c0aeba-5725-41bf-b7a7-7f48dccc7afb" style="width:50.000000000000014%" class="column">
+          <figure id="a698b9e0-e8c0-433c-b4ea-7eb95ac5805b" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_disk_fully_installed.jpg" title="ssd_disk_fully_installed.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/ssd_disk_fully_installed_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="3787b036-0cf1-4b15-ac3e-e1175bfda243" style="width:50%" class="column">
+          <figure id="86581638-013f-44b1-9a9d-136b79a7f914" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/fully_assembled.jpg" title="fully_assembled.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/fully_assembled_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="2d9a19e4-0b82-4690-a9e9-9836dda230d1" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/fully_assembled_with_display.jpg" title="fully_assembled_with_display.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/fully_assembled_with_display_thumb.jpg"></a>
+        <figcaption>
+          Fully assembled with battery, eink display & metalic hex spacers instead of plastic ones which are part of the PiJuice kit.
+        </figcaption>
+      </figure>
+      <figure id="83f9e126-7f27-4c4f-a112-2a6d82ce0c8a" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/demo_installation.jpg" title="demo_installation.jpg"><img style="width:1200px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/demo_installation_thumb.jpg"></a>
+        <figcaption>
+          Test installation to get some measurements.
+        </figcaption>
+      </figure>
+      <p id="ca938486-e24b-48d0-8099-5d5c7f66053e" class="">Ok, so I assembled it, turned it on, and it started running from the battery. Nice. I then formatted the SSD with <code>ext3</code>, assigned it to <code>/home</code>, configured network to static IP address, and installed PiJuice utilities:</p>
+      <pre id="f7e2ea0f-e71d-44b3-afc8-e3a0b335f4bd" class="code code-wrap"><code>sudo apt-get install pijuice-gui pijuice-base</code></pre>
+      <p id="a78e5b1a-a756-479e-b83a-8a14adbb5104" class="">I’ve set it to use micro-USB on the PiJuice hat with higher priority than GPIO, which is connected to the default USB-C input of the Raspberry.</p>
+      <p id="8ceb1182-8e73-446d-a9d1-7061594a22ad" class="">The first disappointment came when I tried to power the solar panel from the lights in my apartment. That didn’t work whatsoever. I decided to wait until the morning and try it again with sun power.</p>
+      <p id="409e8ce7-8b09-49ed-bcf5-13d68c6a2c2f" class="">Just for context; it was the middle of summer. The temperatures attacked 35&nbsp;°C, and it was probably the peak sunlight I could get here.</p>
+      <p id="6602f174-f59a-454d-98d3-b518e92a3271" class="">I was quite surprised when I saw this output from <code>pijuice-cli</code>. This was during the time when the sun was sending deadly lasers into my apartment and I had to run the air-conditioning unit the whole day:</p>
+      <figure id="02d247dc-a305-4cf8-8472-adf9f2c0b97b" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/pijuice_cli_bad.png" title="pijuice_cli_bad.png"><img style="width:576px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/pijuice_cli_bad.png"></a>
+      </figure>
+      <p id="901e0edb-1958-4f08-bd76-68c99cc7f237" class=""><code>USB Micro power input: BAD</code>? Furthermore, the temperature for the battery is wrong, as I took out the infrared thermometer and found out, that the Raspberry is running at 42&nbsp;°C and the battery is at 27.8&nbsp;°C.</p>
+      <p id="012f4fcf-07c9-4fd2-9670-dc8b670a1d53" class="">The power input status sometimes changes to WEAK, but still, not what I would expect, when the sun is shining directly on the solar panel, in the middle of summer.</p>
+      <figure id="a30f9bd4-fce1-4c2f-802f-df53f6922492" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/weak_input.png" title="weak_input.png"><img style="width:576px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/weak_input.png"></a>
+      </figure>
+      <p id="1c524621-40dd-40fe-a17d-0217c2d9d184" class="">Anyway, I’ve ordered a watt meter and did some measurements. This is after approximately 24h and a few minutes (the time on the watt meter actually resets the time counter after one day *facepalm*), with the solar panel connected:</p>
+      <figure id="82f316d6-e698-4662-8b9e-a926464f8c9e" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/measurement_with_solars_after_a_day.jpg" title="measurement_with_solars_after_a_day.jpg"><img style="width:384px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/measurement_with_solars_after_a_day.jpg"></a>
+      </figure>
+      <p id="d19a80ce-5b34-43e0-b6de-4c3066883db1" class="">Approximately 100Wh. Okay. And this is after 12 hours with the solar panel disconnected (sadly the picture after 24h was so blurry, I couldn’t use it):</p>
+      <figure id="04f51d8c-52fb-427b-9de3-1223c7e07811" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/measurement_after_12h_without_solars.jpg" title="measurement_after_12h_without_solars.jpg"><img style="width:384px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/measurement_after_12h_without_solars.jpg"></a>
+      </figure>
+      <p id="f01e45c3-50bc-4fd6-af53-20ba29fdd64d" class="">The power consumption is the same with or without solar panel. This is clearly not what I want. Just to confirm it, I decided to first get more measurements:</p>
+      <div id="9ec53f13-b383-4252-bd66-4a7b3f015189" class="collection-content">
+        <h4 class="collection-title">Comsumption with solar cells</h4>
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>From</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>To</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber">
+              <path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>kWh</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula">
+              <path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Avg power consumption (Wh)</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle">
+              <path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="64221b50-c824-4ed7-9c36-46106dbd24a7">
+              <td class="cell-[Ne&gt;"><time>@2022/09/11 5:45</time></td>
+              <td class="cell-pxVu"><time>@2022/09/12 3:23</time></td>
+              <td class="cell-I{_b">0.11</td>
+              <td class="cell-v&gt;YN">5.084745762712</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_with_solar_cells/Untitled_64221b50c8244ed79c3646106dbd24a7.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="644a78cb-41b7-407e-a134-d0cb17b3b20f">
+              <td class="cell-[Ne&gt;"><time>@2022/09/12 3:23</time></td>
+              <td class="cell-pxVu"><time>@2022/09/12 9:55</time></td>
+              <td class="cell-I{_b">0.033</td>
+              <td class="cell-v&gt;YN">5.051020408163</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_with_solar_cells/Untitled_644a78cb41b7407ea134d0cb17b3b20f.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="b4baf488-a93b-4328-ae6d-a255b6c2edcc">
+              <td class="cell-[Ne&gt;"><time>@2022/09/12 19:15</time></td>
+              <td class="cell-pxVu"><time>@2022/09/13 19:58</time></td>
+              <td class="cell-I{_b">0.126</td>
+              <td class="cell-v&gt;YN">5.09777478085</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_with_solar_cells/Untitled_b4baf488a93b4328ae6da255b6c2edcc.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="83bcba6f-bc85-44d7-8380-c74bd11491a9">
+              <td class="cell-[Ne&gt;"><time>@2022/09/13 19:59</time></td>
+              <td class="cell-pxVu"><time>@2022/09/15 3:34</time></td>
+              <td class="cell-I{_b">0.162</td>
+              <td class="cell-v&gt;YN">5.129287598945</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_with_solar_cells/Untitled_83bcba6fbc8544d78380c74bd11491a9.html" title="">Untitled</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="84c14efe-93b3-4c9b-8231-a2e1afc9131c" class="collection-content">
+        <h4 class="collection-title">Comsumption without solar cells</h4>
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>From</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>To</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber">
+              <path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>kWh</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula">
+              <path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Avg power consumption (Wh)</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle">
+              <path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="dd2fa56a-ce1f-4c4b-b6f2-3d76cfc5bd64">
+              <td class="cell-[Ne&gt;"><time>@2022/09/15 3:34</time></td>
+              <td class="cell-pxVu"><time>@2022/09/16 9:07</time></td>
+              <td class="cell-I{_b">0.152</td>
+              <td class="cell-v&gt;YN">5.143824027073</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_without_solar_cells/Untitled_dd2fa56ace1f4c4bb6f23d76cfc5bd64.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="b6deb6a5-d0c6-43be-a896-a05c76d7faea">
+              <td class="cell-[Ne&gt;"><time>@2022/09/17 20:01</time></td>
+              <td class="cell-pxVu"><time>@2022/09/19 10:00</time></td>
+              <td class="cell-I{_b">0.194</td>
+              <td class="cell-v&gt;YN">5.107503290917</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_without_solar_cells/Untitled_b6deb6a5d0c643bea896a05c76d7faea.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="b2e79f4b-5f21-4c95-b3a5-f20c812a20e7">
+              <td class="cell-[Ne&gt;"><time>@2022/09/19 10:00</time></td>
+              <td class="cell-pxVu"><time>@2022/09/23 17:47</time></td>
+              <td class="cell-I{_b">0.526</td>
+              <td class="cell-v&gt;YN">5.068251164285</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Comsumption_without_solar_cells/Untitled_b2e79f4b5f214c95b3a5f20c812a20e7.html" title="">Untitled</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="c4f3f5c1-294f-4117-9c9f-41d56a2a8089" class="">What. Average 5.09 W with solar cells and 5.1 without them? Something is not right here.</p>
+      <h1 id="7a876875-5f26-4000-8a4d-0788b9009dc7" class="">Investigation</h1>
+      <p id="ab2d66ca-8f64-4e46-befd-36f8e9872aa4" class="">I had a few theories:</p>
+      <ol type="1" id="b333d832-741c-4419-a123-c310460d6ff7" class="numbered-list" start="1">
+        <li>Solar panels actually don’t provide enough power for PiJuice, so it is deciding it won’t use them.</li>
+      </ol>
+      <ol type="1" id="a4e55eec-322e-435d-bac2-647249e4479d" class="numbered-list" start="2">
+        <li>Some other shenanigans with the solar panels. They have two USB outputs, and one 19V DC jack output. Maybe I am using the wrong USB output? Or I need to use both?</li>
+      </ol>
+      <ol type="1" id="1acbdc4c-7bf4-4433-988b-6955cda131ed" class="numbered-list" start="3">
+        <li>PiJuice is actually ignoring the microUSB input when connected to a GPIO power source (via USB-C on the raspberry).</li>
+      </ol>
+      <ol type="1" id="07630d28-3cae-453c-8166-d754fb9bdf6e" class="numbered-list" start="4">
+        <li>Some other problems with the PiJuice. Since I’ve upgraded the firmware, it stopped showing the battery temperature correctly, and I wasn’t the only one who had the same issue.</li>
+      </ol>
+      <h2 id="b1b3e469-5fd3-4ced-8522-021896bce9a7" class="">Investigation: Solar panels and the sunlight</h2>
+      <p id="c2b0b3c1-67cb-4206-ade8-d068f4017853" class="">Since all I could see in the <code>pijuice_cli</code> was “<code>BAD</code>” and “<code>WEAK</code>” status, I’ve decided that the simplest part of debugging will be just to bring the solar panels outside. Perhaps there is a massive loss because they are inside, and the window glass is blocking most of the power of the sun? Or maybe the angle is wrong and there is some kind of shadow on the panel?</p>
+      <p id="cc8674da-d435-4487-9ea3-77682c303826" class="">So, I sacrificed one old USB cable and connected it to my multimeter:</p>
+      <div id="111b0b9d-c670-4bf4-96ee-44bb2d2bcba1" class="column-list">
+        <div id="f5ee3258-0d3f-462f-a258-d567c84b1783" style="width:37.5%" class="column">
+          <figure id="81565c98-41bb-43ac-a723-b532418a70a0" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_14.53.54.jpg" title="2022-10-15_14.53.54.jpg"><img style="width:1200px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_14.53.54_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="ecaa74b4-b730-4779-ae1d-6aef7996348c" style="width:62.5%" class="column">
+          <figure id="6bcf5bff-2ff0-4d62-9cc6-46aeaa7f9a68" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_15.20.38.jpg" title="2022-10-15_15.20.38.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_15.20.38_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="eeb248e5-a814-4fd1-abed-517d734d4448" class="">It was quite a cloudy, rainy autumn day. The measurement was still clear. If I stay with the solar panel behind glass doors, I get 0.05A (no matter how close I stand behind the glass), if I open the doors and stay directly in the sunlight, I get 0.38A.</p>
+      <div id="53c8687f-5e87-431b-b1bd-80aba91b8bc5" class="column-list">
+        <div id="65851b9a-56cb-48ac-a62c-757cc83ba064" style="width:50%" class="column">
+          <figure id="caf13005-da37-4042-be8c-45a71056c56d" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_14.59.06.jpg" title="2022-10-15_14.59.06.jpg"><img style="width:1200px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_14.59.06_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="4aecd36c-6d6b-497b-8301-e228987d33ba" style="width:50%" class="column">
+          <figure id="7eea4a49-035c-447d-b7d1-ca44eefc2ea8" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_14.59.18.jpg" title="2022-10-15_14.59.18.jpg"><img style="width:1200px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-15_14.59.18_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="48e06330-1a1f-4ea4-a57f-aeeccd657cf8" class="">So, I fixed the solar panel to the balcony doors at the optimal height, where it is not blocked by the balcony itself.</p>
+      <figure id="09c26555-3545-41f9-87a3-f3988dbe5dfa" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-16_16.09.40.jpg" title="2022-10-16_16.09.40.jpg"><img style="width:1200px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-16_16.09.40_thumb.jpg"></a>
+      </figure>
+      <p id="a137275c-74a8-4292-9626-1845ac341c36" class="">I could see one change immediately:</p>
+      <figure id="a7d8f09a-d4bb-43a7-930a-a1ddcf42fcf2" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Screenshot_from_2022-10-17_17-22-29.png" title="Screenshot_from_2022-10-17_17-22-29.png"><img style="width:1284px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/Screenshot_from_2022-10-17_17-22-29_thumb.jpg"></a>
+      </figure>
+      <p id="4fac4500-d4b8-4b58-ba3d-6b9c092e3dfc" class=""><code>USB Micro power input: PRESENT</code> even in late evening. Great. Then I’ve spent a few days by waiting, to gather data points for some more measurements.</p>
+      <div id="12bcdd57-2129-46af-8412-5158d2648d6c" class="collection-content">
+        <h4 class="collection-title">Consumption with solar cells outside</h4>
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>From</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>To</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber">
+              <path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>kWh</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula">
+              <path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Avg power consumption (Wh)</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle">
+              <path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="8bb1bc0c-622a-4fc9-8383-ee00219f94c8">
+              <td class="cell-[Ne&gt;"><time>@2022/10/16 15:05</time></td>
+              <td class="cell-pxVu"><time>@2022/10/17 15:20</time></td>
+              <td class="cell-I{_b">0.115</td>
+              <td class="cell-v&gt;YN">4.742268041237</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/Untitled_8bb1bc0c622a4fc98383ee00219f94c8.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="b77a9c7e-61ed-4823-976c-b18829b69463">
+              <td class="cell-[Ne&gt;"><time>@2022/10/17 16:09</time></td>
+              <td class="cell-pxVu"><time>@2022/10/18 9:40</time></td>
+              <td class="cell-I{_b">0.076</td>
+              <td class="cell-v&gt;YN">4.338725023787</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/Untitled_b77a9c7e61ed4823976cb18829b69463.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="dc07582e-7ec0-493b-ae11-a4d8ae5bf1fe">
+              <td class="cell-[Ne&gt;"><time>@2022/10/18 9:41</time></td>
+              <td class="cell-pxVu"><time>@2022/10/18 19:20</time></td>
+              <td class="cell-I{_b">0.041</td>
+              <td class="cell-v&gt;YN">4.248704663212</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/During_the_day.html" title="During the day.">During the day.</a>
+              </td>
+            </tr>
+            <tr id="ee750062-87c9-4ba3-99a9-bc624d887948">
+              <td class="cell-[Ne&gt;"><time>@2022/10/18 19:22</time></td>
+              <td class="cell-pxVu"><time>@2022/10/19 9:10</time></td>
+              <td class="cell-I{_b">0.059</td>
+              <td class="cell-v&gt;YN">4.275362318841</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/During_the_night.html" title="During the night.">During the night.</a>
+              </td>
+            </tr>
+            <tr id="0e915271-eb5c-471a-9f68-614c7f249207">
+              <td class="cell-[Ne&gt;"><time>@2022/10/19 9:16</time></td>
+              <td class="cell-pxVu"><time>@2022/10/19 18:15</time></td>
+              <td class="cell-I{_b">0.039</td>
+              <td class="cell-v&gt;YN">4.341372912801</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/During_the_day_Switched_back_to_25A_limit.html" title="During the day. Switched back to 2.5A limit.">During the day. Switched back to 2.5A limit.</a>
+              </td>
+            </tr>
+            <tr id="1a594aab-6130-4af5-9910-10b072712450">
+              <td class="cell-[Ne&gt;"><time>@2022/10/19 18:20</time></td>
+              <td class="cell-pxVu"><time>@2022/10/20 9:35</time></td>
+              <td class="cell-I{_b">0.073</td>
+              <td class="cell-v&gt;YN">4.786885245902</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/During_the_night.html" title="During the night.">During the night.</a>
+              </td>
+            </tr>
+            <tr id="78b2294c-5416-4c18-a30d-e83494de22e8">
+              <td class="cell-[Ne&gt;"><time>@2022/10/20 9:35</time></td>
+              <td class="cell-pxVu"><time>@2022/10/20 21:13</time></td>
+              <td class="cell-I{_b">0.06</td>
+              <td class="cell-v&gt;YN">5.157593123209</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_cells_outside/Untitled_78b2294c54164c18a30de83494de22e8.html" title="">Untitled</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="2b827119-a74f-47fa-aff5-12a99629b691" class="">Okay, that seems somewhat promising, but still quite random. For example, sometimes the power consumption is higher during the day than during the night, even though the raspberry was in idle the whole time.</p>
+      <p id="c5ba9191-2a76-466d-9d67-4406efa1e390" class="">When I saw the randomness of it all, I started to play with other settings in the PiJuice, but it still felt like the solar panels were not working properly.</p>
+      <h2 id="d3ca3aa1-c452-4d55-8b99-da1bd86b664d" class="">Investigation 2: Two USB ports on the panel</h2>
+      <p id="322c3296-e80a-4d04-9102-7ce5b010a0e3" class="">Meanwhile, I also built a Y cable with two USB male sockets joining the power from the solar panel to one micro USB output:</p>
+      <figure id="931472d8-7ffe-4bd1-90ab-2c6071dfcd1c" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/cursed_cable.jpg" title="cursed_cable.jpg"><img style="width:1125px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/cursed_cable.jpg"></a>
+      </figure>
+      <p id="3affe6ac-6d37-4734-9924-63a4ebdc9acd" class="">This works, but since the autumn began here, I didn’t really have the use case. The solar panel is not going above 2A most of the time, and the PiJuice is limiting the power draw to 2.5A anyway.</p>
+      <h2 id="81784f7a-1954-4f0c-81e0-d2c97b4eecc4" class="">Investigation 3: PiJuice and power source</h2>
+      <p id="46602805-13e1-4113-aca8-d9f5190575b5" class="">Maybe the PiJuice is always using the stronger power source? Even though I’ve manually selected that <code>GPIO input</code> should be disabled, and set <code>Inputs precedence</code> to <code>USB_MICRO</code>.</p>
+      <figure id="676910b5-2529-4465-ae29-195563c8829c" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Screenshot_from_2022-10-21_15-09-37.png" title="Screenshot_from_2022-10-21_15-09-37.png"><img style="width:1284px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/Screenshot_from_2022-10-21_15-09-37_thumb.jpg"></a>
+      </figure>
+      <p id="63c5ae85-1a89-4e41-a7c6-f5ebb937686a" class="">I’ve decided to see what would happen if I manually disconnected the power source during the day. I had this old power timer device lying around, so I’ve decided to set it to cut the power from 7:00 to 16:00. The battery should hold the rest of the time and the solar panel should have a chance to power the device.</p>
+      <p id="e1c8300c-8cf6-46db-a30f-ee008798b995" class="">At this point, the stack of power devices (Schuko socket convertor (watt meter is using German standard), watt meter, power timer and adapter) was getting quite bizarre:</p>
+      <div id="cb420d6d-b61d-4664-9729-1b3d5cedbcb8" class="column-list">
+        <div id="114a3458-1018-4c65-a7e2-821690834061" style="width:50%" class="column">
+          <figure id="2d2007da-ecde-4e2e-b2dc-1b03ad54fc0d" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-21_15.12.53.jpg" title="2022-10-21_15.12.53.jpg"><img style="width:1255px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-21_15.12.53_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="a4013b5d-1ec1-45ca-845b-c405c67439be" style="width:50%" class="column">
+          <figure id="40feb0d1-2a15-454e-b9cd-5f65347fafca" class="image">
+            <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-21_15.13.06.jpg" title="2022-10-21_15.13.06.jpg"><img style="width:1434px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-10-21_15.13.06_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="e5fddd17-34a7-4620-9479-3dd3494acb2e" class="">One thing I’ve noticed while playing with this is that the <code>GPIO input enable</code> option in the PiJuice basically means <em>“charge battery from USB-C (GPIO)”</em>. Good to know.</p>
+      <p id="35c88dd6-23fb-46a5-b856-7a8e231ac642" class="">Here is some data:</p>
+      <div id="babb8e58-13f5-4a08-a457-406c0850990b" class="collection-content">
+        <h4 class="collection-title">Consumption with solar panel and timer</h4>
+        <table class="collection-content">
+          <thead>
+            <tr>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>From</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate">
+              <path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>To</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber">
+              <path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>kWh</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula">
+              <path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>Avg power consumption (Wh)</th>
+              <th><span class="icon property-icon"><svg viewbox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle">
+              <path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="5004825f-ac0a-40d9-975a-1706e54063b6">
+              <td class="cell-[Ne&gt;"><time>@2022/10/21 15:05</time></td>
+              <td class="cell-pxVu"><time>@2022/10/22 15:35</time></td>
+              <td class="cell-I{_b">0.087</td>
+              <td class="cell-v&gt;YN">3.551020408163</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_panel_and_timer/Untitled_5004825fac0a40d9975a1706e54063b6.html" title="">Untitled</a>
+              </td>
+            </tr>
+            <tr id="0a2117a6-f05c-436b-8cd7-a9080e53f685">
+              <td class="cell-[Ne&gt;"><time>@2022/10/21 15:05</time></td>
+              <td class="cell-pxVu"><time>@2022/10/24 19:30</time></td>
+              <td class="cell-I{_b">0.377</td>
+              <td class="cell-v&gt;YN">4.933478735005</td>
+              <td class="cell-title">
+                <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Consumption_with_solar_panel_and_timer/Untitled_0a2117a6f05c436b8cd7a9080e53f685.html" title="">Untitled</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="0b4b762e-03b9-487c-9067-fa146bc33760" class="">As you can see from the first line, in the short term, it seems like it is working. The second line shows that later, when the USB charger goes online and starts charging the battery, it averages out to more or less the same numbers as if it would run without the timer. Charging of the battery took something like 14W. And while the battery was recharging from the sun, it never really got full and the best I’ve seen was something like 70%, after I’ve changed the blackout period from 8:00 to 17:00. It also has a disadvantage, that it wears out the battery.</p>
+      <p id="24c039cd-ba3d-465b-bc40-49b6fa14a821" class="">This means that the theory that the PiJuice is using the power only when the GPIO (USB-C power in) is disconnected is not true because the numbers are on average more or less the same.</p>
+      <h2 id="7b91a60d-e938-4c9b-9716-bbccbd97fc50" class="">Investigation 4: PiJuice</h2>
+      <p id="8616d557-bf2b-4325-a16d-22f38edac4b9" class="">At this point, I was quite convinced that the problem was most probably in the PiJuice itself. So, I’ve decided to dig into the issues on GitHub:</p>
+      <ul id="5cf0139d-9af7-4fbd-ae96-1aa93002a88c" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/PiSupply/PiJuice/issues/863">https://github.com/PiSupply/PiJuice/issues/863</a>
+          <ul id="2e88dd77-3392-4c5b-90ee-312b4f20c422" class="bulleted-list">
+            <li style="list-style-type:circle">This one hints that the solar panel itself may be deadlocking? Wtf?</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="c872b815-0f1a-4387-a4e7-4b587b99f333" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/PiSupply/PiJuice/issues/585">https://github.com/PiSupply/PiJuice/issues/585</a>
+          <ul id="523af525-9994-4639-b79c-71f67bd07911" class="bulleted-list">
+            <li style="list-style-type:circle">Here they recommend using the Y cable. I bought the proper Y cable after some time, thinking that I maybe fucked up when I put one together myself. It didn’t improve the situation at all.</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="0328866d-77ba-4489-a094-d80eb0e37758" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/PiSupply/PiJuice/issues/582">https://github.com/PiSupply/PiJuice/issues/582</a>
+          <ul id="15064e2c-5c4b-467c-acd7-d7a5997c1b85" class="bulleted-list">
+            <li style="list-style-type:circle">This one says, that the stronger of two inputs wins, which. Hmm.. This would basically mean that the solar panel never wins, and is thus never used? But I have <code>Input precedence</code> set to <code>USB_MICRO</code>?</li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="70ffcdc9-8eae-4f1a-947d-b66b9b546027" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/PiSupply/PiJuice/issues/150">https://github.com/PiSupply/PiJuice/issues/150</a>
+          <blockquote id="d9a71384-238c-43a4-8e95-4b890f83a6b5" class="">
+            Another USB Micro power input feature is Dynamic Power Management Loop (DPM). This feature limits voltage drop at power input to configured minimum. If power source is weak and cannot supply enough current to fully charge battery plus provide loading demand than PiJuice will limit current draw to level that will prevent voltage to fall below preset DPM preventing power source crashing. This is excellent feature for non-reliable sources like energy harvesting and solar panels.
+          </blockquote>
+          <p id="c0f79871-cf35-4615-99ef-1b09d3736c43" class=""><a href="https://raw.githubusercontent.com/PiSupply/PiJuice/master/Hardware/Datasheets/BQ24160RGET.pdf">https://raw.githubusercontent.com/PiSupply/PiJuice/master/Hardware/Datasheets/BQ24160RGET.pdf</a></p>
+        </li>
+      </ul>
+      <ul id="8a802fb5-3415-48de-83ae-5e6d1a314abf" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/PiSupply/PiJuice/issues/81">https://github.com/PiSupply/PiJuice/issues/81</a>
+          <blockquote id="e01175cc-a070-4636-9b8c-2e5eabdbdfd5" class="">
+            changing "USB micro IN DPM" from default 4.2 to for example 4.52 appears to improve the charging situation from my usb battery at least for a little while anyway.
+          </blockquote>
+          <ul id="5e3a51b9-b225-4eee-bf3b-195c73272e53" class="bulleted-list">
+            <li style="list-style-type:circle">Well, at this point, I may as well try this (so I did, it didn’t help).</li>
+          </ul>
+        </li>
+      </ul>
+      <h2 id="051b5f02-4f72-4f49-9f5f-2ee4943d0674" class="">Investigation 5: Solar panel controller</h2>
+      <p id="f6ca8653-ab0a-4403-975f-dd64bfaa38ce" class="">As the <a href="https://github.com/PiSupply/PiJuice/issues/863">#863</a> hints, there may be a problem with the solar panel controller. It is trying to be smart, and maybe it is deadlocking and not letting the power flow properly when it should.</p>
+      <p id="69a3fd4b-c176-4ec9-9256-8489fcaf16f8" class="">I wrote a simple script (<a href="https://github.com/Bystroushaak/pijuice_histograms">Github link</a> with <code>.deb</code> package) to monitor the status of the solar panel using the PiJuice API because I wanted to see how the status changes in the long term. Most of the days, it looked like this:</p>
+      <figure id="6d342885-ca51-4da6-8762-23b2189f8e06" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Untitled.png" title="Untitled.png"><img style="width:1500px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/Untitled_thumb.jpg"></a>
+      </figure>
+      <p id="ab68e8a9-1869-4e6e-86e9-dc8ffb5126e8" class="">This was somewhat expected. It was the end of December, and the sun was mostly hidden behind the clouds.</p>
+      <figure id="1816bbcd-b69b-4fbb-ad95-32540a2be2ed" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-12-29_12.51.42-1.jpg" title="2022-12-29_12.51.42-1.jpg"><img style="width:1600px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/2022-12-29_12.51.42-1_thumb.jpg"></a>
+      </figure>
+      <p id="adc62315-f629-4485-ad17-ce3936c2be17" class="">I was surprised when I was toying with USB watt meter, connecting and disconnecting various cables, not really finding anything interesting. But when I plugged everything back in, I saw this:</p>
+      <figure id="d7ee38b6-2070-4bb3-8895-37cbac8aa315" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/Untitled_1.png" title="Untitled_1.png"><img style="width:1500px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/Untitled_1_thumb.jpg"></a>
+      </figure>
+      <p id="385f82a9-447e-4e51-8cac-8f60dbb80362" class="">Which shows that the solar was providing enough power for half an hour without any other change than just unplugging and plugging in the cables back.</p>
+      <h1 id="6e8234c9-d58d-4e20-9ec5-d9b24d423afb" class="">Conclusion</h1>
+      <p id="7567b7a1-99ba-4238-8d7f-826d0e593e77" class="">After all this, I’ve let it run for a few months. Most if not all days looked like this:</p>
+      <figure id="c0bc6c64-999b-4b8e-8c9e-71675fb09495" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/3.png" title="3.png"><img style="width:1500px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/3_thumb.jpg"></a>
+      </figure>
+      <p id="63484adb-f596-4ef3-9a3e-5533f1dab883" class="">Then one day, when I was on home office, I disconnected and connected the solar panels and then disconnected the battery for the rest of the day, and it looked like this:</p>
+      <figure id="38bc274a-93e8-4da7-8694-792774f7816c" class="image">
+        <a href="SolarPi_experiment_1_The_PiJuice_Fiasco/0.png" title="0.png"><img style="width:1500px" src="SolarPi_experiment_1_The_PiJuice_Fiasco/0_thumb.jpg"></a>
+      </figure>
+      <p id="0d4c7f95-1df0-4f06-a33a-bbbe43e8338c" class="">And this was after a week of the same weather and quite sunny days. So, the conclusion, hmm.</p>
+      <ol type="1" id="415cfc9b-5d15-4c45-b77c-4d0f71c82ed8" class="numbered-list" start="1">
+        <li>It <em>needs</em> to be restarted. Manually. By disconnecting the cable, and also by shielding the solar panel from the sunlight.</li>
+      </ol>
+      <ol type="1" id="4ecbc47d-ab56-40eb-8847-05db633b80fc" class="numbered-list" start="2">
+        <li>It doesn’t really do what I want it to do (use solar panel as the primary and grid power only when needed).</li>
+      </ol>
+      <ol type="1" id="3fd8953b-5d00-418a-af2b-27d307985c1d" class="numbered-list" start="3">
+        <li>While it may work sporadically, it's everything but reliable.</li>
+      </ol>
+      <p id="5511a851-c576-47c4-84c6-cdb84014f2c1" class="">It was about time to acknowledge what should have been obvious months ago;</p>
+      <blockquote id="b076aa23-3d54-4206-a3a6-44fbc336e8b8" class="">
+        The PiJuice or the solar panel is a piece of 💩, and I am wasting my time, money and life.
+      </blockquote>
+      <p id="a5f142bf-af1f-4f97-a22b-3cb460cbccbc" class="">This is partially my mistake, but only partially. Sure, it may be that the whole PiJuice is just designed in a way that doesn’t fit my use case. But the whole marketing (especially in eshops where it is sold) is really leading you to believe that it should work. I think the solar panel would be usable for things like temporary charging during a trip, but it doesn’t truly work for continuous operation.</p>
+      <p id="0c5d26fa-b0c9-432e-95ec-4175aeb08276" class="">I’ve decided to look into more .. professional solution, not based on the raspberry shields and not using toy 5V USB solar panels, so you can expect another blogpost in a few months. Think 12/24V solar panels, MPPT charge controllers and bigger batteries.</p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../Programming/objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+        <li>
+          <a href="../Explorations/List_of_notionso_python_API_libraries_2022-04.html" title="List of notion.so python API libraries 2022-04">List of notion.so python API libraries 2022-04</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/hardware.html" title="hardware">hardware</a>, <a href="../../Tags/raspberry.html" title="raspberry">raspberry</a>, <a href="../../Tags/server.html" title="server">server</a>, <a href="../../Tags/solar.html" title="solar">solar</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>
