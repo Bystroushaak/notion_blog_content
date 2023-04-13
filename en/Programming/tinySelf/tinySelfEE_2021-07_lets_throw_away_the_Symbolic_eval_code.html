@@ -250,30 +250,30 @@
       <h1 id="3ea77705-22d2-4250-8fd4-f7e09732062a" class="">Let's work on it</h1>
       <p id="0f26ae4b-6c28-4c24-a555-91d8b5103aa4" class="">Ok. So, what is missing. From what I understand now, the evaluation should be just a matter of calling <code>.evaluate()</code> on the root of the output from <code>SymbolicCompiler</code>. Lets try that.</p>
       <p id="a098d464-ecbe-4768-9b59-8d5e9ca19d45" class="">My <code>Main</code> class calles this method:</p>
-      <pre class="code"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">runFile</span><span class="p">(</span><span class="n">String</span> <span class="n">file_path</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
-    <span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">file_path</span><span class="p">));</span>
-    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ASTItem</span><span class="o">&gt;</span> <span class="n">ast</span> <span class="o">=</span> <span class="n">parseSourceAndPrintErrors</span><span class="p">(</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">));</span>
+      <pre class="code"><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">runFile</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">file_path</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">file_path</span><span class="p">));</span>
+<span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ASTItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseSourceAndPrintErrors</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">));</span>
 
-    <span class="n">printRawAst</span><span class="p">(</span><span class="n">ast</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printRawAst</span><span class="p">(</span><span class="n">ast</span><span class="p">);</span>
 
-    <span class="n">SymbolicCompiler</span> <span class="n">compiler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SymbolicCompiler</span><span class="p">();</span>
-    <span class="n">compiler</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="n">ast</span><span class="p">);</span>
-    <span class="n">printSymbolicRepresentation</span><span class="p">(</span><span class="n">compiler</span><span class="p">.</span><span class="na">getCode</span><span class="p">());</span>
+<span class="w">    </span><span class="n">SymbolicCompiler</span><span class="w"> </span><span class="n">compiler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SymbolicCompiler</span><span class="p">();</span>
+<span class="w">    </span><span class="n">compiler</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="n">ast</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printSymbolicRepresentation</span><span class="p">(</span><span class="n">compiler</span><span class="p">.</span><span class="na">getCode</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre>
       <p id="2db7c6a3-d75b-4efc-85fe-4686f6dccdb8" class="">Let's add evaluation:</p>
       <pre class="code"><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"---"</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Symbolic evaluation time:\n"</span><span class="p">);</span>
 
-<span class="n">SymbolicObject</span> <span class="n">namespace</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SymbolicObject</span><span class="p">();</span>
-<span class="n">SymbolicFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SymbolicFrame</span><span class="p">();</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">SymbolicEvalProtocol</span> <span class="n">item</span> <span class="p">:</span> <span class="n">symbolic_code</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">item</span><span class="p">.</span><span class="na">evaluate</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
+<span class="n">SymbolicObject</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SymbolicObject</span><span class="p">();</span>
+<span class="n">SymbolicFrame</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SymbolicFrame</span><span class="p">();</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">SymbolicEvalProtocol</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">symbolic_code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="na">evaluate</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
       <p id="66e9f094-9f3b-4c13-8418-e95c8b8addeb" class="">I've added an empty <code>namespace</code> object, which will in time hold default objects required for the interpreter to be able to do anything useful.</p>
       <p id="f786ce2b-22c6-45fe-8404-0fa8c69a8395" class="">And I've added toplevel <code>frame</code>. I call it and it does .. nothing. I can't say I expected more. Let's look at the implementation of the <code>SymbolicSend</code>'s evaluate method:</p>
-      <pre class="code"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">SymbolicObject</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">SymbolicFrame</span> <span class="n">frame</span><span class="p">)</span> <span class="p">{</span>
+      <pre class="code"><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">SymbolicObject</span><span class="w"> </span><span class="n">namespace</span><span class="p">,</span><span class="w"> </span><span class="n">SymbolicFrame</span><span class="w"> </span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="p">}</span>
 </code></pre>
@@ -281,8 +281,8 @@
       <h1 id="529bd2df-420c-4777-be0d-893d48305228" class="">Symbolic evaluation</h1>
       <p id="035eca50-92f6-4c30-a2c6-86a7701d776d" class="">Hmm, how should it work. I can see, that the <code>SymbolicObject</code> has this implementation of the <code>.evaluate()</code> method:</p>
       <pre class="code"><code><span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">SymbolicObject</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">SymbolicFrame</span> <span class="n">frame</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">frame</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">SymbolicObject</span><span class="w"> </span><span class="n">namespace</span><span class="p">,</span><span class="w"> </span><span class="n">SymbolicFrame</span><span class="w"> </span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">frame</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
       <p id="5fb7266e-583a-4476-b717-bc783e7427ff" class="">When called, it adds itself on top of the stack in the <code>frame</code>. It seems that it would be a good idea to call <code>.evaluate()</code> on the first object (<code>receiver</code>) in the symbolic send. This will also work for the case when the <code>receiver</code> is other <code>SymbolicSend</code>. But it won't work for the cases, where <code>receiver</code> is <code>self</code>.</p>
@@ -369,11 +369,13 @@ SymbolicFrame(
       <ul id="07e63351-f25e-4e2c-a699-82f22f8223c1" class="to-do-list">
         <li>
           <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">☐ Implement <code>plantuml</code> debug printers because the debug printouts are basically unreadable.</span>
+          <div class="indented"></div>
         </li>
       </ul>
       <ul id="ef9bb79d-88a1-4f76-b627-6d784363f002" class="to-do-list">
         <li>
           <div class="checkbox checkbox-off"></div><span class="to-do-children-unchecked">☐ Suffix for the tinySelfEE scripts: <code>tse</code>? I've used <code>tself</code> now, but I don't like it anymore.</span>
+          <div class="indented"></div>
         </li>
       </ul>
       <p id="4adfbf65-5157-4006-b21f-c57033cb7d10" class=""></p>

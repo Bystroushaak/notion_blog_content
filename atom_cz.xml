@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom_cz.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2023-03-10T13:46:06.782570+00:00</updated>
+  <updated>2023-04-13T19:46:48.385858+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom_cz.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/cz/3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html</id>
-    <title>3D tiskárna Průša MK3S+; sestavení a první tisk</title>
-    <updated>2021-01-15T23:36:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/cz/3D_tisk/3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" rel="alternate"/>
-    <summary type="text">Sestavení tiskárny a první dojmy.</summary>
-    <published>2021-01-15T23:36:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/cz/Ostatni/Dva_podvodnici.html</id>
     <title>Dva podvodníci</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/cz/Povidky/Software.html" rel="alternate"/>
     <summary type="text">Další pokus o sci-fi povídku, který se mi už několik let válí ve wiki. Varování; obsahuje scény násilí, sprostá slova a celkově možná trochu šokující koncepty.</summary>
     <published>2021-11-20T15:30:00+01:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/Programovani/Jak_na_vlastni_LLM_GPT.html</id>
+    <title>Jak na vlastní LLM (GPT)</title>
+    <updated>2023-04-13T19:52:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/Programovani/Jak_na_vlastni_LLM_GPT.html" rel="alternate"/>
+    <summary type="text">Povídání o GPT a LLM (Large Language Models), návod jak si rozjet menší modely doma a pár ukázek jak používám GPT4.</summary>
+    <published>2023-04-13T19:52:00+02:00</published>
   </entry>
 </feed>

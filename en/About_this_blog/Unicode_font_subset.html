@@ -9,27 +9,27 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <style>
   pre { line-height: 125%; }
-  td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-  span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-  td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
   span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
   .hll { background-color: #ffffcc }
-  .c { color: #408080; font-style: italic } /* Comment */
+  .c { color: #3D7B7B; font-style: italic } /* Comment */
   .err { border: 1px solid #FF0000 } /* Error */
   .k { color: #008000; font-weight: bold } /* Keyword */
   .o { color: #666666 } /* Operator */
-  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-  .cp { color: #BC7A00 } /* Comment.Preproc */
-  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-  .c1 { color: #408080; font-style: italic } /* Comment.Single */
-  .cs { color: #408080; font-style: italic } /* Comment.Special */
+  .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+  .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+  .cp { color: #9C6500 } /* Comment.Preproc */
+  .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+  .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+  .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
   .gd { color: #A00000 } /* Generic.Deleted */
   .ge { font-style: italic } /* Generic.Emph */
-  .gr { color: #FF0000 } /* Generic.Error */
+  .gr { color: #E40000 } /* Generic.Error */
   .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-  .gi { color: #00A000 } /* Generic.Inserted */
-  .go { color: #888888 } /* Generic.Output */
+  .gi { color: #008400 } /* Generic.Inserted */
+  .go { color: #717171 } /* Generic.Output */
   .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
   .gs { font-weight: bold } /* Generic.Strong */
   .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
@@ -42,15 +42,15 @@
   .kt { color: #B00040 } /* Keyword.Type */
   .m { color: #666666 } /* Literal.Number */
   .s { color: #BA2121 } /* Literal.String */
-  .na { color: #7D9029 } /* Name.Attribute */
+  .na { color: #687822 } /* Name.Attribute */
   .nb { color: #008000 } /* Name.Builtin */
   .nc { color: #0000FF; font-weight: bold } /* Name.Class */
   .no { color: #880000 } /* Name.Constant */
   .nd { color: #AA22FF } /* Name.Decorator */
-  .ni { color: #999999; font-weight: bold } /* Name.Entity */
-  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .ni { color: #717171; font-weight: bold } /* Name.Entity */
+  .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
   .nf { color: #0000FF } /* Name.Function */
-  .nl { color: #A0A000 } /* Name.Label */
+  .nl { color: #767600 } /* Name.Label */
   .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
   .nt { color: #008000; font-weight: bold } /* Name.Tag */
   .nv { color: #19177C } /* Name.Variable */
@@ -67,11 +67,11 @@
   .dl { color: #BA2121 } /* Literal.String.Delimiter */
   .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
   .s2 { color: #BA2121 } /* Literal.String.Double */
-  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
   .sh { color: #BA2121 } /* Literal.String.Heredoc */
-  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
   .sx { color: #008000 } /* Literal.String.Other */
-  .sr { color: #BB6688 } /* Literal.String.Regex */
+  .sr { color: #A45A77 } /* Literal.String.Regex */
   .s1 { color: #BA2121 } /* Literal.String.Single */
   .ss { color: #19177C } /* Literal.String.Symbol */
   .bp { color: #008000 } /* Name.Builtin.Pseudo */
@@ -238,8 +238,8 @@
       <h2 id="8a50a77c-0564-4c13-a4c2-06a2a63459d5" class="">Character codes</h2>
       <p id="879b4ff5-cc16-44d1-bb85-a031973b00a9" class="">I've found out what kind of unicode codes I want simply by typing it to the python shell:</p>
       <pre class="code"><code><span class="err">$</span> <span class="n">python</span>
-<span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">17</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Apr</span> <span class="mi">15</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">14</span><span class="p">)</span> 
-<span class="p">[</span><span class="n">GCC</span> <span class="mf">7.5</span><span class="o">.</span><span class="mi">0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux2</span>
+<span class="n">Python</span> <span class="mf">2.7.17</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Apr</span> <span class="mi">15</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">14</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">7.5.0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux2</span>
 <span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="sa">u</span><span class="s2">"📰📄📩📂📄🗒"</span>
 <span class="sa">u</span><span class="s1">'</span><span class="se">\U0001f4f0\U0001f4c4\U0001f4e9\U0001f4c2\U0001f5ce\U0001f5d2</span><span class="s1">'</span>
@@ -249,15 +249,15 @@
       <p id="6eb8d0ec-d408-47b7-b500-fd619008a9c9" class="">Add this to your CSS:</p>
       <pre class="code"><code><span class="o">...</span>
 
-<span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
-    <span class="nt">font-family</span><span class="o">:</span> <span class="s2">"NotoEmojiSubset"</span><span class="o">;</span>
-    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="nt">NotoEmojiSubset</span><span class="p">.</span><span class="nc">ttf</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"ttf"</span><span class="o">);</span>
-    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="nt">NotoEmojiSubset</span><span class="p">.</span><span class="nc">woff</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">"woff"</span><span class="o">);</span>
-    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
-    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">400</span><span class="o">;</span>
+<span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">font-family</span><span class="o">:</span><span class="w"> </span><span class="s2">"NotoEmojiSubset"</span><span class="o">;</span>
+<span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="nt">NotoEmojiSubset</span><span class="p">.</span><span class="nc">ttf</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">"ttf"</span><span class="o">);</span>
+<span class="w">    </span><span class="nt">src</span><span class="o">:</span><span class="w"> </span><span class="nt">url</span><span class="o">(</span><span class="nt">NotoEmojiSubset</span><span class="p">.</span><span class="nc">woff</span><span class="o">)</span><span class="w"> </span><span class="nt">format</span><span class="o">(</span><span class="s2">"woff"</span><span class="o">);</span>
+<span class="w">    </span><span class="nt">font-style</span><span class="o">:</span><span class="w"> </span><span class="nt">normal</span><span class="o">;</span>
+<span class="w">    </span><span class="nt">font-weight</span><span class="o">:</span><span class="w"> </span><span class="nt">400</span><span class="o">;</span>
 <span class="p">}</span>
 
-<span class="p">.</span><span class="nc">sans</span> <span class="p">{</span> <span class="k">font-family</span><span class="p">:</span> <span class="n">NotoEmojiSubset</span><span class="p">,</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">"Segoe UI"</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="s2">"Apple Color Emoji"</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">"Segoe UI Emoji"</span><span class="p">,</span> <span class="s2">"Segoe UI Symbol"</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">.</span><span class="nc">sans</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">NotoEmojiSubset</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="w"> </span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="w"> </span><span class="s2">"Segoe UI"</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="s2">"Apple Color Emoji"</span><span class="p">,</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">,</span><span class="w"> </span><span class="s2">"Segoe UI Emoji"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Segoe UI Symbol"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
 <span class="o">...</span>
 </code></pre>
