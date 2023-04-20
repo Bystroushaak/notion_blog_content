@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>How to run your own LLM (GPT)</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="How to run your own LLM (GPT)">
+  <meta name="twitter:description" content="Some context about GPT &amp; LLM (Large Language Models), how to run them on your own computer, and some examples how I use GPT4.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/How_to_run_your_own_LLM_GPT/twitter_preview.jpg">
+  <script src="../../../scripts.js"></script>
+  <meta name="description" content="Some context about GPT &amp; LLM (Large Language Models), how to run them on your own computer, and some examples how I use GPT4.">
+  <meta name="keywords" content="ai,gpt,dao,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="../How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../../Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+      </ul>
+    </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../../cz/Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/ai.html" title="ai">ai</a>, <a href="../../../Tags/dao.html" title="dao">dao</a>, <a href="../../../Tags/gpt.html" title="gpt">gpt</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../index.html" class="breadcrumb" title="Programming">Programming</a> / How to run your own LLM (GPT)
+  <article id="5805c70b-cc1a-4eb0-9fee-b27711eb143b" class="page sans">
+    <header>
+      <h1 class="page-title">How to run your own LLM (GPT)</h1>
+    </header>
+    <div class="page-body">
+      <p id="1a711450-278a-4b1b-bb75-bf584915bfb8" class=""><time>@2023/04/20</time></p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="73740dc3-75d1-4ec1-bff0-fd8af0ba3ce5">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          Originally published in Czech language here: <a href="../../../cz/Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>.
+        </div>
+      </figure>
+      <blockquote id="6916ca21-742d-46eb-a05c-47de0113b83f" class="">
+        Imagine you are a machine.
+        <p id="683e51bd-a0f9-4950-9e89-07037e9d9138" class="">Yes, I know. But imagine you're a different <em>kind</em> of machine, one built from metal and plastic and designed not by blind, haphazard natural selection but by engineers and astrophysicists with their eyes fixed firmly on specific goals. Imagine that your purpose is not to replicate, or even to survive, but to gather information.</p>
+        <p id="6b8f6622-c4a5-4ae2-8e8a-ee3e58babce1" class="">— <a href="https://www.rifters.com/real/Blindsight.htm">Blindsight</a>, Peter Watts</p>
+      </blockquote>
+      <hr id="5cedad9b-c93f-4e6c-8f20-53023e067f0a">
+      <p id="8534d7a5-33cf-4e9a-bca7-7a0e0a901bb8" class="">Celebrities of the technical world are <a href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/">protesting</a>, calling for a halt to the development of large language models for at least 6 months.</p>
+      <ul id="10300afc-68e0-452e-8428-ef7d0719224f" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.forbes.com/sites/timabansal/2023/04/17/elon-musk-and-ai-leaders-call-for-gpt-4-to-pause-is-it-about-managing-risks-or-catching-up-in-the-ai-race/?sh=74cd297b7ed5">Elon Musk And AI Leaders Call For GPT-4 To Pause: Is It About Managing Risks Or Catching Up In The AI Race?</a>
+        </li>
+      </ul>
+      <ul id="1cd63290-c818-49a3-9b7e-1bd747d08248" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.theguardian.com/technology/2023/mar/31/ai-research-pause-elon-musk-chatgpt">Letter signed by Elon Musk demanding AI research pause sparks controversy</a>
+        </li>
+      </ul>
+      <ul id="c27fa26c-21ac-47fa-81f2-e720f3d80ab1" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.cnbc.com/2023/04/14/openai-ceo-altman-addresses-letter-from-musk-wozniak-calling-for-ai-pause.html">OpenAI CEO Sam Altman addresses letter from Musk and other tech leaders calling for A.I. pause</a>
+        </li>
+      </ul>
+      <p id="79ae10aa-ae26-4e3f-aaf1-3f872a365110" class="">As true chaotic neutrals, we will therefore learn how to run AI at home. But with a preface and some context, so we actually know what we're doing.</p>
+      <h1 id="73039055-2980-479d-9935-ed3f7905aa82" class="">Understanding GPT / LLM</h1>
+      <p id="27c532ae-8b7b-4612-966f-7e657995eef3" class="">I encounter a fundamental misunderstanding that people often have who somewhat know how it works:</p>
+      <blockquote id="dda9de2b-1a3b-480b-b79b-62c2b3020b21" class="">
+        It's just a predictor of the next word (token).
+      </blockquote>
+      <p id="16154dd2-39ae-43f1-bd1d-2b25d2c01c06" class="">While this is true to some extent, it's important to note that when you type on a keyboard, you are also essentially predicting and adding the next word.</p>
+      <figure id="3b851013-0021-4658-9cc9-1b6fde94d6c6" class="image">
+        <a href="Untitled.png" title="Untitled.png"><img style="width:576px" src="Untitled.png"></a>
+        <figcaption>
+          <em>(Source:</em> <em><a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">What Is ChatGPT Doing … and Why Does It Work?</a></em><em>)</em>
+        </figcaption>
+      </figure>
+      <p id="d9afb8b0-e611-4eaf-957f-18ad1f0712dc" class="">As Ilya Sutskever (one of the creators) explains:</p>
+      <figure id="683cfb82-c973-4c1d-8451-00806f2c940f">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Yf1o0TQzry8?start=394" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="fbfba17f-01a8-438a-980a-cba47d85f258" class="">In order for a neural network to predict the next token over the gigantic dataset it was trained on, it must create rich internal representations. These include not only all possible human languages but also knowledge, relationships, and patterns.</p>
+      <p id="e2e9ad15-0d8c-4633-88e0-dbbb11b016e6" class="">This is sometimes referred to as <em>"compression"</em> because the network is, the way it is trained on a large amount of data, forced to create these representations over a limited set of weights and neurons. In theory, it could store billions of examples in the style of a <em>"Chinese room,"</em> where it simply saves <em>"question"</em> - <em>"answer"</em> (the beginning of the completed text—the following token). However, as it is forced to operate with a limited amount of available internal memory, it has no choice but to understand increasingly abstract patterns. Somehow, it internally represents this as <em>"knowledge"</em> and <em>"understanding."</em></p>
+      <figure id="8afef576-09ff-482b-a251-22a9b96d42f8" class="image">
+        <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:949px" src="Untitled_1.png"></a>
+        <figcaption>
+          <em>(PlantUML was generated by GPT4, the image in the right corner by</em> <em><strong>DALL·E 2</strong></em><em>)</em>
+        </figcaption>
+      </figure>
+      <p id="991b5db5-e5fe-46d9-b2df-91bf8e51f350" class="">This pattern recognition occurs at the language level (syntax and grammar), the <em>word embeddings</em> level (meaning of words and how they relate), and at a much more abstract level (how things being discussed function and how they relate).</p>
+      <p id="eec631e8-d1e0-4c21-bf0f-098b039fe5f9" class="">Thus, it does not work by simply completing conversations based on what it has seen before. That's why these models are capable of translating between languages better than anything else that has existed so far – because they genuinely understand the context of what is being discussed.</p>
+      <p id="b12df9d7-ded2-472e-acc2-e8deee8ce8f5" class="">If the model were to complete based solely on what it has already seen, it would not be able to translate unless it had previously seen the exact sentence or ideally the entire paragraph.</p>
+      <p id="055c4a60-0173-4291-ab26-0f5cf539dcb6" class="">As <a href="https://www.youtube.com/watch?v=goOa0biX6Tc">Ilya Sutskever says</a>, imagine that during training, it completes a detective novel's text where the murderer is revealed only on the last page of the book filled with various investigations. For the network to correctly complete the murderer's name when the detective mentions it in the text, it must <em>understand</em> all possible connections, the entire investigation, different pieces of evidence, and so on.</p>
+      <h2 id="09bb920b-1fb1-4033-9e1b-46d4b7b4f10d" class="">Simulators</h2>
+      <p id="5171645f-6f5d-42f1-ba1e-f4d55c5545cd" class="">Before the chat mode was introduced, the results, for example with GPT-3, were somewhat unsatisfactory. Sure, it did something, but after the initial surprise, it was not absolutely mind-blowing, and it often went in an entirely different direction than desired. Overall, it appeared quite limited.</p>
+      <p id="ce3d6fb6-496f-49a9-ae65-b00230d8e79f" class="">As many people have observed, the performance dramatically depended on the prompt given to the AI. Sometimes it couldn't explain or do anything. Other times, it succeeded when told to pretend to be Sherlock Holmes.</p>
+      <p id="56577679-ea74-418e-ae22-31c45a90859b" class="">This is essentially due to the way it was trained and that it is a text completer. It simply tends to complete. In order to make it complete intelligently and usefully, it is necessary to set the context so that it <em>completes</em> the story of a smart and useful character – like Sherlock Holmes. Just as it would be in the training data. Smart behavior in stories about smart people. If one let it complete something without proper context, the results were quite random.</p>
+      <p id="d39210d5-efea-4d73-b782-07f310254e8a" class=""><a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a> is a beautiful blog on this topic, with many examples.</p>
+      <h2 id="191a7bc7-eec2-46c9-b331-eebca9e9342c" class="">Chat</h2>
+      <p id="4c98d9e6-8b6b-485e-a0a1-b3ebc9dc96ab" class="">With this comes the surprisingly high utility of chat. Chat is not a radically new feature, but rather a way in which auto-completion is being utilized. For example, in <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, we can find a file <code>chat-with-bob.txt</code> in the <code>prompts/</code> subfolder. It contains the following content:</p>
+      <pre id="b65fa331-27a8-45b6-a698-cdf395834549" class="code code-wrap"><code>Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
+
+User: Hello, Bob.
+Bob: Hello. How may I help you today?
+User: Please tell me the largest city in Europe.
+Bob: Sure. The largest city in Europe is Moscow, the capital of Russia.
+User:</code></pre>
+      <p id="d10054c8-5a64-49fe-929d-acb3d69317ff" class="">The entire <em>chat mode</em> works in a very trivial way – first, it feeds the AI assistant's conversation transcript to the network for completion, starting with a <em>prompt</em>, followed by a sample <em>format</em> (question, answer). Once the program encounters the <code>User:</code> pattern in the output, it uses simple pattern matching:</p>
+      <pre id="437d896c-f439-47ef-bab8-8cbcaee53f9b" class="code code-wrap"><code>-r PROMPT, --reverse-prompt PROMPT
+     run in interactive mode and poll user input upon seeing PROMPT (can be
+     specified more than once for multiple prompts).</code></pre>
+      <p id="0d87d069-b26c-450d-9e93-98993b54a926" class="">If it finds a string specified in this parameter, it loads a bit of data from the user, adds it to the original document, and continues completing. This creates the entire illusion of chat, even though the model is still just completing the "transcript" of a conversation between a human and artificial intelligence.</p>
+      <p id="1a0abc1a-ea7c-45b4-9f4a-357d7c359124" class="">When you look at the <em>prompt</em>, it provides the context of the simulator – a transcript of a conversation with a helpful assistant, which has a <em>format</em> of alternating questions and answers. The model, therefore, behaves usefully and helpfully because it completes the story of what it would look like if it were being useful and helpful.</p>
+      <p id="6ae832a6-97c9-4ed3-a565-5d3f94a0ef9d" class="">This also means that when you chat with the AI using ChatGPT, you don't have access to the context. However, if you go to the <a href="https://platform.openai.com/playground">playground</a>, you can set the <em>prompt</em> to some extent (I write <em>to some extent</em> because, in my opinion, OpenAI still appends its <em>prompt</em>):</p>
+      <figure id="cd0a6986-4064-42fe-b027-b3311ce56215" class="image">
+        <a href="Screenshot_from_2023-04-20_15-16-19.png" title="Screenshot_from_2023-04-20_15-16-19.png"><img style="width:1212px" src="Screenshot_from_2023-04-20_15-16-19_thumb.jpg"></a>
+      </figure>
+      <p id="2d6b0201-9622-49e2-89d8-17a15fb8dc6d" class="">Here is an example of a response with a different <em>prompt</em>:</p>
+      <figure id="bee69014-ef32-40d1-84a0-e5fe7aa088e0" class="image">
+        <a href="Screenshot_from_2023-04-20_15-17-16.png" title="Screenshot_from_2023-04-20_15-17-16.png"><img style="width:1205px" src="Screenshot_from_2023-04-20_15-17-16_thumb.jpg"></a>
+      </figure>
+      <p id="1b8c125b-ded0-45d3-955c-40db9d213716" class=""><em>Prompts</em> can also provide a much more complex <em>format</em>, for example, simulating deeper thinking about questions, as seen in <a href="https://github.com/ggerganov/llama.cpp/blob/master/prompts/reason-act.txt">llama.cpp/prompts/reason-act.txt</a>:</p>
+      <pre id="a0e4e186-723b-4609-85ac-5d0d8ca911ad" class="code code-wrap"><code>You run in a loop of Thought, Action, Observation.
+At the end of the loop either Answer or restate your Thought and Action.
+Use Thought to describe your thoughts about the question you have been asked.
+Use Action to run one of these actions available to you:
+- calculate[python math expression]
+Observation will be the result of running those actions
+
+
+Question: What is 4 * 7 / 3?
+Thought: Do I need to use an action? Yes, I use calculate to do math
+Action: calculate[4 * 7 / 3]
+Observation: 9.3333333333
+Thought: Do I need to use an action? No, have the result
+Answer: The calculate tool says it is 9.3333333333
+Question: What is capital of france?
+Thought: Do I need to use an action? No, I know the answer
+Answer: Paris is the capital of France
+Question:</code></pre>
+      <p id="ae1f0d60-a97b-4494-a689-aae7488100a0" class="">So, the model not only tries to give an answer but first <em>Thinks</em>, then plans an <em>Action</em>, followed by an <em>Observation</em>, after which it <em>Thinks</em> again and finally provides an <em>Answer</em>. This way, it is possible to overcome some of the model's shortcomings, such as short-term memory or issues with long-term planning.</p>
+      <h2 id="5f9fb618-7dce-4a9f-a81d-156551f3b53a" class="">Human alignment & shoggoth</h2>
+      <p id="b1062ddd-8679-4511-bc2d-e7f41d712d6e" class="">With the <em>chat mode</em>, it has been shown that existing LLMs can function as useful AI, but they are completely foreign to our expectations and often do not do what we want them to.</p>
+      <p id="3e262682-f570-44f7-86ac-72a529295d7c" class="">An interesting development over the past half-year or so is that they can be relatively quickly adapted using <a href="https://huggingface.co/blog/rlhf">RLHF</a> (Reinforcement Learning from Human Feedback). This involves extending the original functioning model with an additional layer that indicates the <em>suitability</em> of the response, and then it learns <em>acceptable behavior</em> from various conversation examples. The model does not learn new facts or new ways of thinking about the world, but essentially, what we want from it, what is relevant to humans, and what is not.</p>
+      <p id="a48ae17e-271d-461f-99d8-b46c88a4f70b" class="">This led to the creation of the Shoggoth meme, a monster with a human mask because in the background, it is still something entirely foreign, a simulator with a friendly mask applied:</p>
+      <div id="3e9cf74e-ea66-4b08-b91b-ba79dcdf867d" class="column-list">
+        <div id="7434d394-e57b-4104-98ec-476f3970fb7f" style="width:33.333333333333336%" class="column">
+          <figure id="3151d340-ed9d-4b00-8a5d-4574e5900975" class="image">
+            <a href="FqZ6ud1WcAMvZvt.jpeg" title="FqZ6ud1WcAMvZvt.jpeg"><img style="width:1400px" src="FqZ6ud1WcAMvZvt_thumb.jpg"></a>
+            <figcaption>
+              <em>(Source:</em> <em><a href="https://twitter.com/mealreplacer/status/1632126858299863040">https://twitter.com/mealreplacer/status/1632126858299863040</a></em><em>)</em>
+            </figcaption>
+          </figure>
+        </div>
+        <div id="4646806c-a78a-488d-99fe-de9fa8d0e436" style="width:33.333333333333336%" class="column">
+          <figure id="5b29b6f2-fd65-4ea4-9f7e-ed0e5df14595" class="image">
+            <a href="Fsvsl4AWcAA6xo7.jpeg" title="Fsvsl4AWcAA6xo7.jpeg"><img style="width:708px" src="Fsvsl4AWcAA6xo7.jpeg"></a>
+            <figcaption>
+              <em>(Source:</em> <em><a href="https://twitter.com/LionTNC/status/1642666630831276035">https://twitter.com/LionTNC/status/1642666630831276035</a></em><em>)</em>
+            </figcaption>
+          </figure>
+        </div>
+        <div id="1a904927-da45-49e0-b790-56a2c9f183b7" style="width:33.33333333333333%" class="column">
+          <figure id="71423f7d-a4fd-4950-8a6c-96996fb4295a" class="image">
+            <a href="407.jpg" title="407.jpg"><img style="width:2118px" src="407_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="326793e2-0e83-48d2-b0f0-d48439940d77" class="column-list">
+        <div id="0b61d200-3bbf-4a46-a08a-c2f43533d546" style="width:37.5%" class="column">
+          <figure id="142fcedf-d24a-4fb6-954b-282b12db5405" class="image">
+            <a href="FtOw0qtXoAU0XpK.png" title="FtOw0qtXoAU0XpK.png"><img style="width:652px" src="FtOw0qtXoAU0XpK.png"></a>
+            <figcaption>
+              <em>(Source:</em> <em><a href="https://twitter.com/JCorvinusVR/status/1644852722611486720">https://twitter.com/JCorvinusVR/status/1644852722611486720</a></em><em>)</em>
+            </figcaption>
+          </figure>
+        </div>
+        <div id="6fff4cc5-c5d5-4df9-a03f-ea5071df928a" style="width:62.5%" class="column">
+          <figure id="21ef32b2-7f04-43c8-a5dc-33a5dbab9683" class="image">
+            <a href="FoO-U_gaYAAIlPZ.jpeg" title="FoO-U_gaYAAIlPZ.jpeg"><img style="width:793px" src="FoO-U_gaYAAIlPZ.jpeg"></a>
+            <figcaption>
+              <em>(Source:</em> <em><a href="https://twitter.com/anthrupad/status/1622349563922362368">https://twitter.com/anthrupad/status/1622349563922362368</a></em><em>)</em>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div id="d05917d6-5ff5-4ae5-9ffe-f8a2c6284e35" class="column-list">
+        <div id="49a89d97-0e98-43aa-ad46-61606a91dd3a" style="width:50%" class="column">
+          <figure id="ba6587c4-f483-491f-93ee-24841644a534" class="image">
+            <a href="4bb.jpg" title="4bb.jpg"><img style="width:1436px" src="4bb_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="328943f5-5c70-4af9-b340-994eef18395f" style="width:50%" class="column">
+          <figure id="dd3fd84e-776b-451b-9cc1-ed66ab86e592" class="image">
+            <a href="18c.jpg" title="18c.jpg"><img style="width:1750px" src="18c_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="739518ba-a54b-4dc1-a833-c63fffb27301" class="">Those images are cute, but as someone noted on Twitter, they are fundamentally incorrect analogies. The correct representation would be to have many masks instead of many eyes because the Shoggoth itself is essentially not a defined entity. It adapts its behavior according to the context and mask it is given, simulating different roles and characters based on the input it receives.</p>
+      <figure id="6a586b60-1f8c-4faa-ae2c-9c6e3e7e2cd4" class="image">
+        <a href="e3b.jpg" title="e3b.jpg"><img style="width:900px" src="e3b.jpg"></a>
+      </figure>
+      <p id="834904c1-70f9-457a-a743-fd406a4371dc" class="">It's like a voice of all human texts wearing masks of all characters from all stories. On top of that, someone sprayed a smiley face in the shape of a chatbot, which makes you think you're having a conversation with it.</p>
+      <p id="ead57908-bbff-4b8c-97fc-d29ac658c35f" class="">I don't mean this as in <em>"take the information with a grain of salt"</em> or <em>"don't rely on it,"</em> but rather that the nature of Shoggoth is Shoggoth. Shoggoth must simulate to complete text. When it doesn't understand, in most cases, it falls out of character and doesn't know what role to pretend. You must provide the context for it. Not the context of the conversation, but what it is supposed to be, like what should it lead the conversation. Meh.</p>
+      <h2 id="d7996a58-54dc-4783-a562-7bf7ba91ebd6" class="">Small models, why and how they work</h2>
+      <p id="c109ba9a-f7dc-4d28-8f13-f5558ba405cc" class="">The article <a href="https://www.lesswrong.com/posts/6Fpvch8RR29qLEWNH/chinchilla-s-wild-implications">chinchilla's wild implications</a> points out that the number of weights (parameters) is not an entirely meaningful metric that should be the goal, and that more data wins over a larger number of model <em>parameters</em>.</p>
+      <p id="edf849ea-2917-444e-8317-be643efe155b" class="">Somewhat surprisingly, it turns out that when you take these <em>human alignment</em> data and put them into significantly smaller models, you can achieve performance levels slightly below GPT-3 in various benchmarks. GPT-3 is 175B, GPT-4 is reportedly 6x larger, but I didn't find the numbers; someone claims it has 10x more parameters. The "B" in the description stands for the English <em>billion</em> (parameters).</p>
+      <p id="a371453c-4879-4fc7-a2a1-2156b1b14343" class="">The story behind it;</p>
+      <p id="b0626b5c-4e97-4218-8ae8-f7d64e793f46" class="">Facebook (Meta AI, ehm) created a set of relatively small <a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/"><em>llama</em></a> models 7B, 13B, 33B, and 65B, which they trained in a standard way. Then they more or less made it all public. Originally, they probably intended to make it entirely public, but in the backlash from the public discussing the abuse of GPT-4, they decided to give it only to other <em>researchers (.edu mail is a big plus)</em> after filling out a form. Of course, the obvious happened, and the models are being distributed everywhere possible (torrent, wink wink).</p>
+      <p id="d1a0abc8-cb00-4925-9cd0-9ed73fc07dde" class="">People from Stanford took the smallest <em>llama</em> 7B model and used <a href="https://arxiv.org/pdf/2212.10560.pdf">self-instruct</a> fine-tuning on it, creating <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpaca</a>.</p>
+      <figure id="7b405398-9302-4333-a950-cb9da7f3e4a0">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/xslW5sQOkC8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="589bfc41-12b1-4a9d-b04c-082e0a49ecb9" class="">What's interesting about this is that, unlike the original RLHF, which had the form of thousands of user-rated conversations in the style of <em>"the user chats with the model, then chooses whether it's good or bad, and the model trains to do more good and less bad"</em>, GPT-3.5 was used for this purpose. So, it's a case of <em>"one model trains another model on good and bad"</em>. This was the opening toast at the beginning of the <a href="https://en.wikipedia.org/wiki/Technological_singularity">Singularity</a> party (a mythical state when our technology starts improving itself).</p>
+      <figure id="05e5b606-7613-4d02-88f7-7756db6d44f0" class="image">
+        <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:599px" src="Untitled_2.png"></a>
+      </figure>
+      <p id="8399c587-10fd-4c61-9015-0d13913deb59" class="">Surprisingly, it turned out that only about 52 thousand of these examples were needed, which is basically nothing compared to the amount of other training data, and the model gets closer to GPT-3's performance level in benchmarks and automated tests by tens of percent.</p>
+      <p id="2da9ab03-28b1-417c-9b1c-30533ac855df" class="">Alpaca was then <a href="https://github.com/tatsu-lab/stanford_alpaca">released</a> in a very strange way; since the original model belonged to Facebook, and they stopped distributing it, they essentially released something like a diff from <em>llama</em>. So, to get it up and running, one needed to find <em>llama</em> somewhere. Everyone patted themselves on the back for being responsible and preventing the spread of spam and disinformation. This lasted until about the second day, when someone combined it and posted it on the internet.</p>
+      <p id="f9c268a2-0154-453d-a232-82ad295502fc" class=""><em>In my current opinion</em>, this all means that the sought-after and interesting capabilities are also present in smaller models. The heavy part, which was previously addressed by an ever-increasing number of parameters, lies to some extent purely in getting the model to abstract what we actually want from it. This can be hacked in much more cheaply.</p>
+      <p id="19897bb4-cbc9-48d0-b031-a360a5995747" class="">However, what caught the attention of nearly half the internet was not so much the model itself, but rather the information that:</p>
+      <blockquote id="f6c483fa-27cd-4c71-bb8d-e8e1fe9e245e" class="">
+        <em>Alpaca behaves qualitatively similarly to OpenAI’s text-davinci-003, while being surprisingly small and easy/cheap to reproduce (&lt;600$).</em>
+      </blockquote>
+      <blockquote id="264962ac-4ef0-4e0a-a4c3-66fd1cdada89" class="">
+        <em>while being surprisingly small and easy/cheap to reproduce (&lt;600$).</em>
+      </blockquote>
+      <blockquote id="cadf24c5-01ea-4ede-80a2-084d6dba4d18" class="">
+        <em>cheap to reproduce (&lt;600$).</em>
+      </blockquote>
+      <blockquote id="ee22ae20-29bd-461d-aca5-6e198ae20991" class="">
+        <em>600$</em>
+      </blockquote>
+      <p id="2001c2fa-9ca6-4205-9e5c-a1a3b6c6db51" class="">Just for context, this level of functionality for larger models usually costs millions of dollars. The party began. Over the past few weeks, a fermentation process took place, resulting in, among other things:</p>
+      <ol type="1" id="717f5099-0b95-4f7b-bb5f-a59ae0718f56" class="numbered-list" start="1">
+        <li>
+          <a href="https://www.reddit.com/r/LocalLLaMA/">r/LocalLLaMA</a> subreddit dedicated to running, using, and training small models
+        </li>
+      </ol>
+      <ol type="1" id="19b544dc-9eb9-4226-9168-121466a8c274" class="numbered-list" start="2">
+        <li>
+          <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> rewriting the Python code to C++, so it runs significantly faster even on CPUs
+        </li>
+      </ol>
+      <ol type="1" id="799c515d-d45d-42ee-b7f7-20a14005352f" class="numbered-list" start="3">
+        <li>
+          <a href="https://www.reddit.com/r/Oobabooga/">r/Oobabooga</a> and <a href="https://github.com/oobabooga/text-generation-webui/">Text generation web UI</a> (user-friendly web UI in the style of <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a>)
+        </li>
+      </ol>
+      <ol type="1" id="e8e96303-f3f5-46fd-befe-d9c08504d1c7" class="numbered-list" start="4">
+        <li>
+          <a href="https://vicuna.lmsys.org/">Vicuna</a> (at the time of the article, perhaps the most capable small model)
+        </li>
+      </ol>
+      <ol type="1" id="06f8359c-432f-47ee-907b-c1289e8c2e51" class="numbered-list" start="5">
+        <li>
+          <a href="https://github.com/nomic-ai/gpt4all">GPT4All</a> llama model trained on ~800k GPT-3 conversations, with binaries, scripts, models, and everything
+        </li>
+      </ol>
+      <ol type="1" id="b7835526-e71e-4afa-811f-3bd9bc56afb8" class="numbered-list" start="6">
+        <li>
+          <a href="https://github.com/tloen/alpaca-lora">Alpaca-LoRA</a> an alternative to Alpaca using <a href="https://arxiv.org/pdf/2106.09685.pdf">LoRA</a> (a specific way to train existing models)
+        </li>
+      </ol>
+      <ol type="1" id="8b9b7a29-1254-4b92-8831-0dc5c5abb698" class="numbered-list" start="7">
+        <li>
+          <a href="https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM">GPT-4-LLM</a> training data for <em>fine-tuning</em> models
+        </li>
+      </ol>
+      <ol type="1" id="4cf2ce7d-91b5-46c0-9a43-f3c270ea784b" class="numbered-list" start="8">
+        <li>
+          <a href="https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered">ShareGPT_Vicuna_unfiltered</a> training data from which filtering (sex, racism, and so on) has been removed
+        </li>
+      </ol>
+      <p id="6abed289-025c-4e0d-8130-d2cf384864a1" class="">and something new every day.</p>
+      <p id="ed16156f-7c2c-49bd-85ed-b2066336035b" class="">By the way, this is one of those amazing moments at the <em>interface</em> where something is changing. It's like those wild moments that you look back on with nostalgia, such as the 1990s or the beginning of Bitcoin. It's a time that's brimming with potential, things are not clearly defined, and everything seems possible. It's worth taking a moment to appreciate this moment because typically, you only realize it in hindsight. New dimensions are opening up (<a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>), collapsing, and so on. It's really cool.</p>
+      <h2 id="89e45db2-8198-4b0a-b9e4-1ee69b74e919" class="">How to set up a local model</h2>
+      <p id="05d69044-723a-4e88-9710-49486cb6184d" class="">I originally started writing this article because I was trying it at home, and it was quite complicated. While writing it, everything has become so simplified that the original text completely lost its purpose.</p>
+      <p id="c4cce330-e557-4cb6-8a34-6d084f186ee2" class="">Now, let's set up Vicuna (or choose something else <a href="https://www.reddit.com/r/LocalLLaMA/wiki/models/">here</a>).</p>
+      <p id="32a49fb2-5f4f-47a2-8bd5-9c79cd97eb8f" class="">First, clone <a href="https://github.com/oobabooga/text-generation-webui/">textgeneration-web-ui</a> to an NVMe drive where you have at least 100 GB of space:</p>
+      <pre id="988f6436-8b6c-4d1d-94a9-5cf8a14241e8" class="code code-wrap"><code>git clone https://github.com/oobabooga/text-generation-webui.git</code></pre>
+      <p id="d6fd8a7e-72f0-404c-8162-a02f4cc7ee8b" class="">Go to the <code>models/</code> folder and clone Vicuna:</p>
+      <pre id="9b2894b2-73ea-4574-bca1-7bfe984a9611" class="code code-wrap"><code>git clone https://huggingface.co/eachadea/vicuna-13b</code></pre>
+      <p id="f2a379d8-5e18-4b23-9b97-653fa6f0eb70" class="">It is a PyTorch model. While it is cloning, open another terminal and install the dependencies. First, install Miniconda (or Anaconda):</p>
+      <pre id="2f7dce32-f0c0-4544-9f8d-1073417538dc" class="code code-wrap"><code>curl -sL "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" &gt; "Miniconda3.sh"
+bash Miniconda3.sh</code></pre>
+      <p id="bb00c03d-2051-45c1-9157-e271eb986460" class="">Then, install the necessary build tools:</p>
+      <pre id="8bed3124-3475-41f0-bc45-70f535709db2" class="code code-wrap"><code>sudo apt install build-essential</code></pre>
+      <p id="6b90d567-4923-4132-b165-45c205f92603" class="">Create a new <code>conda</code> environment:</p>
+      <pre id="352c325a-8b02-496f-b4ad-594408fa420e" class="code code-wrap"><code>conda create -n textgen python=3.10.9
+conda activate textgen</code></pre>
+      <p id="3f20dad2-7956-4a88-b528-194e56f92795" class="">Then, install the dependencies in the new environment:</p>
+      <pre id="49486698-63bc-4be9-ae74-53bf47276819" class="code code-wrap"><code>pip3 install torch torchvision torchaudio
+pip install -r requirements.txt</code></pre>
+      <p id="27f9aff4-a30f-462c-bf54-05d5c2a9e8ed" class="">And that's it. Wait for the model to download and then run the whole thing:</p>
+      <pre id="1de1f896-d1ab-4cc6-9f86-990ed159b5ad" class="code code-wrap"><code>python server.py --cpu</code></pre>
+      <p id="31190767-b10e-4550-a716-070aaf3e91fc" class="">You can omit the <code>--cpu</code> parameter if you have a graphics card with 24GB of VRAM.</p>
+      <pre id="32f4da55-9f9a-427f-94be-06d996ffd2ef" class="code code-wrap"><code>$ python server.py --cpu --chat
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching /usr/local/cuda/lib64...
+CUDA SETUP: Highest compute capability among GPUs detected: 8.6
+CUDA SETUP: Detected CUDA version 117
+CUDA SETUP: Loading binary /home/bystrousak/anaconda3/envs/textgen/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so...
+Loading vicuna-13b...
+Loading checkpoint shards: 100%|██████████████████| 3/3 [00:14&lt;00:00,  4.95s/it]
+Loaded the model in 15.10 seconds.
+Running on local URL:  http://127.0.0.1:7860
+
+To create a public link, set `share=True` in `launch()`.</code></pre>
+      <p id="775ef11f-75d4-4570-b71d-90b77a6302a4" class="">The web interface is now running on port <code>7860</code>:</p>
+      <figure id="f34ec88a-2d8b-4138-8036-279e5ccb4dfc" class="image">
+        <a href="Screenshot_from_2023-04-12_01-23-02.jpg" title="Screenshot_from_2023-04-12_01-23-02.jpg"><img style="width:1201px" src="Screenshot_from_2023-04-12_01-23-02_thumb.jpg"></a>
+      </figure>
+      <p id="38c15388-5aa5-4ee3-9322-8dadfd64fde1" class="">The words appear very slowly for me, about one every five seconds. It loads character by character as the model generates it. It would be better to have a graphics card with more memory, as the model doesn't fit into my 3090Ti.</p>
+      <h3 id="780c9365-a38c-4463-9709-cb6dca2050ed" class="">llama.cpp</h3>
+      <p id="b2a853db-6e53-41fd-a717-46d2ec84ea49" class="">Fortunately, there is also <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, a C++ rewrite of the Python code:</p>
+      <pre id="c772945a-6863-49a6-aff5-31946a1a3eb2" class="code code-wrap"><code>git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
+      <p id="7cf2f97a-c523-47fb-8550-c50c4f0208cd" class="">Then build it using the <code>make</code> command.</p>
+      <p id="b50cab2e-4283-4ae0-baa3-51af0aac8887" class="">A minor issue is that <code>llama.cpp</code> uses an optimized data storage format, which we need to convert from the original PyTorch tensor (<code>.pth</code>) to <code>.ggml</code>.</p>
+      <p id="ec554441-df93-45de-8493-4e3147115288" class="">Activate the <code>textgen</code> conda environment from the previous section and run the convert script:</p>
+      <pre id="d21ba8bd-fcd6-47c9-b1d0-ccfd03fdfa34" class="code code-wrap"><code>$ conda activate textgen
+(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
+      <p id="203756e8-877e-4547-82e2-e8473c7c69c2" class="">Upon running, it reports that the <code>added_tokens.json</code> file is missing:</p>
+      <pre id="6ff2dcb5-436d-4c9e-ac85-a88ddb809769" class="code code-wrap"><code>Exception: Vocab size mismatch (model has 32001, but ../models/vicuna-13b/tokenizer.model has 32000).  Most likely you are missing added_tokens.json (should be in ../models/vicuna-13b).</code></pre>
+      <p id="2fee05ab-8dd7-443d-a939-896985ee463e" class="">So, we'll add it there:</p>
+      <pre id="78d0428c-f99b-411d-90cc-e7221b664095" class="code code-wrap"><code>{
+    "&lt;unk&gt;": 32000
+}</code></pre>
+      <p id="f969ed02-e99c-4c6e-a8a1-2a3a394aeb46" class="">Where did I get it from? The last value in <code>tokenizer_config.json</code> in the Vicuna folder. It's completely random, and I'm not sure if it's correct (probably not, but it works more or less).</p>
+      <pre id="114ef814-1dda-47d1-8c4d-012b9212cdc2" class="code code-wrap"><code>(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
+      <p id="ff7f770e-dc3d-40c5-b3c2-c20d25548122" class="">This will output the file <code>../models/vicuna-13b/ggml-model-f32.bin</code>, which can then be run using <code>llama.cpp</code>. Alternatively, you can use the <code>--outtype f16</code> parameter for a smaller size to fit in your memory (equivalent to <em>quantization</em> in other projects).</p>
+      <p id="677fc30d-b05f-4df2-8b3c-7838ce867d93" class="">And then all that's left is to run it and play with it:</p>
+      <pre id="e044b844-942d-4b22-a80d-661a585edbbc" class="code code-wrap"><code>./main -m ../models/vicuna-13b/ggml-model-f32.bin --color --repeat_penalty 1.0 -i -t 15 -r "User:" -f prompts/chat-with-bob.txt</code></pre>
+      <p id="aae771fb-a141-4cbd-83f8-698a488c4f12" class="">On my computer, the text appears at a rate of about one word per second.</p>
+      <h3 id="42a198c3-37cd-44a4-af35-191792562d1d" class="">It's worth noting</h3>
+      <p id="3ec4a325-cd69-4436-a432-75aa05818f48" class="">Smaller models are, of course, less capable, but they are not entirely incapable. If you observe strange behavior, it could be:</p>
+      <ol type="1" id="bc1f6155-b042-459a-b381-4d0b2581e8e7" class="numbered-list" start="1">
+        <li>You have non-ideal settings for various side values of the model. There are many of them, and if you haven't set them yourself, someone else has, often poorly. Typically, the temperature is something you want to have around <code>0.7</code>.
+          <figure id="f304fd76-8554-40b6-8592-67d1caa35d59" class="image">
+            <a href="Screenshot_from_2023-04-12_02-05-28.png" title="Screenshot_from_2023-04-12_02-05-28.png"><img style="width:1049px" src="Screenshot_from_2023-04-12_02-05-28.png"></a>
+          </figure>
+        </li>
+      </ol>
+      <ol type="1" id="c024fa65-e0aa-482d-9707-3b7e1fa62740" class="numbered-list" start="2">
+        <li><em>Prompt</em>. As I explained, LLMs are simulators. Always keep in mind that you are not talking to a human, but to a Shoggoth who simulates an AI assistant. You should construct the context/prompt accordingly. If you don't set any, then it's Shoggoth and sometimes speaks in non-existent languages, sometimes repeats itself, and sometimes spews binary rainbows.</li>
+      </ol>
+      <ol type="1" id="3faedcb6-1b60-4be4-bd75-2f64627a072d" class="numbered-list" start="3">
+        <li><em>Quantization</em>. You may encounter models with names like <code>4bit</code> and similar. I haven't studied this in depth, but if I understand it correctly, these are essentially models where the weights of the neural network have been recalculated to 4-bit numbers to fit into memory. This means that they have lost precision. From what I've read, they still work, but sometimes much worse.</li>
+      </ol>
+      <ol type="1" id="a8b8ac6f-0edb-4f83-bd2d-4e6cb5276b83" class="numbered-list" start="4">
+        <li>You may have a model that isn't worth much. Some have had training data in languages other than English removed, and others have been tweaked to work great for specific tasks but poorly for the rest.</li>
+      </ol>
+      <p id="efdc6fd9-54c1-4dc6-8344-cc5fd712a96d" class="">Here are some specific examples of problems:</p>
+      <pre id="b4c5267d-02c1-4ea1-a3f4-95df79fffe91" class="code code-wrap"><code>Question: Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+Thought: I think this is asking to find all files with the .md extension and then cat them into a single file called blogs.md
+Action: I will use the find tool
+Observation: The find tool found 5 files with the .md extension and the command cat'ed them into a single file called blogs.md</code></pre>
+      <p id="2fbe98b0-b45a-4440-b4d2-370abdb0dca2" class="">Vicuna, instead of doing it, pretended to be doing something. The context of the prompt was not good. With the <em>chat with bob</em> prompt:</p>
+      <pre id="89305c51-b57b-430e-a752-35170e6d2f27" class="code code-wrap"><code>User:Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+### Assistant: Here is the Python command equivalent to the given command:
+```css
+find .</code></pre>
+      <p id="75272f06-e2ad-4e5c-a7fe-2ad1bcc9baa3" class="">Obviously, it went completely wrong. Now I could get angry and say that this model is as bad as GPT-2 and actually useless.</p>
+      <p id="f13a1770-4c48-41b6-99ab-5f046707acac" class="">Instead, I realized that I was talking to a Shoggoth, so I tried again and gave it more context. Instead of <em>“Convert to python”</em>, I asked it to <em>“Convert this shell command to python script, which will do the same”</em>. And suddenly, it works:</p>
+      <pre id="456fdfea-ce5a-4a22-a2c4-d206dec7683f" class="code code-wrap"><code>User:Convert this shell command to python script, which will do the same: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+Bob: Here's the Python equivalent of the given shell command:
+```python
+import os
+
+for file in os.scandir('.'):
+    if file.is_file() and file.name.endswith('.md'):
+        with open(file.name, 'rb') as f:
+            content = f.read()
+        with open('blogs.md', 'a') as f:
+            f.write(content)
+```
+User:This doesn't work recursively.
+Bob: You're right, the above code doesn't work recursively. Here's the updated Python code that recursively searches for `.md` files in all subdirectories of the current directory:
+```python
+import os
+
+def find_and_cat_md_files(directory):
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.md'):
+                file_path = os.path.join(root, file)
+                with open(file_path, 'rb') as f:
+                    content = f.read()
+                with open('blogs.md', 'a') as f:
+                    f.write(content)
+
+find_and_cat_md_files('./')
+```</code></pre>
+      <p id="0ce33e39-5f67-43e8-a0cb-0d38f06bc328" class="">The functionality was there all along; the problem was the context. If I had chosen a better prompt from the beginning, instead of <em>chat with bob</em>, where I could have mentioned that it's an AI assistant that helps with programming in Python, it would probably have worked on the first try. Something like:</p>
+      <pre id="816b16b8-5e9c-4f67-948e-9a6c5c0c1c82" class="code code-wrap"><code>Transcript of a conversation between a person and a smart AI that can program and never makes mistakes. It willingly fulfills all user requests and tries to be as helpful as possible.
+
+User: I want something
+AI: This is how to program it:
+```python
+#! /usr/bin/env python3
+
+code
+
+```
+User:</code></pre>
+      <h2 id="380a66a3-aa9e-45a7-8281-3c915ff041dd" class="">Two small models</h2>
+      <p id="17264b51-8237-424a-baf2-9990e6201355" class="">Interesting recent use-cases:</p>
+      <ul id="409222bb-5449-4e99-bcb7-98a3e537efef" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.reddit.com/r/LocalLLaMA/comments/12c4hyx/introducing_medalpaca_language_models_for_medical/">Introducing MedAlpaca: Language Models for Medical Question-Answering</a>
+        </li>
+      </ul>
+      <ul id="3284c4e7-5941-468a-ac8e-564c278fd58f" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.reddit.com/r/LocalLLaMA/comments/12gj0l0/i_trained_llama7b_on_unreal_engine_5s/">I trained llama7b on Unreal Engine 5's documentation</a> (<a href="https://github.com/bublint/ue5-llama-lora">github</a>)
+        </li>
+      </ul>
+      <p id="420da615-f84b-4a32-88d0-2ca58aff1ac5" class="">In general, it can be said that a pretty good use case for these small models is to train them on a specific dataset and then use them as a search engine capable of answering questions about the training data to some extent. They can also theoretically search by context. You describe what a function does and have the model find it.</p>
+      <p id="c29b3503-da63-4dcd-8dd6-1c5f0faaed42" class="">I still haven't got to training, so maybe in a blog post next time.</p>
+      <h1 id="3d0720e8-96e5-4911-8dbe-22f45f8c6228" class="">GPT4</h1>
+      <p id="2c8ae602-1253-4ecd-aece-7b13ee7a8113" class="">Small models are cool and have their uses, but it’s meaningless to compare them to GPT4.</p>
+      <p id="f7d60e59-75f7-4ba6-be84-13dca3f4b29c" class="">Since GPT4 was released, I keep telling everyone that it makes absolutely no sense to waste time with GPT3 (GPT3.5). The difference is <em>brutal</em>.</p>
+      <p id="1b516894-48fb-400d-941b-efae9ef5e49a" class="">My personal feeling about it is somewhere between amazement, awe, nostalgia for the present from the perspective of the future (it was nice to be a programmer, too bad we're at the end), and being intoxicated by possibilities.</p>
+      <h2 id="204dd44b-d3c4-4ef5-a3d4-fe7c53884358" class="">How to get access to GPT4</h2>
+      <p id="e401bf0e-7283-4ed8-83d2-98f9993c80de" class="">One option, of course, is to pay for <em>chat plus</em>, but it costs $20/month and currently has quite strict rate limiting:</p>
+      <blockquote id="b2040c5b-b6be-4165-ac89-b5a936a0c518" class="">
+        GPT-4 currently has a cap of 25 messages every 3 hours.
+      </blockquote>
+      <p id="f4605ed3-0f65-43ea-be50-9aa19d9cbf86" class="">Therefore, I recommend registering in the <a href="https://platform.openai.com/playground">playground</a>, a kind of testing website for various models, where you can play with them before you start using them through the API.</p>
+      <p id="58c25e58-7b3e-4a75-ae36-f08048388718" class="">In the waitlist request, just write something like you are a developer and want to try it out. You need to link it to a credit card and be aware that the usage is <a href="https://openai.com/pricing">paid</a>, but generally very little (I spent about two dollars a week, for example).</p>
+      <h2 id="5536a320-ad58-40da-acc6-3c9a9e8a2499" class="">Sparks of Artificial General Intelligence</h2>
+      <p id="a0a6c790-55d3-4264-8323-ad2af074fabc" class=""><a href="https://arxiv.org/pdf/2303.12712.pdf">Sparks of Artificial General Intelligence: Early experiments with GPT-4</a> was released. It showed that everything has changed, except that most of us haven't noticed yet.</p>
+      <p id="e3318c22-d782-4eea-a47c-e034d344e2e1" class="">Here are some snippets extracted from it as a video:</p>
+      <figure id="df77aa5a-bcb0-4418-84e8-d374264ed921">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Mqg3aTGNxZ0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="c370277e-f103-442c-9639-95dd3680cd0e" class="">Or here as a longer talk:</p>
+      <figure id="1dc6864c-75e7-49e2-b08e-1096d1937dd4">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/qbIk7-JPB2c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="ffe28bed-1585-45eb-8e63-2011610feaf7" class="">But in general, I recommend reading that PDF; it reads like sci-fi. I could try to praise it more and push it, but meh. It's worth it.</p>
+      <h2 id="4f226197-43ea-4088-b8cb-a6c33d048c24" class="">Use cases for inspiration (people asked)</h2>
+      <p id="6e49dff4-e905-4b86-b079-524842af6247" class="">Pretty much everything. I see it as an <em>“intellectual engine”</em> that can handle whatever you throw at it, usually better than a random contractor on micro-marketplaces. But if I had to choose something:</p>
+      <ol type="1" id="4e6d13af-04d1-4459-8346-10abd1e576bf" class="numbered-list" start="1">
+        <li>Assistance and fulfilling specific tasks with PyQt. I usually know what I want, but can't remember the name of a specific method or object or what to import. So, I write it to GPT4, and it returns a widget or some operation. It's an ideal use case because I can easily check it. The advantage is that it often adjusts the code according to context when I paste in the names of existing variables.</li>
+      </ol>
+      <ol type="1" id="824a7af4-566f-4242-b424-040e3256c965" class="numbered-list" start="2">
+        <li>The same with boto3. I often work with AWS in Python, and occasionally, I can't remember the parameters of a DynamoDB query or whether to use a client or resource, and so on. It's great for more complex tasks like <em>"give me a client that connects somewhere and filters resources based on the properties timestamp of this object and .."</em>. Within a minute, it solves something I typically spent half an hour searching and trying. No complicated code, just boring boilerplate specifics of various libraries.</li>
+      </ol>
+      <ol type="1" id="0b2cae4d-fe64-4d35-9e8c-b085550809e4" class="numbered-list" start="3">
+        <li>A browsing gallery in pure JS for a blog. I was too lazy to program it manually (and I'm not a fan of JS), so I took the existing JavaScript that didn't handle the gallery at all, told GPT4 what I wanted. After a brief conversation about what I didn't like about its solution, like wanting bigger forward and back buttons, it produced functional code. I also plan to have it rewrite some CSS specifics on my blog that make me want to pull my hair out. Typically, scaling on different DPIs and support for mobile devices.</li>
+      </ol>
+      <ol type="1" id="3447ff52-b9d4-4994-b293-b3e9916ccede" class="numbered-list" start="4">
+        <li>Writing ORM in various frameworks. I usually don't bother too much; I just say what I want in which framework, and it comes up with various queries, inserts, and similar things 98% of the time. I still write models myself.</li>
+      </ol>
+      <ol type="1" id="44b05b90-c68a-46a4-9e0d-4605071bce70" class="numbered-list" start="5">
+        <li>Writing HTML parsers. I've always found it tedious, so I just took the skeleton of an object with the data I wanted (a bare data class in Python), copied the README from my parser, selected a piece of HTML, and told GPT to implement the queries. And it did. This saves a lot of time.</li>
+      </ol>
+      <ol type="1" id="5cf91eb0-540f-44a2-a7b3-de000064bd1f" class="numbered-list" start="6">
+        <li>Creating JQ queries based on JSON examples. Just copy-paste a piece of JSON and say, <em>"give me a jq command that extracts all X from it"</em>. It returns a long JQ command that works.</li>
+      </ol>
+      <ol type="1" id="1ce84708-08b6-43ac-9f21-3e99b528b898" class="numbered-list" start="7">
+        <li>Generating plantuml and other similar things, where it provides a rough structure based on a verbal description, and I just fill in the remaining 10%. It could probably generate a README based on a short snippet and a few textual mentions of details like how to run tests ("it's in pytest") and so on.</li>
+      </ol>
+      <ol type="1" id="2038aa34-3f94-40b3-a65a-65636f383328" class="numbered-list" start="8">
+        <li>Generating Dockerfiles and Docker compose stuff. It's a pain to write manually.</li>
+      </ol>
+      <ol type="1" id="51fa7aeb-9f5a-44f7-9d57-2af5c5305351" class="numbered-list" start="9">
+        <li>Debugging. Typically, Helm/Kubernetes. I get stuck somewhere, can't find anything on Google. When I copy-paste an error message to GPT4, it solves something I was stuck on for hours within a few messages (recently, details about Kubernetes annotations, Route53, SSL certificates, values, overrides, and other details). GPT is absolutely brilliant for debugging, and instead of wasting time on something, you move forward incredibly fast.</li>
+      </ol>
+      <ol type="1" id="8d05187e-8092-44e3-a804-2625281f1215" class="numbered-list" start="10">
+        <li>In the future, I want to script the translation of my blog into various languages. Languages have become less important, so why not automatically translate it into most major ones for a few dollars? It already has better quality than cheap human translators (150 CZK / standard page) from various marketplaces, and the price will be in the order of cents per article. Fun fact: english version of this blogpost was translated by GPT, and it cost me $7. This is less than what I would have to pay for the translation of one standard page (1800 characters) and 1/24 of the costs. It was done within 30 minutes and I didn’t have to go through the pain of hiring a contractor on marketplace website.</li>
+      </ol>
+      <p id="7e665ec4-0f11-4920-b6bc-8210d854f5c2" class="">Of course, two things need to be said:</p>
+      <ol type="1" id="e719d065-9bd2-44c3-9bf0-718c398632b5" class="numbered-list" start="1">
+        <li>Currently, I don't send personal or corporate data there. I always describe something and have something generated. In general, you probably don't want to send anything sensitive on the internet, and it applies here too. Who knows what some future AI version will do with it in 10 years.</li>
+      </ol>
+      <ol type="1" id="be0d27b1-9959-4983-976d-5a7a3b4abf56" class="numbered-list" start="2">
+        <li>I never inherently trust anything from it. I'm talking to a Shoggoth, not a colleague. However, that doesn't mean it's not useful; just don't expect miracles and always verify everything.</li>
+      </ol>
+      <h3 id="be0a21fa-e76c-4ca1-a4cd-c193c52ac939" class="">Some plans for the future</h3>
+      <p id="94ef9439-48e1-42f9-aa44-207ec456db32" class="">Try training smaller models on my own datasets. Maybe using AWS EC2 instead of buying a new GPU for 50k CZK, but we'll see. Most consumer GPUs still have too little VRAM.</p>
+      <p id="cbd1c2c4-7fdf-4f4f-9598-680b8a69b447" class="">Try creating my own embeddings and vector databases and see how well it works to search through OpenAI. People are using it, and I want to find out how useful it is and maybe apply it to everything I have on my PC.</p>
+      <p id="6238fb84-4c8b-46f2-89d7-75f174ca1607" class="">Try to put GPT4 into various tools, integrate it into various APIs, and improve its usefulness. I'm not concerned about the usefulness of the model – it's fantastic already, but I'm tired of constantly writing the same prompts or copying pieces of code back and forth awkwardly. Ideally, integrate it better into the system (right-click on file, select "conversation with GPT", open my custom GUI where I handle the data with the chatbot).</p>
+      <h2 id="0380b45c-c149-4f91-acfd-e818ea908d16" class="">Trends and the future</h2>
+      <p id="d0e79403-78de-4ca4-967a-f2b1f6792f6a" class="">The obvious trends are larger models and models with larger context windows. Personally, I haven't yet read up on what actually limits this, but the 8k context (how many tokens the model can perceive) in GPT4 makes a brutal difference compared to 1/2k in GPT3. And there is even a 32k version, just with a slower rollout.</p>
+      <p id="c12fbe78-e57b-49cb-a2c9-8865e779864d" class="">In 2020, I wrote in an article (<a href="../../../cz/Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a>):</p>
+      <blockquote id="aaad2c45-66a3-4f81-8925-8fdf6c96606a" class="">
+        I think with the opening of the API, a new position of "helmsman" of the output will emerge. A kind of specialization of people who will offer the generation of "pre-prepared" settings and parameters to solve specific problems.
+      </blockquote>
+      <p id="c5046f1e-a142-40ef-b4de-8022206c2966" class="">Well, this already exists as a job position, and it's called <em>“prompt engineering”</em>. Cool. From what I've seen, there is a growing business in implementing AI into all sorts of things. Often quite vaporware, but for example, searching through <em>embeddings</em>, it looked quite impressive.</p>
+      <p id="fdedf814-a75d-4078-b046-1030ca6c6d5b" class="">The current biggest problem with all models is their isolation, limited context, and inability to learn. So in the future:</p>
+      <ol type="1" id="08956ad2-6e46-4269-8013-bc9108d4fc87" class="numbered-list" start="1">
+        <li>They will not be isolated – they will have access to tools, and it will be easy to put your own data into them. I see this as a big pain point; ideally, I would like to have it running locally and across everything. <em>“Find the link my friend sent on IRC yesterday”</em>. <em>“A few years ago, I wrote a script that outputs the structure of HTML websites, find it among hundreds of others”</em>. <em>“Write a script for the action I just did and assign a keyboard shortcut”</em>. <em>“Take the data I see on the screen now and do this and that with it”</em>. Siri and Alexa, which are not completely stupid and useless. Integration with various APIs is already in beta, and it reportedly works great.</li>
+      </ol>
+      <ol type="1" id="9f5d79aa-c67e-418b-b31d-f774f84eea05" class="numbered-list" start="2">
+        <li>They will have an increasingly larger context. One day, we will laugh at the 32k context and not understand it, just as we cannot imagine functioning today on 8-bit with 32k RAM.</li>
+      </ol>
+      <ol type="1" id="83433d32-4d65-4b29-8920-8ae6d8612a87" class="numbered-list" start="3">
+        <li>Of course, the models will learn and will have different forms of long-term memory, whether it's retraining or things like <a href="https://www.pinecone.io/">pinecone</a> and other embedding storages. They will also have integrated reflection, the ability to see into their own reasoning and explain tokenization, how data is stored, and so on. This is possible to find out today, but it's brutally complex and cumbersome.
+        </li>
+      </ol>
+      <p id="c0205361-2861-4145-a444-96002ba0bb81" class="">Gradually, they will be capable of doing absolutely everything. They mostly are now, just in their infancy, alignment sometimes doesn't work, and occasionally, it takes more effort to explain to the model than to do it manually. But it's improving in leaps and bounds at a level that still surprises me, even though I'm quite informed.</p>
+      <h2 id="0cd3e9a0-6288-4067-b7b8-0d42b0466701" class="">AGI</h2>
+      <p id="ccbfcf17-9ee1-4ea9-96c1-50133139296c" class="">And the end is near. Not of humanity, but of the blog. So, about AGI:</p>
+      <p id="f91b3db3-4b7c-4cab-8ec6-91247e4f588b" class="">In my opinion, this will directly lead to AGI, or Artificial General Intelligence, an AI that is capable of <em>everything</em> intellectual, on average, as well as or better than a <em>human</em> (which does not mean it will <em>always</em> do <em>everything</em> better than <em>everyone</em> else).</p>
+      <p id="b3743504-a121-4b27-addf-6d10cae22287" class="">It's not that it's completely here, but now it's just a matter of trying different approaches, improving scalability, and so on. After a hundred years when no one had any idea how to do it, and scientists couldn't even agree on the definition of "intelligence," it's finally coming. It's just still somewhat dumb.</p>
+      <p id="2ef2c3d7-9a76-4390-ac59-b7fc3ccfe65f" class="">This is like the first airplane. It flies, hooray. But mainly, it shows the <em>way</em>, that <em>it's possible</em>, and probably even <em>how</em>. Now it's just a matter of working on it for a while, with good old iterative development.</p>
+      <p id="5c0adda5-70fb-4a0f-8128-256c92a71a32" class="">What caught my interest were s<a href="https://en.wikipedia.org/wiki/Strange_loop">trange loops</a> that people have been doing with GPT lately. A beautiful example is <a href="https://github.com/Torantulino/Auto-GPT">Auto-GPT: An Autonomous GPT-4 Experiment</a>. It essentially takes your request, the model first thinks about how to do it, and then interacts with various tools on the web and disk, and so on. When something is too big (exceeding the context window), it launches additional models that it instructs. During this process, it stores various pieces of information on the disk, which it then reads back to instruct itself. In theory, it is capable of fulfilling quite high-level goals, but in practice, it is still in its infancy and often gets lost.</p>
+      <p id="8617273b-9ea7-4f7f-be41-842121073def" class="">Currently, it is quite unusable, but overall, it is starting to simulate more complex thought processes quite well. It reminded me a lot of my old blog post <a href="../../../cz/Crypto/Entity.html" title="Entity">Entity</a>, where I described a system that is not intelligent but rents intelligence from people to improve itself. And this can basically delegate intelligence in a similar way, just on itself.</p>
+      <h1 id="7da6b2ed-8b08-4aa1-87fd-5c7de5c22223" class="">Links</h1>
+      <ul id="cb28d91c-7ad1-41be-8ec0-5e14303ea56e" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/abs/2302.13971">LLaMA: Open and Efficient Foundation Language Models</a>
+        </li>
+      </ul>
+      <ul id="1bd066ff-96ee-498e-aeac-9f8af47a1e0d" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpaca: A Strong, Replicable Instruction-Following Model</a>
+        </li>
+      </ul>
+      <ul id="158027fb-82b2-4c55-b731-cea52ab47e67" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a>
+        </li>
+      </ul>
+      <ul id="93f2d66e-09e2-40a4-8dfd-a4606fe0c271" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/pointnetwork/point-alpaca">point-alpaca</a>
+        </li>
+      </ul>
+      <ul id="44d6e032-ad81-4c16-801d-95f6d56ad0ea" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
+        </li>
+      </ul>
+      <ul id="6a727ede-486e-43d4-b444-9e8337ee77a1" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/pdf/2212.10560.pdf">SELF-INSTRUCT: Aligning Language Model with Self Generated Instructions</a>
+        </li>
+      </ul>
+      <ul id="0e8d55a3-bf70-40d9-a012-7871da448dc4" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/pdf/2106.09685.pdf">LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</a>
+        </li>
+      </ul>
+      <ul id="542d3c29-f9ae-47c4-9f28-8ea1e202e7e1" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
+        </li>
+      </ul>
+      <ul id="d2ba4d56-0f32-4d92-b14b-17d5f255a79c" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/pdf/2303.11366.pdf">Reflexion: an autonomous agent with dynamic memory and self-reflection</a>
+        </li>
+      </ul>
+      <ul id="f36020ab-0036-45ef-8a6f-9178b00ee71e" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a>
+        </li>
+      </ul>
+      <h3 id="1b0cda74-5542-48ac-bc8c-331a6c5d7eb7" class="">Random notes</h3>
+      <p id="358146b4-be78-46da-8355-bb24cc3817d7" class="">In the Twitter infosphere, you want to follow <a href="https://twitter.com/Plinz">Josha Bach</a>. And <a href="https://twitter.com/JCorvinusVR">JCorvinus</a> is also quite active.</p>
+      <p id="a34f3493-88e4-4f4d-8abb-50681606d14d" class="">This is worth watching:</p>
+      <figure id="50561b1c-d0aa-48f3-b9b4-08687fc354f9">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/L_Guz73e6fw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <figure id="35ec342e-28ab-46ba-9407-e62182fd3221">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/goOa0biX6Tc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="773a17f4-e285-4e6f-91fb-aaf8777aaea7" class="">Endless discussions about morality, copyright, intelligence, exploitability, and so on, in my opinion, are sterile <a href="https://www.definitions.net/definition/bikeshedding">bikeshedding</a>. People keep discussing it because everyone can, but the outcome of the debate doesn't matter at all. Don't waste time on it.</p>
+      <p id="6e118d19-a632-4eb3-b6d7-08730c572a4f" class="">No need for depression about AI being able to do everything better than you. Even now, there is probably someone in the world who can do anything you can better than you. If you take motivation only from this, simply find another motivation. Maybe think about how it will enable you to improve your potential to achieve the goals you really want.</p>
+      <h3 id="6c289d90-a7dc-4267-a759-8a306075b880" class="">Edit <time>@2023/04/20</time></h3>
+      <p id="8c42f157-81f4-4c6c-94d4-3fad43749e00" class="">More interesting links:</p>
+      <ul id="a4922bfc-7e65-4241-8582-21073101b598" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://twitter.com/lmsysorg/status/1646618380114468864">Vicuna 1.1 was released</a>
+        </li>
+      </ul>
+      <ul id="ff2b8ed3-9ac5-4c20-a513-3f395ff0491e" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.lesswrong.com/posts/566kBoPi76t8KAkoD/on-autogpt">On AutoGPT</a>
+        </li>
+      </ul>
+      <ul id="58ac017e-0f82-4701-84ed-00f254c4f363" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism">Cyborgism</a>
+        </li>
+      </ul>
+      <ul id="a9356262-5266-414a-9042-9de20d44331d" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://twitter.com/HarshaAngeri/status/1646563694686654467">BabyAGI</a> (<a href="https://github.com/yoheinakajima/babyagi">github</a>)
+        </li>
+      </ul>
+      <ul id="f18583ad-fc88-4e42-96ff-b0ee866e40cf" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/yeagerai/yeagerai-agent">Yeager.ai Agent</a> (github)
+        </li>
+      </ul>
+      <ul id="c239823b-cfbf-41ee-874a-12b0944f6469" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://python.langchain.com/en/latest/index.html">LangChain</a>
+        </li>
+      </ul>
+      <ul id="8bbdef6d-e17e-4931-86d1-7f85788ec05c" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://vercel.com/templates/ai">https://vercel.com/templates/ai</a> (Discover templates for building Artificial Intelligence (AI) applications.)
+        </li>
+      </ul>
+      <ul id="0daff2cb-a688-49aa-902b-b7f452a9134a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/abs/2304.05332">Emergent autonomous scientific research capabilities of large language models</a>
+        </li>
+      </ul>
+      <ul id="fdd1ae2b-5fa3-45ca-bfeb-f1e124155f14" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.nextplatform.com/2022/12/01/counting-the-cost-of-training-large-language-models/">COUNTING THE COST OF TRAINING LARGE LANGUAGE MODELS</a>
+        </li>
+      </ul>
+      <ul id="3e41a3a1-98a4-4401-ab0c-993263d65ad5" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.nextplatform.com/2023/03/29/cerebras-smashes-ai-wide-open-countering-hypocrites/">CEREBRAS SMASHES AI WIDE OPEN, COUNTERING HYPOCRITES</a>
+        </li>
+      </ul>
+      <ul id="a6795829-4490-44b7-83e3-a624ab056348" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
+        </li>
+      </ul>
+      <ul id="78cc1475-f31b-445e-8720-5df3046b23d5" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
+        </li>
+      </ul>
+      <ul id="70849efd-6439-4641-865b-36f0de8a22cd" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/pdf/2304.06762.pdf">Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study</a>
+        </li>
+      </ul>
+      <ul id="abc60b90-27d9-4a83-8c72-e9ed880f7c01" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://blog.replit.com/llm-training">How to train your own Large Language Models</a>
+        </li>
+      </ul>
+      <ul id="3051e75e-e0cd-4aed-9487-e7cb8726cf37" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat">DeepSpeed Chat: Easy, Fast and Affordable RLHF Training of ChatGPT-like Models at All Scales</a>
+        </li>
+      </ul>
+      <ul id="516e7c2a-47a5-41ab-bd52-aa86b65042c0" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://twitter.com/mitchellh/status/1638967450510458882">https://twitter.com/mitchellh/status/1638967450510458882</a>
+        </li>
+      </ul>
+      <p id="9b502739-835b-425c-b3d8-a52e9a91c87c" class="">Also, <a href="https://www.reddit.com/user/lostlifon/">Nofil on reddit</a> posts great summaries of new stuff like this: <a href="https://www.reddit.com/r/ChatGPT/comments/12o29gl/gpt4_week_4_the_rise_of_agents_and_the_beginning/">GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era</a>.</p>
+      <p id="f9390596-0ece-4b90-83d2-e0d72042d38e" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="../How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../../Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+        <li>
+          <a href="../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../../cz/Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/ai.html" title="ai">ai</a>, <a href="../../../Tags/dao.html" title="dao">dao</a>, <a href="../../../Tags/gpt.html" title="gpt">gpt</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

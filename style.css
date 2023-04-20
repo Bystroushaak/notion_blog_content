@@ -640,7 +640,7 @@ blockquote {
 .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
 .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
 .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
 .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
 .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
 .select-value-color-red { background-color: rgba(255, 226, 221, 1); }

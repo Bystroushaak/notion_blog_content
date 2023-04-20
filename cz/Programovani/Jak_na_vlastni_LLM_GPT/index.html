@@ -12,7 +12,7 @@
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Jak na vlastní LLM (GPT)">
   <meta name="twitter:description" content="Povídání o GPT a LLM (Large Language Models), návod jak si rozjet menší modely doma a pár ukázek jak používám GPT4.">
-  <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/Jak_na_vlastni_LLM_GPT/twitter_preview.jpg">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/How_to_run_your_own_LLM_GPT/twitter_preview.jpg">
   <script src="../../../scripts.js"></script>
   <meta name="description" content="Povídání o GPT a LLM (Large Language Models), návod jak si rozjet menší modely doma a pár ukázek jak používám GPT4.">
   <meta name="keywords" content="ai,gpt,dao,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -66,6 +66,14 @@
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+      </ul>
+    </div>
     <div>
       <h3>Tagy</h3>
       <p><a href="../../../Tagy/ai.html" title="ai">ai</a>, <a href="../../../Tagy/dao.html" title="dao">dao</a>, <a href="../../../Tagy/gpt.html" title="gpt">gpt</a></p>
@@ -118,6 +126,14 @@
     </header>
     <div class="page-body">
       <p id="c861c231-f560-4583-988e-c158833bd9a5" class=""><time>@2023/04/13</time></p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="0bf77b22-486a-4358-8907-94fbe8886724">
+        <div style="font-size:1.5em">
+          <span class="icon">👉</span>
+        </div>
+        <div style="width:100%">
+          This article was also published in English language: <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>.
+        </div>
+      </figure>
       <blockquote id="ccb23b9a-322d-4f5d-b4f8-646887e7b52b" class="">
         Představte si, že jste stroj.
         <p id="8bf0fe32-cbd1-46cb-b3f5-e7a59949313f" class="">Jasně, já vím. Ale představte si, že jste <em>jiný druh stroje</em>, postavený z kovu a plastu a navržený ne slepým, náhodným přirozeným výběrem, ale inženýry a astrofyziky, kteří mají oči pevně upřené na konkrétní cíle. Představte si, že vaším účelem není rozmnožovat se, nebo dokonce přežít, ale shromažďovat informace.</p>
@@ -140,7 +156,7 @@
           <a href="https://www.idnes.cz/technet/software/musk-ai-umela-inteligence.A230329_095318_software_alv">Musk a odborníci žádají pozastavení vývoje umělé inteligence, bojí se rizik</a>
         </li>
       </ul>
-      <p id="289607a1-b12e-4a56-8921-a3c1b174b727" class="">Jako správní chatičtí neutrálové si tedy rozjedem vlastní AI doma. Ale s předmluvou a nějakým tím kontextem, ať vlastně víme co děláme.</p>
+      <p id="289607a1-b12e-4a56-8921-a3c1b174b727" class="">Jako správní chaotičtí neutrálové si tedy rozjedem vlastní AI doma. Ale s předmluvou a nějakým tím kontextem, ať vlastně víme co děláme.</p>
       <h1 id="fb718140-ca18-41d9-b398-2b71e3bfe179" class="">Jak chápat GPT / LLM</h1>
       <p id="1eb46c8a-c6e9-4a40-994f-556f5405ab2c" class="">Setkávám se s jedním zásadním nepochopením, které často mají lidi co trochu tuší jak to funguje;</p>
       <blockquote id="a1100d50-461b-49fa-b598-1654fb3ff120" class="">
@@ -148,7 +164,7 @@
       </blockquote>
       <p id="9a3742c6-031a-4efb-b58a-f4c13a7d7e1a" class="">Což jako jo, ale technicky vzato když píšete na klávesnici, tak jste taky jen doplňovače dalšího slova.</p>
       <figure id="0750013c-42ee-4b25-aa35-034cd642f0ba" class="image">
-        <a href="Untitled.png" title="Untitled.png"><img style="width:576px" src="Untitled.png"></a>
+        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled.png" title="Untitled.png"><img style="width:576px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled.png"></a>
         <figcaption>
           <em>(Zdroj:</em> <em><a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">What Is ChatGPT Doing … and Why Does It Work?</a></em><em>)</em>
         </figcaption>
@@ -162,7 +178,7 @@
       <p id="5c01da96-67e1-4a29-9edd-585a2490b23a" class="">K tomu aby neuronová síť mohla predikovat další token nad gigantickým datasetem, jímž byla trénována, si musí vytvořit bohaté vnitřní reprezentace. Ty zahrnují nejen všechny možné lidské jazyky, ale i znalosti, vztahy a vzory.</p>
       <p id="703cd2a2-7a90-4652-8d21-a7396d55b92e" class="">Tohle se někdy označuje jako <em>“komprese”</em>, protože síť je, způsobem jakým je trénována na velkém množství dat, nucena vytvořit tyto reprezentace nad omezeným setem vah a neuronů. Mohla by teoreticky ukládat miliardy ukázek stylem čínského pokoje, kde si prostě uloží <em>“otázka”</em> - <em>“odpověď”</em> (počátek doplňovaného textu - následující token). Ale tím jak je nucena operovat s omezeným množstvím dostupné vnitřní paměti jí nezbývá nic jiného, než pochopit stále abstraktnější vzory. Nějakým způsobem si to vnitřně reprezentovat jako <em>“znalosti”</em> a <em>“chápání”</em>.</p>
       <figure id="0383fefa-9488-4465-b248-c92a492d1930" class="image">
-        <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:949px" src="Untitled_1.png"></a>
+        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_1.png" title="Untitled_1.png"><img style="width:949px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_1.png"></a>
         <figcaption>
           <em>(PlantUML vygeneroval GPT4, obrázek vpravo</em> <em><strong>DALL·E 2</strong></em><em>)</em>
         </figcaption>
@@ -226,7 +242,7 @@ Question:</code></pre>
       <div id="0e8314e4-9650-4f52-b04f-3ffe00a911d5" class="column-list">
         <div id="00306cd7-2118-40ef-adde-68c4e28d2049" style="width:33.333333333333336%" class="column">
           <figure id="dd7d9780-aa9e-42d2-bbdf-71ee5bae482d" class="image">
-            <a href="FqZ6ud1WcAMvZvt.jpeg" title="FqZ6ud1WcAMvZvt.jpeg"><img style="width:1400px" src="FqZ6ud1WcAMvZvt_thumb.jpg"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FqZ6ud1WcAMvZvt.jpeg" title="FqZ6ud1WcAMvZvt.jpeg"><img style="width:1400px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FqZ6ud1WcAMvZvt_thumb.jpg"></a>
             <figcaption>
               <em>(Source:</em> <em><a href="https://twitter.com/mealreplacer/status/1632126858299863040">https://twitter.com/mealreplacer/status/1632126858299863040</a></em><em>)</em>
             </figcaption>
@@ -234,7 +250,7 @@ Question:</code></pre>
         </div>
         <div id="65885ae1-6203-461c-8032-5e8d6c646a6e" style="width:33.333333333333336%" class="column">
           <figure id="7b6bb1a5-6c28-463e-96ed-8230e7094e6d" class="image">
-            <a href="Fsvsl4AWcAA6xo7.jpeg" title="Fsvsl4AWcAA6xo7.jpeg"><img style="width:708px" src="Fsvsl4AWcAA6xo7.jpeg"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Fsvsl4AWcAA6xo7.jpeg" title="Fsvsl4AWcAA6xo7.jpeg"><img style="width:708px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Fsvsl4AWcAA6xo7.jpeg"></a>
             <figcaption>
               <em>(Source:</em> <em><a href="https://twitter.com/LionTNC/status/1642666630831276035">https://twitter.com/LionTNC/status/1642666630831276035</a></em><em>)</em>
             </figcaption>
@@ -242,14 +258,14 @@ Question:</code></pre>
         </div>
         <div id="7419d5f1-c8d5-434f-9c6a-c2c7ad8a95b6" style="width:33.33333333333333%" class="column">
           <figure id="0ef468b0-d144-4a5c-8aea-df4d5563b1b5" class="image">
-            <a href="407.jpg" title="407.jpg"><img style="width:2118px" src="407_thumb.jpg"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/407.jpg" title="407.jpg"><img style="width:2118px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/407_thumb.jpg"></a>
           </figure>
         </div>
       </div>
       <div id="9d45751c-04e5-49eb-adbc-185bbb9a141c" class="column-list">
         <div id="e0d7fe95-729b-416b-be4b-772fc392003e" style="width:37.5%" class="column">
           <figure id="b1e2bd9b-fa3f-46d5-8afb-01f52d79eca5" class="image">
-            <a href="FtOw0qtXoAU0XpK.png" title="FtOw0qtXoAU0XpK.png"><img style="width:652px" src="FtOw0qtXoAU0XpK.png"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FtOw0qtXoAU0XpK.png" title="FtOw0qtXoAU0XpK.png"><img style="width:652px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FtOw0qtXoAU0XpK.png"></a>
             <figcaption>
               <em>(Source:</em> <em><a href="https://twitter.com/JCorvinusVR/status/1644852722611486720">https://twitter.com/JCorvinusVR/status/1644852722611486720</a></em><em>)</em>
             </figcaption>
@@ -257,7 +273,7 @@ Question:</code></pre>
         </div>
         <div id="0908610e-0ead-412d-b862-bdd4a4abecc0" style="width:62.5%" class="column">
           <figure id="65a3352d-ddcf-46b8-9b69-1730ef4a2abc" class="image">
-            <a href="FoO-U_gaYAAIlPZ.jpeg" title="FoO-U_gaYAAIlPZ.jpeg"><img style="width:793px" src="FoO-U_gaYAAIlPZ.jpeg"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FoO-U_gaYAAIlPZ.jpeg" title="FoO-U_gaYAAIlPZ.jpeg"><img style="width:793px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FoO-U_gaYAAIlPZ.jpeg"></a>
             <figcaption>
               <em>(Source:</em> <em><a href="https://twitter.com/anthrupad/status/1622349563922362368">https://twitter.com/anthrupad/status/1622349563922362368</a></em><em>)</em>
             </figcaption>
@@ -267,18 +283,18 @@ Question:</code></pre>
       <div id="4225640a-dbd5-4447-a8dc-052ec5fa0e3c" class="column-list">
         <div id="d49f4f58-130f-47ec-84f2-f920f63ff54a" style="width:50%" class="column">
           <figure id="8b27f5d8-048b-4a98-8ba5-a8a0940c84ba" class="image">
-            <a href="4bb.jpg" title="4bb.jpg"><img style="width:1436px" src="4bb_thumb.jpg"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/4bb.jpg" title="4bb.jpg"><img style="width:1436px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/4bb_thumb.jpg"></a>
           </figure>
         </div>
         <div id="7cfbcd81-ab46-4216-b0e1-2653cb904901" style="width:50%" class="column">
           <figure id="0c0b7dc6-bcc5-484f-bcc7-8d807ae282be" class="image">
-            <a href="18c.jpg" title="18c.jpg"><img style="width:1750px" src="18c_thumb.jpg"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/18c.jpg" title="18c.jpg"><img style="width:1750px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/18c_thumb.jpg"></a>
           </figure>
         </div>
       </div>
       <p id="481a05d5-9de3-4d43-a24b-0b72a23b1089" class="">Ty obrázky jsou cute, ale jak už poznamenal někdo na twitteru, jsou principiálně špatná analogie. Správné zobrazení by bylo místo mnoha očí mít mnoho masek, protože Shoggoth sám o sobě v podstatě není.</p>
       <figure id="e783b3b5-6fb4-43e9-b877-8ef1476169ae" class="image">
-        <a href="e3b.jpg" title="e3b.jpg"><img style="width:900px" src="e3b.jpg"></a>
+        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/e3b.jpg" title="e3b.jpg"><img style="width:900px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/e3b.jpg"></a>
       </figure>
       <p id="1a3064f3-0275-4d7a-871b-2234c1fa2c6a" class="">Je to něco jako hlas všech textů lidstva s maskou všech postav všech příběhů. Tomu někdo navrch nasprejoval smajlíka ve tvaru chatbota, se kterým si myslíte, že si povídáte.</p>
       <p id="72e03c31-fe35-476b-ba1e-39d578bb4c8b" class="">To nemyslím tak jako <em>“berte informace s rezervou”</em>, nebo <em>“nespoléhejte na ně”</em>, ale spíš jako že nátura Shoggotha je Shoggoth. Shoggoth musí simulovat, aby doplňoval text. Když nechápe, tak ve většině případů vypadl z role a neví co má předstírat. Musíte mu ten kontext uvést. Ne kontext rozhovoru, ale toho co má být, jako co má vést rozhovor. Meh.</p>
@@ -295,7 +311,7 @@ Question:</code></pre>
       </figure>
       <p id="63a6814c-2834-4a3d-b156-8c7eb09db56e" class="">Na tomhle je zajímavé, že narozdíl od původního RLHF, které probíhalo formou tisíce hodnocených konverzací s uživateli ve stylu <em>“uživatel si s modelem povídá, pak vybere jestli dobrý nebo špatný, model se pak trénuje aby dělal víc dobrý a míň špatný”</em> k tomu použili GPT3.5. Tedy <em>“jeden model trénuje druhý model na dobrý a špatný”</em>. Tím byl pronesen úvodní přípitek večírku <a href="https://cs.wikipedia.org/wiki/Technologick%C3%A1_singularita">Singularity</a> (bájný stav, kdy naše technologie začne vylepšovat sebe sama).</p>
       <figure id="24b14980-9a03-4c06-bd29-9da19b276037" class="image">
-        <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:599px" src="Untitled_2.png"></a>
+        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_2.png" title="Untitled_2.png"><img style="width:599px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_2.png"></a>
       </figure>
       <p id="5a8275cb-e5d4-4d64-8d1d-e41d88a66c5b" class="">Překvapivě se ukázalo, že stačí asi 52 tisíc těhle ukázek, tedy v podstatě nic ve srovnání s množstvím ostatních trénovacích dat, a model se dostává v benchmarcích a automatizovaných testech o desítky procent blíž k úrovni GPT3.</p>
       <p id="695b4a0d-cd29-4856-99a4-8436e1e76a78" class="">Alpaca potom byla <a href="https://github.com/tatsu-lab/stanford_alpaca">uvolněna</a> super divným způsobem; protože původní model byl facebooku a ten ho přestal šířit, uvolnili v podstatě jen něco jako diff od <em>llamy</em>. Tedy k tomu aby se dal rozchodit bylo potřeba někde sehnat <em>llamu</em>. Všichni se plácali po zádech, jak jsou zodpovědní a brání šíření spamu a dezinformací. To jim vydrželo přibližně do druhého dne, než to někdo zkombinoval a hodil na net.</p>
@@ -341,7 +357,7 @@ Question:</code></pre>
       </ol>
       <ol type="1" id="c8e99791-59c4-40b2-98ed-60dc1f5841f6" class="numbered-list" start="6">
         <li>
-          <a href="https://github.com/tloen/alpaca-lora">Alpaca-LoRA</a> alternativa k alpace za použití <a href="https://arxiv.org/pdf/2106.09685.pdf">LoRA</a> (specifický způsob jak trénovat existující modely)
+          <a href="https://github.com/tloen/alpaca-lora">Alpaca-LoRA</a> alternativa k Alpace za použití <a href="https://arxiv.org/pdf/2106.09685.pdf">LoRA</a> (specifický způsob jak trénovat existující modely)
         </li>
       </ol>
       <ol type="1" id="659b436c-8e61-4b8b-922d-e3263a83f014" class="numbered-list" start="7">
@@ -394,28 +410,17 @@ Running on local URL:  http://127.0.0.1:7860
 To create a public link, set `share=True` in `launch()`.</code></pre>
       <p id="20cc8734-4aca-42b7-8f19-541b605fb3c9" class="">Na portu <code>7860</code> naběhlo webové rozhraní:</p>
       <figure id="dda34ec2-0792-4132-af21-eafdb88b0842" class="image">
-        <a href="Screenshot_from_2023-04-12_01-23-02.jpg" title="Screenshot_from_2023-04-12_01-23-02.jpg"><img style="width:1201px" src="Screenshot_from_2023-04-12_01-23-02_thumb.jpg"></a>
+        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02.jpg" title="Screenshot_from_2023-04-12_01-23-02.jpg"><img style="width:1201px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02_thumb.jpg"></a>
       </figure>
       <p id="1ea5c46d-0a1f-4c4f-a30b-bdb321828ebe" class="">Slova se u mě objevují velmi pomalu, asi tak jedno za pět vteřin. Postupně se načítá po znacích, jak ho model generuje. Chtělo by to grafickou kartu s větší pamětí, do mojí 3090Ti se model nevleze.</p>
       <h3 id="e5fe1d77-42d1-484e-8083-13ee9198c03b" class="">llama.cpp</h3>
       <p id="ab949baa-b40a-44df-ae42-324d6d39b35a" class="">Naštěstí je tu ještě <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, C++ přepis python kódu:</p>
       <pre id="c0301978-6ece-41c5-a04e-f71be89fd755" class="code code-wrap"><code>git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
       <p id="29d631cb-be9c-41c2-a72d-c2d9d8347399" class="">Pak jí zbuildíme příkazem <code>make</code>.</p>
-      <p id="c706b468-476e-4249-85fd-ea7e177d6add" class="">Menší problém je, že <code>llama.cpp</code> používá optimalizovaný formát ukládání dat, který musíme z původního pytorch tensoru (<code>.pth</code>) překonvertovat na <code>.ggml</code>. V <code>llama.cpp</code> jsou na to různé konverzní scripty, které ovšem bohužel nefungují:</p>
-      <pre id="5245a568-b657-4fe6-b5fd-603371696316" class="code code-wrap"><code>$ python3 convert-pth-to-ggml.py ../models/vicuna-13b 0
-Traceback (most recent call last):
-  File "/media/bystrousak/internal_nvm/llama.cpp/convert-pth-to-ggml.py", line 274, in &lt;module&gt;
-    main()
-  File "/media/bystrousak/internal_nvm/llama.cpp/convert-pth-to-ggml.py", line 239, in main
-    hparams, tokenizer = load_hparams_and_tokenizer(dir_model)
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/bystrousak/internal_nvm/llama.cpp/convert-pth-to-ggml.py", line 102, in load_hparams_and_tokenizer
-    with open(fname_hparams, "r") as f:
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '../models/vicuna-13b/params.json'</code></pre>
-      <p id="d10e36dd-edf7-4cce-9bba-40737998d426" class="">Chybí nám <code>params.json</code>, které jsem sice někde našel, ale pak chybí zase něco jiného a pak zase něco dalšího. V <a href="https://github.com/ggerganov/llama.cpp/pull/545">#545</a> je nový script <a href="https://github.com/ggerganov/llama.cpp/blob/b9c372dc7b571120e50cb1085fa05e0b209eeef5/convert.py">convert.py</a>. Ten si stáhněte do <code>llama.cpp</code>.</p>
+      <p id="c706b468-476e-4249-85fd-ea7e177d6add" class="">Menší problém je, že <code>llama.cpp</code> používá optimalizovaný formát ukládání dat, který musíme z původního pytorch tensoru (<code>.pth</code>) překonvertovat na <code>.ggml</code>. V <code>llama.cpp</code> je na to konverzní script.</p>
       <p id="7bb5d626-a74b-4726-9500-e164064d0861" class="">Aktivujeme zase <code>textgen</code> condu z předchozí kapitoly.</p>
-      <pre id="6c2f12dd-f12b-4a92-b2e6-fae864284ce2" class="code code-wrap"><code>$ conda activate textgen</code></pre>
+      <pre id="6c2f12dd-f12b-4a92-b2e6-fae864284ce2" class="code code-wrap"><code>$ conda activate textgen
+(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
       <p id="c7c4a236-2e52-4e0d-96c6-beead25bb625" class="">Při spuštění si stěžuje že chybí soubor <code>added_tokens.json</code>:</p>
       <pre id="eb384d7e-88c3-4290-ba83-22f48c3aa4aa" class="code code-wrap"><code>Exception: Vocab size mismatch (model has 32001, but ../models/vicuna-13b/tokenizer.model has 32000).  Most likely you are missing added_tokens.json (should be in ../models/vicuna-13b).</code></pre>
       <p id="a7e58fec-53be-43db-880a-cc28de0b092c" class="">Takže ho tam přidáme:</p>
@@ -433,7 +438,7 @@ FileNotFoundError: [Errno 2] No such file or directory: '../models/vicuna-13b/pa
       <ol type="1" id="9d55c72f-ae8e-4288-bccd-b80ecb1c0431" class="numbered-list" start="1">
         <li>Máte ne-ideálně nastavené různé vedlejší hodnoty modelu. Těch je spousta a pokud jste je nenastavovali, tak je někdo nastavil za vás, a dost často blbě. Typicky <code>temperature</code> je něco co chcete mít někde u <code>0.7</code>.
           <figure id="abe6b8d1-3816-4890-9115-6e870886e342" class="image">
-            <a href="Screenshot_from_2023-04-12_02-05-28.png" title="Screenshot_from_2023-04-12_02-05-28.png"><img style="width:1049px" src="Screenshot_from_2023-04-12_02-05-28.png"></a>
+            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_02-05-28.png" title="Screenshot_from_2023-04-12_02-05-28.png"><img style="width:1049px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_02-05-28.png"></a>
           </figure>
         </li>
       </ol>
@@ -608,7 +613,7 @@ User:</code></pre>
       <p id="507303b8-4ab4-410a-b10d-3f42c31001ca" class="">A blíží se konec. Ne lidstva, ale blogu. Takže k AGI:</p>
       <p id="5298ea4e-80a4-45d2-9246-1166d7415a13" class="">Podle mého názoru tohle přímo povede k AGI, tedy Artificial General Intelligence, AI která je v průměru schopná <em>všeho</em> intelektuálního stejně dobře, nebo líp než <em>člověk</em> (což neznamená že bude <em>pořád</em> dělat <em>všechno</em> líp než <em>všichni</em> ostatní).</p>
       <p id="96e3646e-54d6-477c-98c6-37b3f456e1c4" class="">Ne že by to bylo úplně na dohled, ale teď je to jen otázka vyzkoušení různých přístupů, zlepšení škálování a tak podobně. Po sto letech kdy nikdo neměl vůbec žádné tušení co jak na to, a vědci se ani nedokázali shodnout na pojmu “inteligence”, je tohle konečně tady. Jen je to zatím stále poněkud hloupé.</p>
-      <p id="39ec2e92-2004-4167-900a-085920fec82c" class="">Tohle je jako první letadlo. Letí to, hurá. Ale hlavně to ukazuje <em>cestu</em>, a že <em>je to možné</em>, a nejspíš i <em>jak</em>. Teď jde jen o na tom chvíli dělat, starým dobrým iterativním vývojem.</p>
+      <p id="39ec2e92-2004-4167-900a-085920fec82c" class="">Tohle je jako první letadlo. Letí to, hurá. Ale hlavně to ukazuje <em>cestu</em>, a že <em>je to možné</em>, a nejspíš i <em>jak</em>. Teď jde jen o to na tom chvíli dělat, starým dobrým iterativním vývojem.</p>
       <p id="88788a43-2b77-4db4-9349-e30fd6e501ce" class="">Co mě velmi zaujalo jsou jakési <a href="https://en.wikipedia.org/wiki/Strange_loop">strangeloopy</a>, které lidi s GPT poslední dobou dělají. Krásným příkladem je třeba <a href="https://github.com/Torantulino/Auto-GPT">Auto-GPT: An Autonomous GPT-4 Experiment</a>. Což v podstatě vezme váš request, model se prvně zamyslí jak ho udělat, a pak pomocí různých nástrojů interaguje s webem a diskem a tak podobně, a když je něco moc velké (přesahuje to kontextové okno), tak na to spouští další modely, které instruuje. Během toho si různě ukládá informace na disk, které si pak čte zpátky, aby instruoval sám sebe. Teoreticky je to schopné plnit docela vysokoúrovňové cíle, v praxi je to zatím pořád v plenkách a dost často se to někde ztratí.</p>
       <p id="12d64658-d414-4e8d-a5e6-2a787c5ea928" class="">Momentálně je to tedy dost nepoužitelné, ale celkově to začíná docela dobře simulovat složitější myšlenkové procesy. Dost mi to připomělo můj starý blogpost <a href="../../Crypto/Entity.html" title="Entity">Entity</a>, kde jsem popisoval systém, co není inteligentní, ale pronajímá si na vylepšování sebe sama inteligenci od lidí. A tohle v podstatě dokáže podobně delegovat inteligenci, akorát samo na sebe.</p>
       <h1 id="6f65d856-a508-4cb1-884b-20a88506b318" class="">Odkazovník</h1>
@@ -677,6 +682,96 @@ User:</code></pre>
       </figure>
       <p id="30b0fe9b-a3fd-4745-b311-018c41fd523e" class="">Nekonečné diskuze o morálce a copyrightu a inteligenci a zneužitelnosti a tak podobně jsou podle mého názoru jalový <a href="https://www.definitions.net/definition/bikeshedding">bikeshedding</a>. Lidi to pořád řeší, protože to může řešit každý, ale na výsledku debaty naprosto nezáleží. Neplýtvat na tom čas.</p>
       <p id="3cad6498-a8e6-4e30-92bb-5faa254e271c" class="">Depresi z toho že AI bude umět všechno líp než vy asi netřeba, už teď existuje na světě někdo, kdo asi umí cokoliv z toho co umíte líp než vy. Pokud berete motivaci jen z tohohle, tak si prostě najděte jinou motivaci. Třeba se zamyslete jak vám to umožní zlepšit svůj potenciál dosahovat cílů které fakt chcete.</p>
+      <h3 id="e85c478b-0f2f-423b-a326-993777bd49c6" class="">Edit <time>@2023/04/20</time></h3>
+      <p id="d63dcbd9-3c05-496b-b9b1-da8136f5eaa1" class="">Pár dalších zajímavých odkazů</p>
+      <ul id="972560d6-372c-444b-8600-d7d473602411" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://twitter.com/lmsysorg/status/1646618380114468864">Vicuna 1.1 byla vydána</a>
+        </li>
+      </ul>
+      <ul id="6643176a-1282-4096-951e-79dbccb35584" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.lesswrong.com/posts/566kBoPi76t8KAkoD/on-autogpt">On AutoGPT</a>
+        </li>
+      </ul>
+      <ul id="e7bce56d-186e-4156-9a8e-41fceb0747dd" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism">Cyborgism</a>
+        </li>
+      </ul>
+      <ul id="6f939c2f-217c-4e31-bce8-0deace6546c0" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://twitter.com/HarshaAngeri/status/1646563694686654467">BabyAGI</a> (<a href="https://github.com/yoheinakajima/babyagi">github</a>)
+        </li>
+      </ul>
+      <ul id="f14180b5-11ae-47c6-9975-306b8ad2e910" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/yeagerai/yeagerai-agent">Yeager.ai Agent</a> (github)
+        </li>
+      </ul>
+      <ul id="8792ec98-f1d1-4bb3-bac6-37a5b2bea684" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://python.langchain.com/en/latest/index.html">LangChain</a>
+        </li>
+      </ul>
+      <ul id="faa8d769-a24f-4293-a2bc-cc8ef5545e97" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://vercel.com/templates/ai">https://vercel.com/templates/ai</a> (Discover templates for building Artificial Intelligence (AI) applications.)
+        </li>
+      </ul>
+      <ul id="0f956d80-85de-44fd-88c1-b767b9fa7eac" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/abs/2304.05332">Emergent autonomous scientific research capabilities of large language models</a>
+        </li>
+      </ul>
+      <ul id="d3472515-50d9-4e8c-9c98-750535590ac9" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.nextplatform.com/2022/12/01/counting-the-cost-of-training-large-language-models/">COUNTING THE COST OF TRAINING LARGE LANGUAGE MODELS</a>
+        </li>
+      </ul>
+      <ul id="84a46bf4-5ffc-4d35-b421-c0704c5d5a13" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.nextplatform.com/2023/03/29/cerebras-smashes-ai-wide-open-countering-hypocrites/">CEREBRAS SMASHES AI WIDE OPEN, COUNTERING HYPOCRITES</a>
+        </li>
+      </ul>
+      <ul id="b9b81176-2d0c-4ee6-9501-303ef33f3213" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
+        </li>
+      </ul>
+      <ul id="2c51db83-442f-477f-a91f-7734a3a5d10f" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
+        </li>
+      </ul>
+      <ul id="902bfcf0-7e4b-47c8-ad01-43d6dfb1ee8a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://arxiv.org/pdf/2304.06762.pdf">Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study</a>
+        </li>
+      </ul>
+      <ul id="f8521eb2-639d-4a7b-b584-b54e234e500e" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://blog.replit.com/llm-training">How to train your own Large Language Models</a>
+        </li>
+      </ul>
+      <ul id="c90952c4-7fa2-4a9d-b9ae-ec58c9524fe3" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat">DeepSpeed Chat: Easy, Fast and Affordable RLHF Training of ChatGPT-like Models at All Scales</a>
+        </li>
+      </ul>
+      <ul id="3a31edb5-02ba-4f07-a347-94be28ac9c0e" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://twitter.com/mitchellh/status/1638967450510458882">https://twitter.com/mitchellh/status/1638967450510458882</a>
+        </li>
+      </ul>
+      <p id="522baa72-933d-41e8-86d4-af8362583852" class="">Taky <a href="https://www.reddit.com/user/lostlifon/">Nofil z redditu</a> posílá dobré shrnutí novinek každý týden: <a href="https://www.reddit.com/r/ChatGPT/comments/12o29gl/gpt4_week_4_the_rise_of_agents_and_the_beginning/">GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era</a>.</p>
+      <h1 id="a18d9467-0175-4d60-b451-c4826457fcfd" class="">Diskuze</h1>
+      <ul id="c14d1584-b316-4767-bf41-f112701fb65a" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.abclinuxu.cz/blog/bystroushaak/2023/4/jak-na-vlastni-llm-gpt/diskuse">abclinuxu</a>
+        </li>
+      </ul>
+      <p id="a68443f7-cc4d-49cb-980d-3ac6cc101d1b" class=""></p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -720,6 +815,14 @@ User:</code></pre>
       </ul>
     </div>
     <p>You can find <a href="../../../Zmeny.html" title="Změny">many more in changelog</a>..</p>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+      </ul>
+    </div>
     <div>
       <h3>Tagy</h3>
       <p><a href="../../../Tagy/ai.html" title="ai">ai</a>, <a href="../../../Tagy/dao.html" title="dao">dao</a>, <a href="../../../Tagy/gpt.html" title="gpt">gpt</a></p>
