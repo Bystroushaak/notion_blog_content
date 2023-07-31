@@ -35,6 +35,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
           <a href="How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
         </li>
         <li>
@@ -60,9 +63,6 @@
         </li>
         <li>
           <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
-        <li>
-          <a href="../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -129,6 +129,7 @@
   <article id="5805c70b-cc1a-4eb0-9fee-b27711eb143b" class="page sans">
     <header>
       <h1 class="page-title">How to run your own LLM (GPT)</h1>
+      <p class="page-description"></p>
     </header>
     <div class="page-body">
       <p id="1a711450-278a-4b1b-bb75-bf584915bfb8" class=""><time>@2023/04/20</time></p>
@@ -418,7 +419,7 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
       <figure id="f34ec88a-2d8b-4138-8036-279e5ccb4dfc" class="image">
         <a href="How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02.jpg" title="Screenshot_from_2023-04-12_01-23-02.jpg"><img style="width:1201px" src="How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02_thumb.jpg"></a>
       </figure>
-      <p id="38c15388-5aa5-4ee3-9322-8dadfd64fde1" class="">The words appear very slowly for me, about one every five seconds. It loads character by character as the model generates it. It would be better to have a graphics card with more memory, as the model doesn't fit into my 3090Ti.</p>
+      <p id="38c15388-5aa5-4ee3-9322-8dadfd64fde1" class="">The words appear very slowly for me, about one every five seconds. It loads character by character as the model generates it. It would be better to have a graphics card with more memory, as the model doesn't fit into my 3070Ti.</p>
       <h3 id="780c9365-a38c-4463-9709-cb6dca2050ed" class="">llama.cpp</h3>
       <p id="b2a853db-6e53-41fd-a717-46d2ec84ea49" class="">Fortunately, there is also <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, a C++ rewrite of the Python code:</p>
       <pre id="c772945a-6863-49a6-aff5-31946a1a3eb2" class="code code-wrap"><code>git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
@@ -580,7 +581,7 @@ User:</code></pre>
         <li>Debugging. Typically, Helm/Kubernetes. I get stuck somewhere, can't find anything on Google. When I copy-paste an error message to GPT4, it solves something I was stuck on for hours within a few messages (recently, details about Kubernetes annotations, Route53, SSL certificates, values, overrides, and other details). GPT is absolutely brilliant for debugging, and instead of wasting time on something, you move forward incredibly fast.</li>
       </ol>
       <ol type="1" id="8d05187e-8092-44e3-a804-2625281f1215" class="numbered-list" start="10">
-        <li>In the future, I want to script the translation of my blog into various languages. Languages have become less important, so why not automatically translate it into most major ones for a few dollars? It already has better quality than cheap human translators (150 CZK / standard page) from various marketplaces, and the price will be in the order of cents per article. Fun fact: english version of this blogpost was translated by GPT, and it cost me $7. This is less than what I would have to pay for the translation of one standard page (1800 characters) and 1/24 of the costs. It was done within 30 minutes and I didn’t have to go through the pain of hiring a contractor on marketplace website.</li>
+        <li>In the future, I want to script the translation of my blog into various languages. Languages have become less important, so why not automatically translate it into most major ones for a few dollars? It already has better quality than cheap human translators (150 CZK / standard page) from various marketplaces, and the price will be in the order of dolars per article. Fun fact: english version of this blogpost was translated by GPT, and it cost me $7. This is less than what I would have to pay for the translation of one standard page (1800 characters) and 1/24 of the costs. It was done within 30 minutes and I didn’t have to go through the pain of hiring a contractor on marketplace website.</li>
       </ol>
       <p id="7e665ec4-0f11-4920-b6bc-8210d854f5c2" class="">Of course, two things need to be said:</p>
       <ol type="1" id="e719d065-9bd2-44c3-9bf0-718c398632b5" class="numbered-list" start="1">
@@ -617,7 +618,7 @@ User:</code></pre>
       <p id="f91b3db3-4b7c-4cab-8ec6-91247e4f588b" class="">In my opinion, this will directly lead to AGI, or Artificial General Intelligence, an AI that is capable of <em>everything</em> intellectual, on average, as well as or better than a <em>human</em> (which does not mean it will <em>always</em> do <em>everything</em> better than <em>everyone</em> else).</p>
       <p id="b3743504-a121-4b27-addf-6d10cae22287" class="">It's not that it's completely here, but now it's just a matter of trying different approaches, improving scalability, and so on. After a hundred years when no one had any idea how to do it, and scientists couldn't even agree on the definition of "intelligence," it's finally coming. It's just still somewhat dumb.</p>
       <p id="2ef2c3d7-9a76-4390-ac59-b7fc3ccfe65f" class="">This is like the first airplane. It flies, hooray. But mainly, it shows the <em>way</em>, that <em>it's possible</em>, and probably even <em>how</em>. Now it's just a matter of working on it for a while, with good old iterative development.</p>
-      <p id="5c0adda5-70fb-4a0f-8128-256c92a71a32" class="">What caught my interest were s<a href="https://en.wikipedia.org/wiki/Strange_loop">trange loops</a> that people have been doing with GPT lately. A beautiful example is <a href="https://github.com/Torantulino/Auto-GPT">Auto-GPT: An Autonomous GPT-4 Experiment</a>. It essentially takes your request, the model first thinks about how to do it, and then interacts with various tools on the web and disk, and so on. When something is too big (exceeding the context window), it launches additional models that it instructs. During this process, it stores various pieces of information on the disk, which it then reads back to instruct itself. In theory, it is capable of fulfilling quite high-level goals, but in practice, it is still in its infancy and often gets lost.</p>
+      <p id="5c0adda5-70fb-4a0f-8128-256c92a71a32" class="">What caught my interest were <a href="https://en.wikipedia.org/wiki/Strange_loop">strange loops</a> that people have been doing with GPT lately. A beautiful example is <a href="https://github.com/Torantulino/Auto-GPT">Auto-GPT: An Autonomous GPT-4 Experiment</a>. It essentially takes your request, the model first thinks about how to do it, and then interacts with various tools on the web and disk, and so on. When something is too big (exceeding the context window), it launches additional models that it instructs. During this process, it stores various pieces of information on the disk, which it then reads back to instruct itself. In theory, it is capable of fulfilling quite high-level goals, but in practice, it is still in its infancy and often gets lost.</p>
       <p id="8617273b-9ea7-4f7f-be41-842121073def" class="">Currently, it is quite unusable, but overall, it is starting to simulate more complex thought processes quite well. It reminded me a lot of my old blog post <a href="../../cz/Crypto/Entity.html" title="Entity">Entity</a>, where I described a system that is not intelligent but rents intelligence from people to improve itself. And this can basically delegate intelligence in a similar way, just on itself.</p>
       <h1 id="7da6b2ed-8b08-4aa1-87fd-5c7de5c22223" class="">Links</h1>
       <ul id="cb28d91c-7ad1-41be-8ec0-5e14303ea56e" class="bulleted-list">
@@ -768,7 +769,13 @@ User:</code></pre>
         </li>
       </ul>
       <p id="9b502739-835b-425c-b3d8-a52e9a91c87c" class="">Also, <a href="https://www.reddit.com/user/lostlifon/">Nofil on reddit</a> posts great summaries of new stuff like this: <a href="https://www.reddit.com/r/ChatGPT/comments/12o29gl/gpt4_week_4_the_rise_of_agents_and_the_beginning/">GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era</a>.</p>
-      <p id="f9390596-0ece-4b90-83d2-e0d72042d38e" class=""></p>
+      <h2 id="f9390596-0ece-4b90-83d2-e0d72042d38e" class="">Discussion</h2>
+      <ul id="0efca073-2b5c-4a2b-9a0f-597d64dc26e6" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://lobste.rs/s/uawxse/how_run_your_own_llm_gpt">lobste.rs</a> (26 comments)
+        </li>
+      </ul>
+      <p id="171ea9fe-ffa5-458f-af5e-cb816626b071" class=""></p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -779,6 +786,9 @@ User:</code></pre>
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
         <li>
           <a href="How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
         </li>
@@ -805,9 +815,6 @@ User:</code></pre>
         </li>
         <li>
           <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
-        <li>
-          <a href="../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
         </li>
       </ul>
     </div>

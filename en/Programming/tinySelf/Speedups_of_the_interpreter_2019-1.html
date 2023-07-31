@@ -35,6 +35,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
           <a href="../How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
         </li>
         <li>
@@ -60,9 +63,6 @@
         </li>
         <li>
           <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
-        <li>
-          <a href="../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -129,6 +129,7 @@
   <article id="35fe6656-44f2-4f3d-9e90-77938e0f9259" class="page sans">
     <header>
       <h1 class="page-title">Speedups of the interpreter 2019/1</h1>
+      <p class="page-description"></p>
     </header>
     <div class="page-body">
       <p id="cd88bf70-0773-4cda-aafb-f3f2ad917681" class=""><time>@2019/01/29</time></p>
@@ -190,7 +191,11 @@ class PrimitiveIntObject(_NumberObject):
       <h1 id="9d4b7871-9a00-41d4-aeac-b59ec5a5a2ed" class="">Profiling logs</h1>
       <p id="0fec2019-91ca-40a3-95f9-3cb4b35c22c9" class="">Instead of guessing, I've decided to profile the code. I've only profiled the code with profiler once before using <code>valgrind</code>, so I've just used google and found out <a href="http://www.pixelbeat.org/programming/profiling/">Linux Profiling tools and techniques</a>, which gave me two commands to run:</p>
       <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code"><code>valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
-      <p><a href="Speedups_of_the_interpreter_2019-1/callgrind.out.2530.txt" title="callgrind.out.2530.txt">📎 callgrind.out.2530.txt</a></p>
+      <figure id="bb40f15d-1907-443b-95e0-234b37a1f084">
+        <div class="source">
+          <a href="Speedups_of_the_interpreter_2019-1/callgrind.out.2530.txt" title="callgrind.out.2530.txt">callgrind.out.2530.txt</a>
+        </div>
+      </figure>
       <p id="f02f86f9-d87a-4692-a6b2-b34facc63bec" class="">and then</p>
       <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code"><code>kcachegrind callgrind.out.*</code></pre>
       <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
@@ -363,6 +368,9 @@ def add_block_trait(block):
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
           <a href="../How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
         </li>
         <li>
@@ -388,9 +396,6 @@ def add_block_trait(block):
         </li>
         <li>
           <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
-        <li>
-          <a href="../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
         </li>
       </ul>
     </div>

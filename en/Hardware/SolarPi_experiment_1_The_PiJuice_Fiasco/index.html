@@ -35,6 +35,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
           <a href="../../Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
         </li>
         <li>
@@ -61,11 +64,16 @@
         <li>
           <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
-        <li>
-          <a href="../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
-        </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+      </ul>
+    </div>
     <div>
       <h3>Tags</h3>
       <p><a href="../../../Tags/hardware.html" title="hardware">hardware</a>, <a href="../../../Tags/raspberry.html" title="raspberry">raspberry</a>, <a href="../../../Tags/server.html" title="server">server</a>, <a href="../../../Tags/solar.html" title="solar">solar</a></p>
@@ -121,6 +129,7 @@
   <article id="b8ae57cc-9f62-4d8a-bdcf-85b0dc919e2e" class="page sans">
     <header>
       <h1 class="page-title">SolarPi experiment 1: The PiJuice Fiasco</h1>
+      <p class="page-description"></p>
     </header>
     <div class="page-body">
       <p id="9c7135e1-765c-4ec7-ad58-be4731c72695" class=""><time>@2023/03/10</time></p>
@@ -261,7 +270,8 @@
               <td class="cell-hgNr">3.330625507717</td>
             </tr>
           </tbody>
-        </table>
+        </table><br>
+        <br>
       </div>
       <p id="a74788c3-79ca-4757-b7e1-8f11ea34dcb2" class="">Getting most of the components was relatively easy, except for the Raspberry Pi itself, which was sold out here in the Czech Republic in the 8&nbsp;GB variant (I literally couldn’t find a single eshop which would have them on stock). In the end, I’ve ordered it from German Amazon and paid double the usual price still listed on local eshops. Apparently, there is already a shortage.</p>
       <p id="7e80e866-59ee-4c35-b067-1992f75b91be" class="">Notice, that I’ve also bought a 40W PiJuice solar panel, even though it’s not cheap and the Raspberry Pi consumes only something like 5W. My line of reasoning was simple; I want to overdo the solar part; the bigger, the better. As I mentioned, the Czech Republic doesn’t get much of the sun, and maybe with the bigger panel, it may run the whole night.</p>
@@ -415,7 +425,8 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table><br>
+        <br>
       </div>
       <div id="84c14efe-93b3-4c9b-8231-a2e1afc9131c" class="collection-content">
         <h4 class="collection-title">Comsumption without solar cells</h4>
@@ -463,7 +474,8 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table><br>
+        <br>
       </div>
       <p id="c4f3f5c1-294f-4117-9c9f-41d56a2a8089" class="">What. Average 5.09 W with solar cells and 5.1 without them? Something is not right here.</p>
       <h1 id="7a876875-5f26-4000-8a4d-0788b9009dc7" class="">Investigation</h1>
@@ -599,7 +611,8 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table><br>
+        <br>
       </div>
       <p id="2b827119-a74f-47fa-aff5-12a99629b691" class="">Okay, that seems somewhat promising, but still quite random. For example, sometimes the power consumption is higher during the day than during the night, even though the raspberry was in idle the whole time.</p>
       <p id="c5ba9191-2a76-466d-9d67-4406efa1e390" class="">When I saw the randomness of it all, I started to play with other settings in the PiJuice, but it still felt like the solar panels were not working properly.</p>
@@ -667,7 +680,8 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table><br>
+        <br>
       </div>
       <p id="0b4b762e-03b9-487c-9067-fa146bc33760" class="">As you can see from the first line, in the short term, it seems like it is working. The second line shows that later, when the USB charger goes online and starts charging the battery, it averages out to more or less the same numbers as if it would run without the timer. Charging of the battery took something like 14W. And while the battery was recharging from the sun, it never really got full and the best I’ve seen was something like 70%, after I’ve changed the blackout period from 8:00 to 17:00. It also has a disadvantage, that it wears out the battery.</p>
       <p id="24c039cd-ba3d-465b-bc40-49b6fa14a821" class="">This means that the theory that the PiJuice is using the power only when the GPIO (USB-C power in) is disconnected is not true because the numbers are on average more or less the same.</p>
@@ -757,6 +771,7 @@
       </blockquote>
       <p id="a5f142bf-af1f-4f97-a22b-3cb460cbccbc" class="">This is partially my mistake, but only partially. Sure, it may be that the whole PiJuice is just designed in a way that doesn’t fit my use case. But the whole marketing (especially in eshops where it is sold) is really leading you to believe that it should work. I think the solar panel would be usable for things like temporary charging during a trip, but it doesn’t truly work for continuous operation.</p>
       <p id="0c5d26fa-b0c9-432e-95ec-4175aeb08276" class="">I’ve decided to look into more .. professional solution, not based on the raspberry shields and not using toy 5V USB solar panels, so you can expect another blogpost in a few months. Think 12/24V solar panels, MPPT charge controllers and bigger batteries.</p>
+      <p id="8f4d7a7c-8830-4198-9959-daaef695a8a4" class="">You can read about it in the next blogpost: <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>.</p>
       <h2 id="7ee11709-21d1-4e03-9bcb-c654cbc9f011" class="">Relevant discussions</h2>
       <ul id="789ce7cd-c9f4-4d9e-9dd2-dc6d31fdd562" class="bulleted-list">
         <li style="list-style-type:disc">
@@ -778,6 +793,9 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
         <li>
           <a href="../../Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
         </li>
@@ -805,12 +823,17 @@
         <li>
           <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
-        <li>
-          <a href="../../Stories/HireRight_experience_spoiler_it_was_bad.html" title="HireRight experience (spoiler; it was bad)">HireRight experience (spoiler; it was bad)</a>
-        </li>
       </ul>
     </div>
     <p>You can find <a href="../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+      </ul>
+    </div>
     <div>
       <h3>Tags</h3>
       <p><a href="../../../Tags/hardware.html" title="hardware">hardware</a>, <a href="../../../Tags/raspberry.html" title="raspberry">raspberry</a>, <a href="../../../Tags/server.html" title="server">server</a>, <a href="../../../Tags/solar.html" title="solar">solar</a></p>

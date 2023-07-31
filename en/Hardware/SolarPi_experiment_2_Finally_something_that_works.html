@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>SolarPi experiment 2: Finally something that works</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="SolarPi experiment 2: Finally something that works">
+  <meta name="twitter:description" content="After more than a year, I finally got to the point where I have more or less 24/7 solar-powered Raspberry Pi microserver.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Hardware/SolarPi_experiment_2_Finally_something_that_works/twitter_thumb.jpg">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="After more than a year, I finally got to the point where I have more or less 24/7 solar-powered Raspberry Pi microserver.">
+  <meta name="keywords" content="hardware,server,raspberry,solar,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
+          <a href="../Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../Programming/objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+      </ul>
+    </div>& <a href="../../Changelog.html" title="Changelog">more</a>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/hardware.html" title="hardware">hardware</a>, <a href="../../Tags/raspberry.html" title="raspberry">raspberry</a>, <a href="../../Tags/server.html" title="server">server</a>, <a href="../../Tags/solar.html" title="solar">solar</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="Hardware">Hardware</a> / SolarPi experiment 2: Finally something that works
+  <article id="c5c3cb5f-3b6a-4c8d-899a-701e272b2a32" class="page sans">
+    <header>
+      <h1 class="page-title">SolarPi experiment 2: Finally something that works</h1>
+      <p class="page-description"></p>
+    </header>
+    <div class="page-body">
+      <p id="f14b3539-3a3e-49b0-9727-8021c3db38f7" class="">In the last blogpost <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>, I’ve tried PiJuice Raspberry Pi hat with 40W PiJuice solar panel, and concluded that either the solar panel, or the PiJuice hat is not working as expected.</p>
+      <p id="2f9cec09-b57b-4f56-9cb1-c8d123c13553" class="">Just to confirm the theory, I’ve decided to purchase another Solar panel, as the PiJuice solar panel seemed to be the most likely cause of the problem.</p>
+      <h1 id="fc42dfe7-6b80-43a2-a24e-9dbd452db56f" class=""><strong>Goowei Energy SN-ME-SC60W 60W</strong></h1>
+      <div id="ba0559f4-574b-46f2-8b80-6e6bde19cba7" class="column-list">
+        <div id="d2ee9b87-588b-4e60-989f-966e63e33267" style="width:37.5%" class="column">
+          <figure id="55e284cb-c26e-4cd7-a055-3b3352558f5b" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-06-15_16.07.48.jpg" title="2023-06-15_16.07.48.jpg"><img style="width:1200px" src="SolarPi_experiment_2_Finally_something_that_works/2023-06-15_16.07.48_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="0e0045fa-e4b8-4dba-8b3f-42b5545bf492" style="width:62.5%" class="column">
+          <figure id="8a4c037b-22ba-4748-8fb1-3355fe5652cc" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-07-06_14.57.13.jpg" title="2023-07-06_14.57.13.jpg"><img style="width:1351px" src="SolarPi_experiment_2_Finally_something_that_works/2023-07-06_14.57.13_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="13ab3c25-f080-451c-9eb1-128a6d67a59f" class="">I’ve installed it on the outside part of the balcony doors instead of the old one, and started testing. For that, I also added some features to the <a href="https://github.com/Bystroushaak/pijuice_histograms">pijuice_historgrams</a> script, which I wrote to monitor the state of the <em>PiJuice hat</em>, <em>battery</em> and <em>solar power status</em>.</p>
+      <p id="ddead356-3547-400a-9220-49d0a29db288" class="">Here is how it looks like:</p>
+      <figure id="9b632fb6-200e-4cb3-ab56-187ee813dc8f" class="image">
+        <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled.png" title="Untitled.png"><img style="width:1500px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_thumb.jpg"></a>
+      </figure>
+      <p id="61a2d2b7-8697-47bb-b39d-aa4392c4cec2" class="">It may be a bit confusing, I know. The blue line shows the status of the solar panel, which may be either <em>Present</em> (green dotted line), <em>Weak</em> (yellow dotted line), <em>Bad</em> (red dotted line), or <em>Not present</em> (purple dotted line). This basically shows if there is solar power, but mostly just “<em>Present”</em> counts as solar power.</p>
+      <p id="7aea96fa-67c9-4813-891b-c86b9fd6a869" class="">The red / green (RG) line is the state of the battery, with values on the right Y axis going from 0-100%. It is red if the grid power is active, and green when there is only solar power. At the time, I was using a timer which turned off the grid power roughly from 6am to 5pm.</p>
+      <p id="7f853bee-d694-493f-b596-28dd519a35ca" class="">Ideally, the graph would look in a way, that the blue line would go straight up, and the green line would be all the time on the 100%, until the grid power comes back on. Something like this:</p>
+      <figure id="d702ddd6-65e2-4842-a7c8-d48c24f9205d" class="image">
+        <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled_1.png" title="Untitled_1.png"><img style="width:1500px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_1_thumb.jpg"></a>
+      </figure>
+      <p id="9fcdd4b3-2563-49d2-80d2-8a665499b900" class="">Instead, typically it looked like this:</p>
+      <figure id="576b7c70-79e0-4b25-b66c-bb2d7138038e" class="image">
+        <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled_2.png" title="Untitled_2.png"><img style="width:1500px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_2_thumb.jpg"></a>
+        <figcaption>
+          Notice the line around 16:00, where it powered down, since the battery couldn’t hold the system anymore.
+        </figcaption>
+      </figure>
+      <p id="704fb09d-6e4c-44a5-8785-7df2ad13481b" class="">Which means spotty coverage of solar which goes from <em>Present</em> to <em>Weak</em> all the time. And the Red/Green line for battery status sometimes holds, but most of the time dives. This means that the solar power cannot provide enough power to charge the battery, although I am using a 60W solar panel for ~5W Raspberry Pi.</p>
+      <p id="a00d23e2-9339-41ef-9f67-066432d17f13" class="">This overall <em>“Present”</em> and <em>“Weak”</em> thing is annoying by itself, since solar panels are analog devices and should provide some level of power all the time. As one of my friends put it, his solar panel makes some energy even during the night, just from the moonlight. USB solar panels make power only when they feel like it, and PiJuice can’t really charge the battery when it drops under <em>“Present”</em>.</p>
+      <p id="ff00a82d-227f-4883-843e-ef9707a2c02c" class="">I must say that the new solar panel was better than the old one, since it would stay in the <em>Present</em> state much longer and didn’t deadlock itself. But it seemed that a lot of the time, the PiJuice cannot charge the battery, and also I discovered that it randomly restarts when the charge drops below 26%. And this was in the middle of the summer.</p>
+      <p id="78bb2efb-29ed-4485-9485-262e46aad6f8" class="">The last straw was the measurement I did over weeks, where I measured how much the average grid consumption dropped. It almost didn’t. Long-term average power consumption with the solar was something like a 3.6W/h of the grid electricity.</p>
+      <p id="5358f3ab-477c-40cf-9229-b47e655b46d9" class="">Well. It was time to get more serious.</p>
+      <h1 id="0b144dcb-fa75-4c44-8f60-f237b1537a4d" class="">“Stupid” solar & MPPT charger</h1>
+      <p id="684b444a-6543-493d-b66b-8054ecd0cf03" class="">So far, I was trying only <em>“high level”</em> consumer hardware, powered by USB ports and PiJuice hat, thinking that it would be user-friendly and work out of the box. Since that failed, I’ve decided to buy the following components:</p>
+      <h3 id="bfe3b071-7047-453d-a0da-f99516ef16a5" class="">Photovoltaic solar panel 12V/50W polycrystalline 700x510x30mm</h3>
+      <div id="4d958375-ec9b-433e-a455-4ec6fd5e6294" class="column-list">
+        <div id="1c5cb722-3d83-4ef3-a485-230685e9b4b0" style="width:50%" class="column">
+          <figure id="8a4cd38b-1cab-480f-86b1-cd7b0dc1e2c3" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled_3.png" title="Untitled_3.png"><img style="width:700px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_3.png"></a>
+          </figure>
+        </div>
+        <div id="e10e14ae-27d2-4a9a-bf3f-73f4d3e10943" style="width:50%" class="column">
+          <p id="b842766d-ee09-4402-a75a-8e6a8fe1855c" class="">This is just a “bare” solar panel, without any electronics.</p>
+          <p id="aa24daad-98ae-4d48-b3f7-d1b1caa80596" class="">I would have bought the 60W version, but that was sadly out of stock and the 100W version seemed too big.</p>
+          <p id="d6ac745e-08ae-489e-8db1-42f82292b4d2" class=""><a href="https://hadex.cz/g956-fotovoltaicky-solarni-panel-12v50w-polykrystalicky-700x510x30mm/">https://hadex.cz/g956-fotovoltaicky-solarni-panel-12v50w-polykrystalicky-700x510x30mm/</a></p>
+        </div>
+      </div>
+      <h3 id="9921f401-bc10-4d58-ae76-48b3b2ff4ae1" class=""><strong><strong>GWL/POWER ELERIX LiFePO4 battery 12V 12Ah</strong></strong></h3>
+      <div id="8202b85a-a662-4f45-af84-a43ef4c7b67f" class="column-list">
+        <div id="ecaafce7-e4c1-464b-92a0-d69920d42b17" style="width:50%" class="column">
+          <figure id="bb13f807-f67b-4c5e-b48a-5bca8908448d" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled_4.png" title="Untitled_4.png"><img style="width:240px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_4.png"></a>
+          </figure>
+        </div>
+        <div id="533974e6-9bd7-49fd-8b5a-8bbde5c34820" style="width:50%" class="column">
+          <p id="34f205bd-c290-429c-bfc1-b4277d6e696d" class="">LiFePO4 has the advantage that it shouldn’t be flammable (datasheet says <em>“Stable up to +130°C. No fire.”</em>).</p>
+          <p id="c218c61f-4518-43eb-b24c-49919cb842f8" class=""><a href="https://www.levne-baterky.cz/Baterie-GWL-POWER-ELERIX-Lithium-zelezo-fosfatova-LiFePO4-baterie-12V-12Ah-d13804.htm">https://www.levne-baterky.cz/Baterie-GWL-POWER-ELERIX-Lithium-zelezo-fosfatova-LiFePO4-baterie-12V-12Ah-d13804.htm</a></p>
+          <p id="d20d9d31-e1ee-4af6-ba35-e98bf1dcfea7" class="">+ <a href="https://www.levne-baterky.cz/napajeci-konektor-xt60-vidlice-samec-kabel-5cm-18awg">connector</a> (XT60 male).</p>
+          <p id="bd62a709-9e4b-48c3-988a-f256347daa30" class=""></p>
+        </div>
+      </div>
+      <h3 id="ddb950fa-4baa-405d-aa2b-90e2f5d26e75" class="">PWM solar regulator CY-K20A, 12-24V/20A for various batteries</h3>
+      <div id="b3933a7d-d000-46f0-adb4-4541a7c9c20c" class="column-list">
+        <div id="04af9105-36ba-4618-8567-267c15013635" style="width:50%" class="column">
+          <figure id="3ef672a3-79b6-4a9b-9e4d-f17fb35c2f7c" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled_5.png" title="Untitled_5.png"><img style="width:700px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_5.png"></a>
+          </figure>
+        </div>
+        <div id="aab999e3-4be2-44c9-bc96-9a179ab8959c" style="width:50%" class="column">
+          <p id="933714c5-33d9-4e1d-9d95-abc5879d0eba" class="">The important part is <em>“for various batteries”</em>, as I need it to support LiFePO4 battery.</p>
+          <p id="f5d1c972-6350-4bd7-a071-c4f1d6705613" class="">It has 2A USB output, so it should work for powering rPI directly.</p>
+          <p id="db2d1d18-6960-40df-9b78-abe35ef17f77" class=""><a href="https://hadex.cz/g917-solarni-regulator-pwm-cy-k20a-12-24v20a-pro-ruzne-baterie/">https://hadex.cz/g917-solarni-regulator-pwm-cy-k20a-12-24v20a-pro-ruzne-baterie/</a></p>
+        </div>
+      </div>
+      <p id="8be1fb2f-2a21-4791-9384-3b44b398e470" class="">And also various cables and connectors (more specifically, the battery connector and 3 meters of blue and red cables). All of this was surprisingly cheap, definitely much cheaper than <em>PiJuice hat</em> and <em>PiJuice solar</em> panel (around 3304 CZK €139/$152, compared to 6197 CZK €250/$255 for PiJuice combo).</p>
+      <p id="a7474d0b-bcdf-4187-b98f-a484544c719f" class="">The connection is actually super simple:</p>
+      <figure id="6912a25d-4b14-4813-91f6-2da16430ebe2" class="image">
+        <a href="SolarPi_experiment_2_Finally_something_that_works/schema.jpg" title="schema.jpg"><img style="width:1815px" src="SolarPi_experiment_2_Finally_something_that_works/schema_thumb.jpg"></a>
+      </figure>
+      <figure id="12d06f5e-63e8-4914-b318-d4a95a3aa637">
+        <div class="source">
+          <a href="SolarPi_experiment_2_Finally_something_that_works/charger_wiring9.blend.zst" title="charger_wiring9.blend.zst">charger_wiring9.blend.zst</a>
+        </div>
+      </figure>
+      <p id="ccd05330-7eb3-4cd2-aef1-2b1c743dd949" class="">Solar panel to solar panel connections, battery to battery, making sure in both cases, that <code>+</code> is connected to the red wire, and <code>-</code> to the black one. Then just plug in the Raspberry to the USB output of the regulator.</p>
+      <h2 id="f9d4ad02-0934-44f3-88a1-e65535724b4f" class="">Proof of concept assembly</h2>
+      <p id="49d1ace9-b255-47c1-9ce5-08625ac72726" class="">I just connected everything to where it belonged, and the Raspberry Pi started running from the battery and connected to Wi-Fi. The only thing I’ve set up on the regulator was the battery type to LiFePO4, and the rest worked out of the box. So, I have just thrown everything into an old lunch box:</p>
+      <figure id="644d7c84-0211-4019-959f-e8a6dd1cc092" class="image">
+        <a href="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.29.46.jpg" title="2023-06-28_22.29.46.jpg"><img style="width:384px" src="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.29.46.jpg"></a>
+      </figure>
+      <p id="21eb3da3-965a-45f6-8402-da4f61f815e4" class="">Then I was thinking about the solar panel because it is massive and proper installation will require some kind of mounting point. Instead of thinking about some smart way how to mount it on my balcony, or the window, I took an old garden chair and fixed the panel to it with wires.</p>
+      <div id="e4e0b813-ca53-4869-9df3-9db96a0b0be2" class="column-list">
+        <div id="ced2914f-0b72-4bdc-9e93-085253247f17" style="width:50%" class="column">
+          <figure id="cb64bf86-5069-429e-abb0-68a498d3193e" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.32.48.jpg" title="2023-06-28_22.32.48.jpg"><img style="width:1200px" src="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.32.48_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="8e82eafc-a327-409e-9082-621df366bd09" style="width:50%" class="column">
+          <figure id="43838398-f898-4cfa-ae11-57ef9876e10e" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.33.10.jpg" title="2023-06-28_22.33.10.jpg"><img style="width:1200px" src="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.33.10_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="4e9dccb1-af5a-4f9d-a0c4-9142e20c8f80" class="column-list">
+        <div id="94ed7bdd-708c-4242-85bd-067bb10d8aad" style="width:43.75%" class="column">
+          <figure id="f6fbaa1a-0d29-492c-9f5b-99936eb56f9a" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.34.01.jpg" title="2023-06-28_22.34.01.jpg"><img style="width:1200px" src="SolarPi_experiment_2_Finally_something_that_works/2023-06-28_22.34.01_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="9c985a1a-f349-4f0f-9d3a-024f8acd8fe2" style="width:56.25%" class="column">
+          <figure id="ddefc3fe-566c-4a83-9511-c281752ae284" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-06-29_09.51.26.jpg" title="2023-06-29_09.51.26.jpg"><img style="width:1200px" src="SolarPi_experiment_2_Finally_something_that_works/2023-06-29_09.51.26_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="ff5b71ae-8d15-46e2-b737-9f82bb5e0a4c" class="">The whole process literally took me maybe 10 minutes. And it has worked since then, providing more or less 24/7 power. The server is running, it is connected to Wi-Fi and everything seems to be working as expected.</p>
+      <p id="27861d36-f086-4cae-b605-d9031ce09d79" class="">The first day, I was quite nervous about the temperature because the quick measurement at 9am showed that it was running quite hot (52&nbsp;°C). But the datasheet said <em>“Stable up to +130°C. No fire.”</em> and it really was.</p>
+      <p id="9ee0d0b1-7dbf-49cf-9474-356659565214" class="">I’ve noticed that sometimes, the server restart itself, so far, only when there is a cloudy day, and the battery can’t keep it running during the night. Since I run basically everything as a Systemd services, this doesn’t bother me much, since when I wake up, it is actually back again running.</p>
+      <h2 id="bb039060-b49e-4bb1-b219-2b971de0f9a5" class="">Problems and challenges</h2>
+      <p id="5e0f5d94-be19-4577-a7d2-7617270cab3d" class="">It finally works, but there are still some challenges I need to solve in the long term:</p>
+      <h3 id="90e5d65d-e5de-4213-bdaf-6fd2e3b3fda2" class="">Grid backup</h3>
+      <p id="6f8f8625-984b-4dd5-b54d-0441161acf61" class="">Obviously, I am delighted with it during the summer, but in the winter, I can’t realistically expect this to work 24/7. There will be outages. I have basically two options:</p>
+      <ol type="1" id="b3c82228-ebf9-4022-b41c-76d8ab521574" class="numbered-list" start="1">
+        <li>Implement some kind of automatic grid backup.</li>
+      </ol>
+      <ol type="1" id="89b03b3e-32c1-4f35-8f3b-8590b5d64362" class="numbered-list" start="2">
+        <li>Invest into bigger solar and bigger battery.</li>
+      </ol>
+      <p id="e90edc39-c3c6-4f56-977d-17df28a99c68" class="">The first option is painful, since I expect that I will have to design something myself. Basically, a power monitoring circuit, which will enable grid power when it detects low voltage. My friend suggested just putting two diodes on the outputs. But I don’t really expect it to be that simple, especially given that the Raspberry is actually powered from the USB output of the controller, and I still need the battery to be able to charge itself.</p>
+      <p id="4c140f92-3708-429a-a48b-b5fcf74dfa1b" class="">A simple implementation may be adding back the PiJuice hat and using its second micro USB input powered by a standard charger, which will be turned on when required. But this is finicky. For some reason, no one sells MPPT regulator with grid backup. <em>*Sigh*</em>.</p>
+      <p id="07996f12-c89f-40a3-b9a6-19db32ee2dc8" class="">The second option may be better. The battery power is something like 12V * 12Ah = 144Wh. This can in theory power raspberry for something like a day (5-6W/h = 120 - 144Wh). In reality, I expect that real usable power for powering both the regulator and RPi is something like a half of it.</p>
+      <p id="e9b835a9-b6fd-4fb9-be7f-869c19bc4d5d" class="">This option is also kind of complicated, since it will some smarter way of mounting the solar panel, and if there are more cloudy days in a row, it will still fail.</p>
+      <h3 id="a1f9b540-05ed-4011-8fb1-8953f278c899" class="">Stupid features</h3>
+      <p id="c1b338b0-e26a-4eb9-8c23-6716112e9565" class="">Okay, so there is a cloudy day, and the battery dies overnight. It will start charging the next day and the rPI will boot up, right. Right??</p>
+      <div id="1023246a-f420-4efd-ae14-608ecf950b8c" class="column-list">
+        <div id="378a5776-405e-431f-b873-2c3eb54cbb07" style="width:50%" class="column">
+          <figure id="0ace740e-c736-48a0-9ed7-b83f04bef43c" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-07-31_08.08.22.jpg" title="2023-07-31_08.08.22.jpg"><img style="width:1600px" src="SolarPi_experiment_2_Finally_something_that_works/2023-07-31_08.08.22_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="063cd639-a32a-48b4-878b-7fbc79a232f3" style="width:50%" class="column">
+          <figure id="d39e5649-2ea0-4ad0-93bc-6649b7d5dcde" class="image">
+            <a href="SolarPi_experiment_2_Finally_something_that_works/2023-07-31_08.08.42.jpg" title="2023-07-31_08.08.42.jpg"><img style="width:1600px" src="SolarPi_experiment_2_Finally_something_that_works/2023-07-31_08.08.42_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="b6cc1502-a0aa-4d41-8644-649d3971afc9" class="">Of course not. As the manual puts it in broken english:</p>
+      <figure class="block-color-gray_background callout" style="display:flex" id="7856e6fb-8318-46da-a9c4-638a5a22ea69">
+        <div style="font-size:1.5em">
+          <span class="icon">🔖</span>
+        </div>
+        <div style="width:100%">
+          Low voltage protection interface. Empty battery symbol flashing means the battery is discharged lower than the LVD voltage.the controller has disable the output.user should charge the battery until it raise up to LVR voltage and then controller will recover the output status press any key to ignore for one time and force to work again.
+        </div>
+      </figure>
+      <p id="de3fca3d-ac29-4e43-bfda-da9bca9d6e0a" class="">It basically means that you need to physically press any of the buttons to continue, since it deadlocked itself as a protection. What a lovely idea. My only regret is that you can’t power the raspberry from frustration, because my levels are lately spiking so high, that I am continually wondering why isn’t reality bending around my hate.</p>
+      <p id="99f1c26e-69df-4aa4-b428-b7bcac6a97bf" class="">Moreover, I don’t understand how this works, since sometimes it triggers and sometimes not. Maybe it depends on how much it lets the battery discharge? I’ll need to investigate.</p>
+      <h3 id="daeabb05-9d7a-4c69-9e55-3c3e0492b4f4" class="">Power monitoring</h3>
+      <p id="fdacab01-e005-493f-a42a-c48352e4d35b" class="">One obvious disadvantage of having a cheap solar regulator is that it doesn’t have any data outputs, except for a display, which is mostly for settings and some stats about current power outputs (= useless).</p>
+      <p id="04555e00-9ae7-47ca-8e47-795bd2cde841" class="">Not having a power monitoring is bad for two reasons;</p>
+      <ol type="1" id="828636aa-823d-4153-86fb-e1d46e8a6513" class="numbered-list" start="1">
+        <li>You can’t check status remotely (except for binary status on/off).</li>
+      </ol>
+      <ol type="1" id="82c9bb16-f223-403b-a4e9-0f0dba9818d6" class="numbered-list" start="2">
+        <li>You can’t plan and debug the system as a whole.</li>
+      </ol>
+      <p id="28abc786-002c-4229-b0bf-ce8ee1adedf8" class="">For example, the pijuices_histograms project which drawn the images from the beginning of the article here was why I was even able to reason about my problems, and see where are the shortcomings.</p>
+      <p id="b9bf21da-b3ce-4829-b0fb-af0cfa7669ca" class="">Planning is also important, since when the Pi knows there will not be enough power, it can shut down itself automatically without loss of data, and so on.</p>
+      <p id="1ff8b5cc-b1a1-4eac-ba47-fd4d4c04f915" class="">I am thinking about some kind of power monitoring shield for RPi, but that has its drawbacks. For example, none of the shields I found can handle the amps I need, and I suspect it would generate countless sighs from my side and solve only half of the issues.</p>
+      <p id="80d08814-7a59-4275-a4c5-aa5e1a6cd99a" class="">The right way would be to get a regulator with proper data output, but the only ones I found so far were expensive, and there will be problems with reading the values. Some of the cheap ones come with Bluetooth and a phone app, but I don’t really like reverse engineering bluetooth protocols and none of them seemed to be open.</p>
+      <h3 id="e6213077-cfce-47fc-bb98-45bc468db47b" class="">Battery balancing</h3>
+      <p id="8584b8a2-3dfb-4c7d-b68d-00c06e5b57f4" class="">The manufacturer also suggests balancing the battery every 6 months or so. Internally, it consists of 4 cells, and they need to be rebalanced to the same parameters every now and then. It seems like you can just buy a <a href="https://www.levne-baterky.cz/isdt-bg-8s-tester/balancer">device</a>, a bunch of other crap and you are good:</p>
+      <figure id="6b7c6fd6-46c8-4efd-9a5f-e87d7ce91d5d" class="image">
+        <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled_6.png" title="Untitled_6.png"><img style="width:950px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_6.png"></a>
+      </figure>
+      <h1 id="6b0e2a10-ab31-4fbc-9841-3d676c3e534e" class="">Future plans</h1>
+      <p id="046b23aa-8f3a-473b-afc3-94356d5ef870" class="">For now, I will leave the system as it is, since it mostly works and doesn’t really bother me that much. That is, compared to the previous version.</p>
+      <p id="01ab61e5-6329-43e6-ad9f-97905972ad09" class="">In the near future, I would like to build a better box, most probably from some kind of metal, so it will be able to dispose of the heat more effectively. Maybe copper, since I have quite a bit of experience with soldering it. Ideally, it would also better separate the components, so for example RPi would be thermally insulated from the charger, as well as the battery.</p>
+      <p id="9ce07b89-2889-43f2-b326-f5bfe00988a3" class="">In the winter, I will need to address the power switching, or upgrade to a bigger cell. But as I plan to move out of this flat, I will see what I will have to work with then.</p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
+          <a href="../Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../Programming/objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+        <li>
+          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
+        </li>
+        <li>
+          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div id="links_from_other_pages">
+      <h3>Links to this page:</h3>
+      <ul>
+        <li>
+          <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/hardware.html" title="hardware">hardware</a>, <a href="../../Tags/raspberry.html" title="raspberry">raspberry</a>, <a href="../../Tags/server.html" title="server">server</a>, <a href="../../Tags/solar.html" title="solar">solar</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

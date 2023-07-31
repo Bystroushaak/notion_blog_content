@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2023-04-20T21:58:11.445972+00:00</updated>
+  <updated>2023-07-31T07:24:11.794573+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Stories/HireRight_experience_spoiler_it_was_bad.html</id>
-    <title>HireRight experience (spoiler; it was bad)</title>
-    <updated>2022-04-28T16:44:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Stories/HireRight_experience_spoiler_it_was_bad.html" rel="alternate"/>
-    <summary type="text">Story about HireRight, and "unparalleled experiences for you and your candidates" they provided for me and my friends.</summary>
-    <published>2022-04-28T16:44:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/Philosophy/Creating_spaces_by_opening_dimensions.html</id>
     <title>Creating spaces by opening dimensions</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/Programming/How_to_run_your_own_LLM_GPT.html" rel="alternate"/>
     <summary type="text">Some context about GPT &amp; LLM (Large Language Models), how to run them on your own computer, and some examples how I use GPT4.</summary>
     <published>2023-04-20T23:46:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Hardware/SolarPi_experiment_2_Finally_something_that_works.html</id>
+    <title>SolarPi experiment 2: Finally something that works</title>
+    <updated>2023-07-31T08:44:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Hardware/SolarPi_experiment_2_Finally_something_that_works.html" rel="alternate"/>
+    <summary type="text">After more than a year, I finally got to the point where I have more or less 24/7 solar-powered Raspberry Pi microserver.</summary>
+    <published>2023-07-31T08:44:00+02:00</published>
   </entry>
 </feed>
