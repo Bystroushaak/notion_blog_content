@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
@@ -92,6 +92,9 @@
         </li>
         <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -132,6 +135,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="1204e4d3-b879-4d41-bdbc-f12ade3c00d7" class=""><time>@2021/10/29</time></p>
       <p id="624faf0b-76b0-48ff-8068-e11c32832830" class="">My toy programming language <a href="../../tinySelf.html" title="tinySelf"><span class="icon">📂</span>tinySelf</a>, inspired by <a href="../../Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a>, was written in the RPython toolkit, made by the creators of <a href="https://www.pypy.org/">PyPy</a> (alternative and pretty fast python interpreter). This toolkit transcompiles python source code into C, and also gives you some benefits, like garbage collector and JIT compiler for the language you are implementing in it.</p>
       <p id="f8b870e1-55df-4483-8e1c-97c0616e6e12" class="">So, what are my reasons to abandon it?</p>
@@ -147,7 +152,9 @@
       <h2 id="7d05ca57-459e-470c-9829-dcb2e79d7e33" class="">Horrible debugging experience</h2>
       <p id="2acb34e3-70bc-452d-804f-224377dfb9a5" class="">Let me tell you, I've never seen anything with such weird and cryptic error messages like rpython's compiler. There is a great article <a href="https://refi64.com/posts/the-magic-of-rpython.html">The Magic of RPython</a> about it. I've worked for telco company and in National library which used a system that was part COBOL, part Java. I've seen some shit you wouldn't believe. But not this.</p>
       <p id="99739e11-7303-4fbd-83da-8a633fc8d8b7" class="">This is an older example. There is nothing special about it, and this is really how the errors look like. I've saved it some time ago just to be able to talk about it:</p>
-      <pre id="30d99b82-3141-46e1-a002-4b7b72f48bf4" class="code code-wrap"><code>[translation:info] 2.7.10 (5.1.2+dfsg-1~16.04, Jun 16 2016, 17:37:42)
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="30d99b82-3141-46e1-a002-4b7b72f48bf4" class="code"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">[translation:info] 2.7.10 (5.1.2+dfsg-1~16.04, Jun 16 2016, 17:37:42)
 [PyPy 5.1.2 with GCC 5.3.1 20160413]
 [platform:msg] Set platform with 'host' cc=None, using cc='gcc', version='Unknown'
 [translation:info] Translating target as defined by src/tinySelf/target
@@ -294,7 +301,9 @@ Processing block:
 &gt; /home/bystrousak/Plocha/tests/pypy/rpython/annotator/binaryop.py(93)union()
 -&gt; raise UnionError(obj1, obj2)</code></pre>
       <p id="b9f87c0d-fb64-4aca-92d2-26493078d3a9" class="">Can you spot the offending piece of code? No? Let me select it for you:</p>
-      <pre id="67eb95b0-c07c-4670-a314-9cd116a3a761" class="code code-wrap"><code>Offending annotations:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="67eb95b0-c07c-4670-a314-9cd116a3a761" class="code"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">Offending annotations:
   SomeInstance(can_be_None=True, classdef=rply.token.BaseBox)
   SomeTuple(items=(SomeString(const='$end', no_nul=True), SomeList(listdef=&lt;[SomeString(const='$end', no_nul=True)]&gt;)))</code></pre>
       <p id="435d546d-7313-44dd-9385-980f63c29d3b" class=""><em>"Offending annotations"</em>, what a great error. And where is the error happening? It is <em>somewhere</em> in my code, where I am probably putting string and list into the tuple. Sometimes it will tell you where, most of the time not.</p>
@@ -381,6 +390,15 @@ Processing block:
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -400,15 +418,6 @@ Processing block:
         </li>
         <li>
           <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -439,6 +448,9 @@ Processing block:
         </li>
         <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>

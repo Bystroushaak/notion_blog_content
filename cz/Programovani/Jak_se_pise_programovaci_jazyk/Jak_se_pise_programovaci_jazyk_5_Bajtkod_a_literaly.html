@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
@@ -90,6 +90,9 @@
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -113,6 +116,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="8b9fcd90-6b9a-4352-8f35-f422f38d0a20" class=""><time>@2019/04/18</time></p>
       <p id="cf59ce1a-7bab-491e-a997-08176389c8ac" class="">Lexer rozděluje vstupní text na tokeny, které jsou parserem transformovány na abstraktní syntaktické stromy. Ty by měl vzít kompilátor a udělat z nich bajtkód. Předtím je ovšem nutné si důkladně rozmyslet, jak má vlastně výsledný bajtkód vypadat, a tedy hlavně jak má vypadat virtuální stroj, kterým bude interpretován.</p>
       <p id="fe8f0e0c-ba1e-485f-bf8c-2eb875637da5" class="">Jak už jsem zmiňoval, nejsem ani v nejmenším odborník na tvorbu programovacích jazyků. Když jsem se pustil do psaní specifikace VM, byly mi známé následující přístupy:</p>
@@ -260,7 +265,9 @@
       <p id="be797d5b-14c7-4c35-844c-3bf372951309" class="">Z vrcholu zásobníku vyber hodnotu a vrať jí skrz tolik framů, dokud nebudeš ve scope ke kterému se return vztahuje.</p>
       <p id="ff71dea5-2866-4961-bf88-8c06dace2569" class="">Tohle je Selfová specialita, kde return z bloku nevrací jen z bloku, ale ze scope, kde je blok použit.</p>
       <p id="5b84e2ef-ce31-4712-b8c1-a091fd47f828" class="">Tedy kód</p>
-      <pre id="21d7025f-7afc-4403-8af4-c16a627b4ed8" class="code"><code>(|| something ifTrue: [^ something].)</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="21d7025f-7afc-4403-8af4-c16a627b4ed8" class="code"><code class="language-Plain Text">(|| something ifTrue: [^ something].)</code></pre>
       <p id="61f5e9d3-ccb4-44e0-a7c4-54557d84d504" class="">vrací nejen z bloku, ale i z method-objectu kolem něj.</p>
       <p id="743b39b5-0d7d-4dfa-9e99-a37db6bdffc9" class="">Délka instrukce 1 bajtkód.</p>
       <h3 id="5f50dff6-8ded-486a-abc0-e74582ba7f4d" class="">SEND</h3>
@@ -325,6 +332,15 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -344,15 +360,6 @@
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -380,6 +387,9 @@
         </li>
         <li>
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -90,6 +90,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -139,7 +142,9 @@
       </figure>
       <p id="fae0f182-498f-485a-b82d-7e45fb048f7b" class="">Originally, I've used notion's "publish" function to make certain nodes, like my personal blog, public, but many people hated it. Notion loads a ton of javascript into the published site, hijacks the keyboard, scrolling and generally does all kind of weird stuff with your browser. After I've received pretty negative reactions, I've hacked together <a href="https://github.com/Bystroushaak/notion_blog">notion_blog</a>, which is a simple static generator from the HTML export Notion introduced. It does some postprocessing on the CSS, URL's and so on.</p>
       <p id="581822b3-004d-4c0e-91d4-ed9553fefc3f" class="">It is still pretty lowlevel in terms of what is required by today's sites. For example, I have to generate twitter previews manually, there is no discussion, no webmentions, SEO and so on. Also, URL's are for the time being horrible, like this;</p>
-      <pre id="a5ba7532-e35a-4590-bc5c-636e14485a54" class="code code-wrap"><code>http://blog.rfox.eu/Bystroushaak%20s%20blog/English%20section/Series%20about%20Self/Environment%20and%20the%20programming%20language%20Self%20part%203.html</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a5ba7532-e35a-4590-bc5c-636e14485a54" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">http://blog.rfox.eu/Bystroushaak%20s%20blog/English%20section/Series%20about%20Self/Environment%20and%20the%20programming%20language%20Self%20part%203.html</code></pre>
       <p id="ebce0975-0c60-44c7-8115-f99c1af89334" class="">Whole blog is deployed in really amateurish way. First, I request export on the notion website, select that I want HTML, sub pages, yeah, thank you very much, and then I wait until the <code>.zip</code> file with export is downloaded.</p>
       <figure id="4b0bf2da-63de-4e25-8990-fe916c6cd7d2" class="image">
         <a href="Weekly_update_2019-09-01_What_I_am_working_on/Snmek_obrazovky_pozen_2019-09-01_00-49-36.png" title="Snmek_obrazovky_pozen_2019-09-01_00-49-36.png"><img style="width:2112px" src="Weekly_update_2019-09-01_What_I_am_working_on/Snmek_obrazovky_pozen_2019-09-01_00-49-36_thumb.jpg"></a>
@@ -179,7 +184,9 @@
         <a href="Weekly_update_2019-09-01_What_I_am_working_on/Snmek_obrazovky_pozen_2019-09-01_00-59-05.png" title="Snmek_obrazovky_pozen_2019-09-01_00-59-05.png"><img style="width:1604px" src="Weekly_update_2019-09-01_What_I_am_working_on/Snmek_obrazovky_pozen_2019-09-01_00-59-05_thumb.jpg"></a>
       </figure>
       <p id="fc3997d8-8dd7-4588-a569-4a162c2a78f6" class="">Update in the repository is then picked up by the cron on my VPS</p>
-      <pre id="92bc7914-a2ca-4fc5-a961-14012fa5622f" class="code code-wrap"><code>*/5 * * * * cd $HOME/scripty/notion_blog &amp;& git pull &gt; /dev/null 2&gt;&amp;1</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="92bc7914-a2ca-4fc5-a961-14012fa5622f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">*/5 * * * * cd $HOME/scripty/notion_blog &amp;& git pull &gt; /dev/null 2&gt;&amp;1</code></pre>
       <p id="2ed1773a-8d03-48c1-b566-8f874a2b753e" class="">and served via nginx on subdomain <code>blog.rfox.eu</code>.</p>
       <p id="50f18267-2e6c-47cd-b968-449ebf2bb0c0" class="">Needless to say, this is really time-consuming and elaborate process, that really puts the whole idea of <em>"simple publishing via notion"</em> on its head.</p>
       <h2 id="4763df3c-8ad7-43ae-97e0-b6f17307401a" class="">Structural pains</h2>
@@ -281,26 +288,6 @@
       <p id="99391642-073b-4942-a616-16544d4c8d21" class="">I want to try to update my reading habit, to read in a more sane time, like 22:00, instead of midnight or 1 am like now.</p>
       <h1 id="7a60ab63-bb22-4568-b3a5-2a7eb6283a45" class="">Procrastination pains</h1>
       <p id="317cb79f-986a-41f5-b18f-f4dd495fe559" class="">I think that I spend too much time by reading articles on the internet. I'll probably try to log all the articles I'll read in the next week to just put this into numbers.</p>
-      <hr id="5b012ad9-a317-4682-9998-47d2555edc9e">
-      <p id="3022465b-5ec6-4b97-b759-b8fd85b3c75e" class="">Yes, my English is probably horrible, but this kind of blog doesn't qualify for (paid) grammar corrections. If you want to change this, subscribe to my patreon.</p>
-      <hr id="9adbea1e-4b59-4e56-b653-8a1b9f365b53">
-      <h1 id="f8dc718f-7450-42d6-8b57-e08486a7ca17" class="">Relevant discussions</h1>
-      <ul id="c48c1e89-d718-4061-b655-e8d56d1e8fe9" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://twitter.com/bystroushaak/status/1168275989669076992">Twitter</a>
-        </li>
-      </ul>
-      <ul id="fb83cadc-f277-4907-97e0-f9268a6b817c" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://lobste.rs/s/mig0aa/weekly_update_2019_09_01_what_i_am_working">Lobsters</a>
-        </li>
-      </ul>
-      <ul id="d0a8bf86-ac66-4a8b-96fe-7bec0defd553" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.patreon.com/posts/weekly-update-09-29630624">Patreon</a>
-        </li>
-      </ul>
-      <p id="2a37e8c1-7e8a-4017-95c1-dacfe01329a1" class=""></p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -311,6 +298,15 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
         <li>
           <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
@@ -331,15 +327,6 @@
         </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -369,6 +356,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>

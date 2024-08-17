@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -84,6 +84,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -124,6 +127,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="c42a4bd6-8570-4582-9d93-0460270274a5" class=""><time>@2013/11/02</time></p>
       <p id="5b1b5a0a-0850-4149-982c-b46661fa85e2" class="">Two days ago I finally received my "new" wireless Apple keyboard I bought on Aukro. Czech Post took its time - 6 days for a distance of <a href="http://www.mapy.cz/#!q=pardubice&amp;t=r&amp;x=15.308643&amp;y=50.364174&amp;z=8&amp;rp=%7B%22criterion%22%3A%22fast%22%7D&amp;rc=15.767501_50.024744_14.001231_50.682334&amp;rl=Pardubice%2C%20okres%20Pardubice_%C4%8Dtvr%C5%A5%20%C3%9Ast%C3%AD%20nad%20Labem-m%C4%9Bsto%2C%20%C3%9Ast%C3%AD%20nad%20Labem%2C%20okres%20%C3%9Ast%C3%AD%20nad%20Labem">200 kilometers</a>. But hey, what can you expect from a state-owned company. But this blogpost isn't about Czech Post, it is about the Apple keyboard and Linux Mint 13.</p>
       <h1 id="3aa81e42-3ef6-4ca2-ae4f-0a4bca2da3da" class="">The keyboard</h1>
@@ -191,7 +196,7 @@
         </div>
         <div id="a9c59a35-f6a5-4da3-b009-240f452dcfd0" style="width:50%" class="column">
           <figure id="7b480d50-e570-4d1d-ac0e-ce0d0556160d" class="image">
-            <a href="201562-apple-keyboard-and-linux-mint-13-5393612423746963048.gif" title="201562-apple-keyboard-and-linux-mint-13-5393612423746963048.gif"><img style="width:600px" src="201562-apple-keyboard-and-linux-mint-13-5393612423746963048.gif"></a>
+            <a href="201562-apple-keyboard-and-linux-mint-13-5393612423746963048.gif" title="201562-apple-keyboard-and-linux-mint-13-5393612423746963048.gif"><img style="width:331px" src="201562-apple-keyboard-and-linux-mint-13-5393612423746963048.gif"></a>
           </figure>
         </div>
       </div>
@@ -246,7 +251,9 @@
       <p id="5ca23353-9f0d-4713-b7a6-09f4f3efabcd" class="">Whole thing is even more complicated: <code>aptitude</code> downloads only <code>3.2.0-23</code> kernel source and I had some difficulties to make it work, because I am using <code>3.2.0-54-generic</code>. I didn't study it that hard (I was trying to make keyboard work - lot of googling), so there may be some way around it, like using proper headers, or applying some patch which will update it to <code>3.2.0-54</code>. I've tried some things and failed, mainly because my inexperience with linux kernel and how it should be compiled.</p>
       <p id="1d71f2d2-ee73-4702-8cf7-80f20f9523fc" class="">What I found working is to download ubuntu sources from their <code>git</code> repo, run few <code>make</code> commands over them and thats it. When I tried same thing with sources downloaded using <code>apt-get source</code>, it failed with lot of strange, cryptic and basically un-googlable messages from <code>make</code>.</p>
       <p id="108c941c-0549-4797-8ebe-f4c883c13c31" class="">Here is my script, which will clone sources, make branch from tag matching your kernel, replace source with patched one, compile module, load it into memory, and put it into <code>initramfs</code>. It is mostly automatic, you will just have to reply to <code>sudo</code> prompt few times.</p>
-      <pre id="5db8e423-87fd-486c-a5cc-562a602d896c" class="code code-wrap"><code>#! /usr/bin/env bash
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5db8e423-87fd-486c-a5cc-562a602d896c" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#! /usr/bin/env bash
 # Apple wireless keyboard module installation script
 # by Bystroushaak (bystrousak@kitakitsune.org)
  
@@ -301,7 +308,9 @@ sudo update-initramfs -u</code></pre>
       <h3 id="3e19cb80-ddc5-427d-ab30-ece53b9a18d4" class="">xmodmap</h3>
       <p id="7f725740-38f5-49cf-96f0-e4be2b26155b" class="">After you get the <code>hid-apple</code> module working, you will have to change the behavior of other keys on the keyboard. That can be easily done using a program called <code>xmodmap</code>, which allows changing layout of keyboard.</p>
       <p id="641b71da-7d79-4ff8-9852-82e31a0f1b6e" class="">Here is the content of <code>.xmodmap</code> file, which you are expected to put into your <code>home</code> directory:</p>
-      <pre id="da0d1a3a-3a9e-44f0-818b-34177c513d2a" class="code code-wrap"><code>! define left and right ctrl
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="da0d1a3a-3a9e-44f0-818b-34177c513d2a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">! define left and right ctrl
 clear control
 keycode 37  = Control_L NoSymbol Control_L NoSymbol Control_L
 keycode 108 = Control_R NoSymbol Control_R NoSymbol Control_R
@@ -369,6 +378,15 @@ add mod1 = Super_L</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -388,15 +406,6 @@ add mod1 = Super_L</code></pre>
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -419,6 +428,9 @@ add mod1 = Super_L</code></pre>
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

@@ -110,6 +110,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -129,15 +138,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -167,6 +167,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -207,6 +210,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="2f2dcc79-9e1f-4195-8f92-ffbc14a4ef3c" class=""><time>@2020/04/19 → 2020/04/26</time></p>
       <p id="7028b3e5-cee0-409c-9c5b-292aa26b8937" class="">Notes from the implementation of the transaction support to the objWiki.</p>
       <p id="75beec49-b246-46b1-b108-9de27900f253" class="">At the moment, objWiki uses a simple tree structure, where NodeTree stores a flat list of Nodes. Node can each hold a list of Inputs, and anot list of (sub)Nodes.</p>
@@ -285,6 +290,8 @@
       <h1 id="c0c68f6f-0998-4ae9-b76f-42a05e77f876" class="">Implementation</h1>
       <h2 id="299d9f09-20da-4271-8789-b9b94087ba41" class="">Transaction</h2>
       <p id="47343645-39b7-4024-bf41-ed50ea99aa10" class="">Transaction is just simple container for the UUID's of changed stuff:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">class</span> <span class="nc">TransactionConflict</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span>
 
@@ -344,6 +351,8 @@
       <p id="5479f126-9b89-4dbd-83f6-93fa49019dd1" class="">It is used in such way, that all datastructures that wish to offer transaction support add their UUID to the transaction by calling <code>.add_r()</code> or <code>.add_w()</code> methods.</p>
       <p id="5c20ee1a-0f01-4322-9d26-be3d8baa4ead" class="">Most important method is <code>.collides_with()</code> , which gets another transaction as parameter and if other transaction written into set of UUIDs that this trasnsaction have read from or written to, it returns <code>True</code>.</p>
       <h2 id="da66e340-2f0d-4809-8b56-702011af61a2" class="">TransactionManager</h2>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">class</span> <span class="nc">TransactionManager</span><span class="p">:</span>
     <span class="n">tree</span><span class="p">:</span> <span class="n">NodeTree</span>
     <span class="n">active_transactions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Transaction</span><span class="p">]</span>
@@ -395,6 +404,8 @@
       <p id="b8e4c7a4-689e-41b8-a9ac-81dfddc5f577" class=""><code>TransactionManager</code> provides and tracks transactions. Most interesting method is <code>.validate_and_commit()</code>, which gets a transaction as parameter and checks whether it doesn't conflict with previously finished transactions. Then with actually running transactions, that are older than this one. If there is no conflict, the tree in this transaction is merged to the main tree and transaction is stored in all other transactions, so they would look into it when they are committed.</p>
       <h2 id="9889fc56-3fcb-422d-9bc7-f19d24a02258" class="">Read/write tracking</h2>
       <p id="a684b140-ecca-42f8-9fe3-c69ec237a7f7" class="">For tracking access to the data structures used in my simple in-memory database, I've created two monstrosities:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">class</span> <span class="nc">TrackingList</span><span class="p">(</span><span class="n">UserList</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initlist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transaction</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">initlist</span><span class="p">)</span>
@@ -494,6 +505,15 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -513,15 +533,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -552,6 +563,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

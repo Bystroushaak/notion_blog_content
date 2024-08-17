@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
@@ -95,6 +95,9 @@
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -118,6 +121,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="dc135a27-f022-47a6-a1e2-870711133b69" class=""><time>@2015/08/16</time></p>
       <p id="b7d90f2b-cf75-4c43-9fad-7d3fbf42f161" class="">Zhruba před rokem jsem tu psal (<a href="../Ethereum.html" title="Ethereum">Ethereum</a>) o nové, <em>„revoluční“</em> technologii nazvané Ethereum. Tenkrát se ještě nejednalo o nic víc, než teorii a pár <em>„proof of concept“</em> ukázek. Zhruba před čtrnácti dny bylo však Ethereum spuštěno ve <em>Frontier</em> verzi, což se dá považovat za veřejnou betu. Dnes se tudíž můžeme podívat, jak to vypadá prakticky.</p>
       <h1 id="184a99d0-3b60-4af8-b895-3f96bab45136" class="">Rekapitulace</h1>
@@ -146,7 +151,9 @@
       <h1 id="1477df64-916c-40a4-ade6-bc779d802b25" class="">Instalace</h1>
       <p id="ade8d872-9ef3-4654-a682-966ed96efbf8" class="">Proces instalace základní sady programů go implementace (existují i C++, python a další) je popsán na githubu, v sekci <a href="https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum">Building Ethereum</a>.</p>
       <p id="bb78013d-7cd5-4345-8d7e-c3ca81fd39a6" class="">Sám používám <a href="http://www.linux-mint-czech.cz/">Linux Mint</a> a na serverech Ubuntu, budu se tedy věnovat pouze Ubuntu verzi. Instalaci započneme přidáním PPA do systému:</p>
-      <pre id="836a0980-13df-42ce-8f1f-5096f0c311f1" class="code code-wrap"><code>sudo apt-get install software-properties-common
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="836a0980-13df-42ce-8f1f-5096f0c311f1" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt-get install software-properties-common
 sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo add-apt-repository -y ppa:ethereum/ethereum-dev
 sudo apt-get update
@@ -156,7 +163,9 @@ sudo apt-get install ethereum ethminer</code></pre>
       <h2 id="7b2d73e7-7114-4426-af50-3357ebe6dd88" class="">geth</h2>
       <p id="3143c7e9-80c7-4103-b881-ef491002ec7f" class=""><code>geth</code> slouží jako miner, ale i jako základní uživatelský klient. Po svém spuštění zahájí synchronizaci se sítí. K dispozici dává JavaScriptovou konzoli a také RPC API.</p>
       <p id="15908253-86fd-4425-bcb7-a36154790064" class="">Úplně nejzákladnějším krokem hned po instalaci je vytvoření nového účtu následujícím příkazem:</p>
-      <pre id="930db7d2-b967-4fed-b2fb-7e2eb853eff2" class="code code-wrap"><code>$ geth account new
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="930db7d2-b967-4fed-b2fb-7e2eb853eff2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ geth account new
  
 =======================================
 Disclaimer of Liabilites and Warranties
@@ -184,22 +193,30 @@ Passphrase:
 Repeat Passphrase: 
 Address: {797e99024a03481ad2a00ffe9c98fe145c817969}</code></pre>
       <p id="3e006efc-791b-4d75-8afc-63cc2fb3d9c0" class="">Výsledek si hned můžete zkontrolovat:</p>
-      <pre id="dcc54b6e-93df-41e2-a9ff-62fc91821e9f" class="code code-wrap"><code>$ geth account
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="dcc54b6e-93df-41e2-a9ff-62fc91821e9f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ geth account
 Account #0: {797e99024a03481ad2a00ffe9c98fe145c817969}</code></pre>
       <p id="e583caf8-cf89-42f3-9d6e-9b3cb0172e8b" class="">Jak vidíte, v systému mám nyní nový účet s adresou <code>797e99024a03481ad2a00ffe9c98fe145c817969</code>. Tato adresa se často zadává s předponou určující její hexadecimálnost, tedy 0x.</p>
       <p id="337254df-b9fd-482e-917d-d9aea697f1fa" class="">Jakmile mám adresu, můžu si na ní nechat poslat <em>ethery</em>, či obecně transakce, posílat transakce z ní, dívat se na stavy ostatních účtů, vytvářet kontrakty a také těžit.</p>
       <h2 id="66bf2b96-dbe3-43ef-bff9-78665b92cd25" class="">ethminer</h2>
       <p id="ff631d05-40bb-4b10-bf13-43448c6a6688" class=""><code>ethminer</code> je podstatně jednodušší program než <code>geth</code>, protože jak už název napovídá, umožňuje jen těžit. Zde je ukázka příkazu pro poolové těžení na mém procesoru pomocí 5 threadů:</p>
-      <pre id="0bbd2c1c-5333-4447-ba3c-d960cc42df56" class="code code-wrap"><code>$ ethminer -t 5 -F http://us1.ethpool.org/miner/0x797e99024a03481ad2a00ffe9c98fe145c817969/0.1</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="0bbd2c1c-5333-4447-ba3c-d960cc42df56" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ ethminer -t 5 -F http://us1.ethpool.org/miner/0x797e99024a03481ad2a00ffe9c98fe145c817969/0.1</code></pre>
       <p id="7f4bcf69-2e53-42f2-8b2a-fea970996823" class="">Pool funguje tak, že jakmile dosáhne vytěžená hodnota 1 <em>etheru</em>, je poslána na adresu uvedenou v URL (všimněte si <code>0x</code> na začátku). Poslední parametr označuje požadovanou difficulty, v tomto případě 0.1, tedy na 100kHash/s.</p>
       <p id="48660045-248a-481f-bc6b-579a2a37fd8e" class="">Těžení na procesoru není moc výhodné, proto je zde parametr -G. K tomu aby vám však fungoval potřebujete správnou konstelaci výkonné grafiky, podporovaných ovladačů, OpenCL, Venuše s Merkurem, sudiček u kolébky a <a href="http://iting.timetree.info/default.asp">I-ťingu</a>. Pokud jí nemáte, bude vám to shazovat Xka a vyhazovat roztomilou hlášku:</p>
-      <pre id="0b01507d-c72e-4256-9931-f5cd5011ae9f" class="code code-wrap"><code>[OPENCL]:No OpenCL platforms found
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="0b01507d-c72e-4256-9931-f5cd5011ae9f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">[OPENCL]:No OpenCL platforms found
 No GPU device with sufficient memory was found. Can't GPU mine. Remove the -G argument</code></pre>
       <p id="20c209ad-4490-4059-8af7-ea11f3355a3d" class="">Těžení na grafice je přibližně 10 - 50x výkonnější. Pokud se vám s tím nechce moc experimentovat, je zde také možnost koupit si na amazonu EC2 instanci s výkonnou grafikou, která funguje přibližně na 9MHash/s. Detaily instalace viz <a href="https://github.com/angelomilan/ethereum-guides/blob/master/GPU-cloud_mining.md">ETHEREUM CLOUD MINING FOR DUMMIES</a>. Den běhu / jeden <em>ether</em> v pool těžení vás tam podle mého experimentu vyjde na přibližně 14 dolarů.</p>
       <h1 id="3d1c692d-40f4-40ec-8ebf-b699eb672cfb" class="">Použití geth</h1>
       <p id="b54e4d24-0550-422d-bb75-0ec25b93bd86" class="">Předpokládám, že jste si nainstalovali <code>geth</code>. Pokud jste dobrodruzi, tak jste možná i spustili příkaz <code>geth console</code> a byli zavaleni tunou neustále se updatujících hlášek. Co teď s tím?</p>
       <p id="08945f93-4594-4287-a91a-3e04af3923cf" class="">Otevřete si dva terminály. V prvním spusťte konzoli s přesměrováním:</p>
-      <pre id="41a4a6fc-160c-425e-8c05-4d87c7e0f8d0" class="code code-wrap"><code>$ geth console 2&gt;geth.log
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="41a4a6fc-160c-425e-8c05-4d87c7e0f8d0" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ geth console 2&gt;geth.log
 instance: Geth/v1.0.1/linux/go1.4.2
  datadir: /home/bystrousak/.ethereum
 coinbase: 0x797e99024a03481ad2a00ffe9c98fe145c817969
@@ -207,28 +224,38 @@ at block: 76287 (2015-08-13 00:17:27)
  modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1.0 txpool:1.0 web3:1.0
 &gt;</code></pre>
       <p id="b2a92860-dafb-4fc1-bf2f-e0f64b485fb4" class="">Ve druhém si pak můžete pustit synchronizační zprávy:</p>
-      <pre id="e91fd496-b713-4740-abca-f290a76e8e2c" class="code code-wrap"><code>tail -f geth.log</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="e91fd496-b713-4740-abca-f290a76e8e2c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">tail -f geth.log</code></pre>
       <p id="8e313e48-3bb5-45a9-bad1-43c112b60b73" class="">Pokud by se vám <code>geth</code> nechtěl synchronizovat a vyhazoval v synchronizačním logu spoustu hlášek jako „<code>Synchronisation failed: block downloading canceled (requested)</code>“ a tak, vypněte konzoli, spusťte <code>geth upgradedb</code>, počkejte než skončí a zase jí zapněte. Tohle se stává typicky po upgrade na novou verzi.</p>
       <p id="19ce0847-a354-4daa-a04e-6f9a1e505b30" class="">Nyní jste tedy v konzoli. Dobré. Co s tím?</p>
       <h2 id="2b4c9142-a763-4c95-ad76-74d27b5e09be" class="">Stav účtu</h2>
       <p id="7a8f3205-d5f4-452f-af94-954b17af44cf" class="">Úplně nejzákladnější je příkaz na zjištění stavu účtu. Jedná se o JavaScriptovou konzoli, celý příkaz je tedy v JavaScriptu:</p>
-      <pre id="ad960a7e-a95b-4f31-9a7b-5162d3cdaf05" class="code code-wrap"><code>&gt; web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ad960a7e-a95b-4f31-9a7b-5162d3cdaf05" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; web3.fromWei(eth.getBalance(eth.coinbase), "ether")
 '18.27723449'</code></pre>
       <p id="13c9cd81-b547-40d3-935f-df84afc1ffad" class="">Jak můžete vidět, mám na účtu momentálně přesně <code>18.27723449</code> <em>etherů</em>, které jsem koupil za přibližně 500kč (0.07BTC) ve středu 12.8.2015. <em>„Příkaz“</em> se skládá ze dvou funkcí a dvou konstant:</p>
       <p id="88aade28-beab-4c25-83e7-14b5ac32ef10" class="">Funkce <code>web3.fromWei()</code> konvertuje částku ve <em>wei</em> (nejnižší jednotka, 10-18 <em>etheru</em>) na <em>ethery</em>, resp. na hodnotu zadanou string konstantou v druhém parametru (<code>"ether"</code> v tomhle případě). Pokud bych použil samotné <code>eth.getBalance(eth.accounts[0])</code>, dostal bych hodnotu <code>18277234490000000000</code>, což je kapku nepřehledné.</p>
       <p id="aa550585-ccb9-4603-9906-4ebc29576b2b" class=""><code>eth.coinbase</code> je <em>by default</em> pointer na <code>eth.accounts[0]</code>.</p>
       <h2 id="f10994a9-634b-41e6-83e8-5149f76b1cfe" class="">Poslání etherů</h2>
       <p id="d061dbff-3275-45ca-852e-d79e6aa50b76" class="">Příjem je jednoduchý a stačí vám k němu pouze adresa. Jak na odeslání peněz?</p>
-      <pre id="3d3e6d01-8329-40f3-8fc6-8f84150c058d" class="code code-wrap"><code>&gt; eth.sendTransaction({from:eth.coinbase, to:"0x685628357ea28e77263ea037e2fad6d34e59ab10", value: web3.toWei(0.05, "ether")})</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="3d3e6d01-8329-40f3-8fc6-8f84150c058d" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; eth.sendTransaction({from:eth.coinbase, to:"0x685628357ea28e77263ea037e2fad6d34e59ab10", value: web3.toWei(0.05, "ether")})</code></pre>
       <p id="659bcc4d-7e6e-4f4c-96bb-cbec4dbfb5da" class="">Jedná se o příkaz v konzoli, zde jsem ho pro přehlednost rozepsal:</p>
-      <pre id="0f96228a-8a82-4fd3-8db0-fcdaadcbb594" class="code code-wrap"><code>eth.sendTransaction({
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="0f96228a-8a82-4fd3-8db0-fcdaadcbb594" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">eth.sendTransaction({
     from:eth.coinbase,
     to:"0x685628357ea28e77263ea037e2fad6d34e59ab10",
     value: web3.toWei(0.05, "ether")
 })</code></pre>
       <p id="6a9205bc-c9ed-4a7f-bb29-be1b4c13dff9" class="">Jak je možné vidět, k odesílání <em>etherů</em> slouží funkce <code>eth.sendTransaction()</code>, která očekává jako parametr slovník sestávající se z klíčů <code>from</code>, <code>to</code> a <code>value</code> (ve wei).</p>
       <p id="11f6084c-9fe6-4c0a-abaf-725858d1d8dc" class="">Poté co funkci odešlete do konzole vás <code>geth</code> vyzve k zadání hesla, které jste nastavili v době generování adresy a vrátí jako návratovou hodnotu ID transakce:</p>
-      <pre id="b98238ec-6a56-4655-b8a8-0b1a9731362f" class="code code-wrap"><code>Please unlock account 797e99024a03481ad2a00ffe9c98fe145c817969.
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b98238ec-6a56-4655-b8a8-0b1a9731362f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Please unlock account 797e99024a03481ad2a00ffe9c98fe145c817969.
 Passphrase: 
 Account is now unlocked for this session.
 "0x0129afe425d6eab2aef3e55834bac8e11ccffa35dc77feb1b87dd6d55b340cd6"</code></pre>
@@ -239,7 +266,9 @@ Account is now unlocked for this session.
         </figcaption>
       </figure>
       <p id="fef0f455-47b0-4e36-98ef-beb3447efa5b" class="">a na druhém počítači:</p>
-      <pre id="33f6c2f3-b277-4957-9280-68785efef6ad" class="code code-wrap"><code>$ geth console 2&gt;geth.log 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="33f6c2f3-b277-4957-9280-68785efef6ad" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ geth console 2&gt;geth.log 
 instance: Geth/v1.0.1/linux/go1.4.2
  datadir: /home/bystrousak/.ethereum
 coinbase: 0x685628357ea28e77263ea037e2fad6d34e59ab10
@@ -515,10 +544,14 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
       <p id="bcd45229-1a77-48a7-9d93-70da81b79d66" class="">V budoucnu bych to rád napravil a napsal pár článků na tohle téma, zatím se ale pojďme podívat alespoň na <em>hello world</em> příklad uvedený na stránce Etherea jako <a href="https://www.ethereum.org/greeter">greeter</a>.</p>
       <p id="cbe097bb-d5b6-49a3-b791-1230e5dd229e" class="">Jelikož je <em>greeter</em> napsaný v jazyku <a href="https://github.com/ethereum/wiki/wiki/Solidity-Tutorial"><em>Solidity</em></a>, bude se prvně hodit kompiler. Na Ubuntu je dostupný v již přidaném PPA pod jménem <code>solc</code>, nainstalovat ho tedy můžete pomocí <code>„sudo aptitude install solc“</code>.</p>
       <p id="b2e44e94-4f93-42bb-a448-de1869a4daed" class="">V konzoli potom můžete ověřit že je dostupný pomocí:</p>
-      <pre id="a3ace821-b966-4344-9ce8-7e0209578280" class="code code-wrap"><code>&gt; eth.getCompilers()
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a3ace821-b966-4344-9ce8-7e0209578280" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; eth.getCompilers()
 ["Solidity"]</code></pre>
       <p id="38c205c4-6550-4b05-82d6-3e0ab86a4c9f" class="">Nyní k samotnému greeteru:</p>
-      <pre id="248c8386-5d09-4756-9ae6-0d42ca7aefd1" class="code code-wrap"><code>contract mortal {
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="248c8386-5d09-4756-9ae6-0d42ca7aefd1" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">contract mortal {
     /* Define variable owner of the type address*/
     address owner;
  
@@ -570,11 +603,17 @@ contract greeter is mortal {
       </ul>
       <h3 id="4f05555a-b0fd-472e-baae-d92d05e2feb7" class="">Kompilace</h3>
       <p id="d46ba428-c420-4320-882c-75dd2ba74b96" class="">Výše uvedený zdrojový kód v je nyní třeba zkompilovat, pomocí <code>solc</code>. Ten je přístupný přímo z <code>geth console</code>. Bohužel v současnosti <a href="https://forum.ethereum.org/discussion/2160/hi-is-there-any-way-to-load-a-text-file-in-the-geth-console">není možné</a> načítat scripty nějak rozumně z disku, musíme vše tedy do konzole vložit manuálně (je vidět, že počítají hlavně s RPC API, kde tohle nevadí):</p>
-      <pre id="830dabd6-212f-4eb5-aeda-dca9f723f452" class="code code-wrap"><code>var greeterSource = 'contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }'</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="830dabd6-212f-4eb5-aeda-dca9f723f452" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">var greeterSource = 'contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }'</code></pre>
       <p id="85c400b8-1076-4235-a292-fcf769a8ec60" class="">Kompilace se pak volá funkcí <code>web3.eth.compile.solidity(source):</code></p>
-      <pre id="16526cbf-44b6-460d-85bf-64d628aea7ef" class="code code-wrap"><code>var greeterCompiled = web3.eth.compile.solidity(greeterSource)</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="16526cbf-44b6-460d-85bf-64d628aea7ef" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">var greeterCompiled = web3.eth.compile.solidity(greeterSource)</code></pre>
       <p id="a4f40de8-d231-4699-ab98-58ee90b2837d" class="">Tím získáme strukturu popisující zkompilovaný kód:</p>
-      <pre id="a69a5aa3-ecdd-47aa-9612-853713884fbe" class="code code-wrap"><code>&gt; greeterCompiled
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a69a5aa3-ecdd-47aa-9612-853713884fbe" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; greeterCompiled
 {
   greeter: {
     code: "0x60606040526040516102b43803806102b48339016040526060805160600190602001505b5b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908302179055505b806001600050908051906020019082805482825590600052602060002090601f01602090048101928215609e579182015b82811115609d5782518260005055916020019190600101906081565b5b50905060c5919060a9565b8082111560c1576000818150600090555060010160a9565b5090565b50505b506101dc806100d86000396000f30060606040526000357c01000000000000000000000000000000000000000000000000000000009004806341c0e1b514610044578063cfae32171461005157610042565b005b61004f6004506100ca565b005b61005c60045061015e565b60405180806020018281038252838181518152602001915080519060200190808383829060006004602084601f0104600302600f01f150905090810190601f1680156100bc5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561015b57600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5b565b60206040519081016040528060008152602001506001600050805480601f016020809104026020016040519081016040528092919081815260200182805480156101cd57820191906000526020600020905b8154815290600101906020018083116101b057829003601f168201915b505050505090506101d9565b9056",
@@ -612,7 +651,9 @@ contract greeter is mortal {
       <p id="37391e7c-7cdf-44a9-a4bf-6e5971245315" class="">Pozor, nejedná se o instanci objektu, jen o zkompilovaný kód!</p>
       <h3 id="65bede8c-848a-4c23-a29e-a35a20448b99" class="">Nahrání do sítě</h3>
       <p id="589b3e88-97d3-457e-86ad-55b2bfe0c281" class="">Instanci vytvoříme nahráním <code>greeter</code>u do sítě:</p>
-      <pre id="ae8662e6-a3a0-4b35-bff3-607152cb2e92" class="code code-wrap"><code>var _greeting = "Linuxákům zdar!"
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ae8662e6-a3a0-4b35-bff3-607152cb2e92" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">var _greeting = "Linuxákům zdar!"
 var greeterContract = web3.eth.contract(greeterCompiled.greeter.info.abiDefinition);
  
 var greeter = greeterContract.new(_greeting,{from:web3.eth.accounts[0], data: greeterCompiled.greeter.code, gas: 1000000}, function(e, contract){
@@ -629,18 +670,24 @@ var greeter = greeterContract.new(_greeting,{from:web3.eth.accounts[0], data: gr
     }
 })</code></pre>
       <p id="90b43066-bba2-41a1-95a0-b990ddda03bc" class=""><code>geth</code> nás samozřejmě opět vyzve k zadání hesla (při nahrání kontraktu musíme poslat i <em>gas</em> který bude spalovat):</p>
-      <pre id="739220b7-9b4b-4667-b5d9-16b6fe926eef" class="code code-wrap"><code>Please unlock account 797e99024a03481ad2a00ffe9c98fe145c817969.
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="739220b7-9b4b-4667-b5d9-16b6fe926eef" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Please unlock account 797e99024a03481ad2a00ffe9c98fe145c817969.
 Passphrase: 
 Account is now unlocked for this session.
 Contract transaction send: TransactionHash: 0x91d6caefcadf4b071b6f0e6f6811182e053a8cbdcd830bd833e0e1aa4d2d2662 waiting to be mined...
 undefined</code></pre>
       <p id="070af10c-18dd-4718-892b-f8f1fbf74bee" class="">Na etherescanu se opět můžeme podívat, jak <a href="https://etherscan.io/tx/0x91d6caefcadf4b071b6f0e6f6811182e053a8cbdcd830bd833e0e1aa4d2d2662">transakce vypadá</a>. Všimněte si, že <em>payload</em> odpovídá sekci <code>code:</code> ze struktury získané kompilátorem.</p>
       <p id="a2a5184f-e9c3-4f6d-a399-d801f57fb209" class="">Po chvíli se v konzoli objeví:</p>
-      <pre id="a447c102-9a2d-4594-9dc5-7fd1cec3afb5" class="code code-wrap"><code>&gt; Contract mined! Address: 0x4113caa93a1b90a0659314052305fbe94d2b3d8b
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a447c102-9a2d-4594-9dc5-7fd1cec3afb5" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; Contract mined! Address: 0x4113caa93a1b90a0659314052305fbe94d2b3d8b
 [object Object]</code></pre>
       <h3 id="83c235e2-347a-4edc-ba70-2df0f7ee9c11" class="">Volání kontraktu</h3>
       <p id="5996db65-8559-4bd0-bf7c-efeeb2cfa746" class="">Na lokálním stroji to máme jednoduché, stačí prostě zavolat objekt greeteru, který vznikl po nahrání do sítě:</p>
-      <pre id="1cb1b68f-2f7a-410e-b73e-fa29a5a5474f" class="code code-wrap"><code>&gt; greeter
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1cb1b68f-2f7a-410e-b73e-fa29a5a5474f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; greeter
 {
   address: "0x4113caa93a1b90a0659314052305fbe94d2b3d8b",
   transactionHash: "0x91d6caefcadf4b071b6f0e6f6811182e053a8cbdcd830bd833e0e1aa4d2d2662",
@@ -649,10 +696,14 @@ undefined</code></pre>
   kill: function()
 }</code></pre>
       <p id="3b97ec1f-98b1-4a6b-ba1c-15ee450f75ca" class="">Povšimněte si klíče <code>address:</code>, který objeví poslední hlášce o kontraktu z předchozí kapitoly. Nyní již tedy k volání konkrétní metody:</p>
-      <pre id="f1a41446-27fd-4064-af24-774fa90e2712" class="code code-wrap"><code>&gt; greeter.greet()
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f1a41446-27fd-4064-af24-774fa90e2712" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; greeter.greet()
 "Linuxákům zdar!"</code></pre>
       <p id="df34b8f7-688a-4826-817b-03ecbbd1d777" class="">Jednoduché, že? Jak na to ale z jiného počítače? K tomu budeme potřebovat definici ABI a již zmiňovanou adresu:</p>
-      <pre id="c2601268-4d68-425d-87e0-b952e4ee57b5" class="code code-wrap"><code>&gt; greeterCompiled.greeter.info.abiDefinition;
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c2601268-4d68-425d-87e0-b952e4ee57b5" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; greeterCompiled.greeter.info.abiDefinition;
 [{
     constant: false,
     inputs: [],
@@ -678,7 +729,9 @@ undefined</code></pre>
 &gt; greeter.address;
 "0x4113caa93a1b90a0659314052305fbe94d2b3d8b"</code></pre>
       <p id="28f85ca5-a765-444c-ad67-325fff6be3c7" class="">Na druhém počítači pak stačí zavolat metodu <code>eth.contract(ABI).at(Address);</code></p>
-      <pre id="5de19ff8-7444-4e20-8b6f-4da4ad3ec10c" class="code code-wrap"><code>bystrousak:~,0$ geth console 2&gt;geth.log 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5de19ff8-7444-4e20-8b6f-4da4ad3ec10c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">bystrousak:~,0$ geth console 2&gt;geth.log 
 instance: Geth/v1.0.1/linux/go1.4.2
  datadir: /home/bystrousak/.ethereum
 coinbase: 0x685628357ea28e77263ea037e2fad6d34e59ab10
@@ -686,14 +739,20 @@ at block: 90392 (Sat, 15 Aug 2015 13:45:33 CEST)
 modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1.0 txpool:1.0 web3:1.0
 &gt; var greeter_remote = eth.contract([{constant:false,inputs:[],name:'kill',outputs:[],type:'function'},{constant:true,inputs:[],name:'greet',outputs:[{name:'',type:'string'}],type:'function'},{inputs:[{name:'_greeting',type:'string'}],type:'constructor'}]).at('0x4113caa93a1b90a0659314052305fbe94d2b3d8b');</code></pre>
       <p id="8e7e339d-63bd-47f1-801c-8d2f5e68c984" class="">čímž vznikne objekt, který můžeme volat stejně jako v předchozím příkladě:</p>
-      <pre id="6a2d655c-7ed8-47fa-8183-fe77ed73c278" class="code code-wrap"><code>&gt; greeter_remote.greet()
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="6a2d655c-7ed8-47fa-8183-fe77ed73c278" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">&gt; greeter_remote.greet()
 "Linuxákům zdar!"</code></pre>
       <p id="386d8698-c2c9-429a-a4c6-16e8a2e0756f" class="">Zajímavá je rychlost vykonání, která je prakticky okamžitá.</p>
       <h3 id="bd49d08f-7395-4008-8c5f-ccca362717e5" class="">Zabití kontraktu</h3>
       <p id="71322191-340d-4e3d-b0f7-5572f4da0705" class="">Pokud se vám <em>kontrakt</em> přestane líbit, máte vždy možnost ho zabít. Učinit tak lze zasláním <code>kill</code> zprávy (menší transakční cena):</p>
-      <pre id="ae38b698-4d8a-4958-889c-b10245c923ea" class="code code-wrap"><code>greeter.kill.sendTransaction({from:eth.accounts[0]})</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ae38b698-4d8a-4958-889c-b10245c923ea" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">greeter.kill.sendTransaction({from:eth.accounts[0]})</code></pre>
       <p id="d5e96412-7409-4e68-a0d5-f67a52ba49f4" class="">Pokud si ještě vzpomínáte na kód objektu <code>mortal</code>, je vám asi jasné, jak to funguje:</p>
-      <pre id="e08f3654-add5-4bcc-8e51-2baf9d27cb6e" class="code code-wrap"><code>contract mortal {
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="e08f3654-add5-4bcc-8e51-2baf9d27cb6e" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">contract mortal {
     address owner;
  
     function mortal() { owner = msg.sender; }
@@ -826,6 +885,15 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -845,15 +913,6 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -885,6 +944,9 @@ modules: admin:1.0 db:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 shh:1
         </li>
         <li>
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -106,6 +106,9 @@
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
+        </li>
+        <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
         </li>
         <li>
@@ -144,6 +147,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <div id="0102b2d5-a1b3-4861-98e1-3190afabd015" class="column-list">
         <div id="762d1fb5-11ef-4894-99a1-e086a3965653" style="width:18.75%" class="column">
           <p id="9d926606-91a3-4f4d-8ea5-faa3af496ee1" class=""><time>@2020/02/18</time></p>
@@ -262,7 +267,8 @@
       <p id="33804ac9-0fc3-44f0-bf6c-9dace671117e" class="">The current situation is analogous to sending a Lego castle as individual cubes by post, with <em>a reference</em> to the instructions on how to put it together into the form of the castle. The recipient then has to obtain instructions <em>somewhere</em> (remember, there is only a reference of the instructions in the package, not the instructions itself) and then laboriously compose the castle manually.</p>
       <p id="d754424e-a5d7-4caf-a39c-885355bb2e50" class="">The absurdity is even more evident when we realize that this is not just the Lego, but everything. Want to send a glass bottle? Break it into tiny sand pieces and tell the recipient that he has to make the bottle himself. I understand that <em>in the end</em>, you always have to send raw bytes on some level, just as you have to send <em>Lego cubes</em> eventually. But why don't you send them already in form of the castle?</p>
       <p id="78dc6806-1e95-4cbf-a80d-659e3785c96e" class="">It is not just about the absurdity of it all. The point is that at the same time, it is also <em>worse</em>. Worse for the user and definitely worse for the programmers. The data you are using could be self-descriptive, but they are not. Individual items could contain data types as well as documentation, but they don't. Why? Because it is fashionable to have raw binary data and their description separately. Do we really want it, does it really provide such great advantages?</p>
-      <p id="ee9af745-05ea-4a99-a734-0900d7f08762" class="">In the past decades, massive growth in the use of formats such as XML, JSON, and YAML has been seen. While it is certainly better than a wire to the eye, it is still not what I'm talking about. I am not concerned about the specific format, but about the structure itself. Why not have all of the data structured?</p>
+      <p id="ee9af745-05ea-4a99-a734-0900d7f08762" class="">In the past decades, massive growth in the use of formats such as XML, JSON, and YAML has been seen. While it is certainly better than a wire to the eye, it is still not what I'm talking about.<br>
+      I am not concerned about the specific format, but about the structure itself. Why not have all of the data structured?<br></p>
       <p id="0ad51f4f-b7b7-44d3-afb3-3559341d33cd" class="">I'm not talking about parsing with an XML parser here, I'm talking about loading directly into the memory, in the style of <a href="https://msgpack.org/">message pack</a>, <a href="https://github.com/real-logic/simple-binary-encoding">SBE</a>, <a href="https://google.github.io/flatbuffers/">FlatBuffers</a>, or <a href="https://capnproto.org/">Cap'n Proto</a>. Without the need to evaluate text and solve escape sequences and unicode formats. I'm talking about using <code>people[0].name</code> instead of <code>doc.getElementByTagName("person")[0].name.value</code> in one format and <code>doc["people"][0]["name"]</code> in another because the structure is always there. About reading help by simply using <code>help(people)</code> instead of looking into the documentation.</p>
       <p id="952631d8-75de-4ce8-9d28-c79655374db1" class="">I am talking about the absence of the need to parse WAV files because you can naturally iterate over the <em>chunks</em> which are all the time there. About the fact that data describe itself by its structure, not by an external description or a parser. I am talking about direct serialization of "<em>objects</em>", about a unified system supported by all languages, even if they don't have objects, but just some kind of structure.</p>
       <p id="29ee1751-ea69-400b-b311-c9bad37a71b9" class="">Would it really be impossible? Why?</p>
@@ -275,7 +281,9 @@
       <p id="c8ac6eb8-5956-45bc-9f73-2bd7f6c0765a" class="">Plan9 is astonishing in the way how you can interact with the system using just file operations on special kind of files. That's brilliant! Revolutionary! So amazing that Linux now uses half of the features, for example in the <code>/sys</code> subsystem and in <a href="https://cs.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a>.</p>
       <p id="a147f13a-1018-4359-ac7c-2d0f5121bd35" class="">Do you know what is missing? Reflection and structured data. If you don't read a manual, you don't know what to write where and what to expect. Things just don't carry explicit semantic meaning.</p>
       <p id="eeb87100-3d6f-47eb-bc6d-b3fc9468b217" class="">Here is a code for blinking with the diode on the Raspberry Pi:</p>
-      <pre id="4613b54e-70c9-4ece-a640-b299db8266e1" class="code"><code>echo 27 &gt; /sys/class/gpio/export
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="4613b54e-70c9-4ece-a640-b299db8266e1" class="code"><code class="language-Bash">echo 27 &gt; /sys/class/gpio/export
 echo out &gt; /sys/class/gpio/export/gpio27/direction
 echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       <p id="3c3f5fbd-a82c-4b8b-96c7-85f27706f97a" class="">How are errors handled? What happens when you write the string <code>“vánočka”</code> to the <code>/sys/class/gpio/export/gpio27/value</code>? Do you get an error code back from the <code>echo</code> command? Or is there any information in any other file? How does the system handle parallel writes? And what about reading? What happens when I write <code>"in"</code> instead of <code>"out"</code> to the <code>/sys/class/gpio/export/gpio27/direction</code>, and then I'll try to read from the <code>value</code>?</p>
@@ -295,7 +303,9 @@ echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       <p id="09e11280-34ce-4e63-bd27-1df337ce5789" class="">Theoretically, there are standard and best practices, but in reality, you just don't know the syntax until you'll read the man page. Some programs use <code>--param</code>. Others <code>-param</code>. And then there are programs that use just <code>param</code>. Sometimes, you separate lists by spaces, other times it is using commas, or even colons or semicolons. I've seen programs that required parameters encoded in JSON mixed with "normal" parameters.</p>
       <p id="cd8f4521-c989-4bce-8d83-cb2c2f235650" class="">If you call the program from some kind of "command line", that is some kind of shell, like bash, then you also get a mixture of the shell scripting language and its ways of defining strings, variables and only god knows what else (I can think of escape sequences, reserved names of functions, eval sequences using some random characters like <code>`</code>, wildcard characters, <code>--</code> for stopping the evaluation of wild cards, and so on). This is just one gigantic mess where everyone uses whatever he thinks is nice and parses it without any internal consistency or logic, just because they can.</p>
       <p id="605d7323-7748-45d6-8b95-24c6a938a9f2" class="">And then, there is a topic of calling programs from <em>other</em> programs. I don't even want to recall how many times I was forced to use some piece of code like</p>
-      <pre id="45e69580-d1ae-4a6e-b868-cf94d363e419" class="code"><code>import subprocess
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="45e69580-d1ae-4a6e-b868-cf94d363e419" class="code"><code class="language-Python">import subprocess
 
 sp = subprocess.Popen(
   ['7z', 'a', 'Test.7z', 'Test', '-mx9'],
@@ -362,9 +372,13 @@ stdout, stderr = sp.communicate()</code></pre>
       <p id="bb8c815e-a965-481c-9e6e-e4723f8944cd" class="">There is a plethora of command line parameters for the Docker command: <a href="https://docs.docker.com/engine/reference/run/">https://docs.docker.com/engine/reference/run/</a>. My favorite part is represented by volumes, which are directories mounted inside a container from the outside system.</p>
       <p id="5058343f-c5c8-495a-88b2-582febc234af" class="">The syntax is approximately <code>-v local_path:/docs:rw</code>. It seems to me as a good example because there are three different kinds of values in the same parameter: the path in the system where you run the command (must be absolute!), the path inside of the container, and permissions that say that you can use this for read and write.</p>
       <p id="5a7699ad-d846-4cb0-8c71-a57822338fbf" class="">This example came to perfection when they added a <a href="https://docs.docker.com/storage/volumes/">new</a> parameter <code>--mount</code>, which does the same but introduces an entirely new syntax for it, with completely different rules for parsing:</p>
-      <pre id="96ecf680-f57b-4220-8a70-bdaf859ea33e" class="code"><code>--mount source=local_path,target=/docs</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="96ecf680-f57b-4220-8a70-bdaf859ea33e" class="code"><code class="language-Bash">--mount source=local_path,target=/docs</code></pre>
       <p id="e8f3fcff-01ee-4eea-ac89-a391ac84f346" class="">A more complex example may look like this:</p>
-      <pre id="2c1f6068-8924-4870-950b-0da457c02a95" class="code code-wrap"><code>--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="2c1f6068-8924-4870-950b-0da457c02a95" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
       <p id="a2ad5b90-843c-4941-8b3a-ed777cb254eb" class="">Notice that it contains an example of the CSV parser escape sequences (!).</p>
       <p id="bb4f482d-9625-4d47-8834-cff725e81f0e" class="">The original colon-separated-format mutated into a new format separated by commas. This one uses the equality sign (<code>=</code>) for key-value definitions, but also is a list at the same time because every so often, there is no <code>=</code>, and you can use double quotes and .. <em>what the fuck is that shit in the double quotes?</em> <code>volume-opt=o=addr=&lt;nfs-address&gt;</code>? Seriously?</p>
       <p id="591358d5-9624-450e-9994-8401b0125811" class="">And I am not even talking about how the behavior changes depending on what exactly you use because this is not a subject that I want to focus on here.</p>
@@ -373,7 +387,9 @@ stdout, stderr = sp.communicate()</code></pre>
       <h2 id="7eca4b13-2f1a-41e9-80b0-a7635d417fd6" class="">Dockerfile</h2>
       <p id="846a7efd-5d87-40d7-9fb0-e70ecf9dcaed" class="">The original idea of Dockerfile was, I guess, similar to the <a href="https://en.wikipedia.org/wiki/Makefile">makefile</a>. We'll let the <code>docker</code> work with the file, it will go over the <em>directives</em> step by step and build a “<em>project</em>” for us.</p>
       <p id="b3ead744-c15a-4efa-962a-91e3d06a3061" class="">At the beginning, it was simple; a set of <code>KEY value</code> definitions that will be gradually executed. Here's an example:</p>
-      <pre id="711b239e-34eb-4842-b1d3-4a6159adb5ed" class="code"><code>FROM microsoft/nanoserver
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="711b239e-34eb-4842-b1d3-4a6159adb5ed" class="code"><code class="language-Docker">FROM microsoft/nanoserver
 COPY testfile.txt c:\\
 RUN dir c:\</code></pre>
       <p id="c5b54ff4-16ca-4372-9c2e-86decd920aa6" class=""><code>FROM</code> specifies what to use as the original base image for the <em>virtual container</em>, <code>COPY</code> copies a file from the computer on which the container is built, and <code>RUN</code> executes some command.</p>
@@ -388,6 +404,8 @@ RUN dir c:\</code></pre>
       <p id="e2dc428e-a982-4748-b2f8-905000905210" class="">I was shaking my head because, as in the case of the Web, REST API or <code>oc</code>, this is a configuration by uploading and editing <em>objects</em> described by YAML or JSON (formats can be interchanged freely).</p>
       <p id="80637914-f0ea-4bd5-a03f-0b040b2ed95f" class="">These <em>objects</em> can be defined in a so-called <em>template</em> which functions as a kind of <a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>, executes each block sequentially and at the end should result in a running system. Within a <em>template,</em> it is possible to use another <em>template system</em> that allows you to define and expand variables.</p>
       <p id="53367578-00dc-4d10-a1ad-3028b8a6bc27" class="">All of this is built on top of YAML which is the somewhat less chatty brother of JSON. For example, a template example might look like this:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Template</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -432,7 +450,9 @@ RUN dir c:\</code></pre>
       <h1 id="b7eddfe5-9605-45b9-93b1-954406a13ebd" class="">Example study: Ansible</h1>
       <p id="de62f379-60c3-46a9-a234-93ce4f670fe7" class="">Ansiblééé is a beautiful example of how it turns out when someone just ad-hoc tries to cook a language, like I am calling for, without thinking much about it, and without really any theory of programming languages.</p>
       <p id="636de039-4224-4e50-b220-88c9d873df7b" class="">It began as a YAML based configuration declaration language describing what to do. Here is an example of a nginx installation:</p>
-      <pre id="adb533cd-4ca6-43d5-b03e-f1e0e64404c6" class="code"><code>- name: Install nginx
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="adb533cd-4ca6-43d5-b03e-f1e0e64404c6" class="code"><code class="language-YAML">- name: Install nginx
   hosts: host.name.ip
   become: true
   tasks:
@@ -473,7 +493,9 @@ RUN dir c:\</code></pre>
           <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html">https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html</a>
         </li>
       </ul>
-      <pre id="4097e53b-22d5-4061-bbdf-8c8b01e286ab" class="code"><code>tasks:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="4097e53b-22d5-4061-bbdf-8c8b01e286ab" class="code"><code class="language-YAML">tasks:
     - command: echo {{ item }}
       loop: [ 0, 2, 4, 6, 8, 10 ]
       when: item &gt; 5</code></pre>
@@ -526,7 +548,7 @@ RUN dir c:\</code></pre>
       </ul>
       <p id="93a716f1-6e41-49a3-83e4-f258737c3e77" class="">You will find that decades ago there was a graphics system that fulfilled much of everything I wrote about. A system so good that it still connects groups of enthusiasts around it.</p>
       <p id="6f06b0aa-5de6-4f2d-ac65-3daf466448bf" class="">The direct inspiration is also Self, about which I've written a lot here: <a href="../Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a></p>
-      <h1 id="b9ce5b2f-d496-4cd9-becb-e8dfb4da6c9d" class="">Relevant resources, last edit <time>@2023/02/23</time></h1>
+      <h1 id="b9ce5b2f-d496-4cd9-becb-e8dfb4da6c9d" class="">Relevant resources, last edit <time>@2023/09/18</time></h1>
       <p id="61115381-7585-44ed-a822-8e3044b71deb" class="">Here is (occasionally updated) a set of pointers to relevant resources with similar topics:</p>
       <ul id="c8304976-0287-4fb2-9cc6-6da9dc6bd0cc" class="bulleted-list">
         <li style="list-style-type:disc">
@@ -633,6 +655,11 @@ RUN dir c:\</code></pre>
           <a href="https://danluu.com/file-consistency/">Files are hard</a> (added <time>@2023/04/03</time>)
         </li>
       </ul>
+      <ul id="7bb7faee-7449-4968-845c-661a115732c1" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://www.youtube.com/watch?v=NxsaHxON350">I'm Re-Imagining the Command Line Interpreter</a> (youtube) (added <time>@2023/09/18</time>)
+        </li>
+      </ul>
       <h1 id="01f45ad4-a28f-4e58-8daa-49ec66e30349" class="">Edit <time>@2020/02/18</time></h1>
       <p id="d00a1f8e-d244-4b62-bacc-e34ba948212f" class=""><a href="https://www.reddit.com/r/programming/comments/f5udxx/programmers_critique_of_missing_structure_of/fi29591/">This response on reddit</a> got much of what I am trying to say right:</p>
       <blockquote id="077e5975-7258-42af-808d-7504cc16cc27" class="">
@@ -659,7 +686,7 @@ RUN dir c:\</code></pre>
         <br>
         Then we revisit the whole pattern of how we code things. Generally instead of building a full program, we build a series of programs that work well together. The most fundamental program would be one that lets programs work together. So if I were doing vi, it would be a system that loads a view, and a key-press mapper (we don't use the standard ttl of course). The view shows a buffer, which is an object that lets me do arbitrary selections and actions. Most transformations would be done through a visitor-like pattern, it the visitor actually may output a transformation, and allows it to work more like recursive schemes. The viewer doesn't use a raw-buffer, but instead one wraps the data, but allows arbitrary style information added on a second layer. My loading script will actually add extra layers, realizing when it's code, or such allowing me further functionality and more rich view. The loading script also loads a bunch of keyboard bindings, which bind to specific objects/visitors/transformers which do actions. So I could start a select-search command, which selects all pieces of text that fullfill a regex, and then a replace command, which replaces those selections with whatever text I input. If it's code I could automatically load another searcher which uses the same command for all languages, the semantic searcher which lets me do things like select all directly named instances of this variable/function but ultimately just changes whatever the selection of the buffer is. I can then do the same replace or such.<br>
         <br>
-        Basically the Unix philosophy got to its limits because computers started doing all sorts of things that the original model never considered. It lost it's structure and philosophy as it adapted and exceptions became more common than the rule, and decisions that now weren't the best one had to be kept to not loose existing features. But nowadays we have a better system to solve it, one that has proven it self time and time again. I think it would be interesting to build an OS that was like this from the beginning. Unix-like scenarios could be allowed, as Unix is simply a special case of the model.
+        Basically the Unix philosophy got to its limits because computers started doing all sorts of things that the original model never considered. It lost it's structure and philosophy as it adapted and exceptions became more common than the rule, and decisions that now weren't the best one had to be kept to not loose existing features. But nowadays we have a better system to solve it, one that has proven it self time and time again. I think it would be interesting to build an OS that was like this from the beginning. Unix-like scenarios could be allowed, as Unix is simply a special case of the model.<br>
       </blockquote>
       <h1 id="b00658f3-eb1a-4f8d-b353-aac3f53b2251" class="">Edit <time>@2020/05/26</time></h1>
       <p id="d0344899-ae3c-4986-9c86-87029803045c" class="">There has been much confusion about what I've meant by some statements. I am sorry for that. English is not my native language and sometimes, it's not easy for me to clearly express myself.</p>
@@ -723,6 +750,15 @@ RUN dir c:\</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -742,15 +778,6 @@ RUN dir c:\</code></pre>
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -793,6 +820,9 @@ RUN dir c:\</code></pre>
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

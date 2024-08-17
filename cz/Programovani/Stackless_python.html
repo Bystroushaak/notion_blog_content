@@ -33,6 +33,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -52,15 +61,6 @@
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../Zmeny.html" title="Změny">more</a>
@@ -93,6 +93,9 @@
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -116,6 +119,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="12dd033d-33ed-4828-a0b4-42fe6fcb77a8" class=""><time>@2013/10/28</time></p>
       <p id="4e86ff17-8e3d-448c-9828-fe92ba70b91d" class="">Možná jste někdy měli na potřebu paralelizace vašeho pythonního scriptu a thready se pro vás ukázaly jako nevhodné z důvodu jejich vysoké náročnosti (zkuste si spustit 800 threadů a pochopíte o čem mluvím). Přesně pro takovéto případy byl vytvořen&nbsp;<a href="http://www.stackless.com/">Stackless python</a>, který vám umožní používat microthready/korutiny/tasklety za použití preemptivního multitaskingu.</p>
       <h1 id="f3d0a13f-a85f-454f-ac40-bacf31fbaafa" class="">Update</h1>
@@ -124,11 +129,15 @@
       <p id="a5eacc2b-f18f-4e91-8aed-72de3c9181d3" class="">Instalaci jsem prováděl na Mintu 13, ale měla by být dost podobná na téměř všech debianovských systémech, kde již je nainstalován python 2.7. Postup je poměrně jednoduchý, ale je nutné kompilovat a upravit jeden konfigurák. Níže uvedené příkazy to automatizují tak, že je v podstatě jen stačí napastovat do konzole a občas zadat heslo na roota.</p>
       <p id="0e108160-c8b1-4ab2-8ead-bc22fbbb16b3" class="">Návod je založený na článku&nbsp;<a href="http://architects.dzone.com/articles/install-stackless-python">Install Stackless Python on Ubuntu</a>.</p>
       <h2 id="14afaf17-f170-4c73-bea5-fde21094b410" class="">Příprava systému</h2>
-      <pre id="3c0f31e3-c8b3-4ef0-80e2-abe110528b50" class="code"><code>sudo apt-get update
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="3c0f31e3-c8b3-4ef0-80e2-abe110528b50" class="code"><code class="language-Bash">sudo apt-get update
 sudo apt-get install libreadline-dev
 sudo apt-get build-dep python2.7</code></pre>
       <h2 id="5d05e119-2c71-4f63-9b44-27975c1a234a" class="">Stažení poslední verze stackless pythonu</h2>
-      <pre id="ea7b9cbd-7097-4bb3-ae90-163c6cd349bc" class="code"><code>cd /tmp
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ea7b9cbd-7097-4bb3-ae90-163c6cd349bc" class="code"><code class="language-Bash">cd /tmp
 LAST_SL=`wget http://www.stackless.com/binaries/ -O - 2&gt;/dev/null | grep export.tar.bz2 | grep -v md5 | cut -d '"' -f 8 | grep "stackless-2" | sort | tail -n 1`
 wget "http://www.stackless.com/binaries/$LAST_SL"
  
@@ -137,12 +146,16 @@ rm $LAST_SL
 LAST_SL=`echo $LAST_SL | cut -d "." -f 1`
 cd $LAST_SL</code></pre>
       <h2 id="3645251f-1386-4a6a-a89f-36b25a606832" class="">Kompilace a instalace</h2>
-      <pre id="c756ac7a-000f-4476-81d9-ddf5103966e3" class="code"><code>./configure --prefix=/opt/stackless --enable-unicode=ucs4
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c756ac7a-000f-4476-81d9-ddf5103966e3" class="code"><code class="language-Bash">./configure --prefix=/opt/stackless --enable-unicode=ucs4
 make
 sudo make install</code></pre>
       <h2 id="183e8e23-4896-4182-86bb-704f66320045" class="">Poinstalační fix</h2>
       <p id="5bac87c1-8575-4f53-ba0d-b6e7100d936c" class="">Doplnění symlinků na standardní pythonní moduly a úprava cest, kde má stackless hledat moduly. Úprava konfiguráku proběhne automaticky, použil jsem k tomu python, protože se mi nechtělo hrát si 7 hodin se&nbsp;sedem a jeho escape sekvencemi.</p>
-      <pre id="48e86243-cfc1-4cac-90e5-aa741694fb4b" class="code"><code>sudo ln -s /usr/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/site-packages
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="48e86243-cfc1-4cac-90e5-aa741694fb4b" class="code"><code class="language-Bash">sudo ln -s /usr/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/site-packages
 sudo ln -s /usr/local/lib/python2.7/dist-packages/ /opt/stackless/lib/python2.7/dist-packages
 sudo ln -s /opt/stackless/bin/python /usr/bin/stackless
  
@@ -150,11 +163,15 @@ cd /opt/stackless/lib/python2.7/
 sudo python -c "a = '            sitepackages.append(os.path.join(prefix, \"lib\", \"site-python\"))'; print open('site.py').read().replace(a, '            sitepackages.append(os.path.join(prefix, \"lib\", \"python\" + sys.version[:3], \"dist-packages\"))\n'+a)" &gt; /tmp/site_.py
 sudo mv /tmp/site_.py site.py</code></pre>
       <h2 id="5cff882a-ed1a-4fed-9a49-d15fd01d32f3" class="">Odstranění instalačního smetí</h2>
-      <pre id="f5df5400-5591-4109-800f-e01be3d65e0a" class="code"><code>cd /tmp
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f5df5400-5591-4109-800f-e01be3d65e0a" class="code"><code class="language-Bash">cd /tmp
 rm -fr $LAST_SL</code></pre>
       <h3 id="ab85fe3d-2113-4295-a0dd-14e25de3d9a3" class="">Test interpreteru</h3>
       <p id="25af12c1-a6f6-42f7-886b-50395ccd8864" class="">Interpreter se spouští příkazem&nbsp;<code>stackless</code>.</p>
-      <pre id="4210aa2f-8508-464c-b2f5-e1d16385f084" class="code"><code>$ stackless
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="4210aa2f-8508-464c-b2f5-e1d16385f084" class="code"><code class="language-Bash">$ stackless
 Python 2.7.5 Stackless 3.1b3 060516 (default, Oct 28 2013, 15:34:27) 
 [GCC 4.6.3] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
@@ -163,7 +180,9 @@ Type "help", "copyright", "credits" or "license" for more information.
       <h1 id="70ec54fa-2299-40c9-83b8-39f1fb6aedd2" class="">Používání</h1>
       <p id="00f85fba-358b-4647-9087-ccd029388363" class="">Z programátorského hlediska probíhají interakce skrze modul&nbsp;<code>stackless</code>, který si ve Stackless interpreteru naimportujete. V klasickém pythonu vám importovat nepůjde, protože pro svůj běh vyžaduje úpravy interpreteru a způsobu, jakým jsou volány funkce (stackless = bez stacku).</p>
       <h2 id="6cfabd01-d89f-4fee-ba15-53a48309fb14" class="">Vytvoření taskletu</h2>
-      <pre id="b09f238a-26b2-40aa-8c2f-527c7aa48cc6" class="code"><code>&gt;&gt;&gt; import stackless
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b09f238a-26b2-40aa-8c2f-527c7aa48cc6" class="code"><code class="language-Python">&gt;&gt;&gt; import stackless
 &gt;&gt;&gt; def funkce(parametr):
 ...     print parametr
 ... 
@@ -176,16 +195,22 @@ Type "help", "copyright", "credits" or "license" for more information.
       <p id="51c43292-47d8-48d7-9af4-83a6ab308e6f" class="">Pro úplnost dodám, že tyto metody se volají přímo nad instancí konkrétního&nbsp;taskletu, tedy nad&nbsp;t&nbsp;z ukázky, nikoliv nad modulem&nbsp;stackless.</p>
       <h3 id="9a524905-90ed-41ae-9c78-4826a8d3fdd2" class="">Ukázka</h3>
       <p id="b505bdbb-94a2-41df-9544-5becd9349446" class="">Pokud zavoláme nad konkrétním&nbsp;<em>taskletem</em>&nbsp;<code>.run()</code>, tak se přesune na vrchol fronty a provede:</p>
-      <pre id="b6e78b50-944d-4d4f-a578-4fcb532e7513" class="code"><code>&gt;&gt;&gt; t.run()
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b6e78b50-944d-4d4f-a578-4fcb532e7513" class="code"><code class="language-Python">&gt;&gt;&gt; t.run()
 prvni</code></pre>
       <p id="9c9e3333-6f29-4f9f-91b2-a7900c6508ee" class=""><em>Tasklet</em>&nbsp;může proběhnout jen jednou, proto pokusíme-li se ho spustit znova, dostaneme chybu:</p>
-      <pre id="0f813409-3e82-44d7-b115-fa244939830e" class="code"><code>&gt;&gt;&gt; t.run()
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="0f813409-3e82-44d7-b115-fa244939830e" class="code"><code class="language-Python">&gt;&gt;&gt; t.run()
 Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
 RuntimeError: You cannot run an unbound(dead) tasklet</code></pre>
       <h2 id="b1139fc3-bf22-49a0-a33b-bb220409cdea" class="">Běh fronty taskletů</h2>
       <p id="46718738-c389-48e7-86fb-bb4cb8189bb1" class="">Výše uvedené ukázky nejsou moc platné a v podstatě neukazují nic, co by neuměl python sám o sobě. Nyní vám předvedu, jak spustit celou frontu&nbsp;taskletů:</p>
-      <pre id="470fe753-af98-4e1a-a0a9-6df88e7d5e7e" class="code"><code>#!/usr/bin/env stackless
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="470fe753-af98-4e1a-a0a9-6df88e7d5e7e" class="code"><code class="language-Python">#!/usr/bin/env stackless
 # -*- coding: utf-8 -*-
 import time
 import stackless
@@ -225,7 +250,9 @@ while stackless.getruncount() &gt; 1:
       <p id="5e2613ad-6fd8-4132-98ce-6db2fd96fff0" class="">Nyní doufám chápete,&nbsp;<a href="http://www.stackless.com/wiki/Idioms#sleeping">proč</a>&nbsp;jsem použil místo&nbsp;<code>time.sleep()</code>&nbsp;for&nbsp;smyčku -&nbsp;<code>time.sleep()</code>&nbsp;je&nbsp;<a href="http://hg.python.org/cpython/file/2d802765d31f/Modules/timemodule.c#l53">callback</a>&nbsp;na C API, což znamená, že se na něj multitasking nevztahuje. To je dobré mít na paměti.</p>
       <p id="4ce1abc7-ca2d-4461-b92b-1c6c4d4b596f" class="">Zatímco&nbsp;<a href="http://cs.wikipedia.org/wiki/Multitasking#Kooperativn.C3.AD_.28nepreemptivn.C3.AD.29_multitasking">kooperativního</a>&nbsp;multitaskingu lze do jisté míry dosáhnout i v obyčejném pythonu pomocí generátorů, preemptivní je možné dosáhnout pouze pomocí procesů, threadů, či Stackless pythonem, jehož tasklety jsou nejméně náročné na prostředky počítače.</p>
       <h3 id="b6dbba75-56ab-4fe6-be6b-62a9eea4b988" class="">Výstup</h3>
-      <pre id="226a909c-8972-4580-afc6-eeefd5f0aacc" class="code"><code>$ time stackless stackless.py 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="226a909c-8972-4580-afc6-eeefd5f0aacc" class="code"><code class="language-Plain Text">$ time stackless stackless.py 
 starting prvni 1382985236.72
 starting druhy 1382985237.26
 starting treti 1382985237.8
@@ -237,7 +264,9 @@ real    0m8.101s
 user    0m6.888s
 sys 0m1.136s</code></pre>
       <p id="60f831c7-240b-462e-ac22-5ff5446b940e" class="">Pokud nechám funkci proběhnout třikrát lineárně za sebou, dostanu tyto hodnoty:</p>
-      <pre id="52484351-0b02-4531-af9b-e29b056f50db" class="code"><code>$ time stackless stackless.py 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="52484351-0b02-4531-af9b-e29b056f50db" class="code"><code class="language-Plain Text">$ time stackless stackless.py 
 starting první 1382985343.08
 ending první 1382985345.28 - 2.19586610794
 starting druhá 1382985345.28
@@ -256,7 +285,9 @@ sys 0m0.568s</code></pre>
       <p id="00baf8f2-6fdf-45c9-ab68-27bb660a89e9" class="">Preemptivní multitasking je chytřejší, i když náročnější na implementaci a na běh. Místo toho, aby procesu předal kompletní řízení mu předává řízení jen na nějaký okamžik. Může to být třeba na 1ms, nebo na 1000 instrukcí, to už záleží na konkrétní implementaci. Výhoda je v tom, že pokud se daný proces/fukce/program zasekne, tak neshodí celý systém a ostatní funkce/procesy/.. dále běží.</p>
       <h3 id="9429939a-1752-4e6e-92b9-e75aa34a46dc" class="">Kooperativní multitasking v pythonu</h3>
       <p id="7bd81a84-560b-41bf-9850-f90d062b224a" class="">Pokud by někoho zajímalo, jak by vypadala výše uvedená ukázka přepsaná do čistého pythonu v kooperativním režimu pomocí generátorů:</p>
-      <pre id="f9d6e007-0644-4930-a818-3e511da5ebd2" class="code"><code>#!/usr/bin/env python
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f9d6e007-0644-4930-a818-3e511da5ebd2" class="code"><code class="language-Python">#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import time
  
@@ -285,7 +316,9 @@ while len(fronta) &gt; 0:
         except StopIteration:
             fronta.remove(f)</code></pre>
       <p id="34df528d-83b5-44a1-a1ee-a1359791f03c" class="">a zde je výstup:</p>
-      <pre id="398430c5-4434-4b02-86da-95b2a3a7a4eb" class="code"><code>$ time ./yield.py 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="398430c5-4434-4b02-86da-95b2a3a7a4eb" class="code"><code class="language-Plain Text">$ time ./yield.py 
 starting prvni 1382984400.16
 starting druhy 1382984400.6
 starting treti 1382984401.04
@@ -304,7 +337,9 @@ sys 0m1.112s</code></pre>
       <p id="b4309427-9bd4-4e43-996b-0fef682cadec" class="">Kanál&nbsp;je možné vytvořit pomocí volání&nbsp;<code>stackless.channel()</code>. Data se odesílají přes volání&nbsp;<code>ch.send()</code>&nbsp;a přijímají přes&nbsp;<code>ch.receive()</code>. Dotaz na počet zpráv v kanálu je možné provést skrz property&nbsp;<code>ch.balance</code>&nbsp;(default <code>0</code>).</p>
       <p id="deeed497-fc0f-4b76-89a0-e2adfdbc57be" class=""><strong>Jak příjem, tak odesílání dat je blokující a zasekne celý&nbsp;</strong><strong>tasklet</strong><strong>.</strong>&nbsp;Nemá cenu to zkoušet v singleplayeru, pokud nemáte kód, který běží paralelně tak se to prostě zasekne a nic se neděje.</p>
       <p id="b270b323-de02-4f7d-9c99-74a4a481459c" class="">Zde je ukázka posílání dat mezi dvěma funkcemi:</p>
-      <pre id="5996c16d-1826-4cea-b353-27cf28017d9f" class="code"><code>#!/usr/bin/env stackless
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5996c16d-1826-4cea-b353-27cf28017d9f" class="code"><code class="language-Python">#!/usr/bin/env stackless
 # -*- coding: utf-8 -*-
 import time
 import stackless
@@ -329,7 +364,9 @@ while stackless.getruncount() &gt; 1:
         t.insert()</code></pre>
       <p id="249e5cc0-7b71-426f-b599-5b5c355de501" class="">Odeslat je možné všechno možné, nemusí to být string, ale klidně pole, číslo atp..</p>
       <h3 id="68a0eb3b-7622-4df4-a459-ab8166033cba" class="">Výstup</h3>
-      <pre id="9b08262a-1235-43cf-8864-38a9a3d312d5" class="code"><code>$ ./stackless.py 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="9b08262a-1235-43cf-8864-38a9a3d312d5" class="code"><code class="language-Plain Text">$ ./stackless.py 
 druhá: odesláno z první</code></pre>
       <h1 id="adf6dce8-9b46-425e-a80a-5bd437ecf386" class="">To je vše?</h1>
       <p id="b250b15f-6a4d-456f-a6bb-b636070dbabb" class="">Téměř vše. Dokumentace se ještě zmiňuje o serializaci&nbsp;taskletů/kanálů, ale protože jsem to zatím neměl potřebu použít, tak jí zde nebudu rozmazávat - tenhle článek se brutálně zvrhl z osobních poznámek k instalaci, protože jsem zapomněl přestat psát. Berte ho tedy spíš jako takové představení Stackless v češtině, ne kompletní manuál.</p>
@@ -348,6 +385,15 @@ druhá: odesláno z první</code></pre>
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
         <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
@@ -368,15 +414,6 @@ druhá: odesláno z první</code></pre>
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -408,6 +445,9 @@ druhá: odesláno z první</code></pre>
         </li>
         <li>
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>

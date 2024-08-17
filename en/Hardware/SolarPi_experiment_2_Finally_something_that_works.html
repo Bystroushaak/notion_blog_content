@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -92,6 +92,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -132,6 +135,9 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <p id="cf9422cc-e6ef-437b-aa9d-88c5584cbf4d" class=""><time>@2023/07/31</time></p>
       <p id="f14b3539-3a3e-49b0-9727-8021c3db38f7" class="">In the last blogpost <a href="SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>, I’ve tried PiJuice Raspberry Pi hat with 40W PiJuice solar panel, and concluded that either the solar panel, or the PiJuice hat is not working as expected.</p>
       <p id="2f9cec09-b57b-4f56-9cb1-c8d123c13553" class="">Just to confirm the theory, I’ve decided to purchase another Solar panel, as the PiJuice solar panel seemed to be the most likely cause of the problem.</p>
       <h1 id="fc42dfe7-6b80-43a2-a24e-9dbd452db56f" class=""><strong>Goowei Energy SN-ME-SC60W 60W</strong></h1>
@@ -147,7 +153,7 @@
           </figure>
         </div>
       </div>
-      <p id="13ab3c25-f080-451c-9eb1-128a6d67a59f" class="">I’ve installed it on the outside part of the balcony doors instead of the old one, and started testing. For that, I also added some features to the <a href="https://github.com/Bystroushaak/pijuice_histograms">pijuice_historgrams</a> script, which I wrote to monitor the state of the <em>PiJuice hat</em>, <em>battery</em> and <em>solar power status</em>.</p>
+      <p id="13ab3c25-f080-451c-9eb1-128a6d67a59f" class="">I’ve installed it on the outside part of the balcony doors instead of the old one, and started testing. For that, I also added some features to the <a href="https://github.com/Bystroushaak/pijuice_histograms">pijuice_histograms</a> script, which I wrote to monitor the state of the <em>PiJuice hat</em>, <em>battery</em> and <em>solar power status</em>.</p>
       <p id="ddead356-3547-400a-9220-49d0a29db288" class="">Here is how it looks like:</p>
       <figure id="9b632fb6-200e-4cb3-ab56-187ee813dc8f" class="image">
         <a href="SolarPi_experiment_2_Finally_something_that_works/Untitled.png" title="Untitled.png"><img style="width:1500px" src="SolarPi_experiment_2_Finally_something_that_works/Untitled_thumb.jpg"></a>
@@ -170,7 +176,7 @@
       <p id="ff00a82d-227f-4883-843e-ef9707a2c02c" class="">I must say that the new solar panel was better than the old one, since it would stay in the <em>Present</em> state much longer and didn’t deadlock itself. But it seemed that a lot of the time, the PiJuice cannot charge the battery, and also I discovered that it randomly restarts when the charge drops below 26%. And this was in the middle of the summer.</p>
       <p id="78bb2efb-29ed-4485-9485-262e46aad6f8" class="">The last straw was the measurement I did over weeks, where I measured how much the average grid consumption dropped. It almost didn’t. Long-term average power consumption with the solar was something like a 3.6W/h of the grid electricity.</p>
       <p id="5358f3ab-477c-40cf-9229-b47e655b46d9" class="">Well. It was time to get more serious.</p>
-      <h1 id="0b144dcb-fa75-4c44-8f60-f237b1537a4d" class="">“Stupid” solar & MPPT charger</h1>
+      <h1 id="0b144dcb-fa75-4c44-8f60-f237b1537a4d" class="">“Stupid” solar & charger</h1>
       <p id="684b444a-6543-493d-b66b-8054ecd0cf03" class="">So far, I was trying only <em>“high level”</em> consumer hardware, powered by USB ports and PiJuice hat, thinking that it would be user-friendly and work out of the box. Since that failed, I’ve decided to buy the following components:</p>
       <h3 id="bfe3b071-7047-453d-a0da-f99516ef16a5" class="">Photovoltaic solar panel 12V/50W polycrystalline 700x510x30mm</h3>
       <div id="4d958375-ec9b-433e-a455-4ec6fd5e6294" class="column-list">
@@ -269,7 +275,7 @@
       <p id="e90edc39-c3c6-4f56-977d-17df28a99c68" class="">The first option is painful, since I expect that I will have to design something myself. Basically, a power monitoring circuit, which will enable grid power when it detects low voltage. My friend suggested just putting two diodes on the outputs. But I don’t really expect it to be that simple, especially given that the Raspberry is actually powered from the USB output of the controller, and I still need the battery to be able to charge itself.</p>
       <p id="4c140f92-3708-429a-a48b-b5fcf74dfa1b" class="">A simple implementation may be adding back the PiJuice hat and using its second micro USB input powered by a standard charger, which will be turned on when required. But this is finicky. For some reason, no one sells MPPT regulator with grid backup. <em>*Sigh*</em>.</p>
       <p id="07996f12-c89f-40a3-b9a6-19db32ee2dc8" class="">The second option may be better. The battery power is something like 12V * 12Ah = 144Wh. This can in theory power raspberry for something like a day (5-6W/h = 120 - 144Wh). In reality, I expect that real usable power for powering both the regulator and RPi is something like a half of it.</p>
-      <p id="e9b835a9-b6fd-4fb9-be7f-869c19bc4d5d" class="">This option is also kind of complicated, since it will some smarter way of mounting the solar panel, and if there are more cloudy days in a row, it will still fail.</p>
+      <p id="e9b835a9-b6fd-4fb9-be7f-869c19bc4d5d" class="">This option is also kind of complicated, since it will require some smarter way of mounting the solar panel, and if there are more cloudy days in a row, it will still fail.</p>
       <h3 id="a1f9b540-05ed-4011-8fb1-8953f278c899" class="">Stupid features</h3>
       <p id="c1b338b0-e26a-4eb9-8c23-6716112e9565" class="">Okay, so there is a cloudy day, and the battery dies overnight. It will start charging the next day and the rPI will boot up, right. Right??</p>
       <div id="1023246a-f420-4efd-ae14-608ecf950b8c" class="column-list">
@@ -290,7 +296,8 @@
           <span class="icon">🔖</span>
         </div>
         <div style="width:100%">
-          Low voltage protection interface. Empty battery symbol flashing means the battery is discharged lower than the LVD voltage.the controller has disable the output.user should charge the battery until it raise up to LVR voltage and then controller will recover the output status press any key to ignore for one time and force to work again.
+          Low voltage protection interface.<br>
+          Empty battery symbol flashing means the battery is discharged lower than the LVD voltage.the controller has disable the output.user should charge the battery until it raise up to LVR voltage and then controller will recover the output status press any key to ignore for one time and force to work again.<br>
         </div>
       </figure>
       <p id="de3fca3d-ac29-4e43-bfda-da9bca9d6e0a" class="">It basically means that you need to physically press any of the buttons to continue, since it deadlocked itself as a protection. What a lovely idea. My only regret is that you can’t power the raspberry from frustration, because my levels are lately spiking so high, that I am continually wondering why isn’t reality bending around my hate.</p>
@@ -304,7 +311,7 @@
       <ol type="1" id="82c9bb16-f223-403b-a4e9-0f0dba9818d6" class="numbered-list" start="2">
         <li>You can’t plan and debug the system as a whole.</li>
       </ol>
-      <p id="28abc786-002c-4229-b0bf-ce8ee1adedf8" class="">For example, the pijuices_histograms project which drawn the images from the beginning of the article here was why I was even able to reason about my problems, and see where are the shortcomings.</p>
+      <p id="28abc786-002c-4229-b0bf-ce8ee1adedf8" class="">For example, the <code>pijuice_histograms</code> project which drawn the images from the beginning of the article here was why I was even able to reason about my problems, and see where are the shortcomings.</p>
       <p id="b9bf21da-b3ce-4829-b0fb-af0cfa7669ca" class="">Planning is also important, since when the Pi knows there will not be enough power, it can shut down itself automatically without loss of data, and so on.</p>
       <p id="1ff8b5cc-b1a1-4eac-ba47-fd4d4c04f915" class="">I am thinking about some kind of power monitoring shield for RPi, but that has its drawbacks. For example, none of the shields I found can handle the amps I need, and I suspect it would generate countless sighs from my side and solve only half of the issues.</p>
       <p id="80d08814-7a59-4275-a4c5-aa5e1a6cd99a" class="">The right way would be to get a regulator with proper data output, but the only ones I found so far were expensive, and there will be problems with reading the values. Some of the cheap ones come with Bluetooth and a phone app, but I don’t really like reverse engineering bluetooth protocols and none of them seemed to be open.</p>
@@ -317,6 +324,22 @@
       <p id="046b23aa-8f3a-473b-afc3-94356d5ef870" class="">For now, I will leave the system as it is, since it mostly works and doesn’t really bother me that much. That is, compared to the previous version.</p>
       <p id="01ab61e5-6329-43e6-ad9f-97905972ad09" class="">In the near future, I would like to build a better box, most probably from some kind of metal, so it will be able to dispose of the heat more effectively. Maybe copper, since I have quite a bit of experience with soldering it. Ideally, it would also better separate the components, so for example RPi would be thermally insulated from the charger, as well as the battery.</p>
       <p id="9ce07b89-2889-43f2-b326-f5bfe00988a3" class="">In the winter, I will need to address the power switching, or upgrade to a bigger cell. But as I plan to move out of this flat, I will see what I will have to work with then.</p>
+      <h2 id="40c2a4e1-a618-499f-9e39-aebb9da1cb3c" class="">Discussion</h2>
+      <ul id="21613257-eeda-40d5-bbf3-bfdb9e9e2261" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://lobste.rs/s/0dbxkz/solarpi_experiment_2_finally_something">lobste.rs</a> (7 comments)
+        </li>
+      </ul>
+      <ul id="30a6b1c0-b7e7-4e85-9553-ca57481d208f" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://hackaday.com/2023/08/02/solar-power-your-pi/">Hackaday</a> (9 comments)
+        </li>
+      </ul>
+      <ul id="dd88b152-26c6-46ce-a641-a1a05b47a604" class="bulleted-list">
+        <li style="list-style-type:disc">
+          <a href="https://news.ycombinator.com/item?id=37215246">hackernews</a> (74 comments)
+        </li>
+      </ul>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -327,6 +350,15 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
         <li>
           <a href="SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
@@ -347,15 +379,6 @@
         </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -386,6 +409,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>

@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../Zmeny.html" title="Změny">more</a>
@@ -95,6 +95,9 @@
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -118,6 +121,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="890542ce-324c-4ed8-ae57-38bb4ae4d7c7" class=""><time>@2014/08/18</time></p>
       <p id="e7af3279-b9f9-450f-a83f-caadb70b2ee2" class="">Dnes se podíváme na to jak nainstalovat linux na stroj, ke kterému není k dispozici ani klávesnice, ani monitor. Aby to nebylo tak jednoduché, tak to všechno bude nainstalováno do šifrovaného kontejneru, ke kterému se po rebootu zadává heslo přes SSH.</p>
       <h1 id="d755c0a0-f555-458d-9498-4a7cde5fb0f2" class="">Motivace</h1>
@@ -150,16 +155,24 @@
       <h1 id="6fb7ef43-9ace-4ac3-8b5c-648134ac1563" class="">Postup úprav</h1>
       <h2 id="c1ae3113-b925-4eb8-ad91-4ef222e25f7b" class="">Instalační médium</h2>
       <p id="a2c4635b-8879-4357-9aad-985ad51e3967" class="">Začněme stažením instalačního média. Celý postup mám odzkoušený na 64b verzi a je možné, že některé detaily, hlavně co se týče <em>preseed</em> souboru a cest, které jsou v něm specifikované, mohou být odlišné.</p>
-      <pre id="d374a6fb-3e14-4c44-b565-f770d686bce8" class="code code-wrap"><code>wget -c http://releases.ubuntu.com/trusty/ubuntu-14.04.1-server-amd64.iso</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="d374a6fb-3e14-4c44-b565-f770d686bce8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">wget -c http://releases.ubuntu.com/trusty/ubuntu-14.04.1-server-amd64.iso</code></pre>
       <p id="34d695cc-23f0-4959-aedd-956ce5c8c69d" class="">Dále je dobré se ujistit, že máte nainstalovaný program <a href="https://abclinuxu.cz//software/soubory/vypalovani/mkisofs">mkisofs</a>, který je použit k opětovnému sestavení ISO souboru po jeho rozbalení:</p>
-      <pre id="85da1d1c-31b4-41e7-8a64-764074b9fb25" class="code code-wrap"><code>sudo aptitude install mkisofs</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="85da1d1c-31b4-41e7-8a64-764074b9fb25" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo aptitude install mkisofs</code></pre>
       <h2 id="ae13d9ad-133e-44d6-862f-0d67d891513f" class="">Upravení instalace</h2>
       <p id="f784b37d-4d1c-4bfa-90f7-d0c3e4848b69" class="">Ze všeho nejdříve si vytvořím dva adresáře a přepnu se na <code>root</code>a, abych nemusel neustále opisovat <code>sudo</code>:</p>
-      <pre id="5fe12222-81cd-43f5-93cb-84e90e51eeac" class="code code-wrap"><code>mkdir ubuntu_iso
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5fe12222-81cd-43f5-93cb-84e90e51eeac" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">mkdir ubuntu_iso
 mkdir headless_ubuntu
 sudo su</code></pre>
       <p id="cb78e35a-22dd-4e0d-88cb-53e82f5379a1" class="">Nyní je na čase si vybalit obsah ISO souboru do samostatného adresáře, aby bylo možné provést všechny nutné úpravy.</p>
-      <pre id="f9ab7b58-41bd-4d66-8b4f-3310454a60c7" class="code code-wrap"><code>mount -o loop ubuntu-14.04.1-server-amd64.iso ubuntu_iso/
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f9ab7b58-41bd-4d66-8b4f-3310454a60c7" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">mount -o loop ubuntu-14.04.1-server-amd64.iso ubuntu_iso/
 cp -rT ubuntu_iso/ headless_ubuntu/
 umount ubuntu_iso
 rm -r ubuntu_iso
@@ -168,12 +181,16 @@ cd headless_ubuntu/</code></pre>
       <h3 id="97a1ea15-7a8a-431d-a1dc-ea1fcbbabdb7" class="">authorized_keys</h3>
       <p id="b95aca80-366d-41fb-980d-665a15523f39" class="">Naprostou nutností je přidat soubor <code>preseed/authorized_keys</code>, který je použit <code>dropbear</code>em pro zpřístupnění konzole, kam zadáváte heslo k disku. Do tohoto souboru nakopírujte váš veřejný klíč, který většinou najdete v <code>~/.ssh/id_dsa.pub</code>.</p>
       <p id="d651eac8-9792-43a2-928c-588f55e9999f" class="">Zkopírovat ho můžete například tímto příkazem:</p>
-      <pre id="42b43881-7425-4c05-b21b-7ace294836cb" class="code code-wrap"><code>cat ~/.ssh/id_dsa.pub &gt;&gt; preseed/authorized_keys</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="42b43881-7425-4c05-b21b-7ace294836cb" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat ~/.ssh/id_dsa.pub &gt;&gt; preseed/authorized_keys</code></pre>
       <p id="dd5d25be-09c7-49e5-9705-2e6aaf97f3f2" class="">Upozornění: Pokud tento soubor nebude vytvořen, nebude možné ani vzdáleně odemknout šifrovaný disk. Zkoušel jsem si hrát s nastavením <code>dropbear</code>u a donutit ho používat heslo, ale bezúspěšně.</p>
       <p id="3819adfb-78ff-471a-a997-b1ef2d192586" class="">Poznámka: Pokud nemáte soubor <code>~/.ssh/id_dsa.pub</code>, je možné, že je uložen jinde, nebo že ještě nebyl vygenerován. Jak na to zjistíte například zde: <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">Jak se přihlašovat na</a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/"><code>SSH</code></a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">bez zadávání hesla</a>.</p>
       <h3 id="2737502d-e6c0-47d2-a890-1a1cf5a01048" class="">isolinux.cfg</h3>
       <p id="0ef5c6e5-134a-4235-8731-5160320517a3" class="">Dále je zapotřebí upravit jeden soubor a vytvořit další dva. Začněme úpravou souboru <code>isolinux/isolinux.cfg</code>, který je možné celý přepsat, proto jsem vše shrnul do jednoho příkazu, jenž stačí zkopírovat do konzole:</p>
-      <pre id="cc5ee988-3e0b-490d-a27c-2249dfb1008c" class="code code-wrap"><code>cat &gt; isolinux/isolinux.cfg &lt;&lt;EOF
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="cc5ee988-3e0b-490d-a27c-2249dfb1008c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat &gt; isolinux/isolinux.cfg &lt;&lt;EOF
 F9 f9.txt
 F0 f10.txt
  
@@ -188,7 +205,9 @@ LABEL netconsole
 EOF</code></pre>
       <h3 id="61fe448d-d4b4-4714-abf8-5f0af549f921" class="">unlock.sh</h3>
       <p id="84a70d29-fb10-447b-b6e7-3c6a3d321c15" class="">Hodit se nám bude také soubor <code>preseed/unlock.sh</code>, který slouží k odemčení šifrovaného disku. Není toho zde moc k vidění a tak jsem opět soubor upravil do tvaru, který je možné jednoduše vložit do terminálu a vytvořit ho tak automaticky:</p>
-      <pre id="20cbe48d-dd83-4a71-89dc-04026ff852fe" class="code code-wrap"><code>cat &gt; preseed/unlock.sh &lt;&lt;EOF
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="20cbe48d-dd83-4a71-89dc-04026ff852fe" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat &gt; preseed/unlock.sh &lt;&lt;EOF
 #!/bin/sh
 kill -9 `ps | grep "/bin/sh" | grep cryptroot | cut -d " " -f 3`
  
@@ -200,7 +219,9 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`
 EOF</code></pre>
       <h3 id="965bcfb4-1fe6-494f-928f-6c72b9436087" class="">preseed.seed</h3>
       <p id="fec3a582-69eb-4228-bc02-dc5080916280" class="">Nyní přichází na řadu první část instalace, kde je zapotřebí dávat důkladný pozor na to co děláte. Vytvořte soubor <code>preseed/preseed.seed</code> (doporučuji použít editor, protože pravděpodobně budete chtít změnit některé detaily) s následujícím obsahem:</p>
-      <pre id="c4f2c359-d089-4bf3-a8bf-53d35fd680c1" class="code code-wrap"><code>d-i debian-installer/locale          string    cs_CZ
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c4f2c359-d089-4bf3-a8bf-53d35fd680c1" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">d-i debian-installer/locale          string    cs_CZ
  
 # Podstatné je hlavně NEWMACHINE, neboť bude nastaveno jako hostname nového stroje
 d-i debconf/priority                 select    critical
@@ -262,22 +283,34 @@ in-target update-grub</code></pre>
       <p id="30d59cd2-c52c-4238-b4d0-4f8874c2ea4b" class="">Jak je možné pochopit z komentáře na řádku 31, veškeré následující příkazy se provedou, jakmile bude instalace dokončena. Řádky začínající na <code>in-target</code> jsou provedeny v <a href="https://cs.wikipedia.org/wiki/Chroot">chrootu</a>, ostatní z cesty instalátoru. Pokud si vyberete druhou možnost, obsah ISO souboru je dostupný v adresáři <code>cdrom/</code>, nainstalovaný systém pak v <code>target/</code>.</p>
       <p id="bf3dc352-fac1-4497-99b5-69d2393a77e4" class="">Jestliže chcete provést nějaké změny v nainstalovaném systému ještě v době instalace, je možné přidat další řádky, které například nastaví statickou IP adresu (doporučuji použít postup na řádku 36, tedy uložit soubory na ISO do adresáře <code>preseed/</code> a pak je prostě zkopírovat stylem <code>cp cdrom/preseed/soubor target/etc/soubor; \</code>), či podobné konfigurace.</p>
       <p id="bb0b79d1-744f-4209-80a3-e88123cb333e" class="">Následující ukázka nastaví <code>OpenSSH</code> (nikoliv <code>dropbear</code>!) aby zamezil loginu <code>root</code>a:</p>
-      <pre id="5ba9a070-8617-40c8-a6ed-a9f4af70103c" class="code code-wrap"><code>in-target sed 's/^PermitRootLogin.*/PermitRootLogin no/g' -i /etc/ssh/sshd_config; \</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5ba9a070-8617-40c8-a6ed-a9f4af70103c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target sed 's/^PermitRootLogin.*/PermitRootLogin no/g' -i /etc/ssh/sshd_config; \</code></pre>
       <p id="e3f4bbd7-da06-4ea1-acf4-09784f2ec5b9" class="">Dále je možné také změnit port pro <code>OpenSSH</code> například na můj oblíbený <code>443</code>:</p>
-      <pre id="8341cf36-d82b-4b4b-ac16-f4db22768d27" class="code code-wrap"><code>in-target sed 's/^Port.*/Port 443/g' -i /etc/ssh/sshd_config; \</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="8341cf36-d82b-4b4b-ac16-f4db22768d27" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target sed 's/^Port.*/Port 443/g' -i /etc/ssh/sshd_config; \</code></pre>
       <p id="0893734f-5dbc-4b37-9643-60c7cf26bb30" class="">Příkazy můžete zamíchat někam mezi ostatní, či přidat na konec. V takovém případě si ale musíte dát pozor, aby všechny mezi prvním a posledním končily sekvencí <code>; \</code> a poslední řádek byl bez nich.</p>
       <h3 id="12a10958-b002-4fc7-b6ca-efe812ee9f21" class="">IP adresa dropbearu</h3>
       <p id="a16f9c09-b936-4826-907b-31b56013c8d4" class="">Poměrně užitečnou možností je například úprava IP adresy, na které se startuje <code>dropbear</code>. Ta je v defaultu vybrána automaticky a ovlivnit jí je možné úpravou souboru <code>/etc/initramfs-tools/conf.d/network_config</code>, kam lze přidat řádek ve formátu:</p>
-      <pre id="0bae4d01-e014-4a85-9a3f-26baa05587a9" class="code code-wrap"><code>export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;.</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="0bae4d01-e014-4a85-9a3f-26baa05587a9" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;.</code></pre>
       <p id="50eba874-d55b-4b68-945c-062b95657f4e" class="">K tomu je možné použít například následující snippet:</p>
-      <pre id="d4ce0163-35f3-439e-af2e-934d81697f58" class="code code-wrap"><code>in-target bash -c "echo 'export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="d4ce0163-35f3-439e-af2e-934d81697f58" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target bash -c "echo 'export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
       <p id="a81fcb98-7033-4dec-b7b2-d4daa32658a5" class="">Konkrétně tedy třeba:</p>
-      <pre id="ff436da4-87f0-414e-b1eb-526e800ad8fa" class="code code-wrap"><code>in-target bash -c "echo 'export IP=10.0.0.2::10.0.0.1:255.255.255.0:myserver:eth0' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ff436da4-87f0-414e-b1eb-526e800ad8fa" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target bash -c "echo 'export IP=10.0.0.2::10.0.0.1:255.255.255.0:myserver:eth0' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
       <p id="bd45e354-2fe8-4bc1-b757-b22b050a9a57" class="">Snippet přidejte před řádek 41, kde probíhá update <code>initramfs</code>.</p>
       <p id="7debe3da-972a-4094-b352-3215004dc4e6" class="">Poznámka: Styl <code>'bash -c "echo ..'</code> je použit záměrně. Nemám dobrou zkušenost s přesměrováním pomocí <code>&gt;&gt;</code> použitými v <em>preseed</em> souboru. Možná by se to dalo nějak vyescapovat, ale případné testování je docela pomalé, protože jestli to fungovalo se dozvíte vždy až na konci instalace a po dvanácti pokusech už nemám moc náladu na experimentování.</p>
       <h2 id="585e356d-bf70-400e-80e1-94783b4728ff" class="">Vytvoření ISO souboru</h2>
       <p id="6146df93-ba97-4fdd-a7de-20094bd654a1" class="">Jakmile máme všechny úpravy hotové, o vytvoření nového instalačního média se postará tento dlouhý příkaz:</p>
-      <pre id="03e119ac-0ac6-4448-8f52-ac2975bb4aca" class="code code-wrap"><code>cd ..
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="03e119ac-0ac6-4448-8f52-ac2975bb4aca" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd ..
 mkisofs -r -V "Ubuntu headless" -cache-inodes -J -l -b isolinux/isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o headless_ubuntu-14.04.1-server-amd64.iso headless_ubuntu/</code></pre>
       <p id="cc6e6cba-8b2f-48d9-885a-17278f99bfcd" class="">Výsledkem by měl být přibližně 600MB velký soubor soubor <code>headless_ubuntu-14.04.1-server-amd64.iso</code>.</p>
       <h1 id="9d779f16-1666-43c3-8df3-5c6a34e2e627" class="">Instalace</h1>
@@ -291,7 +324,9 @@ mkisofs -r -V "Ubuntu headless" -cache-inodes -J -l -b isolinux/isolinux.bin -c 
       </figure>
       <h1 id="287bdb44-64b5-46a8-b1d2-b3c0ee6608f7" class="">Odemčení disku přes SSH</h1>
       <p id="5b660240-1871-414b-8cdb-c8aa5b549f2f" class="">Odemčení provedete tak, že se připojíte přes <code>SSH</code> jako <code>root</code> na port zadaný při instalaci. Pokud jste nedělali změny v <em>preseed</em> souboru, tak by to měl být port <code>80</code>. Automaticky by se vám měl načíst busybox shell, neboť při vytváření instalačního média byl přidán váš veřejný klíč. Zde stačí spustit script <code>unlock.sh</code>, chvíli počkat, zadat heslo a to je vše. Tedy skoro.</p>
-      <pre id="c879e064-6f1b-4483-97c6-6551844d6c11" class="code code-wrap"><code>$ ssh root@192.168.1.114 -p 80
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c879e064-6f1b-4483-97c6-6551844d6c11" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ ssh root@192.168.1.114 -p 80
  
  
 BusyBox v1.21.1 (Ubuntu 1:1.21.0-1ubuntu1) built-in shell (ash)
@@ -311,7 +346,9 @@ Killed
 kill: can't kill pid 278: No such process</code></pre>
       <p id="f120a340-59b9-469a-8a85-cd70e659bf0e" class="">Jak je možné vidět, celý proces generuje podstatně víc textu, než je očekávané a občas se stane, že celý proces odemykání zamrzne na nějaké podivné hlášce. Potom je zapotřebí vše zopakovat, či provést restart, což zatím vždy zabralo.</p>
       <p id="fa90f942-3dd9-4f66-81e7-8ec5bedd8178" class="">Pokud se podíváte do scriptu <code>/bin/unlock.sh</code>, zjistíte, že je to docela bastl, který prvně zabije proces čekající na interaktivní konzoli. Z nějakého důvodu to trvá přibližně 30 vteřin, než se proces ukončí. Poté je zadáno heslo pro šifrovaný disk přes program <code>cryptroot</code> a následně je opět zabit proces na interaktivní konzoli.</p>
-      <pre id="0da6312c-7f1f-4962-8794-368456b237d4" class="code code-wrap"><code>#!/bin/sh
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="0da6312c-7f1f-4962-8794-368456b237d4" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
 kill -9 `ps | grep "/bin/sh" | grep cryptroot | cut -d " " -f 3`
  
 echo "Please wait, this will take some time (35s).."
@@ -519,6 +556,15 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -538,15 +584,6 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`</code></pre>
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -578,6 +615,9 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`</code></pre>
         </li>
         <li>
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>

@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
@@ -98,6 +98,9 @@
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -121,6 +124,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <div id="7b47a3e3-89a8-4e56-a9b8-525a23967117" class="column-list">
         <div id="dc7889f4-b661-4820-99a2-9447368365b3" style="width:18.75%" class="column">
           <p id="1c1695ec-f31f-44c4-8889-cec5cb9f706b" class=""><time>@2018/12/10</time></p>
@@ -236,7 +241,9 @@
       <p id="b195441a-23b8-4287-b4b7-f8b03d577d2e" class="">Na Plan9 je úžasné, jak můžete interagovat se systémem pomocí zápisu a čtení z různých speciálních souborů. Fantastické! Revoluční! Tak úžasné, že to linux převzal například v podobě <code>/sys</code> subsystému a <a href="https://cs.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a>.</p>
       <p id="e280df65-30ca-4d9d-a8a3-04e154966539" class="">Víte co tomu chybí? Reflexe a struktura dat. Pokud si nepřečtete manuál, tak naprosto netušíte co kam zapsat.</p>
       <p id="b8630633-ccaa-456a-991c-6a9c29919b25" class="">Zde je kód pro blikání diodou na raspberry pi:</p>
-      <pre id="a5ef88b7-602b-4cf5-95b8-a2f269467470" class="code"><code>echo 27 &gt; /sys/class/gpio/export
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a5ef88b7-602b-4cf5-95b8-a2f269467470" class="code"><code class="language-Bash">echo 27 &gt; /sys/class/gpio/export
 echo out &gt; /sys/class/gpio/export/gpio27/direction
 echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       <p id="d0ba90fe-6b4b-4b27-b244-ff713f557719" class="">Jak jsou řešeny chyby? Co když do <code>/sys/class/gpio/export/gpio27/value</code> zapíšu string „vánočka“? Dostanu zpět error kód z echa? Nebo se v nějakém jiném souboru něco objeví? Jak jsou zvládány paralelní zápisy? A co čtení, kde je popsáno co můžu dostat za hodnoty, když do <code>/sys/class/gpio/export/gpio27/direction</code> zapíšu <code>„in“</code> místo <code>„out“</code>?</p>
@@ -255,7 +262,9 @@ echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       <p id="56df36f1-76c6-4b59-8e41-7911eafe6279" class="">Reálně neexistuje žádný standard formátu argumentů na příkazové řádce. Některé programy používají <code>--param</code>. Jiné <code>-param</code>. Další jen <code>param</code>. Někdy se seznamy oddělují mezerami, jindy čárkami. Už jsem dokonce zažil i JSON parametry mixované s těmi normálními.</p>
       <p id="dd348a21-faac-4c78-80c9-e7efc81dedae" class="">Pokud program voláte z nějakého příkazového řádku, tak se vám do toho navíc mixuje jeho scriptovací jazyk a jeho způsob definice stringů, proměnných a bůh ví čeho dalšího (z hlavy mě napadají escape sekvence, jména funkcí, eval sekvence, wildcards znaky, <code>--</code> pro ukončení wildcardů a tak podobně). Celé je to jeden velký, gigantický bordel, který si každý patlá a parsuje, jak se mu zrovna chce.</p>
       <p id="ccab9253-900f-4bf6-a672-b53af4eab8d3" class="">A co volání ostatních programů z <em>jiných programů</em>? Ani nechci vzpomínat, kolikrát jsem viděl, či psal kód ve stylu:</p>
-      <pre id="056d636d-391c-4bba-801f-110b77b863a5" class="code"><code>import subprocess
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="056d636d-391c-4bba-801f-110b77b863a5" class="code"><code class="language-Python">import subprocess
 
 sp = subprocess.Popen(
   ['7z', 'a', 'Test.7z', 'Test', '-mx9'],
@@ -313,9 +322,13 @@ stdout, stderr = sp.communicate()</code></pre>
       <p id="8b7b3eb5-eddd-4d84-8e69-1c349f87475c" class="">Parametrů Dockeru je nepřeberně: <a href="https://docs.docker.com/engine/reference/run/">https://docs.docker.com/engine/reference/run/</a>. Mojí oblíbenou částí jsou volumes, tedy složky, jenž jsou mountovány dovnitř kontejneru z vnějšího hosta.</p>
       <p id="e47a4f81-a1df-4bc0-bce9-b2ef592ee6af" class="">Syntaxe je přibližně <code>-v local_path:/docs:rw</code>. Jako dobrá ukázka mi to přijde, protože se do jednoho parametru cpou tři různé hodnoty: cesta v počítači na kterém příkaz pouštíte (která navíc musí být absolutní!), cesta uvnitř kontejneru (která navíc musí být v <code>Dockerfile</code> označená pomocí <code>VOLUME</code>) a práva k zápisu.</p>
       <p id="36f24185-65d9-449b-806c-5e5b93a683ab" class="">K naprosté dokonalosti to bylo dovedeno <a href="https://docs.docker.com/storage/volumes">novým</a> parametrem <code>--mount</code>, který dělá to samé, ale zavádí pro to úplně novou syntaxi, jenž přináší úplně jiná pravidla parsování:</p>
-      <pre id="f9414646-6932-412a-bf69-68b9761536b7" class="code"><code>--mount source=local_path,target=/docs</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f9414646-6932-412a-bf69-68b9761536b7" class="code"><code class="language-Bash">--mount source=local_path,target=/docs</code></pre>
       <p id="7e4ad365-23bd-4b37-ad08-3f02415695d1" class="">Komplexnější ukázka může vypadat například takto:</p>
-      <pre id="ef2b3cea-bc5f-4c70-ba0d-0bb91c95f3f7" class="code"><code>--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ef2b3cea-bc5f-4c70-ba0d-0bb91c95f3f7" class="code"><code class="language-Plain Text">--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
       <p id="f28a5e6a-ca04-4465-aab6-48030692e9b9" class="">a zahrnuje ukázky escapování CSV parseru (!).</p>
       <p id="8415b297-4c3a-4df1-a99b-59d71a63e032" class="">Z hodnot oddělených dvojtečkami se stává úplně nový formát hodnot oddělených čárkami, definující key-value hodnoty pomocí <em>rovnítka</em> (=), ale zároveň hodnoty jako list, protože místy tam žádné <em>rovnítko</em> není, a je možné používat uvozovky a celkově .. co to sakra je?</p>
       <p id="a22280f3-e82a-4022-ac1d-7b22ec3a4972" class="">To ani nemluvím o tom jak se různě chování mění, podle toho co zrovna použijete, protože to není předmětem diskuze.</p>
@@ -324,7 +337,9 @@ stdout, stderr = sp.communicate()</code></pre>
       <h2 id="25a6e9bd-90a4-46b5-bf9b-4332162dc12c" class="">Dockerfile</h2>
       <p id="8093b101-03c8-4c6a-9083-1147c8d9660c" class="">Původní myšlenka Dockerfile byla hádám podobná, jako u makefile. Pustíme na to docker a on provede jednotlivé direktivy krok za krokem a sestaví nám „projekt“.</p>
       <p id="aff4d917-c9a7-41cd-bc41-047409be979f" class="">Původní idea byla jednoduchá - prostě soubor <code>KEY value</code> definic, které se budou postupně vykonávat. Může to vypadat například takto:</p>
-      <pre id="d0b63989-482f-4272-bd7d-d20e2465c1f1" class="code"><code>FROM microsoft/nanoserver
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="d0b63989-482f-4272-bd7d-d20e2465c1f1" class="code"><code class="language-Docker">FROM microsoft/nanoserver
 COPY testfile.txt c:\\
 RUN dir c:\</code></pre>
       <p id="48422307-25c1-4679-99ad-95014e24c1bf" class="">FROM určuje co se má použít za původní kontejner, ze kterého se bude vycházet, COPY zkopíruje soubor z počítače, na kterém je kontejner sestavován a RUN provede nějaký příkaz.</p>
@@ -339,7 +354,9 @@ RUN dir c:\</code></pre>
       <p id="fff9433f-0840-450c-a319-9a504e58b9cd" class="">Kroutil jsem hlavou, protože jak v případě Webu, REST API či <code>oc</code> se jedná o konfiguraci nahráváním a upravováním <em>objektů</em> popsaných pomocí YAMLu či JSONu (formáty je možné zaměňovat).</p>
       <p id="62a1fbb8-dce1-4a11-9f50-ede6089f54b3" class="">Tyto <em>objekty</em> je možné definovat v takzvané <em>template</em>, která funguje jako svého druhu <a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>, postupně vykonává jednotlivé bloky a na konci by měl být výsledkem běžící systém. V rámci <em>template</em> je možné používat šablonovací systém, který umožňuje definovat a expandovat proměnné.</p>
       <p id="9395618a-83f6-45f7-a029-031fa6740ff6" class="">Tohle všechno je postavené nad YAMLem, což je poněkud méně ukecaný bratr JSONu. Ukázka template může vypadat například takto:</p>
-      <pre id="5a49bc94-1e36-417c-97e8-b8fbadb1eca2" class="code"><code>apiVersion: v1
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5a49bc94-1e36-417c-97e8-b8fbadb1eca2" class="code"><code class="language-YAML">apiVersion: v1
 kind: Template
 metadata:
   name: redis-template
@@ -380,7 +397,9 @@ labels:
       <h1 id="bd0421bc-8530-4f79-a64c-7c5428b0e8c7" class="">Ukázková studie: Ansible</h1>
       <p id="fa885297-5202-4d6d-9ce1-b55dfa5616fa" class="">Ansiblééé je krásnou ukázkou jak to dopadne, když se někdo jen tak ad-hoc pokusí podobný jazyk uvařit, aniž by nad tím nějak moc přemýšlel, nebo měl za sebou teorii programovacích jazyků.</p>
       <p id="6f6881f4-8b23-4a9a-8576-ba66bdddb7a5" class="">Původně začal jako na YAMLu založený deklarační konfigurační jazyk popisující co se má jak dělat. Zde je například ukázka deklarace instalace nginxu:</p>
-      <pre id="1ca3fb5c-43d9-4943-8fb0-ec1509f0b105" class="code"><code>- name: Install nginx
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1ca3fb5c-43d9-4943-8fb0-ec1509f0b105" class="code"><code class="language-YAML">- name: Install nginx
   hosts: host.name.ip
   become: true
   tasks:
@@ -411,7 +430,9 @@ labels:
           <a href="https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html">https://docs.ansible.com/ansible/2.5/user_guide/playbooks_blocks.html</a>
         </li>
       </ul>
-      <pre id="f6ed94b8-9e34-4f11-b40c-0f3fff28782a" class="code"><code>tasks:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f6ed94b8-9e34-4f11-b40c-0f3fff28782a" class="code"><code class="language-YAML">tasks:
     - command: echo {{ item }}
       loop: [ 0, 2, 4, 6, 8, 10 ]
       when: item &gt; 5</code></pre>
@@ -615,6 +636,15 @@ labels:
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -634,15 +664,6 @@ labels:
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -678,6 +699,9 @@ labels:
         </li>
         <li>
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

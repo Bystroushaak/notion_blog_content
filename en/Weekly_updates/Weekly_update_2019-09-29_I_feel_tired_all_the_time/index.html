@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
     <div>
@@ -79,6 +79,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -169,7 +172,7 @@
         </div>
         <div id="d3bb7b4d-4a67-46d4-aa7b-11ac6d38b628" style="width:33.33333333333333%" class="column">
           <figure id="3ad4c847-b833-4920-b784-5bcb62ab3746" class="image">
-            <a href="2019-09-23_14.26.01.jpg" title="2019-09-23_14.26.01.jpg"><img style="width:2000px" src="2019-09-23_14.26.01_thumb.jpg"></a>
+            <a href="2019-09-23_14.26.01.jpg" title="2019-09-23_14.26.01.jpg"><img style="width:205.328125px" src="2019-09-23_14.26.01_thumb.jpg"></a>
           </figure>
         </div>
         <div id="970bcf4c-365d-4ccd-bbf8-90a1756f490f" style="width:33.33333333333333%" class="column">
@@ -225,7 +228,9 @@
       <p id="7ac3334f-a7ba-4f52-800b-19515ee90c99" class="">I've refactored parent lookups and caching, so now it is slightly faster and it also shares parts of the code there were almost same.</p>
       <p id="d164a636-3a00-4c3f-8a67-5a5af26add89" class="">I did some benchmarks, and I was quite surprised by results. Generally, stuff that I thought would make code faster made it slower and by removing optimizations, I've sped the code significantly.</p>
       <p id="e057a947-97ce-4dea-ad32-f11b3380d292" class="">I am using benchmark, which is just one million while cycles:</p>
-      <pre id="f94cb805-7fe8-4bb2-828d-f17ac123e1da" class="code code-wrap"><code># Just simple benchmark file to quickly measure, whether the optimization had
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f94cb805-7fe8-4bb2-828d-f17ac123e1da" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all"># Just simple benchmark file to quickly measure, whether the optimization had
 # any effect or not.
 
 (|
@@ -244,9 +249,13 @@
     ).
 |) run_benchmark.</code></pre>
       <p id="b96d23d9-5f84-4c38-a1b0-7045960d37fa" class="">Benchmark is then measured under the compiled version by running:</p>
-      <pre id="50c647f7-6484-461b-9dbb-67519a251b08" class="code code-wrap"><code>./compile.py -q; sudo perf stat ./tSelf tests/scripts/count_to_1000000.self</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="50c647f7-6484-461b-9dbb-67519a251b08" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">./compile.py -q; sudo perf stat ./tSelf tests/scripts/count_to_1000000.self</code></pre>
       <p id="5e1ad4e6-6d6c-43b1-a37a-77b5af59a020" class="">Which outputs something like:</p>
-      <pre id="52f24304-8e42-41fb-85d9-db808f626ff2" class="code code-wrap"><code>3.211040
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="52f24304-8e42-41fb-85d9-db808f626ff2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">3.211040
 
  Performance counter stats for './tSelf tests/scripts/count_to_1000000.self':
 
@@ -261,7 +270,9 @@
 
        3,238224427 seconds time elapsed</code></pre>
       <p id="d432684a-e786-4dc0-b05f-7f1d08820674" class="">Most important measurement is this line:</p>
-      <pre id="554b0890-4d68-4a65-af7f-e4a946534fef" class="code code-wrap"><code>    26 732 327 756      instructions              #    2,31  insn per cycle         </code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="554b0890-4d68-4a65-af7f-e4a946534fef" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">    26 732 327 756      instructions              #    2,31  insn per cycle         </code></pre>
       <p id="52abac20-374d-4c0f-b957-32863ed29a76" class="">This says how many instructions were executed by the process. I shorten this using <a href="https://en.wikipedia.org/wiki/Giga-">SI notation</a> prefixes. 26 billions, 732 millions is shortened to 26G7.</p>
       <p id="a92b62fb-49a7-4203-b104-310c540acaaa" class="">Optimizations I've made shortened the run from 32G to 26G7, that is, made it 8.5% faster.</p>
       <h1 id="6eed940c-49bc-4a87-8fa8-8894e187867e" class="">Other programming</h1>
@@ -280,31 +291,11 @@
       <p id="b8186700-3457-47c6-a7fc-ad4ceab8c502" class="">I've tried to speak in Czech language, which is much easier for me, and I didn't have yet time to try it in English, which will be probably <em>cringe worthy</em> because of my pronunciation.</p>
       <h1 id="12a9e7c8-4134-4d40-9025-c5a95e1d4753" class="">Random stuff</h1>
       <p id="a2e4b69d-be7c-4307-b523-f0967fdbac8b" class=""><a href="https://www.youtube.com/channel/UCuSlFJbBUIj1zfJLRnGXSow">Tokamak Energy</a> is an incredible eye bleach and restorer of the faith in humanity:</p>
-      <figure id="d81e4394-11e9-42ec-8283-7fb2afdf6732">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/4N3UiNAPn9o" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
       <figure id="d5d7f28c-73ef-4dcf-b157-912ddc99bb7b">
         <div class="source">
           <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/mjbkUIWWmVg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </figure>
-      <hr id="fc74b069-7e24-4e66-985f-365974992bb5">
-      <p id="ba8a0fc6-133d-4102-9a73-c3d77b0cf854" class="">Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>.</p>
-      <hr id="350e06af-2c77-4a35-9abc-077936ca932d">
-      <h1 id="2a65abf4-e340-4212-804b-7059cdd97630" class="">Relevant discussions</h1>
-      <ul id="b8a1c275-9450-4b7d-bc5e-c78f90a9061e" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://twitter.com/bystroushaak/status/1178419196000112644">Twitter</a>
-        </li>
-      </ul>
-      <ul id="ca77569c-f230-4633-9470-6ec548259f2c" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.patreon.com/posts/30344839">Patreon</a>
-        </li>
-      </ul>
-      <p id="67e0d01b-0ca4-403a-b7c7-ed62e9216057" class=""></p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -315,6 +306,15 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
         <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
@@ -336,15 +336,6 @@
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
       </ul>
     </div>
     <p>You can find <a href="../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
@@ -362,6 +353,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

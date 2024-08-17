@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
@@ -87,6 +87,9 @@
         </li>
         <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -127,6 +130,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="98cd33e7-c264-4802-98af-5d2a4190dbdd" class=""><time>@2009/06/15</time>, thx to Joenash & (#freedom99, irc.c0renet.sk:6667)</p>
       <h2 id="96aad244-612b-49a7-a217-d43711a12064" class="">Declaration</h2>
       <p id="435c4d46-90a5-46e2-89ba-3faf182d4901" class="">This text discusses the design of a card reader for pay phones (ISO 7816-2) from commonly available materials. Of course, you can buy a reader, but I don't think it's worth the money.</p>
@@ -243,7 +248,9 @@
       <h3 id="a23e44f1-f564-47af-bd83-e3da9eabae58" class="">9) Cable mapping</h3>
       <p id="7cfece1b-e202-4abc-9530-95e6bdaeb022" class="">Insert the card into the reader and find out where you soldered each wire. Measure by inserting the tip of the meter from the top of the reader (through the hole above the pads), placing it on the surface of the card (not on the pad of the reader - this way you find out if the pad has the right touch to the card) and then looking for which wire fits it.</p>
       <p id="d7dfc75c-a7e6-4dbf-b709-eff262805cc4" class="">It is good to write down the results - for example like this:</p>
-      <pre id="ee786e41-f190-460f-9984-218f7cdae99d" class="code"><code>   ________________________
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ee786e41-f190-460f-9984-218f7cdae99d" class="code"><code class="language-Plain Text">   ________________________
   |          |             | 
   | 1 UCC    |      4 GND  | 
   |_______   |  ___________|
@@ -278,7 +285,9 @@
       <p id="df9e8a2e-4821-43e9-86e6-ee393d056701" class="">Connect the reader to the arduino. RST to dig. port 10, CLK to 11 and I/O to 12. You can connect a button to port 13 to start loading from the reader into the internal EEPROM memory of the arduino - this is useful for example if you don't have a PC but only the arduino and the reader.</p>
       <p id="5cf89df5-990a-40b2-bc44-2a2d78727fc0" class="">The program communicates (as is customary with arduino) by means of serial communication. You can control it by using the software for arduino, or by using your own program or by using a serial terminal connected to dig. pin 0 and 1.</p>
       <h3 id="7c8fb3d6-160d-49ce-9696-193833eef218" class="">Menu</h3>
-      <pre id="b36e67fb-910c-4c64-a81d-6b70c61a9fac" class="code"><code>  Prikazy:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b36e67fb-910c-4c64-a81d-6b70c61a9fac" class="code"><code class="language-Plain Text">  Prikazy:
       r - Nacist dump z ctecky
       n - Nacist dump z EEPROM
       u - Ulozit dump do EEPROM
@@ -288,7 +297,9 @@
 
       i - Zobrazit info o karte</code></pre>
       <h3 id="38a715f2-9cbb-4bb4-a7dc-31bf28c0020b" class="">Dump example</h3>
-      <pre id="cc1c3e67-a744-459f-82bb-cd8b5b1719e3" class="code"><code>  Byte  Index    DEC  HEX     BIN
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="cc1c3e67-a744-459f-82bb-cd8b5b1719e3" class="code"><code class="language-Plain Text">  Byte  Index    DEC  HEX     BIN
     0  000-007:  161   A1  1010 0001 
     1  008-015:   43   2B  0010 1011 
     2  016-023:   99   63  0110 0011 
@@ -306,14 +317,20 @@
    14  112-119:   34   22  0010 0010 
    15  120-127:   97   61  0110 0001</code></pre>
       <h3 id="acfe54f1-a8b5-493a-b502-b001efb6fa97" class="">Alternative dump example</h3>
-      <pre id="9cea662c-57a8-4c8d-9a68-64c9d4f63fd7" class="code"><code>  A1 2B 63 00 46 CD 97 23 00 00 7F 3F 01 FE 22 61 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="9cea662c-57a8-4c8d-9a68-64c9d4f63fd7" class="code"><code class="language-Plain Text">  A1 2B 63 00 46 CD 97 23 00 00 7F 3F 01 FE 22 61 
   unsigned char dump[]= {0xA1, 0x2B, 0x63, 0x00, 0x46, 0xCD, 0x97, 0x23, 0x00, 0x00, 0x7F, 0x3F, 0x01, 0xFE, 0x22, 0x61};  // C array
   dump= [0xA1, 0x2B, 0x63, 0x00, 0x46, 0xCD, 0x97, 0x23, 0x00, 0x00, 0x7F, 0x3F, 0x01, 0xFE, 0x22, 0x61]  # python array</code></pre>
       <h3 id="8b6958ac-c3f0-4704-9707-c58a0de27c04" class="">Example of the information about card</h3>
-      <pre id="1c85b975-097f-451c-bc81-2ddc2634ef4b" class="code"><code>  Pocet impulzu: 49 (nikoli korun!)
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1c85b975-097f-451c-bc81-2ddc2634ef4b" class="code"><code class="language-Plain Text">  Pocet impulzu: 49 (nikoli korun!)
   Seriove cislo: 0004640151</code></pre>
       <h3 id="a947a3da-4eeb-4f2a-90f6-d709da22c618" class="">Source code</h3>
-      <pre id="fb0cf492-0278-470e-b858-a052610dbb4c" class="code code-wrap"><code>/* APCReader [Arduino Phone Card Reader] v1.0.0 (09.06.09)
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="fb0cf492-0278-470e-b858-a052610dbb4c" class="code"><code class="language-C++" style="white-space:pre-wrap;word-break:break-all">/* APCReader [Arduino Phone Card Reader] v1.0.0 (09.06.09)
  * by Bystroushaak (bystrousak@kitakitsune.org) 
  *
  * Popis:
@@ -682,6 +699,15 @@ void loop(){
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -701,15 +727,6 @@ void loop(){
         </li>
         <li>
           <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -736,6 +753,9 @@ void loop(){
         </li>
         <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>

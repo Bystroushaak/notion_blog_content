@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Upgrade na MK4</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom_cz.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Upgrade na MK4">
+  <meta name="twitter:description" content="Upgradoval jsem 3D tiskárnu Pruša MK3S+ na MK4. V textu se dozvíte jak to šlo a pár pozorování nové verze.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/3D_printing/Prusa_MK4_upgrade/twitter_preview.jpg">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="Upgradoval jsem 3D tiskárnu Pruša MK3S+ na MK4. V textu se dozvíte jak to šlo a pár pozorování nové verze.">
+  <meta name="keywords" content="3D_tisk,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom_cz.xml"><img src="../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
+          <a href="../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../Povidky/Software.html" title="Software">Software</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Paromobilita_je_budoucnost.html" title="Paromobilita je budoucnost">Paromobilita je budoucnost</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" title="Algoritmus hledání programátorské práce 2021/4">Algoritmus hledání programátorské práce 2021/4</a>
+        </li>
+        <li>
+          <a href="Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
+        </li>
+      </ul>
+    </div>& <a href="../../Zmeny.html" title="Změny">more</a>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../Tagy/3d_tisk.html" title="3d_tisk">3D_tisk</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
+          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="3D tisk">3D tisk</a> / Upgrade na MK4
+  <article id="cd90b747-5290-4130-b043-2c1fb17a54ee" class="page sans">
+    <header>
+      <h1 class="page-title">Upgrade na MK4</h1>
+      <p class="page-description"></p>
+    </header>
+    <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <p id="4cbe5988-917f-4c5d-b1ab-eaafce27b699" class=""><time>@2024/08/17</time></p>
+      <p id="f823c003-1c9a-4719-83a6-fa1269f5f89b" class="">Interně prý zvaný <em>“stupidní upgrade”</em>, protože nedává velký smysl. Proč? Protože <a href="https://www.prusa3d.com/cs/produkt/original-prusa-i3-mk3-s-to-mk4-upgrade-kit-3/">stojí</a> jen o trochu míň než nová tiskárna, čekací doba na něj byla větší než na novou tiskárnu a člověk musí vyměnit skoro všechno. Co se týče poměru cena/výkon, tak nejspíš větší smysl dává <a href="https://www.prusa3d.com/cs/produkt/original-prusa-i3-mk3-s-to-mk3-9-upgrade-kit-4/">MK3.9 upgrade</a>, ale úplně největší smysl by dávalo prodat starou tiskárnu a koupit si novou.</p>
+      <p id="bc273522-4da2-40fa-98cf-07bac1cf9442" class="">Proč jsem se tedy nakonec rozhodl pro upgrade na poslední verzi? Vesměs protože mi tiskárna tak nějak přirostla k srdci, i když chápu že to není zrovna racionální důvod. Sám jsem si jí sestavil, tiskl na ní několik let a přišlo mi správné, že jí upgraduji.</p>
+      <h1 id="1621ddeb-e230-4b0c-bb7d-1c299ee156df" class="">Tisk před upgradem</h1>
+      <p id="e809b80e-344d-4a0a-9d9a-0615452acf35" class="">Po čekání přibližně půl roku, než balíček dorazil, jsem si vyhradil poslední víkend v listopadu na upgrade. Když jsem pak v sobotu nadšeně rozbalil krabici se součástkami, zjistil jsem, že to co jsem během kontroly balíku považoval za tištěný manuál je ve skutečnosti <em>“Příručka 3D tiskaře”</em>. To je sice docela pěkná a pro začátečníky užitečná publikace, ale co se upgrade týče, tak úplně k ničemu.</p>
+      <p id="accfc2af-ee3c-425b-a1f4-4a8cb5c88a5a" class="">Nevím, jestli Průša ty tištěné manuály přestal dávat ke kitům, nebo se jednalo o chybu, ale když jsem si koupil MK3S+ (<a href="3D_tiskarna_Prusa_MK3S_sestaveni_a_prvni_tisk.html" title="3D tiskárna Průša MK3S+; sestavení a první tisk">3D tiskárna Průša MK3S+; sestavení a první tisk</a>) tak k tomu byl poměrně luxusní manuál v papírové podobě a většinu sestavování jsem dělal podle něj. Teď jsem musel začít googlem.</p>
+      <div id="f8567689-947c-45e7-bd23-960accdd0536" class="column-list">
+        <div id="a849f5f2-1afa-438a-a121-69920bacd5f2" style="width:56.25%" class="column">
+          <figure id="b68936d3-38f3-4bc6-9d3f-286e16073707" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.49.03.jpg" title="2023-11-25_18.49.03.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.49.03_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="6b6c0568-19d8-4485-974f-4039a543c79a" style="width:43.75%" class="column">
+          <figure id="253804db-3632-4278-8c10-da180e810643" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.49.23.jpg" title="2023-11-25_18.49.23.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.49.23_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="aaf00b1f-51f9-42fe-a1ad-594ca69b802b" class="column-list">
+        <div id="82fae6b3-7403-4832-8841-87bc162cc88e" style="width:37.5%" class="column">
+          <figure id="6cbdb86c-63af-4511-b2bd-92942c615d0a" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.49.38.jpg" title="2023-11-25_18.49.38.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.49.38_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="ce655d8b-beb7-4c6b-88ca-7c68f4bb498a" style="width:62.5%" class="column">
+          <figure id="47a35dc2-401f-40f7-bbf0-3a17e5b88821" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.51.19.jpg" title="2023-11-25_18.51.19.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.51.19_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="fd3909a9-ab35-4aaf-b7bf-6104d39e5493" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.54.24.jpg" title="2023-11-25_18.54.24.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-25_18.54.24_thumb.jpg"></a>
+      </figure>
+      <p id="04f3ad43-5b69-4517-9d1d-ffdee689a303" class="">Po krátkém hledání jsem <a href="https://help.prusa3d.com/category/assembly-manuals_272">našel</a> <a href="https://help.prusa3d.com/guide/1-introduction_473977">oficiální upgrade guide</a>, kde jsem se hned v první kapitole dočetl nemilou informaci:</p>
+      <figure id="2a87bffe-a927-4129-a4ad-b0bf2f9d286a" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/Untitled.png" title="Untitled.png"><img style="width:1019px" src="../../en/3D_printing/Prusa_MK4_upgrade/Untitled.png"></a>
+      </figure>
+      <p id="fad52148-8677-4c59-bf1e-b9e7d6de2200" class="">Je třeba prvně vytisknout sedm dávek tisků, což mi trvalo následující čtyři dny. Vyhrazený víkend jsem tedy nakonec dělal něco úplně jiného.</p>
+      <p id="d34cb599-bfca-4c9a-a960-40003d78b5a7" class="">Pokus o prvních několik tisků skončil několikrát za sebou nezdarem, než jsem si všiml že po posledním upgrade MK3S+ mám z nějakého důvodu zapnutou detekci kolizí. Ta nefungovala a kazila tisky, protože detekovala kolizi asi tak každou minutu, což vedlo k neustálým XY <em>rehomingům</em>, po kterých tiskárna paradoxně ztrácela přehled o tom kde je hlava.</p>
+      <p id="00aa5724-0347-44fd-8083-41433dd90a58" class="">Potom co jsem detekci kolizí vypnul už vše šlo na první pokus.</p>
+      <div id="d86db555-eaae-4ed9-b690-c5bcecd76f5f" class="column-list">
+        <div id="8c556a85-8f09-4d96-b0f7-239b87c77bb1" style="width:56.25%" class="column">
+          <figure id="b2d31a14-ae77-4700-8df2-8c645ea0e0ca" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-03-29_05.50.22.jpg" title="2023-03-29_05.50.22.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-03-29_05.50.22_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="a8655537-8f34-4131-a664-38261349c8c1" style="width:43.75000000000001%" class="column">
+          <figure id="bf1e3e62-b5f2-40f7-a55d-5804ec8347fe" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-26_16.53.30.jpg" title="2023-11-26_16.53.30.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-26_16.53.30_thumb.jpg"></a>
+          </figure>
+          <figure id="b69f58a5-597d-4c11-a927-fd0a386a5471" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-28_19.48.50.jpg" title="2023-11-28_19.48.50.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-11-28_19.48.50_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <h1 id="fd1fcaeb-f462-422f-a4e6-9c6a5d479976" class="">Rozebrání staré verze</h1>
+      <p id="3699497b-f0f5-4367-9e92-6f8b8fc416c0" class="">Tak jo, všechno nachystané, hurá do práce.</p>
+      <figure id="6fdcc6ef-e44c-4dc1-9f7f-eedb734a1e9f" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_17.29.47.jpg" title="2023-12-03_17.29.47.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_17.29.47_thumb.jpg"></a>
+      </figure>
+      <p id="64ef601f-2bb7-47c1-a2ea-4187aeb27bad" class="">První krok samozřejmě bylo vzít MK3S+, vyčistit jí od prachu a celou rozebrat. Odpojit všechny kabely, motory, ložiska a tak podobně.</p>
+      <div id="1e6eaad4-d40e-46be-9728-8b91ce5d6b44" class="column-list">
+        <div id="c761251a-acb1-4b4a-b48a-1f26948ecdf3" style="width:33.333333333333336%" class="column">
+          <figure id="0a12f1c9-aebf-406a-9171-e39a97384b0e" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.15.27.jpg" title="2023-12-03_18.15.27.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.15.27_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="71e12d79-5479-4e8e-a1a4-ccf297f6ebb3" style="width:33.333333333333336%" class="column">
+          <figure id="e720a33f-17cc-418d-9278-f4fc4dff6685" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.24.18.jpg" title="2023-12-03_18.24.18.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.24.18_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="259389bc-b360-400f-bb99-4b3f8ec8d92d" style="width:33.33333333333333%" class="column">
+          <figure id="d1fea8e6-7aa1-4407-b248-75e99346d1b2" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.32.48.jpg" title="2023-12-03_18.32.48.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.32.48_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="f87bdb24-dfc1-4fe5-8970-e3fda04e93c9" class="column-list">
+        <div id="3fe0d07f-b12b-4567-920a-11e467092900" style="width:33.333333333333336%" class="column">
+          <figure id="1386efd1-2ac8-412b-98a0-9a11baab5b76" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.38.02.jpg" title="2023-12-03_18.38.02.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.38.02_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="10eaece6-9def-4194-8d47-c8e1cad9906c" style="width:33.333333333333336%" class="column">
+          <figure id="1d8a7674-e734-4d04-8165-d7cfa1bf2201" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.43.18.jpg" title="2023-12-03_18.43.18.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.43.18_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="5622b02b-9d7e-4ef4-b528-bce35c4c1fec" style="width:33.33333333333333%" class="column">
+          <figure id="b6920e0a-a9d2-45f9-885c-e7017b78c190" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.47.31.jpg" title="2023-12-03_18.47.31.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_18.47.31_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="751cfcfb-5d97-497c-8296-59bf3e70bef5" class="">Jediné co zbyde je rám a zdroj.</p>
+      <figure id="309d7928-c600-4727-9baf-1d90e9183126" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.35.32.jpg" title="2023-12-03_19.35.32.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.35.32_thumb.jpg"></a>
+      </figure>
+      <h1 id="07eee60e-9251-4f39-b84f-881385efd15a" class="">Skládání nové verze</h1>
+      <p id="631f85f9-4971-4467-accd-f83d7840fed7" class="">Poté jsem konečně mohl začít se samotným upgradem. Ten spočívá v montování vytisklých částí spolu s tím co dodal Průša. Celé se to dělá v podstatě v opačném pořadí. Začíná se krabičkou pro elektroniku (ta stará byla plastová), novou kontrolní deskou a krokovým motorem pro osu Y.</p>
+      <div id="dcef57ad-c043-4dd5-810e-43128672540b" class="column-list">
+        <div id="0406fae2-2e62-4eea-8556-02e982c60b88" style="width:37.5%" class="column">
+          <figure id="b4e585f4-cce3-4bae-aacc-5dd86ae7b80f" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_20.30.22.jpg" title="2023-12-03_20.30.22.jpg"><img style="width:336px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_20.30.22_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="2d1d75cc-ee87-4fcb-9b01-e4aae026d75d" style="width:62.50000000000002%" class="column">
+          <figure id="75fac7a1-6b06-4900-86b8-189f6c5fc198" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_20.40.15.jpg" title="2023-12-03_20.40.15.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_20.40.15_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="df518062-a82c-40d2-a95b-bf27b2bd6450" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_02.17.26.jpg" title="2023-12-04_02.17.26.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_02.17.26_thumb.jpg"></a>
+      </figure>
+      <p id="4b5124cb-1725-4355-90a7-6cbece7842d1" class="">Pak jsem smontoval různé plastové komponenty, které se pro Průšu typicky prokládají různými matičkami a šrouby. Tím se smontuje osa X a vlastně i osa Z.</p>
+      <p id="8b1c1b5f-3705-4a8e-b746-eaebe3a23f90" class="">Samotné montování bylo docela jednoduché a rychlé. Součástky jsou dobře navržené, a tím že jsem si je sám vytiskl bych i řekl, že v lepší kvalitě než to co se dodávalo k předchozí verzi stavebnice.</p>
+      <p id="80270c0e-99ed-4220-8ad0-33a12e0b2a76" class="">Jediné co bych tomuhle procesu vytkl je že po sedmi tiscích jsem získal kopu plastových dílů, které jsem si dal do pytlíků očíslovaných jako 1 až 7. Při montáži ovšem nikde není informace, ve kterém pytlíku daný plastový díl je. Celé to tak vyžadovalo neustále prohledávat úplně všechno, což je vzhledem k podobnosti některých součástek super otravné.</p>
+      <div id="5b665015-0292-4980-a53d-116fd1c7df72" class="column-list">
+        <div id="02c43b1b-6173-444f-861a-d0f0f5995327" style="width:56.25%" class="column">
+          <figure id="2ee55668-7d38-4b0d-a154-0427d9c2028b" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_02.25.48.jpg" title="2023-12-04_02.25.48.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_02.25.48_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="9e5d8dda-ed4e-45cb-8436-0c5f286fe1dd" style="width:43.75%" class="column">
+          <figure id="401c0541-26cf-4820-b3f7-4ce4348c10e6" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_02.41.36.jpg" title="2023-12-04_02.41.36.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_02.41.36_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="f62a6057-cd44-46c0-b97c-3d1b55ce0fe2" class="column-list">
+        <div id="16b9b5e5-e8aa-4c83-b6fa-03ce86988b53" style="width:56.25%" class="column">
+          <figure id="db62ee5a-f10f-49f2-b613-525ba9f8f2a9" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_03.17.55.jpg" title="2023-12-04_03.17.55.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_03.17.55_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="782b32ac-3f50-4a2f-ba04-132b7bad8e7a" style="width:43.75%" class="column">
+          <figure id="0d41a8aa-3fdf-4cdd-b3e2-30ae800d2976" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_03.52.16.jpg" title="2023-12-04_03.52.16.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_03.52.16_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="b0c46064-38c2-4515-aaea-961ebc30db88" class="">Sestavené součástky se použijí k montáži krokových motorů pro osu Z a X. Různé kovové hřídele a posuvníky jsou nové, a tlustější, než ty z původní MK3S+.</p>
+      <div id="c4a0b5ef-948f-4159-95c1-d5830a2699f1" class="column-list">
+        <div id="8b203712-0a88-4107-9905-f50983800256" style="width:50%" class="column">
+          <figure id="7ae23930-517e-4e52-8073-0c49f36d464d" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_07.10.17.jpg" title="2023-12-04_07.10.17.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_07.10.17_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="9a2b23e0-2fbc-4b47-ace8-d3a9a2413fb0" style="width:50%" class="column">
+          <figure id="5a2662a5-5b84-406c-8c51-9cd1fac3a66b" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_07.29.49.jpg" title="2023-12-04_07.29.49.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_07.29.49_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="3a5b1b93-4efe-4e7b-a9d9-11ff2c7a96a5" class="">Následuje elektronika pro tiskovou hlavu, která je narozdíl od minulé verze místo na hlavní řídící desce přímo pod hlavou. Ta deska se jmenuje <a href="https://help.prusa3d.com/article/xbuddy-and-loveboard-electronics-wiring-mk4_413095">LoveBoard</a>, a díky ní je možné výrazně jednodušeji opravovat problémy s hlavou, protože není nutné vyměňovat kabely až do kontrolní desky. Různé další komponenty taky nevedou kreativně skrz hlavu, a je možné je <em>relativně</em> jednoduše odmontovat, aniž by bylo třeba rozebrat úplně celý traktor.</p>
+      <figure id="55e7498a-449d-475f-9ccd-6edb57976413" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_07.10.09.jpg" title="2023-12-04_07.10.09.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_07.10.09_thumb.jpg"></a>
+      </figure>
+      <p id="256d9b14-21fa-409a-a0dd-2b6033fc7b5d" class="">Dál se namontuje zbytek hlavy:</p>
+      <div id="b317ce3e-4645-44f3-a83a-fd5742b6b52b" class="column-list">
+        <div id="056946e4-4fa5-44c1-880a-c6a73296f468" style="width:50%" class="column">
+          <figure id="072892f8-db3c-40e8-87c1-cd0359ee68e3" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_19.51.33.jpg" title="2023-12-04_19.51.33.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_19.51.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="1f945612-1498-40d2-ac77-95c240d5bdba" style="width:50%" class="column">
+          <figure id="32302e82-30ac-4899-a5d9-e0d796e824c5" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_20.07.55.jpg" title="2023-12-04_20.07.55.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_20.07.55_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="4d72e27d-50b8-4624-8175-dcbacadcaa0d" class="">Krokový motor pro posun filamentu, různé větráky, teplotní sondy a tak dál. K upgradu je set samolepek, které možné nalepit na víčko od motoru pro extruder. Poslední komponenta je chladící větrák pro tiskovou hlavu, který je na odklopných pantech, pro snadnější výměnu trysek.</p>
+      <figure id="fff2c877-1845-48cd-bb46-1bcb5da7b2b9" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_20.16.58.jpg" title="2023-12-04_20.16.58.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_20.16.58_thumb.jpg"></a>
+      </figure>
+      <p id="dca6f198-b41e-4674-89f8-6b7fee9a598d" class="">Dalším krokem je smontovat a přidělat displej v poněkud kreativní poloze. Ten displej mi dal zabrat, protože přestože je to relativně jednoduchá komponenta, tak návod nebyl místy úplně jasný a tuším že jsem si nevšiml že mám přimontovat něco, kvůli čemu jsem to pak musel zase celé rozebrat.</p>
+      <div id="1da9063b-9bb4-4880-8c48-5ef60b1c5dbf" class="column-list">
+        <div id="220c16c4-f4ee-4f3b-8f28-b1687a2cdbc6" style="width:56.25%" class="column">
+          <figure id="dab6ccbc-ff09-40a7-b86f-c73b3c842f1a" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_20.54.30.jpg" title="2023-12-04_20.54.30.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_20.54.30_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="b5b1422f-dd02-4c44-a809-6cd7ffae74aa" style="width:43.75000000000001%" class="column">
+          <figure id="c736e3aa-3952-44c3-90b4-bcc0add9dfcc" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_21.12.38.jpg" title="2023-12-04_21.12.38.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_21.12.38_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="8581982d-688e-4da4-b1a5-6a743056b2e6" class="">Následuje krok, kdy se všechno co už na tiskárně je přidělané zapojuje do kontrolní desky. Není to moc složité, ale místy je třeba být trochu kreativní co se týče vyvázání kabelů, ne jen v krabičce na desku, ale i pod tiskárnou.</p>
+      <figure id="fc3b7ecd-729c-4926-beeb-9d86aa4229d3" class="image">
+        <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_22.06.54.jpg" title="2023-12-04_22.06.54.jpg"><img style="width:432px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_22.06.54_thumb.jpg"></a>
+      </figure>
+      <p id="e9abe7fb-a6ae-43ea-90b0-451c1a6db9f9" class="">Posledním větším krokem je montáž tiskové plochy. Při té se podobně jako v předchozích krocích recyklují lineární ložiska.</p>
+      <div id="b1c86129-db49-4033-91fa-f9372292f709" class="column-list">
+        <div id="eb5a6cee-6502-4201-8b12-625f5ae4552a" style="width:56.25%" class="column">
+          <figure id="865abc81-7b84-4e00-88c1-2915b73a86ed" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_23.03.21.jpg" title="2023-12-04_23.03.21.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-04_23.03.21_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="58d39ace-effd-4377-85e3-abe08249d679" style="width:43.75%" class="column">
+          <figure id="f5564dbb-aca3-4566-978f-3de4f39c65eb" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.15.41.jpg" title="2023-12-06_02.15.41.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.15.41_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="b86a8025-d09f-4d43-8caf-5e02ad73d431" class="">Co je ovšem nutné vyměnit je starý teplotní senzor za nový. Ten můj jsem přidělal trochu blbě, správně by měl být celý pod kaptonovou lepící páskou, a mě tam růžek kouká. Celé to ale funguje, takže je to spíš vada na kráse, než na funkčnosti.</p>
+      <div id="742caf8a-708a-46ed-83f6-ab20db87d4da" class="column-list">
+        <div id="a8a1bd41-22a8-494a-9255-2a55ab0ac94f" style="width:50%" class="column">
+          <figure id="0456bda8-0099-4561-b992-d645f68d11c4" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.20.51.jpg" title="2023-12-03_19.20.51.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.20.51_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="1fb77e1b-de64-4023-a3d9-8a2069f38552" style="width:50%" class="column">
+          <figure id="fe2f12c6-f25c-4f45-90d5-e6563b0e617e" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.35.25.jpg" title="2023-12-03_19.35.25.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.35.25_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="43d252a5-4f07-48fd-b2e2-a32292351d95" class="">Poté se už upgrade blížil ke konci. Zapojil jsem zbytek komponent do řídící desky:</p>
+      <div id="a4a2ae9c-c88f-42ec-9989-57eb127f6d96" class="column-list">
+        <div id="459705a1-15a2-41db-92b7-5b39f27a0d04" style="width:37.5%" class="column">
+          <figure id="4782712a-2a31-465c-ae7d-6fa5a2e37e2d" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.45.33.jpg" title="2023-12-06_02.45.33.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.45.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="6491d3c2-f0dc-4ff6-b602-19c889212431" style="width:62.5%" class="column">
+          <figure id="fbb961c0-9e11-4ba1-8e50-65e73f977795" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.45.49.jpg" title="2023-12-06_02.45.49.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.45.49_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="e307fa75-ca79-4875-8aa3-f4537d947a40" class="">A nakonec přidal ESP jako wifi modul:</p>
+      <div id="826b69d5-d2d0-41b7-ad89-492bd5eda2be" class="column-list">
+        <div id="e85fc9c4-2214-4c33-9bc5-28a2eccd4778" style="width:50%" class="column">
+          <figure id="188e00ab-e449-4bfc-8902-0b16865b810d" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.46.33.jpg" title="2023-12-06_02.46.33.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.46.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="f2ba598d-689e-4ce4-92dd-fb7916e9ca6d" style="width:50%" class="column">
+          <figure id="3b17b549-198c-47fb-a794-5798e9fe81cb" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.46.50.jpg" title="2023-12-06_02.46.50.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.46.50_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="9f1d2e83-90b6-4f5e-9d8d-133d45964309" class="column-list">
+        <div id="cec4c2ae-9b86-4846-8885-1c7a4299dd09" style="width:50%" class="column">
+          <figure id="cde15fff-64bc-43eb-bc7d-3bea3d90456c" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.48.14.jpg" title="2023-12-06_02.48.14.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.48.14_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="f03970d0-cfcd-4666-b0e1-baa85b8f2cd5" style="width:50%" class="column">
+          <figure id="f4deff47-f7c9-4443-80b5-03ca61f63a62" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.48.39.jpg" title="2023-12-06_02.48.39.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_02.48.39_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="062284a3-22cc-4796-88a4-6e4f83984550" class="">A pak už jen zašrouboval všechny víka. Následuje už jen kalibrace, kde stojí za zmínku napínání řemene pomocí webstránky, která poslouchá, jestli řemen vydá správný zvuk, když na nej zabrnkáte, a poté upgrade firmware a první tisk:</p>
+      <div id="f7595225-a3b4-4b44-be31-6320b8efb3c6" class="column-list">
+        <div id="4b7ce7bf-f03f-4b19-805d-cf01b170a317" style="width:50%" class="column">
+          <figure id="e4b58eae-0052-489a-a200-8c7754743ba7" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.04.08.jpg" title="2023-12-06_03.04.08.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.04.08_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="54c22abf-a1c9-4d82-b815-6916f422ade5" style="width:50%" class="column">
+          <figure id="c861f8b1-102f-4425-ab96-69ed3cc10327" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.06.48.jpg" title="2023-12-06_03.06.48.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.06.48_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="b62b54ef-8b70-404b-873c-e916514c214b" class="column-list">
+        <div id="db7d530f-964d-43fb-b3bf-9fe176a246db" style="width:50%" class="column">
+          <figure id="53c4cd5e-8ca6-4785-9205-9289f6f88aa9" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.09.18.jpg" title="2023-12-06_03.09.18.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.09.18_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="d86aea30-8820-4860-a276-f80bbe9f5ffd" style="width:50%" class="column">
+          <figure id="a95f9b3b-0272-430d-8009-e63233236f53" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.22.16.jpg" title="2023-12-06_03.22.16.jpg"><img style="width:1200px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.22.16_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="bb884426-f8c1-470f-981a-9cfd1e0df406" class="">Jako první jsem vytiskl dvoubarevné Průša logo, během kterého tiskárna požádá o výměnu filamentu.</p>
+      <p id="9ff9a534-04d0-4c4b-9855-10d0f358026e" class="">Dál jsem zprovoznil wifi, což se dělá tím že se na flashdisk nahraje konfigurační soubor kam se natvrdo napíše SSID a heslo (tiskárna pak má HTTP rozhraní), a taky jsem tiskárnu připojil ke Sliceru, takže lze posílat tisky dvěma kliknutími. Rychlost není zrovna závratná (upload trvá klidně minutu), ale stále je to mnohem rychlejší, než lovit někde SD kartu, jak jsem to dělal dřív.</p>
+      <h1 id="473162f2-0fd4-4b04-a055-a52bf621cda2" class="">Zbytky</h1>
+      <p id="0f08ed91-a9d1-4067-a13a-a1265bdee07f" class="">Po upgrade mi zbyla spousta komponent:</p>
+      <div id="1485b432-0c20-4be4-b7a1-6bdde8cedeed" class="column-list">
+        <div id="6a5ce7bc-ae73-476f-8c29-5dbff8207f0e" style="width:33.333333333333336%" class="column">
+          <figure id="84b43a69-cdbd-4306-8303-34f973b755b2" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_20.40.09.jpg" title="2023-12-03_20.40.09.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_20.40.09_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="c72a3177-a14c-4725-ab42-4489e6267973" style="width:33.333333333333336%" class="column">
+          <figure id="857e1d71-915e-4b63-8463-bddd2101496a" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.52.53.jpg" title="2023-12-06_03.52.53.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.52.53_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="22d37709-bc6c-4e69-afc3-a0c8752a1ddc" style="width:33.33333333333333%" class="column">
+          <figure id="a2e210c1-7292-4f88-98d2-9c8b1de0b4ec" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.53.27.jpg" title="2023-12-06_03.53.27.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.53.27_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="a7bb4a20-4ef6-4c3c-9e1e-ee13b582f18e" class="column-list">
+        <div id="b519d76d-6145-4a60-ac3a-819e1c39c251" style="width:50%" class="column">
+          <figure id="c5df5077-f6b6-46e0-9820-578b27918a13" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.52.58.jpg" title="2023-12-06_03.52.58.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.52.58_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="9be4e0d8-b2ad-49b5-ae5f-fc7bd10e0aed" style="width:50%" class="column">
+          <figure id="64f393f8-592e-4f4a-892e-32b5fd0c8118" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.54.02.jpg" title="2023-12-06_03.54.02.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-06_03.54.02_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="f66c5d5d-eca0-4209-9494-6f4d4a2c2c28" class="">Nejzajímavější pro mě byla asi tisková hlava, kde jsem konečně viděl, jak moc tam zbylo prastarého filamentu, který se mi kdysi dávno blobnul všude kolem. Ten filament byl prakticky neodstranitelný bez sundání hlavy a vesměs ničemu nepřekážel, tak jsem ho tam nechal několik let.</p>
+      <div id="5d490cf5-cd01-431c-811b-74310f6787ad" class="column-list">
+        <div id="db212a54-841b-4eb4-a3fb-a8ac07418342" style="width:50%" class="column">
+          <figure id="449c6ab6-2e79-4fa0-bd45-9e9b6df8e8cb" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.06.14.jpg" title="2023-12-03_19.06.14.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.06.14_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="44d30c4a-6581-4222-8c96-14141cccad1a" style="width:50%" class="column">
+          <figure id="a7d45fc6-72e3-4ba9-8feb-77cb5a9b2e63" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.12.05.jpg" title="2023-12-03_19.12.05.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.12.05_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="febbaa6f-63b2-4f93-a802-87525463c932" class="column-list">
+        <div id="4e546c50-d777-494c-a373-4ac81c4a7db9" style="width:50%" class="column">
+          <figure id="f5e62f47-714c-4c39-9c84-023acd8d04a5" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.14.02.jpg" title="2023-12-03_19.14.02.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.14.02_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="71d4a078-b7b9-43b9-90dc-065e92204bd3" style="width:50%" class="column">
+          <figure id="9f9bb875-0d86-41dd-902f-fe419102b0a6" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.14.05.jpg" title="2023-12-03_19.14.05.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2023-12-03_19.14.05_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="b2b883df-d0b8-432c-a82b-7176069bb47a" class="">Takhle to vypadalo když se to bloblo.</p>
+      <div id="33778e7f-b2f3-4f99-9fef-5ed83d446284" class="column-list">
+        <div id="27c17af5-bad0-4888-b30c-c1132b4a27f3" style="width:50%" class="column">
+          <figure id="40756869-99b3-4125-a66d-4dc4524a358a" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2021-07-08_20.40.04.jpg" title="2021-07-08_20.40.04.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2021-07-08_20.40.04_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="9d6ded29-400a-4dd8-b716-87321566cfa8" style="width:50%" class="column">
+          <figure id="306598ab-19b9-4825-8e5a-3d07da0ca9ec" class="image">
+            <a href="../../en/3D_printing/Prusa_MK4_upgrade/2021-07-08_20.40.09.jpg" title="2021-07-08_20.40.09.jpg"><img style="width:1600px" src="../../en/3D_printing/Prusa_MK4_upgrade/2021-07-08_20.40.09_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="6313cb99-ed08-4e24-83b3-6340c55e362e" class="">Zatím jsem nevymyslel k čemu ty komponenty použít. Viděl jsem nějaké projekty na recyklátory filamentu, ale když jsem koukal na pár videí, tak se to celé jevilo jako silně nepraktická záležitost, která reálně moc nefunguje.</p>
+      <h1 id="8515ff0c-ae26-4d1b-a5af-9c2957e4d2ea" class="">Dojmy po pár měsících používání</h1>
+      <p id="f2001b9d-92c9-4a61-8a3b-60406b9b9496" class="">Těch dojmů je hodně, ale vesměs se všechny dají shrnout velmi jednoduše: <em>wow</em>.</p>
+      <p id="931d5cbd-4ac9-4755-b6e4-6f49d3cde68f" class="">Nový barevný displej mi ze začátku přišel jako docela zbytečná věc, ale zpětně si ho nemůžu vynachválit. Menu je mnohem přehlednější, a dá se tam výrazně rychleji a intuitivněji najít co je třeba.</p>
+      <p id="36255cb9-4605-48da-b102-9ce4a5098bf7" class="">Webové rozhraní a možnost tisknout přímo ze Sliceru jsou oboje <em>game changery</em>, díky kterým nemusíte tahat kabely, nebo měnit paměťové karty. Může se to zdát jako blbost, ale zpět už bych nešel.</p>
+      <p id="4451c41f-ab86-4ac7-ab78-f93dd1c177aa" class="">Tiskárna je samozřejmě mnohem rychlejší, díky input shaperu často o něco jako 50%. Taky za to můžou nové přesnější motory, které jsou ovšem hlavně výrazně tišší. Když si pod tiskárnu dáte nějaké vibrace pohlcující podložky, tak až na občasný zběsile rychlý posun je na ní nejhlasitější větrák:</p>
+      <figure id="97ad78aa-e61b-45b5-a00c-7d0daacb94f7">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/e6zIUl_XPbU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="62332060-6f84-4271-9074-3f27b5b56236" class="">“Input shaper” je vlastnost, díky které Slicer počítá s váhou tiskové hlavy při slicování a vytváří na základě nějaké simulace takový gcode, že je tam míň různých artefaktů z vibrací, a tak podobně. Díky tomu je schopný hlavou pohybovat rychleji, než na staré verzi.</p>
+      <div id="644ed5ba-fa06-4997-a563-69680c00fa9e" class="column-list">
+        <div id="712f00ad-2e17-4497-bb40-af74ebd36867" style="width:56.25%" class="column">
+          <p id="b5c2d52b-f7b1-49a8-af97-0a58a4c37f63" class="">Hlavní feature je ovšem auto-kalibrace osy Z před každým tiskem pomocí zabudovaného tlakového senzoru přímo v hlavě. To vede k tomu, že dáte něco tisknout, a pokud je to už odladěný model*, tak se můžete z velké míry spolehnout, že se korektně vytiskne.</p>
+          <p id="56cb68a3-8895-4b7c-ac7d-1dcc93cd8806" class="">Tohle je ohromný rozdíl oproti předchozí verzi, která sice taky tiskla, ale nějak jsem se nemohl zbavit dojmu, že u ní musím sedět a čekat až se něco pokazí. A nešlo jen o dojmy, protože se to reálně stávalo docela často.</p>
+          <p id="bcb7d764-c81c-4fab-aae3-b9593a627463" class="">Speciálně když jsem pár měsíců nic netiskl, tak se často sama od sebe rozjela kalibrace osy Z a pak to byl proces na minimálně hodinu, než jsem tiskárnu ručně zkalibroval. I tak končilo třeba 30% výtisků nějakým zaškobrtnutím, ve stylu přeskočení vrstvy, utržení tísku od podložky, nebo něčím podobným.</p>
+        </div>
+        <div id="962e5e2e-3c5e-4491-9e92-bae4a6c221a5" style="width:43.75%" class="column">
+          <figure class="block-color-gray_background callout" style="display:flex" id="cb8e14c3-a544-4162-bcdc-24eb56b3c35c">
+            <div style="font-size:1.5em">
+              <span class="icon">💡</span>
+            </div>
+            <div style="width:100%">
+              *Osobně často tisknu svoje vlastní modely, a tam se občas stane že se vytisknou blbě. Vždycky to ale zatím byla moje chyba (nemyslel jsem na uhly tisku a tiskl bez podpor, …). Tiskárna přesto byla překvapivě schopná vytisknout i věci, u kterých jsem si krátce po začátku tisku říkal, že je budu muset stornovat, jen pak nevypadaly tak dobře. Celkově schopnost zvládnout různé převisy je docela zázračná.
+            </div>
+          </figure>
+        </div>
+      </div>
+      <p id="2fcff15f-8b3a-45f3-9cc9-ec29232f54b4" class="">To že nová verze funguje sama, bez nějaké nutnosti se v ní víc hrabat přináší trochu zvláštní pocit téměř .. <em>profesionálnosti</em>. Prostě dáte díl tisknout a on za pár hodin vyleze, přesně tak jak má.</p>
+      <p id="f88a634b-70fb-40e1-be2e-fe02f7ef50c2" class="">Což je mimochodem další věc. Prakticky všechno co jsem tiskl v poslední době jsem tiskl bez podpor, protože prostě pro většinu modelů najednou přestaly být potřeba. Zatím se mi nestalo, že by se model třeba utrhl při tisku, což byla s MK3S+ poměrně častá záležitost, pokud jsem nepoužil silnou “skirt” (placka kolem modelu), nebo lepidlo na tiskové ploše.</p>
+      <p id="54f4744e-f613-44f0-b4ff-6058bc5d64b0" class=""></p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
+          <a href="../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../Povidky/Software.html" title="Software">Software</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Paromobilita_je_budoucnost.html" title="Paromobilita je budoucnost">Paromobilita je budoucnost</a>
+        </li>
+        <li>
+          <a href="../Ostatni/Algoritmus_hledani_programatorske_prace_2021-4.html" title="Algoritmus hledání programátorské práce 2021/4">Algoritmus hledání programátorské práce 2021/4</a>
+        </li>
+        <li>
+          <a href="Nastaveni_Blenderu_pro_3D_tisk.html" title="Nastavení Blenderu pro 3D tisk">Nastavení Blenderu pro 3D tisk</a>
+        </li>
+        <li>
+          <a href="../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
+        </li>
+        <li>
+          <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../Zmeny.html" title="Změny">many more in changelog</a>..</p>
+    <div>
+      <h3>Tagy</h3>
+      <p><a href="../../Tagy/3d_tisk.html" title="3d_tisk">3D_tisk</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modelovani.html" title="3D modelování">📂 3D modelování</a>
+        </li>
+        <li>
+          <a href="../3D_tisk.html" title="3D tisk">📂 3D tisk</a>
+        </li>
+        <li>
+          <a href="../Abclinuxu.html" title="Abclinuxu">📂 Abclinuxu</a>
+        </li>
+        <li>
+          <a href="../Crypto.html" title="Crypto">📂 Crypto</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Hrbitov.html" title="Hřbitov">📂 Hřbitov</a>
+        </li>
+        <li>
+          <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
+          <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
+        </li>
+        <li>
+          <a href="../Povidky.html" title="Povídky">📂 Povídky</a>
+        </li>
+        <li>
+          <a href="../Predstaveni.html" title="Představení">📂 Představení</a>
+        </li>
+        <li>
+          <a href="../Programovani.html" title="Programování">📂 Programování</a>
+        </li>
+        <li>
+          <a href="../index.html" title="Czech section">📂 Czech section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom_cz.xml"><img src="../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
@@ -103,6 +103,9 @@
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -126,6 +129,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="471325d8-21ec-48a9-85cb-b17383c98923" class=""><time>@2013/10/01</time></p>
       <p id="6e384513-504a-42a1-ad69-f10bac5f31b1" class="">Na aukru se poslední dobou roztrhl pytel s malými zařízeními, které stačí zastrčit do USB a ony vám po spuštění patřičného programu začnou na účet připisovat zlomky Bitcoinů. Jedno takové jsem si koupil za účelem výzkumu, abych otestoval, jestli se vůbec vyplatí něco takového provozovat.</p>
       <p id="9975b576-a47e-423c-8d9b-41f2b6732868" class="">Text očekává od čtenáře základní znalost Bitcoinu a povědomí o tom, že Bitcoiny se dají těžit.</p>
@@ -373,19 +378,29 @@
       </div>
       <p id="75145358-53ce-4093-a68f-cd838e745b36" class="">Po pár minutách provozu je zde další podstatný dojem; <em>"au, to je horké"</em>. Provozní teplota bude někde nad 60°C. Bohužel tady nemám teploměr, abych to mohl přesně změřit.</p>
       <h2 id="aedc83d7-7748-47fd-9d74-c750ad93e65c" class="">Zprovoznění pod linuxem</h2>
-      <pre id="f9072b55-5f1d-4e73-baee-e66d0a816f1a" class="code code-wrap"><code>$ dmesg
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f9072b55-5f1d-4e73-baee-e66d0a816f1a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ dmesg
 [538899.776256] usb 4-2: new full-speed USB device number 4 using ohci_hcd
 [538899.949488] cp210x 4-2:1.0: cp210x converter detected</code></pre>
-      <pre id="efcc30c9-be38-4d30-bff1-1409fa29d6a9" class="code code-wrap"><code>$ lsusb
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="efcc30c9-be38-4d30-bff1-1409fa29d6a9" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ lsusb
 Bus 004 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composite Device</code></pre>
       <h3 id="e209ae55-e1c2-4942-b994-daab8c7ee896" class="">cgminer</h3>
       <p id="61a8497e-2500-4be9-9953-271e25201917" class="">K těžení používám program <code>cgminer</code>, který ze zařízení sbírá data a posílá je poolu, či naopak. <code>cgminer</code> nenajdete v repozitářích, takže je nutné si ho zkompilovat:</p>
       <p id="053d6b60-405e-4345-a9b5-15575d1cf7dc" class="">Prvně to chce pár balíčků, většinu z nich nejspíš už v systému budete mít:</p>
-      <pre id="f0d16eb9-c974-4d42-ae68-c37b43df1913" class="code code-wrap"><code>sudo apt-get install autoconf gcc make git libcurl4-openssl-dev libncurses5-dev libtool libjansson-dev libudev-dev libusb-1.0-0-dev</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f0d16eb9-c974-4d42-ae68-c37b43df1913" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt-get install autoconf gcc make git libcurl4-openssl-dev libncurses5-dev libtool libjansson-dev libudev-dev libusb-1.0-0-dev</code></pre>
       <p id="0b15618d-c93c-4f8e-9364-d45dd06a3c33" class="">Stáhneme zdrojáky z <code>cgmineru</code> z githubu:</p>
-      <pre id="23cccbf0-3b77-4304-92f0-2cbc07dc2fa1" class="code code-wrap"><code>git clone https://github.com/ckolivas/cgminer.git</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="23cccbf0-3b77-4304-92f0-2cbc07dc2fa1" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/ckolivas/cgminer.git</code></pre>
       <p id="7b624c34-c9f6-4e1b-9136-f748a91cbb12" class="">a zkompilujeme je:</p>
-      <pre id="1874c18a-abd3-4e38-ad91-3764c24d2769" class="code code-wrap"><code>cd cgminer./autogen.sh --enable-icarusmake</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1874c18a-abd3-4e38-ad91-3764c24d2769" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd cgminer./autogen.sh --enable-icarusmake</code></pre>
       <p id="eec69004-8a7e-4a93-b757-c3e4e564886f" class="">To je vše.</p>
       <h3 id="0605dfe5-c70b-4811-9556-675606344561" class="">Zapojení do poolu</h3>
       <p id="89669376-150a-4d25-8070-c742c329675e" class="">Je samozřejmě možné těžit jen tak, ale odměny se nejspíš v tomhle století nedočkáte. Proto se dnes prakticky všichni zapojují do tzv <a href="http://mining.bitcoin.cz/">poolů</a>. Pokud nevíte ke kterému se přidat, zkuste český; <a href="http://mining.bitcoin.cz/">http://mining.bitcoin.cz/</a></p>
@@ -393,7 +408,9 @@ Bus 004 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composi
         <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:1371px" src="Untitled_4_thumb.jpg"></a>
       </figure>
       <p id="5ec0541d-0df6-4a45-a9d5-7890133bc1d4" class="">Jakmile budete mít zaregistrované zařízení, stačí již jen spustit <code>cgminer</code> (jméno a heslo samozřejmě použijte vaše) a začít těžit.</p>
-      <pre id="029d8848-8e17-450d-8892-6377f765f2cb" class="code code-wrap"><code>sudo ./cgminer -o stratum.bitcoin.cz:3333 -u Bystroushaak.worker1 -p hmrdPACp</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="029d8848-8e17-450d-8892-6377f765f2cb" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo ./cgminer -o stratum.bitcoin.cz:3333 -u Bystroushaak.worker1 -p hmrdPACp</code></pre>
       <p id="2358f0cb-34da-41cc-bf58-08ab1e7c29f2" class="">Nyní by jste před sebou již měli vidět obrazovku <code>cgminer</code>u.</p>
       <figure id="da4745a0-fc0c-4dae-9a54-569735f2c319" class="image">
         <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:642px" src="Untitled_5.png"></a>
@@ -472,6 +489,15 @@ Bus 004 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composi
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -491,15 +517,6 @@ Bus 004 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composi
         </li>
         <li>
           <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -539,6 +556,9 @@ Bus 004 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composi
         </li>
         <li>
           <a href="../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

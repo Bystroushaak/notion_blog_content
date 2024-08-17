@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../Zmeny.html" title="Změny">more</a>
@@ -98,6 +98,9 @@
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -121,6 +124,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="1f4da4d9-3feb-4efd-85a4-76e7bbb7970c" class=""><time>@2020/03/01</time></p>
       <p id="eca52012-a956-4a14-afd5-b67f0dd095af" class="">Částečně na základě diskuze s ostatními a jejich názorů, částečně na základě vlastních úvah jsem sepsal článek na téma koronaviru a jak se na něj připravit. Pojďme se podívat na nějaká čísla, z nich plynoucí dedukce a závěry.</p>
       <p id="5ea40a40-36f1-4414-9d0f-275ad4b8c813" class="">Rád bych deklaroval, že mým cílem určitě není vyvolat paniku. Naopak. Tenhle článek berte z velké části jako několik odhadů a myšlenkových experimentů, díky kterým se psychicky připravíte na možné eventuality. Sám si myslím, že to ve skutečnosti pravděpodobně nebude tak špatné, jak se možná může po přečtení článku zdát. Bude to místy opruz, ale život jde dál.</p>
@@ -136,10 +141,14 @@
         Chřipka se vyskytuje celosvětově, ročně onemocní přibližně 10 až 15 procent populace.
       </blockquote>
       <p id="6f29d58e-9169-480b-8a4c-1527662e8260" class="">Prvně zjistíme kolik lidí umírá na chřipku. Z deseti milionů lidí jí chytí přibližně 10-15%. Budem počítat že je fakt nakažlivá a chytí jí 15. A umře na to v průměru 2000 lidí. To dává..</p>
-      <pre id="fb9ead32-10cf-45fc-9e26-dbaf53a5d624" class="code code-wrap"><code>&gt;&gt;&gt; 2000 / ((10_000_000 * 0.15) / 100.0)
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="fb9ead32-10cf-45fc-9e26-dbaf53a5d624" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">&gt;&gt;&gt; 2000 / ((10_000_000 * 0.15) / 100.0)
 0.13333333333333333</code></pre>
       <p id="c9382be5-d633-4919-9732-a7ec5340ec11" class="">.. 0.13% úmrtnost. Wuhanský virus má přibližně 2 - 3%. Pokud budeme vycházet z naprosto nemístného optimismu a předpokládat, že se bude šířit stejně málo jako chřipka, dává to ..</p>
-      <pre id="310d6af8-5436-403f-b4a0-bb255e1316dc" class="code code-wrap"><code>&gt;&gt;&gt; 10_000_000 * 0.10 * 0.02
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="310d6af8-5436-403f-b4a0-bb255e1316dc" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">&gt;&gt;&gt; 10_000_000 * 0.10 * 0.02
 20000.0
 &gt;&gt;&gt; 10_000_000 * 0.15 * 0.03
 45000.0</code></pre>
@@ -161,7 +170,9 @@
       <p id="1e2e34d5-145f-43dc-bd62-6fd3d34fdacf" class="">— <a href="https://www.aljazeera.com/news/2020/02/cloneof200215224437270-200216231809757.html">China coronavirus outbreak: All the latest updates</a></p>
       <p id="85c2ffe0-d0db-4143-9017-cbf15b78a669" class="">Tedy asi 80% lidí se z toho dostane v pohodě samo. 14% lidí má vážné komplikace, a okolo pěti procent lidí upadne do kritického stavu, kdy není schopná přežít bez přístrojů a péče. Obecně se dá říct, že až 20% lidí potřebuje lékařskou péči, či hospitalizaci.</p>
       <p id="460797e9-d6c0-4927-bd45-c58aee64f887" class="">Procentuálně to znamená, že za rok bude potřebovat akutní lékařskou péči až teoreticky hospitalizaci přibližně ..</p>
-      <pre id="71913b13-2d2a-47e3-848a-2f14680127a1" class="code code-wrap"><code>&gt;&gt;&gt; 10_000_000 * 0.10 * 0.2
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="71913b13-2d2a-47e3-848a-2f14680127a1" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">&gt;&gt;&gt; 10_000_000 * 0.10 * 0.2
 200000.0
 &gt;&gt;&gt; 10_000_000 * 0.15 * 0.2
 300000.0</code></pre>
@@ -311,6 +322,15 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Programovani/Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -330,15 +350,6 @@
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -374,6 +385,9 @@
         </li>
         <li>
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>

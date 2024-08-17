@@ -110,6 +110,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -129,15 +138,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -170,6 +170,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -210,6 +213,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="d3f775ff-b5ce-42f9-bf83-0ad9b40c7ed3" class=""><time>@2020/06/08</time></p>
       <p id="bba8a0de-ac0b-4d75-90b7-84f8c0124f32" class="">I've noticed that unicode characters I am using in this blog (📰📄📩📂📄🗒) look completely different when viewed using FireFox and Chromium:</p>
       <hr id="900d3cd1-1118-4c07-a171-a65772281e84">
@@ -230,14 +235,22 @@
       <p id="0ab33630-a7ef-47a1-b2ec-728b0a15ee20" class="">I don't want to load 7MB just to use a few unicode images, so I googled more to find out how to limit the subset to just used characters.</p>
       <h1 id="7f3c967b-f325-4a82-8eaf-83dd81f2f68a" class="">Create subset of the font</h1>
       <p id="3d54a9c2-134b-4bba-a116-4d7c7836dd31" class="">Install <a href="https://github.com/fonttools/fonttools">https://github.com/fonttools/fonttools</a>:</p>
-      <pre id="e90195bc-b08e-47c0-a4d3-2ea40e9a3ad5" class="code code-wrap"><code>pip install --user fonttools</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="e90195bc-b08e-47c0-a4d3-2ea40e9a3ad5" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pip install --user fonttools</code></pre>
       <p id="55c1144d-d831-4770-9a8a-8f2ad2f96933" class="">Then run following command on the downloaded font</p>
-      <pre id="59400ca0-0c43-438c-8d49-2d15025c0b68" class="code code-wrap"><code>pyftsubset NotoColorEmoji.ttf --unicodes="U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2" --layout-features="" --flavor="woff" --output-file="NotoEmojiSubset.ttf"</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="59400ca0-0c43-438c-8d49-2d15025c0b68" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pyftsubset NotoColorEmoji.ttf --unicodes="U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2" --layout-features="" --flavor="woff" --output-file="NotoEmojiSubset.ttf"</code></pre>
       <p id="c76a0e22-b263-4558-86b2-ea86b7e70e2c" class="">and</p>
-      <pre id="011291a9-ad1b-46b9-a692-50f003d6d305" class="code code-wrap"><code>pyftsubset NotoColorEmoji.ttf --unicodes="U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2" --layout-features="" --flavor="woff" --output-file="NotoEmojiSubset.woff"</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="011291a9-ad1b-46b9-a692-50f003d6d305" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pyftsubset NotoColorEmoji.ttf --unicodes="U+0001f4f0,U+0001f4c4,U+0001f4e9,U+0001f4c2,U+0001f5ce,U+0001f5d2" --layout-features="" --flavor="woff" --output-file="NotoEmojiSubset.woff"</code></pre>
       <p id="5b39e2d1-7af7-47b8-92ef-3efa4088768c" class="">for <code>woff</code> format. Files are tiny, just 8.9kB for my subset.</p>
       <h2 id="8a50a77c-0564-4c13-a4c2-06a2a63459d5" class="">Character codes</h2>
       <p id="879b4ff5-cc16-44d1-bb85-a031973b00a9" class="">I've found out what kind of unicode codes I want simply by typing it to the python shell:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="err">$</span> <span class="n">python</span>
 <span class="n">Python</span> <span class="mf">2.7.17</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Apr</span> <span class="mi">15</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">14</span><span class="p">)</span> 
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">7.5.0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux2</span>
@@ -248,6 +261,8 @@
       <p id="d0746962-79b9-4eda-abc7-ffd895302902" class="">And then to modify the code to contain the <code>+</code> character, that is to convert <code>\U001f4f0</code> to <code>U+001f4f0</code>.</p>
       <h2 id="5e2ca13a-fc62-47bd-9a7c-7dcec0dc0dec" class="">Usage</h2>
       <p id="6eb8d0ec-d408-47b7-b500-fd619008a9c9" class="">Add this to your CSS:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="o">...</span>
 
 <span class="p">@</span><span class="k">font-face</span><span class="w"> </span><span class="p">{</span>
@@ -274,6 +289,15 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -293,15 +317,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -335,6 +350,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

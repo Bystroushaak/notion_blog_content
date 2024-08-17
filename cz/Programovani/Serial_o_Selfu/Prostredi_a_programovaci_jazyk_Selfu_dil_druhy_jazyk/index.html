@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../../Zmeny.html" title="Změny">more</a>
@@ -106,6 +106,9 @@
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -129,6 +132,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="1d0b408f-8577-47cd-8eaa-f1a4a7ce6cb4" class=""><time>@2019/02/07</time></p>
       <p id="3b53c04c-fe94-4c38-a3ca-57c06b7429fd" class="">Minulý díl <a href="../Prostredi_a_programovaci_jazyk_Selfu_dil_prvni_prostredi.html" title="Prostředí a programovací jazyk Selfu (díl první; prostředí)">Prostředí a programovací jazyk Selfu (díl první; prostředí)</a> představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu.</p>
       <h1 id="4067bafb-3439-4879-9960-b4521d72a74b" class="">Z hlediska jazyka</h1>
@@ -137,29 +142,41 @@
       <p id="79fc2fd5-c2ed-4972-84cd-ec4c8ddec994" class="">Poté co objektu pošleme <em>zprávu</em>, je v paměti vyhledán obsah konkrétního slotu. Pokud se jedná o datový slot (objekt v něm uložený neobsahuje kód), je vrácen. Pokud se jedná o objekt s kódem, je vrácena hodnota zbylá po provedení kódu objektu.</p>
       <p id="50ed3495-f75b-4189-8a03-21eadc53c54d" class="">Zprávu objektu pošleme tím, že jí napíšeme napravo od něj.</p>
       <p id="3b139891-a0bc-4da1-a092-b56e85ddc008" class="">Kód</p>
-      <pre id="6e6a6d20-c4be-41c6-9817-9f91dc4873fe" class="code"><code>obj zpráva</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="6e6a6d20-c4be-41c6-9817-9f91dc4873fe" class="code"><code class="language-Plain Text">obj zpráva</code></pre>
       <p id="8b638e7b-0da0-446e-a1b3-8ee0fb9142c8" class="">je podobný výrazu v C-like syntaxi:</p>
-      <pre id="5cea0c0b-c67b-42f2-be04-b04e237fb8a5" class="code"><code>obj.zpráva()</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5cea0c0b-c67b-42f2-be04-b04e237fb8a5" class="code"><code class="language-Plain Text">obj.zpráva()</code></pre>
       <h2 id="0172a46b-6aa0-452d-a730-15ddbef6099e" class="">Syntaxe objektu</h2>
       <p id="4a937de0-1335-4fae-86c6-c8e3da14dc74" class=""><code>()</code> vytvoří prázdný objekt. To je objekt, ve kterém nejsou žádné metody a který neumí reagovat na žádné zprávy.</p>
       <p id="d5b818df-bef7-452f-b055-a8e573e1d32c" class="">Kód <code>(| a. b. |)</code> vytvoří objekt, ve kterém jsou dva sloty pojmenované jako <code>‚a‘</code> a <code>‚b‘</code>. Hodnoty obou budou nastaveny na <code>nil</code>.</p>
       <p id="8a72c70a-a68b-45d4-943c-292bf9b5d60a" class="">Znak svislé čáry <code>|</code> uvozuje definici slotů. Jednotlivé sloty jsou odděleny tečkami. Výše uvedený objekt je „krabička“, která má v sobě dva šuplíky <code>a</code> a <code>b</code>. Ty můžou uchovávat data, či kód.</p>
       <p id="77656745-d2ac-4c78-8957-6308db395687" class="">Objekt v Selfu funguje tak trochu jako hashmapa, či dictionary (slovník). Do konkrétního slotu se dá uložit konkrétní hodnota. Tuto hodnotu je možné přiřadit již při inicializaci:</p>
-      <pre id="3812a72b-2c71-48b9-981e-f6cc84b9a958" class="code"><code>(| a &lt;- nil. b = nil. |)</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="3812a72b-2c71-48b9-981e-f6cc84b9a958" class="code"><code class="language-Plain Text">(| a &lt;- nil. b = nil. |)</code></pre>
       <p id="189d3c0e-0980-46ce-8560-363e8ee8eb7f" class="">V příkladu je možné vidět hned dva styly přiřazení hodnoty. Liší se od sebe tím, že první je možné později přepisovat (<code>&lt;-</code>), druhý (<code>=</code>) nikoliv.</p>
       <p id="26eb4fca-a884-4312-948e-380a5aa9678d" class="">Ve skutečnosti dochází na nízké úrovni v prvním případě k vytvoření dvou slotů - skutečného slotu a metody pro zápis do tohoto slotu. Ve druhém případě je vytvořen jen slot samotný a není tedy možné do něj zapsat. To má své využití pro různé konstanty.</p>
       <p id="c8d65600-b3f9-4ef5-863e-c321033d9f9d" class="">Objekt dále může obsahovat kód, který je uveden za druhou svislou čarou <code>|</code>:</p>
-      <pre id="daec0f5b-5c14-4f9c-b217-f87fee21cb88" class="code"><code>(| a = 1 | a printLine)</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="daec0f5b-5c14-4f9c-b217-f87fee21cb88" class="code"><code class="language-Plain Text">(| a = 1 | a printLine)</code></pre>
       <p id="e5b1ab7d-35ac-4e1b-90bd-ced4bc1bdf06" class="">Výše uvedená ukázka definuje nepojmenovaný objekt, který vytváří jeden slot <code>‚a‘</code> nastavený na objekt čísla <code>1</code>. Dále obsahuje kód spočívající v poslání zprávy <code>printLine</code> slotu <code>‚a‘</code>, tedy hodnotě v tomto slotu.</p>
       <h2 id="402eaf51-83ed-4177-a41e-be2e74cce457" class="">Parent sloty</h2>
       <p id="52c39125-7762-419a-8c7a-6fb569b5c548" class="">Speciálním typem slotů v Selfu jsou takzvané <em>parent sloty</em> (<em>rodičovské sloty</em>). Ty způsobí, že zprávy, které nejsou nalezeny v objektu jsou delegovány do objektů, na které ukazují tyto sloty.</p>
       <p id="102b3530-01df-412c-871f-38bd0c537907" class="">Pokud pošleme objektu</p>
-      <pre id="58e7eaf2-9b97-423a-b8ad-7cf14aed0f64" class="code"><code>(| p* = traits clonable |)</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="58e7eaf2-9b97-423a-b8ad-7cf14aed0f64" class="code"><code class="language-Plain Text">(| p* = traits clonable |)</code></pre>
       <p id="a036b1aa-1acc-4437-9835-95ad335f0378" class="">zprávu <code>clone</code>, vrátí svojí vlastní kopii, i přestože v něm není metoda uložená ve slotu <code>"clone"</code>. Ta je však definována v objektu, na který odkazuje slot <code>p*</code>, či v nějakém nadřazeném, pokud tento objekt také obsahuje <em>parent slot</em>.</p>
       <p id="9b4fb6f1-f799-43c9-912f-0ec07d62e46a" class="">Tímto mechanismem je efektivně implementována dědičnost. Pokud se nad tím zamyslíte, podobá se chování situaci, kdy voláme metodu předka objektu dědícího z <code>"traits clonable"</code> například v pythonu.</p>
       <h2 id="59aa87c1-a5d0-4288-a639-d33104d77681" class="">Parametry</h2>
       <p id="e93709a4-4a41-40f8-aaea-8074abd81dc1" class="">Mezi <code>|sloty|</code> mohou být také parametry. Ty jsou uvozeny dvojtečkou v začátku názvu. Například objekt:</p>
-      <pre id="3447fd9e-ec7b-49a9-bf2e-3e03bce1a7a6" class="code"><code>(|
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="3447fd9e-ec7b-49a9-bf2e-3e03bce1a7a6" class="code"><code class="language-Plain Text">(|
     x:Y: = (| :a. :b. | a printLine)
 |)</code></pre>
       <p id="91c29e3e-4691-4b86-aa63-e47657dc76fd" class="">obsahuje jeden slot <code>‚x:Y:‘</code>, který odkazuje na objekt-metodu přijímající parametry <code>‚a‘</code> a <code>‚b‘</code>, který pošle parametru <code>a</code> zprávu <code>printLine</code>.</p>
@@ -187,9 +204,13 @@
       <h2 id="7118b104-95de-465a-b03c-af7aab6858b7" class="">Self</h2>
       <p id="7f2a7cb9-cde6-4924-b6ca-8d519723e8a3" class="">Self se jmenuje „Self“ protože na rozdíl od Smalltalku není třeba toto klíčové slovo uvádět před každou zprávou poslanou sama sobě.</p>
       <p id="5005e4d8-7b40-423d-95e8-baf73dcce437" class="">Pokud objekt chce volat svojí vlastní metodu <code>print</code>, může v kódu jiné metody použít:</p>
-      <pre id="89d11fe5-4fe3-49f6-b7cb-b5feabe57d87" class="code"><code>self print</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="89d11fe5-4fe3-49f6-b7cb-b5feabe57d87" class="code"><code class="language-Plain Text">self print</code></pre>
       <p id="43173edf-b06f-4108-b322-1d25cee2c56a" class=""><code>self</code> však lze vynechat a zavolat pouze:</p>
-      <pre id="888b0a26-5852-49a2-bc17-520eea616f80" class="code"><code>print</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="888b0a26-5852-49a2-bc17-520eea616f80" class="code"><code class="language-Plain Text">print</code></pre>
       <p id="0eee5216-fdee-4c54-b11d-a2c347465e41" class="">Toto je poměrně zajímavá vlastnost, která stojí za zamyšlení. Každý identifikátor, který napíšete a není najit v namespace, je delegován do objektu samotného a dále do všech <em>parent slotů</em>. Co je vlastně lokální namespace, když objekt všechno implicitně pošle sám sobě?</p>
       <h2 id="8fc6dc95-664f-43b9-acdd-36beadbee299" class="">Bloky</h2>
       <p id="d1c80547-d657-4801-825a-5fdaa9f2216d" class="">Bloky fungují podobně jako objekty, až na tři rozdíly: jsou vyhodnocovány až v době běhu, chovají se, jako by automaticky obsahovaly <em>parent slot</em> ukazující do <em>namespace</em> (jmenného prostoru), ve kterém byly vytvořeny a automaticky mají nastavený <code>parent*</code> na <code>traits block</code>.</p>
@@ -199,13 +220,17 @@
       <p id="661f58cd-6c95-41c3-8fa0-706cdec669fa" class="">Bloky také můžou přijímat parametry: <code>[| :a | a printLine]</code> a tvořit například <em>code objekt</em>, který očekává jeden parametr a ten při zavolání vypíše. Jak blok zavolat? Stačí mu poslat zprávu <code>value</code>, případně <code>value:</code>, pokud přijímá jeden parametr a <code>value:With: .. With: ..</code> pokud jich přijímá více.</p>
       <p id="4039c370-43bb-4d96-bd3a-40835dd01a32" class="">Pomocí bloků jsou v Selfu implementovány veškeré kontrolní prvky. Větvení if podmínkami, cykly a tak dále.</p>
       <p id="810210a5-3dc1-47c7-93ef-93dc2cbf1942" class="">Například <em>if podmínka</em> je jen <em>keyword zpráva</em> <code>ifTrue:</code>, či <code>ifTrue:False:</code> bool objektu, které se jako parametr předává blok s kódem:</p>
-      <pre id="6903307b-c9fc-49ab-a60d-e2c616829932" class="code"><code>(| :a. :b. |
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="6903307b-c9fc-49ab-a60d-e2c616829932" class="code"><code class="language-Plain Text">(| :a. :b. |
     (a &gt; b) ifTrue: [^a] False: [^b].
 )</code></pre>
       <p id="18b60d6d-13ef-41da-af73-400cc6bc60cb" class="">Zde vidíte <em>code object</em> přijímající parametry <code>‚a‘</code> a <code>‚b‘</code>, které porovná mezi sebou (posláním binární zprávy <code>&gt; b</code> objektu <code>a</code> a výslednému bool objektu poté pošle zprávu <code>ifTrue:False:</code> s prvním parametrem obsahujícím blok vracející <code>‚a‘</code> a druhým parametrem obsahujícím blok vracející <code>‚b‘</code>.</p>
       <p id="bcba13e9-c854-4c2d-b36d-b357fc61d0d6" class="">Znak stříšky <code>^</code> znamená <em>return</em>. Použit v bloku, vrací hodnotu nikoliv jen ze samotného bloku, ale i z nadřazeného <em>namespace</em>. V uvedeném případě tedy dojde k vrácení hodnoty z celého <em>code-objectu</em> / metody, nikoliv jen z bloku (to lze provést pomocí zprávy <code>return:</code>).</p>
       <p id="3d36be70-e7ee-47ea-8b4d-1679dacee226" class="">Obecně co se týče návratových hodnot, tak je možné použít <code>^</code> k vrácení hodnoty, nebo hodnotu poslední zprávy v daném kódu.</p>
-      <pre id="b450c717-731b-4139-aee1-06e04a209284" class="code"><code>(|
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b450c717-731b-4139-aee1-06e04a209284" class="code"><code class="language-Plain Text">(|
     parent* = traits boolean.
     a = (true ifTrue: [1])
 |)</code></pre>
@@ -216,7 +241,9 @@
       <p id="d6d2a13b-a772-43aa-9a7a-626a88e1e940" class="">Jak už jsem psal - Self obsahuje cosi, co funguje jako dědičnost, ale dědičností není. Jedná se o delegaci zpráv, kterým objekt nerozumí, na objekt definovaný v <em>parent slotu</em>.</p>
       <p id="ac1f790f-891b-4380-aa98-3e5a5c5c00b7" class="">Objekt může mít <em>parent slotů</em> víc, v některých případech je tak nuté specifikovat, z jakého <em>parent slotu</em> se má slot vybrat. To je možné takzvaným <em>resend</em> zprávou. Ta se syntakticky používá jako jméno parent slotu oddelěné tečkou od jména zprávy, například <code>parent.message</code>.</p>
       <p id="69328809-fd21-441a-8175-12d4efaef9d9" class="">Například pokud by jsme měli objekt:</p>
-      <pre id="1b0f5eec-a9a5-400d-ba78-11a32640d31e" class="code"><code>(|
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1b0f5eec-a9a5-400d-ba78-11a32640d31e" class="code"><code class="language-Plain Text">(|
   firstParent* = traits something.
   secondParent* = traits different.
 |
@@ -228,11 +255,15 @@
       <p id="0156f6a5-0b7f-4a2e-9257-4ff90c222016" class="">Na první pohled poněkud divoká konstrukce má docela zajímavé využití například při psaní parserů, kde umožňuje měnit kontext.</p>
       <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
       <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
-      <pre id="5c1b05c8-5bbc-44b6-9e1e-3e873c3bea83" class="code"><code>"toto je komentar"</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5c1b05c8-5bbc-44b6-9e1e-3e873c3bea83" class="code"><code class="language-YAML">"toto je komentar"</code></pre>
       <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
       <p id="9603835d-8055-422c-9880-c44c1aca0bf9" class="">Anotace jsou způsob přidávání metadat k objektům, kterému se dokumentace překvapivě málo věnuje, přestože je použít napříč celou image.</p>
       <p id="85d3a334-fb28-46cf-9225-3d1b8276cf27" class="">Syntaxe používá složené závorky:</p>
-      <pre id="8581fad4-1f90-40ef-9b22-21e46cccef2c" class="code"><code>(|
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="8581fad4-1f90-40ef-9b22-21e46cccef2c" class="code"><code class="language-Plain Text">(|
   p* = traits clonable.
   {'Category: accessing'
     slot = nil.
@@ -281,7 +312,9 @@
       <p id="7bdf7ba1-6f50-4acf-a2f3-7a315838ae84" class="">K dispozici jsou také různé transformátory a iterátory nad kolekcemi, které fungují podobně. Například lze poli poslat zprávu <code>mapBy:</code>, <code>mapBy:Into:</code>, <code>gather:</code>, <code>filterBy:</code> a tak podobně.</p>
       <p id="16edc762-d693-42e0-9e52-7ff97b1a4423" class="">V tomhle ohledu doporučuji se vždycky podívat na danou kolekci. Zpráv tohoto druhu je tam několik desítek a umožňují vše od filtrování po vyhledávání, sortování, mapování, transformování, počítání výskytu a tak podobně. Dá se říct, že těch zpráv je víc než třeba v pythonu.</p>
       <p id="b03742e8-633f-4f67-ab26-01b214e28125" class="">Čistě pro zajímavost, jen kolekce typu <code>list</code> reaguje na tyto zprávy:</p>
-      <pre id="b8152a26-90e4-4361-b443-6299d4b5d991" class="code"><code>&lt;= x
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b8152a26-90e4-4361-b443-6299d4b5d991" class="code"><code class="language-Plain Text">&lt;= x
 &gt; x
 &gt;= x
 areKeysOrdered
@@ -291,7 +324,9 @@ KeyedStoreStringIfFail: fb
 max: x
 min: x</code></pre>
       <h2 id="865ec321-eb17-4bfd-a9f7-a504d96edaa7" class="">Accessing</h2>
-      <pre id="4590197e-efed-486b-be9d-b64c3bab7bc6" class="code"><code>at: k
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="4590197e-efed-486b-be9d-b64c3bab7bc6" class="code"><code class="language-Plain Text">at: k
 at: i IfAbsent: b
 first
 first: v
@@ -306,16 +341,22 @@ keys
 last: v
 soleElement</code></pre>
       <h2 id="53366c34-2d4a-41b0-adfc-31703a572b45" class="">Adding</h2>
-      <pre id="65f1ecb8-4b9e-451c-9e41-091d382c8a68" class="code"><code>add: elem
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="65f1ecb8-4b9e-451c-9e41-091d382c8a68" class="code"><code class="language-Plain Text">add: elem
 add: v WithKey: k
 addAll: c
 add:allFirst: c
 addFirst: elem
 addLast: elem</code></pre>
       <h2 id="fa1e7fcc-2ba4-4734-8c3f-7dc51b61b9cc" class="">Coercing</h2>
-      <pre id="f1243a90-5b1c-4dd1-9811-67b19da70969" class="code"><code>asList</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="f1243a90-5b1c-4dd1-9811-67b19da70969" class="code"><code class="language-Plain Text">asList</code></pre>
       <h2 id="f0e76968-a8e2-408e-9583-d0a900f33069" class="">Comparing</h2>
-      <pre id="6f4ca081-4679-4005-aba4-d793d5081fb0" class="code"><code>&lt; c
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="6f4ca081-4679-4005-aba4-d793d5081fb0" class="code"><code class="language-Plain Text">&lt; c
 = c
 compare: c IfLess: lb Equal: eb Greater: gb
 hash
@@ -323,27 +364,39 @@ isPrefixOf: c
 isSuffixOf: c
 equalsCollection: c</code></pre>
       <h2 id="276adcf6-9514-433d-a37f-c66645b2aedc" class="">Concatenating</h2>
-      <pre id="b5e2c0f3-7419-4772-9f0e-4c1f07b2fb06" class="code"><code>, c</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b5e2c0f3-7419-4772-9f0e-4c1f07b2fb06" class="code"><code class="language-Plain Text">, c</code></pre>
       <h2 id="6db618ae-a413-42ea-9275-dd77914c5fb9" class="">Copying</h2>
-      <pre id="656b2aa9-a12a-4ad0-a1f7-1435eae98c83" class="code"><code>copy
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="656b2aa9-a12a-4ad0-a1f7-1435eae98c83" class="code"><code class="language-Plain Text">copy
 copyContaining: c
 copyRemoveAll</code></pre>
       <h2 id="52d43918-0492-47e2-a9eb-15ead7702133" class="">Double dispatch from universalSetOrDictionary</h2>
-      <pre id="ed99d6bf-7ffa-4d31-a108-b94e4f5a224f" class="code"><code>unsafe_with: c1 Do: b FirstKey: firstK1 FirstValue: firstV1</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ed99d6bf-7ffa-4d31-a108-b94e4f5a224f" class="code"><code class="language-Plain Text">unsafe_with: c1 Do: b FirstKey: firstK1 FirstValue: firstV1</code></pre>
       <h2 id="a1902ca4-6ac2-4b8f-96bc-ca603dc6d9f9" class="">Inserting</h2>
-      <pre id="b420dd8d-81f8-48ec-b983-e486113a6684" class="code"><code>insert: x AfterElementSatisfying: blk IfAbsent: aBlk
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b420dd8d-81f8-48ec-b983-e486113a6684" class="code"><code class="language-Plain Text">insert: x AfterElementSatisfying: blk IfAbsent: aBlk
 insert: x BeforeElementSatisfying: blk IfAbsent: aBlk
 insertAll: x AfterElementSatisfying: blk IfAbsent: aBlk
 insertAll: x BeforeElementSatisfying: blk IfAbsent: aBlk</code></pre>
       <h2 id="55779642-bed2-40d4-820d-2fc086c91059" class="">Iterating</h2>
-      <pre id="2d076775-0071-4d1c-b415-6a1cbb4537ec" class="code"><code>do: b
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="2d076775-0071-4d1c-b415-6a1cbb4537ec" class="code"><code class="language-Plain Text">do: b
 doFirst: f Middle: m Last: lst IfEmpty: mt
 reverseDo:
 with: x Do: b
 with: x ReverseDo: b
 withNonindexable: c Do: b</code></pre>
       <h2 id="4da17818-5f88-40c8-8859-6f249a69050a" class="">InteratingWithEnds</h2>
-      <pre id="c0a6e8e7-b419-4fba-acf1-1df8737908a0" class="code"><code>do: elementBlk SeparatedBy: inBetweenBlk
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c0a6e8e7-b419-4fba-acf1-1df8737908a0" class="code"><code class="language-Plain Text">do: elementBlk SeparatedBy: inBetweenBlk
 doFirst: f Middle: m Last: lst
 doFirst: f Middle: m Last: lst IfEmpty: e
 doFirst: f MiddleLast: ml
@@ -353,7 +406,9 @@ doFirstLastt: f Middle: ml IfEmpty: e
 doFirstMiddle: fm Last: lst
 doFirstMiddle: fm Last: lst IfEmpty: e</code></pre>
       <h2 id="314e6d09-f56f-4ae3-8eba-9e62d9694d3f" class="">Printing</h2>
-      <pre id="3d73a2ae-8531-4f10-854e-84f9313a9419" class="code"><code>collectionName
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="3d73a2ae-8531-4f10-854e-84f9313a9419" class="code"><code class="language-Plain Text">collectionName
 comment1
 printStringSize: smax Depth: dmax
 statePrintString
@@ -373,7 +428,9 @@ separator
 statePrintStringOfElements
 statePrintStringOfSize</code></pre>
       <h2 id="8ed3b9da-ec5b-46bd-8bc2-4b0c22af4262" class="">Reducing</h2>
-      <pre id="b3ae9124-6d02-48a9-95e3-a490d366774a" class="code"><code>countHowMany: testBlock
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b3ae9124-6d02-48a9-95e3-a490d366774a" class="code"><code class="language-Plain Text">countHowMany: testBlock
 dotProduct: aCollection
 harmonicMean
 max
@@ -389,7 +446,9 @@ rootMeanSquare
 standardDeviation
 sum</code></pre>
       <h2 id="a24dccd8-a54e-4378-b89e-37efa3fce6a2" class="">Removing</h2>
-      <pre id="4c274a56-79a7-4870-b0c5-df5bf6f4cd04" class="code"><code>remove: x
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="4c274a56-79a7-4870-b0c5-df5bf6f4cd04" class="code"><code class="language-Plain Text">remove: x
 remove elem IfAbsent: block
 removeAll
 removeAll: aCollection
@@ -397,7 +456,9 @@ removeFirstIfAbsent: ab
 removeLast
 removeLastIfAbsent: ab</code></pre>
       <h2 id="1f5a375b-2dc2-4384-b819-9eea8d02aa2d" class="">Searching</h2>
-      <pre id="8ae7a7cb-ba26-479a-b8f0-3eb1ff87114a" class="code"><code>allSatisfy: b
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="8ae7a7cb-ba26-479a-b8f0-3eb1ff87114a" class="code"><code class="language-Plain Text">allSatisfy: b
 anySatisfy: b
 findFirst: eb IfPresent: fb
 findFirst: eb IfPresent: fb IfAbsent: fail
@@ -408,15 +469,21 @@ noneSatisfy: b
 occurrencesOf: v
 occurrencesOfEachElement</code></pre>
       <h2 id="8374d20d-4af8-4230-907b-cc670f43accd" class="">setLikeOperations</h2>
-      <pre id="056ac179-08fb-45d6-8fc9-23a5c94c9ec8" class="code"><code>includesAll: c
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="056ac179-08fb-45d6-8fc9-23a5c94c9ec8" class="code"><code class="language-Plain Text">includesAll: c
 intersect: c
 difference: c</code></pre>
       <h2 id="96792f18-7dad-4f30-a220-17c73a330f0a" class="">Sizing</h2>
-      <pre id="865610e1-8019-468b-901e-6c48833d1764" class="code"><code>isEmpty
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="865610e1-8019-468b-901e-6c48833d1764" class="code"><code class="language-Plain Text">isEmpty
 nonEmpty
 size</code></pre>
       <h2 id="653ccb99-58b7-4356-be4f-580832fefa74" class="">Sorting</h2>
-      <pre id="9bd71137-9283-470d-b2bf-a84d7cf3df5a" class="code"><code>ascendingOrder
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="9bd71137-9283-470d-b2bf-a84d7cf3df5a" class="code"><code class="language-Plain Text">ascendingOrder
 comment2
 copySort
 copySortBy: cmp
@@ -425,9 +492,13 @@ isAlreadyKnownToBeSortedBy: cmp
 sortedBy: cmp Do: b
 sortedDo: b</code></pre>
       <h2 id="200e3aaf-0a3c-440a-9c29-007026319605" class="">Testing</h2>
-      <pre id="43512b24-61ae-4650-a09e-e569686f3af3" class="code"><code>isOrdered</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="43512b24-61ae-4650-a09e-e569686f3af3" class="code"><code class="language-Plain Text">isOrdered</code></pre>
       <h2 id="ab379811-7fdb-4113-b257-7e7b46e073ba" class="">Transforming</h2>
-      <pre id="ca14b549-b3f1-45c5-b65e-0deb8123b9ec" class="code"><code>asByteVector
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ca14b549-b3f1-45c5-b65e-0deb8123b9ec" class="code"><code class="language-Plain Text">asByteVector
 asDictionary
 asList
 asOrderedSet
@@ -533,7 +604,9 @@ mapBy: eb Into: c</code></pre>
       <p id="66af2734-6a1f-43f4-9d80-cf47fe729679" class=""><code>do:</code> podobně jako všechny iterátory v Selfu očekává blok, který může mít dva volitelné parametry, hodnotu a klíč pojmenované v ukázce pro jednoduchost <code>v</code> a <code>k</code>. Všimněte si poněkud divného pořadí, člověk by to logicky čekal naopak.</p>
       <h1 id="a469eb78-9b0b-4996-b757-b43ef8d4c21d" class="">Collector</h1>
       <p id="2356eb1f-d9a1-4328-8598-bd635c9a4356" class=""><em>Collector</em> je speciální datová struktura, která reaguje na binární zprávy <code>&</code>. V podstatě existuje protože Self nemá literál pro vytváření polí. Pokud chceme vytvořit pole, nejjednodušší způsob je použít <em>collector</em>:</p>
-      <pre id="efcc3b16-c0d4-4325-9c0c-c579c07fa7b4" class="code"><code>(1 & 2 & 3) asList</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="efcc3b16-c0d4-4325-9c0c-c579c07fa7b4" class="code"><code class="language-Plain Text">(1 & 2 & 3) asList</code></pre>
       <p id="5e6a595a-c7d0-48a2-a86a-9b73b781d728" class=""><em>Collector</em> není ani pole, ani dictionary, ale dá se na všechny možné struktury zkonvertovat posláním zprávy <em>as&lt;Něco&gt;</em>, například <code>asList</code>.</p>
       <h1 id="142e4cda-169e-43d6-a875-9a3d4bde76ee" class="">Výjimky</h1>
       <p id="05f661c3-12db-4691-8acd-e03360568e08" class="">Výjimky v Selfu jednoduše nejsou podporovány. Zprávy, které můžou skončit nějakou chybou nabízají zpravidla alternativu v podobě keyword zprávy s parametrem <code>IfFail:</code>. Hezky to jde vidět třeba na objektu pro přístup k operačnímu systému:</p>
@@ -614,7 +687,9 @@ mapBy: eb Into: c</code></pre>
         <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/shared_slots_in_parent.png" title="shared_slots_in_parent.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/shared_slots_in_parent.png"></a>
       </figure>
       <p id="8868f3ea-bd9c-414d-b339-f845dbcbea05" class="">Outliner se dá naštěstí jednoduše nakonfigurovat tak, aby zobrazoval i poděděné sloty nastavením:</p>
-      <pre id="3b52ae0c-66c1-44ec-b257-cf32a5fd8af3" class="code"><code>preferences outliner kevooidal: true</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="3b52ae0c-66c1-44ec-b257-cf32a5fd8af3" class="code"><code class="language-Plain Text">preferences outliner kevooidal: true</code></pre>
       <p id="ffdbe854-bd35-4ad3-a017-9200c06ca3ae" class="">Ukázka:</p>
       <figure id="658c887d-7cb4-4694-a431-df0cb940e05a" class="image">
         <a href="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/kevooidal.png" title="kevooidal.png"><img style="width:713px" src="../../../../en/Programming/Series_about_Self/Environment_and_the_programming_language_Self_part_two_language/kevooidal.png"></a>
@@ -628,10 +703,14 @@ mapBy: eb Into: c</code></pre>
       </figure>
       <h2 id="bb19be7c-ad65-4d27-b3fc-f0688c32f705" class="">Zbuildění nového světa</h2>
       <p id="ff0e2f78-8952-45e3-85f7-faa5fa590e15" class="">Pokud nechcete používat image dodávanou s distribucí Selfu a z nějakého důvodu si chcete vybuildit vlastní, lze to provést z adresáře <code>objects/</code> v repozitáři zdrojových kódů projektu (pozor, je skutečně nutné přijít do tohoto adresáře) pustěním příkazu:</p>
-      <pre id="07b81d51-d567-4510-902a-4b82ef1516b0" class="code"><code>Self -f worldBuilder.self -o morphic</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="07b81d51-d567-4510-902a-4b82ef1516b0" class="code"><code class="language-Plain Text">Self -f worldBuilder.self -o morphic</code></pre>
       <p id="331dd9bf-752e-467f-89b2-89487e595266" class=""><code>-o</code> nespecifikuje jméno výstupního souboru (!) ale <em>overclock</em> a <code>morphic</code> parametr říká, že se má zbuildit i grafické rozhraní.</p>
       <p id="adbc7b34-388a-45b3-9a4b-7aad5fccce49" class="">Poté co script doběhne to chce do konzole zadat:</p>
-      <pre id="771a58d0-755d-4176-bb0a-22c5d727d49c" class="code"><code>desktop open</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="771a58d0-755d-4176-bb0a-22c5d727d49c" class="code"><code class="language-Plain Text">desktop open</code></pre>
       <p id="869d3db3-c180-40b1-af0e-577fb697589e" class="">pro otevření grafického rozhraní, nebo ho můžete uložit příkazy z předchozí podkapitoly.</p>
       <h2 id="4a76f8a0-770c-4b38-adde-5e210977d80d" class="">Vyhledávání</h2>
       <p id="3e2292d9-a71b-407a-ab54-76fbddc43f0d" class="">Z libovolného outlineru je možné prostředním tlačítkem vyvolat menu „<em>Find slot</em>“:</p>
@@ -660,15 +739,23 @@ mapBy: eb Into: c</code></pre>
       </figure>
       <h2 id="4b729fbf-724e-4f40-8dcb-7251e96d1f97" class="">Načtení uloženého scriptu</h2>
       <p id="3a10a7d9-adb9-4d79-bef8-3950ec3ead08" class="">Pokud si chcete spustit nějaký ze scriptů, nebo načíst váš uložený modul, dají se k tomu použít dva přístupy:</p>
-      <pre id="860c2cf3-615b-4973-a544-d3b2548c9c6f" class="code"><code>bootstrap read: 'name' From: 'directory'</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="860c2cf3-615b-4973-a544-d3b2548c9c6f" class="code"><code class="language-Plain Text">bootstrap read: 'name' From: 'directory'</code></pre>
       <p id="2a1ed6e6-60a0-4fe3-9196-74a44993d9fe" class="">Všimněte si že na konci name není <code>.self</code>, nebo:</p>
-      <pre id="91e4fb0a-2e4f-4376-bbff-fc6741cc1bd2" class="code"><code>'path/to/file.self' runScript</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="91e4fb0a-2e4f-4376-bbff-fc6741cc1bd2" class="code"><code class="language-Plain Text">'path/to/file.self' runScript</code></pre>
       <p id="6ef75131-467f-4128-9885-9fce91e8d0ef" class="">Podrobnosti zde: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
       <h2 id="63819b08-9821-47bc-94ae-2c6290c37e82" class="">Radarview</h2>
       <p id="d881f75a-16f6-4271-88b3-a4870877a734" class="">Jak už jsem psal, radarView je možné zobrazit takhle:</p>
-      <pre id="99646ae1-f17f-431d-a55e-5935bbfd1556" class="code"><code>desktop worlds first addMorph: radarView</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="99646ae1-f17f-431d-a55e-5935bbfd1556" class="code"><code class="language-Plain Text">desktop worlds first addMorph: radarView</code></pre>
       <p id="e5d3650e-77bb-4299-928c-ba76ee422ef2" class="">nebo</p>
-      <pre id="61a47ccf-454a-4fb7-9638-ce336ee0014b" class="code"><code>desktop w hands first addMorph: radarView</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="61a47ccf-454a-4fb7-9638-ce336ee0014b" class="code"><code class="language-Plain Text">desktop w hands first addMorph: radarView</code></pre>
       <h2 id="0e16bdf6-fe70-472b-acac-bf72ff58ba3e" class="">Lepší fonty</h2>
       <p id="5290f5a9-f978-4248-9390-8c811eaa93ee" class="">Pokud vám přijde základní font Selfu hrozný, tak skutečně je. Původně hledá verdanu, ale na linuxu se mu jí nepodaří najít, takže použije fallback. Řešení je popsané tady:</p>
       <ul id="8fc5d06f-734f-4a2a-aa62-c514c742ee7b" class="bulleted-list">
@@ -700,6 +787,15 @@ mapBy: eb Into: c</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -719,15 +815,6 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -770,6 +857,9 @@ mapBy: eb Into: c</code></pre>
         </li>
         <li>
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

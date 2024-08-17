@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
@@ -92,6 +92,9 @@
         </li>
         <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -132,6 +135,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="3c9a6d8f-c9f2-4849-8ea6-fa0e9249611e" class=""><time>@2020/01/19</time></p>
       <p id="9e990555-5039-4ef7-97cb-b1e6d17bc168" class="">Here is update from the development of tinySelf, my pet programming language inspired by Smalltalk and <a href="http://www.selflanguage.org/">Self</a>.</p>
       <p id="236c6a79-ca9b-4a5c-8bca-1edb33bd2e67" class="">When I was adding new methods to primitive types, I've encountered a nasty bug. The bug was caused by sharing primitive method objects for all instances of <code>float</code> (and <code>int</code>, <code>bool</code> and other primitive data types). By default, when <code>float</code> object is created, it has a bunch of primitive slots that are pre-filled with <em>primitive code objects</em>. This is quite costly, both in terms of memory and time.</p>
@@ -148,7 +153,9 @@
         <a href="shared_primitive_method_objects.png" title="shared_primitive_method_objects.png"><img style="width:240px" src="shared_primitive_method_objects.png"></a>
       </figure>
       <p id="7fded033-ba2d-48a6-9383-f0b2a5362a4f" class="">To my surprise, what happened is that when used for the first time, it worked as expected. But when you used the primitive method in another float object, the <code>self</code> for primitive methods got redirected to the object used before. Interpreter uses this branch for handling primitive code:</p>
-      <pre id="a8ea5591-114e-4059-b71c-f828d2671c8d" class="code code-wrap"><code>elif slot.has_primitive_code:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a8ea5591-114e-4059-b71c-f828d2671c8d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">elif slot.has_primitive_code:
     # primitives need "self" to be actually the object they are expecting,
     # for example for dicts it have to be dict, not some descendant
     # in the parent chain
@@ -166,7 +173,9 @@
       <p id="4829747e-bda7-41c0-8c48-23e652b5c3e2" class=""><code>.primitive_code()</code> method is a primitive (in rpython implemented) function expecting three parameters: <code>interpreter</code>, <code>self</code> and <code>parameters</code>.</p>
       <p id="56df5432-c4b6-4cf1-a018-798b1039deec" class="">The second parameter <code>obj</code> which is mapped to <code>self</code> in the primitive function was in this case wrong, because it was resolved from <code>traits float</code>. <code>slot_found_directly_in_obj</code> was <code>False</code>, and <code>slot</code> had <code>.scope_parent</code> property set to last object in which context it was used. This happened to be primitive from previous call.</p>
       <p id="97c61eca-cc62-4faf-a633-ce75c6759963" class="">Fixing this was easy, but figuring where to find correct object which should be used as <code>self</code> parameter for the primitive was hard. I've thought (and tried) about storing last primitive in call frame. I've explored a path to store <code>(obj, primitive)</code> pairs on the stack, or creating linked primitive stacks in each frame, and several other ways. At the end, I've solved this by looking into the <code>.scope_parent</code> of the <code>obj</code> (which is at that time currently executed method). As the parameters are mapped into the <code>.scope_parent</code> properties, this can be used as history. Code now looks like this:</p>
-      <pre id="8f06bdbf-a5c2-4a82-94de-de22da8f8677" class="code code-wrap"><code>elif slot.has_primitive_code:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="8f06bdbf-a5c2-4a82-94de-de22da8f8677" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">elif slot.has_primitive_code:
     # primitives need "self" to be actually the object they are expecting,
     # for example for dicts it have to be dict, not some descendant
     # in the parent chain
@@ -183,7 +192,9 @@
     if return_value is not None and self.process is not None:
         self.process.frame.push(return_value)</code></pre>
       <p id="adc52944-4adc-47c9-8cd7-ec7cc02acb10" class="">...</p>
-      <pre id="fec5d9c0-c46a-4ee9-90ca-9fcdf84f6df0" class="code code-wrap"><code>def _find_primitives_self(self, primitive_self, slot):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="fec5d9c0-c46a-4ee9-90ca-9fcdf84f6df0" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def _find_primitives_self(self, primitive_self, slot):
     """
     In case of primitives that were resolved from traits, it is more
     complicated to find `self` parameter for the primitive function.
@@ -229,6 +240,15 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -248,15 +268,6 @@
         </li>
         <li>
           <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -287,6 +298,9 @@
         </li>
         <li>
           <a href="../../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../../Explorations.html" title="Explorations">📂 Explorations</a>

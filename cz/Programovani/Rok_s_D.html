@@ -33,6 +33,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -52,15 +61,6 @@
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../Zmeny.html" title="Změny">more</a>
@@ -93,6 +93,9 @@
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -116,6 +119,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="62e55943-a29c-4b64-abfb-53bfed0ecf51" class=""><time>@2011/10/02</time></p>
       <p id="77684c62-8a23-4afc-8ccf-221c1232b280" class="">Je to již přibližně rok, co jsem se začal zajímat o programovací jazyk D. Co se od té doby v mém názoru na D změnilo?</p>
       <p id="f42ed260-c8ee-430c-8d07-f74157616672" class="">Programovat v D jsem skutečně začal až s novým rokem. Do té doby jsem soustředil hlavně na teorii (ehm, příležitostně četl knihu, občal napsal nějaký test k odhalení vlastností které mi nebyly jasné). Od nového roku jsem napsal v D několik projektů o velikosti okolo přibližně tisíc řádek. Na nich jsem poznal některé (zdaleka ne všechny) klady a zápory D.</p>
@@ -126,7 +131,9 @@
       <p id="62abb14c-a2b1-49c5-9ed3-687f3a7327ec" class="">Krátce poté co jsem ho vyladil byly do phobosu (oficiální D stdlib - API) paradoxně přidány bindingy na libcurl, která svým C API ale docela saje. S DHTTPClientem je práce o hodně pohodlnější, i když uznávám že také primitivnější a jsou věci které s ním jednoduše neuděláte.</p>
       <h2 id="3731b7f6-91e9-4399-a152-4e33c9ab6909" class="">HTML parser</h2>
       <p id="d95bd602-af8f-43c5-832f-2d4fc7889659" class="">Když už jsem měl HTTP clienta, začal jsem hledat nějaký HTML parser. V pythonu jsem celá léta používal <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, pro jeho schopnost selektivního vytahování jednotlivých tagů a nod, které potřebuji. Na rozdíl od ostatních, pro mne podivných a nepochopitelných přístupů je práce s BeautifulSoup dost intutivní. Chcete všechny odkazy na stránce? Proč ne?</p>
-      <pre id="7c9aa984-1f10-4646-ad9f-758318513857" class="code code-wrap"><code>from BeautifulSoup import BeautifulSoup as BS
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="7c9aa984-1f10-4646-ad9f-758318513857" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">from BeautifulSoup import BeautifulSoup as BS
 soup = BS(data)
 soup("a") # vrátí pole odkazů</code></pre>
       <p id="50ed7eb7-5fe3-4110-b364-8ee6cbf0a4de" class="">Podobně si můžete vytáhnout cokoliv, popřípadě znovu hledat v již vytažených elementech. Ostatní moduly pro práci s HTML/XML jsem moc nezkoumal, jen jsem párkrát zahlédl jejich použití, ve kterém programátoři modelují dokument pomocí for smyček jenž procházejí nody a moc jsem to nezkoumal, ani nepochopil (pravděpodobně se to hodí pro použití v serializaci známých dat, ale kdo ví..).</p>
@@ -168,6 +175,15 @@ soup("a") # vrátí pole odkazů</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -187,15 +203,6 @@ soup("a") # vrátí pole odkazů</code></pre>
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -227,6 +234,9 @@ soup("a") # vrátí pole odkazů</code></pre>
         </li>
         <li>
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>

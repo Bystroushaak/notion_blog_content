@@ -33,6 +33,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -52,15 +61,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -82,6 +82,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -122,13 +125,17 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="93cbfcee-d34f-48d1-a01d-c629236ec0b3" class=""><time>@2023/01/16</time></p>
       <figure class="block-color-gray_background callout" style="display:flex" id="cab4abd5-6f17-4703-982a-0d3c28207032">
         <div style="font-size:1.5em">
           <span class="icon">⚠️</span>
         </div>
         <div style="width:100%">
-          Just because I enjoy living my life without legal drama; This blog was published more than 3 years after it was written. All names, characters, and incidents portrayed here are fictitious. No identification with actual persons (living or deceased), companies, places, buildings, and products is intended or should be inferred. I work somewhere else now, and the company where this happened also works differently now.
+          Just because I enjoy living my life without legal drama; This blog was published more than 3 years after it was written. All names, characters, and incidents portrayed here are fictitious. No identification with actual persons (living or deceased), companies, places, buildings, and products is intended or should be inferred.<br>
+          <br>
+          I work somewhere else now, and the company where this happened also works differently now.<br>
         </div>
       </figure>
       <p id="016a79b4-aa5e-4694-a1fa-bb2fb81bd454" class="">Let me tell you a story about a deployment to the production. I work in a big company, compared to the local standards. Most people in the country where I live heard about "us". More than 1/14 of all citizens living here are our customers.</p>
@@ -273,11 +280,13 @@
         S: Thank you very much for all the hard work<br>
         S: And for your kind words that you wrote in that mail<br>
         S: Meanwhile, I rewrote the app using QT5<br>
-        S: I've used sched package which is included in python default packages to create that watchdog
+        S: I've used sched package which is included in python default packages to create that watchdog<br>
       </blockquote>
       <p id="40a0c349-7ebe-4bc7-88fa-e197f1e5be81" class=""><em>Well, fuck</em>. He rewrote it again. Didn't I tell him to stop doing that? And what's with the <code>shed</code> package? Quick googling leads to <a href="https://docs.python.org/3/library/sched.html">man page</a>. And proves my suspicion; this is not a watchdog, this is just an event scheduler. WTF. The difference is that it doesn't make sure that your program runs, it only allows you to specify that some action should run after some time. But only in your process, and if that fails, it will fail as well.</p>
       <p id="ef2e7a04-c6ad-422d-b707-599f4ee50aeb" class="">I look into the sources he sent me (again, <code>.zip</code> without git, <em>*sigh*</em>):</p>
-      <pre id="10c0c213-b842-47c8-8234-03e1c808431d" class="code code-wrap"><code>import shed
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="10c0c213-b842-47c8-8234-03e1c808431d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import shed
 
 ...
 
@@ -337,6 +346,15 @@ if not running:
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -356,15 +374,6 @@ if not running:
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -387,6 +396,9 @@ if not running:
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

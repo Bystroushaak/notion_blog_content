@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -84,6 +84,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -124,6 +127,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="268565ea-c162-4ef0-b6c1-4b8a24e05474" class=""><time>@2019/04/23</time></p>
       <p id="5aa66722-94aa-47b5-9213-5a4519d149f1" class="">There are many great books. I've read thousands of them, but only a few changed my life, and only few of them were universally good.</p>
       <p id="799fd660-0c49-468b-8ba3-c0d6d390c620" class="">I've read <em>Neuromancer,</em> and it changed my life, but not because it was eyes-opening, but because it stroked the right pieces of my personality. I've read <em>The Cyberthief and the Samurai,</em> and it motivated me to learn everything about computers, but most of the people would find this book boring. Likewise, I've read books like <em>Veniss Underground</em>, which made me feel like I am on a trip of some hallucinogen, and books like <em>Perdido street station</em> and <em>The Scar</em>, which sucked me in and made me feel like I live in a bizarre world that really exists. I've read books which were antidote to my bad mood, which brought light into my life and made me feel alive. This list is not about such books.</p>
@@ -132,7 +137,7 @@
       <figure id="ec8a42fa-e5e4-457a-a5dd-88a2a0871f86" class="image">
         <a href="https://www.goodreads.com/book/show/2542808.Blindsight"><img style="width:240px" src="Books_that_changed_my_point_of_view/Untitled.png"></a>
       </figure>
-      <p id="13642786-2eef-4e10-9b6c-5f7ecc5038e7" class="">On the surface level, this is just a science fiction. But this book is actually deeply about human the nature of our minds and consciousness.</p>
+      <p id="13642786-2eef-4e10-9b6c-5f7ecc5038e7" class="">On the surface level, this is just a science fiction. But this book is actually deeply about the nature of our minds and consciousness.</p>
       <p id="6032ddf1-5ba8-4baa-b693-a2d996ef4e70" class="">I've finished the book and enjoyed it alright and I thought <em>"what a great sci-fi"</em>. But then I've begun to see pieces of the theories it is based on to sneak up on me from everywhere. In the 30-years-old talks from Alan Kay. In the talks of Jordan Peterson. In the <em>Strange loop</em> by David Hofstadter.</p>
       <p id="418a1ab4-d41c-414a-b702-4ca1937f8596" class="">Only later I've seen Peter Watt's talk <a href="https://www.youtube.com/watch?v=v4uwaw_5Q3I">Conscious Ants and Human Hives</a>:</p>
       <figure id="e4f56926-63a1-4b43-9cd8-79795299b76d">
@@ -161,14 +166,15 @@
       <p id="e8fa7882-cd83-4773-88fc-784e24451f89" class="">This is what he calls a Rationality:</p>
       <blockquote id="daa0e5ef-3433-4893-8ec3-0dde10c66cbe" class="">
         * <strong>Epistemic rationality</strong>: systematically improving the accuracy of your beliefs.<br>
-        * <strong>Instrumental rationality</strong>: systematically achieving your values.<br>
+        *<br>
+        <strong>Instrumental rationality</strong>: systematically achieving your values.<br>
         <br>
         When you open your eyes and look at the room around you, you’ll locate your laptop in relation to the table, and you’ll locate a bookcase in relation to the wall. If something goes wrong with your eyes, or your brain, then your mental model might say there’s a bookcase where no bookcase exists, and when you go over to get a book, you’ll be disappointed.<br>
         <br>
         This is what it’s like to have a false belief, a map of the world that doesn’t correspond to the territory. Epistemic rationality is about building accurate maps instead. This correspondence between belief and reality is commonly called “truth,” and I’m happy to call it that.<br>
         <br>
         Instrumental rationality, on the other hand, is about steering reality—sending the future where you want it to go. It’s the art of choosing actions that lead to outcomes ranked higher in your preferences. I sometimes call this “winning.”<br>
-        So rationality is about forming true beliefs and making winning decisions.
+        So rationality is about forming true beliefs and making winning decisions.<br>
       </blockquote>
       <p id="475cc728-f28a-475e-b6ee-255a8406ba8e" class="">— <em>YUDKOWSKY, Eliezer. Rationality: From AI to Zombies. Machine Intelligence Research Institute, 2015, s. 7-8. ISBN 978-1-939311-14-6.</em></p>
       <h1 id="e8fb24e6-1aa2-456a-9d1c-c77829e8596d" class="">The Design of Everyday Things</h1>
@@ -200,6 +206,15 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -219,15 +234,6 @@
         </li>
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -250,6 +256,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>

@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../../Zmeny.html" title="Změny">more</a>
@@ -90,6 +90,9 @@
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -113,6 +116,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="ff814f60-f037-4789-9846-3bb68ae5d7ce" class=""><time>@2019/03/13</time></p>
       <p id="3c97b191-83e4-49fb-a500-e28593b736d7" class="">Dalším logickým krokem by mělo být vytvoření virtuálního stroje, který bude programovací jazyk interpretovat, a kompilátoru, který pro tento virtuální stroj zkompiluje zdrojový kód. Před tím, než se do toho můžu pustit je však třeba ujasnit si, nejlépe formou konkrétní implementace, jak bude vypadat reprezentace a rozložení objektů v paměti.</p>
       <p id="69dedfef-c946-4724-9bb3-516e368f5a20" class="">Specificky následující věci;</p>
@@ -128,14 +133,20 @@
       <h2 id="4b4efd67-d705-4425-a5bb-519ad6ae7738" class="">Selfové objekty</h2>
       <p id="ec0483e5-557d-4c16-9ab9-f2a2c1a5d30e" class="">Přestože tento seriál je určen především pro pokročilé čtenáře, od kterých očekávám alespoň základní obeznámení se Selfem, pro jistotu zde rekapituluji na prototypech založený objektový model Selfu.</p>
       <p id="1fa9ce87-436a-4db9-b7bd-21c580e5fd6c" class="">Objekty v Selfu se chovají jako asociativní pole, které na <em>konkrétním jménu</em> uchovávají buďto hodnotu, nebo odkaz na jiné objekty. Pár <em>jméno : hodnota</em> je nazýván slotem. Objekt je kolekcí takovýchto slotů.</p>
-      <pre id="add733ae-d6d7-4ef8-bca4-530e966daaa7" class="code"><code>(| slot = 1. another = 2 |)</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="add733ae-d6d7-4ef8-bca4-530e966daaa7" class="code"><code class="language-Plain Text">(| slot = 1. another = 2 |)</code></pre>
       <p id="db60b715-6fc2-4f5d-bd65-82dc99ee5367" class="">Tento objekt na jisté úrovni abstrakce odpovídá slovníku <code>{"slot": 1, "another": 2}</code>.</p>
       <p id="3e914551-dd37-48c1-b37b-fd153d3d82fd" class="">Klíče v asociativním poli jsou přeloženy na konkrétní výsledek aktem <em>poslání zprávy objektu</em>. Zprávy můžou být unární (jednoduchý string bez mezer), binární (operátory jako +-*/ a tak podobně), či <em>keyword</em> (složené z jednoho, či více klíčových slov následovaných dvojtečkou).</p>
-      <pre id="c7112f8d-5842-429a-99b4-ba53d08a4ea3" class="code"><code>obj unaryMessage.
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c7112f8d-5842-429a-99b4-ba53d08a4ea3" class="code"><code class="language-Plain Text">obj unaryMessage.
 obj + anotherObj.
 obj keyword: anotherObj Message: evenMoreObjs.</code></pre>
       <p id="50565fb8-f379-4d9e-bae0-150abd4c706f" class="">Analogie k pythonu by byla:</p>
-      <pre id="b7f4e113-bbea-4c19-9aae-ecf44967316d" class="code"><code>obj.unaryMessage()
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b7f4e113-bbea-4c19-9aae-ecf44967316d" class="code"><code class="language-Python">obj.unaryMessage()
 obj.+(anotherObj)
 obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
       <p id="3237f48e-feee-4440-96d4-216564a85f90" class="">Rozdíly oproti klasickému asociativnímu poli jsou následující:</p>
@@ -149,7 +160,9 @@ obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
         <li style="list-style-type:disc">Pokud objekt definuje rodičovský slot, je hledání slotu při neúspěchu přeneseno do něj. Tím je řešena delegace ve stylu dědičnosti.</li>
       </ul>
       <p id="fe2a8bb2-8dcb-4283-8e49-f293a13c679d" class="">Objekt je možné interně reprezentovat třídou zhruba a velmi abstraktně následujícího typu:</p>
-      <pre id="19297d00-31ee-4b01-8343-dc426a3c5284" class="code"><code>class Object:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="19297d00-31ee-4b01-8343-dc426a3c5284" class="code"><code class="language-Python">class Object:
     def __init__(self):
         self.slots = {}
         self.parents = {}
@@ -163,7 +176,9 @@ obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
       <p id="1f44eda6-641d-48de-bbb1-539867442b28" class="">V na třídách založených jazycích jsou objekty reprezentovány přibližně nějak jako pointer na třídu následovaný polem s datovými sloty udržujícími členské proměnné. Ve třídě samotné je uložen popis toho, co se dělá s datovými sloty. Tím je šetřena paměť, neboť samotná funkcionalita objektu je v ní uložena jen jednou pro všechny instance.</p>
       <p id="11af0d6d-70f3-4a21-bdb8-df92e5f78096" class="">Self je na prototypech založený jazyk, kde nic jako třídy není. Objekty nejsou <em>instancovány</em>, ale <em>klonovány</em> z jiných objektů. Přesto, či respektive právě proto, je možné použít stejný trik, jako u jazyků s třídami. Při klonování je v paměti vytvořena takzvaná <em>mapa</em> a uživateli je vrácen objekt, který je podobně jako v předchozím případě pouze polem s hodnotami a pointerem na <em>mapu</em>. Pokud uživatel klon strukturálně modifikuje (přidá / ubere / přejmenuje sloty), je pro něj vytvořena samostatná mapa, do té doby jsou však mapy sdíleny.</p>
       <p id="b6f79370-efd7-45b9-a5f1-2a36dce8633d" class="">Rozložení v paměti se tedy mění následovně:</p>
-      <pre id="fbf98e12-5e3b-47aa-a60a-5b5eb3c43097" class="code"><code>class Object:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="fbf98e12-5e3b-47aa-a60a-5b5eb3c43097" class="code"><code class="language-Python">class Object:
     def __init__(self, map=None):
         self.map = map
         self.scope_parent = None
@@ -248,6 +263,15 @@ class Map:
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -267,15 +291,6 @@ class Map:
         </li>
         <li>
           <a href="../../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -303,6 +318,9 @@ class Map:
         </li>
         <li>
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -53,15 +62,6 @@
         </li>
         <li>
           <a href="../../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../../../Zmeny.html" title="Změny">more</a>
@@ -98,6 +98,9 @@
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -121,14 +124,20 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="ebfbab9d-0997-4d7e-9d2a-eff3a907de26" class=""><time>@2019/02/24</time></p>
       <p id="03fb45e0-8bc8-4110-8606-ae91131be017" class="">Parser parsuje, testy procházejí a svítí zeleně. Co víc si přát. Snad jen .. Ve všemožných článcích psali, že je dobré provádět časté testy, zda jde kód přeložit RPythonem. Během psaní parseru to nemělo smysl, protože parser je obtížně dělitelný kus a moje soustředění mířilo směrem k projití unittesty. Řešit u toho ještě datové typy a všechna omezení RPythonu mi přišlo jako zbytečný masochismus, který by mohl způsobit, že projekt nikdy nedodělám.</p>
       <p id="e64c2589-7e2f-439f-9776-6cd5c77c28f5" class="">Normální unittesty pouštím scriptem <code>run_tests.sh</code>, který obsahuje následující kód:</p>
-      <pre id="40da81cb-6624-4131-a88c-9b6e62f3ea9c" class="code"><code>#! /usr/bin/env bash
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="40da81cb-6624-4131-a88c-9b6e62f3ea9c" class="code"><code class="language-Shell">#! /usr/bin/env bash
 export PYTHONPATH="src/:$PYTHONPATH"
 python2 -m py.test tests $@</code></pre>
       <p id="7ae683d2-cbb0-4621-9f02-1d9b3b3e663c" class="">Ten je následně pouštěn scriptem <a href="https://github.com/joh/when-changed">when-changed</a>, jenž detekuje změny na disku a při každé úpravě zdrojových kódů pustí testy:</p>
-      <pre id="a94b605e-385a-4ab3-a452-bf466659be1c" class="code"><code>when-changed -s -r src/tinySelf/*.py -r tests/*.py -c ./run_tests.sh -s</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a94b605e-385a-4ab3-a452-bf466659be1c" class="code"><code class="language-Shell">when-changed -s -r src/tinySelf/*.py -r tests/*.py -c ./run_tests.sh -s</code></pre>
       <p id="72928d2c-689a-440a-a5f4-e510cdd48e21" class="">Parametr <code>-s</code> zachycuje stdout z testů.</p>
       <figure id="81a6a1bb-d9c1-4dfb-8716-842f38073d43" class="image">
         <a href="passing_tests.png" title="passing_tests.png"><img style="width:600px" src="passing_tests.png"></a>
@@ -136,23 +145,33 @@ python2 -m py.test tests $@</code></pre>
       <h2 id="f8a46fe1-393f-4df1-8a39-5f828968ec6b" class="">RPython testy</h2>
       <p id="e4902ad1-02a4-437f-897d-524b32399029" class="">RPython takto pouštět nemůžu, neboť se nejedná o unittesty, ale spíš test kompilace trvající na mém domácím počítači klidně minutu.</p>
       <p id="8ec866bf-d7d3-4396-97c3-7fa490f42da8" class="">Pro RPython jsem si do začátku napsal následující scriptík <code>run_rpython_test.sh</code>:</p>
-      <pre id="a89ab2b8-8c30-4254-bb70-aa2874844358" class="code"><code>#! /usr/bin/env bash
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a89ab2b8-8c30-4254-bb70-aa2874844358" class="code"><code class="language-Shell">#! /usr/bin/env bash
 $HOME/Plocha/tests/pypy/rpython/bin/rpython src/tinySelf/target.py</code></pre>
       <h3 id="26f6065c-413a-45b5-b4c6-403839a5d1eb" class="">Pypy</h3>
       <p id="59551d7b-57cf-4390-817f-5d9dd6aa50bf" class="">Jak je možné vidět, ten předpokládá, že v adresáři <code>$HOME/Plocha/tests</code> je naklonovaný repozitář projektu <a href="https://bitbucket.org/pypy/pypy">pypy</a>. To je možné udělat například příkazem:</p>
-      <pre id="e134e897-d2f5-479d-90b4-fb907109484e" class="code"><code>hg clone https://bitbucket.org/pypy/pypy</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="e134e897-d2f5-479d-90b4-fb907109484e" class="code"><code class="language-Plain Text">hg clone https://bitbucket.org/pypy/pypy</code></pre>
       <p id="f4e35067-f77d-42a5-90d1-fac743bc0b73" class="">ve složce <code>$HOME/Plocha/tests</code>.</p>
       <p id="204967d1-fa29-4f85-b15c-63d8c4394917" class="">Repozitář je možné zkompilovat a zajistit si tak nejnovější verzi pypy. Osobně to tak ale nedělám, protože to trvá dlouho, nejnovější revize repozitáře typicky obsahuje bugy a navíc kompilace má spoustu závislostí. Proto používám pypy z repozitáře (<code>sudo apt install pypy</code>) a využívám jen nejnovější <em>RPython toolkit</em>, který je s pypy distribuovaný.</p>
       <p id="fb56c6c8-92d4-48aa-852c-8220432702c8" class="">Jakmile mám pypy nainstalované, stáhnu si ještě PIP (python package manager) pro pypy (standardní funguje jen pro cpython):</p>
-      <pre id="5de25e4b-568a-499e-8abf-ff75bc9a1336" class="code"><code>curl https://bootstrap.pypa.io/get-pip.py | sudo pypy</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5de25e4b-568a-499e-8abf-ff75bc9a1336" class="code"><code class="language-Plain Text">curl https://bootstrap.pypa.io/get-pip.py | sudo pypy</code></pre>
       <p id="8308f799-72b3-44eb-a6dd-6f151ed89215" class="">Poté do pypy doinstaluji nejnovější verzi parsovacího balíku <a href="https://github.com/alex/rply">rply</a>:</p>
-      <pre id="9461fd58-0e54-4335-b7e1-733d49f312f5" class="code"><code>pypy -m pip install --user rply</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="9461fd58-0e54-4335-b7e1-733d49f312f5" class="code"><code class="language-Plain Text">pypy -m pip install --user rply</code></pre>
       <p id="935d4a2c-4387-44f2-a2f5-4f19f5539da0" class="">V repozitáři debian based systémů se nachází balík pypy-rply, který ale nedoporučuji používat, protože může být zastaralý vůči PIPu (v době psaní článku je v debian repozitáři verze 0.7.4-3 a v pipu 0.7.5).</p>
       <h1 id="6f10e555-8c51-40cd-a90a-07bd77dff1d9" class="">target.py</h1>
       <p id="11a1eba8-07b3-467d-848d-f27ee95c4728" class="">Pouštěný script <a href="http://target.py"><code>target.py</code></a> definuje vstupní kompilační bod. V něm musí být minimálně dvě funkce - <code>target()</code> a poté funkce která slouží jako vstupní bod spuštěného programu. V podstatě se jedná o takové <code>meta-main()</code> známé z C jazyků, tedy funkci určující funkci main. Mám pocit, že na linuxu se k tomu pod libc <a href="https://stackoverflow.com/questions/15919356/c-program-start">běžně používá</a> __start.</p>
       <p id="e6826aaf-91c6-47fa-8c4c-2cdb8aeac878" class="">Obsah funkce <code>target()</code> se spouští v době překladu a proto je možné v něm provádět různé meta-programování, například volat funkce, které vygenerují funkce, které jsou poté zkompilovány.</p>
       <p id="3fd1c62b-d739-487d-b1e4-e4e73070b668" class="">Osobně jsem do začátku použil jen nejjednodušší target.py:</p>
-      <pre id="847fa0ba-2d70-4a30-ac5f-9c56a9758dee" class="code"><code>#! /usr/bin/env python2
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="847fa0ba-2d70-4a30-ac5f-9c56a9758dee" class="code"><code class="language-Python">#! /usr/bin/env python2
 # -*- coding: utf-8 -*-
 from rpython.jit.codewriter.policy import JitPolicy
 from parser import lex_and_parse
@@ -221,12 +240,16 @@ if __name__ == '__main__':
       <p id="03c8c121-24fe-409e-bf94-e7a01e2e1d91" class="">Mezi významná omezení patří například omezení proměnných pouze na jeden datový typ v daném <em>scope</em>. To znamená, že do nich nemůžete přiřadit hodnotu s jiným datovým typem, jakmile je jednou použijete. Seznamy musí být celé tvořeny z jednoho datového typu. Closures nefungují vůbec. List comprehensions fungují, ale ne úplně tak jak by člověk čekal. Generátory jsou více/méně podporovány, ale nejdou s nimi dělat různé psí kusy, jako třeba kompozice.</p>
       <p id="f76a9371-e624-4188-a449-4dd1a383006c" class="">Otravně omezující je nutnost všech funkcí v parseru vracet stejný datový typ, resp. třídu odvozenou od stejného datového typu. <code>rply</code> k tomu nabízí <a href="https://github.com/alex/rply/blob/master/rply/token.py#L1">rply.token.BaseBox</a>, od které musí být poděděny všechny AST prvky. Navíc je však ale třeba přepsat i všechny parsovací funkce tak, aby nevracely <code>list</code>, <code>dict</code>, nebo jiné nativní typy, ale datový typ odvozený od <code>BaseBox</code>u.</p>
       <p id="5a0ffda4-eb3a-4d68-a480-2d5ca8543316" class="">Proto jsem byl nucen nadefinovat třídy <code>StrContainer</code>, <code>DictContainer</code>, <code>ListContainer</code> a <code>KwSlotContainer</code>, a používat je na místech, kde jsem dříve používal prostě jen <code>dict</code>, nebo <code>list</code>. Původně jsem chtěl použít jen Container, který by udržoval obecný datový typ, ale ukázalo se, že na něj taky platí omezení a pro jednu instanci je možné použít jen jeden datový typ. Do třídy ve stylu:</p>
-      <pre id="5cc5e5a0-0577-479e-9fde-89f87c5bf312" class="code"><code>class Container(object):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5cc5e5a0-0577-479e-9fde-89f87c5bf312" class="code"><code class="language-Python">class Container(object):
   def __init__(self, data):
     self.data = data</code></pre>
       <p id="ce7de1d9-5e6b-4feb-bef9-9675de086509" class="">není možné v různých instancích uložit různé datové typy. To je pro mě jakožto dlouhodobého programátora v pythonu docela nezvyk.</p>
       <p id="6593d087-a9fc-4a71-aa6e-e881002758ab" class="">Hezky je to vidět například na parsovací funkci <code>kw_slot_definition()</code>, která se proměnila z</p>
-      <pre id="7e98f4ef-ef69-48e2-9f68-ff90324b49b6" class="code"><code>@pg.production('slot_definition : kw_slot_name ASSIGNMENT expression')
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="7e98f4ef-ef69-48e2-9f68-ff90324b49b6" class="code"><code class="language-Python">@pg.production('slot_definition : kw_slot_name ASSIGNMENT expression')
 def kw_slot_definition(p):
     assert isinstance(p[2], Object), "Only objects are assignable to kw slots!"
 
@@ -238,7 +261,9 @@ def kw_slot_definition(p):
 
     return {slot_name: obj}</code></pre>
       <p id="8eb34dc5-8861-439d-a3c7-9d69c2554459" class="">na</p>
-      <pre id="913b749f-2263-44c1-8c5b-391fda43ca59" class="code"><code>@pg.production('slot_definition : kw_slot_name ASSIGNMENT expression')
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="913b749f-2263-44c1-8c5b-391fda43ca59" class="code"><code class="language-Python">@pg.production('slot_definition : kw_slot_name ASSIGNMENT expression')
 def kw_slot_definition(p):
     slot_info = p[0]
     obj = p[2]
@@ -251,7 +276,9 @@ def kw_slot_definition(p):
     return DictContainer({slot_info.slot_name: obj})</code></pre>
       <p id="e6dc9ff0-a859-4905-9d25-ccbb77562d79" class="">Za povšimnutí stojí také několik použití <code>assert isinstance(..)</code>. V prvním případě používám <code>assert</code> tak, jak byl zamýšlen, tedy k ujištění se, že do funkce nepoleze datový typ jiný než objekt a pokud ano, tak vyhodím chybovou hlášku.</p>
       <p id="6d9a221e-2a05-419e-ad6d-c135a2513e9b" class="">Ve druhém případě <code>assert</code> nefunguje jako příkaz pro ujištění, ale jako <em>type hint</em> (<em>typová nápověda</em>) pro RPython, který mu říká, jakého datového typu jsou dané parametry. Pokud bych ho neuvedl, došlo by v době překladu k vyhození výjimky, která může vypadat například takto:</p>
-      <pre id="1891ff42-99c2-4cf5-b842-348dd417ecbc" class="code"><code>[translation:ERROR] NoSuchAttrError: 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1891ff42-99c2-4cf5-b842-348dd417ecbc" class="code"><code class="language-Plain Text">[translation:ERROR] NoSuchAttrError: 
 
 the attribute 'params' goes here to &lt;ClassDef 'rply.token.BaseBox'&gt;, but it is forbidden here
 
@@ -299,6 +326,15 @@ Happened at file src/tinySelf/parser.py line 461
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -318,15 +354,6 @@ Happened at file src/tinySelf/parser.py line 461
         </li>
         <li>
           <a href="../../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../../../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../../../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -362,6 +389,9 @@ Happened at file src/tinySelf/parser.py line 461
         </li>
         <li>
           <a href="../../../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../../../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../../../Ostatni.html" title="Ostatní">📂 Ostatní</a>

@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -92,6 +92,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -132,6 +135,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="12a1b565-38bc-48e1-872f-bf1c85691e7a" class=""><time>@2021/10/29</time></p>
       <p id="eafd23df-94c4-4dca-80e6-aa13593b597f" class="">This will be a weird blogpost, here is some context:</p>
       <p id="80b292f1-879d-4452-b4bc-9ab9352c3b08" class="">I've been working on tinySelfEE for some time, but basically, I didn't touch it for more than six months now. And I feel like I don't really know how to start, or what I was even working on before. That weird feeling, when you find ancient artifacts left by strange civilization, which was yourself in the past.</p>
@@ -142,7 +147,9 @@
       </figure>
       <p id="c0492286-fa2e-4c6f-8ddd-20f47e8549e6" class="">From what I remember, tokenizer is working fine. Parser is mostly done, there is still stuff that could be improved, but at the moment, it works.</p>
       <p id="39516a4f-cdc5-4eef-b8d5-c6e2d077baf9" class="">I have the project set up so that when I run it, it parses the input file called <code>simple_send.tself</code>:</p>
-      <pre id="741ba507-e844-4099-8408-49986e2eca7b" class="code code-wrap"><code>(|
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="741ba507-e844-4099-8408-49986e2eca7b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">(|
     slot: parameter = (| var = 1. |
         (parameter + 1) printString.
         parameter + 1.
@@ -150,11 +157,15 @@
 |) slot: 1</code></pre>
       <p id="731d1eb8-de07-4031-a8a7-254017b3ea83" class="">It defines an object, which has one keyword slot called poetically <code>slot:</code>, which takes one <code>parameter</code> and defines one unused local variable <code>var</code>. When called at the last line, it should print <code>parameter + 1</code> (⇒ <code>2</code>) and then also return the resulting value <code>2</code>.</p>
       <p id="5956aa77-e46c-4a74-a128-c28ee7e23a8f" class="">When I run it, it prints the AST:</p>
-      <pre id="83377521-b4d6-4a2d-bb82-49b4b47eee7a" class="code code-wrap"><code>Send{obj=Obj{parents=null, slots={slot:=Obj{parents=null, slots={var=NumberInt{value=1}}, arguments=[parameter], code=[Send{obj=Send{obj=Send{obj=Self{}, message=MessageUnary{message_name='parameter'}}, message=MessageBinary{message_name='+', parameter=NumberInt{value=1}}}, message=MessageUnary{message_name='printString'}}, Send{obj=Send{obj=Self{}, message=MessageUnary{message_name='parameter'}}, message=MessageBinary{message_name='+', parameter=NumberInt{value=1}}}]}}, arguments=null, code=null}, message=MessageKeyword{message_name='slot:', parameter=[NumberInt{value=1}]}}</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="83377521-b4d6-4a2d-bb82-49b4b47eee7a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">Send{obj=Obj{parents=null, slots={slot:=Obj{parents=null, slots={var=NumberInt{value=1}}, arguments=[parameter], code=[Send{obj=Send{obj=Send{obj=Self{}, message=MessageUnary{message_name='parameter'}}, message=MessageBinary{message_name='+', parameter=NumberInt{value=1}}}, message=MessageUnary{message_name='printString'}}, Send{obj=Send{obj=Self{}, message=MessageUnary{message_name='parameter'}}, message=MessageBinary{message_name='+', parameter=NumberInt{value=1}}}]}}, arguments=null, code=null}, message=MessageKeyword{message_name='slot:', parameter=[NumberInt{value=1}]}}</code></pre>
       <p id="8b2a3323-7a2e-4235-954f-c6d5c67d18fb" class="">AST is basically a tree consisting of Send, which takes as a first parameter the definition of the object, and as a second parameter definition of a message.</p>
       <p id="11637d7d-6652-4542-b222-8e49160ade58" class="">Man, I really wish I implemented printing to the plantuml syntax because this is pretty unreadable. Lets put it into TODO.</p>
       <p id="f56e83b7-5885-4b33-9b8c-6c8d3ae25db7" class="">That seems to be working. Then there is a result of compilation to the symbolic structure:</p>
-      <pre id="fff7a97d-b59b-4ec1-88f9-12c71757f13c" class="code code-wrap"><code>SymbolicSend(
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="fff7a97d-b59b-4ec1-88f9-12c71757f13c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">SymbolicSend(
   SymbolicObject(
     id: 0,
     version: 1,
@@ -251,6 +262,8 @@
       <h1 id="3ea77705-22d2-4250-8fd4-f7e09732062a" class="">Let's work on it</h1>
       <p id="0f26ae4b-6c28-4c24-a555-91d8b5103aa4" class="">Ok. So, what is missing. From what I understand now, the evaluation should be just a matter of calling <code>.evaluate()</code> on the root of the output from <code>SymbolicCompiler</code>. Lets try that.</p>
       <p id="a098d464-ecbe-4768-9b59-8d5e9ca19d45" class="">My <code>Main</code> class calles this method:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">runFile</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">file_path</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">file_path</span><span class="p">));</span>
 <span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ASTItem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseSourceAndPrintErrors</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">));</span>
@@ -263,6 +276,8 @@
 <span class="p">}</span>
 </code></pre>
       <p id="2db7c6a3-d75b-4efc-85fe-4686f6dccdb8" class="">Let's add evaluation:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"---"</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Symbolic evaluation time:\n"</span><span class="p">);</span>
 
@@ -274,6 +289,8 @@
 </code></pre>
       <p id="66e9f094-9f3b-4c13-8418-e95c8b8addeb" class="">I've added an empty <code>namespace</code> object, which will in time hold default objects required for the interpreter to be able to do anything useful.</p>
       <p id="f786ce2b-22c6-45fe-8404-0fa8c69a8395" class="">And I've added toplevel <code>frame</code>. I call it and it does .. nothing. I can't say I expected more. Let's look at the implementation of the <code>SymbolicSend</code>'s evaluate method:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">SymbolicObject</span><span class="w"> </span><span class="n">namespace</span><span class="p">,</span><span class="w"> </span><span class="n">SymbolicFrame</span><span class="w"> </span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="p">}</span>
@@ -281,6 +298,8 @@
       <p id="a5d0881a-a5cc-4587-944b-71d35f515e01" class="">Unsurprisingly, it's empty. Ok.</p>
       <h1 id="529bd2df-420c-4777-be0d-893d48305228" class="">Symbolic evaluation</h1>
       <p id="035eca50-92f6-4c30-a2c6-86a7701d776d" class="">Hmm, how should it work. I can see, that the <code>SymbolicObject</code> has this implementation of the <code>.evaluate()</code> method:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="nd">@Override</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">SymbolicObject</span><span class="w"> </span><span class="n">namespace</span><span class="p">,</span><span class="w"> </span><span class="n">SymbolicFrame</span><span class="w"> </span><span class="n">frame</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">frame</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
@@ -301,22 +320,30 @@
         </li>
       </ul>
       <p id="dfc1a28a-615f-421c-8528-5c9a61b001c8" class="">Bleh. I am starting to be anxious, and I feel great feel to go procrastinate. I solved and invented so much stuff in the tinySelf, that it feels really, really bad to reinvent it again in the tinySelfEE. Let's look at the <code>._do_send()</code> implementation in tinySelf:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">_set_scope_parent_if_not_already_set</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
 </code></pre>
       <p id="ea6a2a4b-69f6-430f-bae3-03b26b444a12" class="">and:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">_set_scope_parent_if_not_already_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">scope_parent</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">obj</span><span class="o">.</span><span class="n">scope_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">universe</span>
 </code></pre>
       <p id="47e6afbd-16d2-4c66-81c4-0811402b59d0" class="">Aha. The object to which the message is sent is taken from the top of the stack frame. And the global namespace is inserted into the <code>.scope_parent</code> property if it is not already set. That makes sense.</p>
       <p id="2eab5644-5624-4c67-a20b-00c42786ea96" class="">And there is <code>_do_push_self()</code> instruction, which takes the <code>self</code> from the frame. So the frame knows what is <code>self</code>. Ok.</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">_do_push_self</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bc_index</span><span class="p">,</span> <span class="n">code_obj</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">self</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">ONE_BYTECODE_LONG</span>
 </code></pre>
       <p id="db8729f7-2e2f-4e96-a024-7218b9a90929" class="">And since it is bytecode inrepreter and objects are literals, when pushing new object to the frame, it stores the <code>self</code>:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">elif</span> <span class="n">literal_type</span> <span class="o">==</span> <span class="n">LITERAL_TYPE_OBJ</span><span class="p">:</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">boxed_literal</span><span class="p">,</span> <span class="n">ObjBox</span><span class="p">)</span>
 
@@ -325,7 +352,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">self</span> <span class="o">=</span> <span class="n">obj</span>
 </code></pre>
       <p id="aec09e15-8572-4fb7-b654-6aefbd614a71" class="">Ok, this is an ugly solution. For one, I don't understand why I didn't solve this in the frame itself. I've updated the <code>push()</code> method of the frame to this:</p>
-      <pre id="740ed7c0-43e6-4391-8547-4a252681d700" class="code code-wrap"><code>ObjectRepr self;
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="740ed7c0-43e6-4391-8547-4a252681d700" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">ObjectRepr self;
 boolean has_self = false;
 
 public void push(ObjectRepr obj) {
@@ -342,7 +371,9 @@ public void pushSelf() {
     push(self);
 }</code></pre>
       <p id="b3e63fec-281a-4efc-b1cd-eedebd257800" class="">What next. Update <code>.evaluate()</code> of the <code>SymbolicSend</code> to call object's <code>.evaluate()</code> to push it on top of the frame and make it <code>self</code>. Ok. It now looks like this:</p>
-      <pre id="69dfaa35-f325-4d5e-9131-16474230eda7" class="code code-wrap"><code>public void evaluate(SymbolicObject namespace, SymbolicFrame frame) {
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="69dfaa35-f325-4d5e-9131-16474230eda7" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public void evaluate(SymbolicObject namespace, SymbolicFrame frame) {
     if (send_to_self) {
         frame.pushSelf();
     } else {
@@ -352,7 +383,9 @@ public void pushSelf() {
 }</code></pre>
       <p id="7c313c37-0e8d-4476-8033-8c9e956c66d9" class="">Now it would be a good idea to see if it really works and how the frame looks like when this is executed.</p>
       <p id="411f2808-197b-41ee-a3e3-cce8f9a9fc8f" class="">*After some bugfixes*</p>
-      <pre id="65b509b2-5301-4468-ab9a-065817e7232e" class="code code-wrap"><code>Frames:
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="65b509b2-5301-4468-ab9a-065817e7232e" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Frames:
 
 SymbolicFrame(
     depth: 0,
@@ -391,6 +424,15 @@ SymbolicFrame(
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -410,15 +452,6 @@ SymbolicFrame(
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -449,6 +482,9 @@ SymbolicFrame(
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

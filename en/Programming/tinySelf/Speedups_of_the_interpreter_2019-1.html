@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -92,6 +92,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -132,6 +135,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="cd88bf70-0773-4cda-aafb-f3f2ad917681" class=""><time>@2019/01/29</time></p>
       <p id="381a2a80-9fdf-4217-bc1b-a8c13e5dc593" class="">So, since I did some benchmarks (<a href="Simple_while_benchmark_20190106.html" title="Simple while benchmark 2019.01.06">Simple while benchmark 2019.01.06</a>), I had high hopes for speedup using rpython's JIT.</p>
       <p id="172d60a5-0dce-4920-bc02-d9d0c19c65b9" class="">As it turned out, it didn't work at all - it actually runs many times slower (62 seconds instead of 17).</p>
@@ -139,7 +144,9 @@
       <p id="a84a9b94-a142-453d-82b1-ccb2cab33764" class="">With those improvements, code run 20% faster than without JIT. Obviously, this wasn't acceptable, so I had to investigate.</p>
       <h1 id="22b061f5-9184-494b-a0b8-ed46a2d9c3f3" class="">Numeric ints</h1>
       <p id="d64c7797-c875-4044-ae48-243605449395" class="">So far, I have been using boxed integer values represented as</p>
-      <pre id="520b59d0-81f2-4b90-bf10-12ca07bcb94b" class="code"><code>def add(_, self, parameters):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="520b59d0-81f2-4b90-bf10-12ca07bcb94b" class="code"><code class="language-Python">def add(_, self, parameters):
     obj = parameters[0]
     # yeah, this can't be factored out, I've tried..
     assert isinstance(self, PrimitiveIntObject)
@@ -190,14 +197,18 @@ class PrimitiveIntObject(_NumberObject):
       <p id="03c5f35e-2a3a-45b5-8209-6e284ee69b4b" class="">At least I've added <code>_immutable_fields_ = ["value"]</code> declaration to all constant primitives, but it turned out that this didn't improve the performance either. Ouch^2.</p>
       <h1 id="9d4b7871-9a00-41d4-aeac-b59ec5a5a2ed" class="">Profiling logs</h1>
       <p id="0fec2019-91ca-40a3-95f9-3cb4b35c22c9" class="">Instead of guessing, I've decided to profile the code. I've only profiled the code with profiler once before using <code>valgrind</code>, so I've just used google and found out <a href="http://www.pixelbeat.org/programming/profiling/">Linux Profiling tools and techniques</a>, which gave me two commands to run:</p>
-      <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code"><code>valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code"><code class="language-Bash">valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
       <figure id="bb40f15d-1907-443b-95e0-234b37a1f084">
         <div class="source">
           <a href="Speedups_of_the_interpreter_2019-1/callgrind.out.2530.txt" title="callgrind.out.2530.txt">callgrind.out.2530.txt</a>
         </div>
       </figure>
       <p id="f02f86f9-d87a-4692-a6b2-b34facc63bec" class="">and then</p>
-      <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code"><code>kcachegrind callgrind.out.*</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code"><code class="language-Bash">kcachegrind callgrind.out.*</code></pre>
       <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
       <figure id="673efe48-d19b-4297-9615-374f379d0cef" class="image">
         <a href="Speedups_of_the_interpreter_2019-1/profiler_1.png" title="profiler_1.png"><img style="width:1920px" src="Speedups_of_the_interpreter_2019-1/profiler_1_thumb.jpg"></a>
@@ -220,7 +231,9 @@ class PrimitiveIntObject(_NumberObject):
         <a href="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11.png" title="2019-01-2923.45.11.png"><img style="width:384px" src="Speedups_of_the_interpreter_2019-1/2019-01-2923.45.11.png"></a>
       </figure>
       <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again:</p>
-      <pre id="be2fe417-3154-4c65-9d2a-f46acf66cba7" class="code"><code>class PrimitiveIntObject(_NumberObject):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="be2fe417-3154-4c65-9d2a-f46acf66cba7" class="code"><code class="language-Python">class PrimitiveIntObject(_NumberObject):
     _immutable_fields_ = ["value"]
     def __init__(self, value, obj_map=None):
         _NumberObject.__init__(self, obj_map)
@@ -230,7 +243,9 @@ class PrimitiveIntObject(_NumberObject):
       <p id="422d5551-ddfb-4fd5-a95f-3d5979ac1459" class="">Fortunately, this is easy to fix. Just share the map between all ints (floats, strings). Quick fix and benchmark for ints proves, that this indeed speeds up the execution significantly; from ~18 seconds to 12 with unoptimized rpython translation without JIT.</p>
       <p id="9d98a8c6-dd08-4a08-8ef4-6e880a18db07" class="">Additional optimizations on strings, and floats got down the execution time to something around 8 seconds.</p>
       <p id="4139de6a-3eea-4dc5-8d86-bf67118d5576" class="">Constructor of the primitive int now looks like this:</p>
-      <pre id="8b00616c-7755-403c-a38e-38d1621b6cc3" class="code"><code>class PrimitiveIntObject(_NumberObject):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="8b00616c-7755-403c-a38e-38d1621b6cc3" class="code"><code class="language-Python">class PrimitiveIntObject(_NumberObject):
     _OBJ_CACHE = ObjCache()
     _immutable_fields_ = ["value"]
     def __init__(self, value, obj_map=None):
@@ -264,14 +279,18 @@ class PrimitiveIntObject(_NumberObject):
       <p id="f2d8c35a-d4bd-4288-98cc-a8406764c1d4" class="">And then I remembered - every time I change a structure of an object, I am currently creating the copy of the map.</p>
       <p id="b15d7104-e0f3-4a18-b51d-748e0fb05cd5" class="">You see, when you have Object and his clone, and you add or remove or shift slots in one of them, they don't anymore share same map, otherwise they both would be changed. I didn't have any checks, so each operation like addition of the new slot created new map, even if the map wasn't shared between multiple objects.</p>
       <p id="95e5dc5f-02e9-4794-adaf-287c248d6bd9" class="">It turned out, that this also have massive impact on performance as it got simple while benchmark execution time down to 4.2 seconds. And only change it required is to add new method and bool property to check when doing structural changes:</p>
-      <pre id="239d926c-329f-45a2-a6a2-bbd7d011442a" class="code"><code>def _clone_map_if_used_by_multiple_objects(self):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="239d926c-329f-45a2-a6a2-bbd7d011442a" class="code"><code class="language-Python">def _clone_map_if_used_by_multiple_objects(self):
         if self.map.used_in_multiple_objects:
             self.map = self.map.clone()</code></pre>
       <p id="58af517a-c0b5-4037-99a1-3d16cdce05f5" class="">as you can see in <a href="https://github.com/Bystroushaak/tinySelf/commit/f5f0efe4559742bf91973184893a01923fff4e3b">f5f0efe4559742bf91973184893a01923fff4e3b</a>.</p>
       <h1 id="7418f07a-3138-4166-84cc-38787f75054c" class="">Clone block traits</h1>
       <p id="9b93e5f7-d1c4-4bc9-87cc-cb1a32d97822" class="">Another low hanging fruit is block traits, which is an object, that is created and dynamically bound to each block literal moved on stack. Simply by caching this object, cloning it and change the replacement, I've got down another almost second down to 3.47 seconds.</p>
       <p id="84663859-6bab-4212-a9de-c42c78e8369c" class="">Instead of</p>
-      <pre id="6db855d7-750c-4b93-abc1-ed6d0a1a037b" class="code"><code>def add_block_trait(block):
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="6db855d7-750c-4b93-abc1-ed6d0a1a037b" class="code"><code class="language-Python">def add_block_trait(block):
     obj = Object()
     obj.meta_add_slot("value", block)
     obj.meta_add_slot("with:", block)
@@ -286,7 +305,9 @@ class PrimitiveIntObject(_NumberObject):
 
 return obj</code></pre>
       <p id="76180af9-4268-4fc1-8f42-3cf8c5e8af08" class="">there is now cached version:</p>
-      <pre id="5d3ce8de-30bc-42e6-b498-bd18cb3754c8" class="code"><code>def _create_block_trait_prototype():
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5d3ce8de-30bc-42e6-b498-bd18cb3754c8" class="code"><code class="language-Python">def _create_block_trait_prototype():
     obj = Object()
 
     placer = PrimitiveNilObject()
@@ -368,6 +389,15 @@ def add_block_trait(block):
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -387,15 +417,6 @@ def add_block_trait(block):
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -426,6 +447,9 @@ def add_block_trait(block):
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

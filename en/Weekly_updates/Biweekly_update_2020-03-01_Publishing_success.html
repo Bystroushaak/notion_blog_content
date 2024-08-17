@@ -34,6 +34,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
     <div>
@@ -79,6 +79,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -133,7 +136,8 @@
       <blockquote id="06fc8c11-f1de-4b48-8858-ea2414f79a01" class="">
         So what would be a better way to solve this?<br>
         <br>
-        We can reimagine the whole thing. Probably the most interesting take on this is <a href="http://www.jsnover.com/blog/2011/10/01/monad-manifesto/">the monad manifesto</a>. The problem with monad is that it doesn't go far enough. But they do hit on a key thing: files and streams was a great metaphor to describe most compute work in the 60s, and for a while it was the best there was. But around the same time a more solid idea was forming, though it wouldn't evolve into it's full potential until the 70s: Objects (in the smalltalk sense, not simula).<br>
+        We can reimagine the whole thing. Probably the most interesting take on this is<br>
+        <a href="http://www.jsnover.com/blog/2011/10/01/monad-manifesto/">the monad manifesto</a>. The problem with monad is that it doesn't go far enough. But they do hit on a key thing: files and streams was a great metaphor to describe most compute work in the 60s, and for a while it was the best there was. But around the same time a more solid idea was forming, though it wouldn't evolve into it's full potential until the 70s: Objects (in the smalltalk sense, not simula).<br>
         <br>
         So lets revisit the OS, and the file system. So the idea is simple: everything in the OS is an isolated, completely obtuse "thing" we call this objects. And everything is an object, from the CPU running your code, to the kernel, to its scheduler, to the data you transfer outside. Your program itself is an object, though it's hidden internally. Generally objects don't expose their internals, instead you pass a message to them. The message may itself contain an object, to which the receiving object may then send another message with its internals. Objects sending and receiving of messages are not guaranteed to be in series, though some may.<br>
         <br>
@@ -154,7 +158,7 @@
         <br>
         Then we revisit the whole pattern of how we code things. Generally instead of building a full program, we build a series of programs that work well together. The most fundamental program would be one that lets programs work together. So if I were doing vi, it would be a system that loads a view, and a key-press mapper (we don't use the standard ttl of course). The view shows a buffer, which is an object that lets me do arbitrary selections and actions. Most transformations would be done through a visitor-like pattern, it the visitor actually may output a transformation, and allows it to work more like recursive schemes. The viewer doesn't use a raw-buffer, but instead one wraps the data, but allows arbitrary style information added on a second layer. My loading script will actually add extra layers, realizing when it's code, or such allowing me further functionality and more rich view. The loading script also loads a bunch of keyboard bindings, which bind to specific objects/visitors/transformers which do actions. So I could start a select-search command, which selects all pieces of text that fullfill a regex, and then a replace command, which replaces those selections with whatever text I input. If it's code I could automatically load another searcher which uses the same command for all languages, the semantic searcher which lets me do things like select all directly named instances of this variable/function but ultimately just changes whatever the selection of the buffer is. I can then do the same replace or such.<br>
         <br>
-        Basically the Unix philosophy got to its limits because computers started doing all sorts of things that the original model never considered. It lost it's structure and philosophy as it adapted and exceptions became more common than the rule, and decisions that now weren't the best one had to be kept to not loose existing features. But nowadays we have a better system to solve it, one that has proven it self time and time again. I think it would be interesting to build an OS that was like this from the beginning. Unix-like scenarios could be allowed, as Unix is simply a special case of the model.
+        Basically the Unix philosophy got to its limits because computers started doing all sorts of things that the original model never considered. It lost it's structure and philosophy as it adapted and exceptions became more common than the rule, and decisions that now weren't the best one had to be kept to not loose existing features. But nowadays we have a better system to solve it, one that has proven it self time and time again. I think it would be interesting to build an OS that was like this from the beginning. Unix-like scenarios could be allowed, as Unix is simply a special case of the model.<br>
       </blockquote>
       <p id="c05ecfd0-d564-41ba-9133-518b45db7dff" class="">I am also preparing new node (sub-page) that should work as a directory to all articles about structured systems.</p>
       <h1 id="b244001f-5ddb-4ba3-ac81-723afbc3aab7" class="">Object wiki update</h1>
@@ -198,7 +202,7 @@
       <blockquote id="1243f139-e062-4277-af51-2d704c1fabf8" class="">
         Imagine a crown of thorns, twisted, dark and unreflective, grown too thickly tangled to ever rest on any human head. Put it in orbit around a failed star whose own reflected half-light does little more than throw its satellites into silhouette. Occasional bloody highlights glinted like dim embers from its twists and crannies; they only emphasized the darkness everywhere else.<br>
         Imagine an artifact that embodies the very notion of torture, something so wrenched and disfigured that even across uncounted light years and unimaginable differences in biology and outlook, you can't help but feel that somehow, the structure itself is in pain.<br>
-        Now make it the size of a city.
+        Now make it the size of a city.<br>
       </blockquote>
       <p id="20059e50-2779-406f-adaf-7f1c94072588" class="">This story literally has a most amazing alien artifact, most interesting and very specific starfish like aliens, awesome spaceship and actual, very distinctive "vampire" mixed from the DNA of autists and psychopaths. But sure. Let's just slap there some random (female!) robot head and just be done with it.</p>
       <hr id="8b4c212c-c903-4d90-bea0-59830e4c1f3c">
@@ -257,15 +261,6 @@
           <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/xVZgUiRljdU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </figure>
-      <hr id="4e3ec23a-1911-4d3a-9231-10cc96711184">
-      <figure class="block-color-gray_background callout" style="display:flex" id="f9b04436-da18-4133-98c5-aae841b561d8">
-        <div style="font-size:1.5em">
-          <span class="icon">💡</span>
-        </div>
-        <div style="width:100%">
-          Yes, my English is probably horrible, but this kind of blog post doesn't qualify for (paid) grammar corrections yet (there is stuff with higher precedence in queue). If you want to change this, <a href="https://www.patreon.com/bePatron?u=2618881">subscribe to my patreon</a>. Even with a $1 / month, you can make a difference.
-        </div>
-      </figure>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -276,6 +271,15 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
         <li>
           <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
@@ -297,15 +301,6 @@
         <li>
           <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
-        <li>
-          <a href="../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
-        </li>
       </ul>
     </div>
     <p>You can find <a href="../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
@@ -323,6 +318,9 @@
         </li>
         <li>
           <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../Explorations.html" title="Explorations">📂 Explorations</a>

@@ -2,46 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom_cz.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2023-07-31T07:24:11.853012+00:00</updated>
+  <updated>2024-08-17T01:19:24.436418+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom_cz.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/cz/Ostatni/Dva_podvodnici.html</id>
-    <title>Dva podvodníci</title>
-    <updated>2021-01-23T12:04:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/cz/Ostatni/Dva_podvodnici.html" rel="alternate"/>
-    <summary type="text">Zkušenosti s podvodníky a policií ČR.</summary>
-    <published>2021-01-23T12:04:00+01:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/cz/3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html</id>
-    <title>3D TODO list 1; Držák na sluchátka</title>
-    <updated>2021-01-23T12:39:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/cz/3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" rel="alternate"/>
-    <summary type="text">No description.</summary>
-    <published>2021-01-23T12:39:00+01:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/cz/Ostatni/Statni_zklamani.html</id>
-    <title>Státní zklamání</title>
-    <updated>2021-04-10T14:25:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/cz/Ostatni/Statni_zklamani.html" rel="alternate"/>
-    <summary type="text">Špetka zklamání a rozčilování se nad různými úřady a jejich uživatelským rozhraním.</summary>
-    <published>2021-04-10T14:25:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/Utrzky/Posta_poezie.html</id>
     <title>Pošta (poezie)</title>
@@ -118,5 +85,38 @@
     <link href="https://blog.rfox.eu/cz/Programovani/Jak_na_vlastni_LLM_GPT.html" rel="alternate"/>
     <summary type="text">Povídání o GPT a LLM (Large Language Models), návod jak si rozjet menší modely doma a pár ukázek jak používám GPT4.</summary>
     <published>2023-04-13T19:52:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/Koncepty/CaptchaCoin.html</id>
+    <title>CaptchaCoin</title>
+    <updated>2024-08-17T02:09:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/Koncepty/CaptchaCoin.html" rel="alternate"/>
+    <summary type="text">Starý koncept na téma multiplexování konkrétních statků v čase v podobě nějaké "kryptoměny". Backportováno z hlubin mé osobní wiki.</summary>
+    <published>2024-08-17T02:09:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/Koncepty/HobbyCell.html</id>
+    <title>HobbyCell</title>
+    <updated>2024-08-17T02:10:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/Koncepty/HobbyCell.html" rel="alternate"/>
+    <summary type="text">Nápad na startup; elektronické komponenty přátelské k 3D tisku, které může 3D tiskárna sama nabírat a umisťovat. Něco jako Lego, ale pro elektroniku. Backportováno z hlubin mé osobní wiki.</summary>
+    <published>2024-08-17T02:10:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/3D_tisk/Upgrade_na_MK4.html</id>
+    <title>Upgrade na MK4</title>
+    <updated>2024-08-17T02:31:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/3D_tisk/Upgrade_na_MK4.html" rel="alternate"/>
+    <summary type="text">Upgradoval jsem 3D tiskárnu Pruša MK3S+ na MK4. V textu se dozvíte jak to šlo a pár pozorování nové verze.</summary>
+    <published>2024-08-17T02:31:00+02:00</published>
   </entry>
 </feed>

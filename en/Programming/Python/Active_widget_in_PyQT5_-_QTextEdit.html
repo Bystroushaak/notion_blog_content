@@ -110,6 +110,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -129,15 +138,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -178,6 +178,9 @@
           <a href="../../Books.html" title="Books">📂 Books</a>
         </li>
         <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
+        </li>
+        <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
         </li>
         <li>
@@ -216,9 +219,13 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="2ea1a84a-0b9b-4f54-8a02-6600112b9d07" class=""><time>@2020/01/08</time></p>
       <p id="16097e24-3203-4386-9e2e-a66b0f3292cc" class="">It just happened, that I needed active widget in the rich text / wysiwyg editor in PyQt5. And I googled and googled and I couldn't find any good solution. Only example more complicated than <a href="https://doc.qt.io/qt-5/qtsvg-richtext-textobject-example.html">SVG widget</a> (<a href="https://github.com/baoboa/pyqt5/blob/master/examples/richtext/textobject/textobject.py">source</a>) one can find is <a href="http://python.6.x6.nabble.com/Snippet-to-embed-a-widget-in-an-editor-td1914070.html">Snippet to embed a widget in an editor</a> (<a href="https://www.riverbankcomputing.com/pipermail/pyqt/2011-July/030203.html">alt source</a>).</p>
       <p id="2de4d76c-fddc-451a-bfaa-6fe1a07bf321" class="">This eventually works with PyQt5. Here is a simplified refactored example I've used to test my code:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="ch">#! /usr/bin/env python3</span>
 <span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextFormat</span>
@@ -285,6 +292,8 @@
         <a href="Active_widget_in_PyQT5_-_QTextEdit/example_window.png" title="example_window.png"><img style="width:284px" src="Active_widget_in_PyQT5_-_QTextEdit/example_window.png"></a>
       </figure>
       <p id="0c48bfc0-1a57-4738-a898-47c49a43f59d" class="">Basically, everything important happens in the second part of the constructor:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="n">widget</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
 <span class="n">widget</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'I am here!'</span><span class="p">)</span>
 
@@ -295,10 +304,14 @@
 </code></pre>
       <p id="b7b4fcfb-2e12-4051-838e-59f280ce9e30" class="">First, just the regular random widget is instantiated. Nothing interesting here.</p>
       <p id="0b3311d6-3ad3-48d0-bf98-90ba1359eb03" class="">Then, this widget is registered under given ID.</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="n">text_format_id</span> <span class="o">=</span> <span class="n">QTextFormat</span><span class="o">.</span><span class="n">UserObject</span> <span class="o">+</span> <span class="mi">1001</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">)</span>
 </code></pre>
       <p id="f90d71f2-363a-407f-bd5f-09566d233549" class="">Tutorial says, that you should use at least <code>QTextFormat.UserObject</code>, so <code>+ 1001</code> is safe bet. All magic happens in the <code>.wrap_with_text_object()</code> method:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
     <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
@@ -313,9 +326,13 @@
       <p id="4f31ffa5-feaf-4b55-b90f-45c366236129" class="">This method creates <code>QObject</code>, that is also a <code>QTextObjectInterface</code> instance. This has to have methods <code>.intrinsicSize()</code> and <code>.drawObject()</code>. In this case, it just returns values defined in the widget itself, and also renders the widget to the <code>painter</code>.</p>
       <p id="38cce446-447c-4fb3-b3b6-257f34225c5b" class="">Resulting <code>TextObject</code> is then registered as handler for given <code>text_format_id</code> number.</p>
       <p id="58c71ff4-9a99-4b61-864f-7782ab045037" class="">Then, when you actually want to inline the widget to the text in the <code>QTextEdit</code>, you use the second method and map the given <code>text_format_id</code> to unicode character 0xfffc called <a href="https://www.fileformat.info/info/unicode/char/fffc/index.htm">OBJECT REPLACEMENT CHARACTER</a>:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">),</span> <span class="n">text_format_id</span><span class="p">)</span>
 </code></pre>
       <p id="041db683-bc9a-4fff-b23b-5d5aee821bd7" class="">Which does what it says:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">char</span><span class="p">,</span> <span class="n">text_format_id</span><span class="p">):</span>
     <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
     <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">text_format_id</span><span class="p">)</span>
@@ -328,15 +345,21 @@
       <h1 id="071da08f-54f5-4534-b295-d9f7f867ba11" class="">Editability hack</h1>
       <p id="3b3077d1-2663-4ac2-858a-4c5dceade7aa" class="">Naturally, I wanted to use the inlined widget as an actual widget, not as a picture, so I experimented around and managed to come with simple solution - just add the widget on top of the image!</p>
       <p id="a298bed3-41de-4026-b16d-966cc63e3ada" class="">Modification is really simple, just update the draw method by adding:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre>
       <p id="8a4ad590-6e21-4722-aef3-2472f04dda7f" class="">so it will look like this:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">drawObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
     <span class="n">widget</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
     <span class="n">widget</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QPoint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">())))</span>
     <span class="n">widget</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre>
       <p id="efe4c1da-7bc2-481e-95b7-6aa2f6a4e622" class="">and set widget's parent to the editor itself (this is actually important!). Final code looks like this:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="ch">#! /usr/bin/env python3</span>
 <span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QTextFormat</span>
@@ -424,6 +447,8 @@
       <h1 id="25429979-e6c9-4e0f-8ea6-1ce46ac0a5e6" class="">Final upgrade</h1>
       <p id="66861407-c283-44bb-9004-523f02da2396" class="">Of course, I wanted have widget that can be edited naturally, without listed problems. Ideally, all of this would be automated and encapsulated somewhere in the background. I've also discovered that my solution doesn't work much for multiple inlined objects, so I had to solve all of the problems.</p>
       <p id="f4b19a57-84a8-42e0-88e4-6542cbb76472" class="">Here is my current code:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="ch">#! /usr/bin/env python3</span>
 <span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPen</span>
@@ -571,6 +596,8 @@
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </code></pre>
       <p id="dc3e6bb8-2b78-429b-b798-a347db8d6bc9" class="">As you can see, there are several differences. First and the most obvious one is the <code>InlinedWidgetInfo</code> class:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">class</span> <span class="nc">InlinedWidgetInfo</span><span class="p">:</span>
     <span class="n">object_replacement_character</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0xfffc</span><span class="p">)</span>
     <span class="n">_instance_counter</span> <span class="o">=</span> <span class="mi">0</span>
@@ -585,11 +612,15 @@
 </code></pre>
       <p id="7bd90bbb-a090-4884-af1f-29a9cd9f2527" class="">This is just a container, that manually handles all the fluff with generating new <code>text_format_id</code>. After some experimentation, I've noticed that you always have to use same unicode character, which is meant directly for this - as an object replacement in rich text. All other methods were rewritten to use and expect this class.</p>
       <p id="e50decc4-cbe7-4a70-8d03-e79055986312" class="">You just use it naturally like this:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="n">inlined_widget_wrapper</span> <span class="o">=</span> <span class="n">InlinedWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">wrap_with_text_object</span><span class="p">(</span><span class="n">inlined_widget_wrapper</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">insert_text_object</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget_wrapper</span><span class="p">)</span>
 </code></pre>
       <p id="fa9f126d-7090-408e-87aa-35167a49a787" class=""><code>.wrap_with_text_object()</code> method was redefined, it now stores the <code>inlined_widget</code> object to the <code>.text_format_id_to_inlined_widget_map</code> dictionary attribute:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">wrap_with_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inlined_widget</span><span class="p">):</span>
     <span class="k">class</span> <span class="nc">TextObject</span><span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">QTextObjectInterface</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">intrinsicSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">pos_in_document</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
@@ -606,6 +637,8 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">text_format_id_to_inlined_widget_map</span><span class="p">[</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">inlined_widget</span>
 </code></pre>
       <p id="d19e5ef3-ad93-4761-a13a-7956b33b4808" class=""><code>.insert_text_object</code> was also slightly redefined, but only so that it now calls <code>.show()</code> on the widget, that is hidden by default right after it's creation.</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">insert_text_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">inlined_widget</span><span class="p">):</span>
     <span class="n">char_format</span> <span class="o">=</span> <span class="n">QTextCharFormat</span><span class="p">()</span>
     <span class="n">char_format</span><span class="o">.</span><span class="n">setObjectType</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">text_format_id</span><span class="p">)</span>
@@ -613,11 +646,15 @@
     <span class="n">cursor</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">inlined_widget</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="n">char_format</span><span class="p">)</span>
 </code></pre>
       <p id="d00fbfc5-b8e6-4d80-9a01-ff0fcbaf4ae0" class="">You maybe noticed, that three new methods were added and connected to proper signals:</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">currentCharFormatChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_character_format_change</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">selectionChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">textChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_text_changed</span><span class="p">)</span>
 </code></pre>
       <p id="57e3473a-3f02-4b73-8ef4-7b38a690dd7a" class="">First one is automatically called by PyQt5 each time cursor touches any of the <em>object replacement characters</em>. It is also called with <code>objectType</code> zero when the cursor stop touching it. As I want to detect deletion of <em>object replacement character</em>, this is exactly what I want.</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">on_character_format_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qtextcharformat</span><span class="p">):</span>
     <span class="n">text_format_id</span> <span class="o">=</span> <span class="n">qtextcharformat</span><span class="o">.</span><span class="n">objectType</span><span class="p">()</span>
 
@@ -627,6 +664,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_obj_char_rescan</span><span class="p">()</span>
 </code></pre>
       <p id="5e917501-f537-42a1-9d3c-9ede52f15223" class="">I was also forced to add <code>.on_text_changed()</code> that is called each time text is changed, and check whether the change was deletion of character (that is, text is now shorter), because <code>.on_character_format_change()</code> isn't called when delete key is used on last item :(.</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">on_text_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">current_text_lenght</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">())</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">&gt;</span> <span class="n">current_text_lenght</span><span class="p">:</span>
@@ -635,6 +674,8 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">last_text_lenght</span> <span class="o">=</span> <span class="n">current_text_lenght</span>
 </code></pre>
       <p id="497f13f5-2ef1-4961-9afe-1aefdb87f66f" class="">Then there is this slightly more complicated method <code>._trigger_obj_char_rescan()</code> which is called each time cursor stops touching any of the <em>object replacement characters</em>, or when the text selection is applied or when character is deleted.</p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <pre class="code"><code><span class="k">def</span> <span class="nf">_trigger_obj_char_rescan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wysiwyg_editor</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">()</span>
     <span class="n">character_indexes</span> <span class="o">=</span> <span class="p">[</span>
@@ -730,13 +771,6 @@
           <a href="https://doc.qt.io/qt-5/qabstractitemdelegate.html#details">https://doc.qt.io/qt-5/qabstractitemdelegate.html#details</a>
         </li>
       </ul>
-      <h1 id="647adefb-44f4-40ab-9ca0-7ced53394f1a" class="">Changelog</h1>
-      <h3 id="aa3e6c60-d55c-4167-93cb-1950c3fda0b1" class=""><time>@2020/01/08</time></h3>
-      <p id="c08ee592-43d1-4bf6-81da-d6b2c73307bd" class="">Fixed behavior when the delete key is pressed for last inlined item.</p>
-      <h3 id="0b64a313-efff-49ac-a485-82efa578e2fa" class=""><time>@2020/01/07</time></h3>
-      <p id="c43afd3c-6562-47fa-a792-fea2e915e736" class="">Code updated so that it now supports multiple inlined widgets.</p>
-      <h3 id="520c9707-c3cf-4123-9697-0fba7f7d75b1" class=""><time>@2020/01/06</time></h3>
-      <p id="1452e231-9275-4568-893d-b4e511d75325" class="">Article published.</p>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -747,6 +781,15 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
         <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
@@ -767,15 +810,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -815,6 +849,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>

@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>& <a href="../../Zmeny.html" title="Změny">more</a>
@@ -95,6 +95,9 @@
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
         </li>
         <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
+        </li>
+        <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>
         </li>
         <li>
@@ -118,6 +121,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="41880fb6-bdfb-4d4e-8e3c-ba9ac7d5f484" class=""><time>@2011/11/04</time></p>
       <p id="23fcbe5e-adc3-4b83-8062-5de8e3bc52bd" class="">Pokud někdy zavítáte do Karlových Varů, pravděpodobně zjistíte, že <a href="http://vary.idnes.cz/v-karlovych-varech-budou-mit-vsichni-lide-wi-fi-zdarma-pf0-/Vary-zpravy.aspx?c=A101013_143145_vary-zpravy_sou">město platí</a> vlastní wifi síť, do které se může kdokoliv zdarma připojit. Z nepochopitelného důvodu je však doba připojení omezena na 30m, po jejímž uplynutí vám síť utne všechny probíhající spojení a musíte se opět přihlásit pomocí naprosto trapného webloginu. Štvalo mě to, tak jsem vytvořil krátký program v D, který to dělá za vás.</p>
       <h2 id="eabf0d12-0f86-492a-bb95-b69247e03560" class="">Jak to funguje</h2>
@@ -139,7 +144,9 @@
       <p id="79dc6132-6648-45ce-9f73-e5f42adbd322" class="">Povšimněte si username <strong>full</strong>, ještě se o něm zmíním.</p>
       <h2 id="547285fd-0fc0-416a-bf68-e2f42352f4bf" class="">"Login"</h2>
       <p id="d7867bfd-8eb2-405f-8927-5cd056c10312" class="">Login, pokud tomu tedy tak lze říkat, je fakt nepochopitelná kravina. Po kliknutí na tlačítko s logem města se aktivuje následující funkce v javascriptu:</p>
-      <pre id="d3e9f86f-7ed2-4d81-a688-c82805824c5d" class="code code-wrap"><code>function doLogin() {
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="d3e9f86f-7ed2-4d81-a688-c82805824c5d" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">function doLogin() {
     document.sendin.username.value = document.login.username.value;
     document.sendin.password.value = hexMD5('\130' + document.login.password.value + '\135\137\034\202\372\303\227\333\044\341\132\370\132\326\042\116');
     document.sendin.submit();
@@ -147,7 +154,9 @@
 }</code></pre>
       <p id="073cc7f4-4a6e-405e-89b3-41590fd24bb6" class="">Položky <code>document.login.username.value</code> a <code>document.login.password.value</code> jsou přitom po načtení stránky dalším JavaScriptem předvyplněny na slavný string "<strong>full</strong>". Salt ve funkci <code>hexMD5</code> v podobě oktetů je vkládán náhodně (pokaždé jinak), nebo na základě nějakého klíče, který jsem nepochopil.</p>
       <p id="53d10685-333c-4fed-80cf-7d383ec75d81" class="">Form <code>sendin</code> má tento tvar:</p>
-      <pre id="7e55b8ef-931a-46af-8389-6c9bace9af36" class="code code-wrap"><code>&lt;form name="sendin" action="http://ip_routeru/login" method="post"&gt;
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="7e55b8ef-931a-46af-8389-6c9bace9af36" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;form name="sendin" action="http://ip_routeru/login" method="post"&gt;
     &lt;input type="hidden" name="username" /&gt;
     &lt;input type="hidden" name="password" /&gt;
     &lt;input type="hidden" name="dst" value="http://presmerovavany_link.tld/params" /&gt;
@@ -175,13 +184,17 @@
       <p id="40dee438-0d2b-432d-8a18-387bd3ef7c13" class="">Je to docela vtipné a jednoduché, dlouho jsem hledal a googli, zkoušel všelijaké <a href="http://en.wikipedia.org/wiki/Corkscrew_%28program%29">opičiny</a> a nakonec to umí samotný netcat..</p>
       <p id="651cf9b9-b94d-451d-bd70-ad396e0fde14" class="">Pro případy stahování z internetu jsem dal dohromady tyto dva scripty:</p>
       <p id="b341c0d1-1ab5-435e-938b-fed3b9f2d161" class=""><strong>doitfaggot</strong>:</p>
-      <pre id="aa61b12b-96f7-4e3a-b59f-88a9078c491c" class="code code-wrap"><code>#!/bin/sh
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="aa61b12b-96f7-4e3a-b59f-88a9078c491c" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
 while ! $*; do
     :;
 #   sleep 5;
 done</code></pre>
       <p id="3b4a83b3-5fb3-45ad-9336-42efebc0a770" class=""><strong>downer.sh</strong>:</p>
-      <pre id="5815ed70-d905-408a-bfcd-630de9d5c7cd" class="code code-wrap"><code>#! /usr/bin/env bash
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="5815ed70-d905-408a-bfcd-630de9d5c7cd" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#! /usr/bin/env bash
 while [ 1 ]; do doitfaggot wget --no-check-certificate -c $1; done</code></pre>
       <p id="52f7dabd-6e86-4499-8c6a-265238478afa" class="">Stahování provádějte přes <code>downer.sh</code>, protože <code>wget</code> při padlém spojení hlásí že soubor je již stažený, což není. Downer se narozdíl od doitfaggot zacyklí, dokud ho manuálně nevypnete.</p>
       <p id="90330a16-7b2d-40ba-9788-4751723c0d0e" class="">Doitfaggot je velice užitečný na spoustu věcí. Funguje tak, že vezme zadané parametry a spouští je do té doby, dokud daný program nevrátí 0.</p>
@@ -212,6 +225,15 @@ while [ 1 ]; do doitfaggot wget --no-check-certificate -c $1; done</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
+        </li>
+        <li>
+          <a href="../Koncepty/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Koncepty/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="Jak_na_vlastni_LLM_GPT.html" title="Jak na vlastní LLM (GPT)">Jak na vlastní LLM (GPT)</a>
         </li>
         <li>
@@ -231,15 +253,6 @@ while [ 1 ]; do doitfaggot wget --no-check-certificate -c $1; done</code></pre>
         </li>
         <li>
           <a href="../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Statni_zklamani.html" title="Státní zklamání">Státní zklamání</a>
-        </li>
-        <li>
-          <a href="../3D_tisk/3D_TODO_list_1_Drzak_na_sluchatka.html" title="3D TODO list 1; Držák na sluchátka">3D TODO list 1; Držák na sluchátka</a>
-        </li>
-        <li>
-          <a href="../Ostatni/Dva_podvodnici.html" title="Dva podvodníci">Dva podvodníci</a>
         </li>
       </ul>
     </div>
@@ -271,6 +284,9 @@ while [ 1 ]; do doitfaggot wget --no-check-certificate -c $1; done</code></pre>
         </li>
         <li>
           <a href="../Knihy.html" title="Knihy">📂 Knihy</a>
+        </li>
+        <li>
+          <a href="../Koncepty.html" title="Koncepty">📂 Koncepty</a>
         </li>
         <li>
           <a href="../Ostatni.html" title="Ostatní">📂 Ostatní</a>

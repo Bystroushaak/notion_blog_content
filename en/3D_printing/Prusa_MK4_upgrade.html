@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Prusa MK4 upgrade</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Prusa MK4 upgrade">
+  <meta name="twitter:description" content="I've upgraded my Prusa MK3S+ 3D printer to MK4. This writeup contains the story of how it went and some observations about the improvements.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/3D_printing/Prusa_MK4_upgrade/twitter_preview.jpg">
+  <script src="../../scripts.js"></script>
+  <meta name="description" content="I've upgraded my Prusa MK3S+ 3D printer to MK4. This writeup contains the story of how it went and some observations about the improvements.">
+  <meta name="keywords" content="3D_printing,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
+          <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
+          <a href="../Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../Programming/objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+      </ul>
+    </div>& <a href="../../Changelog.html" title="Changelog">more</a>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/3d_printing.html" title="3d_printing">3D_printing</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="3D printing">3D printing</a> / Prusa MK4 upgrade
+  <article id="da898d2d-516d-430f-b429-3e5a809e4b7a" class="page sans">
+    <header>
+      <h1 class="page-title">Prusa MK4 upgrade</h1>
+      <p class="page-description"></p>
+    </header>
+    <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <p id="6fe7efed-ea49-4798-8f62-de9b49c6a082" class=""><time>@2024/08/17</time></p>
+      <p id="2f0d1b98-b7eb-455c-b03e-28ec1e2fcb95" class="">Supposedly, from what I heard, it's internally called a "stupid upgrade" because it doesn't make much sense. Why? Because it <a href="https://www.prusa3d.com/product/original-prusa-i3-mk3-s-to-mk4s-upgrade-kit-2/">costs</a> just a bit less than a new printer, the wait time for it was longer than for a new printer, and you have to replace almost everything. In terms of cost-performance ratio, the <a href="https://www.prusa3d.com/product/original-prusa-i3-mk3-s-to-mk3-9s-upgrade-kit-2/">MK3.9 upgrade</a> probably makes more sense, but the most sensible thing would be to sell the old printer and buy a new one.</p>
+      <p id="c18d61d0-a1b2-4d4c-b8a4-f8d76a4aacae" class="">So why did I decide to upgrade? Mostly because the printer has grown on me, even though I understand that this isn’t exactly a rational reason. But I assembled it myself, printed on it for several years, and it seemed right to me to keep it alive, so to speak.</p>
+      <h1 id="107615f4-6b20-4da8-897a-296df02f4db2" class="">Printing before the upgrade</h1>
+      <p id="e6d1c7c0-3b3f-4db2-a8a7-fe1e7387b0d3" class="">After waiting approximately half a year for the package to arrive, I reserved the last weekend in November for the upgrade. When I excitedly unpacked the box with the components on Saturday, I found out that what I had considered to be a printed manual during the package inspection was actually a <em>“3D printing handbok”</em>. While it's quite nice and useful for beginners, it's completely useless for the upgrade.</p>
+      <p id="42039ed1-0ad6-4818-9bf1-dd8460caa710" class="">I'm not sure if Průša has stopped including printed manuals with the kits, or if this was an error, but when I bought the MK3S+ (<a href="Prusa_MK3S_3D_printer_-_assembly_and_first_prints.html" title="Prusa MK3S+ 3D printer - assembly and first prints">Prusa MK3S+ 3D printer - assembly and first prints</a>), it came with a fairly luxurious paper manual, and I did most of the assembly using it. This time, I had to start with Google.</p>
+      <div id="12e1151c-4d04-4354-b194-05fb1c9b2fd8" class="column-list">
+        <div id="961489fd-d8f5-4459-9cb5-48585cde78b5" style="width:56.25%" class="column">
+          <figure id="bd57a22a-c2c8-45f3-b2b9-97e83e0cc565" class="image">
+            <a href="Prusa_MK4_upgrade/2023-11-25_18.49.03.jpg" title="2023-11-25_18.49.03.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-11-25_18.49.03_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="acafed57-00fc-423d-9fe0-f099017a1e5d" style="width:43.75%" class="column">
+          <figure id="ecd5c756-35ac-4c1c-aa45-300432543b50" class="image">
+            <a href="Prusa_MK4_upgrade/2023-11-25_18.49.23.jpg" title="2023-11-25_18.49.23.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-11-25_18.49.23_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="0e387166-c7b1-4c32-8dd1-23de46485cf7" class="column-list">
+        <div id="74e11f07-23f6-4433-866a-525f1ee4196e" style="width:37.5%" class="column">
+          <figure id="d2470d4b-9021-49d9-a429-3613b3d08b36" class="image">
+            <a href="Prusa_MK4_upgrade/2023-11-25_18.49.38.jpg" title="2023-11-25_18.49.38.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-11-25_18.49.38_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="972bab2d-4dc8-48b1-9f24-415206cd8169" style="width:62.5%" class="column">
+          <figure id="d580d6cc-3809-4aa6-84e2-6d2908f9fd8b" class="image">
+            <a href="Prusa_MK4_upgrade/2023-11-25_18.51.19.jpg" title="2023-11-25_18.51.19.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-11-25_18.51.19_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="f6e259ab-f1c4-4355-90b3-ec310220680a" class="image">
+        <a href="Prusa_MK4_upgrade/2023-11-25_18.54.24.jpg" title="2023-11-25_18.54.24.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-11-25_18.54.24_thumb.jpg"></a>
+      </figure>
+      <p id="7399519a-4b64-476a-905e-5fd4572ffdcc" class="">After a short search, I <a href="https://help.prusa3d.com/category/assembly-manuals_272">found</a> the <a href="https://help.prusa3d.com/guide/1-introduction_473977">official upgrade guide</a>, where I immediately found one unpleasant information:</p>
+      <figure id="979d1d77-1734-4520-91d5-fff6e32206b1" class="image">
+        <a href="Prusa_MK4_upgrade/Untitled.png" title="Untitled.png"><img style="width:1019px" src="Prusa_MK4_upgrade/Untitled.png"></a>
+      </figure>
+      <p id="5ba3d1d2-d166-40e4-ae61-f1681a36a73a" class="">First, I had to print seven batches of prints, which took me the next four days. So, I ended up doing something completely different over the weekend I had set aside.</p>
+      <p id="363fd2d9-8370-4601-b457-02a49472c945" class="">The first few print attempts failed several times in a row, until I noticed that for some reason, the collision detection was on after the last MK3S+ upgrade. It didn't work and ruined the prints because it detected a collision about every minute, which led to constant XY <em>rehomings</em>, after which the printer paradoxically lost track of where the head was.</p>
+      <p id="8eda493c-ddde-4603-ac51-d76a9f90b6a0" class="">After I turned off the collision detection, everything went smoothly on the first try.</p>
+      <div id="2f043bdf-8e10-4af5-82bd-be8d349610a9" class="column-list">
+        <div id="26a50a64-16d3-4745-95cc-3668eea94945" style="width:56.25%" class="column">
+          <figure id="d3ad782b-cf23-4629-bcf8-0377d1b30205" class="image">
+            <a href="Prusa_MK4_upgrade/2023-03-29_05.50.22.jpg" title="2023-03-29_05.50.22.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-03-29_05.50.22_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="e4054404-1abf-46cf-999d-d00dd90e0086" style="width:43.75000000000001%" class="column">
+          <figure id="e5340362-61e5-42fd-9158-b1b0aab09ba5" class="image">
+            <a href="Prusa_MK4_upgrade/2023-11-26_16.53.30.jpg" title="2023-11-26_16.53.30.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-11-26_16.53.30_thumb.jpg"></a>
+          </figure>
+          <figure id="9385f2f4-868b-468f-b87d-8415a0fe6f9d" class="image">
+            <a href="Prusa_MK4_upgrade/2023-11-28_19.48.50.jpg" title="2023-11-28_19.48.50.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-11-28_19.48.50_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <h1 id="1ac8774e-4a4d-4988-8eef-3b73f4aa759e" class="">Disassembly of the old version</h1>
+      <p id="4e67d0b4-7bae-49e3-a5f0-3af1175834d3" class="">Alright, everything is prepared, let's get to work.</p>
+      <figure id="b4cabe13-af55-4f27-9362-1f17c5c22fbd" class="image">
+        <a href="Prusa_MK4_upgrade/2023-12-03_17.29.47.jpg" title="2023-12-03_17.29.47.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_17.29.47_thumb.jpg"></a>
+      </figure>
+      <p id="d3e247b4-50b1-49b5-ad5b-58e4cdf84d6e" class="">The first step, of course, was to take the MK3S+, clean the dust off it, and completely disassemble it. Disconnect all the cables, motors, bearings, and so on.</p>
+      <div id="3d743f91-f1f2-43f0-ad4a-eea0d6e17d66" class="column-list">
+        <div id="28e7cc1f-63dd-4f86-870f-4d6b78a3c248" style="width:33.333333333333336%" class="column">
+          <figure id="706c30b2-91e9-4ca8-9a82-cc316143758c" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_18.15.27.jpg" title="2023-12-03_18.15.27.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-03_18.15.27_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="11afaee4-ed03-479b-8d91-df465c481f54" style="width:33.333333333333336%" class="column">
+          <figure id="e55abc79-51c0-4f26-9e27-59f2525d0aae" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_18.24.18.jpg" title="2023-12-03_18.24.18.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-03_18.24.18_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="31f13635-d52b-4ce0-b43b-f26c17053955" style="width:33.33333333333333%" class="column">
+          <figure id="bd0e23b0-8402-4287-8aac-e08a00e97b65" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_18.32.48.jpg" title="2023-12-03_18.32.48.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-03_18.32.48_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="4e07d01e-058a-4538-ba7a-16b3377a3426" class="column-list">
+        <div id="14ea1f8a-0ac9-4fc8-b508-fd89fa184d2f" style="width:33.333333333333336%" class="column">
+          <figure id="8abad659-447e-4fdb-8774-858c0ff81ab1" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_18.38.02.jpg" title="2023-12-03_18.38.02.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-03_18.38.02_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="03917e51-2dea-4e30-8e10-063a6965b953" style="width:33.333333333333336%" class="column">
+          <figure id="f39017f6-d10b-4541-a945-7a946bd74bfa" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_18.43.18.jpg" title="2023-12-03_18.43.18.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-03_18.43.18_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="75a1776a-3fc4-4e38-8505-83af893df75b" style="width:33.33333333333333%" class="column">
+          <figure id="9d13cf73-4d8a-46c9-9316-f126cb48c264" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_18.47.31.jpg" title="2023-12-03_18.47.31.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-03_18.47.31_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="7e1c9446-5f62-4f30-93ea-3baeb1038c6e" class="">The only things left are the frame and the power supply.</p>
+      <figure id="e3a7a10b-3490-41a9-9aa6-53c58b461142" class="image">
+        <a href="Prusa_MK4_upgrade/2023-12-03_19.35.32.jpg" title="2023-12-03_19.35.32.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.35.32_thumb.jpg"></a>
+      </figure>
+      <h1 id="d4051209-58ad-4c34-86ea-fcf56f6cd108" class="">Assembly of the new version</h1>
+      <p id="97503162-2696-4a93-8f34-6dbaeb9849c8" class="">Finally, I could finally start the actual upgrade. This involves assembling the printed parts together with new components Průša provided. It's all done in essentially reverse order. It begins with the box for electronics (the old one was plastic), a new control board, and a stepper motor for the Y-axis.</p>
+      <div id="0705c34a-ba99-4ed0-afa3-7a8e2d622cef" class="column-list">
+        <div id="4756a596-bbbd-4f47-840d-1c615d0c9c07" style="width:37.5%" class="column">
+          <figure id="4831ff52-3019-4ab0-97ca-4bef7f29c4c8" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_20.30.22.jpg" title="2023-12-03_20.30.22.jpg"><img style="width:336px" src="Prusa_MK4_upgrade/2023-12-03_20.30.22_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="03e0670b-ac19-473b-ab04-fb19db47cff9" style="width:62.50000000000002%" class="column">
+          <figure id="6c857fe7-6097-4c25-8712-5e4ffe1728cb" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_20.40.15.jpg" title="2023-12-03_20.40.15.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_20.40.15_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <figure id="f97da811-b39c-4807-9b74-7c9d278945c3" class="image">
+        <a href="Prusa_MK4_upgrade/2023-12-04_02.17.26.jpg" title="2023-12-04_02.17.26.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_02.17.26_thumb.jpg"></a>
+      </figure>
+      <p id="d0ccce63-1419-4f42-8f1a-854b6f8ff0e6" class="">Then I assembled various plastic components, which (as is typical for Průša) are interlaced with various nuts and bolts. This results in the assembly of the X and Z axis.</p>
+      <p id="a63dc75d-2135-486a-9ad4-3706def56d7a" class="">The assembly itself was simple and quick. The components are well-designed, and since I printed them myself, I would say they are of better quality than what was supplied with the previous version of the printer.</p>
+      <p id="3fd0512a-aa3d-4dde-ab65-8ef2b9f8d613" class="">The only thing I would criticize about this process is that after seven prints I got a bunch of plastic parts, which I put into bags numbered 1 to 7. However, during assembly, there is no information about which bag a particular plastic part is in. This required constantly searching through all the bags, which is super annoying due to the visual similarity of some of the parts.</p>
+      <div id="f8831f55-db10-4222-8456-da410350bee5" class="column-list">
+        <div id="20ed1e0d-d76a-4dd9-a764-82dd8331b90c" style="width:56.25%" class="column">
+          <figure id="bbee4068-9a86-45b5-bf55-40258314d460" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_02.25.48.jpg" title="2023-12-04_02.25.48.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_02.25.48_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="c249ea64-2eba-41c9-aca7-c053caf1bb9c" style="width:43.75%" class="column">
+          <figure id="f8f6a847-c236-4b20-a4e0-c103bb33de31" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_02.41.36.jpg" title="2023-12-04_02.41.36.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_02.41.36_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="93f84a4f-0543-4bdb-85cd-3379b78e5dca" class="column-list">
+        <div id="6c799f11-c865-4ae6-a5ef-d34616bf24a6" style="width:56.25%" class="column">
+          <figure id="d16bbc80-ee15-4b93-8eb7-2e276da28b6b" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_03.17.55.jpg" title="2023-12-04_03.17.55.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_03.17.55_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="f5802d37-6a2d-4d7a-b6c6-d95f0044ccfa" style="width:43.75%" class="column">
+          <figure id="226113b7-9240-42e3-9405-c4d53b87af50" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_03.52.16.jpg" title="2023-12-04_03.52.16.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_03.52.16_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="a54c20ca-48c7-4e50-835d-2015ae1b264a" class="">Assembled components are used to mount the stepper motors for the Z and X axes. Various metal shafts and sliders are new, and thicker than those used in the MK3S+.</p>
+      <div id="19b2728b-970e-473a-a984-2e757aa13e83" class="column-list">
+        <div id="d09cf290-9b71-4c03-b2a3-6b830a30df78" style="width:50%" class="column">
+          <figure id="ccd3991f-2c7c-455a-b065-cf0c0b428c65" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_07.10.17.jpg" title="2023-12-04_07.10.17.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_07.10.17_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="f1318108-2da3-420e-b1fa-7750f524c632" style="width:50%" class="column">
+          <figure id="1578a213-998f-45bb-9711-1e5da810517b" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_07.29.49.jpg" title="2023-12-04_07.29.49.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_07.29.49_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="7b9d834f-3075-4cc2-87b6-90808060fe63" class="">The electronics for the print head come next, which are located directly under the head, unlike the previous model where they were on the main control board. This board is named <a href="https://help.prusa3d.com/article/xbuddy-and-loveboard-electronics-wiring-mk4_413095">LoveBoard</a>, and it significantly simplifies troubleshooting issues with the head, as it eliminates the need to replace cables all the way to the control board. Other components also don't snake creatively through the head, and can be <em>relatively</em> easily disassembled without the need to dismantle the entire printer.</p>
+      <figure id="06506d2a-a530-4283-9a8c-4644e288f911" class="image">
+        <a href="Prusa_MK4_upgrade/2023-12-04_07.10.09.jpg" title="2023-12-04_07.10.09.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_07.10.09_thumb.jpg"></a>
+      </figure>
+      <p id="6f4a01be-cae1-45f8-952d-25f27962ee90" class="">Next, assemble the rest of the print head:</p>
+      <div id="af9d9688-d6c9-4725-b315-d99f42c996f1" class="column-list">
+        <div id="f0f45f00-95ba-447f-ad44-ab46af94fd57" style="width:50%" class="column">
+          <figure id="ff0bf5ff-61c8-4914-9d4f-bd82689ac131" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_19.51.33.jpg" title="2023-12-04_19.51.33.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-04_19.51.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="a25e44fa-2abe-463b-bf48-946a3d990525" style="width:50%" class="column">
+          <figure id="0424371e-f432-4fcb-955d-795962917512" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_20.07.55.jpg" title="2023-12-04_20.07.55.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-04_20.07.55_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="b0f4b21c-3d79-43cb-8fc3-30d8230a5104" class="">The stepper motor for filament movement, various fans, temperature sensors, and so on. The upgrade comes with a set of stickers that can be applied to the cover of the extruder motor. The final component is a cooling fan for the print head, which is on a hinged mount for easier nozzle replacement.</p>
+      <figure id="bcc2c50a-6878-4d7f-bff7-26cabf97cb68" class="image">
+        <a href="Prusa_MK4_upgrade/2023-12-04_20.16.58.jpg" title="2023-12-04_20.16.58.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_20.16.58_thumb.jpg"></a>
+      </figure>
+      <p id="96e2901a-4833-4168-889f-525255d614e0" class="">The next step is to assemble and attach the display, which is done in a somewhat creative position. I struggled with the display because, despite it being a relatively simple component, the guide was not entirely clear at times. I think I missed attaching something, which then required me to disassemble everything again.</p>
+      <div id="52e6604d-97b6-4804-86e7-d623ddeeed78" class="column-list">
+        <div id="7941b5ad-2b25-43b5-afaa-8afc105c3e2e" style="width:56.25%" class="column">
+          <figure id="4564aae8-0c2a-4f30-b366-3e92e398d6c4" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_20.54.30.jpg" title="2023-12-04_20.54.30.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_20.54.30_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="c96c7e17-596a-474e-9a13-44e3dc95cfd0" style="width:43.75000000000001%" class="column">
+          <figure id="f55c81c5-c683-4e98-9474-5b458042864c" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_21.12.38.jpg" title="2023-12-04_21.12.38.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_21.12.38_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="db18ab1a-c942-4cd6-a0b2-0297a32f0c83" class="">The next step involves connecting everything that's already mounted on the printer to the control board. It's not overly complicated, but at times you need to be a bit creative when it comes to cable management, and not just inside the box for the main board, but also under the printer.</p>
+      <figure id="8b8dbdaa-6201-48fb-9573-a310bf188f45" class="image">
+        <a href="Prusa_MK4_upgrade/2023-12-04_22.06.54.jpg" title="2023-12-04_22.06.54.jpg"><img style="width:432px" src="Prusa_MK4_upgrade/2023-12-04_22.06.54_thumb.jpg"></a>
+      </figure>
+      <p id="832e060a-17f2-4220-a906-2e92704e4770" class="">The last major step is the assembly of the print bed. As in previous steps, linear bearings are reused from the old printer during this process.</p>
+      <div id="b8cf2a9a-0a1a-468c-9c31-c5196336dc37" class="column-list">
+        <div id="a0876dec-8cbe-466f-aacb-749263f284fe" style="width:56.25%" class="column">
+          <figure id="76406b84-dd69-45d4-9cc0-2d2b1787785c" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-04_23.03.21.jpg" title="2023-12-04_23.03.21.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-04_23.03.21_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="009a92d0-83c2-4a2a-acd8-7de3a5d50aaf" style="width:43.75%" class="column">
+          <figure id="1b30a886-4d71-4ed1-895d-de7c222d53d2" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.15.41.jpg" title="2023-12-06_02.15.41.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_02.15.41_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="2c769a76-5472-450e-b205-515620d356aa" class="">However, it is necessary to replace the old temperature sensor with a new one. I attached mine a bit awkwardly; it should ideally be entirely under the Kapton tape, but a corner of mine is peeking out. Despite this, everything works fine, so it's more of a cosmetic issue rather than a functional one.</p>
+      <div id="48816207-cd0d-45e7-aaec-21afd027ccf4" class="column-list">
+        <div id="432ffe05-fe7c-4416-bdcc-345d0bef5092" style="width:50%" class="column">
+          <figure id="30c46a4d-1db7-47b8-b501-e2b84e0b06ab" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_19.20.51.jpg" title="2023-12-03_19.20.51.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.20.51_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="1b9ee427-6daf-49f2-bdd9-90a595617a43" style="width:50%" class="column">
+          <figure id="97f75255-1e40-4bb4-bd80-eabd35f79851" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_19.35.25.jpg" title="2023-12-03_19.35.25.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.35.25_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="08b92310-3788-4167-a321-75f6a7c8929d" class="">Then, the upgrade was nearing its end. I connected the remaining components to the control board:</p>
+      <div id="70b3553f-1f32-44a9-bf57-03b741525a46" class="column-list">
+        <div id="8cc8b222-40ef-4c99-b687-afd4585ba42e" style="width:37.5%" class="column">
+          <figure id="66bdd93b-7714-4347-a626-d23d3d4c4d08" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.45.33.jpg" title="2023-12-06_02.45.33.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_02.45.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="0884cde2-0b5e-46ab-97b9-2f24d0de4c74" style="width:62.5%" class="column">
+          <figure id="4f6a8134-a740-4df6-8f0b-b65e3322f64f" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.45.49.jpg" title="2023-12-06_02.45.49.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_02.45.49_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="6e294e8f-4a9e-46a3-8c04-55068554d1e9" class="">And finally, I added an ESP as a Wi-Fi module:</p>
+      <div id="b1c23c42-4bdf-4f64-a1f5-f2fc7c38b1f1" class="column-list">
+        <div id="589e60c9-5a3e-4ac6-9c28-e21aa98296d4" style="width:50%" class="column">
+          <figure id="8f6041aa-2bea-46b0-b64c-4c5e93962a26" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.46.33.jpg" title="2023-12-06_02.46.33.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_02.46.33_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="443f47ba-2954-4d5a-931a-4b3789549b3e" style="width:50%" class="column">
+          <figure id="07fa7aa4-19a0-4f9f-918d-714c2c8c18c4" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.46.50.jpg" title="2023-12-06_02.46.50.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_02.46.50_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="b46d18a3-a510-4169-92fa-581f9626b63c" class="column-list">
+        <div id="164c9437-5953-458b-bbd3-e2b97811cdd0" style="width:50%" class="column">
+          <figure id="02636905-eac3-4216-a9bf-db4bf61a73bd" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.48.14.jpg" title="2023-12-06_02.48.14.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_02.48.14_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="224fc812-1951-4080-ba2e-7a729a5dfe56" style="width:50%" class="column">
+          <figure id="be45f07f-d391-473f-aea5-0d9f3463a358" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_02.48.39.jpg" title="2023-12-06_02.48.39.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_02.48.39_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="a5e0b7da-a40f-46df-9b23-9b06cfbe7c84" class="">Then, all that was left was to screw on all the covers. This was followed by a calibration process, which notably included tensioning the belt using a website that listens to see if the belt makes the correct sound when you pluck it. Afterwards, it was time for a firmware upgrade and the first print:</p>
+      <div id="cf7f0c24-5264-429e-ab27-bc2c21c3f34a" class="column-list">
+        <div id="de92a9e9-b3d6-48e1-9146-9e2a1a6454e1" style="width:50%" class="column">
+          <figure id="138d5330-62bf-4880-821c-49cab87e734a" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.04.08.jpg" title="2023-12-06_03.04.08.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_03.04.08_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="bcf5c2ef-e0b9-4ff9-9bb1-a2595fcf719d" style="width:50%" class="column">
+          <figure id="5aa55346-adf4-4d18-b91c-ea0c0032e2e1" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.06.48.jpg" title="2023-12-06_03.06.48.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_03.06.48_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="9201d60f-ca93-46ae-b037-be016af7d637" class="column-list">
+        <div id="c197abdc-fa61-4bf4-9931-9dc602db6a74" style="width:50%" class="column">
+          <figure id="de07751e-cd1a-48f7-a8bf-0c2790abd2aa" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.09.18.jpg" title="2023-12-06_03.09.18.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_03.09.18_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="8f666a3c-4f07-4e9b-976d-6aec74092505" style="width:50%" class="column">
+          <figure id="924a0611-0886-440e-8df2-51faab4cafcb" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.22.16.jpg" title="2023-12-06_03.22.16.jpg"><img style="width:1200px" src="Prusa_MK4_upgrade/2023-12-06_03.22.16_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="dc9a5834-ad44-465d-90d9-cfef8312668c" class="">First, I printed a two-color Prusa logo, during which the printer prompts for a filament change.</p>
+      <p id="68f79724-394a-4d20-9980-8ea3ea5e710f" class="">Next, I set up the Wi-Fi, which is done by creating a configuration file on a flash drive where the SSID and password are hard-coded (the printer then has an HTTP interface), and I also connected the printer to the Slicer. This allows you to send the prints to the printer with just two clicks. While the speed isn't exactly breathtaking (upload can easily take a minute), it's still much faster than hunting down an SD card, as I used to do before.</p>
+      <h1 id="7e52a622-9147-43fe-a75b-48e19a1b12e5" class="">Leftovers</h1>
+      <p id="4223b1a3-c364-4963-b2bc-646ba44ca51e" class="">After the upgrade, I had plenty of components left over:</p>
+      <div id="9a227c57-d7ba-4188-89a6-f452ae3ccdbc" class="column-list">
+        <div id="0456c21e-26bd-4aa3-9aab-d0df0865ee6a" style="width:33.333333333333336%" class="column">
+          <figure id="3308d32a-7783-4a85-a5a2-135ca25cb563" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_20.40.09.jpg" title="2023-12-03_20.40.09.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_20.40.09_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="a4977dea-b00c-4cf8-9d8f-542dec8e4f8a" style="width:33.333333333333336%" class="column">
+          <figure id="17e43235-1e60-42b8-bfd5-05edf8030e7a" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.52.53.jpg" title="2023-12-06_03.52.53.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_03.52.53_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="12584ba0-4fe3-4be3-8315-32b6adb8f785" style="width:33.33333333333333%" class="column">
+          <figure id="63ec39d9-667d-4577-be25-7e4dfd866cce" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.53.27.jpg" title="2023-12-06_03.53.27.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_03.53.27_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="b64ff4c1-8f48-47e4-9e7b-e0f344ddf314" class="column-list">
+        <div id="321cfea3-410d-42f3-aa66-774f57030c82" style="width:50%" class="column">
+          <figure id="4bd2fa0b-befb-4f51-9043-d4a4c2927ae5" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.52.58.jpg" title="2023-12-06_03.52.58.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_03.52.58_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="c5bc8f18-a397-4f4f-9b12-2756b6032c0d" style="width:50%" class="column">
+          <figure id="28c65f3b-a5e7-49e5-a351-79ffef8a3b28" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-06_03.54.02.jpg" title="2023-12-06_03.54.02.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-06_03.54.02_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="83c01a43-aacf-4893-a905-9a8bdf3fbe68" class="">The most interesting part for me was probably the print head, where I finally saw how much of the ancient filament, which blobbed all over a long time ago, remained. That filament was practically irremovable without disassembling the head and mostly didn't interfere with anything, so I left it there for several years.</p>
+      <div id="8e041228-29d4-45fb-88fc-25b0fc73c404" class="column-list">
+        <div id="9788a54a-f2b5-4993-a3ce-15ba858ec3c2" style="width:50%" class="column">
+          <figure id="85f20d15-33d1-4b0b-82b9-fa391da696fb" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_19.06.14.jpg" title="2023-12-03_19.06.14.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.06.14_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="6de2184e-0870-4de1-b55e-db0cc50512ae" style="width:50%" class="column">
+          <figure id="733e15bc-9acd-4131-8e1b-f8d3fc599cfa" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_19.12.05.jpg" title="2023-12-03_19.12.05.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.12.05_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <div id="caf5f9ba-d70c-4bfb-9084-d0c16e1a2b02" class="column-list">
+        <div id="f90f1124-34a8-468e-ab52-0d24e7c4baf6" style="width:50%" class="column">
+          <figure id="879bb463-ecbc-4b44-8cc9-57821e357477" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_19.14.02.jpg" title="2023-12-03_19.14.02.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.14.02_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="17d9c022-48c0-41ef-b07d-1621b04263cd" style="width:50%" class="column">
+          <figure id="b09d432d-fa2f-436b-aa22-6fb3b3bdfe95" class="image">
+            <a href="Prusa_MK4_upgrade/2023-12-03_19.14.05.jpg" title="2023-12-03_19.14.05.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2023-12-03_19.14.05_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="b68e9419-2b5b-46bc-8db3-4911a1c253a3" class="">This is how it looked when it blobbed all over:</p>
+      <div id="e76279be-979f-4cfe-bc7c-97eb4915ea8b" class="column-list">
+        <div id="0c20b7f6-6ba0-45d1-85e5-5967eb0bab65" style="width:50%" class="column">
+          <figure id="155d7dfb-666f-40e0-911c-e2aff7a2960d" class="image">
+            <a href="Prusa_MK4_upgrade/2021-07-08_20.40.04.jpg" title="2021-07-08_20.40.04.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2021-07-08_20.40.04_thumb.jpg"></a>
+          </figure>
+        </div>
+        <div id="b6644463-4e10-4c22-900a-43ad4144ffc5" style="width:50%" class="column">
+          <figure id="e9252599-74d6-49d6-a801-b3e98004b762" class="image">
+            <a href="Prusa_MK4_upgrade/2021-07-08_20.40.09.jpg" title="2021-07-08_20.40.09.jpg"><img style="width:1600px" src="Prusa_MK4_upgrade/2021-07-08_20.40.09_thumb.jpg"></a>
+          </figure>
+        </div>
+      </div>
+      <p id="508781bd-2a14-4dc0-87d1-dd17eae1b6fa" class="">So far, I haven't figured out what to do with these components. I've seen some projects for filament recyclers, but when I looked at a few videos, it all seemed like a highly impractical matter that doesn't really make sense.</p>
+      <h1 id="e70c3555-699b-4e5d-b939-23a21db64c8f" class="">Impressions after a few months of use</h1>
+      <p id="ac910ff8-ad18-485f-8d0c-8ec8bfc7f93d" class="">There are many impressions, but they can all be summed up very simply: <em>wow</em>.</p>
+      <p id="ec773f95-5102-43bc-8e23-b963789c2df1" class="">At first, I thought the new color display was quite unnecessary, but in retrospect, I can't praise it enough. The menu is much clearer, and it's much faster and more intuitive to find what you need.</p>
+      <p id="e066e74f-1ae6-498e-9b0d-9a6f43ce3114" class="">The web interface and the ability to print directly from the Slicer are both <em>game changers</em>, eliminating the need to bother with cables and memory cards. It might seem like a trivial detail, but I wouldn't go back.</p>
+      <p id="55f9186f-fffc-46b2-8f66-b4e25c439580" class="">Of course, the printer is much faster, often by about 50% thanks to the <em>input shaper</em> and more precise and faster motors. They are also significantly quieter. When you put vibration-absorbing pads under the printer, the fan is the loudest thing, except the occasional frantic movement:</p>
+      <figure id="96c2523f-5a73-4264-b17b-4131393b55cb">
+        <div class="source">
+          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/e6zIUl_XPbU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </figure>
+      <p id="381755ba-3a13-43a5-bef0-81bd2855dd2b" class=""><em>"Input shaper"</em> is a feature that allows the Slicer to take into account the weight of the print head during slicing and creates a gcode based on a movement simulation that reduces artifacts caused by vibrations and so on. This enables the head to move faster than in the older version.</p>
+      <div id="6bcc4a40-26f1-4a98-8d5f-5f6b1df01a60" class="column-list">
+        <div id="50ef448e-cdfe-4a3a-862e-3d25738d0364" style="width:56.25%" class="column">
+          <p id="cbe5d44e-79e4-403b-a6fd-c58980ce8e8e" class="">However, the main feature is the auto-calibration of the Z-axis before each print using an in-built pressure sensor directly in the head. This means that you can start a print, and if you are printing a well-made model*, you can largely rely on it printing correctly.</p>
+          <p id="08907673-97d4-4b63-b57d-9ffebd5a1da5" class="">This is a huge difference compared to the previous version, which also printed, but somehow I couldn't shake off the feeling that I had to sit by it and wait for something to go wrong. And it wasn't just a feeling because it really happened quite often.</p>
+          <p id="35e4b84e-04f6-4cbe-9f99-acb00a7f4a16" class="">Especially when I hadn't printed anything for several months, the Z-axis calibration often went off by itself, and then it took at least an hour before I manually calibrated the printer. Even then, about 30% of prints ended up with some kind of problem, like a layer skipping, the print detaching from the bed, or something similar.</p>
+        </div>
+        <div id="2d7e72c0-dcdf-48c4-8aa4-aa633c414174" style="width:43.75000000000001%" class="column">
+          <figure class="block-color-gray_background callout" style="display:flex" id="0d29656c-0b32-46ec-91f1-4237b8600577">
+            <div style="font-size:1.5em">
+              <span class="icon">💡</span>
+            </div>
+            <div style="width:100%">
+              *Personally, I typically print my own models, and from time to time, they don't print well. So far, it has always been my mistake (I didn't consider the printing angles and printed without supports, …). The printer was still surprisingly capable of printing things that I thought I would have to cancel shortly after the print started, they just didn't look as good. The ability to handle overhangs is quite miraculous.
+            </div>
+          </figure>
+          <p id="9699d4ff-981e-4ddd-9c2b-2a2beb16770e" class=""></p>
+        </div>
+      </div>
+      <p id="4f4c3890-0f15-449c-9230-a549bfd1467b" class="">The fact that the new version works on its own, without needing to fiddle around with it, brings a somewhat strange feeling of almost... <em>professionalism</em>. Simply put, you start a print and after a few hours it comes out, exactly as it should.</p>
+      <p id="ce88aeae-c9a0-4bb7-8788-4ee65f384db1" class="">Which is another thing. Practically everything I've printed recently was without supports because they simply became unnecessary for most models. So far, I haven't experienced a model detaching during a print, which was a quite common issue with the MK3S+ if I didn't use a wide "skirt" (a patch around the model), or glue on the print surface.</p>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
+          <a href="../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
+          <a href="../Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../Programming/objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../Tags/3d_printing.html" title="3d_printing">3D_printing</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../Concepts.html" title="Concepts">📂 Concepts</a>
+        </li>
+        <li>
+          <a href="../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

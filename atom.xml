@@ -2,46 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2023-07-31T07:24:11.794573+00:00</updated>
+  <updated>2024-08-17T01:19:24.373962+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Philosophy/Creating_spaces_by_opening_dimensions.html</id>
-    <title>Creating spaces by opening dimensions</title>
-    <updated>2022-04-28T17:26:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Philosophy/Creating_spaces_by_opening_dimensions.html" rel="alternate"/>
-    <summary type="text">Essay about opening new dimensions and creating spaces which others can fill with creativity.</summary>
-    <published>2022-04-28T17:26:00+02:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/Paperclips/Weird_invitations.html</id>
-    <title>Weird invitations</title>
-    <updated>2023-01-16T06:58:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/Paperclips/Weird_invitations.html" rel="alternate"/>
-    <summary type="text">Added new paperclip.</summary>
-    <published>2023-01-16T06:58:00+01:00</published>
-  </entry>
-  <entry>
-    <id>https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html</id>
-    <title>3D printing exhibit 2; Window shield for portable air conditioner</title>
-    <updated>2023-01-16T07:03:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" rel="alternate"/>
-    <summary type="text">Short log of how I've built a shield into the window for the portable air conditioner.</summary>
-    <published>2023-01-16T07:03:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/en/Technological_marvels/SLAM.html</id>
     <title>SLAM</title>
@@ -118,5 +85,38 @@
     <link href="https://blog.rfox.eu/en/Hardware/SolarPi_experiment_2_Finally_something_that_works.html" rel="alternate"/>
     <summary type="text">After more than a year, I finally got to the point where I have more or less 24/7 solar-powered Raspberry Pi microserver.</summary>
     <published>2023-07-31T08:44:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Concepts/CaptchaCoin.html</id>
+    <title>CaptchaCoin</title>
+    <updated>2024-08-17T02:09:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Concepts/CaptchaCoin.html" rel="alternate"/>
+    <summary type="text">An old concept about time-multiplexing specific assets in the form of a "cryptocurrency." Backported from depth of my personal wiki.</summary>
+    <published>2024-08-17T02:09:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Concepts/HobbyCell.html</id>
+    <title>HobbyCell</title>
+    <updated>2024-08-17T02:10:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Concepts/HobbyCell.html" rel="alternate"/>
+    <summary type="text">Startup idea for 3D printing-friendly electronic components which can be picked &amp; placed by the 3D printer itself. Kinda like lego, but for electronics. Backported from depth of my personal wiki.</summary>
+    <published>2024-08-17T02:10:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/3D_printing/Prusa_MK4_upgrade.html</id>
+    <title>Prusa MK4 upgrade</title>
+    <updated>2024-08-17T02:31:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/3D_printing/Prusa_MK4_upgrade.html" rel="alternate"/>
+    <summary type="text">I've upgraded my Prusa MK3S+ 3D printer to MK4. This writeup contains the story of how it went and some observations about the improvements.</summary>
+    <published>2024-08-17T02:31:00+02:00</published>
   </entry>
 </feed>

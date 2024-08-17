@@ -35,6 +35,15 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -54,15 +63,6 @@
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -92,6 +92,9 @@
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
@@ -132,6 +135,8 @@
       <p class="page-description"></p>
     </header>
     <div class="page-body">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <p id="1a711450-278a-4b1b-bb75-bf584915bfb8" class=""><time>@2023/04/20</time></p>
       <figure class="block-color-gray_background callout" style="display:flex" id="73740dc3-75d1-4ec1-bff0-fd8af0ba3ce5">
         <div style="font-size:1.5em">
@@ -201,7 +206,9 @@
       <p id="d39210d5-efea-4d73-b782-07f310254e8a" class=""><a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a> is a beautiful blog on this topic, with many examples.</p>
       <h2 id="191a7bc7-eec2-46c9-b331-eebca9e9342c" class="">Chat</h2>
       <p id="4c98d9e6-8b6b-485e-a0a1-b3ebc9dc96ab" class="">With this comes the surprisingly high utility of chat. Chat is not a radically new feature, but rather a way in which auto-completion is being utilized. For example, in <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, we can find a file <code>chat-with-bob.txt</code> in the <code>prompts/</code> subfolder. It contains the following content:</p>
-      <pre id="b65fa331-27a8-45b6-a698-cdf395834549" class="code code-wrap"><code>Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b65fa331-27a8-45b6-a698-cdf395834549" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
 
 User: Hello, Bob.
 Bob: Hello. How may I help you today?
@@ -209,7 +216,9 @@ User: Please tell me the largest city in Europe.
 Bob: Sure. The largest city in Europe is Moscow, the capital of Russia.
 User:</code></pre>
       <p id="d10054c8-5a64-49fe-929d-acb3d69317ff" class="">The entire <em>chat mode</em> works in a very trivial way – first, it feeds the AI assistant's conversation transcript to the network for completion, starting with a <em>prompt</em>, followed by a sample <em>format</em> (question, answer). Once the program encounters the <code>User:</code> pattern in the output, it uses simple pattern matching:</p>
-      <pre id="437d896c-f439-47ef-bab8-8cbcaee53f9b" class="code code-wrap"><code>-r PROMPT, --reverse-prompt PROMPT
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="437d896c-f439-47ef-bab8-8cbcaee53f9b" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">-r PROMPT, --reverse-prompt PROMPT
      run in interactive mode and poll user input upon seeing PROMPT (can be
      specified more than once for multiple prompts).</code></pre>
       <p id="0d87d069-b26c-450d-9e93-98993b54a926" class="">If it finds a string specified in this parameter, it loads a bit of data from the user, adds it to the original document, and continues completing. This creates the entire illusion of chat, even though the model is still just completing the "transcript" of a conversation between a human and artificial intelligence.</p>
@@ -223,7 +232,9 @@ User:</code></pre>
         <a href="Screenshot_from_2023-04-20_15-17-16.png" title="Screenshot_from_2023-04-20_15-17-16.png"><img style="width:1205px" src="Screenshot_from_2023-04-20_15-17-16_thumb.jpg"></a>
       </figure>
       <p id="1b8c125b-ded0-45d3-955c-40db9d213716" class=""><em>Prompts</em> can also provide a much more complex <em>format</em>, for example, simulating deeper thinking about questions, as seen in <a href="https://github.com/ggerganov/llama.cpp/blob/master/prompts/reason-act.txt">llama.cpp/prompts/reason-act.txt</a>:</p>
-      <pre id="a0e4e186-723b-4609-85ac-5d0d8ca911ad" class="code code-wrap"><code>You run in a loop of Thought, Action, Observation.
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="a0e4e186-723b-4609-85ac-5d0d8ca911ad" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">You run in a loop of Thought, Action, Observation.
 At the end of the loop either Answer or restate your Thought and Action.
 Use Thought to describe your thoughts about the question you have been asked.
 Use Action to run one of these actions available to you:
@@ -383,24 +394,40 @@ Question:</code></pre>
       <p id="05d69044-723a-4e88-9710-49486cb6184d" class="">I originally started writing this article because I was trying it at home, and it was quite complicated. While writing it, everything has become so simplified that the original text completely lost its purpose.</p>
       <p id="c4cce330-e557-4cb6-8a34-6d084f186ee2" class="">Now, let's set up Vicuna (or choose something else <a href="https://www.reddit.com/r/LocalLLaMA/wiki/models/">here</a>).</p>
       <p id="32a49fb2-5f4f-47a2-8bd5-9c79cd97eb8f" class="">First, clone <a href="https://github.com/oobabooga/text-generation-webui/">textgeneration-web-ui</a> to an NVMe drive where you have at least 100 GB of space:</p>
-      <pre id="988f6436-8b6c-4d1d-94a9-5cf8a14241e8" class="code code-wrap"><code>git clone https://github.com/oobabooga/text-generation-webui.git</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="988f6436-8b6c-4d1d-94a9-5cf8a14241e8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/oobabooga/text-generation-webui.git</code></pre>
       <p id="d6fd8a7e-72f0-404c-8162-a02f4cc7ee8b" class="">Go to the <code>models/</code> folder and clone Vicuna:</p>
-      <pre id="9b2894b2-73ea-4574-bca1-7bfe984a9611" class="code code-wrap"><code>git clone https://huggingface.co/eachadea/vicuna-13b</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="9b2894b2-73ea-4574-bca1-7bfe984a9611" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://huggingface.co/eachadea/vicuna-13b</code></pre>
       <p id="f2a379d8-5e18-4b23-9b97-653fa6f0eb70" class="">It is a PyTorch model. While it is cloning, open another terminal and install the dependencies. First, install Miniconda (or Anaconda):</p>
-      <pre id="2f7dce32-f0c0-4544-9f8d-1073417538dc" class="code code-wrap"><code>curl -sL "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" &gt; "Miniconda3.sh"
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="2f7dce32-f0c0-4544-9f8d-1073417538dc" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">curl -sL "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" &gt; "Miniconda3.sh"
 bash Miniconda3.sh</code></pre>
       <p id="bb00c03d-2051-45c1-9157-e271eb986460" class="">Then, install the necessary build tools:</p>
-      <pre id="8bed3124-3475-41f0-bc45-70f535709db2" class="code code-wrap"><code>sudo apt install build-essential</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="8bed3124-3475-41f0-bc45-70f535709db2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt install build-essential</code></pre>
       <p id="6b90d567-4923-4132-b165-45c205f92603" class="">Create a new <code>conda</code> environment:</p>
-      <pre id="352c325a-8b02-496f-b4ad-594408fa420e" class="code code-wrap"><code>conda create -n textgen python=3.10.9
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="352c325a-8b02-496f-b4ad-594408fa420e" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">conda create -n textgen python=3.10.9
 conda activate textgen</code></pre>
       <p id="3f20dad2-7956-4a88-b528-194e56f92795" class="">Then, install the dependencies in the new environment:</p>
-      <pre id="49486698-63bc-4be9-ae74-53bf47276819" class="code code-wrap"><code>pip3 install torch torchvision torchaudio
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="49486698-63bc-4be9-ae74-53bf47276819" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pip3 install torch torchvision torchaudio
 pip install -r requirements.txt</code></pre>
       <p id="27f9aff4-a30f-462c-bf54-05d5c2a9e8ed" class="">And that's it. Wait for the model to download and then run the whole thing:</p>
-      <pre id="1de1f896-d1ab-4cc6-9f86-990ed159b5ad" class="code code-wrap"><code>python server.py --cpu</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="1de1f896-d1ab-4cc6-9f86-990ed159b5ad" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">python server.py --cpu</code></pre>
       <p id="31190767-b10e-4550-a716-070aaf3e91fc" class="">You can omit the <code>--cpu</code> parameter if you have a graphics card with 24GB of VRAM.</p>
-      <pre id="32f4da55-9f9a-427f-94be-06d996ffd2ef" class="code code-wrap"><code>$ python server.py --cpu --chat
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="32f4da55-9f9a-427f-94be-06d996ffd2ef" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ python server.py --cpu --chat
 
 ===================================BUG REPORT===================================
 Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
@@ -422,23 +449,35 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
       <p id="38c15388-5aa5-4ee3-9322-8dadfd64fde1" class="">The words appear very slowly for me, about one every five seconds. It loads character by character as the model generates it. It would be better to have a graphics card with more memory, as the model doesn't fit into my 3070Ti.</p>
       <h3 id="780c9365-a38c-4463-9709-cb6dca2050ed" class="">llama.cpp</h3>
       <p id="b2a853db-6e53-41fd-a717-46d2ec84ea49" class="">Fortunately, there is also <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, a C++ rewrite of the Python code:</p>
-      <pre id="c772945a-6863-49a6-aff5-31946a1a3eb2" class="code code-wrap"><code>git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="c772945a-6863-49a6-aff5-31946a1a3eb2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
       <p id="7cf2f97a-c523-47fb-8550-c50c4f0208cd" class="">Then build it using the <code>make</code> command.</p>
       <p id="b50cab2e-4283-4ae0-baa3-51af0aac8887" class="">A minor issue is that <code>llama.cpp</code> uses an optimized data storage format, which we need to convert from the original PyTorch tensor (<code>.pth</code>) to <code>.ggml</code>.</p>
       <p id="ec554441-df93-45de-8493-4e3147115288" class="">Activate the <code>textgen</code> conda environment from the previous section and run the convert script:</p>
-      <pre id="d21ba8bd-fcd6-47c9-b1d0-ccfd03fdfa34" class="code code-wrap"><code>$ conda activate textgen
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="d21ba8bd-fcd6-47c9-b1d0-ccfd03fdfa34" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">$ conda activate textgen
 (textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
       <p id="203756e8-877e-4547-82e2-e8473c7c69c2" class="">Upon running, it reports that the <code>added_tokens.json</code> file is missing:</p>
-      <pre id="6ff2dcb5-436d-4c9e-ac85-a88ddb809769" class="code code-wrap"><code>Exception: Vocab size mismatch (model has 32001, but ../models/vicuna-13b/tokenizer.model has 32000).  Most likely you are missing added_tokens.json (should be in ../models/vicuna-13b).</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="6ff2dcb5-436d-4c9e-ac85-a88ddb809769" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">Exception: Vocab size mismatch (model has 32001, but ../models/vicuna-13b/tokenizer.model has 32000).  Most likely you are missing added_tokens.json (should be in ../models/vicuna-13b).</code></pre>
       <p id="2fee05ab-8dd7-443d-a939-896985ee463e" class="">So, we'll add it there:</p>
-      <pre id="78d0428c-f99b-411d-90cc-e7221b664095" class="code code-wrap"><code>{
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="78d0428c-f99b-411d-90cc-e7221b664095" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
     "&lt;unk&gt;": 32000
 }</code></pre>
       <p id="f969ed02-e99c-4c6e-a8a1-2a3a394aeb46" class="">Where did I get it from? The last value in <code>tokenizer_config.json</code> in the Vicuna folder. It's completely random, and I'm not sure if it's correct (probably not, but it works more or less).</p>
-      <pre id="114ef814-1dda-47d1-8c4d-012b9212cdc2" class="code code-wrap"><code>(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="114ef814-1dda-47d1-8c4d-012b9212cdc2" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
       <p id="ff7f770e-dc3d-40c5-b3c2-c20d25548122" class="">This will output the file <code>../models/vicuna-13b/ggml-model-f32.bin</code>, which can then be run using <code>llama.cpp</code>. Alternatively, you can use the <code>--outtype f16</code> parameter for a smaller size to fit in your memory (equivalent to <em>quantization</em> in other projects).</p>
       <p id="677fc30d-b05f-4df2-8b3c-7838ce867d93" class="">And then all that's left is to run it and play with it:</p>
-      <pre id="e044b844-942d-4b22-a80d-661a585edbbc" class="code code-wrap"><code>./main -m ../models/vicuna-13b/ggml-model-f32.bin --color --repeat_penalty 1.0 -i -t 15 -r "User:" -f prompts/chat-with-bob.txt</code></pre>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="e044b844-942d-4b22-a80d-661a585edbbc" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">./main -m ../models/vicuna-13b/ggml-model-f32.bin --color --repeat_penalty 1.0 -i -t 15 -r "User:" -f prompts/chat-with-bob.txt</code></pre>
       <p id="aae771fb-a141-4cbd-83f8-698a488c4f12" class="">On my computer, the text appears at a rate of about one word per second.</p>
       <h3 id="42a198c3-37cd-44a4-af35-191792562d1d" class="">It's worth noting</h3>
       <p id="3ec4a325-cd69-4436-a432-75aa05818f48" class="">Smaller models are, of course, less capable, but they are not entirely incapable. If you observe strange behavior, it could be:</p>
@@ -459,18 +498,24 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
         <li>You may have a model that isn't worth much. Some have had training data in languages other than English removed, and others have been tweaked to work great for specific tasks but poorly for the rest.</li>
       </ol>
       <p id="efdc6fd9-54c1-4dc6-8344-cc5fd712a96d" class="">Here are some specific examples of problems:</p>
-      <pre id="b4c5267d-02c1-4ea1-a3f4-95df79fffe91" class="code code-wrap"><code>Question: Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="b4c5267d-02c1-4ea1-a3f4-95df79fffe91" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Question: Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
 Thought: I think this is asking to find all files with the .md extension and then cat them into a single file called blogs.md
 Action: I will use the find tool
 Observation: The find tool found 5 files with the .md extension and the command cat'ed them into a single file called blogs.md</code></pre>
       <p id="2fbe98b0-b45a-4440-b4d2-370abdb0dca2" class="">Vicuna, instead of doing it, pretended to be doing something. The context of the prompt was not good. With the <em>chat with bob</em> prompt:</p>
-      <pre id="89305c51-b57b-430e-a752-35170e6d2f27" class="code code-wrap"><code>User:Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="89305c51-b57b-430e-a752-35170e6d2f27" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">User:Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
 ### Assistant: Here is the Python command equivalent to the given command:
 ```css
 find .</code></pre>
       <p id="75272f06-e2ad-4e5c-a7fe-2ad1bcc9baa3" class="">Obviously, it went completely wrong. Now I could get angry and say that this model is as bad as GPT-2 and actually useless.</p>
       <p id="f13a1770-4c48-41b6-99ab-5f046707acac" class="">Instead, I realized that I was talking to a Shoggoth, so I tried again and gave it more context. Instead of <em>“Convert to python”</em>, I asked it to <em>“Convert this shell command to python script, which will do the same”</em>. And suddenly, it works:</p>
-      <pre id="456fdfea-ce5a-4a22-a2c4-d206dec7683f" class="code code-wrap"><code>User:Convert this shell command to python script, which will do the same: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="456fdfea-ce5a-4a22-a2c4-d206dec7683f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">User:Convert this shell command to python script, which will do the same: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
 Bob: Here's the Python equivalent of the given shell command:
 ```python
 import os
@@ -500,7 +545,9 @@ def find_and_cat_md_files(directory):
 find_and_cat_md_files('./')
 ```</code></pre>
       <p id="0ce33e39-5f67-43e8-a0cb-0d38f06bc328" class="">The functionality was there all along; the problem was the context. If I had chosen a better prompt from the beginning, instead of <em>chat with bob</em>, where I could have mentioned that it's an AI assistant that helps with programming in Python, it would probably have worked on the first try. Something like:</p>
-      <pre id="816b16b8-5e9c-4f67-948e-9a6c5c0c1c82" class="code code-wrap"><code>Transcript of a conversation between a person and a smart AI that can program and never makes mistakes. It willingly fulfills all user requests and tries to be as helpful as possible.
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <pre id="816b16b8-5e9c-4f67-948e-9a6c5c0c1c82" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">Transcript of a conversation between a person and a smart AI that can program and never makes mistakes. It willingly fulfills all user requests and tries to be as helpful as possible.
 
 User: I want something
 AI: This is how to program it:
@@ -787,6 +834,15 @@ User:</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
           <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
         </li>
         <li>
@@ -806,15 +862,6 @@ User:</code></pre>
         </li>
         <li>
           <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
-        </li>
-        <li>
-          <a href="../../3D_printing/3D_printing_exhibit_2_Window_shield_for_portable_air_conditioner.html" title="3D printing exhibit 2; Window shield for portable air conditioner">3D printing exhibit 2; Window shield for portable air conditioner</a>
-        </li>
-        <li>
-          <a href="../../../Paperclips/Weird_invitations.html" title="Weird invitations">Weird invitations</a>
-        </li>
-        <li>
-          <a href="../../Philosophy/Creating_spaces_by_opening_dimensions.html" title="Creating spaces by opening dimensions">Creating spaces by opening dimensions</a>
         </li>
       </ul>
     </div>
@@ -845,6 +892,9 @@ User:</code></pre>
         </li>
         <li>
           <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
         </li>
         <li>
           <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
