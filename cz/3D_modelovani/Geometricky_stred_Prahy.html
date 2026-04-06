@@ -15,9 +15,9 @@
   span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
   .hll { background-color: #ffffcc }
   .c { color: #3D7B7B; font-style: italic } /* Comment */
-  .err { border: 1px solid #FF0000 } /* Error */
+  .err { border: 1px solid #F00 } /* Error */
   .k { color: #008000; font-weight: bold } /* Keyword */
-  .o { color: #666666 } /* Operator */
+  .o { color: #666 } /* Operator */
   .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
   .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
   .cp { color: #9C6500 } /* Comment.Preproc */
@@ -26,6 +26,7 @@
   .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
   .gd { color: #A00000 } /* Generic.Deleted */
   .ge { font-style: italic } /* Generic.Emph */
+  .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
   .gr { color: #E40000 } /* Generic.Error */
   .gh { color: #000080; font-weight: bold } /* Generic.Heading */
   .gi { color: #008400 } /* Generic.Inserted */
@@ -33,34 +34,34 @@
   .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
   .gs { font-weight: bold } /* Generic.Strong */
   .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-  .gt { color: #0044DD } /* Generic.Traceback */
+  .gt { color: #04D } /* Generic.Traceback */
   .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
   .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
   .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
   .kp { color: #008000 } /* Keyword.Pseudo */
   .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
   .kt { color: #B00040 } /* Keyword.Type */
-  .m { color: #666666 } /* Literal.Number */
+  .m { color: #666 } /* Literal.Number */
   .s { color: #BA2121 } /* Literal.String */
   .na { color: #687822 } /* Name.Attribute */
   .nb { color: #008000 } /* Name.Builtin */
-  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-  .no { color: #880000 } /* Name.Constant */
-  .nd { color: #AA22FF } /* Name.Decorator */
+  .nc { color: #00F; font-weight: bold } /* Name.Class */
+  .no { color: #800 } /* Name.Constant */
+  .nd { color: #A2F } /* Name.Decorator */
   .ni { color: #717171; font-weight: bold } /* Name.Entity */
   .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
-  .nf { color: #0000FF } /* Name.Function */
+  .nf { color: #00F } /* Name.Function */
   .nl { color: #767600 } /* Name.Label */
-  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .nn { color: #00F; font-weight: bold } /* Name.Namespace */
   .nt { color: #008000; font-weight: bold } /* Name.Tag */
   .nv { color: #19177C } /* Name.Variable */
-  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-  .w { color: #bbbbbb } /* Text.Whitespace */
-  .mb { color: #666666 } /* Literal.Number.Bin */
-  .mf { color: #666666 } /* Literal.Number.Float */
-  .mh { color: #666666 } /* Literal.Number.Hex */
-  .mi { color: #666666 } /* Literal.Number.Integer */
-  .mo { color: #666666 } /* Literal.Number.Oct */
+  .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+  .w { color: #BBB } /* Text.Whitespace */
+  .mb { color: #666 } /* Literal.Number.Bin */
+  .mf { color: #666 } /* Literal.Number.Float */
+  .mh { color: #666 } /* Literal.Number.Hex */
+  .mi { color: #666 } /* Literal.Number.Integer */
+  .mo { color: #666 } /* Literal.Number.Oct */
   .sa { color: #BA2121 } /* Literal.String.Affix */
   .sb { color: #BA2121 } /* Literal.String.Backtick */
   .sc { color: #BA2121 } /* Literal.String.Char */
@@ -75,12 +76,12 @@
   .s1 { color: #BA2121 } /* Literal.String.Single */
   .ss { color: #19177C } /* Literal.String.Symbol */
   .bp { color: #008000 } /* Name.Builtin.Pseudo */
-  .fm { color: #0000FF } /* Name.Function.Magic */
+  .fm { color: #00F } /* Name.Function.Magic */
   .vc { color: #19177C } /* Name.Variable.Class */
   .vg { color: #19177C } /* Name.Variable.Global */
   .vi { color: #19177C } /* Name.Variable.Instance */
   .vm { color: #19177C } /* Name.Variable.Magic */
-  .il { color: #666666 } /* Literal.Number.Integer.Long */
+  .il { color: #666 } /* Literal.Number.Integer.Long */
   </style>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@Bystroushaak">
@@ -196,113 +197,197 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="3D modelování">3D modelování</a> / Geometrický střed Prahy
   <article id="569c226e-bffc-46af-afb6-25527c5e4d1d" class="page sans">
     <header>
-      <h1 class="page-title">Geometrický střed Prahy</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Geometrický střed Prahy</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="40de7ce5-acc3-4630-87f8-ef38ee793ded" class=""><time>@2021/06/22</time></p>
-      <p id="4779ebd8-af18-4bff-b721-7f3496cbe284" class=""><a href="https://www.youtube.com/channel/UCbpMZ4ri2yh342M6dH1GFIg">Kluci z Prahy</a> (známí taky jako <a href="https://www.youtube.com/c/HONESTGUIDE/featured">Honest guide</a>), publikovali nové video ohledně přesného středu Prahy. Když jsem to tak sledoval, těšil jsem se na popis hledání <a href="https://cs.wikipedia.org/wiki/Geometrick%C3%BD_st%C5%99ed">centroidu</a> nekonvexního polygonu.</p>
-      <figure id="45234518-8815-4708-8f48-9991eb51f144">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Hj5V6Gh0mOs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <p id="09b35759-68d6-45d4-af38-74078d393499" class="">Přišlo mi docela smutné, že se o to ani nesnažili. Jednoduše vzali bod nejvíc na západě, východě, jihu a severu Prahy a nakreslili mezi nimi čáry. Tam kde se protnuly pak vybrali střed. Jak se dá najít pravý střed?</p>
-      <figure id="a9fd701d-0846-4bc6-ad12-5bf04810f2f4" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/kluci_mapa.jpg" title="kluci_mapa.jpg"><img style="width:1670px" src="../../en/3D_modeling/Geometric_center_of_Prague/kluci_mapa_thumb.jpg"></a>
-        <figcaption>
-          <em>(Zdroj obrázku:</em> <em><a href="https://www.youtube.com/watch?v=Hj5V6Gh0mOs">https://www.youtube.com/watch?v=Hj5V6Gh0mOs</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="50e89d75-afa7-4c37-a736-339034673e7a" class="">Poznámka: geometrický střed je místo, kde kdybyste mapu vystřihli z papíru, můžete papírový obrys položit na hrot špendlíku a mapa bude vyvážená a nebude padat mimo.</p>
-      <h1 id="dea1f02b-4b18-4496-968b-f5ba93476fd9" class="">Sežeň polygonovou mapu prahy</h1>
-      <p id="3d83b88d-6e2d-460c-83dc-bad5164b6e77" class="">Což může být poměrně náročné. Naštěstí se dá prostě vygooglit použitelný SVG. Jeden jsem <a href="https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg">našel tady</a>:</p>
-      <figure id="ee50fcc5-7aa6-4271-ad97-3a0084b7c999" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha.svg" title="Obec_Praha_okres_Hlavn_msto_Praha.svg"><img style="width:670px" src="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha.svg"></a>
-        <figcaption>
-          <em>(Zdroj:</em> <em><a href="https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg">https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg</a></em><em>, licencováno pod</em> <em><a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY SA</a></em><em>.)</em>
-        </figcaption>
-      </figure>
-      <p id="eb139cf9-09ed-46dc-a339-458cb5c5a1ff" class="">Otevřel jsem ho v textovém editoru a smazal všechno, kromě samotného polygonu:</p>
-      <figure id="bdfe146f-373a-4984-80b9-3ed041fd1528" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha_1.svg" title="Obec_Praha_okres_Hlavn_msto_Praha_1.svg"><img style="width:670px" src="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha_1.svg"></a>
-      </figure>
-      <h1 id="803e6145-84a3-400a-85da-70cfe607c568" class="">Blender magie</h1>
-      <p id="40f0538e-6656-4f08-a5b0-e176e621f200" class="">Výsledné SVG potom může být importované do <a href="https://www.blender.org/">Blenderu</a>:</p>
-      <figure id="dac06ca7-ee41-4be5-9972-a185a34534ac" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_1.png" title="svg_import_1.png"><img style="width:2109px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_1_thumb.jpg"></a>
-      </figure>
-      <p id="63f65050-0d9e-4c52-b94c-58a0075f7303" class="">A naškálované na větší velikost:</p>
-      <figure id="c54e83a6-7462-4c7a-b127-a1e341569e6e" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_2.png" title="svg_import_2.png"><img style="width:1936px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_2_thumb.jpg"></a>
-      </figure>
-      <p id="8abfd55d-6991-4c6a-bce0-8f58cdc189f8" class="">Uprostřed obrazovky je možné vidět <em>„origin point“</em>, který se nachází ve středu 3D kurzoru. Ta malá žlutá tečka. Blender má docela užitečnou funkci, kde vám umožňuje rychle přemístit <em>„origin point“</em> do středu geometrie. Ve 3D modelování se to používá docela často, protože typicky chcete dělat nějaký druh modifikace (rotaci třeba) závislý na geometrickém těžišti objektu.</p>
-      <figure id="bbad9f1a-47fa-4a9e-9312-993be6eab286" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_3.png" title="svg_import_3.png"><img style="width:1936px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_3_thumb.jpg"></a>
-      </figure>
-      <p id="0e4b9231-f8b2-43c1-819e-336b7ec0fe4d" class="">Potom už zbývá jen přemístit objekt (<em>polygonovou mapu</em>) na místo kurzoru a otočit jí o 180°, protože je z nějakého důvodu importovaná vzhůru nohama.</p>
-      <figure id="aafb70fc-a859-4115-bd03-62527b00672e" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_4.png" title="svg_import_4.png"><img style="width:1936px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_4_thumb.jpg"></a>
-      </figure>
-      <p id="094155b3-6488-4257-b6a2-79a87ea83604" class="">Teď by bylo hezké to nějak zvizualizovat na reálné mapě, abysme zjistili kde přesně ten bod je. Použil jsem <a href="https://www.praha.eu/jnp/cz/doprava/cyklisticka/cyklisticka_old_zaloha/tistena_cyklomapa_a_dalsi_tistene.html">mapu z oficiálních stránek Města Prahy</a>. Pak jsem obrázek mapy orotoval o pár stupňů a škáloval ho, dokud <em>polygonová mapa</em> nepasovala na obrys v <em>obrázkové mapě</em>.</p>
-      <p id="d0bd214d-fc23-4ba6-9a78-e67fac9a4fd0" class="">Rotace je třeba, protože data v SVG obrázku, který jsem použil, jsou z nějakého důvodu pootočena o pár stupňů a pak zkorigována SVG transformací. Eh.</p>
-      <figure id="9d6c0b68-e212-440c-89a4-42695ebceb6e" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry.jpg" title="polygon_with_center_in_geometry.jpg"><img style="width:3840px" src="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_thumb.jpg"></a>
-        <figcaption>
-          <em>(Zdroj mapy:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="6ec41a20-026f-4238-a0d8-b43b47d9aea8" class="">Když se to pak zazoomuje, můžete vidět střed polygonu nad skutečnou mapou:</p>
-      <figure id="389f681a-ce20-4ada-8d91-343013ea8aaf" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed.jpg" title="polygon_with_center_in_geometry_zoomed.jpg"><img style="width:3840px" src="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed_thumb.jpg"></a>
-        <figcaption>
-          <em>(Zdroj mapy:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <h1 id="a8886e4b-1cd4-485b-9160-e42374d373ee" class="">Výsledek</h1>
-      <figure id="6f3ac95e-bf0b-420d-900f-60dd700653a4" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed2.jpg" title="polygon_with_center_in_geometry_zoomed2.jpg"><img style="width:804px" src="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed2.jpg"></a>
-        <figcaption>
-          <em>(Zdroj:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="63356f3c-9439-4514-9fbe-0ef65a91cdc0" class="">Což je podle mého odhadu tady: <a href="https://en.mapy.cz/zakladni?x=14.4432308&amp;y=50.0579764&amp;z=18&amp;q=50.0579333N%2C%2014.4434400E&amp;source=coor&amp;id=14.44344%2C50.0579333">50.0579333N, 14.4434400E</a>.</p>
-      <figure id="c978fe89-9dd8-43a9-bfa4-ed0a1cdde18a" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/seznam_mapy.jpg" title="seznam_mapy.jpg"><img style="width:767px" src="../../en/3D_modeling/Geometric_center_of_Prague/seznam_mapy.jpg"></a>
-        <figcaption>
-          <em>(Zdroj:</em> <em><a href="https://en.mapy.cz/zakladni?x=14.4432308&amp;y=50.0579764&amp;z=18&amp;q=50.0579333N%2C%2014.4434400E&amp;source=coor&amp;id=14.44344%2C50.0579333">http://mapy.cz</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="23a5258a-62c2-470f-8c1d-cd0617ab43e2" class="">Docela rozdílný bod, že? Pobavilo mě, že se nachází tak hezky uprostřed ulice.</p>
-      <figure id="0fc0c761-5af7-4949-bbe4-d11e49b50c1d" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/difference.jpg" title="difference.jpg"><img style="width:1206px" src="../../en/3D_modeling/Geometric_center_of_Prague/difference_thumb.jpg"></a>
-        <figcaption>
-          <em>(Zdroj:</em> <em><a href="https://en.mapy.cz/zakladni?x=14.4569154&amp;y=50.0838426&amp;z=13&amp;q=50.0579333N%2C%2014.4434400E%2050%C2%B05%2740%2C236%22N%2C%2014%C2%B028%2750%2C281%E2%80%9CE">http://mapy.cz</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="aa1bcd19-4036-4d1b-9b53-8bc63e7c5c86" class="">Nalevo je bod který jsem našel, napravo bod od <em>Kluků z Prahy</em>.</p>
-      <h1 id="91b9c4e7-c3c6-4a25-9c26-81700b66c687" class="">Definice středu</h1>
-      <p id="86176d7b-b1b7-4dd0-b936-8eefe5253345" class="">Asi je úplně jedno, kde člověk bere střed Prahy. Ať tak nebo tak, tak stejně to bude záležet na tom jak kdo interpretuje pojem střed. Pro někoho je to tam kde se střetávají severo-jižní a východo-západní přímky. Pro někoho je to geometrický střed. A pocitově, kdybych měl vybrat kde se má střed nacházet, tak bych asi zvolil zase trochu jiný bod, někde psychologicky víc uprostřed.</p>
-      <figure id="a151fdce-97c3-4fc6-a576-1240931acad2" class="image">
-        <a href="../../en/3D_modeling/Geometric_center_of_Prague/centers.jpg" title="centers.jpg"><img style="width:1603px" src="../../en/3D_modeling/Geometric_center_of_Prague/centers_thumb.jpg"></a>
-      </figure>
-      <p id="75633ab7-c2b4-469b-833a-569780207bd7" class="">Co mě ovšem baví je mít jednoduchou možnost si takhle hrát a <a href="https://forensic-architecture.org/investigation/chemical-attacks-in-douma">zkoumat</a>, k tomu je Blender super.</p>
-      <h1 id="55b64427-5749-463a-9946-ce2d5f352d66" class="">Zdrojové materiály</h1>
-      <p id="435fc0f3-5f9b-4aab-ab3a-c9afc6150251" class="">Blender soubor:</p>
-      <figure id="f469b8e5-bf83-4df4-9d19-9c8c7a0a8c02">
-        <div class="source">
-          <a href="../../en/3D_modeling/Geometric_center_of_Prague/geometricky_stred_prahy.blend" title="geometricky_stred_prahy.blend">geometricky_stred_prahy.blend</a>
-        </div>
-        <figcaption>
-          <a href="http://kitakitsune.org/storage/notion_retardace/geometricky_stred_prahy/geometricky_stred_prahy.blend">http://kitakitsune.org/storage/notion_retardace/geometricky_stred_prahy/geometricky_stred_prahy.blend</a>
-        </figcaption>
-      </figure>
-      <p id="5eb77c72-ab70-4c80-8de7-e393e10821c4" class="">Pokud chcete dostat z SVG mapy set bodů, které definují polygon, následující script k tomu lze použít, za předpokladu že máte křivku mapy vybranou:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre class="code"><code><span class="kn">import</span> <span class="nn">bpy</span>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="40de7ce5-acc3-4630-87f8-ef38ee793ded" class=""><time>@2021/06/22</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4779ebd8-af18-4bff-b721-7f3496cbe284" class=""><a href="https://www.youtube.com/channel/UCbpMZ4ri2yh342M6dH1GFIg">Kluci z Prahy</a> (známí taky jako <a href="https://www.youtube.com/c/HONESTGUIDE/featured">Honest guide</a>), publikovali nové video ohledně přesného středu Prahy. Když jsem to tak sledoval, těšil jsem se na popis hledání <a href="https://cs.wikipedia.org/wiki/Geometrick%C3%BD_st%C5%99ed">centroidu</a> nekonvexního polygonu.</p>
+      </div>
+      <div style="display:contents" dir="ltr"></div>
+      <div style="display:contents" dir="ltr">
+        <figure id="45234518-8815-4708-8f48-9991eb51f144">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Hj5V6Gh0mOs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="09b35759-68d6-45d4-af38-74078d393499" class="">Přišlo mi docela smutné, že se o to ani nesnažili. Jednoduše vzali bod nejvíc na západě, východě, jihu a severu Prahy a nakreslili mezi nimi čáry. Tam kde se protnuly pak vybrali střed. Jak se dá najít pravý střed?</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a9fd701d-0846-4bc6-ad12-5bf04810f2f4" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/kluci_mapa.jpg" title="kluci_mapa.jpg"><img style="width:1670px" src="../../en/3D_modeling/Geometric_center_of_Prague/kluci_mapa_thumb.jpg"></a>
+          <figcaption>
+            <em>(Zdroj obrázku:</em> <em><a href="https://www.youtube.com/watch?v=Hj5V6Gh0mOs">https://www.youtube.com/watch?v=Hj5V6Gh0mOs</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="50e89d75-afa7-4c37-a736-339034673e7a" class="">Poznámka: geometrický střed je místo, kde kdybyste mapu vystřihli z papíru, můžete papírový obrys položit na hrot špendlíku a mapa bude vyvážená a nebude padat mimo.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="dea1f02b-4b18-4496-968b-f5ba93476fd9" class="">Sežeň polygonovou mapu prahy</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3d83b88d-6e2d-460c-83dc-bad5164b6e77" class="">Což může být poměrně náročné. Naštěstí se dá prostě vygooglit použitelný SVG. Jeden jsem <a href="https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg">našel tady</a>:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="ee50fcc5-7aa6-4271-ad97-3a0084b7c999" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha.svg" title="Obec_Praha_okres_Hlavn_msto_Praha.svg"><img style="width:670px" src="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha.svg"></a>
+          <figcaption>
+            <em>(Zdroj:</em> <em><a href="https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg">https://img.kurzy.cz/mapa/pr/slepa/praha-okres.svg</a></em><em>, licencováno pod</em> <em><a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY SA</a></em><em>.)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eb139cf9-09ed-46dc-a339-458cb5c5a1ff" class="">Otevřel jsem ho v textovém editoru a smazal všechno, kromě samotného polygonu:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="bdfe146f-373a-4984-80b9-3ed041fd1528" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha_1.svg" title="Obec_Praha_okres_Hlavn_msto_Praha_1.svg"><img style="width:670px" src="../../en/3D_modeling/Geometric_center_of_Prague/Obec_Praha_okres_Hlavn_msto_Praha_1.svg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="803e6145-84a3-400a-85da-70cfe607c568" class="">Blender magie</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="40f0538e-6656-4f08-a5b0-e176e621f200" class="">Výsledné SVG potom může být importované do <a href="https://www.blender.org/">Blenderu</a>:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="dac06ca7-ee41-4be5-9972-a185a34534ac" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_1.png" title="svg_import_1.png"><img style="width:2109px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_1_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="63f65050-0d9e-4c52-b94c-58a0075f7303" class="">A naškálované na větší velikost:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="c54e83a6-7462-4c7a-b127-a1e341569e6e" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_2.png" title="svg_import_2.png"><img style="width:1936px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_2_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8abfd55d-6991-4c6a-bce0-8f58cdc189f8" class="">Uprostřed obrazovky je možné vidět <em>„origin point“</em>, který se nachází ve středu 3D kurzoru. Ta malá žlutá tečka. Blender má docela užitečnou funkci, kde vám umožňuje rychle přemístit <em>„origin point“</em> do středu geometrie. Ve 3D modelování se to používá docela často, protože typicky chcete dělat nějaký druh modifikace (rotaci třeba) závislý na geometrickém těžišti objektu.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="bbad9f1a-47fa-4a9e-9312-993be6eab286" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_3.png" title="svg_import_3.png"><img style="width:1936px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_3_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0e4b9231-f8b2-43c1-819e-336b7ec0fe4d" class="">Potom už zbývá jen přemístit objekt (<em>polygonovou mapu</em>) na místo kurzoru a otočit jí o 180°, protože je z nějakého důvodu importovaná vzhůru nohama.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="aafb70fc-a859-4115-bd03-62527b00672e" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_4.png" title="svg_import_4.png"><img style="width:1936px" src="../../en/3D_modeling/Geometric_center_of_Prague/svg_import_4_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="094155b3-6488-4257-b6a2-79a87ea83604" class="">Teď by bylo hezké to nějak zvizualizovat na reálné mapě, abysme zjistili kde přesně ten bod je. Použil jsem <a href="https://www.praha.eu/jnp/cz/doprava/cyklisticka/cyklisticka_old_zaloha/tistena_cyklomapa_a_dalsi_tistene.html">mapu z oficiálních stránek Města Prahy</a>. Pak jsem obrázek mapy orotoval o pár stupňů a škáloval ho, dokud <em>polygonová mapa</em> nepasovala na obrys v <em>obrázkové mapě</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d0bd214d-fc23-4ba6-9a78-e67fac9a4fd0" class="">Rotace je třeba, protože data v SVG obrázku, který jsem použil, jsou z nějakého důvodu pootočena o pár stupňů a pak zkorigována SVG transformací. Eh.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="9d6c0b68-e212-440c-89a4-42695ebceb6e" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry.jpg" title="polygon_with_center_in_geometry.jpg"><img style="width:3840px" src="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_thumb.jpg"></a>
+          <figcaption>
+            <em>(Zdroj mapy:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6ec41a20-026f-4238-a0d8-b43b47d9aea8" class="">Když se to pak zazoomuje, můžete vidět střed polygonu nad skutečnou mapou:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="389f681a-ce20-4ada-8d91-343013ea8aaf" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed.jpg" title="polygon_with_center_in_geometry_zoomed.jpg"><img style="width:3840px" src="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed_thumb.jpg"></a>
+          <figcaption>
+            <em>(Zdroj mapy:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="a8886e4b-1cd4-485b-9160-e42374d373ee" class="">Výsledek</h1>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="6f3ac95e-bf0b-420d-900f-60dd700653a4" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed2.jpg" title="polygon_with_center_in_geometry_zoomed2.jpg"><img style="width:804px" src="../../en/3D_modeling/Geometric_center_of_Prague/polygon_with_center_in_geometry_zoomed2.jpg"></a>
+          <figcaption>
+            <em>(Zdroj:</em> <em><a href="https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg">https://www.praha.eu/public/89/6a/ec/1099205_140344_cyklomapa_Praha_50_2010_MAPA_strana_1.jpg</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="63356f3c-9439-4514-9fbe-0ef65a91cdc0" class="">Což je podle mého odhadu tady: <a href="https://en.mapy.cz/zakladni?x=14.4432308&amp;y=50.0579764&amp;z=18&amp;q=50.0579333N%2C%2014.4434400E&amp;source=coor&amp;id=14.44344%2C50.0579333">50.0579333N, 14.4434400E</a>.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="c978fe89-9dd8-43a9-bfa4-ed0a1cdde18a" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/seznam_mapy.jpg" title="seznam_mapy.jpg"><img style="width:767px" src="../../en/3D_modeling/Geometric_center_of_Prague/seznam_mapy.jpg"></a>
+          <figcaption>
+            <em>(Zdroj:</em> <em><a href="https://en.mapy.cz/zakladni?x=14.4432308&amp;y=50.0579764&amp;z=18&amp;q=50.0579333N%2C%2014.4434400E&amp;source=coor&amp;id=14.44344%2C50.0579333">http://mapy.cz</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="23a5258a-62c2-470f-8c1d-cd0617ab43e2" class="">Docela rozdílný bod, že? Pobavilo mě, že se nachází tak hezky uprostřed ulice.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="0fc0c761-5af7-4949-bbe4-d11e49b50c1d" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/difference.jpg" title="difference.jpg"><img style="width:1206px" src="../../en/3D_modeling/Geometric_center_of_Prague/difference_thumb.jpg"></a>
+          <figcaption>
+            <em>(Zdroj:</em> <em><a href="https://en.mapy.cz/zakladni?x=14.4569154&amp;y=50.0838426&amp;z=13&amp;q=50.0579333N%2C%2014.4434400E%2050%C2%B05%2740%2C236%22N%2C%2014%C2%B028%2750%2C281%E2%80%9CE">http://mapy.cz</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aa1bcd19-4036-4d1b-9b53-8bc63e7c5c86" class="">Nalevo je bod který jsem našel, napravo bod od <em>Kluků z Prahy</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="91b9c4e7-c3c6-4a25-9c26-81700b66c687" class="">Definice středu</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="86176d7b-b1b7-4dd0-b936-8eefe5253345" class="">Asi je úplně jedno, kde člověk bere střed Prahy. Ať tak nebo tak, tak stejně to bude záležet na tom jak kdo interpretuje pojem střed. Pro někoho je to tam kde se střetávají severo-jižní a východo-západní přímky. Pro někoho je to geometrický střed. A pocitově, kdybych měl vybrat kde se má střed nacházet, tak bych asi zvolil zase trochu jiný bod, někde psychologicky víc uprostřed.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a151fdce-97c3-4fc6-a576-1240931acad2" class="image">
+          <a href="../../en/3D_modeling/Geometric_center_of_Prague/centers.jpg" title="centers.jpg"><img style="width:1603px" src="../../en/3D_modeling/Geometric_center_of_Prague/centers_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="75633ab7-c2b4-469b-833a-569780207bd7" class="">Co mě ovšem baví je mít jednoduchou možnost si takhle hrát a <a href="https://forensic-architecture.org/investigation/chemical-attacks-in-douma">zkoumat</a>, k tomu je Blender super.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="55b64427-5749-463a-9946-ce2d5f352d66" class="">Zdrojové materiály</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="435fc0f3-5f9b-4aab-ab3a-c9afc6150251" class="">Blender soubor:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="f469b8e5-bf83-4df4-9d19-9c8c7a0a8c02">
+          <div class="source">
+            <a href="../../en/3D_modeling/Geometric_center_of_Prague/geometricky_stred_prahy.blend" title="geometricky_stred_prahy.blend">geometricky_stred_prahy.blend</a>
+          </div>
+          <figcaption>
+            <a href="http://kitakitsune.org/storage/notion_retardace/geometricky_stred_prahy/geometricky_stred_prahy.blend">http://kitakitsune.org/storage/notion_retardace/geometricky_stred_prahy/geometricky_stred_prahy.blend</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5eb77c72-ab70-4c80-8de7-e393e10821c4" class="">Pokud chcete dostat z SVG mapy set bodů, které definují polygon, následující script k tomu lze použít, za předpokladu že máte křivku mapy vybranou:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre class="code"><code><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 
 <span class="n">obdata</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">data</span>
 <span class="n">curve</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span>
@@ -316,7 +401,10 @@
 <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">map_mesh</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">{:.2f}</span><span class="s1"> </span><span class="si">{:.2f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="mi">10000</span> <span class="o">+</span> <span class="mi">700</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="mi">10000</span> <span class="o">+</span> <span class="mi">500</span><span class="p">))</span>
 </code></pre>
-      <p id="b2e0e47a-1951-46b8-bb82-0a05548602d9" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b2e0e47a-1951-46b8-bb82-0a05548602d9" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

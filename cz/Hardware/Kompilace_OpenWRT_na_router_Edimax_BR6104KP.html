@@ -121,66 +121,143 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Hardware">Hardware</a> / Kompilace OpenWRT na router Edimax BR6104KP
   <article id="f79d78f0-c171-4c6b-b1ad-515ce3e6269e" class="page sans">
     <header>
-      <h1 class="page-title">Kompilace OpenWRT na router Edimax BR6104KP</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Kompilace OpenWRT na router Edimax BR6104KP</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="f148a77e-5724-4217-9b0a-f180f80901a4" class=""><time>@2011/02/15</time></p>
-      <h1 id="75909d7b-d531-4799-9228-6f86574dcee9" class="">Před půl rokem</h1>
-      <p id="510d989d-5643-4e79-89c6-56c6b4422fe8" class="">O velkých prázdninách jsem při čtení webu o robotice narazil na&nbsp;<a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">článek</a>&nbsp;o routeru&nbsp;<a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">BR6104KP</a>&nbsp;(verzi bez P na konci nebrat, chybí jí dva USB porty které je nutné připájet!), což je v podstatě zakuklený počítač. Připadalo mi to zajímavé, ba přímo skvělé, tak jsem si z aukra přidal do readeru&nbsp;<a href="http://aukro.cz/rss.php?feed=search&amp;category=0&amp;sg=0&amp;description=1&amp;string=br6104kp">RSS feed vyhledávání</a>&nbsp;a čekal kdy se objeví nějaký router za přijatelnou cenu. Netrvalo to dlouho a podařilo se mi jeden nový a nikdy nepoužívaný koupit za 300kč i s poštovným.</p>
-      <p id="4ed6f35c-8e6d-4267-857b-d39a73b4fe59" class="">Jakmile mi přišel domu, okamžitě jsem ho vybalil a jal se prohlížet co jsem to vlastně vydražil. Router vypadá (překvapivě..) jako router - krabička v pěkném stříbrnočerném designu, 4 LAN porty, 1 WAN, 2 USB, konektor na trafo a miniaturní zapuštěné reset tlačítko. Obsah balení dále tvoří zdroj 9V v malé bílé papírové krabičce, manuál, CDčko a disketa (:D). Disketu jsem hodil do poličky mezi ostatní starožitnosti, manuál jsem zběžně prolétl, ale jedná se jen o step by step guide pro cvičené opice schopné rozpoznat obrázky. CDčko nabízí podstatně více - nacházejí se zde spousty ovladačů, elektronická verze manuálu a různé návody jak rozhodit sdílený printserver který router nabízí na všech třech hlavních OS. Po zevrubném prozkoumání jsem ho vyndal z notebooku a putovalo do další poličky, tentokrát té určené na zbytečné krámy.</p>
-      <figure id="d756df10-d288-4732-9bf0-0af4f47814d0" class="image">
-        <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled.png" title="Untitled.png"><img style="width:800px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled.png"></a>
-      </figure>
-      <p id="7297e0f7-4277-4629-8d03-a20bbf275ea6" class="">Po chvíli kdy jsem hledal ethernet kabel jsem se na router napojil a prohlédl si webové rozhraní. Jedná se o standard který je možné v různém grafickém provedení nalézt na téměř každém levném domácím routeru, takže mě to rychle znudilo a začal jsem hledat jak že to mám vlastně router upravit na linuxovou mašinu. Během chvilky googlení jsem narazil na původní článek, který mě tenkrát tak nadchl.</p>
-      <h1 id="d203c99b-67d5-4b8d-b6cf-743f048f7c05" class="">Úprava hardware</h1>
-      <p id="645a22da-caac-4919-a85d-fe1d83e061ea" class=""><a href="http://jakub.serych.cz/zakladni-hardwarova-uprava-routeru">Hardwarová modifikace</a>&nbsp;je jednoduchá - stačí jen připájet neosazený konektor do portu kde je vyvedený JTAG (JP2). Jedná se o osm děr, které je nutné provrtat (jsou ucpané pájecím materiálem) a z obou stran desky do nich připájet konektor. Později jsem přišel na to, že není nutné osazovat všechny piny, ale stačí vždy dva krajní, dohromady tedy čtyři.</p>
-      <figure id="ec5a6841-b33f-4c29-8a22-dc8af2f2005a" class="image">
-        <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_1.png" title="Untitled_1.png"><img style="width:187px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_1.png"></a>
-      </figure>
-      <p id="9bc301c4-1a89-4d9b-b607-aee8e5c3c3d8" class="">Jelikož je možné že čipy na desce jsou citlivé vůči magnetickým polím, není možné použít mojí milovanou, 30 let starou trafopájku, ale je nutné pájet něčím co nevytváří takové EMP, tedy například mikropájku. Díky tomu že mám nějakej 40W šmejd za stopade z&nbsp;<a href="http://www.gme.cz/cz/">GME</a>&nbsp;se jednalo doslova o utrpení. Cín (je mi jasné že to není čistý cín, ale stejně tomu tak říkám) se nechtěl tavit, celé mi to trvalo strašně dlouho a na konci jsem byl už tak nasraný že jsem to vzal trafopájkou kterou jsem zapnul nataženou rukou co nejdále od desky. To co jsem neudělal za půl hodiny mikropájkou bylo trafopájkou hotové během půl minuty, obvody to naštěstí přežily bez újmy.</p>
-      <h1 id="278ee73f-1377-4395-a2d5-68c67416e8bc" class="">Připojení k počítači</h1>
-      <p id="66da1223-3b8e-42e7-a6b3-ca6fcd583837" class="">Poté co jsem připájel konektor přišlo na řadu zjišťování jak že to mám vlastně s routerem komunikovat. Pro přenos dat se používá&nbsp;<a href="http://en.wikipedia.org/wiki/UART">UART</a>, což je vlastně zjednodušený&nbsp;<a href="http://cs.wikipedia.org/wiki/RS232">RS232C</a>&nbsp;pracující v nižších napěťových úrovních. V praxi to znamená, že běžný osobní počítač se na sériovou konzoli nemůže nijak jednoduše připojit. Pokud má ještě dnes již nemoderní sériový port (tedy podporu RS232), tak je pořád nutný převodník napěťových úrovní, pokud ho nemá tak je nutné si sehnat něco sofistikovanějšího.</p>
-      <p id="db280a62-c592-48e7-b995-0620061cc53a" class="">Jedna z možností je použít externí převodník USB2RS232 a dobastlit si k němu ještě převodník úrovní, což je ovšem poněkud nepohodlné a časově náročné. Další možnost je použít&nbsp;<a href="http://www.arduino.cc/">arduino</a>, nebo nějaký podobný programovatelný kit a naprogramovat si do něj UART bridge - program který přepne mikrokontroler do režimu kdy pouze předává zaslaná data dál, v našem případě na router.</p>
-      <p id="31773106-7858-4777-920c-d292e7dad7e3" class="">Jelikož se mi doma už nějakou dobu válí&nbsp;<a href="BusPirate.html" title="BusPirate">BusPirate</a>, rozhodl jsem se že ho konečně nějak smysluplně využiji. BusPirate není programovatelný obvod jako třeba arduino (resp. je, ale není k tomu určený), ale svým způsobem hydra, která se umí připojit na nejrůznější komunikační sběrnice a odposlouchávat je (funguje i jako ne moc kvalitní logický analyzátor), popřípadě do komunikace aktivně zasahovat. Funkci&nbsp;<a href="http://dangerousprototypes.com/bus-pirate-manual/bus-pirate-uart-guide/">UART bridge</a>&nbsp;v sobě má už zabudovanou a její spuštění a nastavení je dílem&nbsp;<a href="http://openpaste.org/en/24687/">několika příkazů</a>&nbsp;(M, 3, 9, ENTER, ENTER, ENTER, 2, (1), mezerník). Potěšilo mě že umí přímo 3.3V logiku, takže jsem nemusel ani přidávat odpory které by zajistily konverzi mezi 5V UARTem.</p>
-      <figure id="a9d50366-14ba-41e4-ac0d-8f66d682d707" class="image">
-        <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_2.png" title="Untitled_2.png"><img style="width:1024px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_2.png"></a>
-      </figure>
-      <p id="e96ad4ae-243e-4f1f-a470-b1792520f751" class="">Zapojení konektoru je jednoduché - na jedničce (je označená na desce) je Rx, na dvojce +3V, na sedmičce Tx a na osmičce Gnd. Jelikož jsem na rozložení neustále zapomínal, po chvíli jsem se naštval a napsal jsem si to tam lakem na nehty (drží o hodně lépe jak lihová fixa, je levný, ale zase se s ním blbě píše).</p>
-      <p id="d6a5a592-38f1-43d5-adda-be23a12d5cbe" class=""><a href="http://en.wikipedia.org/wiki/Minicom">Minicom</a>&nbsp;(software pro sériovou komunikaci) jsem už měl z dřívějška na ubuntu nastavený, takže jsem ho zapnul a přepnul buspirate do potřebného módu. Poté co se jsem experimentálně ověřil (;D) že Rx na zařízení musí přijít Tx mastera a naopak jsem byl konečně připojený na sériovou konzoli.</p>
-      <figure id="64f36252-11c2-4737-85d1-821da3a202ff" class="image">
-        <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_3.png" title="Untitled_3.png"><img style="width:480px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_3.png"></a>
-      </figure>
-      <p id="1caa1e07-74cc-4f42-9e14-8ce706e6d1b8" class="">Jakmile jsem desku resetoval, objevila se bootovací hláška (pokud chcete přejít do nastavení, je nutné třikrát rychle zmáčknout mezerník), po které následovala záplava informací od linuxového jádra a něco co požadovalo heslo, ale nešlo do toho psát, protože se přepisoval pořád ten samý znak. Moc jsem to nezkoumal a desku jsem zase vypnul.</p>
-      <h1 id="80635862-bcdf-448d-a09e-fe14d8337e69" class="">Nahrávání software</h1>
-      <p id="ee55ab00-0d89-4656-9eb2-38c2ee65572a" class="">Když jsem teď měl vyřešené propojení s počítačem, nastalo shánění software. Jako první jsem našel distribuci&nbsp;<a href="http://midge.vlad.org.ua/wiki/">Midge.</a>&nbsp;Chvíli mi trvalo než jsem na jejich stránce nalezl binárku ke stažení, přičemž mě zarazilo především to, že je to poněkud stará distribuce. Poslední buildy jsou staré cca čtyři roky a jedou ještě na jádru 2.4.</p>
-      <p id="dd17803d-68d5-41e7-8a87-69e7e42770c6" class="">Spustil jsem minicom a rychle zmáčkl třikrát po sobě mezerník. Naskočilo menu, ze kterého jsem si vybral že chci nahrávat do flash paměti, načež počalo zobrazování jakéhosi progressbaru. Došlo mi, že bych měl asi vybrat soubor který chci uploadnout, ale než jsem v nápovědě minicomu našel jak na to, spojení timeoutovalo. Nenechal jsem se odradit a zkusil jsem to znovu, ale opět s neúspěchem. Zkoušel jsem to takhle několikrát, ale prostě není možné tak rychle vybrat upload souboru, vybrat xmodem, najít ve filesystému potřebnou image, mezerníkem jí potvrdit a eneterem odeslat. Naštěstí jsem po chvíli googlení našel&nbsp;<a href="http://linux-adm5120.sourceforge.net/tools/">python script</a>&nbsp;který to automatizuje.</p>
-      <p id="ee5febb1-562f-49ba-9ccb-be9514dea192" class="">Midge nebylo úplně špatné, ale postupně jsem dostával pocit že tomu něco chybí. Jasně, zařízení v <code>/dev</code> do kterých se dá zapisovat a podle nich blikají ledky jsou parádní, ale jakákoliv snaha o instalaci nového software byla fakt utrpení. Navíc podpora flashdisku byla fakt podivná a trvalo mi fakt dlouho než jsem přišel na to, že nemám hledat zařízení v <code>/dev</code>, ale v <code>/rom/dev/scsi/tri/prdele/podslozek</code>. Má nespokojenost s touto distribucí narůstala, takže jsem se rozhodl že si najdu jinou. Mezitím mi ovšem začala škola, takže jsem se k tomu už nedostal.</p>
-      <figure id="4c27ad66-86e9-4f45-8b10-c818838ebccc" class="image">
-        <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_4.png" title="Untitled_4.png"><img style="width:960px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_4.png"></a>
-      </figure>
-      <h1 id="c2ff145f-464d-4097-bee0-c37cb8810d32" class="">Squidge vs OpenWRT</h1>
-      <p id="7a521117-e98d-46ef-a1b6-77150f562bb3" class="">Squidge je lehce upravené <a href="http://openwrt.org/">OpenWRT</a>, což je linuxová distribuce určená pro routery. V případě Squidge se jedná o model <a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">Edimax BR6104KP</a> a většina úprav spočívá v automatickém nastavení distribuce a patche pro podporu <em>usbrootu</em>, což znamená že kořenový adresář není v routeru, ale na externím flashdisku. Má to své nevýhody - router tak ke svému běhu potřebuje neustále připojený flashdisk, který se navíc časem opotřebovává, také je třeba počítat s jistým zpomalením. Na druhou stranu to má i své výhody - místo 2MB získáváte prakticky neomezený prostor, pokud si vytvoříte <em>swap</em>, tak navíc i rozšíření na dnešní dobu nepěkně malých 16MB SD-RAM.</p>
-      <p id="b69600c4-3195-414b-8cc9-7ff36649b5bc" class="">Squidge vzniklo cca v roce 2009, a OpenWRT od té doby podstatně pokročilo. V dnešní době již není problém nastavit usbroot bez nutnosti nějakého složitého patchování a úprav konfiguračních scriptů. Na Squidge mi navíc nefunguje většina balíků, protože jim něco chybí (přebývá), takže po spuštění binárky vypíšou podivnou hlášku a spadnou. To je dost velká závada třeba v případě takového pythonu, bez kterého se na libovolném shellu prakticky neobejdu. Nevím nakolik se jedná o můj problém a nakolik je to problém samotného Squidge a úprav kompilačních scriptů, ale nepodařilo se mi ho vyřešit a tak jsem se odhodlal zkusit sestavit OpenWRT.</p>
-      <p id="d7c8f231-ef62-4893-b6b0-dd7a59963401" class="">Samotné sestavení je relativně jednoduché - v textové grafice je nutné zaškrtat všechny potřebné moduly a nastavení. Při jejich výběru jsem vycházel z anglického OpenWRT fóra, konkrétně <a href="https://forum.openwrt.org/viewtopic.php?id=18570">USB-rootfs on boot on Edimax BR-6104KP (ADM5120) [WORKS].</a> Považuji za nutné dodat, že v prvním příspěvku není popsané úplně všechno a stálo mě několik hodin života než jsem na to přišel. Celé sestavování probíhalo na Ubuntu 10.10.</p>
-      <h2 id="53e2c4e2-cf1a-4dfd-9306-e92ec5d8ca82" class="">Získání zdrojových kódů</h2>
-      <p id="52c2037c-ad5b-4150-9a86-6fc79d83bda4" class="">Prvním krokem je stažení aktuální kopie zdrojových kódů. I když samotné zdrojové soubory zabírají poměrně málo místa (38.5MB), připravte si cca 3GB volného místa na vše ostatní co se bude stahovat v průběhu kompilace. Zdrojové kódy je možné získat přez <strong>svn</strong>, adresu najdete na stránce <a href="https://dev.openwrt.org/wiki/GetSource">https://dev.openwrt.org/wiki/GetSource</a>. <del>Osobně jsem si vybral</del> <del><strong>kamikaze</strong></del><del>, protože ho používal Squidge.</del> <strong>Kamikaze</strong> nebrat, má porouchaný opkg. <strong>Backfire</strong> funguje k plné spokojenosti.</p>
-      <p id="c33a0ce4-ddb1-4310-9799-8e17acd01418" class="">Stažení verze kterou jsem si vybral já provedete pomocí příkazu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="eacd50c6-a5c9-42e8-a2cc-587a6c7780c5" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">svn co svn://svn.openwrt.org/openwrt/branches/backfire .</code></pre>
-      <p id="6a86a3e6-aa5d-4681-9501-3fa851dcae81" class="">Ten stáhne vše potřebné do aktuální složky, takže si nazapomeňte před provedením vytvořit nějakou prázdnou složku a vstoupit do ní.</p>
-      <h2 id="2fcbdecb-9de7-40e9-9588-fb667468548f" class="">make menuconfig</h2>
-      <p id="a1937cf8-a0d0-4776-913e-cbe189731c5c" class="">Jakmile máte staženo, zadejte:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="12402da6-38c3-42dc-afc4-d0ee828667c7" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">make menuconfig</code></pre>
-      <p id="a600145a-7b03-4dc5-b1ce-dd3ce12a02d2" class="">Pokud máte všechny potřebné nástroje, vyskočí na vás dialog, ve kterém je zapotřebí nastavit tyto hodnoty na hvězdičku (*):</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="4908d860-4b6c-4097-9b31-926e65ac7f0a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Target system
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f148a77e-5724-4217-9b0a-f180f80901a4" class=""><time>@2011/02/15</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="75909d7b-d531-4799-9228-6f86574dcee9" class="">Před půl rokem</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="510d989d-5643-4e79-89c6-56c6b4422fe8" class="">O velkých prázdninách jsem při čtení webu o robotice narazil na&nbsp;<a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">článek</a>&nbsp;o routeru&nbsp;<a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">BR6104KP</a>&nbsp;(verzi bez P na konci nebrat, chybí jí dva USB porty které je nutné připájet!), což je v podstatě zakuklený počítač. Připadalo mi to zajímavé, ba přímo skvělé, tak jsem si z aukra přidal do readeru&nbsp;<a href="http://aukro.cz/rss.php?feed=search&amp;category=0&amp;sg=0&amp;description=1&amp;string=br6104kp">RSS feed vyhledávání</a>&nbsp;a čekal kdy se objeví nějaký router za přijatelnou cenu. Netrvalo to dlouho a podařilo se mi jeden nový a nikdy nepoužívaný koupit za 300kč i s poštovným.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ed6f35c-8e6d-4267-857b-d39a73b4fe59" class="">Jakmile mi přišel domu, okamžitě jsem ho vybalil a jal se prohlížet co jsem to vlastně vydražil. Router vypadá (překvapivě..) jako router - krabička v pěkném stříbrnočerném designu, 4 LAN porty, 1 WAN, 2 USB, konektor na trafo a miniaturní zapuštěné reset tlačítko. Obsah balení dále tvoří zdroj 9V v malé bílé papírové krabičce, manuál, CDčko a disketa (:D). Disketu jsem hodil do poličky mezi ostatní starožitnosti, manuál jsem zběžně prolétl, ale jedná se jen o step by step guide pro cvičené opice schopné rozpoznat obrázky. CDčko nabízí podstatně více - nacházejí se zde spousty ovladačů, elektronická verze manuálu a různé návody jak rozhodit sdílený printserver který router nabízí na všech třech hlavních OS. Po zevrubném prozkoumání jsem ho vyndal z notebooku a putovalo do další poličky, tentokrát té určené na zbytečné krámy.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="d756df10-d288-4732-9bf0-0af4f47814d0" class="image">
+          <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled.png" title="Untitled.png"><img style="width:800px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7297e0f7-4277-4629-8d03-a20bbf275ea6" class="">Po chvíli kdy jsem hledal ethernet kabel jsem se na router napojil a prohlédl si webové rozhraní. Jedná se o standard který je možné v různém grafickém provedení nalézt na téměř každém levném domácím routeru, takže mě to rychle znudilo a začal jsem hledat jak že to mám vlastně router upravit na linuxovou mašinu. Během chvilky googlení jsem narazil na původní článek, který mě tenkrát tak nadchl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="d203c99b-67d5-4b8d-b6cf-743f048f7c05" class="">Úprava hardware</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="645a22da-caac-4919-a85d-fe1d83e061ea" class=""><a href="http://jakub.serych.cz/zakladni-hardwarova-uprava-routeru">Hardwarová modifikace</a>&nbsp;je jednoduchá - stačí jen připájet neosazený konektor do portu kde je vyvedený JTAG (JP2). Jedná se o osm děr, které je nutné provrtat (jsou ucpané pájecím materiálem) a z obou stran desky do nich připájet konektor. Později jsem přišel na to, že není nutné osazovat všechny piny, ale stačí vždy dva krajní, dohromady tedy čtyři.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="ec5a6841-b33f-4c29-8a22-dc8af2f2005a" class="image">
+          <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_1.png" title="Untitled_1.png"><img style="width:187px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_1.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9bc301c4-1a89-4d9b-b607-aee8e5c3c3d8" class="">Jelikož je možné že čipy na desce jsou citlivé vůči magnetickým polím, není možné použít mojí milovanou, 30 let starou trafopájku, ale je nutné pájet něčím co nevytváří takové EMP, tedy například mikropájku. Díky tomu že mám nějakej 40W šmejd za stopade z&nbsp;<a href="http://www.gme.cz/cz/">GME</a>&nbsp;se jednalo doslova o utrpení. Cín (je mi jasné že to není čistý cín, ale stejně tomu tak říkám) se nechtěl tavit, celé mi to trvalo strašně dlouho a na konci jsem byl už tak nasraný že jsem to vzal trafopájkou kterou jsem zapnul nataženou rukou co nejdále od desky. To co jsem neudělal za půl hodiny mikropájkou bylo trafopájkou hotové během půl minuty, obvody to naštěstí přežily bez újmy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="278ee73f-1377-4395-a2d5-68c67416e8bc" class="">Připojení k počítači</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="66da1223-3b8e-42e7-a6b3-ca6fcd583837" class="">Poté co jsem připájel konektor přišlo na řadu zjišťování jak že to mám vlastně s routerem komunikovat. Pro přenos dat se používá&nbsp;<a href="http://en.wikipedia.org/wiki/UART">UART</a>, což je vlastně zjednodušený&nbsp;<a href="http://cs.wikipedia.org/wiki/RS232">RS232C</a>&nbsp;pracující v nižších napěťových úrovních. V praxi to znamená, že běžný osobní počítač se na sériovou konzoli nemůže nijak jednoduše připojit. Pokud má ještě dnes již nemoderní sériový port (tedy podporu RS232), tak je pořád nutný převodník napěťových úrovní, pokud ho nemá tak je nutné si sehnat něco sofistikovanějšího.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="db280a62-c592-48e7-b995-0620061cc53a" class="">Jedna z možností je použít externí převodník USB2RS232 a dobastlit si k němu ještě převodník úrovní, což je ovšem poněkud nepohodlné a časově náročné. Další možnost je použít&nbsp;<a href="http://www.arduino.cc/">arduino</a>, nebo nějaký podobný programovatelný kit a naprogramovat si do něj UART bridge - program který přepne mikrokontroler do režimu kdy pouze předává zaslaná data dál, v našem případě na router.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="31773106-7858-4777-920c-d292e7dad7e3" class="">Jelikož se mi doma už nějakou dobu válí&nbsp;<a href="BusPirate.html" title="BusPirate">BusPirate</a>, rozhodl jsem se že ho konečně nějak smysluplně využiji. BusPirate není programovatelný obvod jako třeba arduino (resp. je, ale není k tomu určený), ale svým způsobem hydra, která se umí připojit na nejrůznější komunikační sběrnice a odposlouchávat je (funguje i jako ne moc kvalitní logický analyzátor), popřípadě do komunikace aktivně zasahovat. Funkci&nbsp;<a href="http://dangerousprototypes.com/bus-pirate-manual/bus-pirate-uart-guide/">UART bridge</a>&nbsp;v sobě má už zabudovanou a její spuštění a nastavení je dílem&nbsp;<a href="http://openpaste.org/en/24687/">několika příkazů</a>&nbsp;(M, 3, 9, ENTER, ENTER, ENTER, 2, (1), mezerník). Potěšilo mě že umí přímo 3.3V logiku, takže jsem nemusel ani přidávat odpory které by zajistily konverzi mezi 5V UARTem.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a9d50366-14ba-41e4-ac0d-8f66d682d707" class="image">
+          <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_2.png" title="Untitled_2.png"><img style="width:1024px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_2.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e96ad4ae-243e-4f1f-a470-b1792520f751" class="">Zapojení konektoru je jednoduché - na jedničce (je označená na desce) je Rx, na dvojce +3V, na sedmičce Tx a na osmičce Gnd. Jelikož jsem na rozložení neustále zapomínal, po chvíli jsem se naštval a napsal jsem si to tam lakem na nehty (drží o hodně lépe jak lihová fixa, je levný, ale zase se s ním blbě píše).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d6a5a592-38f1-43d5-adda-be23a12d5cbe" class=""><a href="http://en.wikipedia.org/wiki/Minicom">Minicom</a>&nbsp;(software pro sériovou komunikaci) jsem už měl z dřívějška na ubuntu nastavený, takže jsem ho zapnul a přepnul buspirate do potřebného módu. Poté co se jsem experimentálně ověřil (;D) že Rx na zařízení musí přijít Tx mastera a naopak jsem byl konečně připojený na sériovou konzoli.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="64f36252-11c2-4737-85d1-821da3a202ff" class="image">
+          <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_3.png" title="Untitled_3.png"><img style="width:480px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_3.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1caa1e07-74cc-4f42-9e14-8ce706e6d1b8" class="">Jakmile jsem desku resetoval, objevila se bootovací hláška (pokud chcete přejít do nastavení, je nutné třikrát rychle zmáčknout mezerník), po které následovala záplava informací od linuxového jádra a něco co požadovalo heslo, ale nešlo do toho psát, protože se přepisoval pořád ten samý znak. Moc jsem to nezkoumal a desku jsem zase vypnul.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="80635862-bcdf-448d-a09e-fe14d8337e69" class="">Nahrávání software</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ee55ab00-0d89-4656-9eb2-38c2ee65572a" class="">Když jsem teď měl vyřešené propojení s počítačem, nastalo shánění software. Jako první jsem našel distribuci&nbsp;<a href="http://midge.vlad.org.ua/wiki/">Midge.</a>&nbsp;Chvíli mi trvalo než jsem na jejich stránce nalezl binárku ke stažení, přičemž mě zarazilo především to, že je to poněkud stará distribuce. Poslední buildy jsou staré cca čtyři roky a jedou ještě na jádru 2.4.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dd17803d-68d5-41e7-8a87-69e7e42770c6" class="">Spustil jsem minicom a rychle zmáčkl třikrát po sobě mezerník. Naskočilo menu, ze kterého jsem si vybral že chci nahrávat do flash paměti, načež počalo zobrazování jakéhosi progressbaru. Došlo mi, že bych měl asi vybrat soubor který chci uploadnout, ale než jsem v nápovědě minicomu našel jak na to, spojení timeoutovalo. Nenechal jsem se odradit a zkusil jsem to znovu, ale opět s neúspěchem. Zkoušel jsem to takhle několikrát, ale prostě není možné tak rychle vybrat upload souboru, vybrat xmodem, najít ve filesystému potřebnou image, mezerníkem jí potvrdit a eneterem odeslat. Naštěstí jsem po chvíli googlení našel&nbsp;<a href="http://linux-adm5120.sourceforge.net/tools/">python script</a>&nbsp;který to automatizuje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ee5febb1-562f-49ba-9ccb-be9514dea192" class="">Midge nebylo úplně špatné, ale postupně jsem dostával pocit že tomu něco chybí. Jasně, zařízení v <code>/dev</code> do kterých se dá zapisovat a podle nich blikají ledky jsou parádní, ale jakákoliv snaha o instalaci nového software byla fakt utrpení. Navíc podpora flashdisku byla fakt podivná a trvalo mi fakt dlouho než jsem přišel na to, že nemám hledat zařízení v <code>/dev</code>, ale v <code>/rom/dev/scsi/tri/prdele/podslozek</code>. Má nespokojenost s touto distribucí narůstala, takže jsem se rozhodl že si najdu jinou. Mezitím mi ovšem začala škola, takže jsem se k tomu už nedostal.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="4c27ad66-86e9-4f45-8b10-c818838ebccc" class="image">
+          <a href="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_4.png" title="Untitled_4.png"><img style="width:960px" src="Kompilace_OpenWRT_na_router_Edimax_BR6104KP/Untitled_4.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="c2ff145f-464d-4097-bee0-c37cb8810d32" class="">Squidge vs OpenWRT</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7a521117-e98d-46ef-a1b6-77150f562bb3" class="">Squidge je lehce upravené <a href="http://openwrt.org/">OpenWRT</a>, což je linuxová distribuce určená pro routery. V případě Squidge se jedná o model <a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">Edimax BR6104KP</a> a většina úprav spočívá v automatickém nastavení distribuce a patche pro podporu <em>usbrootu</em>, což znamená že kořenový adresář není v routeru, ale na externím flashdisku. Má to své nevýhody - router tak ke svému běhu potřebuje neustále připojený flashdisk, který se navíc časem opotřebovává, také je třeba počítat s jistým zpomalením. Na druhou stranu to má i své výhody - místo 2MB získáváte prakticky neomezený prostor, pokud si vytvoříte <em>swap</em>, tak navíc i rozšíření na dnešní dobu nepěkně malých 16MB SD-RAM.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b69600c4-3195-414b-8cc9-7ff36649b5bc" class="">Squidge vzniklo cca v roce 2009, a OpenWRT od té doby podstatně pokročilo. V dnešní době již není problém nastavit usbroot bez nutnosti nějakého složitého patchování a úprav konfiguračních scriptů. Na Squidge mi navíc nefunguje většina balíků, protože jim něco chybí (přebývá), takže po spuštění binárky vypíšou podivnou hlášku a spadnou. To je dost velká závada třeba v případě takového pythonu, bez kterého se na libovolném shellu prakticky neobejdu. Nevím nakolik se jedná o můj problém a nakolik je to problém samotného Squidge a úprav kompilačních scriptů, ale nepodařilo se mi ho vyřešit a tak jsem se odhodlal zkusit sestavit OpenWRT.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d7c8f231-ef62-4893-b6b0-dd7a59963401" class="">Samotné sestavení je relativně jednoduché - v textové grafice je nutné zaškrtat všechny potřebné moduly a nastavení. Při jejich výběru jsem vycházel z anglického OpenWRT fóra, konkrétně <a href="https://forum.openwrt.org/viewtopic.php?id=18570">USB-rootfs on boot on Edimax BR-6104KP (ADM5120) [WORKS].</a> Považuji za nutné dodat, že v prvním příspěvku není popsané úplně všechno a stálo mě několik hodin života než jsem na to přišel. Celé sestavování probíhalo na Ubuntu 10.10.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="53e2c4e2-cf1a-4dfd-9306-e92ec5d8ca82" class="">Získání zdrojových kódů</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="52c2037c-ad5b-4150-9a86-6fc79d83bda4" class="">Prvním krokem je stažení aktuální kopie zdrojových kódů. I když samotné zdrojové soubory zabírají poměrně málo místa (38.5MB), připravte si cca 3GB volného místa na vše ostatní co se bude stahovat v průběhu kompilace. Zdrojové kódy je možné získat přez <strong>svn</strong>, adresu najdete na stránce <a href="https://dev.openwrt.org/wiki/GetSource">https://dev.openwrt.org/wiki/GetSource</a>. <del>Osobně jsem si vybral</del> <del><strong>kamikaze</strong></del><del>, protože ho používal Squidge.</del> <strong>Kamikaze</strong> nebrat, má porouchaný opkg. <strong>Backfire</strong> funguje k plné spokojenosti.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c33a0ce4-ddb1-4310-9799-8e17acd01418" class="">Stažení verze kterou jsem si vybral já provedete pomocí příkazu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="eacd50c6-a5c9-42e8-a2cc-587a6c7780c5" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">svn co svn://svn.openwrt.org/openwrt/branches/backfire .</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6a86a3e6-aa5d-4681-9501-3fa851dcae81" class="">Ten stáhne vše potřebné do aktuální složky, takže si nazapomeňte před provedením vytvořit nějakou prázdnou složku a vstoupit do ní.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="2fcbdecb-9de7-40e9-9588-fb667468548f" class="">make menuconfig</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a1937cf8-a0d0-4776-913e-cbe189731c5c" class="">Jakmile máte staženo, zadejte:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="12402da6-38c3-42dc-afc4-d0ee828667c7" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">make menuconfig</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a600145a-7b03-4dc5-b1ce-dd3ce12a02d2" class="">Pokud máte všechny potřebné nástroje, vyskočí na vás dialog, ve kterém je zapotřebí nastavit tyto hodnoty na hvězdičku (*):</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="4908d860-4b6c-4097-9b31-926e65ac7f0a" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Target system
   Infineon/ADMtek ADM5120 [2.6]
 Subtarget
   Little Endian
@@ -190,21 +267,39 @@ Target Images
   jffs2 (NEW)
   squashfs (NEW)
   tgz (NEW)</code></pre>
-      <p id="bab41e54-912b-4a02-84e4-254ce332cafb" class="">Pokud chcete mít možnost crosskompilovat pro daný router, zaškrtněte i</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="7359a32e-dbe0-4aed-af69-4039758262c8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Build the OpenWrt SDK (NEW)</code></pre>
-      <p id="3da9d79a-4b3d-486d-b165-079bc999705e" class="">Díky tomu se stáhne a sestaví OpenWRT toolchain, což jsou kompilátory a další potřebné nástroje pro crosskompilaci.</p>
-      <p id="04a15008-6a31-4af5-90ff-764230a657f1" class="">Šipkou doprava vyberte Exit a potvrďte uložení konfigurace.</p>
-      <h2 id="73f1123b-a637-47c9-b5f8-1ba33ea70171" class="">make kernel_menuconfig</h2>
-      <p id="c6f09394-3877-426a-87d9-e5850ec01a4d" class="">Poté co jste nastavili obecné informace přichází na řadu to důležitější - nastavení konfigurace jádra. Spustíte jí příkazem</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="9a4b85ec-33a3-4c53-9a22-3155daba1d7e" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">make kernel_menuconfig</code></pre>
-      <p id="a8dacf50-a610-4112-98ba-d904e56ecc3f" class="">Na terminál se vám začnou vypisovat zprávy o stahování všemožných balíků a kompilaci. Jakmile se vše potřebné stáhne a nainstaluje, vyskočí na vás opět dialog.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="93d36430-cc2b-4804-b29a-7d93e9fe9e23" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Machine selection
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bab41e54-912b-4a02-84e4-254ce332cafb" class="">Pokud chcete mít možnost crosskompilovat pro daný router, zaškrtněte i</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="7359a32e-dbe0-4aed-af69-4039758262c8" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Build the OpenWrt SDK (NEW)</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3da9d79a-4b3d-486d-b165-079bc999705e" class="">Díky tomu se stáhne a sestaví OpenWRT toolchain, což jsou kompilátory a další potřebné nástroje pro crosskompilaci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="04a15008-6a31-4af5-90ff-764230a657f1" class="">Šipkou doprava vyberte Exit a potvrďte uložení konfigurace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="73f1123b-a637-47c9-b5f8-1ba33ea70171" class="">make kernel_menuconfig</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c6f09394-3877-426a-87d9-e5850ec01a4d" class="">Poté co jste nastavili obecné informace přichází na řadu to důležitější - nastavení konfigurace jádra. Spustíte jí příkazem</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="9a4b85ec-33a3-4c53-9a22-3155daba1d7e" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">make kernel_menuconfig</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a8dacf50-a610-4112-98ba-d904e56ecc3f" class="">Na terminál se vám začnou vypisovat zprávy o stahování všemožných balíků a kompilaci. Jakmile se vše potřebné stáhne a nainstaluje, vyskočí na vás opět dialog.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="93d36430-cc2b-4804-b29a-7d93e9fe9e23" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Machine selection
   System type (Infineon/ADMtek ADM5120 SoC based machines)
   ADM5120 Board selection
     Zde odškrtejte vše, kromě:
@@ -250,49 +345,103 @@ File systems
 Kernel hacking
   Odentrujte poslední řádku a upravte jí do následujícího tvaru (rootdelay je doba čekání na flashdisk):
   console=ttyS0,115200 root=/dev/sda1 init=/etc/preinit ro rootwait</code></pre>
-      <p id="385647e6-bb0f-4798-b7ad-bf74b5dfa36b" class="">Poté opět vyberte Exit a potvrďte změnu konfigurace.</p>
-      <h2 id="63dded09-310e-4079-8bcd-b69c4b86d626" class="">make</h2>
-      <p id="24707ad9-8e97-458c-a4d3-a3a7feaa2bff" class="">Nyní je na čase zkompilovat jádro. Provedete to zadáním příkazu <code>make</code>, ale osobně doporučuji spíš:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="67105bb1-5bcd-4cdf-b2e3-59715a8f2152" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">yes n | make V=99</code></pre>
-      <p id="cbc1bf81-ba61-4095-ae52-50cfec91fdb8" class="">Což zvýší jeho ukecanost a navíc automaticky na vše odpovídá že ne. To se docela hodí, protože script se z nějakého důvodu s odstupem cca 10m dvakrát za sebou ptá na podporu Olympus foťáků, což je docela nepříjemné jelikož to přeruší kompilaci dokud mu neodpovíme.</p>
-      <h2 id="35df809d-d294-4e9d-8905-9c308f502be5" class="">Příprava flashdisku</h2>
-      <p id="779d0fc9-9a0a-4900-b1be-d67b85e3e153" class="">Nyní je dobré si připravit flashdisk. Rozdělte ho (například v <a href="http://gparted.sourceforge.net/">Gparted</a>) tak, aby první partišna byla typu <em>ext3</em> a druhá <em>swap</em>. Je důležité dodržet pořadí a obě dvě nechat jako primární. Velikost <em>swapu</em> nechám na vás, já jsem si udělal 64MB, ale klidně to může být dvojnásobek. Pamatujte že čím větší bude <em>swap</em>, tím více paměti budete mít k dispozici a tím rychleji odejde příslušná část flashdisku do křemíkového nebe.</p>
-      <p id="71cea477-571f-4318-a7a1-ebfb5ada287a" class="">Poté co disk rozdělíte ho naformátujte.</p>
-      <p id="e16ec1e2-e1ff-4dc5-96d4-b391357d6f5d" class=""><del>Jakmile bude disk naformátovaný, je dobré si na něj stáhnout všechny možné balíky, protože</del> <a href="http://wiki.openwrt.org/doc/techref/opkg"><del>opkg</del></a> <del>(package manager) má problém s busybox wgetem, kterému předává argument že má stáhnout informace do neexistující složky, kterou si wget neumí vytvořit :S</del></p>
-      <p id="17242a4d-0d28-4959-a459-fb9083cf3cfa" class=""><del>Přejděte do disku a vytvořte v něm složku třeba ipk, do které stáhnete všechny dostupné balíky.</del></p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="5f0cf080-5c50-401d-b30b-79e20a158d83" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">mkdir ipk
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="385647e6-bb0f-4798-b7ad-bf74b5dfa36b" class="">Poté opět vyberte Exit a potvrďte změnu konfigurace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="63dded09-310e-4079-8bcd-b69c4b86d626" class="">make</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="24707ad9-8e97-458c-a4d3-a3a7feaa2bff" class="">Nyní je na čase zkompilovat jádro. Provedete to zadáním příkazu <code>make</code>, ale osobně doporučuji spíš:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="67105bb1-5bcd-4cdf-b2e3-59715a8f2152" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">yes n | make V=99</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cbc1bf81-ba61-4095-ae52-50cfec91fdb8" class="">Což zvýší jeho ukecanost a navíc automaticky na vše odpovídá že ne. To se docela hodí, protože script se z nějakého důvodu s odstupem cca 10m dvakrát za sebou ptá na podporu Olympus foťáků, což je docela nepříjemné jelikož to přeruší kompilaci dokud mu neodpovíme.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="35df809d-d294-4e9d-8905-9c308f502be5" class="">Příprava flashdisku</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="779d0fc9-9a0a-4900-b1be-d67b85e3e153" class="">Nyní je dobré si připravit flashdisk. Rozdělte ho (například v <a href="http://gparted.sourceforge.net/">Gparted</a>) tak, aby první partišna byla typu <em>ext3</em> a druhá <em>swap</em>. Je důležité dodržet pořadí a obě dvě nechat jako primární. Velikost <em>swapu</em> nechám na vás, já jsem si udělal 64MB, ale klidně to může být dvojnásobek. Pamatujte že čím větší bude <em>swap</em>, tím více paměti budete mít k dispozici a tím rychleji odejde příslušná část flashdisku do křemíkového nebe.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="71cea477-571f-4318-a7a1-ebfb5ada287a" class="">Poté co disk rozdělíte ho naformátujte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e16ec1e2-e1ff-4dc5-96d4-b391357d6f5d" class=""><del>Jakmile bude disk naformátovaný, je dobré si na něj stáhnout všechny možné balíky, protože</del> <a href="http://wiki.openwrt.org/doc/techref/opkg"><del>opkg</del></a> <del>(package manager) má problém s busybox wgetem, kterému předává argument že má stáhnout informace do neexistující složky, kterou si wget neumí vytvořit :S</del></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="17242a4d-0d28-4959-a459-fb9083cf3cfa" class=""><del>Přejděte do disku a vytvořte v něm složku třeba ipk, do které stáhnete všechny dostupné balíky.</del></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="5f0cf080-5c50-401d-b30b-79e20a158d83" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">mkdir ipk
 cd ipk
 wget -nd -r -l 1 http://downloads.openwrt.org/kamikaze/8.9.2/adm5120/packages/</code></pre>
-      <p id="fe0bdb93-531c-4c90-bdd2-c75852f9f1cf" class=""><del>Tento příkaz není úplně ideální, protože my potřebujeme pouze</del> <del><em>mipsel</em></del> <del>balíky,</del> <del><em>mips</em></del> <del>jsou nám k ničemu. To jak odstranit/nestahovat všechny</del> <del><em>mips</em></del> <del>balíky nechám na vás, sám jsem to vyřešil poněkud nepěkně.</del></p>
-      <h2 id="c0b7d295-b3e7-42cb-8b2e-1d8d3da38b3a" class="">Kompilujem a stahujem..</h2>
-      <p id="6b8b54fa-368e-4843-8f2c-fd0ee1cf163c" class="">Jelikož tohle píšu zároveň s ukázkovou kompilací abych si ověřil že jsem na nic nezapomněl, následuje teď část kdy budu asi tak hodinu (real 45m33.908s) čekat než se systém zkompiluje. Co při tom budete dělat vy je na vás, já se jdu kouknout jestli není něco v televizi.. Nic nedávali, tak jsem si udelal aspoň večeři - dva přírodní řízky ;).</p>
-      <h2 id="5e232d7b-2e35-4082-a828-7faf6d61455f" class="">Dokompilováno a dostahováno</h2>
-      <p id="4106e3de-e77e-48ac-ad55-0ec690de6295" class="">Jakmile se vše zkompiluje <del>a wget dostahuje repozitáře</del>, přijde na řadu nahrávání image do routeru a rozbalení <em>usbrootu</em> na flashdisk.</p>
-      <p id="79ea7fe4-c60b-4286-b860-13d280d60d50" class="">Ve složce bin naleznete několik souborů:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="5b633952-2ffa-4bf1-8ae9-c8ff93f74fee" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">openwrt-adm5120-br-6104kp-squashfs-xmodem.bin je image, která se nahrává do routeru
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fe0bdb93-531c-4c90-bdd2-c75852f9f1cf" class=""><del>Tento příkaz není úplně ideální, protože my potřebujeme pouze</del> <del><em>mipsel</em></del> <del>balíky,</del> <del><em>mips</em></del> <del>jsou nám k ničemu. To jak odstranit/nestahovat všechny</del> <del><em>mips</em></del> <del>balíky nechám na vás, sám jsem to vyřešil poněkud nepěkně.</del></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c0b7d295-b3e7-42cb-8b2e-1d8d3da38b3a" class="">Kompilujem a stahujem..</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6b8b54fa-368e-4843-8f2c-fd0ee1cf163c" class="">Jelikož tohle píšu zároveň s ukázkovou kompilací abych si ověřil že jsem na nic nezapomněl, následuje teď část kdy budu asi tak hodinu (real 45m33.908s) čekat než se systém zkompiluje. Co při tom budete dělat vy je na vás, já se jdu kouknout jestli není něco v televizi.. Nic nedávali, tak jsem si udelal aspoň večeři - dva přírodní řízky ;).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="5e232d7b-2e35-4082-a828-7faf6d61455f" class="">Dokompilováno a dostahováno</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4106e3de-e77e-48ac-ad55-0ec690de6295" class="">Jakmile se vše zkompiluje <del>a wget dostahuje repozitáře</del>, přijde na řadu nahrávání image do routeru a rozbalení <em>usbrootu</em> na flashdisk.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="79ea7fe4-c60b-4286-b860-13d280d60d50" class="">Ve složce bin naleznete několik souborů:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="5b633952-2ffa-4bf1-8ae9-c8ff93f74fee" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">openwrt-adm5120-br-6104kp-squashfs-xmodem.bin je image, která se nahrává do routeru
 openwrt-adm5120-rootfs.tgz je usbroot, který rozbalte na flashdisk
 packages/ složka s balíky, v podstatě jí nepořebujete, protože již máte vše na flashdisku</code></pre>
-      <p id="cc3e64c2-4672-49c6-9408-70f36504624e" class="">Rozbalení souborů na flashdisk provedete příkazem:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="d404d1a9-0b34-4793-8e3b-ff789951998d" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">tar -xvf openwrt-adm5120-rootfs.tgz /cesta/k/flashdisku</code></pre>
-      <p id="74a84989-5f68-49cf-88e1-44999796715f" class="">Nahrání image do routeru pak pomocí scriptu <a href="http://openpaste.org/en/24765/">adm_upload.py</a> (jedná se o mnou lehce ořízlou, ale ozkoušenou verzi):</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="8a935984-7464-4d0e-8133-dae6c777e1a9" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">sudo ./adm_upload.py -d /dev/ttyUSB0 -b openwrt-adm5120-br-6104kp-squashfs-xmodem.bin</code></pre>
-      <p id="e8e09a18-3ea7-4c35-bc95-4c9a65085293" class="">Pokud vás zajímá jak má vypadat funkční výstup nahrávání, najdete ho zde: <a href="http://openpaste.org/en/24768/">http://openpaste.org/en/24768/</a>.</p>
-      <h2 id="ff8dfce3-1222-4bd5-8a1b-faaf285500ae" class="">Co dál?</h2>
-      <p id="44dfbaa0-380b-4b56-9c66-fd051fa27992" class="">Dál je dobré přečíst si stránku na OpenWRT wiki: <a href="http://wiki.openwrt.org/toh/edimax/br-6104kp">http://wiki.openwrt.org/toh/edimax/br-6104kp</a> a začít konfigurovat.</p>
-      <p id="473a8b92-063f-4422-96ad-15fb2251d520" class="">Nutností je zapnout podporu swapu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="80d2ff86-db5c-4bb3-9221-318c1a1e83e7" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/# opkg install swap-utils
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cc3e64c2-4672-49c6-9408-70f36504624e" class="">Rozbalení souborů na flashdisk provedete příkazem:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="d404d1a9-0b34-4793-8e3b-ff789951998d" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">tar -xvf openwrt-adm5120-rootfs.tgz /cesta/k/flashdisku</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="74a84989-5f68-49cf-88e1-44999796715f" class="">Nahrání image do routeru pak pomocí scriptu <a href="http://openpaste.org/en/24765/">adm_upload.py</a> (jedná se o mnou lehce ořízlou, ale ozkoušenou verzi):</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="8a935984-7464-4d0e-8133-dae6c777e1a9" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">sudo ./adm_upload.py -d /dev/ttyUSB0 -b openwrt-adm5120-br-6104kp-squashfs-xmodem.bin</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e8e09a18-3ea7-4c35-bc95-4c9a65085293" class="">Pokud vás zajímá jak má vypadat funkční výstup nahrávání, najdete ho zde: <a href="http://openpaste.org/en/24768/">http://openpaste.org/en/24768/</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="ff8dfce3-1222-4bd5-8a1b-faaf285500ae" class="">Co dál?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="44dfbaa0-380b-4b56-9c66-fd051fa27992" class="">Dál je dobré přečíst si stránku na OpenWRT wiki: <a href="http://wiki.openwrt.org/toh/edimax/br-6104kp">http://wiki.openwrt.org/toh/edimax/br-6104kp</a> a začít konfigurovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="473a8b92-063f-4422-96ad-15fb2251d520" class="">Nutností je zapnout podporu swapu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="80d2ff86-db5c-4bb3-9221-318c1a1e83e7" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/# opkg install swap-utils
 Installing swap-utils (2.13.0.1-2) to root...
 Installing libblkid (1.40.11-1) to root...
 Installing libuuid (1.40.11-1) to root...
@@ -313,10 +462,14 @@ root@OpenWrt:/etc/config# cat fstab
 config swap
     option device   /dev/sda2
     option enabled  1</code></pre>
-      <p id="19e58474-4cac-4548-9d66-ab4604e96177" class="">Určitě je také dobré si změnit heslo a vypnout telnet:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="bcd143a4-813f-43d2-8cd5-a4aa830599f8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/# passwd
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="19e58474-4cac-4548-9d66-ab4604e96177" class="">Určitě je také dobré si změnit heslo a vypnout telnet:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="bcd143a4-813f-43d2-8cd5-a4aa830599f8" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/# passwd
 Changing password for root
 New password:
 Bad password: too weak
@@ -335,14 +488,22 @@ Available commands:
     disable Disable service autostart
 
 root@OpenWrt:/etc/init.d# ./telnet disable</code></pre>
-      <p id="8ca13ded-b75d-4ccf-84a4-d744a3d581fb" class="">nainstalovat python:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="842b0ef8-8a46-4398-808f-4764756559dd" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/ipk# opkg install python</code></pre>
-      <p id="a4c27bc6-54ab-4be2-8f55-7eba24df1ade" class="">a v mém případě i nastavit jinou konfiguraci sítě:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="0a2437ef-feff-470e-bb15-7cedc9423864" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/etc/config# cat network
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8ca13ded-b75d-4ccf-84a4-d744a3d581fb" class="">nainstalovat python:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="842b0ef8-8a46-4398-808f-4764756559dd" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/ipk# opkg install python</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a4c27bc6-54ab-4be2-8f55-7eba24df1ade" class="">a v mém případě i nastavit jinou konfiguraci sítě:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="0a2437ef-feff-470e-bb15-7cedc9423864" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/etc/config# cat network
 # Copyright (C) 2006 OpenWrt.org
 
 config interface loopback
@@ -358,11 +519,17 @@ config interface lan
 #   option proto    static
 #   option ipaddr   192.168.1.1
 #   option netmask  255.255.255.0</code></pre>
-      <h2 id="f878b10f-6c2b-4df3-b2e0-7d92dc88ff97" class=""><del>Rozbitý wget/opkg</del></h2>
-      <p id="538c9393-a2fd-41bb-80d0-a100ef8a12ca" class=""><del>Pokud se pokusím nainstalovat daný balík z repozitářů na internetu, vypadá to asi takhle;</del></p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="e27834c2-69cf-4ee3-bdc2-e8e89895df13" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/# opkg update
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="f878b10f-6c2b-4df3-b2e0-7d92dc88ff97" class=""><del>Rozbitý wget/opkg</del></h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="538c9393-a2fd-41bb-80d0-a100ef8a12ca" class=""><del>Pokud se pokusím nainstalovat daný balík z repozitářů na internetu, vypadá to asi takhle;</del></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="e27834c2-69cf-4ee3-bdc2-e8e89895df13" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">root@OpenWrt:/# opkg update
 Downloading http://downloads.openwrt.org/kamikaze/8.09.2/adm5120/packages/Packages.gz
 Connecting to downloads.openwrt.org (78.24.191.177:80)
 Packages.gz          100% |*******************************|   286k 00:00:00 ETA
@@ -388,12 +555,20 @@ No help available.
 
 root@OpenWrt:/# type wget
 wget is /usr/bin/wget</code></pre>
-      <p id="f05a5831-9722-4ed7-b8d6-20800c2caba2" class=""><del>Z toho nejspíš plyne, že nainstalovaný wget si neumí vytvořit složku do které má zapisovat. Nevím jestli je to jediná chyba, ale pokud se chce někomu napsat nad ním jednoduchý wrapper pro</del> <a href="http://linux.about.com/library/cmd/blcmdl1_ash.htm"><del>ash</del></a> <del>(resp. dash), který je v routeru přítomen namísto bashe, bude super když to postne do komentářů.</del><br>
-      Problémy se týkají pouze<br>
-      <strong>Kamikaze</strong>, v <strong>Backfire</strong> je vše v pořádku</p>
-      <h2 id="1d45cef9-2d5d-46a7-924a-a7ae5a47c707" class="">Závěr</h2>
-      <p id="467e53a7-ad9c-4fa1-92f8-39f4b9f4f26f" class="">OpenWRT je skvělý systém<del>, jehož jedinou nevýhodou jsou problémy s</del> <del><strong>opkg</strong></del>. Oproti Squidge na něm jede python, čímž si zajistil že ho budu používat namísto něho.</p>
-      <p id="4329b182-b2d6-4349-a842-ef60454706e1" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f05a5831-9722-4ed7-b8d6-20800c2caba2" class=""><del>Z toho nejspíš plyne, že nainstalovaný wget si neumí vytvořit složku do které má zapisovat. Nevím jestli je to jediná chyba, ale pokud se chce někomu napsat nad ním jednoduchý wrapper pro</del> <a href="http://linux.about.com/library/cmd/blcmdl1_ash.htm"><del>ash</del></a> <del>(resp. dash), který je v routeru přítomen namísto bashe, bude super když to postne do komentářů.</del><br>
+        Problémy se týkají pouze <strong>Kamikaze</strong>, v <strong>Backfire</strong> je vše v pořádku</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="1d45cef9-2d5d-46a7-924a-a7ae5a47c707" class="">Závěr</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="467e53a7-ad9c-4fa1-92f8-39f4b9f4f26f" class="">OpenWRT je skvělý systém<del>, jehož jedinou nevýhodou jsou problémy s</del> <del><strong>opkg</strong></del>. Oproti Squidge na něm jede python, čímž si zajistil že ho budu používat namísto něho.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4329b182-b2d6-4349-a842-ef60454706e1" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

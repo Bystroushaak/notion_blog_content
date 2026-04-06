@@ -116,57 +116,119 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Knihy">Knihy</a> / Gödel's Proof
   <article id="ed67c0d1-052f-4791-9a46-438e1d6f93af" class="page sans">
     <header>
-      <h1 class="page-title">Gödel's Proof</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Gödel's Proof</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="82cbfb46-db3c-4e89-bdb5-c4cc93934032" class=""><time>@2017/09/21</time></p>
-      <p id="2298ab7c-d56f-4bde-a88a-70939acf4679" class="">Gödelovy věty o neúplnosti patří k věcem, které podobně jako&nbsp;Turingův stroj, nebo&nbsp;Lambda calculus&nbsp;prostupují celým světem počítačů a narazíte na ně dřív nebo později všude. Písmeno ‚G‘ v GEBu je věnované právě Gödelovi, proto jsem byl už delší dobu zvědavý, na to co vlastně objevil, a o tom právě pojednává kniha&nbsp;<a href="https://www.goodreads.com/book/show/695429.G_del_s_Proof">Gödel's Proof</a>.</p>
-      <p id="78676a8b-1779-4eac-a9f4-5594f3834ea2" class="">Gödel v podstatě ukázal, jak je možné i v omezeném setu axiomů a zdánlivě bezkonfliktním systému vytvořit paradoxy referencováním sebe sama. Kniha se věnuje tomu, jak k tomu došel. Nejde do úplných detailů (ty jsou v samotném důkazu), spíš se snaží čtenáři vysvětlit jednotlivé kroky, postupně v jednotlivých kapitolách za sebou.</p>
-      <p id="3ed11714-c77b-462a-b22f-1b4797b8760d" class="">Kroky důkazu (a tedy i obsah knihy) postupují ve zkratce asi nějak takto:</p>
-      <h2 id="c5915ac6-d0f7-4617-9dc8-48d71c6c2156" class="">Zkoncentrovaný obsah</h2>
-      <div id="f1ef32d0-8d7f-4050-a0b4-e6ee56eec9be" class="column-list">
-        <div id="1f14c3dd-59c6-44b6-9ace-6c3dfb949573" style="width:25%" class="column">
-          <figure id="5e41d639-eed0-4091-a355-b63f4f1e5dc3" class="image">
-            <a href="Godels_Proof/Untitled.png" title="Untitled.png"><img style="width:200px" src="Godels_Proof/Untitled.png"></a>
-          </figure>
-        </div>
-        <div id="a415eba4-d561-4fc5-b416-094c8e4ccbcc" style="width:75%" class="column">
-          <p id="3183e061-080e-4c43-af0d-3ae25ebffbe5" class="">Gödel vyšel z axiomatického systému definovaného v knize&nbsp;<a href="https://cs.wikipedia.org/wiki/Principia_Mathematica">Principia mathematica</a>&nbsp;od Whiteheada a Russela, která se snažila nadefinovat a odvodit celou matematiku pomocí logických axiomů.</p>
-          <p id="f4e09181-29d7-425a-bbd1-9476f6cc8d94" class="">V tomto systému vymyslel způsob, jak překládat jednotlivé přípustné symboly axiomů na jejich jednoznačné číselné vyjádření (pomocí násobení prvočísel s exponentem kódujícím daný axiom). Tím je možné převést daný výraz v axiomatickém systému, například „0=0“ na axiomy 2, 6, 2 („2“ kóduje číslo 0, 6 kóduje symbol „=“), které pak převedeme na číslo zmíněným násobením:</p>
-          <figure id="c7d5bcc9-03e8-4925-88fc-74c64d46565a" class="image">
-            <a href="Godels_Proof/Untitled_1.png" title="Untitled_1.png"><img style="width:69px" src="Godels_Proof/Untitled_1.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="82cbfb46-db3c-4e89-bdb5-c4cc93934032" class=""><time>@2017/09/21</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2298ab7c-d56f-4bde-a88a-70939acf4679" class="">Gödelovy věty o neúplnosti patří k věcem, které podobně jako&nbsp;Turingův stroj, nebo&nbsp;Lambda calculus&nbsp;prostupují celým světem počítačů a narazíte na ně dřív nebo později všude. Písmeno ‚G‘ v GEBu je věnované právě Gödelovi, proto jsem byl už delší dobu zvědavý, na to co vlastně objevil, a o tom právě pojednává kniha&nbsp;<a href="https://www.goodreads.com/book/show/695429.G_del_s_Proof">Gödel's Proof</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="78676a8b-1779-4eac-a9f4-5594f3834ea2" class="">Gödel v podstatě ukázal, jak je možné i v omezeném setu axiomů a zdánlivě bezkonfliktním systému vytvořit paradoxy referencováním sebe sama. Kniha se věnuje tomu, jak k tomu došel. Nejde do úplných detailů (ty jsou v samotném důkazu), spíš se snaží čtenáři vysvětlit jednotlivé kroky, postupně v jednotlivých kapitolách za sebou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3ed11714-c77b-462a-b22f-1b4797b8760d" class="">Kroky důkazu (a tedy i obsah knihy) postupují ve zkratce asi nějak takto:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c5915ac6-d0f7-4617-9dc8-48d71c6c2156" class="">Zkoncentrovaný obsah</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="f1ef32d0-8d7f-4050-a0b4-e6ee56eec9be" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="1f14c3dd-59c6-44b6-9ace-6c3dfb949573" style="width:25%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="5e41d639-eed0-4091-a355-b63f4f1e5dc3" class="image">
+                  <a href="Godels_Proof/Untitled.png" title="Untitled.png"><img style="width:200px" src="Godels_Proof/Untitled.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="a415eba4-d561-4fc5-b416-094c8e4ccbcc" style="width:75%" class="column">
+              <div style="display:contents" dir="auto">
+                <p id="3183e061-080e-4c43-af0d-3ae25ebffbe5" class="">Gödel vyšel z axiomatického systému definovaného v knize&nbsp;<a href="https://cs.wikipedia.org/wiki/Principia_Mathematica">Principia mathematica</a>&nbsp;od Whiteheada a Russela, která se snažila nadefinovat a odvodit celou matematiku pomocí logických axiomů.</p>
+              </div>
+              <div style="display:contents" dir="auto">
+                <p id="f4e09181-29d7-425a-bbd1-9476f6cc8d94" class="">V tomto systému vymyslel způsob, jak překládat jednotlivé přípustné symboly axiomů na jejich jednoznačné číselné vyjádření (pomocí násobení prvočísel s exponentem kódujícím daný axiom). Tím je možné převést daný výraz v axiomatickém systému, například „0=0“ na axiomy 2, 6, 2 („2“ kóduje číslo 0, 6 kóduje symbol „=“), které pak převedeme na číslo zmíněným násobením:</p>
+              </div>
+              <div style="display:contents" dir="ltr">
+                <figure id="c7d5bcc9-03e8-4925-88fc-74c64d46565a" class="image">
+                  <a href="Godels_Proof/Untitled_1.png" title="Untitled_1.png"><img style="width:69px" src="Godels_Proof/Untitled_1.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="d745ffe9-cfa4-4666-aa42-b3f2265b7d49" class="">Což se rovná číslu&nbsp;72900. Z tohoto čísla je pak možné metodou faktorizace prvočísel zpětně jednoznačně dostat původní písemný výraz.</p>
-      <p id="1175c280-14ed-4891-81c0-f0db9da8d64b" class="">Gödel poté dokázal, že takhle je možné vyjádřit nejenom teorémy, ale i jejich důkazy. Kódování do čísel bylo důležité, aby se vyhnul chybám, které dělají lidé předpokládáním nějakého chování. Toho dosáhl tím, že se vyjadřoval o „bezvýznamných symbolech“ a umožnil čistě „mechanické“ kontrolování a odvozování podle pravidel axiomatického systému.</p>
-      <p id="2e5fda13-3de5-4e2a-87ca-158a46924802" class="">Poté sestrojil výraz, který dokazuje pravdivost čísla enkódujícího teorém G, který má stejné vyjádření, jako svůj vlastní důkaz. Konkrétně:</p>
-      <p id="e3de092f-f88c-45c3-90c1-4d2b69194b5f" class="">„Konkrétní přirozené číslo ‚g‘ není dokazatelné číslo.“</p>
-      <p id="0e0f017e-8569-4990-b8e9-d8a4a5271ae4" class="">Pokud však tomuto teorému enkódujícímu konkrétní důkaz předhodíme na vstup sám sebe, tak sám sebe vyvrátí. Jenže když se vyvrátí, tak se nemůže dokázat. Celé to bylo samozřejmě podstatně složitější, ale nemá smysl tady zacházet do detailů, tomu se věnuje zmiňovaná knížka.</p>
-      <p id="bcd47f02-4d13-4919-8c86-3341a9e559c1" class="">Jakmile měl Gödel první paradox, tak poté mohl zkonstruovat nekonečné množství podobných paradoxů, které vedly na výsledky, jako:</p>
-      <p id="70068da4-4046-4b0c-b220-f0ace8d2a5ef" class=""><em>„Tento teorém, i jeho negace není platným teorémem.“</em></p>
-      <p id="d8ffdeee-1571-436f-b45d-9f5266bb54c2" class="">Gödel tím dokázal, že axiomatické systémy nemůžou být použity k „vytěžení“ celé matematiky iterací přes platné axiomatické výrazy, protože axiomatické systémy obsahují jednak paradoxy, které jsou nerozhodnutelné, ale také jakési ostrovy platných vět, ke kterým se není možné dostat odvozováním z axiomatických systémů.</p>
-      <p id="44785e15-f226-45a8-9015-3e07e1d67acd" class="">V knize je to samozřejmě popsané celé podstatně detailněji, a čitelněji. Určitě jí můžu jen doporučit. Četla se mi docela dobře i jako laikovi a je poměrně tenká.</p>
-      <p id="1aa6f6ef-58c1-4dcb-8847-86077a9f2dc3" class="">Gödelův důkaz má poměrně velké důsledky také pro sféru&nbsp;computer science, neboť ukazuje, že statická analýza je ze své podstaty nekompletní. To má své důsledky například při dynamické transformaci programů v lispovském stylu, ale také třeba pro analýzu virů, nebo dokázování korektnosti programu.</p>
-      <h2 id="fcfb268e-60cf-46c8-bb92-e967d3ba6813" class="">Ukázka</h2>
-      <p id="20c36148-8d5d-419c-9145-fee5e529c934" class="">Nedá mi to, abych nevložil citaci několika stran, které se sice přímo netýkají důkazu, ale stejně na mě hodně zapůsobily krásnou analogií:</p>
-      <blockquote id="b92268cb-9302-4fc8-80d4-e30953cae67c" class="">
-        It may be useful, by way of illustration, to compare meta-mathematics as a theory of proof with the theory of chess. Chess is played with 32 pieces of specified design on a square board containing 64 square subdivisions, where the pieces may be moved in accordance with fixed rules. The game can obviously be played without assigning any "interpretation" to the pieces or to their various positions on the board, although such an interpretation could be supplied if desired. For example, we could stipulate that a given pawn is to represent a certain regiment in an army, that a given square is to stand for a certain geographical region, and so on. But such stipulations (or interpretations) are not customary; and neither the pieces, or the squares, nor the positions of the pieces on the board signify anything outside the game. In this sense, the pieces and their configurations on the board are "meaningless", Thus the game is analogous to a formalized mathematical calculus.
-      </blockquote>
-      <blockquote id="725b8a42-a27a-489e-8101-8f2e87105f39" class="">
-        <strong>The pieces and the squares of the board correspond to the elementary signs of the calculus; the legal positions of pieces on the board, to the formulas of the calculus; the initial positions of pieces on the board, to the axioms or initial formulas of the calculus; the subsequent positions of pieces on the board, to formulas derived from axioms (i.e. to the theorems); and the rules of the game, to the rules of inference (or a derivation) for the calculus.</strong>
-      </blockquote>
-      <blockquote id="723cab79-0f5d-4249-894b-61b6eb402460" class="">
-        The parallelism continues. Although configurations of pieces on the board, like the formulas of the calculus, are "meaningless," statements about these configurations, like meta-mathematical statements about formulas, are quite meaningful. A "meta-chess" statement may assert that there are twenty possible opening move for White, or that, given a certain configurations of pieces on the board with White to move, Black is mate in three moves. Moreover, general "meta-chess" theorems can be established whose proof involves only finite number of permissible configurations on the board. The "meta-chess" theorem about the number of possible opening moves for White can be established in this way; and so can the "meta-chess" theorem that if White has only two Knights and the King, and Black has only a King, it is impossible for White to force a mate against Black.
-      </blockquote>
-      <blockquote id="e5b96199-2b39-4382-b40b-ed5622e72518" class="">
-        These and other "meta-chess" theorems can, in other words, be proved by finitistic methods of reasoning, that is, by examining in turn each of a finite number of configurations that can occur under stated conditions. The aim of Hilbert's theory of proof, similarly, was to demonstrate by such finitistic methods the impossibility of deriving certain formally contradictory formulas in a given mathematical calculus.
-      </blockquote>
-      <p id="6b2fd0f5-f7a1-4a86-b195-fb8ec7f7f9e5" class=""><em>—&nbsp;NAGEL, Ernest a James NEWMAN. Gödel's proof. Rev. ed. New York: New York University Press, 2008, s. 34-37. ISBN 9780814758373.</em></p>
-      <p id="b82ca2d4-4ae4-479c-a014-e7b8c6be9af8" class=""></p>
+      <div style="display:contents" dir="auto">
+        <p id="d745ffe9-cfa4-4666-aa42-b3f2265b7d49" class="">Což se rovná číslu&nbsp;72900. Z tohoto čísla je pak možné metodou faktorizace prvočísel zpětně jednoznačně dostat původní písemný výraz.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1175c280-14ed-4891-81c0-f0db9da8d64b" class="">Gödel poté dokázal, že takhle je možné vyjádřit nejenom teorémy, ale i jejich důkazy. Kódování do čísel bylo důležité, aby se vyhnul chybám, které dělají lidé předpokládáním nějakého chování. Toho dosáhl tím, že se vyjadřoval o „bezvýznamných symbolech“ a umožnil čistě „mechanické“ kontrolování a odvozování podle pravidel axiomatického systému.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2e5fda13-3de5-4e2a-87ca-158a46924802" class="">Poté sestrojil výraz, který dokazuje pravdivost čísla enkódujícího teorém G, který má stejné vyjádření, jako svůj vlastní důkaz. Konkrétně:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e3de092f-f88c-45c3-90c1-4d2b69194b5f" class="">„Konkrétní přirozené číslo ‚g‘ není dokazatelné číslo.“</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0e0f017e-8569-4990-b8e9-d8a4a5271ae4" class="">Pokud však tomuto teorému enkódujícímu konkrétní důkaz předhodíme na vstup sám sebe, tak sám sebe vyvrátí. Jenže když se vyvrátí, tak se nemůže dokázat. Celé to bylo samozřejmě podstatně složitější, ale nemá smysl tady zacházet do detailů, tomu se věnuje zmiňovaná knížka.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bcd47f02-4d13-4919-8c86-3341a9e559c1" class="">Jakmile měl Gödel první paradox, tak poté mohl zkonstruovat nekonečné množství podobných paradoxů, které vedly na výsledky, jako:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="70068da4-4046-4b0c-b220-f0ace8d2a5ef" class=""><em>„Tento teorém, i jeho negace není platným teorémem.“</em></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d8ffdeee-1571-436f-b45d-9f5266bb54c2" class="">Gödel tím dokázal, že axiomatické systémy nemůžou být použity k „vytěžení“ celé matematiky iterací přes platné axiomatické výrazy, protože axiomatické systémy obsahují jednak paradoxy, které jsou nerozhodnutelné, ale také jakési ostrovy platných vět, ke kterým se není možné dostat odvozováním z axiomatických systémů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="44785e15-f226-45a8-9015-3e07e1d67acd" class="">V knize je to samozřejmě popsané celé podstatně detailněji, a čitelněji. Určitě jí můžu jen doporučit. Četla se mi docela dobře i jako laikovi a je poměrně tenká.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1aa6f6ef-58c1-4dcb-8847-86077a9f2dc3" class="">Gödelův důkaz má poměrně velké důsledky také pro sféru&nbsp;computer science, neboť ukazuje, že statická analýza je ze své podstaty nekompletní. To má své důsledky například při dynamické transformaci programů v lispovském stylu, ale také třeba pro analýzu virů, nebo dokázování korektnosti programu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="fcfb268e-60cf-46c8-bb92-e967d3ba6813" class="">Ukázka</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="20c36148-8d5d-419c-9145-fee5e529c934" class="">Nedá mi to, abych nevložil citaci několika stran, které se sice přímo netýkají důkazu, ale stejně na mě hodně zapůsobily krásnou analogií:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="b92268cb-9302-4fc8-80d4-e30953cae67c" class="">
+          It may be useful, by way of illustration, to compare meta-mathematics as a theory of proof with the theory of chess. Chess is played with 32 pieces of specified design on a square board containing 64 square subdivisions, where the pieces may be moved in accordance with fixed rules. The game can obviously be played without assigning any "interpretation" to the pieces or to their various positions on the board, although such an interpretation could be supplied if desired. For example, we could stipulate that a given pawn is to represent a certain regiment in an army, that a given square is to stand for a certain geographical region, and so on. But such stipulations (or interpretations) are not customary; and neither the pieces, or the squares, nor the positions of the pieces on the board signify anything outside the game. In this sense, the pieces and their configurations on the board are "meaningless", Thus the game is analogous to a formalized mathematical calculus.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="725b8a42-a27a-489e-8101-8f2e87105f39" class="">
+          <strong>The pieces and the squares of the board correspond to the elementary signs of the calculus; the legal positions of pieces on the board, to the formulas of the calculus; the initial positions of pieces on the board, to the axioms or initial formulas of the calculus; the subsequent positions of pieces on the board, to formulas derived from axioms (i.e. to the theorems); and the rules of the game, to the rules of inference (or a derivation) for the calculus.</strong>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="723cab79-0f5d-4249-894b-61b6eb402460" class="">
+          The parallelism continues. Although configurations of pieces on the board, like the formulas of the calculus, are "meaningless," statements about these configurations, like meta-mathematical statements about formulas, are quite meaningful. A "meta-chess" statement may assert that there are twenty possible opening move for White, or that, given a certain configurations of pieces on the board with White to move, Black is mate in three moves. Moreover, general "meta-chess" theorems can be established whose proof involves only finite number of permissible configurations on the board. The "meta-chess" theorem about the number of possible opening moves for White can be established in this way; and so can the "meta-chess" theorem that if White has only two Knights and the King, and Black has only a King, it is impossible for White to force a mate against Black.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="e5b96199-2b39-4382-b40b-ed5622e72518" class="">
+          These and other "meta-chess" theorems can, in other words, be proved by finitistic methods of reasoning, that is, by examining in turn each of a finite number of configurations that can occur under stated conditions. The aim of Hilbert's theory of proof, similarly, was to demonstrate by such finitistic methods the impossibility of deriving certain formally contradictory formulas in a given mathematical calculus.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6b2fd0f5-f7a1-4a86-b195-fb8ec7f7f9e5" class=""><em>—&nbsp;NAGEL, Ernest a James NEWMAN. Gödel's proof. Rev. ed. New York: New York University Press, 2008, s. 34-37. ISBN 9780814758373.</em></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b82ca2d4-4ae4-479c-a014-e7b8c6be9af8" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

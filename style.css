@@ -46,6 +46,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -76,7 +83,7 @@ h3 {
 }
 
 .callout {
-	border-radius: 3px;
+	border-radius: 10px;
 	padding: 1rem;
 }
 
@@ -118,31 +125,58 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
 }
 
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
 .collection-content {
 	font-size: 0.875rem;
 }
 
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -240,6 +274,14 @@ ol {
 	padding-inline-start: 1.6em;
 }
 
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
 ol > li {
 	padding-left: 0.2em;
 }
@@ -283,7 +325,7 @@ ol > li {
 }
 
 .page-description {
-    margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 
 .simple-table {
@@ -314,7 +356,9 @@ time {
 }
 
 .icon {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	max-width: 1.2em;
 	max-height: 1.2em;
 	text-decoration: none;
@@ -324,6 +368,21 @@ time {
 
 img.icon {
 	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
 }
 
 .user-icon {
@@ -429,10 +488,14 @@ code {
 }
 
 blockquote {
-	font-size: 1.25em;
+	font-size: 1em;
 	margin: 1em 0;
 	padding-left: 1em;
 	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
 }
 
 .bookmark {
@@ -487,14 +550,14 @@ blockquote {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -508,159 +571,155 @@ blockquote {
 .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
 .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
 .highlight-default {
-	color: rgba(55, 53, 47, 1);
+	color: rgba(44, 44, 43, 1);
 }
 .highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
 }
 .highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
 }
 .highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
 }
 .highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
 }
 .highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
 }
 .highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
 }
 .highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
 }
 .highlight-pink {
 	color: rgba(193, 76, 138, 1);
 	fill: rgba(193, 76, 138, 1);
 }
 .highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
 }
 .highlight-default_background {
-	color: rgba(55, 53, 47, 1);
+	color: rgba(44, 44, 43, 1);
 }
 .highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
+	background: rgba(42, 28, 0, 0.07);
 }
 .highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
+	background: rgba(139, 46, 0, 0.086);
 }
 .highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
+	background: rgba(224, 101, 1, 0.129);
 }
 .highlight-yellow_background {
-	background: rgba(251, 237, 214, 1);
+	background: rgba(211, 168, 0, 0.137);
 }
 .highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
+	background: rgba(0, 100, 45, 0.09);
 }
 .highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
+	background: rgba(0, 124, 215, 0.094);
 }
 .highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
+	background: rgba(102, 0, 178, 0.078);
 }
 .highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
+	background: rgba(197, 0, 93, 0.086);
 }
 .highlight-red_background {
-	background: rgba(253, 235, 236, 1);
+	background: rgba(223, 22, 0, 0.094);
 }
 .block-color-default {
 	color: inherit;
 	fill: inherit;
 }
 .block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
 }
 .block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
 }
 .block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
 }
 .block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
 }
 .block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
 }
 .block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
 }
 .block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
 }
 .block-color-pink {
 	color: rgba(193, 76, 138, 1);
 	fill: rgba(193, 76, 138, 1);
 }
 .block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
 }
 .block-color-default_background {
 	color: inherit;
 	fill: inherit;
 }
 .block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
+	background: rgba(240, 239, 237, 1);
 }
 .block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
+	background: rgba(245, 237, 233, 1);
 }
 .block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
+	background: rgba(251, 235, 222, 1);
 }
 .block-color-yellow_background {
-	background: rgba(251, 237, 214, 1);
+	background: rgba(249, 243, 220, 1);
 }
 .block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
+	background: rgba(232, 241, 236, 1);
 }
 .block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
+	background: rgba(229, 242, 252, 1);
 }
 .block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
+	background: rgba(243, 235, 249, 1);
 }
 .block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
+	background: rgba(250, 233, 241, 1);
 }
 .block-color-red_background {
-	background: rgba(253, 235, 236, 1);
+	background: rgba(252, 233, 231, 1);
 }
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
-.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
 
 .checkbox {
 	display: inline-flex;

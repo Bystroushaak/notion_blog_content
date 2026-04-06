@@ -121,57 +121,99 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="3D tisk">3D tisk</a> / Nastavení Blenderu pro 3D tisk
   <article id="d99e4637-206b-4363-9f44-d28bd1299ddb" class="page sans">
     <header>
-      <h1 class="page-title">Nastavení Blenderu pro 3D tisk</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Nastavení Blenderu pro 3D tisk</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="330a3cb9-4ef7-4baa-b4f7-a09f75ac0c93" class=""><time>@2021/06/24</time></p>
-      <p id="ceec0091-b8d5-493e-9742-d65c2f0ad739" class="">Používám tenhle prázdný Blender soubor jako šablonu pro nové 3D tiskové projekty.</p>
-      <figure id="009518c6-425f-4e57-97d1-6c99b2f2dc01">
-        <div class="source">
-          <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/template.blend" title="template.blend">template.blend</a>
-        </div>
-        <figcaption>
-          <a href="http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend">http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend</a>
-        </figcaption>
-      </figure>
-      <p id="b351640d-405b-4570-a0a5-e042afab02ee" class="">Není v něm nic speciálního, kromě toho že jednotky jsou nastaveny na použitelnější škálu, takže <code>STL</code> exporty fungují podle očekávání a člověk nemá problémy se škálováním ve Sliceru.</p>
-      <figure id="65e2a125-40c6-4779-a279-5266251115e9" class="image">
-        <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png" title="blender_settings.png"><img style="width:336px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png"></a>
-      </figure>
-      <p id="526afd7c-a162-491e-8d86-388b205c4726" class="">Specificky:</p>
-      <ul id="baf4080f-30a0-4f7e-86b7-7aa927e4bde7" class="bulleted-list">
-        <li style="list-style-type:disc">Unit scale: <code>0.001</code></li>
-      </ul>
-      <ul id="335c71f4-003b-4b58-8e36-ad66138479cf" class="bulleted-list">
-        <li style="list-style-type:disc">Length: <code>centimeters</code></li>
-      </ul>
-      <h1 id="143fe58b-9716-4d64-8fae-b71807b43bff" class="">Pluginy</h1>
-      <p id="65e06680-28f6-4443-9b86-9d92c5368296" class="">Občas je taky dobré zapnout dva Bleder pluginy, které se dodávají zabudované do Blenderu, ale v základním nastavení nejsou zapnuty:</p>
-      <ul id="0485f80b-7df2-4190-b91b-998fa4416f11" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://docs.blender.org/manual/en/latest/addons/mesh/3d_print_toolbox.html">Mesh: 3D-Print Toolbox</a>
-        </li>
-      </ul>
-      <ul id="7fd83f66-c4bf-490f-8898-142c019aac40" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://docs.blender.org/manual/en/latest/addons/3d_view/measureit.html">3D View: Measureit</a>
-        </li>
-      </ul>
-      <p id="49ac68d1-d304-410d-9ceb-cc1266673d0e" class="">Oba dva přidávají nové menu do toolbaru.</p>
-      <h2 id="3b555eaf-7897-49e5-81c9-73353692043e" class="">3D-Print Toolbox</h2>
-      <figure id="f06d6048-40f6-4d98-aea2-e58944c09867" class="image">
-        <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/3D_toolbox.jpg" title="3D_toolbox.jpg"><img style="width:288px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/3D_toolbox.jpg"></a>
-      </figure>
-      <p id="35b5f5c3-6d6b-458e-98d9-fcf62a890444" class="">Tenhle doplňěk umožňuje exportovat <code>STL</code> pro tisk jedním kliknutím. Taky má občas užitečná tlačítka <code>Check all</code> a <code>Make Manifold</code>, kterými jde opravit modely jenž se ve Sliceru chovají divně, protože mají divnou geometrii.</p>
-      <h2 id="35223939-7074-4635-9063-9e68803d5e15" class="">Measureit</h2>
-      <p id="9e46693d-3c88-4472-9dd7-f33371fc5ff5" class="">Jak už název napovídá, tenhle plugin umožňuje měřit, ať už vzdálenost mezi vertexy, nebo uhly a tak dál. Například se dají vybrat dva vertexy, kliknout na tlačítko <code>Segment</code>, potom na tlačítko <code>Show</code>, které je vedle ikony ducha. Výsledek vypadá nějak takhle:</p>
-      <figure id="11c459e7-d082-4677-8c94-7686e145b3a2" class="image">
-        <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/measure_it_toolbar.jpg" title="measure_it_toolbar.jpg"><img style="width:624px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/measure_it_toolbar_thumb.jpg"></a>
-      </figure>
-      <p id="47316b43-2575-4527-a4ef-ec1049918727" class="">Což občas může umožnit víc CADům podobné modelování s lepší přesností, ale neumí to přežít transofrmace a občas se to chová fakt divně, takže použitelnost je dost omezená.</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="330a3cb9-4ef7-4baa-b4f7-a09f75ac0c93" class=""><time>@2021/06/24</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ceec0091-b8d5-493e-9742-d65c2f0ad739" class="">Používám tenhle prázdný Blender soubor jako šablonu pro nové 3D tiskové projekty.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="009518c6-425f-4e57-97d1-6c99b2f2dc01">
+          <div class="source">
+            <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/template.blend" title="template.blend">template.blend</a>
+          </div>
+          <figcaption>
+            <a href="http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend">http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b351640d-405b-4570-a0a5-e042afab02ee" class="">Není v něm nic speciálního, kromě toho že jednotky jsou nastaveny na použitelnější škálu, takže <code>STL</code> exporty fungují podle očekávání a člověk nemá problémy se škálováním ve Sliceru.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="65e2a125-40c6-4779-a279-5266251115e9" class="image">
+          <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png" title="blender_settings.png"><img style="width:336px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/blender_settings.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="526afd7c-a162-491e-8d86-388b205c4726" class="">Specificky:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="baf4080f-30a0-4f7e-86b7-7aa927e4bde7" class="bulleted-list">
+          <li style="list-style-type:disc">Unit scale: <code>0.001</code></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="335c71f4-003b-4b58-8e36-ad66138479cf" class="bulleted-list">
+          <li style="list-style-type:disc">Length: <code>centimeters</code></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="143fe58b-9716-4d64-8fae-b71807b43bff" class="">Pluginy</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="65e06680-28f6-4443-9b86-9d92c5368296" class="">Občas je taky dobré zapnout dva Bleder pluginy, které se dodávají zabudované do Blenderu, ale v základním nastavení nejsou zapnuty:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0485f80b-7df2-4190-b91b-998fa4416f11" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://docs.blender.org/manual/en/latest/addons/mesh/3d_print_toolbox.html">Mesh: 3D-Print Toolbox</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="7fd83f66-c4bf-490f-8898-142c019aac40" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://docs.blender.org/manual/en/latest/addons/3d_view/measureit.html">3D View: Measureit</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="49ac68d1-d304-410d-9ceb-cc1266673d0e" class="">Oba dva přidávají nové menu do toolbaru.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3b555eaf-7897-49e5-81c9-73353692043e" class="">3D-Print Toolbox</h2>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="f06d6048-40f6-4d98-aea2-e58944c09867" class="image">
+          <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/3D_toolbox.jpg" title="3D_toolbox.jpg"><img style="width:288px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/3D_toolbox.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="35b5f5c3-6d6b-458e-98d9-fcf62a890444" class="">Tenhle doplňěk umožňuje exportovat <code>STL</code> pro tisk jedním kliknutím. Taky má občas užitečná tlačítka <code>Check all</code> a <code>Make Manifold</code>, kterými jde opravit modely jenž se ve Sliceru chovají divně, protože mají divnou geometrii.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="35223939-7074-4635-9063-9e68803d5e15" class="">Measureit</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9e46693d-3c88-4472-9dd7-f33371fc5ff5" class="">Jak už název napovídá, tenhle plugin umožňuje měřit, ať už vzdálenost mezi vertexy, nebo uhly a tak dál. Například se dají vybrat dva vertexy, kliknout na tlačítko <code>Segment</code>, potom na tlačítko <code>Show</code>, které je vedle ikony ducha. Výsledek vypadá nějak takhle:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="11c459e7-d082-4677-8c94-7686e145b3a2" class="image">
+          <a href="../../en/3D_printing/How_to_set_Blender_for_3D_printing/measure_it_toolbar.jpg" title="measure_it_toolbar.jpg"><img style="width:624px" src="../../en/3D_printing/How_to_set_Blender_for_3D_printing/measure_it_toolbar_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="47316b43-2575-4527-a4ef-ec1049918727" class="">Což občas může umožnit víc CADům podobné modelování s lepší přesností, ale neumí to přežít transofrmace a občas se to chová fakt divně, takže použitelnost je dost omezená.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

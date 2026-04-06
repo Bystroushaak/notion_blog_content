@@ -121,80 +121,163 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Programování">Programování</a> / Headless instalace Ubuntu serveru
   <article id="64d64145-9b80-4fbd-a2f5-e370262e853a" class="page sans">
     <header>
-      <h1 class="page-title">Headless instalace Ubuntu serveru</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Headless instalace Ubuntu serveru</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="890542ce-324c-4ed8-ae57-38bb4ae4d7c7" class=""><time>@2014/08/18</time></p>
-      <p id="e7af3279-b9f9-450f-a83f-caadb70b2ee2" class="">Dnes se podíváme na to jak nainstalovat linux na stroj, ke kterému není k dispozici ani klávesnice, ani monitor. Aby to nebylo tak jednoduché, tak to všechno bude nainstalováno do šifrovaného kontejneru, ke kterému se po rebootu zadává heslo přes SSH.</p>
-      <h1 id="d755c0a0-f555-458d-9498-4a7cde5fb0f2" class="">Motivace</h1>
-      <p id="b62bbf41-9ec7-42bd-b52a-5fbea6bf2841" class="">Jak říkával můj oblíbený učitel na střední škole: <em>„Doba je zlá, ne-li kritická“</em>. NSA šmíruje kde se dá, ale i ostatní orgány se už pomalu začínají orientovat ve světě informačních technologií. Podniková špionáž, všeobecná paranoia. Přesto skoro kamkoliv přijdu, tak stačí nabootovat <em>live</em> distribuci Linuxu a během pár minut si můžu dělat s nainstalovaným systémem <a href="https://github.com/secretsquirrel/the-backdoor-factory">co chci</a> - přidávat tam soubory, mazat a upravovat stávající, či si kopírovat citlivá data. Proto tedy šifrovaný disk.</p>
-      <figure id="e78b6cef-499e-4ec3-859a-067adae8adae" class="image">
-        <a href="Untitled.png" title="Untitled.png"><img style="width:1950px" src="Untitled_thumb.jpg"></a>
-      </figure>
-      <p id="71d58a74-59ef-4d8f-b554-266bbcfbc63d" class="">Nevím kde máte server vy, já mám jeden pod dřezem a druhý kdesi v cloudu u poskytovatele. Oboje dvoje je relativně špatně dostupné - pod dřezem je nedostatek zásuvek a přenášet server či monitory se mi nechtělo. Do cloudu mě pro změnu nikdo fyzicky nepustí. Proto tedy <em>headless</em> instalace.</p>
-      <h1 id="32004bd5-7440-48da-b005-2f1f0b21a6be" class="">early-ssh</h1>
-      <p id="ffe683f0-a1d2-4be5-89be-21bd9c7ed7f8" class="">Na internetu se dá najít odkaz na balíček <code>early-ssh</code>, který údajně dělá více/méně všechno zde popsané, co se <code>dropbear</code>u týče (<em>headless</em> instalaci vám nevyrobí).</p>
-      <p id="52d9c45a-4729-43e1-8ddb-d0fdc48013ae" class="">Pokud na něj narazíte, rozhodně ho <strong>nepoužívejte</strong>! Jedná se o neudržovaný a velmi rozbitý script, který nejenže nefunguje, ale má tendence navíc rozbít i některé potenciálně obtížně opravitelné věci (<code>initramfs</code>).</p>
-      <h1 id="511f6714-de80-4ec8-a070-0431f78044fc" class="">Shrnutí postupu</h1>
-      <p id="fe228ca9-187e-4acd-afd9-3346596ff0cd" class="">Vše níže popsáno bylo odzkoušeno v systému <a href="http://www.linux-mint-czech.cz/">Linux Mint</a> založeném na <a href="http://www.ubuntu.cz/">Ubuntu</a>, se standardní softwarovou výbavou.</p>
-      <p id="6a01b271-c040-48ac-963a-66fc36fdce60" class="">1. Stažení současného <a href="http://www.ubuntu.cz/ziskejte/stahnout#tabs-3">serverového</a> 64b instalátoru Ubuntu 14.04, což je LTS (Long Time Support) verze s dlouhodobou podporou. Ubuntu používám protože je uživatelsky příjemné a je pro něj dostupno asi nejvíc balíčků software. Také je to relativně jednoduchá a blbuvzdorná distribuce, se kterou mám na serveru dost zkušeností.</p>
-      <p id="648d8151-1e97-44f1-a997-2833d7b75b14" class="">2. Rozbalení staženého ISO souboru na disk, přidání <a href="https://wiki.debian.org/DebianInstaller/Preseed">preseed souboru</a> a několika dalších scriptů. Tento krok zajistí, že instalátor nebude vyžadovat interaktivní přítomnost uživatele na vstupně výstupních zařízeních serveru (monitor, klávesnice). Místo toho bude spuštěno <code>SSH</code> s textovým dialogovým menu, přes které je možné dále postupovat v instalaci.</p>
-      <p id="9cefe67f-4006-4185-b76f-228fdfca127d" class="">3. Vytvoření nového ISO souboru z modifikovaných komponent.</p>
-      <p id="3b0b46f3-8c17-4aa2-bcd5-283bb57e063c" class="">4. Instalace systému na disk. V tomto kroku nainstaluji Ubuntu na disk. Na konci se spustí <em>preseed</em> konfigurace, která zajistí instalaci <a href="https://matt.ucc.asn.au/dropbear/dropbear.html">dropbearu</a> (miniaturní SSH server) a jeho přidání do <code>initramfs</code>, aby startoval během žádosti o zadání hesla k disku. Dále je zde upravení <a href="https://cs.wikipedia.org/wiki/GRUB">grubu</a> aby přeskakoval interaktivní menu, nastavení portu pro <code>dropbear</code> a tak dále.</p>
-      <p id="3849c406-8c8f-42c1-a595-ec28bee39a65" class="">5. Zadání hesla pro šifrovaný disk. Celá procedura není tak jednoduchá a uživatelsky přívětivá, jak by mohla, proto je jí věnován větší prostor.</p>
-      <h2 id="c60b43b7-d2a1-49e7-941e-1cbc6bdefb7c" class="">Upozornění</h2>
-      <p id="c64199ab-1298-40a3-883d-58dd469f7dea" class="">V průběhu článku budeme konfigurovat tři různé SSH servery/sessiony:</p>
-      <ol type="1" id="fb0517b5-6275-4197-9333-d8eb29de2b65" class="numbered-list" start="1">
-        <li><strong>Preseed</strong> netinstall konzole. Tímto se připojujeme na proces instalace.</li>
-      </ol>
-      <ol type="1" id="8b5f95f1-38a5-494d-aca2-727d37959faf" class="numbered-list" start="2">
-        <li><strong>Dropbear</strong> SSH server, který slouží k zadání hesla k šifrovanému disku. Používáme certifikát (heslo se nejspíš ani nedá použít, zkoušel jsem, ale nepochodil).</li>
-      </ol>
-      <ol type="1" id="ef1901ab-dd5d-4f9f-9887-9953e4c5cae8" class="numbered-list" start="3">
-        <li><strong>OpenSSH</strong> server, který běží po <em>bootu</em> a odemčení disku na serveru.</li>
-      </ol>
-      <h1 id="6fb7ef43-9ace-4ac3-8b5c-648134ac1563" class="">Postup úprav</h1>
-      <h2 id="c1ae3113-b925-4eb8-ad91-4ef222e25f7b" class="">Instalační médium</h2>
-      <p id="a2c4635b-8879-4357-9aad-985ad51e3967" class="">Začněme stažením instalačního média. Celý postup mám odzkoušený na 64b verzi a je možné, že některé detaily, hlavně co se týče <em>preseed</em> souboru a cest, které jsou v něm specifikované, mohou být odlišné.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="d374a6fb-3e14-4c44-b565-f770d686bce8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">wget -c http://releases.ubuntu.com/trusty/ubuntu-14.04.1-server-amd64.iso</code></pre>
-      <p id="34d695cc-23f0-4959-aedd-956ce5c8c69d" class="">Dále je dobré se ujistit, že máte nainstalovaný program <a href="https://abclinuxu.cz//software/soubory/vypalovani/mkisofs">mkisofs</a>, který je použit k opětovnému sestavení ISO souboru po jeho rozbalení:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="85da1d1c-31b4-41e7-8a64-764074b9fb25" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo aptitude install mkisofs</code></pre>
-      <h2 id="ae13d9ad-133e-44d6-862f-0d67d891513f" class="">Upravení instalace</h2>
-      <p id="f784b37d-4d1c-4bfa-90f7-d0c3e4848b69" class="">Ze všeho nejdříve si vytvořím dva adresáře a přepnu se na <code>root</code>a, abych nemusel neustále opisovat <code>sudo</code>:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="5fe12222-81cd-43f5-93cb-84e90e51eeac" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">mkdir ubuntu_iso
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="890542ce-324c-4ed8-ae57-38bb4ae4d7c7" class=""><time>@2014/08/18</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e7af3279-b9f9-450f-a83f-caadb70b2ee2" class="">Dnes se podíváme na to jak nainstalovat linux na stroj, ke kterému není k dispozici ani klávesnice, ani monitor. Aby to nebylo tak jednoduché, tak to všechno bude nainstalováno do šifrovaného kontejneru, ke kterému se po rebootu zadává heslo přes SSH.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="d755c0a0-f555-458d-9498-4a7cde5fb0f2" class="">Motivace</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b62bbf41-9ec7-42bd-b52a-5fbea6bf2841" class="">Jak říkával můj oblíbený učitel na střední škole: <em>„Doba je zlá, ne-li kritická“</em>. NSA šmíruje kde se dá, ale i ostatní orgány se už pomalu začínají orientovat ve světě informačních technologií. Podniková špionáž, všeobecná paranoia. Přesto skoro kamkoliv přijdu, tak stačí nabootovat <em>live</em> distribuci Linuxu a během pár minut si můžu dělat s nainstalovaným systémem <a href="https://github.com/secretsquirrel/the-backdoor-factory">co chci</a> - přidávat tam soubory, mazat a upravovat stávající, či si kopírovat citlivá data. Proto tedy šifrovaný disk.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e78b6cef-499e-4ec3-859a-067adae8adae" class="image">
+          <a href="Untitled.png" title="Untitled.png"><img style="width:1950px" src="Untitled_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="71d58a74-59ef-4d8f-b554-266bbcfbc63d" class="">Nevím kde máte server vy, já mám jeden pod dřezem a druhý kdesi v cloudu u poskytovatele. Oboje dvoje je relativně špatně dostupné - pod dřezem je nedostatek zásuvek a přenášet server či monitory se mi nechtělo. Do cloudu mě pro změnu nikdo fyzicky nepustí. Proto tedy <em>headless</em> instalace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="32004bd5-7440-48da-b005-2f1f0b21a6be" class="">early-ssh</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ffe683f0-a1d2-4be5-89be-21bd9c7ed7f8" class="">Na internetu se dá najít odkaz na balíček <code>early-ssh</code>, který údajně dělá více/méně všechno zde popsané, co se <code>dropbear</code>u týče (<em>headless</em> instalaci vám nevyrobí).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="52d9c45a-4729-43e1-8ddb-d0fdc48013ae" class="">Pokud na něj narazíte, rozhodně ho <strong>nepoužívejte</strong>! Jedná se o neudržovaný a velmi rozbitý script, který nejenže nefunguje, ale má tendence navíc rozbít i některé potenciálně obtížně opravitelné věci (<code>initramfs</code>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="511f6714-de80-4ec8-a070-0431f78044fc" class="">Shrnutí postupu</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fe228ca9-187e-4acd-afd9-3346596ff0cd" class="">Vše níže popsáno bylo odzkoušeno v systému <a href="http://www.linux-mint-czech.cz/">Linux Mint</a> založeném na <a href="http://www.ubuntu.cz/">Ubuntu</a>, se standardní softwarovou výbavou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6a01b271-c040-48ac-963a-66fc36fdce60" class="">1. Stažení současného <a href="http://www.ubuntu.cz/ziskejte/stahnout#tabs-3">serverového</a> 64b instalátoru Ubuntu 14.04, což je LTS (Long Time Support) verze s dlouhodobou podporou. Ubuntu používám protože je uživatelsky příjemné a je pro něj dostupno asi nejvíc balíčků software. Také je to relativně jednoduchá a blbuvzdorná distribuce, se kterou mám na serveru dost zkušeností.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="648d8151-1e97-44f1-a997-2833d7b75b14" class="">2. Rozbalení staženého ISO souboru na disk, přidání <a href="https://wiki.debian.org/DebianInstaller/Preseed">preseed souboru</a> a několika dalších scriptů. Tento krok zajistí, že instalátor nebude vyžadovat interaktivní přítomnost uživatele na vstupně výstupních zařízeních serveru (monitor, klávesnice). Místo toho bude spuštěno <code>SSH</code> s textovým dialogovým menu, přes které je možné dále postupovat v instalaci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9cefe67f-4006-4185-b76f-228fdfca127d" class="">3. Vytvoření nového ISO souboru z modifikovaných komponent.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3b0b46f3-8c17-4aa2-bcd5-283bb57e063c" class="">4. Instalace systému na disk. V tomto kroku nainstaluji Ubuntu na disk. Na konci se spustí <em>preseed</em> konfigurace, která zajistí instalaci <a href="https://matt.ucc.asn.au/dropbear/dropbear.html">dropbearu</a> (miniaturní SSH server) a jeho přidání do <code>initramfs</code>, aby startoval během žádosti o zadání hesla k disku. Dále je zde upravení <a href="https://cs.wikipedia.org/wiki/GRUB">grubu</a> aby přeskakoval interaktivní menu, nastavení portu pro <code>dropbear</code> a tak dále.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3849c406-8c8f-42c1-a595-ec28bee39a65" class="">5. Zadání hesla pro šifrovaný disk. Celá procedura není tak jednoduchá a uživatelsky přívětivá, jak by mohla, proto je jí věnován větší prostor.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c60b43b7-d2a1-49e7-941e-1cbc6bdefb7c" class="">Upozornění</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c64199ab-1298-40a3-883d-58dd469f7dea" class="">V průběhu článku budeme konfigurovat tři různé SSH servery/sessiony:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="fb0517b5-6275-4197-9333-d8eb29de2b65" class="numbered-list" start="1">
+          <li><strong>Preseed</strong> netinstall konzole. Tímto se připojujeme na proces instalace.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="8b5f95f1-38a5-494d-aca2-727d37959faf" class="numbered-list" start="2">
+          <li><strong>Dropbear</strong> SSH server, který slouží k zadání hesla k šifrovanému disku. Používáme certifikát (heslo se nejspíš ani nedá použít, zkoušel jsem, ale nepochodil).</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="ef1901ab-dd5d-4f9f-9887-9953e4c5cae8" class="numbered-list" start="3">
+          <li><strong>OpenSSH</strong> server, který běží po <em>bootu</em> a odemčení disku na serveru.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="6fb7ef43-9ace-4ac3-8b5c-648134ac1563" class="">Postup úprav</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c1ae3113-b925-4eb8-ad91-4ef222e25f7b" class="">Instalační médium</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a2c4635b-8879-4357-9aad-985ad51e3967" class="">Začněme stažením instalačního média. Celý postup mám odzkoušený na 64b verzi a je možné, že některé detaily, hlavně co se týče <em>preseed</em> souboru a cest, které jsou v něm specifikované, mohou být odlišné.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="d374a6fb-3e14-4c44-b565-f770d686bce8" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">wget -c http://releases.ubuntu.com/trusty/ubuntu-14.04.1-server-amd64.iso</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="34d695cc-23f0-4959-aedd-956ce5c8c69d" class="">Dále je dobré se ujistit, že máte nainstalovaný program <a href="https://abclinuxu.cz//software/soubory/vypalovani/mkisofs">mkisofs</a>, který je použit k opětovnému sestavení ISO souboru po jeho rozbalení:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="85da1d1c-31b4-41e7-8a64-764074b9fb25" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo aptitude install mkisofs</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="ae13d9ad-133e-44d6-862f-0d67d891513f" class="">Upravení instalace</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f784b37d-4d1c-4bfa-90f7-d0c3e4848b69" class="">Ze všeho nejdříve si vytvořím dva adresáře a přepnu se na <code>root</code>a, abych nemusel neustále opisovat <code>sudo</code>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="5fe12222-81cd-43f5-93cb-84e90e51eeac" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">mkdir ubuntu_iso
 mkdir headless_ubuntu
 sudo su</code></pre>
-      <p id="cb78e35a-22dd-4e0d-88cb-53e82f5379a1" class="">Nyní je na čase si vybalit obsah ISO souboru do samostatného adresáře, aby bylo možné provést všechny nutné úpravy.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="f9ab7b58-41bd-4d66-8b4f-3310454a60c7" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">mount -o loop ubuntu-14.04.1-server-amd64.iso ubuntu_iso/
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cb78e35a-22dd-4e0d-88cb-53e82f5379a1" class="">Nyní je na čase si vybalit obsah ISO souboru do samostatného adresáře, aby bylo možné provést všechny nutné úpravy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="f9ab7b58-41bd-4d66-8b4f-3310454a60c7" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">mount -o loop ubuntu-14.04.1-server-amd64.iso ubuntu_iso/
 cp -rT ubuntu_iso/ headless_ubuntu/
 umount ubuntu_iso
 rm -r ubuntu_iso
  
 cd headless_ubuntu/</code></pre>
-      <h3 id="97a1ea15-7a8a-431d-a1dc-ea1fcbbabdb7" class="">authorized_keys</h3>
-      <p id="b95aca80-366d-41fb-980d-665a15523f39" class="">Naprostou nutností je přidat soubor <code>preseed/authorized_keys</code>, který je použit <code>dropbear</code>em pro zpřístupnění konzole, kam zadáváte heslo k disku. Do tohoto souboru nakopírujte váš veřejný klíč, který většinou najdete v <code>~/.ssh/id_dsa.pub</code>.</p>
-      <p id="d651eac8-9792-43a2-928c-588f55e9999f" class="">Zkopírovat ho můžete například tímto příkazem:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="42b43881-7425-4c05-b21b-7ace294836cb" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat ~/.ssh/id_dsa.pub &gt;&gt; preseed/authorized_keys</code></pre>
-      <p id="dd5d25be-09c7-49e5-9705-2e6aaf97f3f2" class="">Upozornění: Pokud tento soubor nebude vytvořen, nebude možné ani vzdáleně odemknout šifrovaný disk. Zkoušel jsem si hrát s nastavením <code>dropbear</code>u a donutit ho používat heslo, ale bezúspěšně.</p>
-      <p id="3819adfb-78ff-471a-a997-b1ef2d192586" class="">Poznámka: Pokud nemáte soubor <code>~/.ssh/id_dsa.pub</code>, je možné, že je uložen jinde, nebo že ještě nebyl vygenerován. Jak na to zjistíte například zde: <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">Jak se přihlašovat na</a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/"><code>SSH</code></a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">bez zadávání hesla</a>.</p>
-      <h3 id="2737502d-e6c0-47d2-a890-1a1cf5a01048" class="">isolinux.cfg</h3>
-      <p id="0ef5c6e5-134a-4235-8731-5160320517a3" class="">Dále je zapotřebí upravit jeden soubor a vytvořit další dva. Začněme úpravou souboru <code>isolinux/isolinux.cfg</code>, který je možné celý přepsat, proto jsem vše shrnul do jednoho příkazu, jenž stačí zkopírovat do konzole:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="cc5ee988-3e0b-490d-a27c-2249dfb1008c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat &gt; isolinux/isolinux.cfg &lt;&lt;EOF
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="97a1ea15-7a8a-431d-a1dc-ea1fcbbabdb7" class="">authorized_keys</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b95aca80-366d-41fb-980d-665a15523f39" class="">Naprostou nutností je přidat soubor <code>preseed/authorized_keys</code>, který je použit <code>dropbear</code>em pro zpřístupnění konzole, kam zadáváte heslo k disku. Do tohoto souboru nakopírujte váš veřejný klíč, který většinou najdete v <code>~/.ssh/id_dsa.pub</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d651eac8-9792-43a2-928c-588f55e9999f" class="">Zkopírovat ho můžete například tímto příkazem:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="42b43881-7425-4c05-b21b-7ace294836cb" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat ~/.ssh/id_dsa.pub &gt;&gt; preseed/authorized_keys</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dd5d25be-09c7-49e5-9705-2e6aaf97f3f2" class="">Upozornění: Pokud tento soubor nebude vytvořen, nebude možné ani vzdáleně odemknout šifrovaný disk. Zkoušel jsem si hrát s nastavením <code>dropbear</code>u a donutit ho používat heslo, ale bezúspěšně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3819adfb-78ff-471a-a997-b1ef2d192586" class="">Poznámka: Pokud nemáte soubor <code>~/.ssh/id_dsa.pub</code>, je možné, že je uložen jinde, nebo že ještě nebyl vygenerován. Jak na to zjistíte například zde: <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">Jak se přihlašovat na</a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/"><code>SSH</code></a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">bez zadávání hesla</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="2737502d-e6c0-47d2-a890-1a1cf5a01048" class="">isolinux.cfg</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0ef5c6e5-134a-4235-8731-5160320517a3" class="">Dále je zapotřebí upravit jeden soubor a vytvořit další dva. Začněme úpravou souboru <code>isolinux/isolinux.cfg</code>, který je možné celý přepsat, proto jsem vše shrnul do jednoho příkazu, jenž stačí zkopírovat do konzole:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="cc5ee988-3e0b-490d-a27c-2249dfb1008c" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat &gt; isolinux/isolinux.cfg &lt;&lt;EOF
 F9 f9.txt
 F0 f10.txt
  
@@ -207,11 +290,17 @@ LABEL netconsole
     kernel /install/vmlinuz
     append auto=true vga=normal file=/cdrom/preseed/preseed.seed initrd=/install/initrd.gz locale=cs_CZ console-keymaps-at/keymap=cz-lat2
 EOF</code></pre>
-      <h3 id="61fe448d-d4b4-4714-abf8-5f0af549f921" class="">unlock.sh</h3>
-      <p id="84a70d29-fb10-447b-b6e7-3c6a3d321c15" class="">Hodit se nám bude také soubor <code>preseed/unlock.sh</code>, který slouží k odemčení šifrovaného disku. Není toho zde moc k vidění a tak jsem opět soubor upravil do tvaru, který je možné jednoduše vložit do terminálu a vytvořit ho tak automaticky:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="20cbe48d-dd83-4a71-89dc-04026ff852fe" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat &gt; preseed/unlock.sh &lt;&lt;EOF
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="61fe448d-d4b4-4714-abf8-5f0af549f921" class="">unlock.sh</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="84a70d29-fb10-447b-b6e7-3c6a3d321c15" class="">Hodit se nám bude také soubor <code>preseed/unlock.sh</code>, který slouží k odemčení šifrovaného disku. Není toho zde moc k vidění a tak jsem opět soubor upravil do tvaru, který je možné jednoduše vložit do terminálu a vytvořit ho tak automaticky:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="20cbe48d-dd83-4a71-89dc-04026ff852fe" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cat &gt; preseed/unlock.sh &lt;&lt;EOF
 #!/bin/sh
 kill -9 `ps | grep "/bin/sh" | grep cryptroot | cut -d " " -f 3`
  
@@ -221,11 +310,17 @@ sleep 35
 /scripts/local-top/cryptroot
 kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`
 EOF</code></pre>
-      <h3 id="965bcfb4-1fe6-494f-928f-6c72b9436087" class="">preseed.seed</h3>
-      <p id="fec3a582-69eb-4228-bc02-dc5080916280" class="">Nyní přichází na řadu první část instalace, kde je zapotřebí dávat důkladný pozor na to co děláte. Vytvořte soubor <code>preseed/preseed.seed</code> (doporučuji použít editor, protože pravděpodobně budete chtít změnit některé detaily) s následujícím obsahem:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="c4f2c359-d089-4bf3-a8bf-53d35fd680c1" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">d-i debian-installer/locale          string    cs_CZ
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="965bcfb4-1fe6-494f-928f-6c72b9436087" class="">preseed.seed</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fec3a582-69eb-4228-bc02-dc5080916280" class="">Nyní přichází na řadu první část instalace, kde je zapotřebí dávat důkladný pozor na to co děláte. Vytvořte soubor <code>preseed/preseed.seed</code> (doporučuji použít editor, protože pravděpodobně budete chtít změnit některé detaily) s následujícím obsahem:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="c4f2c359-d089-4bf3-a8bf-53d35fd680c1" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">d-i debian-installer/locale          string    cs_CZ
  
 # Podstatné je hlavně NEWMACHINE, neboť bude nastaveno jako hostname nového stroje
 d-i debconf/priority                 select    critical
@@ -267,70 +362,160 @@ in-target bash -c "echo 'cp /etc/initramfs-tools/root/unlock.sh \"\${DESTDIR}/bi
 in-target bash -c "echo 'GRUB_RECORDFAIL_TIMEOUT=3' &gt;&gt; /etc/default/grub" ; \
 in-target update-initramfs -u -k all ; \
 in-target update-grub</code></pre>
-      <p id="159b547f-74f1-413a-9fa4-e8a0db6fa88b" class="">Tento soubor je automaticky načten instalátorem, který si z něj vyzobe informace potřebné pro automatické spuštění netinstall konzole. Všímavější čtenáři se mohou podívat do adresáře <code>preseed/</code>, kde je již několik scriptů k dispozici.</p>
-      <p id="bfdbec6f-3796-42ac-8fe2-a378d339503c" class="">Předpokládám, že budete chtít provést některé úpravy, proto jsem zvýraznil několik řádků:</p>
-      <h3 id="9f7ec774-76a4-438a-a531-271126a7bcda" class="">Řádek 7</h3>
-      <p id="76aa34e1-6db8-4dd2-ba9c-971d3c98b9b7" class="">Zde je možné změnit <em>hostname</em> počítače. Instalátor si ho pamatuje a automaticky ho nastaví pro nainstalovaný systém. Dá se to změnit i později, ale je to otrava.</p>
-      <h3 id="1f57dda8-278b-4221-8dbd-557de86558ff" class="">Řádek 9</h3>
-      <p id="a5416ee4-5e1c-42ef-9d2e-fb94b4b635a1" class="">Heslo, pod kterým se připojíte <strong>do instalátoru</strong>.</p>
-      <h3 id="c6948d5c-ca8a-4791-8fe0-b39bfa16b2cf" class="">Řádek 10</h3>
-      <p id="263de559-a266-4b7c-8dd7-129481b58082" class="">Heslo ještě jednou.</p>
-      <h3 id="8185737e-c292-4bcc-beb9-dfd607e351e9" class="">Řádky 23 až 29</h3>
-      <p id="fbac97e5-6f5a-46fe-8d8d-b54cfbb54af6" class="">Statické nastavení sítě. Tyto řádky je odkomentujte pokud chcete aby instalátor použil uvedené IP adresy a konfiguraci sítě. Pokud zůstanou tyto řádky zakomentované, tak je použito <code>dhcp</code> a může být složité zjistit adresu instalátoru (hlavně v případě VPS).</p>
-      <h3 id="65b5b27d-3364-4311-ae5e-32d632a30cb1" class="">Řádek 35</h3>
-      <p id="97896b50-b8ec-4def-8c5d-ffe74980604d" class="">Tento řádek obsahuje příkaz, který poněkud barbarským způsobem donutí <code>SSH</code> server <code>dropbear</code> startovat na portu <code>80</code>, místo standardního <code>22</code>.</p>
-      <p id="779fdf9e-a01d-4bb0-b013-14be3db5cc6a" class="">Toto chování je zvoleno z prostého důvodu; <code>dropbear</code> spuštěný při zadávání hesla k disku používá (a měl by používat!) jiné klíče než <code>OpenSSH</code>, který je spuštěn později. To ovšem vede ke konfliktu fingerprintu, který je uložený ve vašem <code>~/.ssh/known_hosts</code>, a <code>SSH</code> klient se odmítne připojit, dokud zadaný fingerprint neodstraníte.</p>
-      <p id="33a6e243-7590-4a38-a415-6ba81f0d3367" class="">Tuto procedůru by bylo nutné provádět po každém restartu serveru, proto byl zvolen alternativní port, u kterého je navíc jistá jeho dostupnost i skrz některé nepříliš přátelské firewally.</p>
-      <p id="5c81f1c5-8912-4762-ac0f-2ecb5ccd7a2b" class="">Pokud vám toto chování nevyhovuje, můžete řádek číslo 35 smazat (v tom případe je použit port <code>22</code>), či zvolené číslo portu nahradit.</p>
-      <p id="4a6e7fbe-b767-41d4-b24f-eb66da522010" class=""><strong>Pozor: jedná pouze o port pro zadání hesla k šifrovanému disku, ne o port, kde bude naslouchat</strong> <code><strong>OpenSSH</strong></code><strong>, jakmile je heslo úspěšně zadáno a systém nabootuje!</strong></p>
-      <h3 id="d2e9f394-c23f-4848-b06b-309bda155ead" class="">Bonus</h3>
-      <p id="30d59cd2-c52c-4238-b4d0-4f8874c2ea4b" class="">Jak je možné pochopit z komentáře na řádku 31, veškeré následující příkazy se provedou, jakmile bude instalace dokončena. Řádky začínající na <code>in-target</code> jsou provedeny v <a href="https://cs.wikipedia.org/wiki/Chroot">chrootu</a>, ostatní z cesty instalátoru. Pokud si vyberete druhou možnost, obsah ISO souboru je dostupný v adresáři <code>cdrom/</code>, nainstalovaný systém pak v <code>target/</code>.</p>
-      <p id="bf3dc352-fac1-4497-99b5-69d2393a77e4" class="">Jestliže chcete provést nějaké změny v nainstalovaném systému ještě v době instalace, je možné přidat další řádky, které například nastaví statickou IP adresu (doporučuji použít postup na řádku 36, tedy uložit soubory na ISO do adresáře <code>preseed/</code> a pak je prostě zkopírovat stylem <code>cp cdrom/preseed/soubor target/etc/soubor; \</code>), či podobné konfigurace.</p>
-      <p id="bb0b79d1-744f-4209-80a3-e88123cb333e" class="">Následující ukázka nastaví <code>OpenSSH</code> (nikoliv <code>dropbear</code>!) aby zamezil loginu <code>root</code>a:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="5ba9a070-8617-40c8-a6ed-a9f4af70103c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target sed 's/^PermitRootLogin.*/PermitRootLogin no/g' -i /etc/ssh/sshd_config; \</code></pre>
-      <p id="e3f4bbd7-da06-4ea1-acf4-09784f2ec5b9" class="">Dále je možné také změnit port pro <code>OpenSSH</code> například na můj oblíbený <code>443</code>:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="8341cf36-d82b-4b4b-ac16-f4db22768d27" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target sed 's/^Port.*/Port 443/g' -i /etc/ssh/sshd_config; \</code></pre>
-      <p id="0893734f-5dbc-4b37-9643-60c7cf26bb30" class="">Příkazy můžete zamíchat někam mezi ostatní, či přidat na konec. V takovém případě si ale musíte dát pozor, aby všechny mezi prvním a posledním končily sekvencí <code>; \</code> a poslední řádek byl bez nich.</p>
-      <h3 id="12a10958-b002-4fc7-b6ca-efe812ee9f21" class="">IP adresa dropbearu</h3>
-      <p id="a16f9c09-b936-4826-907b-31b56013c8d4" class="">Poměrně užitečnou možností je například úprava IP adresy, na které se startuje <code>dropbear</code>. Ta je v defaultu vybrána automaticky a ovlivnit jí je možné úpravou souboru <code>/etc/initramfs-tools/conf.d/network_config</code>, kam lze přidat řádek ve formátu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="0bae4d01-e014-4a85-9a3f-26baa05587a9" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;.</code></pre>
-      <p id="50eba874-d55b-4b68-945c-062b95657f4e" class="">K tomu je možné použít například následující snippet:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="d4ce0163-35f3-439e-af2e-934d81697f58" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target bash -c "echo 'export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
-      <p id="a81fcb98-7033-4dec-b7b2-d4daa32658a5" class="">Konkrétně tedy třeba:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="ff436da4-87f0-414e-b1eb-526e800ad8fa" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target bash -c "echo 'export IP=10.0.0.2::10.0.0.1:255.255.255.0:myserver:eth0' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
-      <p id="bd45e354-2fe8-4bc1-b757-b22b050a9a57" class="">Snippet přidejte před řádek 41, kde probíhá update <code>initramfs</code>.</p>
-      <p id="7debe3da-972a-4094-b352-3215004dc4e6" class="">Poznámka: Styl <code>'bash -c "echo ..'</code> je použit záměrně. Nemám dobrou zkušenost s přesměrováním pomocí <code>&gt;&gt;</code> použitými v <em>preseed</em> souboru. Možná by se to dalo nějak vyescapovat, ale případné testování je docela pomalé, protože jestli to fungovalo se dozvíte vždy až na konci instalace a po dvanácti pokusech už nemám moc náladu na experimentování.</p>
-      <h2 id="585e356d-bf70-400e-80e1-94783b4728ff" class="">Vytvoření ISO souboru</h2>
-      <p id="6146df93-ba97-4fdd-a7de-20094bd654a1" class="">Jakmile máme všechny úpravy hotové, o vytvoření nového instalačního média se postará tento dlouhý příkaz:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="03e119ac-0ac6-4448-8f52-ac2975bb4aca" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd ..
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="159b547f-74f1-413a-9fa4-e8a0db6fa88b" class="">Tento soubor je automaticky načten instalátorem, který si z něj vyzobe informace potřebné pro automatické spuštění netinstall konzole. Všímavější čtenáři se mohou podívat do adresáře <code>preseed/</code>, kde je již několik scriptů k dispozici.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bfdbec6f-3796-42ac-8fe2-a378d339503c" class="">Předpokládám, že budete chtít provést některé úpravy, proto jsem zvýraznil několik řádků:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="9f7ec774-76a4-438a-a531-271126a7bcda" class="">Řádek 7</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="76aa34e1-6db8-4dd2-ba9c-971d3c98b9b7" class="">Zde je možné změnit <em>hostname</em> počítače. Instalátor si ho pamatuje a automaticky ho nastaví pro nainstalovaný systém. Dá se to změnit i později, ale je to otrava.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="1f57dda8-278b-4221-8dbd-557de86558ff" class="">Řádek 9</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a5416ee4-5e1c-42ef-9d2e-fb94b4b635a1" class="">Heslo, pod kterým se připojíte <strong>do instalátoru</strong>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="c6948d5c-ca8a-4791-8fe0-b39bfa16b2cf" class="">Řádek 10</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="263de559-a266-4b7c-8dd7-129481b58082" class="">Heslo ještě jednou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="8185737e-c292-4bcc-beb9-dfd607e351e9" class="">Řádky 23 až 29</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fbac97e5-6f5a-46fe-8d8d-b54cfbb54af6" class="">Statické nastavení sítě. Tyto řádky je odkomentujte pokud chcete aby instalátor použil uvedené IP adresy a konfiguraci sítě. Pokud zůstanou tyto řádky zakomentované, tak je použito <code>dhcp</code> a může být složité zjistit adresu instalátoru (hlavně v případě VPS).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="65b5b27d-3364-4311-ae5e-32d632a30cb1" class="">Řádek 35</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="97896b50-b8ec-4def-8c5d-ffe74980604d" class="">Tento řádek obsahuje příkaz, který poněkud barbarským způsobem donutí <code>SSH</code> server <code>dropbear</code> startovat na portu <code>80</code>, místo standardního <code>22</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="779fdf9e-a01d-4bb0-b013-14be3db5cc6a" class="">Toto chování je zvoleno z prostého důvodu; <code>dropbear</code> spuštěný při zadávání hesla k disku používá (a měl by používat!) jiné klíče než <code>OpenSSH</code>, který je spuštěn později. To ovšem vede ke konfliktu fingerprintu, který je uložený ve vašem <code>~/.ssh/known_hosts</code>, a <code>SSH</code> klient se odmítne připojit, dokud zadaný fingerprint neodstraníte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33a6e243-7590-4a38-a415-6ba81f0d3367" class="">Tuto procedůru by bylo nutné provádět po každém restartu serveru, proto byl zvolen alternativní port, u kterého je navíc jistá jeho dostupnost i skrz některé nepříliš přátelské firewally.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5c81f1c5-8912-4762-ac0f-2ecb5ccd7a2b" class="">Pokud vám toto chování nevyhovuje, můžete řádek číslo 35 smazat (v tom případe je použit port <code>22</code>), či zvolené číslo portu nahradit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4a6e7fbe-b767-41d4-b24f-eb66da522010" class=""><strong>Pozor: jedná pouze o port pro zadání hesla k šifrovanému disku, ne o port, kde bude naslouchat</strong> <code><strong>OpenSSH</strong></code><strong>, jakmile je heslo úspěšně zadáno a systém nabootuje!</strong></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="d2e9f394-c23f-4848-b06b-309bda155ead" class="">Bonus</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="30d59cd2-c52c-4238-b4d0-4f8874c2ea4b" class="">Jak je možné pochopit z komentáře na řádku 31, veškeré následující příkazy se provedou, jakmile bude instalace dokončena. Řádky začínající na <code>in-target</code> jsou provedeny v <a href="https://cs.wikipedia.org/wiki/Chroot">chrootu</a>, ostatní z cesty instalátoru. Pokud si vyberete druhou možnost, obsah ISO souboru je dostupný v adresáři <code>cdrom/</code>, nainstalovaný systém pak v <code>target/</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bf3dc352-fac1-4497-99b5-69d2393a77e4" class="">Jestliže chcete provést nějaké změny v nainstalovaném systému ještě v době instalace, je možné přidat další řádky, které například nastaví statickou IP adresu (doporučuji použít postup na řádku 36, tedy uložit soubory na ISO do adresáře <code>preseed/</code> a pak je prostě zkopírovat stylem <code>cp cdrom/preseed/soubor target/etc/soubor; \</code>), či podobné konfigurace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bb0b79d1-744f-4209-80a3-e88123cb333e" class="">Následující ukázka nastaví <code>OpenSSH</code> (nikoliv <code>dropbear</code>!) aby zamezil loginu <code>root</code>a:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="5ba9a070-8617-40c8-a6ed-a9f4af70103c" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target sed 's/^PermitRootLogin.*/PermitRootLogin no/g' -i /etc/ssh/sshd_config; \</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e3f4bbd7-da06-4ea1-acf4-09784f2ec5b9" class="">Dále je možné také změnit port pro <code>OpenSSH</code> například na můj oblíbený <code>443</code>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="8341cf36-d82b-4b4b-ac16-f4db22768d27" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target sed 's/^Port.*/Port 443/g' -i /etc/ssh/sshd_config; \</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0893734f-5dbc-4b37-9643-60c7cf26bb30" class="">Příkazy můžete zamíchat někam mezi ostatní, či přidat na konec. V takovém případě si ale musíte dát pozor, aby všechny mezi prvním a posledním končily sekvencí <code>; \</code> a poslední řádek byl bez nich.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="12a10958-b002-4fc7-b6ca-efe812ee9f21" class="">IP adresa dropbearu</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a16f9c09-b936-4826-907b-31b56013c8d4" class="">Poměrně užitečnou možností je například úprava IP adresy, na které se startuje <code>dropbear</code>. Ta je v defaultu vybrána automaticky a ovlivnit jí je možné úpravou souboru <code>/etc/initramfs-tools/conf.d/network_config</code>, kam lze přidat řádek ve formátu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="0bae4d01-e014-4a85-9a3f-26baa05587a9" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;.</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="50eba874-d55b-4b68-945c-062b95657f4e" class="">K tomu je možné použít například následující snippet:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="d4ce0163-35f3-439e-af2e-934d81697f58" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target bash -c "echo 'export IP=&lt;client-ip&gt;:&lt;server-ip&gt;:&lt;gw-ip&gt;:&lt;netmask&gt;:&lt;hostname&gt;:&lt;device&gt;:&lt;autoconf&gt;' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a81fcb98-7033-4dec-b7b2-d4daa32658a5" class="">Konkrétně tedy třeba:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="ff436da4-87f0-414e-b1eb-526e800ad8fa" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">in-target bash -c "echo 'export IP=10.0.0.2::10.0.0.1:255.255.255.0:myserver:eth0' &gt;&gt; /etc/initramfs-tools/conf.d/network_config" ; \</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bd45e354-2fe8-4bc1-b757-b22b050a9a57" class="">Snippet přidejte před řádek 41, kde probíhá update <code>initramfs</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7debe3da-972a-4094-b352-3215004dc4e6" class="">Poznámka: Styl <code>'bash -c "echo ..'</code> je použit záměrně. Nemám dobrou zkušenost s přesměrováním pomocí <code>&gt;&gt;</code> použitými v <em>preseed</em> souboru. Možná by se to dalo nějak vyescapovat, ale případné testování je docela pomalé, protože jestli to fungovalo se dozvíte vždy až na konci instalace a po dvanácti pokusech už nemám moc náladu na experimentování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="585e356d-bf70-400e-80e1-94783b4728ff" class="">Vytvoření ISO souboru</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6146df93-ba97-4fdd-a7de-20094bd654a1" class="">Jakmile máme všechny úpravy hotové, o vytvoření nového instalačního média se postará tento dlouhý příkaz:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="03e119ac-0ac6-4448-8f52-ac2975bb4aca" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd ..
 mkisofs -r -V "Ubuntu headless" -cache-inodes -J -l -b isolinux/isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o headless_ubuntu-14.04.1-server-amd64.iso headless_ubuntu/</code></pre>
-      <p id="cc6e6cba-8b2f-48d9-885a-17278f99bfcd" class="">Výsledkem by měl být přibližně 600MB velký soubor soubor <code>headless_ubuntu-14.04.1-server-amd64.iso</code>.</p>
-      <h1 id="9d779f16-1666-43c3-8df3-5c6a34e2e627" class="">Instalace</h1>
-      <p id="d270a24d-750b-4d14-838c-efa8ac06ff40" class="">Instalace serveru probíhá poměrně standardním způsobem a každý kdo někdy instaloval ubuntu na server by to měl zvládnout.</p>
-      <p id="7382db2d-4658-48eb-90a2-ad6e77f7f3ce" class="">Osobně jsem si zvolil <em>expert mode</em>, jednoduše jsem se proklikal všemi nastaveními a počkal, dokud se vše neprovede. Nezapomeňte hlavně zvolit že chcete šifrovaný disk, nikoliv šifrovanou jen home adresář uživatele!</p>
-      <p id="ec8b0cd0-b9b1-42e5-83ad-90e6a6cea463" class="">Pokud by někoho zajímaly detaily, zde je šestnáctiminutová videoukázka celého postupu:</p>
-      <figure id="244dc7d2-cf54-4939-904c-a8b51d22e2b4">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/RykHva_rk4w" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <h1 id="287bdb44-64b5-46a8-b1d2-b3c0ee6608f7" class="">Odemčení disku přes SSH</h1>
-      <p id="5b660240-1871-414b-8cdb-c8aa5b549f2f" class="">Odemčení provedete tak, že se připojíte přes <code>SSH</code> jako <code>root</code> na port zadaný při instalaci. Pokud jste nedělali změny v <em>preseed</em> souboru, tak by to měl být port <code>80</code>. Automaticky by se vám měl načíst busybox shell, neboť při vytváření instalačního média byl přidán váš veřejný klíč. Zde stačí spustit script <code>unlock.sh</code>, chvíli počkat, zadat heslo a to je vše. Tedy skoro.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="c879e064-6f1b-4483-97c6-6551844d6c11" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ ssh root@192.168.1.114 -p 80
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cc6e6cba-8b2f-48d9-885a-17278f99bfcd" class="">Výsledkem by měl být přibližně 600MB velký soubor soubor <code>headless_ubuntu-14.04.1-server-amd64.iso</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="9d779f16-1666-43c3-8df3-5c6a34e2e627" class="">Instalace</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d270a24d-750b-4d14-838c-efa8ac06ff40" class="">Instalace serveru probíhá poměrně standardním způsobem a každý kdo někdy instaloval ubuntu na server by to měl zvládnout.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7382db2d-4658-48eb-90a2-ad6e77f7f3ce" class="">Osobně jsem si zvolil <em>expert mode</em>, jednoduše jsem se proklikal všemi nastaveními a počkal, dokud se vše neprovede. Nezapomeňte hlavně zvolit že chcete šifrovaný disk, nikoliv šifrovanou jen home adresář uživatele!</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ec8b0cd0-b9b1-42e5-83ad-90e6a6cea463" class="">Pokud by někoho zajímaly detaily, zde je šestnáctiminutová videoukázka celého postupu:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="244dc7d2-cf54-4939-904c-a8b51d22e2b4">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/RykHva_rk4w" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="287bdb44-64b5-46a8-b1d2-b3c0ee6608f7" class="">Odemčení disku přes SSH</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5b660240-1871-414b-8cdb-c8aa5b549f2f" class="">Odemčení provedete tak, že se připojíte přes <code>SSH</code> jako <code>root</code> na port zadaný při instalaci. Pokud jste nedělali změny v <em>preseed</em> souboru, tak by to měl být port <code>80</code>. Automaticky by se vám měl načíst busybox shell, neboť při vytváření instalačního média byl přidán váš veřejný klíč. Zde stačí spustit script <code>unlock.sh</code>, chvíli počkat, zadat heslo a to je vše. Tedy skoro.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="c879e064-6f1b-4483-97c6-6551844d6c11" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ ssh root@192.168.1.114 -p 80
  
  
 BusyBox v1.21.1 (Ubuntu 1:1.21.0-1ubuntu1) built-in shell (ash)
@@ -348,11 +533,17 @@ cryptsetup: sda5_crypt set up successfully
 Killed
 # kill: can't kill pid 274: No such process
 kill: can't kill pid 278: No such process</code></pre>
-      <p id="f120a340-59b9-469a-8a85-cd70e659bf0e" class="">Jak je možné vidět, celý proces generuje podstatně víc textu, než je očekávané a občas se stane, že celý proces odemykání zamrzne na nějaké podivné hlášce. Potom je zapotřebí vše zopakovat, či provést restart, což zatím vždy zabralo.</p>
-      <p id="fa90f942-3dd9-4f66-81e7-8ec5bedd8178" class="">Pokud se podíváte do scriptu <code>/bin/unlock.sh</code>, zjistíte, že je to docela bastl, který prvně zabije proces čekající na interaktivní konzoli. Z nějakého důvodu to trvá přibližně 30 vteřin, než se proces ukončí. Poté je zadáno heslo pro šifrovaný disk přes program <code>cryptroot</code> a následně je opět zabit proces na interaktivní konzoli.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="0da6312c-7f1f-4962-8794-368456b237d4" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f120a340-59b9-469a-8a85-cd70e659bf0e" class="">Jak je možné vidět, celý proces generuje podstatně víc textu, než je očekávané a občas se stane, že celý proces odemykání zamrzne na nějaké podivné hlášce. Potom je zapotřebí vše zopakovat, či provést restart, což zatím vždy zabralo.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fa90f942-3dd9-4f66-81e7-8ec5bedd8178" class="">Pokud se podíváte do scriptu <code>/bin/unlock.sh</code>, zjistíte, že je to docela bastl, který prvně zabije proces čekající na interaktivní konzoli. Z nějakého důvodu to trvá přibližně 30 vteřin, než se proces ukončí. Poté je zadáno heslo pro šifrovaný disk přes program <code>cryptroot</code> a následně je opět zabit proces na interaktivní konzoli.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="0da6312c-7f1f-4962-8794-368456b237d4" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
 kill -9 `ps | grep "/bin/sh" | grep cryptroot | cut -d " " -f 3`
  
 echo "Please wait, this will take some time (35s).."
@@ -360,195 +551,278 @@ sleep 35
  
 /scripts/local-top/cryptroot
 kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`</code></pre>
-      <p id="45f27290-278f-419b-a918-d2fbe99aad10" class="">Poznámka: Zkoušel jsem přijít na to, jak to udělat bez zabíjení procesu, ale nepodařilo se mi. Na internetu se dá najít starší verze celého postupu, kde je heslo zadáno do jakési pojmenované roury, což nyní nefunguje, neboť roura již není kde by měla být.</p>
-      <p id="09b5d567-4d53-4a2b-84d1-8ec1ca174a76" class="">Pokud by někdo stále tápal, zde je videoukázka:</p>
-      <figure id="f1a7d555-f21f-4c9e-b40e-588337d393b6">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/YvbXEbgS5TI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <h1 id="4447bf61-8b19-4cd9-b35c-ef9772f13743" class="">Zdroje</h1>
-      <p id="add9031f-722c-4613-942a-1dee53d0b3dd" class="">Přijít na celý postup a hlavně ho otestovat mi zabralo cca třináct hodin čistého času na dva zátahy. Během té doby jsem prošel nemalé množství zdrojů na tohle téma. Většina z nich je buď neaktuální, nekompletní, nebo blbě, ale přesto si myslím, že stojí za zmínku:</p>
-      <ul id="5361d9e0-ede4-40a9-9402-c1824928adb2" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://alyandon.blogspot.cz/2011/06/unlocking-luks-encrypted-lvm-via-ssh-in.html">http://alyandon.blogspot.cz/2011/06/unlocking-luks-encrypted-lvm-via-ssh-in.html</a>
-        </li>
-      </ul>
-      <ul id="35ade5a4-dcc3-42f1-926e-f2d900649ac6" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu">http://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu</a>
-        </li>
-      </ul>
-      <ul id="2fb8325b-82b0-4ec1-ad2f-6698e6e81f8d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://askubuntu.com/questions/13106/how-can-i-install-ubuntu-on-a-headless-machine">http://askubuntu.com/questions/13106/how-can-i-install-ubuntu-on-a-headless-machine</a>
-        </li>
-      </ul>
-      <ul id="525d984a-e0fa-45cf-be6b-5078bb4e4905" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://askubuntu.com/questions/148095/how-do-i-set-the-grub-timeout-and-the-grub-default-boot-entry">http://askubuntu.com/questions/148095/how-do-i-set-the-grub-timeout-and-the-grub-default-boot-entry</a>
-        </li>
-      </ul>
-      <ul id="4cace6c0-1870-427b-8464-3c4f134bcebe" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://askubuntu.com/questions/178091/how-to-disable-grubs-menu-from-showing-up-after-failed-boot">http://askubuntu.com/questions/178091/how-to-disable-grubs-menu-from-showing-up-after-failed-boot</a>
-        </li>
-      </ul>
-      <ul id="cb6c8c17-5c25-439a-9def-3795deba7711" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://askubuntu.com/questions/337726/full-system-encryption-with-luks-on-headless-server-unlock-with-dropbear-and-b">http://askubuntu.com/questions/337726/full-system-encryption-with-luks-on-headless-server-unlock-with-dropbear-and-b</a>
-        </li>
-      </ul>
-      <ul id="06a026cd-4325-4205-8f1f-9de183df1bea" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://blog.neutrino.es/2011/unlocking-a-luks-encrypted-root-partition-remotely-via-ssh/">http://blog.neutrino.es/2011/unlocking-a-luks-encrypted-root-partition-remotely-via-ssh/</a>
-        </li>
-      </ul>
-      <ul id="530b9232-3924-4daa-916c-28537bc77106" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://blog.nguyenvq.com/blog/2011/09/13/remote-unlocking-luks-encrypted-lvm-using-dropbear-ssh-in-ubuntu/">http://blog.nguyenvq.com/blog/2011/09/13/remote-unlocking-luks-encrypted-lvm-using-dropbear-ssh-in-ubuntu/</a>
-        </li>
-      </ul>
-      <ul id="723c7a08-8242-4e84-b1a9-a335a86c9e6c" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://dev.kakaopor.hu/early-ssh/">http://dev.kakaopor.hu/early-ssh/</a>
-        </li>
-      </ul>
-      <ul id="a4f7045d-a553-4ec6-8d00-8fd07390d0e6" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://dev.kakaopor.hu/early-ssh/example-initialization-script-with-mdadm-luks-crypto-and-scp-copy">http://dev.kakaopor.hu/early-ssh/example-initialization-script-with-mdadm-luks-crypto-and-scp-copy</a>
-        </li>
-      </ul>
-      <ul id="27797704-095f-4099-81a4-1f08083eae5f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://fabian-affolter.ch/blog/running-dropbear-on-port-222/">http://fabian-affolter.ch/blog/running-dropbear-on-port-222/</a>
-        </li>
-      </ul>
-      <ul id="df27c0e5-d1e6-483e-92f6-74ea3328d6a1" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://forums.debian.net/viewtopic.php?f=5&amp;t=76966">http://forums.debian.net/viewtopic.php?f=5&amp;t=76966</a>
-        </li>
-      </ul>
-      <ul id="5689b270-e155-4fa0-a69e-7c5caf323672" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://gpl.coulmann.de/ssh_luks_unlock.html">http://gpl.coulmann.de/ssh_luks_unlock.html</a>
-        </li>
-      </ul>
-      <ul id="6c8717ab-5304-4c58-a51a-dc9eb1d21333" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://hacksr.blogspot.cz/2012/05/ssh-unlock-with-fully-encrypted-ubuntu.html">http://hacksr.blogspot.cz/2012/05/ssh-unlock-with-fully-encrypted-ubuntu.html</a>
-        </li>
-      </ul>
-      <ul id="658ec574-5006-478c-b800-dd1f8f63fdd1" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://serverfault.com/questions/528674/disable-root-login-for-dropbear">http://serverfault.com/questions/528674/disable-root-login-for-dropbear</a>
-        </li>
-      </ul>
-      <ul id="dd98be61-984d-4660-ba31-b936ecf6f768" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://ubuntuforums.org/archive/index.php/t-1648319.html">http://ubuntuforums.org/archive/index.php/t-1648319.html</a>
-        </li>
-      </ul>
-      <ul id="85df1610-a11c-4d36-8442-ff71034f9f90" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://ubuntuforums.org/showthread.php?t=1648319">http://ubuntuforums.org/showthread.php?t=1648319</a>
-        </li>
-      </ul>
-      <ul id="9c31d425-0cde-4ad3-b733-879e258bc9ec" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://ubuntuforums.org/showthread.php?t=829768">http://ubuntuforums.org/showthread.php?t=829768</a>
-        </li>
-      </ul>
-      <ul id="47c03229-0c5b-47c3-846b-032c70ab42f3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://unix.stackexchange.com/questions/37024/how-to-open-a-port-early-in-boot-process-to-unlock-luks-via-ssh">http://unix.stackexchange.com/questions/37024/how-to-open-a-port-early-in-boot-process-to-unlock-luks-via-ssh</a>
-        </li>
-      </ul>
-      <ul id="4f12ae25-6301-4f6c-b304-d2c5c038553a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://unix.stackexchange.com/questions/5017/ssh-to-decrypt-encrypted-lvm-during-headless-server-boot">http://unix.stackexchange.com/questions/5017/ssh-to-decrypt-encrypted-lvm-during-headless-server-boot</a>
-        </li>
-      </ul>
-      <ul id="af7d2dea-94d2-4cbd-afc1-ea9485ab881e" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://wefixbugs.com/blog/Full-System-encryption-with-LUKS-on-headless-server---unlock-with-dropbear-and-busybox-How-311973.html">http://wefixbugs.com/blog/Full-System-encryption-with-LUKS-on-headless-server---unlock-with-dropbear-and-busybox-How-311973.html</a>
-        </li>
-      </ul>
-      <ul id="4e8434f6-6cb9-46ca-a89e-f78d689f2a6a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://wiki.openwrt.org/doc/uci/dropbear">http://wiki.openwrt.org/doc/uci/dropbear</a>
-        </li>
-      </ul>
-      <ul id="5201e267-1122-4e85-a837-816cbb73500c" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://wiki.openwrt.org/doku.php?id=oldwiki:dropbearpublickeyauthenticationhowto">http://wiki.openwrt.org/doku.php?id=oldwiki:dropbearpublickeyauthenticationhowto</a>
-        </li>
-      </ul>
-      <ul id="291ca934-86e0-470a-955b-1616e3a44efa" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.debian-administration.org/article/579/Unlocking_a_LUKS_encrypted_root_partition_via_ssh">http://www.debian-administration.org/article/579/Unlocking_a_LUKS_encrypted_root_partition_via_ssh</a>
-        </li>
-      </ul>
-      <ul id="8f0f13bb-11ae-41cd-93e9-eeb7be29c742" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.howtoforge.com/unlock-a-luks-encrypted-root-partition-via-ssh-on-ubuntu">http://www.howtoforge.com/unlock-a-luks-encrypted-root-partition-via-ssh-on-ubuntu</a>
-        </li>
-      </ul>
-      <ul id="c8474410-0033-4356-9cd3-bc423f1fa89f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.ttylinux.net/Documents/multi/node32.html">http://www.ttylinux.net/Documents/multi/node32.html</a>
-        </li>
-      </ul>
-      <ul id="c0dc7ef0-f109-4051-8c53-49151e694034" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://askubuntu.com/questions/250869/how-can-i-install-ubuntu-on-a-device-without-a-screen-nor-a-keyboard/260469#260469">https://askubuntu.com/questions/250869/how-can-i-install-ubuntu-on-a-device-without-a-screen-nor-a-keyboard/260469#260469</a>
-        </li>
-      </ul>
-      <ul id="8493f5d3-bb13-4d07-8468-ca7feb4d7024" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://gist.github.com/timabell/9568173">https://gist.github.com/timabell/9568173</a>
-        </li>
-      </ul>
-      <ul id="216d29f8-911f-4410-80eb-2e5881d55b4b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://gist.github.com/wolli/5295625">https://gist.github.com/wolli/5295625</a>
-        </li>
-      </ul>
-      <ul id="1b83ff72-3877-44f5-9532-1fa741824e13" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://help.ubuntu.com/10.04/installation-guide/i386/automatic-install.html">https://help.ubuntu.com/10.04/installation-guide/i386/automatic-install.html</a>
-        </li>
-      </ul>
-      <ul id="bc00013a-ea66-4cec-a1c6-70b5b5d35911" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://help.ubuntu.com/community/Installation/FromUSBStick">https://help.ubuntu.com/community/Installation/FromUSBStick</a>
-        </li>
-      </ul>
-      <ul id="b233a45d-88c8-495e-a63d-461ac8af2ed5" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://help.ubuntu.com/community/Installation/NetworkConsole">https://help.ubuntu.com/community/Installation/NetworkConsole</a>
-        </li>
-      </ul>
-      <ul id="ad917f8e-34fc-46bd-ba07-7925d65d9506" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://kiza.eu/journal/entry/697">https://kiza.eu/journal/entry/697</a>
-        </li>
-      </ul>
-      <ul id="e5f806db-86a8-4f2d-9858-004d0b49acf8" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://projectgus.com/2013/05/encrypted-rootfs-over-ssh-with-debian-wheezy/">https://projectgus.com/2013/05/encrypted-rootfs-over-ssh-with-debian-wheezy/</a>
-        </li>
-      </ul>
-      <ul id="ea1aadaa-17e1-461f-8c20-58c95170543d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://wiki.debian.org/DebianInstaller/Preseed">https://wiki.debian.org/DebianInstaller/Preseed</a>
-        </li>
-      </ul>
-      <ul id="f9c3d55f-cc33-4f05-993a-a938f974d6c3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.debian.org/releases/wheezy/example-preseed.txt">https://www.debian.org/releases/wheezy/example-preseed.txt</a>
-        </li>
-      </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="45f27290-278f-419b-a918-d2fbe99aad10" class="">Poznámka: Zkoušel jsem přijít na to, jak to udělat bez zabíjení procesu, ale nepodařilo se mi. Na internetu se dá najít starší verze celého postupu, kde je heslo zadáno do jakési pojmenované roury, což nyní nefunguje, neboť roura již není kde by měla být.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="09b5d567-4d53-4a2b-84d1-8ec1ca174a76" class="">Pokud by někdo stále tápal, zde je videoukázka:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="f1a7d555-f21f-4c9e-b40e-588337d393b6">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/YvbXEbgS5TI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="4447bf61-8b19-4cd9-b35c-ef9772f13743" class="">Zdroje</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="add9031f-722c-4613-942a-1dee53d0b3dd" class="">Přijít na celý postup a hlavně ho otestovat mi zabralo cca třináct hodin čistého času na dva zátahy. Během té doby jsem prošel nemalé množství zdrojů na tohle téma. Většina z nich je buď neaktuální, nekompletní, nebo blbě, ale přesto si myslím, že stojí za zmínku:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="5361d9e0-ede4-40a9-9402-c1824928adb2" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://alyandon.blogspot.cz/2011/06/unlocking-luks-encrypted-lvm-via-ssh-in.html">http://alyandon.blogspot.cz/2011/06/unlocking-luks-encrypted-lvm-via-ssh-in.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="35ade5a4-dcc3-42f1-926e-f2d900649ac6" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu">http://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2fb8325b-82b0-4ec1-ad2f-6698e6e81f8d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://askubuntu.com/questions/13106/how-can-i-install-ubuntu-on-a-headless-machine">http://askubuntu.com/questions/13106/how-can-i-install-ubuntu-on-a-headless-machine</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="525d984a-e0fa-45cf-be6b-5078bb4e4905" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://askubuntu.com/questions/148095/how-do-i-set-the-grub-timeout-and-the-grub-default-boot-entry">http://askubuntu.com/questions/148095/how-do-i-set-the-grub-timeout-and-the-grub-default-boot-entry</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4cace6c0-1870-427b-8464-3c4f134bcebe" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://askubuntu.com/questions/178091/how-to-disable-grubs-menu-from-showing-up-after-failed-boot">http://askubuntu.com/questions/178091/how-to-disable-grubs-menu-from-showing-up-after-failed-boot</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="cb6c8c17-5c25-439a-9def-3795deba7711" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://askubuntu.com/questions/337726/full-system-encryption-with-luks-on-headless-server-unlock-with-dropbear-and-b">http://askubuntu.com/questions/337726/full-system-encryption-with-luks-on-headless-server-unlock-with-dropbear-and-b</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="06a026cd-4325-4205-8f1f-9de183df1bea" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://blog.neutrino.es/2011/unlocking-a-luks-encrypted-root-partition-remotely-via-ssh/">http://blog.neutrino.es/2011/unlocking-a-luks-encrypted-root-partition-remotely-via-ssh/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="530b9232-3924-4daa-916c-28537bc77106" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://blog.nguyenvq.com/blog/2011/09/13/remote-unlocking-luks-encrypted-lvm-using-dropbear-ssh-in-ubuntu/">http://blog.nguyenvq.com/blog/2011/09/13/remote-unlocking-luks-encrypted-lvm-using-dropbear-ssh-in-ubuntu/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="723c7a08-8242-4e84-b1a9-a335a86c9e6c" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://dev.kakaopor.hu/early-ssh/">http://dev.kakaopor.hu/early-ssh/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="a4f7045d-a553-4ec6-8d00-8fd07390d0e6" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://dev.kakaopor.hu/early-ssh/example-initialization-script-with-mdadm-luks-crypto-and-scp-copy">http://dev.kakaopor.hu/early-ssh/example-initialization-script-with-mdadm-luks-crypto-and-scp-copy</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="27797704-095f-4099-81a4-1f08083eae5f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://fabian-affolter.ch/blog/running-dropbear-on-port-222/">http://fabian-affolter.ch/blog/running-dropbear-on-port-222/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="df27c0e5-d1e6-483e-92f6-74ea3328d6a1" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://forums.debian.net/viewtopic.php?f=5&amp;t=76966">http://forums.debian.net/viewtopic.php?f=5&amp;t=76966</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="5689b270-e155-4fa0-a69e-7c5caf323672" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://gpl.coulmann.de/ssh_luks_unlock.html">http://gpl.coulmann.de/ssh_luks_unlock.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="6c8717ab-5304-4c58-a51a-dc9eb1d21333" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://hacksr.blogspot.cz/2012/05/ssh-unlock-with-fully-encrypted-ubuntu.html">http://hacksr.blogspot.cz/2012/05/ssh-unlock-with-fully-encrypted-ubuntu.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="658ec574-5006-478c-b800-dd1f8f63fdd1" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://serverfault.com/questions/528674/disable-root-login-for-dropbear">http://serverfault.com/questions/528674/disable-root-login-for-dropbear</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="dd98be61-984d-4660-ba31-b936ecf6f768" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://ubuntuforums.org/archive/index.php/t-1648319.html">http://ubuntuforums.org/archive/index.php/t-1648319.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="85df1610-a11c-4d36-8442-ff71034f9f90" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://ubuntuforums.org/showthread.php?t=1648319">http://ubuntuforums.org/showthread.php?t=1648319</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="9c31d425-0cde-4ad3-b733-879e258bc9ec" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://ubuntuforums.org/showthread.php?t=829768">http://ubuntuforums.org/showthread.php?t=829768</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="47c03229-0c5b-47c3-846b-032c70ab42f3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://unix.stackexchange.com/questions/37024/how-to-open-a-port-early-in-boot-process-to-unlock-luks-via-ssh">http://unix.stackexchange.com/questions/37024/how-to-open-a-port-early-in-boot-process-to-unlock-luks-via-ssh</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4f12ae25-6301-4f6c-b304-d2c5c038553a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://unix.stackexchange.com/questions/5017/ssh-to-decrypt-encrypted-lvm-during-headless-server-boot">http://unix.stackexchange.com/questions/5017/ssh-to-decrypt-encrypted-lvm-during-headless-server-boot</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="af7d2dea-94d2-4cbd-afc1-ea9485ab881e" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://wefixbugs.com/blog/Full-System-encryption-with-LUKS-on-headless-server---unlock-with-dropbear-and-busybox-How-311973.html">http://wefixbugs.com/blog/Full-System-encryption-with-LUKS-on-headless-server---unlock-with-dropbear-and-busybox-How-311973.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4e8434f6-6cb9-46ca-a89e-f78d689f2a6a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://wiki.openwrt.org/doc/uci/dropbear">http://wiki.openwrt.org/doc/uci/dropbear</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="5201e267-1122-4e85-a837-816cbb73500c" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://wiki.openwrt.org/doku.php?id=oldwiki:dropbearpublickeyauthenticationhowto">http://wiki.openwrt.org/doku.php?id=oldwiki:dropbearpublickeyauthenticationhowto</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="291ca934-86e0-470a-955b-1616e3a44efa" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.debian-administration.org/article/579/Unlocking_a_LUKS_encrypted_root_partition_via_ssh">http://www.debian-administration.org/article/579/Unlocking_a_LUKS_encrypted_root_partition_via_ssh</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8f0f13bb-11ae-41cd-93e9-eeb7be29c742" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.howtoforge.com/unlock-a-luks-encrypted-root-partition-via-ssh-on-ubuntu">http://www.howtoforge.com/unlock-a-luks-encrypted-root-partition-via-ssh-on-ubuntu</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c8474410-0033-4356-9cd3-bc423f1fa89f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.ttylinux.net/Documents/multi/node32.html">http://www.ttylinux.net/Documents/multi/node32.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c0dc7ef0-f109-4051-8c53-49151e694034" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://askubuntu.com/questions/250869/how-can-i-install-ubuntu-on-a-device-without-a-screen-nor-a-keyboard/260469#260469">https://askubuntu.com/questions/250869/how-can-i-install-ubuntu-on-a-device-without-a-screen-nor-a-keyboard/260469#260469</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8493f5d3-bb13-4d07-8468-ca7feb4d7024" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://gist.github.com/timabell/9568173">https://gist.github.com/timabell/9568173</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="216d29f8-911f-4410-80eb-2e5881d55b4b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://gist.github.com/wolli/5295625">https://gist.github.com/wolli/5295625</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="1b83ff72-3877-44f5-9532-1fa741824e13" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://help.ubuntu.com/10.04/installation-guide/i386/automatic-install.html">https://help.ubuntu.com/10.04/installation-guide/i386/automatic-install.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="bc00013a-ea66-4cec-a1c6-70b5b5d35911" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://help.ubuntu.com/community/Installation/FromUSBStick">https://help.ubuntu.com/community/Installation/FromUSBStick</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b233a45d-88c8-495e-a63d-461ac8af2ed5" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://help.ubuntu.com/community/Installation/NetworkConsole">https://help.ubuntu.com/community/Installation/NetworkConsole</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="ad917f8e-34fc-46bd-ba07-7925d65d9506" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://kiza.eu/journal/entry/697">https://kiza.eu/journal/entry/697</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e5f806db-86a8-4f2d-9858-004d0b49acf8" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://projectgus.com/2013/05/encrypted-rootfs-over-ssh-with-debian-wheezy/">https://projectgus.com/2013/05/encrypted-rootfs-over-ssh-with-debian-wheezy/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="ea1aadaa-17e1-461f-8c20-58c95170543d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://wiki.debian.org/DebianInstaller/Preseed">https://wiki.debian.org/DebianInstaller/Preseed</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="f9c3d55f-cc33-4f05-993a-a938f974d6c3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.debian.org/releases/wheezy/example-preseed.txt">https://www.debian.org/releases/wheezy/example-preseed.txt</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

@@ -135,448 +135,918 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Představení">Představení</a> / GPT-3
   <article id="1c47af32-697d-4567-b18c-a95f430c3386" class="page sans">
     <header>
-      <h1 class="page-title">GPT-3</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">GPT-3</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="a46dc6e0-7a1d-4c35-954f-b1b786716aaa" class=""><time>@2020/08/19</time></p>
-      <p id="104a2dba-8ada-4f74-8a41-eafb02c49cac" class="">Posledních několik týdnů rozechvívá vlny mých sociálních sítí fenomén GPT-3. Jedná se o nedávno <a href="https://arxiv.org/pdf/2005.14165.pdf">představený</a> druh strojového učení, vytrénovaný společností OpenAI na rekordním množství dat. A zatímco se jedná jen o jazykový model, který má za úkol predikovat další token ve větě, výsledky a možnosti využití jsou místy dech-beroucí.</p>
-      <p id="838536f1-60e0-47f8-9812-cc7b23a46982" class="">Následující obrázek pěkně ukazuje rozdíl v počtu parametrů oproti předchozím modelům:</p>
-      <figure id="c900aedc-af6a-42cc-a9b6-41d2af9f8b04" class="image">
-        <a href="Untitled.png" title="Untitled.png"><img style="width:1700px" src="Untitled_thumb.jpg"></a>
-        <figcaption>
-          <em>(Ukázka postupu vývoje počtu parametrů neuronového modelu transformerů v čase. Zdroj:</em> <em><a href="https://leogao.dev/2020/05/29/GPT-3-A-Brief-Summary/">Why GPT-3 matters</a></em><em>.)</em>
-        </figcaption>
-      </figure>
-      <h1 id="03da4b9b-2983-4030-957b-a132ad59f6f1" class="">Ukázky</h1>
-      <p id="69eb8cba-3f5d-422c-80cc-4eb0c71994f7" class="">Pojďme se prvně podívat na ty zajímavější příklady použití GPT-3.</p>
-      <h2 id="39d3af09-7c59-43eb-bc6a-2dc6eb8da2fa" class="">Generování textů</h2>
-      <p id="fe3a49ae-4d0f-4eda-b5a1-849c5a2239fa" class="">Asi nepřekvapí, že GPT-3 je schopné na základě krátkého promptu, který uvede téma textu, napsat příběh, článek, blog, nebo semestrální práci na zadané téma.</p>
-      <p id="67e2ee55-ffc1-42dd-8a2f-d0717f1114e9" class="">Podobné projekty zde byly už dřív, a byly například schopny dogenerovat další odstavce podobné původnímu. Za všechny například GPT-2 a <a href="https://talktotransformer.com/">talktotransformer</a>. Sám jsem kdysi zkoušel Markovovo modely a rekurentní neuronové sítě, které přestože ve srovnání s GPT-3 působí jako hračka, také zvládly generovat zajímavé výsledky.</p>
-      <p id="3df2f13a-ddd5-4805-8277-a380278c6056" class="">Gwern na tohle téma sepsal celý blogpost: <a href="https://www.gwern.net/GPT-3">https://www.gwern.net/GPT-3</a></p>
-      <h2 id="2860d0ff-05e6-4d66-9b5d-d86f9b273892" class="">Aritmetika</h2>
-      <p id="fbc84656-1bd6-425a-98a2-1103c361d01b" class="">Nějak se stalo, že GPT-3 se na množině dat naučilo sčítat a násobit čísla. Má sice problémy s většími čísly, občas dělá chyby, ale i tak je to fascinující, když si uvědomíte, že mu nikdo nevysvětloval koncept čísel, ani aritmetických operací. Představte si, že by vás nikdo neučil číst a vy se naučili používat aritmetiku na základě čtení knih v čínštině, kterou vás taky nikdo nenaučí.</p>
-      <p id="8e6346c4-03e8-40c9-86f1-b9dc0b39012a" class="">Zajímalo by mě kam by se model dostal, kdyby mu někdo v trénovacích datech nacpal spoustu aritmetiky a matematiky.</p>
-      <h2 id="7cc3e628-ed93-4729-9888-57da2d55d872" class="">Layout generator</h2>
-      <p id="4ffd7b99-fbd6-4132-97fb-16b5d91de231" class="">První ukázka specializovaného použití, kde jsem se zarazil a došlo mi, že tohle nebude hračka jako GPT-2, byl tweet, kde <a href="https://twitter.com/sharifshameem/status/1282676454690451457">Sharif Shameem</a> napojil svůj projekt na GPT-3 API a „předpřipravil“ ho trochou ukázek CSS.</p>
-      <p id="cc840fa1-3b44-43fe-a0cd-7ed69833520f" class="">„Předpřipravením“ zde není myšleno trénování, ale jen uvedení kontextu předtím, než je modelu předán váš text. V tomhle případě bylo modelu ukázáno trochu CSS a on najednou zvládl generovat layout podle textového popisu.</p>
-      <figure id="6e7658e6-5c3d-46ac-8ec1-7dc4e6918013" class="image">
-        <a href="a_button_that_looks_like_watermelon.png" title="a_button_that_looks_like_watermelon.png"><img style="width:938px" src="a_button_that_looks_like_watermelon.png"></a>
-      </figure>
-      <p id="91c24b7e-f643-4500-8713-c72e471df199" class="">Nejen že GPT-3 pochopil co se po něm chce, ale navíc zvládl vygenerovat i patřičný HTML a CSS kód. Pokud vám to zatím nepřišlo, tak tohle je opravdu k zamyšlení.</p>
-      <div id="a6dc2a97-db72-4acd-8336-82f5d0011592" class="column-list">
-        <div id="dec3290f-1b86-4519-a2ac-648c578061c6" style="width:50%" class="column">
-          <figure id="c12b2fda-5b57-43ca-af25-97e7dc7ba1c9" class="image">
-            <a href="subscribe_button_example.jpg" title="subscribe_button_example.jpg"><img style="width:906px" src="subscribe_button_example.jpg"></a>
-          </figure>
-        </div>
-        <div id="2a4933fe-42c6-4893-846f-10a4c2722eab" style="width:50%" class="column">
-          <figure id="6aaa1431-3409-4655-9921-6ade61ab9d3b" class="image">
-            <a href="colors.png" title="colors.png"><img style="width:938px" src="colors.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a46dc6e0-7a1d-4c35-954f-b1b786716aaa" class=""><time>@2020/08/19</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="104a2dba-8ada-4f74-8a41-eafb02c49cac" class="">Posledních několik týdnů rozechvívá vlny mých sociálních sítí fenomén GPT-3. Jedná se o nedávno <a href="https://arxiv.org/pdf/2005.14165.pdf">představený</a> druh strojového učení, vytrénovaný společností OpenAI na rekordním množství dat. A zatímco se jedná jen o jazykový model, který má za úkol predikovat další token ve větě, výsledky a možnosti využití jsou místy dech-beroucí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="838536f1-60e0-47f8-9812-cc7b23a46982" class="">Následující obrázek pěkně ukazuje rozdíl v počtu parametrů oproti předchozím modelům:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="c900aedc-af6a-42cc-a9b6-41d2af9f8b04" class="image">
+          <a href="Untitled.png" title="Untitled.png"><img style="width:1700px" src="Untitled_thumb.jpg"></a>
+          <figcaption>
+            <em>(Ukázka postupu vývoje počtu parametrů neuronového modelu transformerů v čase. Zdroj:</em> <em><a href="https://leogao.dev/2020/05/29/GPT-3-A-Brief-Summary/">Why GPT-3 matters</a></em><em>.)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="03da4b9b-2983-4030-957b-a132ad59f6f1" class="">Ukázky</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="69eb8cba-3f5d-422c-80cc-4eb0c71994f7" class="">Pojďme se prvně podívat na ty zajímavější příklady použití GPT-3.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="39d3af09-7c59-43eb-bc6a-2dc6eb8da2fa" class="">Generování textů</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fe3a49ae-4d0f-4eda-b5a1-849c5a2239fa" class="">Asi nepřekvapí, že GPT-3 je schopné na základě krátkého promptu, který uvede téma textu, napsat příběh, článek, blog, nebo semestrální práci na zadané téma.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="67e2ee55-ffc1-42dd-8a2f-d0717f1114e9" class="">Podobné projekty zde byly už dřív, a byly například schopny dogenerovat další odstavce podobné původnímu. Za všechny například GPT-2 a <a href="https://talktotransformer.com/">talktotransformer</a>. Sám jsem kdysi zkoušel Markovovo modely a rekurentní neuronové sítě, které přestože ve srovnání s GPT-3 působí jako hračka, také zvládly generovat zajímavé výsledky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3df2f13a-ddd5-4805-8277-a380278c6056" class="">Gwern na tohle téma sepsal celý blogpost: <a href="https://www.gwern.net/GPT-3">https://www.gwern.net/GPT-3</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="2860d0ff-05e6-4d66-9b5d-d86f9b273892" class="">Aritmetika</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fbc84656-1bd6-425a-98a2-1103c361d01b" class="">Nějak se stalo, že GPT-3 se na množině dat naučilo sčítat a násobit čísla. Má sice problémy s většími čísly, občas dělá chyby, ale i tak je to fascinující, když si uvědomíte, že mu nikdo nevysvětloval koncept čísel, ani aritmetických operací. Představte si, že by vás nikdo neučil číst a vy se naučili používat aritmetiku na základě čtení knih v čínštině, kterou vás taky nikdo nenaučí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8e6346c4-03e8-40c9-86f1-b9dc0b39012a" class="">Zajímalo by mě kam by se model dostal, kdyby mu někdo v trénovacích datech nacpal spoustu aritmetiky a matematiky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="7cc3e628-ed93-4729-9888-57da2d55d872" class="">Layout generator</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ffd7b99-fbd6-4132-97fb-16b5d91de231" class="">První ukázka specializovaného použití, kde jsem se zarazil a došlo mi, že tohle nebude hračka jako GPT-2, byl tweet, kde <a href="https://twitter.com/sharifshameem/status/1282676454690451457">Sharif Shameem</a> napojil svůj projekt na GPT-3 API a „předpřipravil“ ho trochou ukázek CSS.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cc840fa1-3b44-43fe-a0cd-7ed69833520f" class="">„Předpřipravením“ zde není myšleno trénování, ale jen uvedení kontextu předtím, než je modelu předán váš text. V tomhle případě bylo modelu ukázáno trochu CSS a on najednou zvládl generovat layout podle textového popisu.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="6e7658e6-5c3d-46ac-8ec1-7dc4e6918013" class="image">
+          <a href="a_button_that_looks_like_watermelon.png" title="a_button_that_looks_like_watermelon.png"><img style="width:938px" src="a_button_that_looks_like_watermelon.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="91c24b7e-f643-4500-8713-c72e471df199" class="">Nejen že GPT-3 pochopil co se po něm chce, ale navíc zvládl vygenerovat i patřičný HTML a CSS kód. Pokud vám to zatím nepřišlo, tak tohle je opravdu k zamyšlení.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="a6dc2a97-db72-4acd-8336-82f5d0011592" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="dec3290f-1b86-4519-a2ac-648c578061c6" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="c12b2fda-5b57-43ca-af25-97e7dc7ba1c9" class="image">
+                  <a href="subscribe_button_example.jpg" title="subscribe_button_example.jpg"><img style="width:906px" src="subscribe_button_example.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="2a4933fe-42c6-4893-846f-10a4c2722eab" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="6aaa1431-3409-4655-9921-6ade61ab9d3b" class="image">
+                  <a href="colors.png" title="colors.png"><img style="width:938px" src="colors.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="e1b325fd-0034-4310-b8f7-5e502ff6d3d8" class=""></p>
-      <div id="dd60ece9-3281-40cc-9a73-10ecedf2e121" class="column-list">
-        <div id="c7dce912-c73d-47f6-ac23-63674b49801b" style="width:50%" class="column">
-          <figure id="e1c08239-553d-4d2e-95a2-4612d18c4d31" class="image">
-            <a href="trumps_hair_example.png" title="trumps_hair_example.png"><img style="width:938px" src="trumps_hair_example.png"></a>
-          </figure>
-        </div>
-        <div id="d2070cb6-9f15-4814-8389-5fdc098a2619" style="width:50%" class="column">
-          <figure id="f7726abd-8698-436e-8608-ee28d9801de8" class="image">
-            <a href="mpv-shot0013.png" title="mpv-shot0013.png"><img style="width:938px" src="mpv-shot0013.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <p id="e1b325fd-0034-4310-b8f7-5e502ff6d3d8" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="dd60ece9-3281-40cc-9a73-10ecedf2e121" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="c7dce912-c73d-47f6-ac23-63674b49801b" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="e1c08239-553d-4d2e-95a2-4612d18c4d31" class="image">
+                  <a href="trumps_hair_example.png" title="trumps_hair_example.png"><img style="width:938px" src="trumps_hair_example.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="d2070cb6-9f15-4814-8389-5fdc098a2619" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="f7726abd-8698-436e-8608-ee28d9801de8" class="image">
+                  <a href="mpv-shot0013.png" title="mpv-shot0013.png"><img style="width:938px" src="mpv-shot0013.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="bb129ff9-4485-44e1-bead-8102d1d86c94" class="">Video zahrnuje několik ukázek, některé fungují více, jiné méně, dokonce je tam i syntatická chyba. Ale vzhledem k tomu že model nikdo neučil používat HTML, nebo kódovat CSS, tak se jedná o fantastické výsledky. Tohle všechno pochytil z náhodných textů. Kdyby byl trénovaný speciálně na HTML / CSS, tak se účinnost jistě podstatně zvýší.</p>
-      <p id="3513845f-d9d9-4a34-b24a-791dd8ae3896" class="">Sharif později přidal ještě další ukázku, kde GPT-3 vytváří aplikace v reactu i s funkčním kódem, kde je několik tlačítek updatujících data na backendu:</p>
-      <ul id="9cf3ba4d-4dc9-4699-9dcc-5102e4f934bd" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://twitter.com/sharifshameem/status/1284095222939451393">https://twitter.com/sharifshameem/status/1284095222939451393</a>
-        </li>
-      </ul>
-      <h2 id="39acef8c-f87a-406c-bbce-8a8d2713dbd6" class="">Terapie</h2>
-      <p id="57ed5d77-c9bf-49c6-a758-fe91c9a9904d" class="">Nick Cammarata <a href="https://twitter.com/nicklovescode/status/1283326066338062337">zkoušel</a> používat GPT-3 jako terapeuta. První řádka, kterou je možné na obrázku vidět je ono již zmiňované „předpřipravení“, které dá GPT-3 kontext rozhovoru. V rozhovoru pak GPT-3 vystupuje jako John.</p>
-      <figure id="c98cb99d-d067-47ad-99ae-eea0a2324746" class="image">
-        <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:528px" src="Untitled_1_thumb.jpg"></a>
-        <figcaption>
-          <em>(Zdroj obrázku:</em> <em><a href="https://twitter.com/nicklovescode/status/1283326066338062337">https://twitter.com/nicklovescode/status/1283326066338062337</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <h2 id="916a3b5b-8a00-496a-8f00-f715cdd5a88b" class="">GPT-3 jako doktor</h2>
-      <p id="abe71dc1-86f4-4e74-820a-a22b82abf2d8" class=""><a href="https://twitter.com/QasimMunye/status/1278750809094750211">Quasima Munye napadlo</a> položit GPT-3 otázku z lékařského oboru:</p>
-      <figure id="e3b0cbc6-84eb-47b7-b0db-cc36336bdab4" class="image">
-        <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:288px" src="Untitled_2.png"></a>
-        <figcaption>
-          (Zdroj obrázku: <a href="https://twitter.com/QasimMunye/status/1278750809094750211">https://twitter.com/QasimMunye/status/1278750809094750211</a>)
-        </figcaption>
-      </figure>
-      <p id="0cc046b3-ad73-4794-98f6-bf0841c42858" class="">Normálním písmem je napsaný vstup pro GPT-3, tučně je napsaná jeho odpověď. Nejen že správně pochopil o čem otázka je, ale navíc na základě textového popisu nemoci korektně určil o jakou nemoc se jedná, jaký na ní použít lék a na jaké receptory v mozku ten lék působí.</p>
-      <p id="42961632-b718-4c35-bb51-a165522f91ad" class="">Zde se začíná ukazovat síla GPT-3; protože není specializovaný na nic, má ohromný přehled úplně o všem. Včetně diagnóz nemocí, léků a molekulární biologie.</p>
-      <h2 id="7f0b13ee-d700-4939-b83a-4591b7ed0ece" class="">Konverze požadavků na unixové příkazy</h2>
-      <p id="2bfeefc8-bc4d-46c1-85ab-f4bc29389736" class=""><a href="https://twitter.com/harlandduman/status/1282132804034150400">Harland Duman zkusil</a> používat GPT-3 ukázkou kterou mají v pískovišti pro testování api. Ta funguje tak, jí popíšete co chce aby udělala v shellu operačního systému (modře vybraný text je „předpřipravení“). GPT-3 poté vypisuje konkrétní příkazy:</p>
-      <div id="e25122a6-619d-40d9-a1f4-88920c5d8bf3" class="column-list">
-        <div id="b144e9ab-81c4-4e9f-b39b-a0527ddfa745" style="width:50%" class="column">
-          <figure id="d82fbc02-8150-42ba-80b0-778dc7a5b728" class="image">
-            <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:1486px" src="Untitled_3_thumb.jpg"></a>
-          </figure>
-        </div>
-        <div id="619d5ae0-0c4d-464a-af82-0e7ac42b6ed2" style="width:50%" class="column">
-          <figure id="48074c74-e0d1-4f37-9602-e75c6c8cec50" class="image">
-            <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:1486px" src="Untitled_4_thumb.jpg"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <p id="bb129ff9-4485-44e1-bead-8102d1d86c94" class="">Video zahrnuje několik ukázek, některé fungují více, jiné méně, dokonce je tam i syntatická chyba. Ale vzhledem k tomu že model nikdo neučil používat HTML, nebo kódovat CSS, tak se jedná o fantastické výsledky. Tohle všechno pochytil z náhodných textů. Kdyby byl trénovaný speciálně na HTML / CSS, tak se účinnost jistě podstatně zvýší.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3513845f-d9d9-4a34-b24a-791dd8ae3896" class="">Sharif později přidal ještě další ukázku, kde GPT-3 vytváří aplikace v reactu i s funkčním kódem, kde je několik tlačítek updatujících data na backendu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="9cf3ba4d-4dc9-4699-9dcc-5102e4f934bd" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://twitter.com/sharifshameem/status/1284095222939451393">https://twitter.com/sharifshameem/status/1284095222939451393</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="39acef8c-f87a-406c-bbce-8a8d2713dbd6" class="">Terapie</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="57ed5d77-c9bf-49c6-a758-fe91c9a9904d" class="">Nick Cammarata <a href="https://twitter.com/nicklovescode/status/1283326066338062337">zkoušel</a> používat GPT-3 jako terapeuta. První řádka, kterou je možné na obrázku vidět je ono již zmiňované „předpřipravení“, které dá GPT-3 kontext rozhovoru. V rozhovoru pak GPT-3 vystupuje jako John.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="c98cb99d-d067-47ad-99ae-eea0a2324746" class="image">
+          <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:528px" src="Untitled_1_thumb.jpg"></a>
+          <figcaption>
+            <em>(Zdroj obrázku:</em> <em><a href="https://twitter.com/nicklovescode/status/1283326066338062337">https://twitter.com/nicklovescode/status/1283326066338062337</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="916a3b5b-8a00-496a-8f00-f715cdd5a88b" class="">GPT-3 jako doktor</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="abe71dc1-86f4-4e74-820a-a22b82abf2d8" class=""><a href="https://twitter.com/QasimMunye/status/1278750809094750211">Quasima Munye napadlo</a> položit GPT-3 otázku z lékařského oboru:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e3b0cbc6-84eb-47b7-b0db-cc36336bdab4" class="image">
+          <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:288px" src="Untitled_2.png"></a>
+          <figcaption>
+            (Zdroj obrázku: <a href="https://twitter.com/QasimMunye/status/1278750809094750211">https://twitter.com/QasimMunye/status/1278750809094750211</a>)
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0cc046b3-ad73-4794-98f6-bf0841c42858" class="">Normálním písmem je napsaný vstup pro GPT-3, tučně je napsaná jeho odpověď. Nejen že správně pochopil o čem otázka je, ale navíc na základě textového popisu nemoci korektně určil o jakou nemoc se jedná, jaký na ní použít lék a na jaké receptory v mozku ten lék působí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="42961632-b718-4c35-bb51-a165522f91ad" class="">Zde se začíná ukazovat síla GPT-3; protože není specializovaný na nic, má ohromný přehled úplně o všem. Včetně diagnóz nemocí, léků a molekulární biologie.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="7f0b13ee-d700-4939-b83a-4591b7ed0ece" class="">Konverze požadavků na unixové příkazy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2bfeefc8-bc4d-46c1-85ab-f4bc29389736" class=""><a href="https://twitter.com/harlandduman/status/1282132804034150400">Harland Duman zkusil</a> používat GPT-3 ukázkou kterou mají v pískovišti pro testování api. Ta funguje tak, jí popíšete co chce aby udělala v shellu operačního systému (modře vybraný text je „předpřipravení“). GPT-3 poté vypisuje konkrétní příkazy:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="e25122a6-619d-40d9-a1f4-88920c5d8bf3" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="b144e9ab-81c4-4e9f-b39b-a0527ddfa745" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="d82fbc02-8150-42ba-80b0-778dc7a5b728" class="image">
+                  <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:1486px" src="Untitled_3_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="619d5ae0-0c4d-464a-af82-0e7ac42b6ed2" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="48074c74-e0d1-4f37-9602-e75c6c8cec50" class="image">
+                  <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:1486px" src="Untitled_4_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="d9e4064d-881c-4503-8b10-4fa8968343d0" class="">Sám jsem si s touhle verzí zkoušel hrát a musím říct, že zvládne i docela složité ukázky zahrnující kombinace pomocí <code>pipes</code>, <code>find</code> a <code>xargs</code>. Například mu nedělá problém věc jako komprese disku poslaná přes <code>ssh</code>. Za zmínku stojí, že celý proces funguje i obráceně, tedy umí převést příkaz na textový popis, který ho vysvětlí:</p>
-      <div id="90237eff-ec34-4a63-9c32-d5221ae5e4d6" class="column-list">
-        <div id="24017d9a-2219-4d11-bf17-6b121dbf9e43" style="width:50%" class="column">
-          <figure id="a272794d-f426-43df-962f-16a3ebc3293f" class="image">
-            <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:1764px" src="Untitled_5_thumb.jpg"></a>
-          </figure>
-        </div>
-        <div id="1597c3ed-1c2b-416e-8a02-7dd691d3eec3" style="width:50%" class="column">
-          <figure id="b29d2112-0988-4488-abe9-57153b483ccf" class="image">
-            <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:1764px" src="Untitled_6_thumb.jpg"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <p id="d9e4064d-881c-4503-8b10-4fa8968343d0" class="">Sám jsem si s touhle verzí zkoušel hrát a musím říct, že zvládne i docela složité ukázky zahrnující kombinace pomocí <code>pipes</code>, <code>find</code> a <code>xargs</code>. Například mu nedělá problém věc jako komprese disku poslaná přes <code>ssh</code>. Za zmínku stojí, že celý proces funguje i obráceně, tedy umí převést příkaz na textový popis, který ho vysvětlí:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="90237eff-ec34-4a63-9c32-d5221ae5e4d6" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="24017d9a-2219-4d11-bf17-6b121dbf9e43" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="a272794d-f426-43df-962f-16a3ebc3293f" class="image">
+                  <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:1764px" src="Untitled_5_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="1597c3ed-1c2b-416e-8a02-7dd691d3eec3" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="b29d2112-0988-4488-abe9-57153b483ccf" class="image">
+                  <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:1764px" src="Untitled_6_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="5e3cf883-2db8-44fd-9a9a-b885e721f557" class="">Thread zahrnuje různé i různé další ukázky, například programování v <code>node.js</code>, a taky zkoušky toho jak moc GPT-3 chápe čísla a různé vztahy mezi nimi.</p>
-      <h2 id="6f343064-8857-4d80-af43-28f3bfa3ef4f" class="">Design mobilních aplikací</h2>
-      <p id="c286dc56-c874-40fe-8f91-54ce3e3cf9da" class=""><a href="https://twitter.com/jsngr/status/1284511080715362304">Jordan Singer</a> použil GPT-3 jako backend pro převod textového popisu na layout mobilní aplikace:</p>
-      <div id="53147baf-a2de-4cd3-a337-d7674a30da04" class="column-list">
-        <div id="55d572b2-f61b-4c41-b374-be2e785e1267" style="width:50%" class="column">
-          <figure id="3b0e75ef-86d5-402e-9cb1-01a711f168f4" class="image">
-            <a href="mobile_app_description.png" title="mobile_app_description.png"><img style="width:1008px" src="mobile_app_description.png"></a>
-          </figure>
-        </div>
-        <div id="ab07a616-3077-4d41-9af4-4b515d4c8b45" style="width:50%" class="column">
-          <figure id="61fbd5ec-7f4a-4b79-847b-cda21158dac4" class="image">
-            <a href="mobile_app_design.png" title="mobile_app_design.png"><img style="width:1008px" src="mobile_app_design.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <p id="5e3cf883-2db8-44fd-9a9a-b885e721f557" class="">Thread zahrnuje různé i různé další ukázky, například programování v <code>node.js</code>, a taky zkoušky toho jak moc GPT-3 chápe čísla a různé vztahy mezi nimi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="6f343064-8857-4d80-af43-28f3bfa3ef4f" class="">Design mobilních aplikací</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c286dc56-c874-40fe-8f91-54ce3e3cf9da" class=""><a href="https://twitter.com/jsngr/status/1284511080715362304">Jordan Singer</a> použil GPT-3 jako backend pro převod textového popisu na layout mobilní aplikace:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="53147baf-a2de-4cd3-a337-d7674a30da04" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="55d572b2-f61b-4c41-b374-be2e785e1267" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="3b0e75ef-86d5-402e-9cb1-01a711f168f4" class="image">
+                  <a href="mobile_app_description.png" title="mobile_app_description.png"><img style="width:1008px" src="mobile_app_description.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="ab07a616-3077-4d41-9af4-4b515d4c8b45" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="61fbd5ec-7f4a-4b79-847b-cda21158dac4" class="image">
+                  <a href="mobile_app_design.png" title="mobile_app_design.png"><img style="width:1008px" src="mobile_app_design.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <h2 id="913969c9-b35a-4fba-8b68-72aaf511ccd3" class="">Generování kytarových not</h2>
-      <p id="976bd107-227b-49a7-bb32-79252721eecf" class=""><a href="https://twitter.com/AmandaAskell/status/1283900372281511937">Amanda Askell vyzvala</a> GPT-3 aby generoval kytarové noty popsané v ASCII obrázcích:</p>
-      <figure id="379bb8f1-814b-4d72-b140-bd8e7d4a860c" class="image">
-        <a href="Untitled_7.png" title="Untitled_7.png"><img style="width:384px" src="Untitled_7.png"></a>
-      </figure>
-      <p id="b5739a71-2b77-4747-927b-f61e38877401" class="">Modelu stačilo dát dvě ukázky co od něj očekává. Nejen že vygeneroval výše uvedené obrázky, ale i hudbu v nich, která <a href="https://twitter.com/LoneVoltsAhead/status/1283920056582275072">nezní</a> úplně špatně.</p>
-      <p id="bf35b954-ac8b-4d84-bd32-212d98f68632" class="">Zde je pěkně vidět ukázka toho, k čemu se dá model použít; tedy k transformaci dat z jednoho popisu do druhého. Například generování ASCII obrázků podobného druhu by bylo bez nějakého programu velmi otravné. Model však zvládne tenhle překlad poměrně jednoduše jen na základě pár ukázek <em>vstup / výstup</em>.</p>
-      <h2 id="c064a5f4-b98c-4558-9e68-faac6e2cee20" class="">A spousta dalšího</h2>
-      <h3 id="9373975c-2941-438c-8073-7f317350b99e" class="">Sémantický search engine</h3>
-      <p id="db8a0ec9-f1e0-44f3-809d-b728c7344f32" class=""><a href="https://twitter.com/paraschopra/status/1284801028676653060">Paras Chopra</a> nad GPT-3 postavil sémantický vyhledávací nástroj, kterému popíšete co vás zajímá a on vám to najde a vrátí URL kde je detailnější popis. Něco jako google, který ale rozumí vaší otázce, místo aby vyhledával podle klíčových slov v textu.</p>
-      <h3 id="df5ceb07-373f-44b7-a101-ba84983ec616" class="">Učetnictví</h3>
-      <p id="d0ab757c-44e0-458b-acc3-36fa7c98c87d" class="">Uživatel s přezdívkou <a href="https://twitter.com/itsyashdani/status/1285695850300219392">yash</a> vytvořil učetnictví, kterému textově popisujete co jste udělali za transakci a ono to převádí do řeči čísel a faktur.</p>
-      <h3 id="72203e36-1775-4935-be6d-71b7cb6a9698" class="">Překlad do právničiny</h3>
-      <p id="eb7e9ab9-f07e-4b45-8d0e-c16da51e7d48" class=""><a href="https://twitter.com/f_j_j_/status/1283349995144359937">Francis Jervis</a> vyzval model aby přeložil normálně zadaný text do <em>„právničiny“</em>, tedy jazyka používaného právníky. Výsledky jsou docela zajímavé.</p>
-      <h3 id="2c579351-bf3c-4e64-8519-f3a37fe46687" class="">Vysvětlování, sumarizace a generování textů</h3>
-      <p id="20952e42-89ae-4290-a422-2f4ef46d7693" class=""><a href="https://twitter.com/Plinz/status/1283211048145711104">Zábavná byla reakce Joschy Bacha</a>, když někdo vzal jeho tweet o GPT-3, který úplně nepochopil, a požádal GPT-3, aby ho vysvětlil.</p>
-      <figure id="341c7555-c345-4c81-9110-f1d4e2a54583" class="image">
-        <a href="Untitled_8.png" title="Untitled_8.png"><img style="width:1023px" src="Untitled_8.png"></a>
-      </figure>
-      <p id="a6c5c5fc-d851-4c07-bbbd-5f87e2690166" class="">Co se vysvětlování textu týče, tak zajímavou míru pochopení a modelování světa ukazuje model v <a href="https://twitter.com/danielbigham/status/1292229584025464835">tomto tweetu</a>, kde byl dotazován na to čím jsou si věci podobné.:</p>
-      <figure id="8ecf0349-e6c8-4ec9-9fbe-72f635bd820a" class="image">
-        <a href="Untitled_9.png" title="Untitled_9.png"><img style="width:432px" src="Untitled_9.png"></a>
-      </figure>
-      <h3 id="8880550e-9a08-4e6c-b66e-6d605e1f6635" class="">Tolik tedy k ukázkám</h3>
-      <p id="bdfe26d5-e7fa-4c58-b7cc-f513586939ac" class="">Asi je z těch ukázek jasné, k čemu to je. Obecně má model určité pochopení textu, které se naučil na přečtených datech. K tomu ale má taky „znalosti“ z těchto přečtených dat.</p>
-      <p id="4936ecd5-b18a-4f89-8909-bbf347b13a4d" class="">Model funguje formou otázka/odpověď a je možné se ho tedy ptát na různá fakta, nechat ho odvozovat logické věci, zvládá částečně i matematiku a symbolické uvažování (umí například řešit jednoduché rovnice). Obecně se dá říct, že vyniká v překladu <em>přirozeného jazyka</em> na něco jiného. Na řešení otázky. Na odpověď. Na kód. Mezi lidskými jazyky.</p>
-      <p id="793667f1-f129-497e-8d68-28dacd47483d" class="">Model rozhodně nefunguje bezchybně, ale i tak je to mnohem dál, než všechny předchozí projekty. Kdybych to měl k něčemu přirovnat, tak je zhruba pod úrovní velmi hloupého člověka, který má ale ohromné (encyklopedické) znalosti na všechna možná témata.</p>
-      <p id="3d180783-8798-49d2-81f5-81bcf4fd0536" class="">To vše bez specializace, tedy obecný model. Tento model je možné teoreticky dále vzít a specificky ho dotrénovat pomocí ukázek, například z oboru <em>právničiny</em>, nebo v překladech, či k programování. Tím se úspěšnost ještě zvýší. Nutno ovšem dodat, že tohle trénování může dělat jen někdo kdo model vlastní, a nejedná se o takzvané „předpřipravení“ zmíněné výše, které může udělat kdokoliv pouhou interakcí s modelem. Vlastníkem je momentálně pouze OpenAI.</p>
-      <p id="36462c13-d1b3-4d8c-91f4-2b89863f2c3e" class="">Pojďme se nyní podívat jak to přibližně funguje.</p>
-      <h1 id="ef0c9b3d-cd1d-471a-9905-08a500a23eb6" class="">Technické detaily GPT-3</h1>
-      <p id="f8ff231c-fd49-4990-b189-cb9dc8057fbf" class="">V případě GPT-3 jde o takzvaný <em>„unsupervised learning“</em>, tedy druh strojového učení, které se učí samo z dat. Princip je zhruba takový, že neuronovou síť krmíme velkými množstvími textů, a ona si v tom sama najde vzory.</p>
-      <p id="2b543a01-fbc6-492b-a4f9-e2bc889fd387" class="">GPT-3 pracuje nad vektory <em>tokenů</em>, které si můžeme představit podobně jako v známém <a href="http://www.mlguru.com/cs/word2vec-jednoducha-aritmetika-se-slovy/">word2vec</a>.</p>
-      <h2 id="7ff79ca7-8ef9-40e2-b9ad-ddb5abf9b611" class="">word2vec</h2>
-      <p id="911ca32d-279c-4f94-9366-55a1a1ab2422" class="">Word2vec prorazil díru do světa před několika lety, když Tomáš Mikolov publikoval v Brně svojí <a href="http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf">dizertační práci</a> o použití neuronové sítě. Jím popsaná síť je schopná se na základě velkého množství textu sama naučit <a href="https://cs.wikipedia.org/wiki/Vno%C5%99en%C3%AD_slov">reprezentovat slova ve vícedimenzionálním prostoru</a> tak, že <strong>významově podobná slova</strong> tvoří v tomto prostoru clustery. Zároveň jsou clustery v prostoru umístěny tak, že je možné nad jejich reprezentací provádět významovou aritmetiku.</p>
-      <p id="c4468501-506e-453f-b354-818a1c6eb69d" class="">Co si pod tím konkrétně představit;</p>
-      <p id="fcdf17b2-b25c-45e8-9611-0a037ec67470" class="">Více-dimenzionální prostor si můžete představit graficky například tak, že ke klasickým osám <code>X</code>, <code>Y</code> a <code>Z</code> přidáte další. Zatímco bod ve 3D prostoru je určen maticí obsahující například souřadnice ve tvaru <code>[1, 3, -10]</code>, bod v mnohodimenzionálním prostoru, který umí vytvářet word2vec je tvořen cca sto až tisíci čísly popisujícími jeho souřadnice.</p>
-      <p id="2393ea1b-1a22-48db-97ab-9945f95ce43d" class="">Clustery je možné si představit tak, že body slov v tomto prostoru, které jsou významově podobné, jsou poblíž sebe. Zde jsem si dovolil trochu upravit klasický ukázkový obrázek, aby byly dobře vidět dva různé clustery, které jsou v něm zakroužkovány červeně. V jednom se nám shlukují mužské výrazy, v druhém ženské.</p>
-      <figure id="a0729953-2a1d-4a2c-80c1-90102a76c7a1" class="image">
-        <a href="clusters.png" title="clusters.png"><img style="width:384px" src="clusters.png"></a>
-      </figure>
-      <p id="2e44c243-ef3a-437d-9a45-044b8f582cbe" class="">Znovu opakuji, že pro jednoduchost a představitelnost jsou použity tři osy, protože zobrazit jich tam tisíc není jednoduše možné ve dvouosém souřadnicovém prostoru dostupném pro obrázky.</p>
-      <p id="08c474e9-7e5c-47a8-833f-02e93404e101" class="">Nyní se konečně dostávám, k tomu čím word2vec zaujal svět; k významové aritmetice. Nejen že totiž umí vytvořit výše ukázané clustery, ale zároveň je v prostoru umísťuje tak, že mezi nimi jsou zachovány vztahy. Můžete tak například vzít vektor pro slovo <code>žena</code>, odečíst od něj vektor pro slovo <code>muž</code>, a tento výsledek zachycující abstraktně pohlaví přičíst k vektoru slova <code>král</code>, čímž dostaneme vektor slova <code>královna</code>.</p>
-      <p id="c872a053-412d-4472-9aa5-6fba4142d2fe" class="">Píšu záměrně <em>„vektor slova“</em>, výsledkem je totiž matice čísel, která určuje souřadnice v mnohodimenzionálním prostoru. Tuto souřadnici ovšem můžeme přeložit zpět na text poté co nad ní provedeme operace.</p>
-      <p id="22a992ff-b900-4e68-af95-2b66c5243c27" class="">Zde jsou ukázky různých operací nad vektory:</p>
-      <figure id="5847cc4b-1183-48b5-a60e-e41efb46acbc" class="image">
-        <a href="word2vec_examples.png" title="word2vec_examples.png"><img style="width:1818px" src="word2vec_examples_thumb.jpg"></a>
-        <figcaption>
-          <em>(Zdroj obrázku:</em> <em><a href="https://cbail.github.io/textasdata/word2vec/rmarkdown/word2vec.html">Word Embeddings</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="bbb4e28a-cf4a-4f4a-b8d0-83a63014a538" class="">Například jde zjišťovat časy jednotlivých slov, nebo třeba hlavní města zemí.</p>
-      <p id="702e46e8-7c0e-47dd-974a-3c9cb91601a1" class="">Fascinující na tom je, že word2vec si sám vytváří databázi různých faktů a vztahů mezi nimi, jen na základě toho, že ho nakrmíme velkým množstvím textu, ze kterého si sám tyto vztahy odvodí.</p>
-      <h2 id="7c7e6697-d4f5-480b-920c-0db29966b456" class="">Zpět k GPT-3</h2>
-      <p id="eee94e4d-69a5-4781-bc2c-67b338e54323" class="">GPT-3 také operuje nad „tokeny“, což jsou také mnohodimenzionální souřadnice ve vektorovém prostoru. Může se jednat o samostatná slova, nebo někdy <a href="https://github.com/huggingface/transformers/blob/master/src/transformers/tokenization_gpt2.py">může</a> dojít k rozdělení na několik slabik, či podle unicode znaků. Detaily nejsou úplně důležité. Na rozdíl od word2vec je toto takzvané <em>„embedování“</em> slov jen poměrně nezajímavý vstupní proces.</p>
-      <p id="f2023c8b-c339-4080-9002-1558b6940ba0" class="">GPT-3 je algoritmus z rodiny <a href="https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)">Transformerů</a>, tedy druhu architektury, jenž se často používá v NLP (<em>Natural Language Processing</em>, <em>zpracování přirozené řeči</em>). Zkratka GPT znamená <em>Generative Pre-trained Transformer</em>, tedy <em>Generativní Předtrénovaný Transformer</em>. Slovo „generativní“ naráží na <a href="https://en.wikipedia.org/wiki/Generative_model">termín z machine learningu</a>.</p>
-      <p id="8b2ae86e-0302-4ecc-8a53-7c8a3a3efca1" class="">Transformery používají takzvaný <a href="https://medium.com/inside-machine-learning/what-is-a-transformer-d07dd1fbec04">encoder-decoder model</a>. GPT a další používají pouze <em>decodery</em>, kterých na sebe připojí mnoho (24 v případě GPT-2, 96 v případě GPT-3). Každý <em>decoder</em> má vícero vrstev, z nichž každá vstupní vektory různě hodnotí, vytváří další vektory definující vztahy s dalšími slovy (vektory) ve větách, přidává indexy a obecně další metadata, a tento výsledek pak posílá dál do neuronové sítě. Velký důraz je kladen na <em>„self-attention“</em> vrstvu.</p>
-      <p id="455ddfe9-b803-4e6b-a145-0030a920b152" class="">Zde je pro zajímavost vidět architektura <em>decoder</em> bloku z GPT-2:</p>
-      <figure id="49991582-7681-4194-9f57-6a04ff1cb148" class="image">
-        <a href="gpt2.png" title="gpt2.png"><img style="width:192px" src="gpt2.png"></a>
-        <figcaption>
-          (Obrázek pochází z <a href="https://www.researchgate.net/figure/a-GPT-2-architecture-For-more-info-on-individual-operations-see-Vaswani-et-al-2017_fig1_335737829">https://www.researchgate.net/figure/a-GPT-2-architecture-For-more-info-on-individual-operations-see-Vaswani-et-al-2017_fig1_335737829</a>)
-        </figcaption>
-      </figure>
-      <p id="7865bd59-f01b-4317-b2eb-5b671ebaf263" class="">Jay Alammar sepsal perfektní sérii článků, kde vysvětluje trasformery a i GPT-2, na kterém je GPT-3 založený, graficky a krásně do detailu:</p>
-      <ul id="70eb2981-9c9b-49f8-80c1-75bc88196fa4" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">Visualizing A Neural Machine Translation Model (Mechanics of Seq2seq Models With Attention)</a>
-        </li>
-      </ul>
-      <ul id="5bfe54be-9a1b-4f9d-944c-e839e4a69127" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a>
-        </li>
-      </ul>
-      <ul id="d302a080-2ba6-4529-b947-61d3e410270f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://jalammar.github.io/illustrated-gpt2/">The Illustrated GPT-2 (Visualizing Transformer Language Models)</a>
-        </li>
-      </ul>
-      <p id="0f8bde30-daab-402c-82f0-b8e310ca7d55" class="">Specificky poslední článek vysvětluje <em>„self-attention“</em> vrstvy, tedy jak model vypočítává které slovo má jakou pozornost a souvislost s ostatními, a teprve pak se tím krmí vnitřní neuronové sítě.</p>
-      <p id="31ea6e65-5a3a-4f73-8a53-92a2de843254" class="">Oficiální paper uvádí že k trénování sítě bylo použito cca 499 miliard tokenů, zahrnujících mimo jiné sběr dat z internetových stránek, části wikipedie a různé knihy. Například jen dataset <em>Common Crawl</em>, který tvořil přibližně 82% trénovacích dat, zabíral po vyfiltrování a vyčištění 570GB v čisté textové podobě.</p>
-      <p id="1e45ca1e-b9f2-4fd3-91aa-8db3875719fe" class="">Trénováním na superpočítači byl stvořen model, který obsahuje 175 miliard parametrů. Parametry jsou jednak různé vektory, určující například <em>self-attention</em> vrstvy, ale také přímo nastavení neuronových sítí. Model objemem parametrů přibližně stokrát překonává předchozí GPT-2.</p>
-      <p id="83050b5b-09a0-45ed-81a2-9f90b4074378" class="">Pro ilustraci; je odhadováno, že výkon potřebný k trénování sítě odpovídal zhruba 355 GPU let (autoři v paperu uvádějí několik tisíc petaflop/dnů), tedy let běhu moderní výkonné grafické karty, což údajně <a href="https://lambdalabs.com/blog/demystifying-gpt-3/#1">odpovídá</a> částce ~4.6 milionů dolarů.</p>
-      <h2 id="1f0eb141-e8f6-41e3-b1e9-9c1cb58cc30d" class="">Jak funguje trénování</h2>
-      <p id="349eff3f-cb58-4aa6-b6aa-00b0e97e3b58" class="">Vysokoúrovňový princip fungování GPT-3 je krásně vysvětlen v článku <a href="https://jalammar.github.io/how-gpt3-works-visualizations-animations/">How GPT3 Works - Visualizations and Animations</a>. Protože zde nehodlám krást animace, které autor použil v článku, zde je jen krátký textový popis:</p>
-      <p id="4d344479-8c9e-48b7-bdbe-c41ab0787028" class="">Dataset ukázek textu je použit k trénování sítě tak, aby predikovala výskyt následujícího tokenu. Podobně jako například markovovy řetězce umí na základě statistiky predikovat pravděpodobnost výskytu dalšího písmena, tak GPT modely na základě vstupních dat zkouší odhadnout pravděpodobnost výskytu dalšího tokenu.</p>
-      <p id="05b32dd4-e6de-40f9-9b3d-e35541518bc8" class="">Pokud se netrefí na očekávaný token (prostě další slovo z datasetu), jsou použity techniky trénování tak dlouho, dokud token není odhadnut správně.</p>
-      <p id="0f010dba-e5da-4aef-9231-fd05335d9687" class="">Například zadáme modelu na vstup větu:</p>
-      <blockquote id="3b073f25-1d1a-4d2d-bd02-489f84ac76f2" class="">
-        Byl pozdní večer – první máj – večerní máj – byl
-      </blockquote>
-      <p id="94455bd0-e859-4284-95ba-ea6f4f5d5912" class="">a očekáváme doplnění dalšího slova. Pokud síť doplní slovo „lásky“, pokračujeme dál. Pokud ne, provádíme trénování a úpravy různých vektorů vhodnými algoritmy, dokud model správně neodhadne slovo „lásky“. Jakmile se trefí, pustíme na vstup</p>
-      <blockquote id="8f0edb46-cec5-46cd-9e89-e9968f57b898" class="">
-        Byl pozdní večer – první máj – večerní máj – byl lásky
-      </blockquote>
-      <p id="36f0d140-b634-4137-970d-a6c64a9a3add" class="">.. a opakujeme postup, dokud netrefí správně slovo „čas“.</p>
-      <p id="fe16f672-641e-4680-8a23-ea2a8cebdf23" class="">Data, která dáváme modelu takto dokola na vstup nejsou nekonečná, tvoří jakési posuvné „kontextové okénko“, které má v případě GPT-3 délku 2048 tokenů.</p>
-      <p id="63f12a4e-3e12-4b3d-8187-5ae752462024" class="">Algoritmus pro trénování byl použit Adam (detaily nastavení v paperu na straně 43), což je optimalizační technika založená na stochastickém sestupu gradientu, popsaná například zde: <a href="https://towardsdatascience.com/adam-latest-trends-in-deep-learning-optimization-6be9a291375c">Adam — latest trends in deep learning optimization</a>.</p>
-      <h3 id="0ffefcef-5f67-49bd-b01f-30bbf8cc3076" class="">Stochastický sestup gradientu</h3>
-      <p id="c5ea5a63-13a2-404a-96fc-29b246f36696" class="">Pod výrazem <em>„stochastický sestup gradientu“</em> si představte druh úloh z matematiky, které se zabývají nalezením globálního minima (či maxima) s co nejmenší námahou.</p>
-      <p id="47b91e90-6f94-4b63-b87e-fa9ef16586f8" class="">Například pokud by se jednalo o 3D prostor, můžeme si představit pohoří se spoustou údolí a kopců, které jsou tvořeny body v našem prostoru, a cílem je najít poslepu to <strong>nejhlubší</strong> údolí. Máme ale k dispozici jen prst, kterým můžeme do mapy ze-shora bodat, a tím prstem cítíme do jaké výšky jsme narazili a jestli se terén svažuje nahoru, nebo dolu.</p>
-      <figure id="18f6f376-a66e-4f27-82c0-fc5951882811" class="image">
-        <a href="Untitled_10.png" title="Untitled_10.png"><img style="width:432px" src="Untitled_10.png"></a>
-        <figcaption>
-          <em>(Obrázek pochází z</em> <em><a href="https://www.quora.com/Does-Gradient-Descent-Algo-always-converge-to-the-global-minimum">Does Gradient Descent Algo always converge to the global minimum?</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="e02ca645-a638-46e6-8499-0ae87220dcf1" class="">Jedním z možných algoritmů je prostě bodnout někam náhodně do mapy a pak zkusit bodat do kruhu kolem, jestli jsme se třeba netrefili do kopce a někde kolem není sestup do údolí. A když jo, tak to celé zopakujeme tím směrem, kde je údolí. Některé jiné techniky používají například postup tím směrem, kudy se cesta minule svažovala dolu.</p>
-      <figure id="4e6b81e0-e2a5-42ba-a4dc-e4a32531fbdb" class="image">
-        <a href="Untitled_11.png" title="Untitled_11.png"><img style="width:480px" src="Untitled_11.png"></a>
-        <figcaption>
-          <em>(Obrázek pochází z článku</em> <em><a href="https://snlpatel0012134.wixsite.com/thinking-machine/single-post/StochasticGradientDescent-SGD">What is Stochastic Gradient Descent (SGD)</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="aa3df4fc-aa00-4624-8235-2f31feab2902" class="">Stochastické algoritmy jsou druh matematických algoritmů, které se snaží s co nejmenším počtem bodnutí do mapy najít ne jen nějaké údolí, ale rovnou to <strong>nejhlubší</strong> údolí. To může zahrnovat různé chytristiky, jako třeba <em>„nevzdávej se potom co narazíš na první údolí, ale zkus ještě sejít z kopce jiným směrem“</em>, nebo třeba opětovné lezení na kopec, či náhodnou změna místa do kterého teď bodáme.</p>
-      <p id="ca704214-2ab2-42f8-a9a8-f5c0425bc945" class="">Tahle úloha nám může připadat lehká, ale jen protože se díváme na kopec očima, které každým pohledem přijímají miliardy fotonů odražených od kopce. Pokud bysme vnímali svět kolem sebe jen jedním fotonem, taky by bylo v našem zájmu mít algoritmus, kterým si vnímání světa kolem sebe co nejvíc zrychlíme. Každé testování kopce nás stojí bodnutí prstem do mapy, vyslání či přijmutí fotonu, nebo čistě prakticky výpočetní instrukce, a tedy čas a energii.</p>
-      <p id="1fc18a09-4c86-4eec-8019-8d3fda53b018" class="">Adam je efektivní druh hledání mnohodimenzionálních údolí v mnohodimenzionálních prostorech. Způsob jakým funguje je kompromis, aby bylo v datech třeba co nejméně-krát bodnout do mapy (tedy zjistit jaká je tam hodnota a sklon), a celé to tedy fungovalo co nejrychleji a našlo to zároveň co nejhlubší údolí.</p>
-      <p id="fec0aba4-d1a8-4e6e-bb91-8c559a535034" class=""><a href="https://www.abclinuxu.cz/lide/hrachj">Jenda z abclinuxu</a> pěkně popsal jak se to pak používá:</p>
-      <ul id="9ec7dee6-9504-4758-ae91-29641e09650e" class="bulleted-list">
-        <li style="list-style-type:disc">Hodnota chybové funkce je počítaná jako „kolik procent chybí slovu „lásky“ z předchozího příkladu do 100%“, a toto posčítané přes všechny příklady z celého trénovacího setu.</li>
-      </ul>
-      <ul id="a076aee0-1e58-4bbf-a3e3-fc844daea2ab" class="bulleted-list">
-        <li style="list-style-type:disc">Terén je funkce R^175000000 → R. Funkci se dají aktuální váhy modelu a ona vrátí hodnotu chyby. A my ji chceme minimalizovat.</li>
-      </ul>
-      <ul id="07b52140-ec33-4662-b4fb-285d13d311b1" class="bulleted-list">
-        <li style="list-style-type:disc">Při minimalizaci ale nemůžeme hrabat přímo na tuto funkci, jednak protože její vyhodnocení je příšerně drahé (znamená to vyhodnotit a posčítat něco přes všechny prvky datasetu), jednak protože má lokální minima ve kterých bychom se zasekli.</li>
-      </ul>
-      <ul id="c6111ec4-e7d1-4b8a-977b-aaec2e103c84" class="bulleted-list">
-        <li style="list-style-type:disc">Proto děláme to, že vytáhneme z datasetu jenom pár samplů (tomu se říká minibatch), a chybu budeme vyhodnocovat na nich. Tím získáme nějaký trochu jiný terén, který snad bude podobný tomu „globálnímu“ terénu, ale dá se s ním počítat.</li>
-      </ul>
-      <ul id="e74f5485-b3a4-4e0c-90a8-47eee46bf354" class="bulleted-list">
-        <li style="list-style-type:disc">Nyní spočítáme aktuální výšku tohoto terénu, určíme, kterým směrem je to z kopce, a tímto směrem kousek popojdeme.</li>
-      </ul>
-      <ul id="1b4bc866-fc04-4412-bd90-1b25ce93845f" class="bulleted-list">
-        <li style="list-style-type:disc">Vytáhneme dalších pár samplů a opakujeme. Pro tyto jiné samply bude terén vypadat trošku jinak, a například doufáme, že lokální minima budou v jiných místech, takže pokud jsme do nějakého vstoupili, tak teď se trochu posunulo a zase z něj vylezeme.</li>
-      </ul>
-      <p id="88c5bac5-430b-4b22-9241-3dededff66c3" class="">Tohle celé děláme na kopci, který má 175 miliard dimenzí.</p>
-      <h1 id="eab1d7c0-3608-4b79-8a2d-5ac7865d30e2" class="">Možnosti použití</h1>
-      <p id="1dcad963-5dc9-4455-86ad-edf32e99a391" class="">Říká se, že poslední renesanční člověk byl pravděpodobně <em>Leonardo da Vinci</em>. Tedy člověk, který znal všechna umění a řemesla své doby. Od té doby, praví rčení, je svět tak složitý a specializovaný, že nikdo nemůže znát všechno.</p>
-      <p id="209b2a7b-3ec7-45bb-b27f-e0f862723afc" class="">GPT-3 sice není člověk, inteligenčně je o hodně níž, ale renesanční rozhodně je. Tím že se učil čtením textů ví něco prakticky o všem, o čem něco četl. Jeho možnosti chápání, udržení kontextu a logicky odvozovat věci jsou omezené, ale jeho znalosti dost možná už v současnosti jsou větší, než libovolného jiného žijícího člověka.</p>
-      <p id="1d6c0310-6574-4d5f-837e-db6598d853d4" class="">Článek je možná laděn v až moc pozitivním duchu; je třeba přiznat si, že GPT-3 má stále spoustu omezení, dělá spoustu stupidních chyb a celkově rozhodně není dokonalý.</p>
-      <p id="33baf435-a9c0-44ad-863a-fc061eb08dde" class="">Na druhou stranu je nutné dodat, že i současná verze je snad jako první <em>použitelná</em> pro spoustu věcí, i se všemi svými omezeními. To se stále bavíme o verzi, která není specificky trénovaná pro konkrétní činnosti (takzvaný fine-tuning), což má být další feature kterou chce OpenAI zpřístupnit.</p>
-      <p id="89802708-5010-4f67-9de6-73cdeb7cca6a" class="">Pojďme se nyní podívat, jak se to vlastně celé prakticky používá.</p>
-      <h2 id="31586649-c9a1-4ea6-b730-6d1cc133ddfd" class="">Ukázka API</h2>
-      <p id="4ee69146-2b81-4a16-8b39-f415b83db1c2" class="">Přístup do API se nachází na adrese <a href="https://beta.openai.com">https://beta.openai.com</a>. Zde je možné najít nějakou základní dokumentaci, popis použití, tutoriály a různé další relevantní informace.</p>
-      <figure id="54c0e73c-558b-4b36-9aa8-9144146e3e31" class="image">
-        <a href="welcome.png" title="welcome.png"><img style="width:1745px" src="welcome_thumb.jpg"></a>
-      </figure>
-      <p id="70b3842d-f4aa-445f-98cc-993cb0fd2b4b" class="">Vpravo nahoře je možné si vybrat z několika různých modelů, OpenAI samotné doporučuje model <code>davinci</code>. Ostatní modely jsou také pojmenovány podle různých historických postav.</p>
-      <figure id="8bcd2ff6-1144-412d-a3ad-13ff7cc6c9a4" class="image">
-        <a href="abclinuxu_question.png" title="abclinuxu_question.png"><img style="width:1745px" src="abclinuxu_question_thumb.jpg"></a>
-      </figure>
-      <p id="df9ebebd-a6a8-4239-9b2c-f9571ef9d7c9" class="">Každá ukázka se také dá zobrazit jako volání API pomocí CURL nebo Pythonu. Vpravo je možné vybrat si různé parametry, které model konfigurují co se týče délky vráceného textu, náhodnosti a tak podobně.</p>
-      <h2 id="ed12eefe-c9dd-4e4e-a241-477f7845b2bc" class="">Použitelnost</h2>
-      <p id="2082643e-aa2b-495c-aa26-5ca4498c467a" class="">Celkem nepřekvapivě se většina práce s GPT-3 smrskává do vytvoření vhodného „předpřipravení“, a nastavení správných parametrů. Jak už jsem vysvětloval, model jen doplňuje slova (tokeny). Pokud po něm něco chcete, je třeba ho dostat do „nálady“ tak, aby mohl doplnit očekávané výsledky.</p>
-      <p id="3967c04d-f2a4-47a2-9b6a-6dfe135cf0ce" class="">To bohužel nemusí být jednoduché. Často se mi třeba podařilo vyvolat divoké chování, když jsem špatně nastavil nějaký parametr. Občas model prostě napíše, že odmítá odpovědět, a chová se tak trochu jako naštvané dítě. Jindy si prostě vymyslí krycí historku, kterou se totálně utrhne ze řetězu očekávaného výstupu, nebo se pustí do <a href="https://cs.wikipedia.org/wiki/Tautologie">tautologií</a>.</p>
-      <p id="92ab65c5-f6ea-46ec-bd34-48124f6f89c5" class="">Co se týče generování textu, převodu na různé jiné popisy, nebo vysvětlování věcí, dařilo se mi během chvíle dosahovat očekávaných výsledků. U různých jiných úkonů jsem už ale zas tak moc úspěšný nebyl, a očekávám, že nejspíš vyžadují netriviální množství času hraní si s parametry. Například různé odvozování faktů, či snaha donutit model generovat ASCII arty (jako například ty noty v ukázkách nahoře), mi vůbec nevyšla podle očekávání.</p>
-      <p id="72645e4a-f273-494f-89ff-5c4116387cd4" class="">Myslím že se zpřístupněním API se otevře nová pozice „kormidelníka“ výstupu, tedy druh specializace lidí, jenž budou nabízet generování „předpřipravení“ a nastavení parametrů pro řešení konkrétních problémů.</p>
-      <h1 id="252dc246-fd5d-4005-b067-d1c0efdeb9e0" class="">Otázky</h1>
-      <h2 id="e69d00bb-4d0c-4469-a0d7-df286c9a3313" class="">Před-singularita</h2>
-      <p id="09f29865-4183-4309-b586-586481c52bde" class="">Člověk se samozřejmě musí zamyslet nad tím, kam tohle spěje. Vybavuje se mi ilustrace z článku <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html">Tima Urbana o umělé inteligenci</a>:</p>
-      <figure id="01a359dc-a4b5-4db2-b7c1-51e320ebde19" class="image">
-        <a href="Untitled_12.png" title="Untitled_12.png"><img style="width:1376px" src="Untitled_12_thumb.jpg"></a>
-        <figcaption>
-          <em>(Obrázek pochází z článku</em> <em><a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html">The AI Revolution: The Road to Superintelligence</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="5fae6074-9517-4d80-933a-11fc0ce6b1cd" class="">GPT-2 byla taky taková roztomilá opička, která uměla doplňovat texty. Sám jsem si s ní chvíli hrál a krmil jí kousky textů mých oblíbených autorů, načež mě fascinovalo, když pokračovala přesně jejich stylem, i když z většiny se jednalo o text, který nedával moc velký smysl.</p>
-      <p id="2c67691a-c781-4837-a409-dd01c9a6d56d" class="">Jeden den jsem si říkal, jak nám to vývoj na poli umělé inteligence roztomile pokračuje, druhý den najednou čumím že GPT-3 není zas o tolik níž, než úroveň pro „<em>Dumb human</em>“, tedy hloupého člověka.</p>
-      <p id="c653541f-cfec-402c-b2aa-c19f24d0188a" class="">Což je zarážející, vzhledem k tomu že se jedná o stejný druh <em>machine learningu</em> jako GPT-2, jen natrénovaný na větším množství dat.</p>
-      <p id="4f684bf2-7d1a-4794-9ceb-c4a1aad1cc4b" class="">Architektura GPT-3 je do jisté míry velmi hloupá. Kam to asi tak půjde dotáhnout, pokud se bude trénovat na specifické dovednosti, ale například se zvětší kontextové okno, přidají různé druhy paměti (krátkodobá, dlouhodobá), matematické koprocesory a tak dál? Momentálně probíhá tréning pouze na textu sklizeném z internetu. Co když k tomu přihodíme například blok symbolické matematiky a donutíme AI se s ním naučit pracovat?</p>
-      <h2 id="7d9ba8f5-e126-4b73-9ccc-d2819ad64cb4" class="">Demokratizace AI</h2>
-      <p id="429f708d-98af-417b-91a9-f3147a6b3d56" class="">Před několika lety jsem četl <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html">články</a> Tima Urbana na téma umělé inteligence, nebo možná lépe strojového učení, a snah <em>Elona Muska</em> demokratizovat ho. Přestože jsem s nimi souhlasil, tak jsem je skutečně nechápal, ne tak jak je chápu teď, když jsem měl na vlastní kosti možnost zažít si šok z pokroku.</p>
-      <p id="489d80f9-74a4-4286-b936-9957d9161cb7" class="">Představte si model GPT-10, který je ve všech ohledech lepší než člověk. Větší pochopení psaného textu, schopnost udržet kontext, dělat matematiku, logiku, programování a prostě cokoliv. K tomu masivní korpus znalostí celého světa.</p>
-      <p id="99bdce62-1167-4193-8105-ed4b1fee0219" class="">I když předpokládáme, že ho nebude ovládat žádná zlá společnost, už samotné schopnosti, které má GPT-3 jsou dost husté na to abych si dovedl představit tisíce různých užitečných použití k získání výhody a náskoku nad konkurencí. Hypotetické GPT-10 by společnosti, či vládě, která ho bude vlastnit, dávalo ohromné možnosti.</p>
-      <p id="d11c8eaf-787c-4508-974e-50eb9963591e" class="">Podle mého je nutné víc podpořit demokratizaci AI, tedy ten proces, kdy autoři AI si ho nenechávají pro sebe, ale sdílejí ho se světem, ale zároveň taky všude možně probíhají podobné experimenty.</p>
-      <h2 id="ceb0493b-3b5b-4a24-a4ac-de362141ac57" class="">Uzavřený přístup</h2>
-      <p id="a8c1bbab-dc79-4034-948f-88299c935c96" class="">OpenAI se rozhodla, že model nezpřístupní veřejnosti ve formě surových dat modelu, ale <a href="https://en.wikipedia.org/wiki/OpenAI#cite_note-gpt3-whynotfullmodel-65">plánuje</a> ho časem zpřístupnit formou placeného přístupu k API. Tento přístup je momentálně v beta režimu. To znamená, že můžete požádat o přístup, ale zařadíte se pouze k desítkám tisíc dalších čekajících, na které se snad časem dostane. Sám jsem se k přístupu registroval před asi měsícem, a zatím se nikdo neozval.</p>
-      <p id="ab2fce7b-dc07-4651-9af4-9d98d9767ab8" class="">Ačkoliv by se mi líbilo mít přístup přímo k modelu samotnému, a mít tedy možnost ho dále trénovat a dělat na něm experimenty, je nutné připomenout, že trénování a pravděpodobně i běh modelu vyžaduje superpočítač. Superpočítače jsou nejenom drahé na pořízení, ale také na provoz.</p>
-      <p id="76fa78a4-96ec-431f-92bf-33f3fd22d993" class=""><a href="https://github.com/openai/gpt-3/issues/1">Issue na Githubu</a> projektu zmiňuje nějaká konkrétní čísla, která jsou ovšem založená pouze na odhadech. Zmíněno je 700+GB paměti a cca 22 grafických karet, každá s 16GB RAM, s tím že i tak by model pravděpodobně běžel pomalu.</p>
-      <p id="396d9b56-8656-4aaf-8d9b-a1b2694274e8" class="">Na nějaký vlastní odhad nemám dostatečný technický backgroud. Faktem ovšem je, že OpenAI uzavřela partnerství s Microsoftem. Ten nedávno <a href="https://blogs.microsoft.com/ai/openai-azure-supercomputer/">oznámil</a>, že superpočítač pro OpenAI má být provozovaný v Azure cloudu. Celkem by měl mít 285 000 CPU jader a 10 000 GPU.</p>
-      <p id="2bf6cb9f-9bc6-44c0-9590-01176f65d0d6" class="">Nepodařilo se mi zjistit, jestli už byl použit pro trénování a provoz GPT-3, nebo se jedná o budoucí projekt. Některá oznámení jsou z roku 2019, a tváří se jako že byl někdy koncem roku předán OpenAI, jiná oznámení se tváří jako že byl předán teprve někdy v půlce 2020.</p>
-      <p id="39af327c-8c9e-4417-86ca-691513eb04ce" class="">Každopádně to trochu dává představu ohledně hardware a ohledně ceny jednoho požadavku na API.</p>
-      <h3 id="e7b33810-df44-4bd3-94a8-3224a7b0d3cb" class="">Kde můžu získat přístup</h3>
-      <p id="590751f0-5151-4e14-ab46-f9ff5dac5d99" class="">Osobně mi byl přístup zapůjčen někým kdo ho už má. Pokud ve svém sociálním okolí nikoho takového nemáte, je možné získat přístup přes hru <a href="https://play.aidungeon.io/">AI Dungeon</a>.</p>
-      <p id="927af910-cd39-4c63-ae24-aec861cf90fe" class="">AI Dungeon využívá model GPT-2 pro hraní textové hry, kde si můžete vybrat z několika různých tématických světů. <a href="https://play.aidungeon.io/subscribe">Platícím hráčům</a> (týden zdarma, potom $9.99/měsíc) však <a href="https://medium.com/@aidungeon/ai-dungeon-dragon-model-upgrade-7e8ea579abfe">nabízí</a> zprostředkovaný přístup k GPT-3. Ten je sice „předpřipravený“ scriptem pro uvedení téma textové hry, je možné ho ovšem vlastním textem „předpřipravit“ na něco jiného, a vyzkoušet si tak na něm interakce s GPT-3.</p>
-      <p id="a2084e7a-8f1e-4119-9747-0f263224db7d" class="">Na twitteru se dají najít poměrně zajímavé ukázky interakce s GPT-3. Některé jdou do poměrně metafyzických témat, když například někdo zjistil, že GPT-3 dělá záměrně v rozhovorech chyby, které by dělala reprezentovaná postava. Ukazuje se tedy že v „hlavě“ v rámci autenticity modeluje osobnost postavy včetně chyb.</p>
-      <figure id="10ae5755-4e24-4dbf-b7c7-33c5fa3db6e5" class="image">
-        <a href="Untitled_13.png" title="Untitled_13.png"><img style="width:818px" src="Untitled_13.png"></a>
-        <figcaption>
-          <em>(Zdroj obrázku:</em> <em><a href="https://twitter.com/kleptid/status/1284069270603866113">https://twitter.com/kleptid/status/1284069270603866113</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <h2 id="279289fc-1b6d-4c5e-9a05-8af3e318e2f7" class="">GPT-4?</h2>
-      <p id="4bc99410-0756-4d48-8529-2b45fdfd7a7b" class="">To že teď čteme o GPT-3 znamená, že jsme masivně pozadu, a že v OpenAI, ale pravděpodobně i na mnoha dalších místech na světě, se už vaří další verze.</p>
-      <p id="a534a16b-ea43-4b7a-83a6-76bae5e36355" class="">Zajímavý je model <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT</a> (<a href="https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270">detaily</a>), který je vyvíjený v několika jiných institucích. Za zmínku taky stojí projekt <a href="https://huggingface.co/">HuggingFace</a>, který na githubu sjednocuje v jednom repozitáři všechny možné architektury a datové zdroje pro mnoho různých transformerů.</p>
-      <p id="2ac529fa-5d2e-4c1f-8f13-a37d3e1838da" class="">Ten kdo má dnes přístup k superpočítači a možnosti tam zkoušet a zkoumat alternativní přístupy, ten může zítra doslova udělat díru do světa, jako se to povedlo třeba Tomášovi Mikolovi s word2vec.</p>
-      <h2 id="695132c4-123a-4d40-adf5-03d5a2a82d80" class="">Hype</h2>
-      <p id="9c8384c5-2441-4f8d-a912-374972e0666b" class="">Ačkoliv v Čechách se zatím informace o GPT-3 prakticky nedostaly ani do odborné literatury, v anglicky hovořících médiích vznikl „hype“, tedy jakýsi kult místy až přehnaného adorování.</p>
-      <p id="9d587857-7653-439f-b223-64927beedc87" class="">To samozřejmě vedlo k proti-reakci, kde u spousty lidí je teď moderní GPT-3 odsuzovat, jako že je <em>„přehypované“</em> a k ničemu.</p>
-      <p id="7de90834-6842-4bde-93e3-33934fcbb7e2" class="">Osobně si myslím, že nemá smysl podléhat ani jedné vlně. GPT-3 je jen nástroj, který můžeme zkusit používat k něčemu produktivnímu. Nemá smysl ho „<em>hejtovat“</em> že je k ničemu, když nezvládne vyřešit co po něm chceme, ani adorovat jako že vyřeší všechny naše problémy.</p>
-      <p id="e581b972-090a-456d-8b13-aaf85703fe4f" class="">Osobně se k tomu stavím asi jako ke kompilátoru; je užitečné vědět, že to existuje, může být užitečné to zkusit použít na nějaký svůj projekt, kde mi ušetří práci. Teoreticky to má potenciál pro automatizaci nudných opakovaných záležitostí.</p>
-      <h1 id="2c2de3e0-ae2b-48b1-b1dc-68350c0f878c" class="">„Závěr“</h1>
-      <p id="8a144701-eedb-4dec-88cf-6370b28449d9" class="">Jako už jsme si řekli, GPT-3 není nástroj pro každého, a není to ani nástroj pro každou věc.</p>
-      <p id="7e4c1911-0d64-4315-b5cb-6885259bb088" class="">OpenAI v roce 2018 předvedlo první generaci, která dokázala reagovat na text. Už ta byla poměrně dobře použitelná, ale pouze v rámci několika témat. A to je vlastně tak trochu celý problém.</p>
-      <p id="d9d2721a-46fb-42e2-b6d8-870e8fde99f9" class="">Doufám, že se časem podaří otevřít zdroje, které OpenAI využívá, a bude možné vyzkoušet trénování s různými databázemi a jinými typy dat.</p>
-      <p id="82a3af01-f46b-4d1f-9dd7-0e98df47bc11" class="">Pokud chceme GPT-3 hodnotit, je třeba si uvědomit, že se jedná o reálnou věc, nikoliv o nějakou hypotetickou konstrukci nebo výzkumný výsledek. V praxi je sice OpenAI GPT-3 ještě daleko od cíle, ale je to vlastně nejlepší model široce dostupný veřejnosti.</p>
-      <p id="83c2ca46-701d-4115-a1ef-4be0399d85c7" class="">A samotné GPT-3 přináší obrovský objem dat. To vše je důvodem, proč se dnes jedná o jeden z nejvýznamnějších výzkumných úspěchů v oblasti AI.</p>
-      <p id="b7f5d8c0-3e9c-4d47-a9cb-5c9729b352b7" class="">Zdá se, že se všechno docela rychle hýbe k něčemu docela zajímavému. Nejsem si jistý, zda tohle je ono, ale velmi mě to zaujalo. Prakticky každý den se objevuje nějaká nová věc, která se dá použít pro vytváření lepších algoritmů. Jakékoliv inovativní nápady, různé experimenty, zajímavé datové zdroje a koncepty jsou velmi vítány ;)</p>
-      <h1 id="5639f029-ce4a-45ac-ac85-e3d3a1340dae" class="">Skutečný závěr</h1>
-      <p id="da2b167c-aa10-4c1e-8c14-95fd793cd876" class="">Původně jsem výše uvedený „závěr“ neplánoval, když jsem však zkusil GPT-3 nakrmit částí tohoto článku (bere jen 2048 tokenů), napsal ho sám i s názvem kapitoly a markdownem pro nadpis. Umí totiž i česky, i když pár chyb (hlavně ve skloňování) jsem musel opravit. Samozřejmě také předchozí ukázku nezvládl na první pokus, musel jsem to pustit přibližně desetkrát, než jsem z něj dostal něco podobně koherentního. Výsledek je složený z několika průběhů, ale i tak je zajímavý.</p>
-      <p id="4b2e8310-4bb8-4b0f-b2ee-f0c8033f8273" class="">Ukazuje to pěkně čeho všeho je model schopný. Například GPT-2 sice taky zvládal češtinu, ale velmi bídně, věty působily dost nekoherentním dojmem a často na češtinu odpovídal anglicky. Určitě by nedokázal takhle jednoduše psát sám o sobě.</p>
-      <p id="7451a85d-52cd-4362-8e2f-65f8d9539aab" class="">Jsem zvědavý kam tohle všechno povede. Momentálně je technologie <em>machine learningu</em> a „<em>umělé inteligence</em>“ stále ještě v plenkách, zároveň se ale rozvíjí děsivou rychlostí.</p>
-      <p id="38029e98-8e62-423e-a197-182abf3eec05" class="">Už několik let si vedu poznámky na téma <em>„k čemu všemu bych využil osobního skřeta“</em>, kam se snažím shromažďovat druhy prací a otravností, u kterých by bylo fajn, kdyby je za mě řešila nějaká automatizace. Například se jedná o generování metadat k různým projektům.</p>
-      <p id="d7fabeab-0813-43bb-890f-1b5e2d8d9930" class="">Těším se na dobu, kdy budu moct použít nějakou podobně užitečnou AI, jenž by za mě tyhle nudné tasky dělala, bez toho aniž bych musel strávit několik dní nastavováním různých šablonovacích enginů a psaním vlastních scriptů. Taky by se mi velmi hodilo něco, co dokáže prohledávat počítač podle zadaných pravidel a sémanticky rozumí tomu co po tom chci. Občas se například snažím najít email, či dokument, aniž bych si pamatoval konkrétní klíčová slova.</p>
-      <p id="024f371c-3f81-4f34-847a-bf64f9e85196" class="">Spousta lidí má ze stále lepší „AI“ (ve skutečnosti <em>machine learningu</em>) strach. Do jisté míry to chápu. Je třeba si ovšem uvědomit, že se nejedná o magii, je to prostě jen druh programu.</p>
-      <p id="a1f07d70-d679-4259-ac25-f42a5ce90766" class="">Z hlediska „<em>normálních lidí</em>“ můžete být v klidu; „<em>umělá inteligence</em>“ v tomhle podání je jednodušší a dává vám větší možnosti použití, než klasické počítače a programování. Pokud zvládnete delegovat práci a popsat zadání dalšímu člověku, zvládáte používat i tenhle druh umělé inteligence. Nepřicházíte o možnosti, naopak je tím získáváte.</p>
-      <p id="fa5005e7-58c4-4c73-b3bf-a64f1b7afa5f" class="">Teď se jen postarat o to, aby měli všichni k dispozici přístup. Bylo by fajn, kdyby se z toho nestal zdroj útlaku držený v rukou několika jedinců a korporací, které ho využijí k vyřazení konkurence a horším věcem (viz třeba čínská totalita a jejich sociální kredit), ale nástroj pro obohacení možností a schopností každého z nás.</p>
-      <h1 id="00db0416-e21d-4cda-8ec0-0c37bbe81cf1" class="">Edit <time>@2020/09/21</time></h1>
-      <p id="3331eec2-405b-4228-adaf-928229d80a1e" class="">Krásný talk s Joschou Bachem (mimochodem člověk, kterého doporučuji sledovat) na téma GPT-3 a co dělá a jak funguje:</p>
-      <figure id="523bb265-68aa-4e18-bd27-08cdb388a1ae">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/FMfA6i60WDA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <h1 id="c9a930ef-116a-4991-a2ec-aaaed0dfe3bc" class="">Zdroje</h1>
-      <h2 id="839be2c4-5194-45ad-8fae-8ea18eecf81a" class="">Česky</h2>
-      <ul id="117a6757-6297-4a5b-9d02-95243cfb40d8" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://cs.wikipedia.org/wiki/Vno%C5%99en%C3%AD_slov">Vnoření slov - wikipedie</a>
-        </li>
-      </ul>
-      <ul id="6a07d55f-1684-4cfc-a240-2185c5f2edda" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.mlguru.com/cs/word2vec-jednoducha-aritmetika-se-slovy/">word2vec – jednoduchá aritmetika se slovy</a>
-        </li>
-      </ul>
-      <ul id="5adb0a68-f4ea-4aed-9d0f-420c519551e3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://investree.cz/umela-inteligence/">Umělá inteligence Open AI, GPT-3 může být největší inovací od bitcoinu</a>
-        </li>
-      </ul>
-      <ul id="fe41fb03-3743-49dd-a6f7-681e162c2bd3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.zive.cz/clanky/microsoft-postavil-nejvykonnejsi-superpocitac-pro-umelou-inteligenci-bude-ho-vyuzivat-openai/sc-3-a-203979/default.aspx?fbclid=IwAR3HeV4PJnalChghkNyscXzMCSS6T7sPfgQ4jhXZ1twJbgWO3CfOvWsgIpk">Microsoft postavil nejvýkonnější superpočítač pro umělou inteligenci. Bude ho využívat OpenAI</a>
-        </li>
-      </ul>
-      <h2 id="4806df48-2c42-403f-bcac-40b8a879cf9a" class="">Anglicky</h2>
-      <ul id="c38966f2-1c87-4e98-b56d-6d0ed0d0b6c5" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://jalammar.github.io/illustrated-word2vec/">The Illustrated Word2vec</a>
-        </li>
-      </ul>
-      <ul id="a5b09eb4-6191-491d-8eea-0d1bc15b90a1" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://cbail.github.io/textasdata/word2vec/rmarkdown/word2vec.html">Word Embeddings</a> (o word2vec a podobných)
-        </li>
-      </ul>
-      <ul id="1db0a136-eaeb-455f-9df7-30f9e1bfc9e5" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://towardsdatascience.com/word-embeddings-for-nlp-5b72991e01d4">Word Embeddings for NLP</a>
-        </li>
-      </ul>
-      <ul id="049f5169-7c99-463f-9b91-203e68a7f569" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space">Embeddings: Translating to a Lower-Dimensional Space</a>
-        </li>
-      </ul>
-      <ul id="03fda63d-a2e6-4b03-8f91-337e15c46967" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://jalammar.github.io/how-gpt3-works-visualizations-animations/">How GPT3 Works - Visualizations and Animations</a>
-        </li>
-      </ul>
-      <ul id="220fa9de-0b2c-4062-aad6-dee345649b4b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://towardsdatascience.com/will-gpt-3-kill-coding-630e4518c04d">Will The Latest AI Kill Coding?</a>
-        </li>
-      </ul>
-      <ul id="236d78c6-b7db-4fc3-a54a-2a53a3636de5" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.theverge.com/21346343/gpt-3-explainer-openai-examples-errors-agi-potential">OpenAI’s latest breakthrough is astonishingly powerful, but still fighting its flaws - The Verge</a>
-        </li>
-      </ul>
-      <ul id="79fd665e-e7bd-4af5-8909-7e3a2e50506b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://lambdalabs.com/blog/demystifying-gpt-3/">OpenAI's GPT-3 Language Model: A Technical Overview</a>
-        </li>
-      </ul>
-      <ul id="2924d5ff-34d9-488a-8105-00963464a482" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://lambdalabs.com/blog/gpt-3/">GPT-3: A Hitchhiker's Guide</a>
-        </li>
-      </ul>
-      <ul id="e5dd03bb-dce4-44e6-9357-dec3e17a8e91" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://leogao.dev/2020/05/29/GPT-3-A-Brief-Summary/">Why GPT-3 Matters</a>
-        </li>
-      </ul>
-      <ul id="2f959a2c-5e72-44ca-9ad0-2ab1ae15a751" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://medium.com/inside-machine-learning/what-is-a-transformer-d07dd1fbec04">What is a Transformer?</a>
-        </li>
-      </ul>
-      <ul id="a1acede7-0278-45bd-aa31-0ca2d45e008a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/openai/gpt-2/">https://github.com/openai/gpt-2/</a>
-        </li>
-      </ul>
-      <ul id="532a9956-8630-4ca7-9ebc-8ae1b4d310d3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://duckduckgo.com/?q=site%3Acdn.openai.com&amp;t=hk&amp;ia=web">https://duckduckgo.com/?q=site%3Acdn.openai.com&amp;t=hk&amp;ia=web</a>
-        </li>
-      </ul>
-      <h1 id="03ec2447-0b3f-4c03-a4ca-f7ed7c18f891" class="">Relevantní diskuze</h1>
-      <ul id="5714e175-af5f-4d9c-80fc-e788bd46da6d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.abclinuxu.cz/blog/bystroushaak/2020/8/gpt-3/diskuse">abclinuxu</a>
-        </li>
-      </ul>
+      <div style="display:contents" dir="auto">
+        <h2 id="913969c9-b35a-4fba-8b68-72aaf511ccd3" class="">Generování kytarových not</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="976bd107-227b-49a7-bb32-79252721eecf" class=""><a href="https://twitter.com/AmandaAskell/status/1283900372281511937">Amanda Askell vyzvala</a> GPT-3 aby generoval kytarové noty popsané v ASCII obrázcích:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="379bb8f1-814b-4d72-b140-bd8e7d4a860c" class="image">
+          <a href="Untitled_7.png" title="Untitled_7.png"><img style="width:384px" src="Untitled_7.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b5739a71-2b77-4747-927b-f61e38877401" class="">Modelu stačilo dát dvě ukázky co od něj očekává. Nejen že vygeneroval výše uvedené obrázky, ale i hudbu v nich, která <a href="https://twitter.com/LoneVoltsAhead/status/1283920056582275072">nezní</a> úplně špatně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bf35b954-ac8b-4d84-bd32-212d98f68632" class="">Zde je pěkně vidět ukázka toho, k čemu se dá model použít; tedy k transformaci dat z jednoho popisu do druhého. Například generování ASCII obrázků podobného druhu by bylo bez nějakého programu velmi otravné. Model však zvládne tenhle překlad poměrně jednoduše jen na základě pár ukázek <em>vstup / výstup</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c064a5f4-b98c-4558-9e68-faac6e2cee20" class="">A spousta dalšího</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="9373975c-2941-438c-8073-7f317350b99e" class="">Sémantický search engine</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="db8a0ec9-f1e0-44f3-809d-b728c7344f32" class=""><a href="https://twitter.com/paraschopra/status/1284801028676653060">Paras Chopra</a> nad GPT-3 postavil sémantický vyhledávací nástroj, kterému popíšete co vás zajímá a on vám to najde a vrátí URL kde je detailnější popis. Něco jako google, který ale rozumí vaší otázce, místo aby vyhledával podle klíčových slov v textu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="df5ceb07-373f-44b7-a101-ba84983ec616" class="">Učetnictví</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d0ab757c-44e0-458b-acc3-36fa7c98c87d" class="">Uživatel s přezdívkou <a href="https://twitter.com/itsyashdani/status/1285695850300219392">yash</a> vytvořil učetnictví, kterému textově popisujete co jste udělali za transakci a ono to převádí do řeči čísel a faktur.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="72203e36-1775-4935-be6d-71b7cb6a9698" class="">Překlad do právničiny</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eb7e9ab9-f07e-4b45-8d0e-c16da51e7d48" class=""><a href="https://twitter.com/f_j_j_/status/1283349995144359937">Francis Jervis</a> vyzval model aby přeložil normálně zadaný text do <em>„právničiny“</em>, tedy jazyka používaného právníky. Výsledky jsou docela zajímavé.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="2c579351-bf3c-4e64-8519-f3a37fe46687" class="">Vysvětlování, sumarizace a generování textů</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="20952e42-89ae-4290-a422-2f4ef46d7693" class=""><a href="https://twitter.com/Plinz/status/1283211048145711104">Zábavná byla reakce Joschy Bacha</a>, když někdo vzal jeho tweet o GPT-3, který úplně nepochopil, a požádal GPT-3, aby ho vysvětlil.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="341c7555-c345-4c81-9110-f1d4e2a54583" class="image">
+          <a href="Untitled_8.png" title="Untitled_8.png"><img style="width:1023px" src="Untitled_8.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a6c5c5fc-d851-4c07-bbbd-5f87e2690166" class="">Co se vysvětlování textu týče, tak zajímavou míru pochopení a modelování světa ukazuje model v <a href="https://twitter.com/danielbigham/status/1292229584025464835">tomto tweetu</a>, kde byl dotazován na to čím jsou si věci podobné.:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="8ecf0349-e6c8-4ec9-9fbe-72f635bd820a" class="image">
+          <a href="Untitled_9.png" title="Untitled_9.png"><img style="width:432px" src="Untitled_9.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="8880550e-9a08-4e6c-b66e-6d605e1f6635" class="">Tolik tedy k ukázkám</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bdfe26d5-e7fa-4c58-b7cc-f513586939ac" class="">Asi je z těch ukázek jasné, k čemu to je. Obecně má model určité pochopení textu, které se naučil na přečtených datech. K tomu ale má taky „znalosti“ z těchto přečtených dat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4936ecd5-b18a-4f89-8909-bbf347b13a4d" class="">Model funguje formou otázka/odpověď a je možné se ho tedy ptát na různá fakta, nechat ho odvozovat logické věci, zvládá částečně i matematiku a symbolické uvažování (umí například řešit jednoduché rovnice). Obecně se dá říct, že vyniká v překladu <em>přirozeného jazyka</em> na něco jiného. Na řešení otázky. Na odpověď. Na kód. Mezi lidskými jazyky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="793667f1-f129-497e-8d68-28dacd47483d" class="">Model rozhodně nefunguje bezchybně, ale i tak je to mnohem dál, než všechny předchozí projekty. Kdybych to měl k něčemu přirovnat, tak je zhruba pod úrovní velmi hloupého člověka, který má ale ohromné (encyklopedické) znalosti na všechna možná témata.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3d180783-8798-49d2-81f5-81bcf4fd0536" class="">To vše bez specializace, tedy obecný model. Tento model je možné teoreticky dále vzít a specificky ho dotrénovat pomocí ukázek, například z oboru <em>právničiny</em>, nebo v překladech, či k programování. Tím se úspěšnost ještě zvýší. Nutno ovšem dodat, že tohle trénování může dělat jen někdo kdo model vlastní, a nejedná se o takzvané „předpřipravení“ zmíněné výše, které může udělat kdokoliv pouhou interakcí s modelem. Vlastníkem je momentálně pouze OpenAI.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36462c13-d1b3-4d8c-91f4-2b89863f2c3e" class="">Pojďme se nyní podívat jak to přibližně funguje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="ef0c9b3d-cd1d-471a-9905-08a500a23eb6" class="">Technické detaily GPT-3</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f8ff231c-fd49-4990-b189-cb9dc8057fbf" class="">V případě GPT-3 jde o takzvaný <em>„unsupervised learning“</em>, tedy druh strojového učení, které se učí samo z dat. Princip je zhruba takový, že neuronovou síť krmíme velkými množstvími textů, a ona si v tom sama najde vzory.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2b543a01-fbc6-492b-a4f9-e2bc889fd387" class="">GPT-3 pracuje nad vektory <em>tokenů</em>, které si můžeme představit podobně jako v známém <a href="http://www.mlguru.com/cs/word2vec-jednoducha-aritmetika-se-slovy/">word2vec</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="7ff79ca7-8ef9-40e2-b9ad-ddb5abf9b611" class="">word2vec</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="911ca32d-279c-4f94-9366-55a1a1ab2422" class="">Word2vec prorazil díru do světa před několika lety, když Tomáš Mikolov publikoval v Brně svojí <a href="http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf">dizertační práci</a> o použití neuronové sítě. Jím popsaná síť je schopná se na základě velkého množství textu sama naučit <a href="https://cs.wikipedia.org/wiki/Vno%C5%99en%C3%AD_slov">reprezentovat slova ve vícedimenzionálním prostoru</a> tak, že <strong>významově podobná slova</strong> tvoří v tomto prostoru clustery. Zároveň jsou clustery v prostoru umístěny tak, že je možné nad jejich reprezentací provádět významovou aritmetiku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c4468501-506e-453f-b354-818a1c6eb69d" class="">Co si pod tím konkrétně představit;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fcdf17b2-b25c-45e8-9611-0a037ec67470" class="">Více-dimenzionální prostor si můžete představit graficky například tak, že ke klasickým osám <code>X</code>, <code>Y</code> a <code>Z</code> přidáte další. Zatímco bod ve 3D prostoru je určen maticí obsahující například souřadnice ve tvaru <code>[1, 3, -10]</code>, bod v mnohodimenzionálním prostoru, který umí vytvářet word2vec je tvořen cca sto až tisíci čísly popisujícími jeho souřadnice.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2393ea1b-1a22-48db-97ab-9945f95ce43d" class="">Clustery je možné si představit tak, že body slov v tomto prostoru, které jsou významově podobné, jsou poblíž sebe. Zde jsem si dovolil trochu upravit klasický ukázkový obrázek, aby byly dobře vidět dva různé clustery, které jsou v něm zakroužkovány červeně. V jednom se nám shlukují mužské výrazy, v druhém ženské.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a0729953-2a1d-4a2c-80c1-90102a76c7a1" class="image">
+          <a href="clusters.png" title="clusters.png"><img style="width:384px" src="clusters.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2e44c243-ef3a-437d-9a45-044b8f582cbe" class="">Znovu opakuji, že pro jednoduchost a představitelnost jsou použity tři osy, protože zobrazit jich tam tisíc není jednoduše možné ve dvouosém souřadnicovém prostoru dostupném pro obrázky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="08c474e9-7e5c-47a8-833f-02e93404e101" class="">Nyní se konečně dostávám, k tomu čím word2vec zaujal svět; k významové aritmetice. Nejen že totiž umí vytvořit výše ukázané clustery, ale zároveň je v prostoru umísťuje tak, že mezi nimi jsou zachovány vztahy. Můžete tak například vzít vektor pro slovo <code>žena</code>, odečíst od něj vektor pro slovo <code>muž</code>, a tento výsledek zachycující abstraktně pohlaví přičíst k vektoru slova <code>král</code>, čímž dostaneme vektor slova <code>královna</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c872a053-412d-4472-9aa5-6fba4142d2fe" class="">Píšu záměrně <em>„vektor slova“</em>, výsledkem je totiž matice čísel, která určuje souřadnice v mnohodimenzionálním prostoru. Tuto souřadnici ovšem můžeme přeložit zpět na text poté co nad ní provedeme operace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="22a992ff-b900-4e68-af95-2b66c5243c27" class="">Zde jsou ukázky různých operací nad vektory:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="5847cc4b-1183-48b5-a60e-e41efb46acbc" class="image">
+          <a href="word2vec_examples.png" title="word2vec_examples.png"><img style="width:1818px" src="word2vec_examples_thumb.jpg"></a>
+          <figcaption>
+            <em>(Zdroj obrázku:</em> <em><a href="https://cbail.github.io/textasdata/word2vec/rmarkdown/word2vec.html">Word Embeddings</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bbb4e28a-cf4a-4f4a-b8d0-83a63014a538" class="">Například jde zjišťovat časy jednotlivých slov, nebo třeba hlavní města zemí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="702e46e8-7c0e-47dd-974a-3c9cb91601a1" class="">Fascinující na tom je, že word2vec si sám vytváří databázi různých faktů a vztahů mezi nimi, jen na základě toho, že ho nakrmíme velkým množstvím textu, ze kterého si sám tyto vztahy odvodí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="7c7e6697-d4f5-480b-920c-0db29966b456" class="">Zpět k GPT-3</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eee94e4d-69a5-4781-bc2c-67b338e54323" class="">GPT-3 také operuje nad „tokeny“, což jsou také mnohodimenzionální souřadnice ve vektorovém prostoru. Může se jednat o samostatná slova, nebo někdy <a href="https://github.com/huggingface/transformers/blob/master/src/transformers/tokenization_gpt2.py">může</a> dojít k rozdělení na několik slabik, či podle unicode znaků. Detaily nejsou úplně důležité. Na rozdíl od word2vec je toto takzvané <em>„embedování“</em> slov jen poměrně nezajímavý vstupní proces.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f2023c8b-c339-4080-9002-1558b6940ba0" class="">GPT-3 je algoritmus z rodiny <a href="https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)">Transformerů</a>, tedy druhu architektury, jenž se často používá v NLP (<em>Natural Language Processing</em>, <em>zpracování přirozené řeči</em>). Zkratka GPT znamená <em>Generative Pre-trained Transformer</em>, tedy <em>Generativní Předtrénovaný Transformer</em>. Slovo „generativní“ naráží na <a href="https://en.wikipedia.org/wiki/Generative_model">termín z machine learningu</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8b2ae86e-0302-4ecc-8a53-7c8a3a3efca1" class="">Transformery používají takzvaný <a href="https://medium.com/inside-machine-learning/what-is-a-transformer-d07dd1fbec04">encoder-decoder model</a>. GPT a další používají pouze <em>decodery</em>, kterých na sebe připojí mnoho (24 v případě GPT-2, 96 v případě GPT-3). Každý <em>decoder</em> má vícero vrstev, z nichž každá vstupní vektory různě hodnotí, vytváří další vektory definující vztahy s dalšími slovy (vektory) ve větách, přidává indexy a obecně další metadata, a tento výsledek pak posílá dál do neuronové sítě. Velký důraz je kladen na <em>„self-attention“</em> vrstvu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="455ddfe9-b803-4e6b-a145-0030a920b152" class="">Zde je pro zajímavost vidět architektura <em>decoder</em> bloku z GPT-2:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="49991582-7681-4194-9f57-6a04ff1cb148" class="image">
+          <a href="gpt2.png" title="gpt2.png"><img style="width:192px" src="gpt2.png"></a>
+          <figcaption>
+            (Obrázek pochází z <a href="https://www.researchgate.net/figure/a-GPT-2-architecture-For-more-info-on-individual-operations-see-Vaswani-et-al-2017_fig1_335737829">https://www.researchgate.net/figure/a-GPT-2-architecture-For-more-info-on-individual-operations-see-Vaswani-et-al-2017_fig1_335737829</a>)
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7865bd59-f01b-4317-b2eb-5b671ebaf263" class="">Jay Alammar sepsal perfektní sérii článků, kde vysvětluje trasformery a i GPT-2, na kterém je GPT-3 založený, graficky a krásně do detailu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="70eb2981-9c9b-49f8-80c1-75bc88196fa4" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">Visualizing A Neural Machine Translation Model (Mechanics of Seq2seq Models With Attention)</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="5bfe54be-9a1b-4f9d-944c-e839e4a69127" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d302a080-2ba6-4529-b947-61d3e410270f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://jalammar.github.io/illustrated-gpt2/">The Illustrated GPT-2 (Visualizing Transformer Language Models)</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0f8bde30-daab-402c-82f0-b8e310ca7d55" class="">Specificky poslední článek vysvětluje <em>„self-attention“</em> vrstvy, tedy jak model vypočítává které slovo má jakou pozornost a souvislost s ostatními, a teprve pak se tím krmí vnitřní neuronové sítě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="31ea6e65-5a3a-4f73-8a53-92a2de843254" class="">Oficiální paper uvádí že k trénování sítě bylo použito cca 499 miliard tokenů, zahrnujících mimo jiné sběr dat z internetových stránek, části wikipedie a různé knihy. Například jen dataset <em>Common Crawl</em>, který tvořil přibližně 82% trénovacích dat, zabíral po vyfiltrování a vyčištění 570GB v čisté textové podobě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1e45ca1e-b9f2-4fd3-91aa-8db3875719fe" class="">Trénováním na superpočítači byl stvořen model, který obsahuje 175 miliard parametrů. Parametry jsou jednak různé vektory, určující například <em>self-attention</em> vrstvy, ale také přímo nastavení neuronových sítí. Model objemem parametrů přibližně stokrát překonává předchozí GPT-2.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="83050b5b-09a0-45ed-81a2-9f90b4074378" class="">Pro ilustraci; je odhadováno, že výkon potřebný k trénování sítě odpovídal zhruba 355 GPU let (autoři v paperu uvádějí několik tisíc petaflop/dnů), tedy let běhu moderní výkonné grafické karty, což údajně <a href="https://lambdalabs.com/blog/demystifying-gpt-3/#1">odpovídá</a> částce ~4.6 milionů dolarů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="1f0eb141-e8f6-41e3-b1e9-9c1cb58cc30d" class="">Jak funguje trénování</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="349eff3f-cb58-4aa6-b6aa-00b0e97e3b58" class="">Vysokoúrovňový princip fungování GPT-3 je krásně vysvětlen v článku <a href="https://jalammar.github.io/how-gpt3-works-visualizations-animations/">How GPT3 Works - Visualizations and Animations</a>. Protože zde nehodlám krást animace, které autor použil v článku, zde je jen krátký textový popis:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4d344479-8c9e-48b7-bdbe-c41ab0787028" class="">Dataset ukázek textu je použit k trénování sítě tak, aby predikovala výskyt následujícího tokenu. Podobně jako například markovovy řetězce umí na základě statistiky predikovat pravděpodobnost výskytu dalšího písmena, tak GPT modely na základě vstupních dat zkouší odhadnout pravděpodobnost výskytu dalšího tokenu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="05b32dd4-e6de-40f9-9b3d-e35541518bc8" class="">Pokud se netrefí na očekávaný token (prostě další slovo z datasetu), jsou použity techniky trénování tak dlouho, dokud token není odhadnut správně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0f010dba-e5da-4aef-9231-fd05335d9687" class="">Například zadáme modelu na vstup větu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="3b073f25-1d1a-4d2d-bd02-489f84ac76f2" class="">
+          Byl pozdní večer – první máj – večerní máj – byl
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="94455bd0-e859-4284-95ba-ea6f4f5d5912" class="">a očekáváme doplnění dalšího slova. Pokud síť doplní slovo „lásky“, pokračujeme dál. Pokud ne, provádíme trénování a úpravy různých vektorů vhodnými algoritmy, dokud model správně neodhadne slovo „lásky“. Jakmile se trefí, pustíme na vstup</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="8f0edb46-cec5-46cd-9e89-e9968f57b898" class="">
+          Byl pozdní večer – první máj – večerní máj – byl lásky
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36f0d140-b634-4137-970d-a6c64a9a3add" class="">.. a opakujeme postup, dokud netrefí správně slovo „čas“.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fe16f672-641e-4680-8a23-ea2a8cebdf23" class="">Data, která dáváme modelu takto dokola na vstup nejsou nekonečná, tvoří jakési posuvné „kontextové okénko“, které má v případě GPT-3 délku 2048 tokenů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="63f12a4e-3e12-4b3d-8187-5ae752462024" class="">Algoritmus pro trénování byl použit Adam (detaily nastavení v paperu na straně 43), což je optimalizační technika založená na stochastickém sestupu gradientu, popsaná například zde: <a href="https://towardsdatascience.com/adam-latest-trends-in-deep-learning-optimization-6be9a291375c">Adam — latest trends in deep learning optimization</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="0ffefcef-5f67-49bd-b01f-30bbf8cc3076" class="">Stochastický sestup gradientu</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c5ea5a63-13a2-404a-96fc-29b246f36696" class="">Pod výrazem <em>„stochastický sestup gradientu“</em> si představte druh úloh z matematiky, které se zabývají nalezením globálního minima (či maxima) s co nejmenší námahou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="47b91e90-6f94-4b63-b87e-fa9ef16586f8" class="">Například pokud by se jednalo o 3D prostor, můžeme si představit pohoří se spoustou údolí a kopců, které jsou tvořeny body v našem prostoru, a cílem je najít poslepu to <strong>nejhlubší</strong> údolí. Máme ale k dispozici jen prst, kterým můžeme do mapy ze-shora bodat, a tím prstem cítíme do jaké výšky jsme narazili a jestli se terén svažuje nahoru, nebo dolu.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="18f6f376-a66e-4f27-82c0-fc5951882811" class="image">
+          <a href="Untitled_10.png" title="Untitled_10.png"><img style="width:432px" src="Untitled_10.png"></a>
+          <figcaption>
+            <em>(Obrázek pochází z</em> <em><a href="https://www.quora.com/Does-Gradient-Descent-Algo-always-converge-to-the-global-minimum">Does Gradient Descent Algo always converge to the global minimum?</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e02ca645-a638-46e6-8499-0ae87220dcf1" class="">Jedním z možných algoritmů je prostě bodnout někam náhodně do mapy a pak zkusit bodat do kruhu kolem, jestli jsme se třeba netrefili do kopce a někde kolem není sestup do údolí. A když jo, tak to celé zopakujeme tím směrem, kde je údolí. Některé jiné techniky používají například postup tím směrem, kudy se cesta minule svažovala dolu.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="4e6b81e0-e2a5-42ba-a4dc-e4a32531fbdb" class="image">
+          <a href="Untitled_11.png" title="Untitled_11.png"><img style="width:480px" src="Untitled_11.png"></a>
+          <figcaption>
+            <em>(Obrázek pochází z článku</em> <em><a href="https://snlpatel0012134.wixsite.com/thinking-machine/single-post/StochasticGradientDescent-SGD">What is Stochastic Gradient Descent (SGD)</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aa3df4fc-aa00-4624-8235-2f31feab2902" class="">Stochastické algoritmy jsou druh matematických algoritmů, které se snaží s co nejmenším počtem bodnutí do mapy najít ne jen nějaké údolí, ale rovnou to <strong>nejhlubší</strong> údolí. To může zahrnovat různé chytristiky, jako třeba <em>„nevzdávej se potom co narazíš na první údolí, ale zkus ještě sejít z kopce jiným směrem“</em>, nebo třeba opětovné lezení na kopec, či náhodnou změna místa do kterého teď bodáme.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ca704214-2ab2-42f8-a9a8-f5c0425bc945" class="">Tahle úloha nám může připadat lehká, ale jen protože se díváme na kopec očima, které každým pohledem přijímají miliardy fotonů odražených od kopce. Pokud bysme vnímali svět kolem sebe jen jedním fotonem, taky by bylo v našem zájmu mít algoritmus, kterým si vnímání světa kolem sebe co nejvíc zrychlíme. Každé testování kopce nás stojí bodnutí prstem do mapy, vyslání či přijmutí fotonu, nebo čistě prakticky výpočetní instrukce, a tedy čas a energii.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1fc18a09-4c86-4eec-8019-8d3fda53b018" class="">Adam je efektivní druh hledání mnohodimenzionálních údolí v mnohodimenzionálních prostorech. Způsob jakým funguje je kompromis, aby bylo v datech třeba co nejméně-krát bodnout do mapy (tedy zjistit jaká je tam hodnota a sklon), a celé to tedy fungovalo co nejrychleji a našlo to zároveň co nejhlubší údolí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fec0aba4-d1a8-4e6e-bb91-8c559a535034" class=""><a href="https://www.abclinuxu.cz/lide/hrachj">Jenda z abclinuxu</a> pěkně popsal jak se to pak používá:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="9ec7dee6-9504-4758-ae91-29641e09650e" class="bulleted-list">
+          <li style="list-style-type:disc">Hodnota chybové funkce je počítaná jako „kolik procent chybí slovu „lásky“ z předchozího příkladu do 100%“, a toto posčítané přes všechny příklady z celého trénovacího setu.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="a076aee0-1e58-4bbf-a3e3-fc844daea2ab" class="bulleted-list">
+          <li style="list-style-type:disc">Terén je funkce R^175000000 → R. Funkci se dají aktuální váhy modelu a ona vrátí hodnotu chyby. A my ji chceme minimalizovat.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="07b52140-ec33-4662-b4fb-285d13d311b1" class="bulleted-list">
+          <li style="list-style-type:disc">Při minimalizaci ale nemůžeme hrabat přímo na tuto funkci, jednak protože její vyhodnocení je příšerně drahé (znamená to vyhodnotit a posčítat něco přes všechny prvky datasetu), jednak protože má lokální minima ve kterých bychom se zasekli.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c6111ec4-e7d1-4b8a-977b-aaec2e103c84" class="bulleted-list">
+          <li style="list-style-type:disc">Proto děláme to, že vytáhneme z datasetu jenom pár samplů (tomu se říká minibatch), a chybu budeme vyhodnocovat na nich. Tím získáme nějaký trochu jiný terén, který snad bude podobný tomu „globálnímu“ terénu, ale dá se s ním počítat.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e74f5485-b3a4-4e0c-90a8-47eee46bf354" class="bulleted-list">
+          <li style="list-style-type:disc">Nyní spočítáme aktuální výšku tohoto terénu, určíme, kterým směrem je to z kopce, a tímto směrem kousek popojdeme.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="1b4bc866-fc04-4412-bd90-1b25ce93845f" class="bulleted-list">
+          <li style="list-style-type:disc">Vytáhneme dalších pár samplů a opakujeme. Pro tyto jiné samply bude terén vypadat trošku jinak, a například doufáme, že lokální minima budou v jiných místech, takže pokud jsme do nějakého vstoupili, tak teď se trochu posunulo a zase z něj vylezeme.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="88c5bac5-430b-4b22-9241-3dededff66c3" class="">Tohle celé děláme na kopci, který má 175 miliard dimenzí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="eab1d7c0-3608-4b79-8a2d-5ac7865d30e2" class="">Možnosti použití</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1dcad963-5dc9-4455-86ad-edf32e99a391" class="">Říká se, že poslední renesanční člověk byl pravděpodobně <em>Leonardo da Vinci</em>. Tedy člověk, který znal všechna umění a řemesla své doby. Od té doby, praví rčení, je svět tak složitý a specializovaný, že nikdo nemůže znát všechno.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="209b2a7b-3ec7-45bb-b27f-e0f862723afc" class="">GPT-3 sice není člověk, inteligenčně je o hodně níž, ale renesanční rozhodně je. Tím že se učil čtením textů ví něco prakticky o všem, o čem něco četl. Jeho možnosti chápání, udržení kontextu a logicky odvozovat věci jsou omezené, ale jeho znalosti dost možná už v současnosti jsou větší, než libovolného jiného žijícího člověka.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1d6c0310-6574-4d5f-837e-db6598d853d4" class="">Článek je možná laděn v až moc pozitivním duchu; je třeba přiznat si, že GPT-3 má stále spoustu omezení, dělá spoustu stupidních chyb a celkově rozhodně není dokonalý.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33baf435-a9c0-44ad-863a-fc061eb08dde" class="">Na druhou stranu je nutné dodat, že i současná verze je snad jako první <em>použitelná</em> pro spoustu věcí, i se všemi svými omezeními. To se stále bavíme o verzi, která není specificky trénovaná pro konkrétní činnosti (takzvaný fine-tuning), což má být další feature kterou chce OpenAI zpřístupnit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="89802708-5010-4f67-9de6-73cdeb7cca6a" class="">Pojďme se nyní podívat, jak se to vlastně celé prakticky používá.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="31586649-c9a1-4ea6-b730-6d1cc133ddfd" class="">Ukázka API</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ee69146-2b81-4a16-8b39-f415b83db1c2" class="">Přístup do API se nachází na adrese <a href="https://beta.openai.com">https://beta.openai.com</a>. Zde je možné najít nějakou základní dokumentaci, popis použití, tutoriály a různé další relevantní informace.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="54c0e73c-558b-4b36-9aa8-9144146e3e31" class="image">
+          <a href="welcome.png" title="welcome.png"><img style="width:1745px" src="welcome_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="70b3842d-f4aa-445f-98cc-993cb0fd2b4b" class="">Vpravo nahoře je možné si vybrat z několika různých modelů, OpenAI samotné doporučuje model <code>davinci</code>. Ostatní modely jsou také pojmenovány podle různých historických postav.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="8bcd2ff6-1144-412d-a3ad-13ff7cc6c9a4" class="image">
+          <a href="abclinuxu_question.png" title="abclinuxu_question.png"><img style="width:1745px" src="abclinuxu_question_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="df9ebebd-a6a8-4239-9b2c-f9571ef9d7c9" class="">Každá ukázka se také dá zobrazit jako volání API pomocí CURL nebo Pythonu. Vpravo je možné vybrat si různé parametry, které model konfigurují co se týče délky vráceného textu, náhodnosti a tak podobně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="ed12eefe-c9dd-4e4e-a241-477f7845b2bc" class="">Použitelnost</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2082643e-aa2b-495c-aa26-5ca4498c467a" class="">Celkem nepřekvapivě se většina práce s GPT-3 smrskává do vytvoření vhodného „předpřipravení“, a nastavení správných parametrů. Jak už jsem vysvětloval, model jen doplňuje slova (tokeny). Pokud po něm něco chcete, je třeba ho dostat do „nálady“ tak, aby mohl doplnit očekávané výsledky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3967c04d-f2a4-47a2-9b6a-6dfe135cf0ce" class="">To bohužel nemusí být jednoduché. Často se mi třeba podařilo vyvolat divoké chování, když jsem špatně nastavil nějaký parametr. Občas model prostě napíše, že odmítá odpovědět, a chová se tak trochu jako naštvané dítě. Jindy si prostě vymyslí krycí historku, kterou se totálně utrhne ze řetězu očekávaného výstupu, nebo se pustí do <a href="https://cs.wikipedia.org/wiki/Tautologie">tautologií</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="92ab65c5-f6ea-46ec-bd34-48124f6f89c5" class="">Co se týče generování textu, převodu na různé jiné popisy, nebo vysvětlování věcí, dařilo se mi během chvíle dosahovat očekávaných výsledků. U různých jiných úkonů jsem už ale zas tak moc úspěšný nebyl, a očekávám, že nejspíš vyžadují netriviální množství času hraní si s parametry. Například různé odvozování faktů, či snaha donutit model generovat ASCII arty (jako například ty noty v ukázkách nahoře), mi vůbec nevyšla podle očekávání.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="72645e4a-f273-494f-89ff-5c4116387cd4" class="">Myslím že se zpřístupněním API se otevře nová pozice „kormidelníka“ výstupu, tedy druh specializace lidí, jenž budou nabízet generování „předpřipravení“ a nastavení parametrů pro řešení konkrétních problémů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="252dc246-fd5d-4005-b067-d1c0efdeb9e0" class="">Otázky</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="e69d00bb-4d0c-4469-a0d7-df286c9a3313" class="">Před-singularita</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="09f29865-4183-4309-b586-586481c52bde" class="">Člověk se samozřejmě musí zamyslet nad tím, kam tohle spěje. Vybavuje se mi ilustrace z článku <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html">Tima Urbana o umělé inteligenci</a>:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="01a359dc-a4b5-4db2-b7c1-51e320ebde19" class="image">
+          <a href="Untitled_12.png" title="Untitled_12.png"><img style="width:1376px" src="Untitled_12_thumb.jpg"></a>
+          <figcaption>
+            <em>(Obrázek pochází z článku</em> <em><a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html">The AI Revolution: The Road to Superintelligence</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5fae6074-9517-4d80-933a-11fc0ce6b1cd" class="">GPT-2 byla taky taková roztomilá opička, která uměla doplňovat texty. Sám jsem si s ní chvíli hrál a krmil jí kousky textů mých oblíbených autorů, načež mě fascinovalo, když pokračovala přesně jejich stylem, i když z většiny se jednalo o text, který nedával moc velký smysl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2c67691a-c781-4837-a409-dd01c9a6d56d" class="">Jeden den jsem si říkal, jak nám to vývoj na poli umělé inteligence roztomile pokračuje, druhý den najednou čumím že GPT-3 není zas o tolik níž, než úroveň pro „<em>Dumb human</em>“, tedy hloupého člověka.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c653541f-cfec-402c-b2aa-c19f24d0188a" class="">Což je zarážející, vzhledem k tomu že se jedná o stejný druh <em>machine learningu</em> jako GPT-2, jen natrénovaný na větším množství dat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4f684bf2-7d1a-4794-9ceb-c4a1aad1cc4b" class="">Architektura GPT-3 je do jisté míry velmi hloupá. Kam to asi tak půjde dotáhnout, pokud se bude trénovat na specifické dovednosti, ale například se zvětší kontextové okno, přidají různé druhy paměti (krátkodobá, dlouhodobá), matematické koprocesory a tak dál? Momentálně probíhá tréning pouze na textu sklizeném z internetu. Co když k tomu přihodíme například blok symbolické matematiky a donutíme AI se s ním naučit pracovat?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="7d9ba8f5-e126-4b73-9ccc-d2819ad64cb4" class="">Demokratizace AI</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="429f708d-98af-417b-91a9-f3147a6b3d56" class="">Před několika lety jsem četl <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html">články</a> Tima Urbana na téma umělé inteligence, nebo možná lépe strojového učení, a snah <em>Elona Muska</em> demokratizovat ho. Přestože jsem s nimi souhlasil, tak jsem je skutečně nechápal, ne tak jak je chápu teď, když jsem měl na vlastní kosti možnost zažít si šok z pokroku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="489d80f9-74a4-4286-b936-9957d9161cb7" class="">Představte si model GPT-10, který je ve všech ohledech lepší než člověk. Větší pochopení psaného textu, schopnost udržet kontext, dělat matematiku, logiku, programování a prostě cokoliv. K tomu masivní korpus znalostí celého světa.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="99bdce62-1167-4193-8105-ed4b1fee0219" class="">I když předpokládáme, že ho nebude ovládat žádná zlá společnost, už samotné schopnosti, které má GPT-3 jsou dost husté na to abych si dovedl představit tisíce různých užitečných použití k získání výhody a náskoku nad konkurencí. Hypotetické GPT-10 by společnosti, či vládě, která ho bude vlastnit, dávalo ohromné možnosti.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d11c8eaf-787c-4508-974e-50eb9963591e" class="">Podle mého je nutné víc podpořit demokratizaci AI, tedy ten proces, kdy autoři AI si ho nenechávají pro sebe, ale sdílejí ho se světem, ale zároveň taky všude možně probíhají podobné experimenty.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="ceb0493b-3b5b-4a24-a4ac-de362141ac57" class="">Uzavřený přístup</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a8c1bbab-dc79-4034-948f-88299c935c96" class="">OpenAI se rozhodla, že model nezpřístupní veřejnosti ve formě surových dat modelu, ale <a href="https://en.wikipedia.org/wiki/OpenAI#cite_note-gpt3-whynotfullmodel-65">plánuje</a> ho časem zpřístupnit formou placeného přístupu k API. Tento přístup je momentálně v beta režimu. To znamená, že můžete požádat o přístup, ale zařadíte se pouze k desítkám tisíc dalších čekajících, na které se snad časem dostane. Sám jsem se k přístupu registroval před asi měsícem, a zatím se nikdo neozval.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ab2fce7b-dc07-4651-9af4-9d98d9767ab8" class="">Ačkoliv by se mi líbilo mít přístup přímo k modelu samotnému, a mít tedy možnost ho dále trénovat a dělat na něm experimenty, je nutné připomenout, že trénování a pravděpodobně i běh modelu vyžaduje superpočítač. Superpočítače jsou nejenom drahé na pořízení, ale také na provoz.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="76fa78a4-96ec-431f-92bf-33f3fd22d993" class=""><a href="https://github.com/openai/gpt-3/issues/1">Issue na Githubu</a> projektu zmiňuje nějaká konkrétní čísla, která jsou ovšem založená pouze na odhadech. Zmíněno je 700+GB paměti a cca 22 grafických karet, každá s 16GB RAM, s tím že i tak by model pravděpodobně běžel pomalu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="396d9b56-8656-4aaf-8d9b-a1b2694274e8" class="">Na nějaký vlastní odhad nemám dostatečný technický backgroud. Faktem ovšem je, že OpenAI uzavřela partnerství s Microsoftem. Ten nedávno <a href="https://blogs.microsoft.com/ai/openai-azure-supercomputer/">oznámil</a>, že superpočítač pro OpenAI má být provozovaný v Azure cloudu. Celkem by měl mít 285 000 CPU jader a 10 000 GPU.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2bf6cb9f-9bc6-44c0-9590-01176f65d0d6" class="">Nepodařilo se mi zjistit, jestli už byl použit pro trénování a provoz GPT-3, nebo se jedná o budoucí projekt. Některá oznámení jsou z roku 2019, a tváří se jako že byl někdy koncem roku předán OpenAI, jiná oznámení se tváří jako že byl předán teprve někdy v půlce 2020.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="39af327c-8c9e-4417-86ca-691513eb04ce" class="">Každopádně to trochu dává představu ohledně hardware a ohledně ceny jednoho požadavku na API.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="e7b33810-df44-4bd3-94a8-3224a7b0d3cb" class="">Kde můžu získat přístup</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="590751f0-5151-4e14-ab46-f9ff5dac5d99" class="">Osobně mi byl přístup zapůjčen někým kdo ho už má. Pokud ve svém sociálním okolí nikoho takového nemáte, je možné získat přístup přes hru <a href="https://play.aidungeon.io/">AI Dungeon</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="927af910-cd39-4c63-ae24-aec861cf90fe" class="">AI Dungeon využívá model GPT-2 pro hraní textové hry, kde si můžete vybrat z několika různých tématických světů. <a href="https://play.aidungeon.io/subscribe">Platícím hráčům</a> (týden zdarma, potom $9.99/měsíc) však <a href="https://medium.com/@aidungeon/ai-dungeon-dragon-model-upgrade-7e8ea579abfe">nabízí</a> zprostředkovaný přístup k GPT-3. Ten je sice „předpřipravený“ scriptem pro uvedení téma textové hry, je možné ho ovšem vlastním textem „předpřipravit“ na něco jiného, a vyzkoušet si tak na něm interakce s GPT-3.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a2084e7a-8f1e-4119-9747-0f263224db7d" class="">Na twitteru se dají najít poměrně zajímavé ukázky interakce s GPT-3. Některé jdou do poměrně metafyzických témat, když například někdo zjistil, že GPT-3 dělá záměrně v rozhovorech chyby, které by dělala reprezentovaná postava. Ukazuje se tedy že v „hlavě“ v rámci autenticity modeluje osobnost postavy včetně chyb.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="10ae5755-4e24-4dbf-b7c7-33c5fa3db6e5" class="image">
+          <a href="Untitled_13.png" title="Untitled_13.png"><img style="width:818px" src="Untitled_13.png"></a>
+          <figcaption>
+            <em>(Zdroj obrázku:</em> <em><a href="https://twitter.com/kleptid/status/1284069270603866113">https://twitter.com/kleptid/status/1284069270603866113</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="279289fc-1b6d-4c5e-9a05-8af3e318e2f7" class="">GPT-4?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4bc99410-0756-4d48-8529-2b45fdfd7a7b" class="">To že teď čteme o GPT-3 znamená, že jsme masivně pozadu, a že v OpenAI, ale pravděpodobně i na mnoha dalších místech na světě, se už vaří další verze.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a534a16b-ea43-4b7a-83a6-76bae5e36355" class="">Zajímavý je model <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT</a> (<a href="https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270">detaily</a>), který je vyvíjený v několika jiných institucích. Za zmínku taky stojí projekt <a href="https://huggingface.co/">HuggingFace</a>, který na githubu sjednocuje v jednom repozitáři všechny možné architektury a datové zdroje pro mnoho různých transformerů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2ac529fa-5d2e-4c1f-8f13-a37d3e1838da" class="">Ten kdo má dnes přístup k superpočítači a možnosti tam zkoušet a zkoumat alternativní přístupy, ten může zítra doslova udělat díru do světa, jako se to povedlo třeba Tomášovi Mikolovi s word2vec.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="695132c4-123a-4d40-adf5-03d5a2a82d80" class="">Hype</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9c8384c5-2441-4f8d-a912-374972e0666b" class="">Ačkoliv v Čechách se zatím informace o GPT-3 prakticky nedostaly ani do odborné literatury, v anglicky hovořících médiích vznikl „hype“, tedy jakýsi kult místy až přehnaného adorování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9d587857-7653-439f-b223-64927beedc87" class="">To samozřejmě vedlo k proti-reakci, kde u spousty lidí je teď moderní GPT-3 odsuzovat, jako že je <em>„přehypované“</em> a k ničemu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7de90834-6842-4bde-93e3-33934fcbb7e2" class="">Osobně si myslím, že nemá smysl podléhat ani jedné vlně. GPT-3 je jen nástroj, který můžeme zkusit používat k něčemu produktivnímu. Nemá smysl ho „<em>hejtovat“</em> že je k ničemu, když nezvládne vyřešit co po něm chceme, ani adorovat jako že vyřeší všechny naše problémy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e581b972-090a-456d-8b13-aaf85703fe4f" class="">Osobně se k tomu stavím asi jako ke kompilátoru; je užitečné vědět, že to existuje, může být užitečné to zkusit použít na nějaký svůj projekt, kde mi ušetří práci. Teoreticky to má potenciál pro automatizaci nudných opakovaných záležitostí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="2c2de3e0-ae2b-48b1-b1dc-68350c0f878c" class="">„Závěr“</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8a144701-eedb-4dec-88cf-6370b28449d9" class="">Jako už jsme si řekli, GPT-3 není nástroj pro každého, a není to ani nástroj pro každou věc.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7e4c1911-0d64-4315-b5cb-6885259bb088" class="">OpenAI v roce 2018 předvedlo první generaci, která dokázala reagovat na text. Už ta byla poměrně dobře použitelná, ale pouze v rámci několika témat. A to je vlastně tak trochu celý problém.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d9d2721a-46fb-42e2-b6d8-870e8fde99f9" class="">Doufám, že se časem podaří otevřít zdroje, které OpenAI využívá, a bude možné vyzkoušet trénování s různými databázemi a jinými typy dat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="82a3af01-f46b-4d1f-9dd7-0e98df47bc11" class="">Pokud chceme GPT-3 hodnotit, je třeba si uvědomit, že se jedná o reálnou věc, nikoliv o nějakou hypotetickou konstrukci nebo výzkumný výsledek. V praxi je sice OpenAI GPT-3 ještě daleko od cíle, ale je to vlastně nejlepší model široce dostupný veřejnosti.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="83c2ca46-701d-4115-a1ef-4be0399d85c7" class="">A samotné GPT-3 přináší obrovský objem dat. To vše je důvodem, proč se dnes jedná o jeden z nejvýznamnějších výzkumných úspěchů v oblasti AI.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b7f5d8c0-3e9c-4d47-a9cb-5c9729b352b7" class="">Zdá se, že se všechno docela rychle hýbe k něčemu docela zajímavému. Nejsem si jistý, zda tohle je ono, ale velmi mě to zaujalo. Prakticky každý den se objevuje nějaká nová věc, která se dá použít pro vytváření lepších algoritmů. Jakékoliv inovativní nápady, různé experimenty, zajímavé datové zdroje a koncepty jsou velmi vítány ;)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="5639f029-ce4a-45ac-ac85-e3d3a1340dae" class="">Skutečný závěr</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="da2b167c-aa10-4c1e-8c14-95fd793cd876" class="">Původně jsem výše uvedený „závěr“ neplánoval, když jsem však zkusil GPT-3 nakrmit částí tohoto článku (bere jen 2048 tokenů), napsal ho sám i s názvem kapitoly a markdownem pro nadpis. Umí totiž i česky, i když pár chyb (hlavně ve skloňování) jsem musel opravit. Samozřejmě také předchozí ukázku nezvládl na první pokus, musel jsem to pustit přibližně desetkrát, než jsem z něj dostal něco podobně koherentního. Výsledek je složený z několika průběhů, ale i tak je zajímavý.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4b2e8310-4bb8-4b0f-b2ee-f0c8033f8273" class="">Ukazuje to pěkně čeho všeho je model schopný. Například GPT-2 sice taky zvládal češtinu, ale velmi bídně, věty působily dost nekoherentním dojmem a často na češtinu odpovídal anglicky. Určitě by nedokázal takhle jednoduše psát sám o sobě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7451a85d-52cd-4362-8e2f-65f8d9539aab" class="">Jsem zvědavý kam tohle všechno povede. Momentálně je technologie <em>machine learningu</em> a „<em>umělé inteligence</em>“ stále ještě v plenkách, zároveň se ale rozvíjí děsivou rychlostí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="38029e98-8e62-423e-a197-182abf3eec05" class="">Už několik let si vedu poznámky na téma <em>„k čemu všemu bych využil osobního skřeta“</em>, kam se snažím shromažďovat druhy prací a otravností, u kterých by bylo fajn, kdyby je za mě řešila nějaká automatizace. Například se jedná o generování metadat k různým projektům.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d7fabeab-0813-43bb-890f-1b5e2d8d9930" class="">Těším se na dobu, kdy budu moct použít nějakou podobně užitečnou AI, jenž by za mě tyhle nudné tasky dělala, bez toho aniž bych musel strávit několik dní nastavováním různých šablonovacích enginů a psaním vlastních scriptů. Taky by se mi velmi hodilo něco, co dokáže prohledávat počítač podle zadaných pravidel a sémanticky rozumí tomu co po tom chci. Občas se například snažím najít email, či dokument, aniž bych si pamatoval konkrétní klíčová slova.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="024f371c-3f81-4f34-847a-bf64f9e85196" class="">Spousta lidí má ze stále lepší „AI“ (ve skutečnosti <em>machine learningu</em>) strach. Do jisté míry to chápu. Je třeba si ovšem uvědomit, že se nejedná o magii, je to prostě jen druh programu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a1f07d70-d679-4259-ac25-f42a5ce90766" class="">Z hlediska „<em>normálních lidí</em>“ můžete být v klidu; „<em>umělá inteligence</em>“ v tomhle podání je jednodušší a dává vám větší možnosti použití, než klasické počítače a programování. Pokud zvládnete delegovat práci a popsat zadání dalšímu člověku, zvládáte používat i tenhle druh umělé inteligence. Nepřicházíte o možnosti, naopak je tím získáváte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fa5005e7-58c4-4c73-b3bf-a64f1b7afa5f" class="">Teď se jen postarat o to, aby měli všichni k dispozici přístup. Bylo by fajn, kdyby se z toho nestal zdroj útlaku držený v rukou několika jedinců a korporací, které ho využijí k vyřazení konkurence a horším věcem (viz třeba čínská totalita a jejich sociální kredit), ale nástroj pro obohacení možností a schopností každého z nás.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="00db0416-e21d-4cda-8ec0-0c37bbe81cf1" class="">Edit <time>@2020/09/21</time></h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3331eec2-405b-4228-adaf-928229d80a1e" class="">Krásný talk s Joschou Bachem (mimochodem člověk, kterého doporučuji sledovat) na téma GPT-3 a co dělá a jak funguje:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="523bb265-68aa-4e18-bd27-08cdb388a1ae">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/FMfA6i60WDA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="c9a930ef-116a-4991-a2ec-aaaed0dfe3bc" class="">Zdroje</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="839be2c4-5194-45ad-8fae-8ea18eecf81a" class="">Česky</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="117a6757-6297-4a5b-9d02-95243cfb40d8" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://cs.wikipedia.org/wiki/Vno%C5%99en%C3%AD_slov">Vnoření slov - wikipedie</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="6a07d55f-1684-4cfc-a240-2185c5f2edda" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.mlguru.com/cs/word2vec-jednoducha-aritmetika-se-slovy/">word2vec – jednoduchá aritmetika se slovy</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="5adb0a68-f4ea-4aed-9d0f-420c519551e3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://investree.cz/umela-inteligence/">Umělá inteligence Open AI, GPT-3 může být největší inovací od bitcoinu</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="fe41fb03-3743-49dd-a6f7-681e162c2bd3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.zive.cz/clanky/microsoft-postavil-nejvykonnejsi-superpocitac-pro-umelou-inteligenci-bude-ho-vyuzivat-openai/sc-3-a-203979/default.aspx?fbclid=IwAR3HeV4PJnalChghkNyscXzMCSS6T7sPfgQ4jhXZ1twJbgWO3CfOvWsgIpk">Microsoft postavil nejvýkonnější superpočítač pro umělou inteligenci. Bude ho využívat OpenAI</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="4806df48-2c42-403f-bcac-40b8a879cf9a" class="">Anglicky</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c38966f2-1c87-4e98-b56d-6d0ed0d0b6c5" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://jalammar.github.io/illustrated-word2vec/">The Illustrated Word2vec</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="a5b09eb4-6191-491d-8eea-0d1bc15b90a1" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://cbail.github.io/textasdata/word2vec/rmarkdown/word2vec.html">Word Embeddings</a> (o word2vec a podobných)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="1db0a136-eaeb-455f-9df7-30f9e1bfc9e5" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://towardsdatascience.com/word-embeddings-for-nlp-5b72991e01d4">Word Embeddings for NLP</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="049f5169-7c99-463f-9b91-203e68a7f569" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space">Embeddings: Translating to a Lower-Dimensional Space</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="03fda63d-a2e6-4b03-8f91-337e15c46967" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://jalammar.github.io/how-gpt3-works-visualizations-animations/">How GPT3 Works - Visualizations and Animations</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="220fa9de-0b2c-4062-aad6-dee345649b4b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://towardsdatascience.com/will-gpt-3-kill-coding-630e4518c04d">Will The Latest AI Kill Coding?</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="236d78c6-b7db-4fc3-a54a-2a53a3636de5" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.theverge.com/21346343/gpt-3-explainer-openai-examples-errors-agi-potential">OpenAI’s latest breakthrough is astonishingly powerful, but still fighting its flaws - The Verge</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="79fd665e-e7bd-4af5-8909-7e3a2e50506b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://lambdalabs.com/blog/demystifying-gpt-3/">OpenAI's GPT-3 Language Model: A Technical Overview</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2924d5ff-34d9-488a-8105-00963464a482" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://lambdalabs.com/blog/gpt-3/">GPT-3: A Hitchhiker's Guide</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e5dd03bb-dce4-44e6-9357-dec3e17a8e91" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://leogao.dev/2020/05/29/GPT-3-A-Brief-Summary/">Why GPT-3 Matters</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2f959a2c-5e72-44ca-9ad0-2ab1ae15a751" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://medium.com/inside-machine-learning/what-is-a-transformer-d07dd1fbec04">What is a Transformer?</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="a1acede7-0278-45bd-aa31-0ca2d45e008a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/openai/gpt-2/">https://github.com/openai/gpt-2/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="532a9956-8630-4ca7-9ebc-8ae1b4d310d3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://duckduckgo.com/?q=site%3Acdn.openai.com&amp;t=hk&amp;ia=web">https://duckduckgo.com/?q=site%3Acdn.openai.com&amp;t=hk&amp;ia=web</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="03ec2447-0b3f-4c03-a4ca-f7ed7c18f891" class="">Relevantní diskuze</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="5714e175-af5f-4d9c-80fc-e788bd46da6d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.abclinuxu.cz/blog/bystroushaak/2020/8/gpt-3/diskuse">abclinuxu</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

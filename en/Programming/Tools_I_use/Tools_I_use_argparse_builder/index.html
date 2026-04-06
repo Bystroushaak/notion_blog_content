@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
           <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
@@ -135,48 +135,90 @@
   </div><a href="../../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../../index.html" class="breadcrumb" title="Programming">Programming</a> / <a href="../index.html" class="breadcrumb" title="Tools I use">Tools I use</a> / Tools I use: argparse builder
   <article id="6fd6aea2-9e49-4f45-902f-e8ce63da08a3" class="page sans">
     <header>
-      <h1 class="page-title">Tools I use: argparse builder</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Tools I use: argparse builder</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="70ee4b3d-e89b-442e-a7de-e445b2911eb2" class=""><time>@2020/10/05</time></p>
-      <p id="f3f56d11-2b9b-45ec-b3c4-25b274a9b7ea" class=""><a href="http://kitakitsune.org/argparse_builder/">argparse builder</a> is one of my older projects I created in 2014 when I found out that <a href="https://brython.info/">Brython</a> (browser python) exists. It is a simple graphical interface for quick creation of the <a href="https://docs.python.org/3/library/argparse.html">argparse</a> commandline switches for your scripts.</p>
-      <p id="ef3d0cf5-1324-450c-a634-a4607e45cdf3" class="">I created it, because I was constantly forgetting types of parameters for the argparse and what options there are.</p>
-      <p id="33e76c0b-6362-49c9-b08c-7652bb880d12" class="">Here is how it looks like:</p>
-      <figure id="a5c09ecb-df2c-40d6-86c5-0eb05cbe1a9d" class="image">
-        <a href="argparse_builder_1_overview.png" title="argparse_builder_1_overview.png"><img style="width:987px" src="argparse_builder_1_overview.png"></a>
-      </figure>
-      <p id="7a8d7c02-9480-4348-a1e0-0058be0e86e7" class="">You can type your arguments into the table presented in the <em>Arguments</em> section.</p>
-      <figure id="927591ff-e87d-4d4d-a21f-03186acc220a" class="image">
-        <a href="argparse_builder_2_argument_menu.png" title="argparse_builder_2_argument_menu.png"><img style="width:969px" src="argparse_builder_2_argument_menu.png"></a>
-      </figure>
-      <p id="7cc9498a-acd9-43ab-a467-3256849a9973" class="">If you are not sure what the argument syntax is, you can click on the link next to it and popup with documentation will open:</p>
-      <figure id="7f7f05a4-176c-44c8-acf0-2d50da47519b" class="image">
-        <a href="argparse_builder_3_help.png" title="argparse_builder_3_help.png"><img style="width:1396px" src="argparse_builder_3_help_thumb.jpg"></a>
-      </figure>
-      <p id="c41edd98-4435-478a-8981-6f859ad5997e" class="">Adding new arguments is easy:</p>
-      <figure id="099ef7b8-8c2b-4723-a846-fd2d2ad844e8" class="image">
-        <a href="argparse_builder_4_add_new_argument.png" title="argparse_builder_4_add_new_argument.png"><img style="width:969px" src="argparse_builder_4_add_new_argument.png"></a>
-      </figure>
-      <p id="5c4b93f6-b8cc-45d4-ba88-1d69f70d789e" class="">Here I highlighted some key elements of the argument table. Notice that there are quotes around some of the arguments. That means, that they will be wrapped with quotes in the output. Notice That <code>nargs</code> don't have quotes, so I have to insert them manually. That is because sometimes you want to use something like <code>argparse.REMAINDER</code> or some other variables.</p>
-      <p id="0ca4dfec-cc78-4545-bcc7-aa4c99620743" class="">You can also choose actions and it changes some of the properties in the table. For example, I want the second argument to be binary, so I choose <code>store_true</code> from the dropdown menu.</p>
-      <figure id="63e9ee4a-8417-443a-adf2-a18fd03d4c93" class="image">
-        <a href="argparse_builder_5_argument_types.png" title="argparse_builder_5_argument_types.png"><img style="width:1008px" src="argparse_builder_5_argument_types.png"></a>
-      </figure>
-      <p id="cb6261db-ccea-4615-b792-20b89ecd908c" class="">When I want the generated code, I simply click into the output:</p>
-      <figure id="e15cd627-9995-4396-8841-97b72d9c0c8d" class="image">
-        <a href="argparse_builder_6_click_for_output.png" title="argparse_builder_6_click_for_output.png"><img style="width:1012px" src="argparse_builder_6_click_for_output.png"></a>
-      </figure>
-      <p id="2e4ff009-a321-445f-9936-947725bdcfe2" class="">And here it is:</p>
-      <figure id="66a30929-32b6-496f-81dd-eff351b0a3dd" class="image">
-        <a href="argparse_builder_7_output.png" title="argparse_builder_7_output.png"><img style="width:976px" src="argparse_builder_7_output.png"></a>
-      </figure>
-      <p id="bc24ae91-4672-4b09-8aae-cd8cdb3218ae" class="">When I copy the code to the python file, I can see how it works:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="6b578908-88e4-4b76-82c3-5e12a178f9dc" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ ./argparse_example.py -h
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="70ee4b3d-e89b-442e-a7de-e445b2911eb2" class=""><time>@2020/10/05</time></p>
+      </div>
+      <div style="display:contents" dir="ltr"></div>
+      <div style="display:contents" dir="auto">
+        <p id="f3f56d11-2b9b-45ec-b3c4-25b274a9b7ea" class=""><a href="http://kitakitsune.org/argparse_builder/">argparse builder</a> is one of my older projects I created in 2014 when I found out that <a href="https://brython.info/">Brython</a> (browser python) exists. It is a simple graphical interface for quick creation of the <a href="https://docs.python.org/3/library/argparse.html">argparse</a> commandline switches for your scripts.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ef3d0cf5-1324-450c-a634-a4607e45cdf3" class="">I created it, because I was constantly forgetting types of parameters for the argparse and what options there are.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33e76c0b-6362-49c9-b08c-7652bb880d12" class="">Here is how it looks like:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a5c09ecb-df2c-40d6-86c5-0eb05cbe1a9d" class="image">
+          <a href="argparse_builder_1_overview.png" title="argparse_builder_1_overview.png"><img style="width:987px" src="argparse_builder_1_overview.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7a8d7c02-9480-4348-a1e0-0058be0e86e7" class="">You can type your arguments into the table presented in the <em>Arguments</em> section.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="927591ff-e87d-4d4d-a21f-03186acc220a" class="image">
+          <a href="argparse_builder_2_argument_menu.png" title="argparse_builder_2_argument_menu.png"><img style="width:969px" src="argparse_builder_2_argument_menu.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7cc9498a-acd9-43ab-a467-3256849a9973" class="">If you are not sure what the argument syntax is, you can click on the link next to it and popup with documentation will open:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="7f7f05a4-176c-44c8-acf0-2d50da47519b" class="image">
+          <a href="argparse_builder_3_help.png" title="argparse_builder_3_help.png"><img style="width:1396px" src="argparse_builder_3_help_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c41edd98-4435-478a-8981-6f859ad5997e" class="">Adding new arguments is easy:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="099ef7b8-8c2b-4723-a846-fd2d2ad844e8" class="image">
+          <a href="argparse_builder_4_add_new_argument.png" title="argparse_builder_4_add_new_argument.png"><img style="width:969px" src="argparse_builder_4_add_new_argument.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5c4b93f6-b8cc-45d4-ba88-1d69f70d789e" class="">Here I highlighted some key elements of the argument table. Notice that there are quotes around some of the arguments. That means, that they will be wrapped with quotes in the output. Notice That <code>nargs</code> don't have quotes, so I have to insert them manually. That is because sometimes you want to use something like <code>argparse.REMAINDER</code> or some other variables.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0ca4dfec-cc78-4545-bcc7-aa4c99620743" class="">You can also choose actions and it changes some of the properties in the table. For example, I want the second argument to be binary, so I choose <code>store_true</code> from the dropdown menu.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="63e9ee4a-8417-443a-adf2-a18fd03d4c93" class="image">
+          <a href="argparse_builder_5_argument_types.png" title="argparse_builder_5_argument_types.png"><img style="width:1008px" src="argparse_builder_5_argument_types.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cb6261db-ccea-4615-b792-20b89ecd908c" class="">When I want the generated code, I simply click into the output:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e15cd627-9995-4396-8841-97b72d9c0c8d" class="image">
+          <a href="argparse_builder_6_click_for_output.png" title="argparse_builder_6_click_for_output.png"><img style="width:1012px" src="argparse_builder_6_click_for_output.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2e4ff009-a321-445f-9936-947725bdcfe2" class="">And here it is:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="66a30929-32b6-496f-81dd-eff351b0a3dd" class="image">
+          <a href="argparse_builder_7_output.png" title="argparse_builder_7_output.png"><img style="width:976px" src="argparse_builder_7_output.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bc24ae91-4672-4b09-8aae-cd8cdb3218ae" class="">When I copy the code to the python file, I can see how it works:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="6b578908-88e4-4b76-82c3-5e12a178f9dc" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ ./argparse_example.py -h
 usage: argparse_example.py [-h] [-f [FILE [FILE ...]]] [-s]
 
 optional arguments:
@@ -184,26 +226,43 @@ optional arguments:
   -f [FILE [FILE ...]], --file [FILE [FILE ...]]
                         List of input files.
   -s, --something       Some binary switch.</code></pre>
-      <h1 id="5606df9f-b196-46a7-b85f-b5731c97902e" class="">Notes</h1>
-      <p id="1b0289e3-683d-4b06-a7d4-f093d8ca4942" class="">Although the code is old and unmaintained for long time (last commit 2016), it still works as expected and I use it every time I need to add some argparse interface. It massively lowers the cognitive load, so I don't have to remember all kind argument types and parameters. And it works fine for python3, although it was meant for 2.7.</p>
-      <p id="b9f1f916-2b1b-4a04-81a8-6e267cbffec6" class="">I highly suggest remembering the keywords <em>"argparse builder"</em> and just google it next time you need to add argparse interface to your script, it should be first result in google.</p>
-      <h1 id="ab4eefbb-13c9-4eb4-a13c-6375b89886e4" class="">Links</h1>
-      <ul id="4508bfe4-a4c3-4196-988d-774d766076fc" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://kitakitsune.org/argparse_builder/">http://kitakitsune.org/argparse_builder/</a>
-        </li>
-      </ul>
-      <ul id="36fe081a-127c-4c9e-b4f2-610aa77b6084" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/Bystroushaak/argparse_builder">https://github.com/Bystroushaak/argparse_builder</a>
-        </li>
-      </ul>
-      <h1 id="3377a7af-3c76-4f31-9075-2e54556eac79" class="">Relevant discussion</h1>
-      <ul id="67077b57-93c8-4247-ade3-0726923ce5db" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://news.ycombinator.com/item?id=24692558">hackernews</a> (44 comments)
-        </li>
-      </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="5606df9f-b196-46a7-b85f-b5731c97902e" class="">Notes</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1b0289e3-683d-4b06-a7d4-f093d8ca4942" class="">Although the code is old and unmaintained for long time (last commit 2016), it still works as expected and I use it every time I need to add some argparse interface. It massively lowers the cognitive load, so I don't have to remember all kind argument types and parameters. And it works fine for python3, although it was meant for 2.7.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b9f1f916-2b1b-4a04-81a8-6e267cbffec6" class="">I highly suggest remembering the keywords <em>"argparse builder"</em> and just google it next time you need to add argparse interface to your script, it should be first result in google.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="ab4eefbb-13c9-4eb4-a13c-6375b89886e4" class="">Links</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4508bfe4-a4c3-4196-988d-774d766076fc" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://kitakitsune.org/argparse_builder/">http://kitakitsune.org/argparse_builder/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="36fe081a-127c-4c9e-b4f2-610aa77b6084" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/Bystroushaak/argparse_builder">https://github.com/Bystroushaak/argparse_builder</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="3377a7af-3c76-4f31-9075-2e54556eac79" class="">Relevant discussion</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="67077b57-93c8-4247-ade3-0726923ce5db" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://news.ycombinator.com/item?id=24692558">hackernews</a> (44 comments)
+          </li>
+        </ul>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -214,6 +273,9 @@ optional arguments:
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -240,9 +302,6 @@ optional arguments:
         </li>
         <li>
           <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

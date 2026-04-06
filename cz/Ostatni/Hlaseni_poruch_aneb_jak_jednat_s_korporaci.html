@@ -116,244 +116,610 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Ostatní">Ostatní</a> / Hlášení poruch aneb jak jednat s korporací
   <article id="fbe6132b-3705-4029-8ce0-a1ff1e505931" class="page sans">
     <header>
-      <h1 class="page-title">Hlášení poruch aneb jak jednat s korporací</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Hlášení poruch aneb jak jednat s korporací</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="b1224f6c-520e-4fa3-8dc5-2381d4619dbe" class=""><time>@2015/12/28</time></p>
-      <p id="22067a9f-6ed3-4525-87db-7d743d3d8acb" class="">První práce, co jsem kdy dělal byla „specialista korporátního service-desku“ v nejmenované firmě <em>&lt;F&gt;</em>. Jednalo se v podstatě o řešení poruch a technických požadavků zákazníků. Něco o tom vím, tak jsem se rozhodl sepsat nějaké zkušenosti ohledně hlášení poruch.</p>
-      <h2 id="a199b29b-2005-41cb-a655-0b017a06dc56" class="">Disclaimer</h2>
-      <p id="d9e0290e-eded-4d57-9d0e-233d101613e9" class="">Firmu naschvál nejmenuji, protože jsem podepsal jakési NDA, ale zároveň i z toho důvodu, že díky další praxi vím, že to ve všech velkých korporacích poskytujících internet vypadá podobně. Z legálních důvodů tedy tento článek vnímejte jako tréning v psaní smyšlených příběhů. Všechny osoby jsou smyšlené, všechny údaje náhodné a veškerá podobnost je čistě souhrou okolností.</p>
-      <h2 id="5f858e4e-ba34-497e-877f-818f76e00b7f" class="">Práce</h2>
-      <p id="1ff7ac13-9df2-4968-9d16-89149f19faea" class="">Ale zpět k práci; ta vypada tak, že jsem seděl u počítače, na hlavě sluchátka s mikrofonem a čekal na hovor. Když přišel, tak jsem se představil (<em>„Dobrý den, u telefonu &lt;jméno&gt; &lt;příjmení&gt;, &lt;F&gt; Service-desk, jak vám mohu pomoci?“</em>) průběžně si všechno co mi zákazník říkal sepisoval a zároveň při tom spouštěl různé diagnostiky (na fyzickou linku, na spojení s modemem, na log připojení, log parametrů na vedení atd).</p>
-      <p id="ffbdb1ea-90bd-4273-b36b-cbca549ba17f" class="">Část problémů jsem vyřešil přímo se zákazníkem po telefonu. Obyčejný restart modemu vyřeší tak 50% všech problémů, jindy se mi podařilo něco rekonfigurovat přímo z mých aplikací. Když to nevyšlo, tak jsem soupis informací spolu se všemi diagnostikami uložil do takzvaného trouble-ticketu (TT). Poté jsem jeho číslo nahlásil zákazníkovi a odeslal TT na jiné oddělení, což mohlo být buďto fyzická kontrola sítí, konfigurace modemů, dispečink výjezdů techniků, IP konfigurace, doménáři, emailáři a tak podobně.</p>
-      <p id="1ef47837-d5e5-4f92-88d8-84d08ca37d82" class="">Na jiném oddělení něco zkonfigurovali, či proměřili a po cca hodině to vrátili k nám. To se projevilo tak, že u člověka, který obsluhoval „frontu“ se najednou v aplikaci objevil řádek se zadaným TT, on si v něm přečetl log kombinovaný se zápisem ostatních pracovníků a podle něj buď zavolal zákazníkovi, že je vše vyřešeno (v takovém případě se zároveň zeptal, jestli můžeme TT uzavřít), či aby s ním domluvil další spolupráci, spočívající v dalším restartu, či vyslání technika.</p>
-      <p id="f9d0d40a-1b93-487e-804b-22d6a7279751" class="">Technika mohl občas naplánovat samotný operátor, v některých jiných případech byl nucen předávat celý požadavek na „dispečink“, odkud potom zákazníkovi zavolali přímo manažeři techniků a domluvili s ním čas příjezdu.</p>
-      <p id="8cf62c6c-8b40-4165-905d-a0c3b00752f2" class="">Obecně se dá říct, že naprostou většinu poruch jsme vyřešili do 30 hodin, mezi což nepočítám čekání na technika - když vám v pondělí zákazník řekne, že v místě problému někdo bude až v pátek odpoledne, tak se počítá jen doba, kdy tam technik skutečně je a něco opravuje. Většina techniků odjížděla opravovat ještě ten den, nebo nejpozději příští den, včetně víkendů a svátků.</p>
-      <p id="3f71065e-f9be-45a5-8baf-e6f711d64928" class="">Celý systém se zdá docela jednoduchý, ale bylo tam hodně neoficiálních vedlejších záležitostí, kdy se ukazoval pravý důvod, proč vlastně děláme tuhle práci a nejsou tam místo nás stroje. Typicky to byly situace, kdy volá naštvaný zákazník, kterého je třeba uklidnit, nebo se někde něco zasekne a je potřeba to pošťouchnout telefonátem na konkrétní oddělení, zjebat technika, že nepřijel, když měl (většinou to bylo proto, že něco jiného zabralo víc času, než s čím počítal a prostě neodjede od rozdělané zakázky na jinou opravu), nebo zákazníkovi vysvětlit, že o jeho poruše víme, ale řešit jí teď nebudeme, protože souvisí třeba s povodněmi a celá ústředna je momentálně dva metry pod vodou a až voda opadne, tak budeme muset postavit novou, protože stará má v háji statiku..</p>
-      <p id="75d355d1-e773-4389-8f73-0cbd2b18dc21" class="">Důvod, proč jsem se rozhodl sepsat tenhle blogpost není nostalgické vzpomenutí si na práci v <em>&lt;F&gt;</em>, ale protože spousta lidí, včetně mých známých a kamarádů, má naprosto rozhozené představy o tom, jak a kdy by se měly hlásit poruchy a jak bude celý průběh řešení vypadat.</p>
-      <h1 id="314bbdd2-59a5-4fe6-bafc-45efca5f636d" class="">Jak hlásit poruchy</h1>
-      <h2 id="25f30181-cf79-4910-97ee-58c3cc9a1e1d" class="">Pravidlo číslo 1: Uklidněte se.</h2>
-      <p id="9283a8ba-a5a7-45e4-8c6b-a8329b816cd5" class="">Já vím, že vám nejde internet, což může být frustrující, ale neberte to jako osobní útok. S vysokou pravděpodobností se jedná o technickou závadu způsobenou přírodou, nikoliv promyšlenou sabotáž, která má za úkol vás poškodit.</p>
-      <p id="bcacef10-b121-441f-a5bb-efc96c30cb22" class="">Tohle pravidlo je naprosto nejdůležitější ze všeho, co zde dneska budu psát; <strong>berte to s klidem</strong>. Lidé mají podivuhodně silnou schopnost brát si věci osobně a hledat zlovůli vůči jejich osobě v situacích, kde žádná není. To že vám nejde internet není facka reality do vaší tváře, ale náhodně překopnutý kabel ukrajinským bagristou, voda zatékající do rozvaděče, nebo zkorodované dráty.</p>
-      <p id="b27284f8-8806-4d7f-85d0-f4a03cdccf6d" class="">Internet je svého druhu potrubí, skoro ve všech vlastnostech podobný potrubí s vodou. Stejně jako vodovodní potrubí je čas od času potřeba ho opravit, či vyčistit. Oboje potrubí zvládne pouze určitý tlak, oboje má jen omezenou kapacitu, oboje občas vytéká jinudy, než by mělo (z internetového jde svodem někde elektřina do země). To je prostě fakt a když máte jako firma tisíce kilometrů vedení po celé české republice, od obrovských informačních dálnic po maličké větve vedoucí do každé dědiny o třech barácích, je prostě absolutní jistotou, že bude docházet k poruchám, i kdyby celý zbytek světa byl naprosto ideální.</p>
-      <p id="c057d0d8-9731-47cd-8044-47249c1ae036" class="">Poruchy se dějí a dít budou u libovolné firmy, na libovolném vedení. Je to stejná konstanta života, jako že jednoho dne zemřete. Není v tom nic osobního. Nemůžete si vybrat kde a kdy, můžete si ale vybrat způsob, jakým se k tomu postavíte.</p>
-      <h3 id="2148c48c-f929-46cb-80b6-e1eb80f76fff" class="">Vztek nepomáhá</h3>
-      <p id="fd95534e-cec4-40df-b8f0-19432a6a01c1" class="">Pro mnohé bude naprosto překvapující fakt, že pokud budete operátorovi volat v afektu, nejen že vám to nepomůže, ale doslova vám to uškodí.</p>
-      <p id="2f8cba83-155b-496a-9813-058e5f992fb8" class="">Tohle nemyslím nějak abstraktně, že stres škodí zdraví a poškozuje vaší karmu - naopak! Operátor na druhé straně telefonu je také jen člověk, s úplně stejnou psychologií jako většina ostatních lidí. Má větší praxi ve zvládání konfliktních zákazníků, to ano, ale rozhodně to neznamená, že mu dělá dobře, když na něj někdo křičí.</p>
-      <p id="65397e8e-0637-443e-8b28-5b7d5dc26598" class="">Osobně jsem byl vůči tomuhle později už vcelku imunní, ale spousta mých kolegů měla snahu se řvoucích zákazníků co nejrychleji zbavit. Přepojit je někam jinam (jedno kam, hlavně pryč), slíbit jim, že všechno bude růžové a skvělé, hlavně aby už sakra zavěsili a přestali řvát.</p>
-      <p id="7ab35eef-d9eb-4a4e-8685-c0a7d4f6c30d" class="">Někteří mí kolegové dokonce podobné poruchy házeli do černých děr (zrušená oddělení, kde není nikdo, kdo by poruchy řešil), či psali do zápisu JTK (Je To Kráva/Kokot), což upozornilo všechny ostatní, že se mají držet od poruchy dál, protože na ně bude zákazník řvát.</p>
-      <p id="56c764ec-d311-45fd-a4bc-d2ace96ca6c8" class="">Pro zákazníka to mělo jen jeden jediný efekt; horší zážitek. Je to docela paradoxní; nejen že si nepomohl, vystresoval sám sebe i druhého člověka, ale dokonce ještě zhoršil celý průběh řešení poruchy a protáhl dobu řešení na delší. Nikdo se totiž poruchy nechtěl dotknout, dokud to skutečně nebylo naprosto nutné, jako kdyby byla otrávená.</p>
-      <p id="9ed66d07-8882-42a1-95a5-1e3295aa66cb" class="">Takže pravidlo číslo jedna: Buďte klidní.</p>
-      <h2 id="644301b8-ca38-468f-8dbb-63f4152a221b" class="">Pravidlo číslo 2: Požadujte informace</h2>
-      <p id="4a6c987a-e721-4072-8fdb-69f32137333f" class="">Tohle pravidlo považuji za velmi důležité, po pravidlu číslo jedna asi za nejdůležitější.</p>
-      <p id="fb3faee5-7d0a-47be-aaa1-aefe1a56dc16" class="">Co to znamená? <strong>Chtějte „číslo trouble-ticketu“</strong>, či „číslo poruchy“. <strong>Zapište si ho</strong>, je to to nejdůležitější, co máte v rukou ohledně řešení vaší poruchy. S tímhle číslem máte možnost si stěžovat, poruchu znova otevírat, trvat na vyslání jiných techniků, sepsání vyjádření o řešení poruchy, či dát celou věc k soudu. Bez tohohle čísla nemáte nic.</p>
-      <p id="1b0e8fc8-2af0-4bac-a5b1-cab114d16faf" class="">Pokud chcete ukázat, že vám skutečně záleží na korektním vedení poruchy, zeptejte se na jméno. Já mám třeba hodně špatnou paměť na jména, proto se klidně v půlce hovoru zeptám na jméno operátora:</p>
-      <blockquote id="07574a6c-86a6-4ece-9d29-f211ee56d625" class="">
-        Slečno, omlouvám se, zapomněl jsem vaše jméno a chtěl bych si ho zapsat do mého protokolu. Můžete mi ho zopakovat?
-      </blockquote>
-      <p id="83311eef-2514-44cb-8a5d-43387df9a6b0" class="">Tohle se může zdát jako blbost, ale můžu vám garantovat, že je to stokrát lepší než nadávky a výhrůžky. Každý operátor po tomhle zbystří a začne být velmi korektní. S jeho jménem máte možnost podávat stížnosti, nebo provádět psychologické hacky. Věta <em>„moc vám děkuji za pomoc, Andreo, vážím si toho, co pro mě děláte“</em> působí na operátora tak, že si poruchu poznamená někam vedle a sám jí bude ve volném čase sledovat, jen proto, že jste mu takhle pěkně zalichotili.</p>
-      <h2 id="714270e0-6604-47a7-b914-7b0cc9169d30" class="">Pravidlo číslo 3: Připravte se</h2>
-      <p id="1aff30f8-f576-425c-ae52-b5503805f87e" class="">Příprava? Jaká příprava? Já mám přece poruchu, tak jí sakra koukejte řešit!</p>
-      <p id="b3e1a4f8-9a77-4155-9f72-d16343b31443" class="">Ano. Ač se to v tu chvíli zdá jako velký opruz, bude zapotřebí nějaká minimální součinnost i od vás:</p>
-      <h3 id="4cbb8af1-3d73-44f5-9d87-b560a1dd949a" class="">Restarty, restarty, restarty..</h3>
-      <p id="de6b42ad-10cc-4849-a517-41f84422d0b0" class="">Restartujte zařízení vytažením napájecího kabelu z elektřiny a opětovným zapojením po cca 15 vteřinách. Tohle samo o sobě vyřeší velkou část poruch internetu, ale i zaseknutí IP telefonů - v takovém případě musíte ovšem restartovat i telefon.</p>
-      <p id="7210d9d5-a4ff-45da-959d-079eff4f99bd" class="">Tenhle krok nelze přeskočit a pokud ho neuděláte teď, stejně ho budete muset udělat za pár minut s operátorem.</p>
-      <h3 id="07f854fb-5c7f-40ef-84d6-4aa4e438267f" class="">Projev poruchy</h3>
-      <p id="36f9ea77-532e-4e34-aa22-2d8e831a81c8" class="">Nějak si sesumírujte, co vám vlastně nejde:</p>
-      <p id="278fc4d6-b07c-4907-b784-65586e8c6c13" class="">Nejde vám internet? Jak se to projevuje? Jsou tam výpadky, nebo nejde vůbec? Nebo jde pomalu? Možná se vám přerušuje stahování po každém megabajtu? Projevuje se to jen na wifi, nebo i během připojení kabelem? Rozpadají se vám telefonní hovory? Nebo v nich chrčí, či se tam ozývá tón? Zkoušeli jste restart? Pokud ne, jděte ho zkusit :)</p>
-      <p id="afa3bb12-da68-40eb-bf9d-dfee110d453e" class="">Poznamenejte si, co kde bliká, jestli něco svítí červeně či zeleně (myšleno nápisy u diod, nemá smysl říkat <em>„takové světélko mi tam svítí červeně“</em>). Jak u modemu, tak u IP telefonu, či settopboxu u televize. Můžete to začít zjišťovat až při hovoru, ale když to budete vědět předem, podstatně vše urychlíte a čím méně času strávíte telefonováním, tím dřív se bude porucha řešit.</p>
-      <h3 id="ec1f6be9-f0f2-424c-afee-baa816b13269" class="">Identifikace linky</h3>
-      <p id="a281f839-5e83-4596-a9f2-94ff6c0b01d1" class="">Zjistěte si identifikaci linky. Identifikátorem myslím telefonní číslo pevného internetu (ano, i čistě internetové xDSL linky mají svoje číslo), nebo tzv. Case ID jiných datových služeb.</p>
-      <p id="5ed821a7-9044-49f9-a0bf-268e840dcafc" class="">Telefonní číslo vypadá jako běžné číslo, například (vymýšlím si): 381 720 108. Case ID je pak kód u linek, které nefungují po telefonu, například CSID: 12827. Někdy také začínají písmenem.</p>
-      <p id="1b1c1b65-e85a-4b5a-924a-b08172954db3" class="">Pokud máte telefon vedený na soukromou osobu a ne na firmu, budete také potřebovat „ověření“, typicky se jedná o rodné číslo a jméno majitele.</p>
-      <h3 id="438dd951-a41e-4ded-b0b0-9c32103c4986" class="">Nevím identifikaci</h3>
-      <p id="74f760c5-0484-4c86-b60c-528976255671" class="">Pokud nic z tohohle nevíte, někdy je možné linku dohledat i podle adresy a jména firmy / osoby, ale operátoři tohle velmi neradi dělají, protože to zahrnuje prohledávání fyzických rozpisů linek. Všichni operátoři jsou tlačení časem na počty hovorů svými šéfy, tudíž jen málokterý bude chtít věnovat 15 minut dohledávání vašeho čísla, nehledě na to, že to nemají v popisu práce.</p>
-      <p id="58f59510-45b8-40e7-84b0-ec22ee7254be" class="">Pokud budete působit mile a ztraceně, možná si na vás vyhradí čas, v opačném případě vám prostě řeknou, ať zavoláte až budete mít nějaké info, protože do té doby v podstatě nejste považováni za legitimní požadavek.</p>
-      <h3 id="0ec2f514-49ce-41e0-ba6d-078425138e18" class="">Telefonní číslo poruchové linky</h3>
-      <p id="4b19e378-c56d-458c-b0be-f2c51d3cfce7" class="">Budete také potřebovat vědět, kde hlásit váš problém. Zde samozřejmě záleží na firmě, u které máte internet:</p>
-      <h3 id="765f9082-b27c-4d4b-a75a-eba6b54c031e" class="">O2</h3>
-      <p id="4ff29316-f74d-47ab-9f8b-456654e47e57" class="">800 184 084 pro nefiremní zákazníky. Někdy, hlavně v případě větších poruch tam bývá automat, který vám oznámí, že začal řešit poruchu. Teoreticky by se vám měl někdo ozvat zpět, ale občas to nevyjde. Pokud by se stalo, že se do hodiny nikdo neozve, doporučuji zavolat na 800 333 777 a požádat o přepojení na, cituji <em>„oddělení poruch pro soukromé osoby“</em>.</p>
-      <p id="f01c90be-2a3d-4a32-bc0a-7e6d6b1deab2" class="">800 111 777, alternativně pak 800 333 777 pro korporátní zákazníky. Obě čísla vedou na stejná oddělení, jen u jednoho vás to spáruje podle čísla mobilu automaticky, u druhého zpravidla ne.</p>
-      <h3 id="04ff3d5c-14c1-4ac0-a72c-ad05905f7d09" class="">GTS</h3>
-      <p id="73744eb5-97ea-4cb7-b3ab-a394996f90a7" class="">Hlavní kontaktní linka zdarma je 800 990 990. Technická kontaktní linka (poruchy) poté 13 100.</p>
-      <h3 id="a16e6cb4-5f94-470d-a7e9-eb44aa72b61d" class="">Vodafone</h3>
-      <p id="4066dc4a-6956-4c2f-ad05-951efe030335" class="">800 777 777 pro nefiremní zákazníky, nebo 800 777 700 pro firemní.</p>
-      <h3 id="6815f310-2873-43b3-8c0a-2f7a659d2f94" class="">ČD-Telematika</h3>
-      <p id="5cef58b7-3e7e-4e40-aa91-2c47e296aa1d" class="">972 110 000 (částečně zpoplatněné!) je zákaznická linka, odkud by vás měli přepojit na poruchy.</p>
-      <p id="75660d5d-8fbd-462b-b2bb-2623658705c0" class="">V rámci přípravy vám také velmi doporučuji si někam na disk uložit tenhle článek. <strong>Ve chvíli, kdy vám nepůjde internet je zpravidla pozdě hledat číslo na poruchy.</strong> To byste měli mít napsané někde offline.</p>
-      <h2 id="d3c45faf-b69d-4200-b46d-ea12c954dbe7" class="">Kdy hlásit poruchy</h2>
-      <p id="fbe4ca62-672a-400d-9afc-d163f1ef3173" class="">Platí úplně jednoduché pravidlo: poruchy hlásíme ve chvíli, kdy je máme.</p>
-      <p id="b51338dc-29be-4545-ba2d-f9a5dff81600" class="">Vypadá to triviálně, že? Proč o tom mluvím? Spousta lidí žije v domnění, že některé poruchy se vyřeší samy, či že si někdo z firmy všimne, že k poruše došlo a začne na ní sám pracovat.</p>
-      <p id="74bc8598-7e6f-418d-9a22-4325a24b6c82" class="">Takhle to ale vůbec nefunguje. Pokud nenahlásíte poruchu, nikdo jí nikdy neopraví, hlavně proto, že o ní nikdo neví, ale taky proto, že prostě přednost mají poruchy praktické (ohlášené, tlačené zákazníky) před teoretickými (třeba zachycenými automatem, ale když si nikdo nestěžuje tak proč to řešit?).</p>
-      <p id="acada7e4-c27b-47fc-a5ed-06319e05ba02" class="">Jedinou výjimkou z tohohle jsou poruchy velkých ústředen, či překopnuté kabely, kde poruchu ohlásilo už několik desítek lidí před vámi. To se ale zpravidla nedozvíte, proto je dobré poruchu stejně ohlásit. Pokud na lince čekáte dlouho a sousedovi taky nejde internet, pravděpodobně je to už ohlášené. Můžete to zkusit později (zpravidla je tam někdo nonstop), nebo doufat, že se to rozjede.</p>
-      <h2 id="52347d1e-c7a1-4f14-9dc2-e65c85017ed9" class="">Jak vypadá ohlašování poruchy</h2>
-      <p id="c90a2694-0366-4844-a400-ff5047bffcae" class="">Nemá cenu hlásit poruchy emailem. Pokud nejste opravdu velká korporace, emaily nejsou oficiálním komunikačním kanálem a mohou být ignorovány. Stejně tak nemá smysl hlásit poruchy dopisem, či voláním na obchodní oddělení. Sice se můžete dočkat přepojení, ale můžete takhle skákat třeba po pěti odděleních, protože obchoďáci obecně nemají tušení, kam vás spojit.</p>
-      <p id="87d7bc5e-5067-4281-ab51-67ef63b96788" class="">Rozhodně nemá smysl hlásit poruchy někde na chatu, či jít do prodejny a hledat tam někoho, kdo vám pomůže. To jsou veskrze nekompetentní lidi, kteří nemají vůbec tušení, jak se poruchy řeší a málokdo z nich má nějaké relevantní technické vzdělání, mimo týdenní kurz na veškeré internetové technologie. Většina z nich zákazníkům vypráví vcelku blbosti. Jejich práce rozhodně není řešit poruchy, ale prodávat výrobky.</p>
-      <p id="11b4f9cb-0a47-48d5-8dae-571e52fdd6e2" class="">Pokud chcete, aby se porucha skutečně řešila, jediný způsob je osobně zavolat na poruchovou linku, viz čísla nahoře.</p>
-      <p id="a8fc2708-1ffc-483e-a588-93ec6c88a9e6" class="">Takže někam zavoláte, dovoláte se do automatu, kde vyberete, že chcete nahlásit poruchu, či mluvit s operátorem. Ozve se melodie, najednou hovor někdo vezme a představí se, například takto:</p>
-      <blockquote id="6bc6f4bd-6775-4b2c-b32a-a517c971abf1" class="">
-        Dobrý den, tady Franta Opička, poruchová linka, co pro vás mohu udělat?
-      </blockquote>
-      <p id="a3d1f495-3c0b-4c63-bade-a2d0e75f7eb3" class="">Teď přijde řada na vás odpovědět, co pro vás operátor může udělat. Slušností je se představit a nezačínat hned <em>„no, nejde mi internet, opravte to!“</em>:</p>
-      <blockquote id="d3715873-6272-498b-bfb7-3e5e9e9a0427" class="">
-        Dobrý den, tady Rostislav Pumlíč. Mám výpadky internetu, mohl byste se na to podívat?
-      </blockquote>
-      <p id="0258a89b-7083-4e7b-b434-6bf9436f00f8" class="">Můžete rovnou nadiktovat i číslo linky, pokud to neuděláte, operátor se na to zeptá:</p>
-      <blockquote id="1fdb11cb-1244-497b-9237-8ecd23f227c9" class="">
-        Určitě. Poprosím o číslo linky a vaše rodné číslo, abych ověřil oprávněnost požadavku.
-      </blockquote>
-      <p id="c01b595f-19ed-4555-a2f8-53c82bbd1715" class="">Načež odpovíte z předem připravených materiálů:</p>
-      <blockquote id="40f5e326-d4bc-4317-a693-faec355e405f" class="">
-        Ano. Třista-osmdesát-jedna, sedmset-dvacet, sto-osm.
-      </blockquote>
-      <p id="96e1396c-713a-4617-a31d-7f891b0bff5e" class="">K tomuhle mě napadá perlička; většina lidí diktuje číslo naprosto zfetovaně. Běžní lidé během hovoru přepínají dvojice, trojice, jedno čísla, někdo to diktuje i jako <em>„třista-osmdesát-jedna milionů, sedmset-dvacet tisíc, sto osm“</em>.</p>
-      <p id="deedc1a5-b2d7-4edd-8115-95f1c1f96500" class="">Profesionála navyklého jednání s lidmi poznáte podle toho, že diktuje číslo buďto po trojicích, nebo po číslech. Také vám dávají audio-potvrzení, že obdrželi správně zadanou trojici a někdy automaticky přepnou na diktování po číslech, když slyší, že s tím máte problém. Sice to nemá žádný velký význam, ale dokázalo to pobavit a dodat sondu zmatenosti duše volajícího.</p>
-      <p id="88a31d5a-4b69-4992-b741-fca4bb8e8929" class="">Operátor na to řekne cosi jako:</p>
-      <blockquote id="fde7ab1d-dbf2-4c00-accc-27345538b680" class="">
-        Děkuji. Už to tady vidím, linka je vedena na Rostislava Pumlíče, ulice Patočkova 53, Litoměřice. Teď si spustím diagnostiky a podívám co je na lince za možnou poruchu
-      </blockquote>
-      <p id="7fa5d5d3-5e07-4eb4-97ea-e5fae79b907f" class="">* Všimněte si, že jsem nenapsal <em>„problém“</em>. Tohle slovo je operátorů zapovězeno, protože působí negativně.</p>
-      <p id="02021ac3-472a-43eb-a934-9594d55f6ed6" class="">Po tomhle budou nejspíš následovat průpovídky.</p>
-      <p id="3759d4eb-6b94-4692-ac4a-4666ea57444d" class="">Na korporátním oddělení jsme mohli zákazníka dávat takzvaně do <em>„holdu“</em>, to znamená, že jsme se omluvili, řekli že budeme dělat měření, vypnuli hovor a zákazník slyšel hudbu (‚bublinky‘). My jsme mezi tím mohli řešit jeho poruchu s dalšími odděleními přes druhý kanál telefonu, dojídat pizzu, nebo si vyprávět vtip, než se diagnostiky provedou.</p>
-      <p id="455b2f34-6c03-4df8-b569-25279c3d54f2" class="">V odděleních pro fyzické osoby tahle praxe neplatila a součástí práce operátora bylo zákazníkovi vyprávět pohádku a bavit ho těch 5 - 10 minut, než doběhnou diagnostiky. Osobně jsem byl rád, že nic takového dělat nemusím, protože když jsem to kdysi zkoušel, tak jsem z toho byl naprosto ochraptělý a v podstatě jsem byl nucený si vymýšlet kraviny.</p>
-      <blockquote id="da66b389-1e43-4465-ac18-29a50bba2112" class="">
-        Tak, teď se mi provádí diagnostika vedení a vidím tu ryba „svod na zkratu“ pod URákem, při es-en-er jedenáct na odporu 2000 kilo..
-      </blockquote>
-      <p id="5119ac8d-5ef2-4101-836e-95242068022d" class="">Což sice byly věci z diagnostik, ale jednak je to v podstatě kravina (svod na zkratu je protiřečení si), druhak to zákazníkovi nic neřekne. Spousta z operátorů byla časem v pokušení začít si vymýšlet psychologické hry, například říct náhodně slovo „ryba“ a zkoušet, jestli si toho zákazník všimne, nebo ne. Takže buďte rádi za hudbu.</p>
-      <p id="07bbd5d3-0a8b-43ad-a385-b974dcb8d538" class="">Potom následuje nějaké oznámení:</p>
-      <blockquote id="24618890-d97e-479f-a96a-4a7c1f782ad8" class="">
-        Ano, vidím tu svod na vedení, poruchu tedy předám kolegům technikům, kteří vám vyjedou opravit vedení. Vypadá to, že je to mezi 2 a 3 kilometrem. Můžeme si naplánovat výjezd?
-      </blockquote>
-      <p id="1e72e812-7a30-4306-84e3-468191a5675a" class="">Po čemž následuje domluvení si, že k výjezdu technika na opravu dojde zítra v 11:30, je tedy dobré, aby doma někdo byl, kdyby musel třeba restartovat modem, nebo vyměnit UR (uživatelský rozvaděč, krabička na baráku).</p>
-      <p id="b41968a0-27ca-42f9-be1e-6880c4ee7176" class="">Nyní následuje čas uplatnit <strong>pravidlo číslo dva</strong> - požadovat číslo troubleticketu a jména operátora a oboje si zapsat na papír. Budete to potřebovat.</p>
-      <p id="6b45db39-34eb-412c-b8e5-28ceec98a96f" class="">Poté vyjede technik, problém odstraní, nebo ne a zpětně vám někdo zavolá, že byla porucha vyřešena. Tohle by tedy byl popis ideálního průběhu.</p>
-      <h2 id="3c90a514-a53d-4863-ad14-bc10a1af18c5" class="">Neideální průběh</h2>
-      <p id="136cad76-7c44-40c8-9549-4a3286eaf70b" class="">Samozřejmě, život je pestrý a hovor může mít desítky různých průběhů.</p>
-      <h3 id="6ec0b8c0-2e53-4516-afdd-714a5d845b95" class="">Operátor blbec</h3>
-      <p id="2ee4c2e3-d1e2-4736-beda-57557a483a19" class="">Stát se může například, že narazíte na operátora blbce, který k vám bude nepříjemný. V takovém případě doporučuji v hovoru nepokračovat a jednoduše zavěsit a zavolat znova. Systém routování hovorů je více/méně náhodný a příště trefíte jiného operátora, který může být fajn. Když ne, celý krok zopakujte.</p>
-      <p id="c12f81b2-8a4d-4b67-ab8a-3771b1afc51b" class="">Tohle nemá smysl zkoušet v noci či o svátcích, kdy je tam jen jeden / dva lidi.</p>
-      <h3 id="a6dc29d7-1137-4661-8d9f-5d5f20f0d9ad" class="">Velká fronta</h3>
-      <p id="5272daf1-f2c3-47fa-84fc-4119539b8e6b" class="">„Restart“ hovoru může být někdy nepoužitelný, když jste ve větší čekačce a čekáte na spojení s operátorem třeba 20 minut. V takovém případě máte prostě smůlu.</p>
-      <p id="b998eeb4-2d08-4acc-8738-7ed493ea69d8" class="">Obecně velké čekačky znamenají velké poruchy, takže je slušná šance, že tu vaší už někdo řeší. Například jsem zažil, když vyhořela ústředna pro 11 tisíc lidí, protože technik zapojil omylem obráceně napájení. V tu chvíli podle přehledové tabule najednou volalo asi 1200 lidí, každý z nich chtěl ohlásit poruchu a nás bylo zrovna v práci 12 (korporátní team, ne poruchy fyzických osob). Asi si umíte představit, jak to celé vypadalo. Spousta naštvaných lidí čekajících třeba hodinu, aby nám řekli něco, co už dávno víme a na čem se pracuje.</p>
-      <p id="8e40c145-b0dd-477a-ba1f-7feda93fd60b" class="">Později byla zavedena jakási hláska v těhle případech, ale její nasazení rozhodně nebylo automatické, musela to udělat šéfová.</p>
-      <h3 id="88ad55f2-bc08-445a-9e93-2c7a949c2eca" class="">Nevyřešení poruchy</h3>
-      <p id="b64b3267-e760-4df3-b797-ba0277bc356c" class="">Stane se, že přijede technik, který opraví zřejmou poruchu, všechno ozkouší a zas odjede. Přesto vám služba stále nefunguje. Tohle bylo typické po bouřkách, kde blesk uhodil do vedení a vysmažil jak vedení, tak modem, či UR.</p>
-      <p id="a0868237-5d70-46eb-8fd8-9e47465efe8d" class="">Technik pak opraví vedení, opraví i krabičku na domě, ale už vám nebude opravovat vedení v domě, ani vyměňovat modem, protože je to oboje vaším majetkem. Pokud chcete, máte možnost nechat si tam vyslat jiného technika, který vám opravu zpoplatněně provede, stejně tak ale můžete objednat třeba elektrikáře.</p>
-      <p id="41dd2e79-232f-440c-9e7f-371f90fd0963" class="">Technik taky mohl něco přehlédnout. Každopádně opět zavolejte a trvejte na dalším proměření, případně opětovném vyslání technika.</p>
-      <h3 id="3e98f5e2-7e79-4f7e-8942-89e8bc663f45" class="">Nevyřešení poruchy - technik blbec</h3>
-      <p id="b30b204b-4ce8-4ab0-bd9e-c2be8c104bd5" class="">Zažil jsem také, i když zcela výjimečně, že poruchu řešil technik blbec. Přijel, posral i to co předtím fungovalo a zas odjel.</p>
-      <p id="a84d50ba-23ca-457c-af7e-621b8793d44a" class="">Pokud se vám tohle stane, neřvěte, nebrečte operátorovi do telefonu, ale trvejte na vyslání lepšího a zkušenějšího technika a také uvedení tohoto do záznamu. Doslova řekněte:</p>
-      <blockquote id="c946f4c6-a171-4b99-b9a1-d0eaeff14a1d" class="">
-        Nesouhlasím s vyřešením poruchy
-        <p id="6f8ba3a7-1ace-4ca4-b3e1-f8d1ed7eb44c" class=""><em>&lt;číslo poruchy, viz pravidlo číslo dva&gt;</em></p>
-      </blockquote>
-      <p id="49f8272c-1384-4279-9d72-566bab603e4b" class="">Netřeba se při tom rozčilovat, či stresovat. Korporace, se kterou jednáte je jako stroj složený z lidí. Stresovat se z něj je jako stresovat se z bankomatu, nebo automatu na limonádu. Nijak vám to nepomůže, protože to na něj nemá žádný vliv.</p>
-      <h2 id="708efed1-0bf8-4080-810c-9159a8b871ea" class="">FAQ</h2>
-      <h3 id="e92d24b2-9cfe-4167-96e9-9b6a4f1034ab" class="">Opravdu jsou hovory nahrávané?</h3>
-      <p id="33aea191-2bc2-403d-8201-cfabe437421e" class="">Ano. Více/méně každý hovor je nahraný, i když pro některé přepojované to za dost ezoterických podmínek nemusí platit. Nahrávají se jednak kvůli výhrůžkám, ale také kvůli hodnocení operátorů externím auditorem.</p>
-      <p id="92d77a2e-bbc9-4849-86c9-040cae7d10c1" class="">Každý operátor má každý měsíc hodnoceno několik náhodných hovorů, kde se bere v potaz jeho profesionalita a jak byl hovor veden. Pokud se choval nekorektně, může přijít o prémie, či být vyhozen.</p>
-      <p id="e5310ffa-a462-4e5b-b111-9ebb1c2f28e8" class="">Naprostou většinu nahraných hovorů nikdo neposlouchá. Občas jsme si o volných chvílích pouštěli nějaké vtipné nahrávky, nejčastější důvod poslechu ale byl, že mi zákazník nadiktoval nesrozumitelně nějakou informaci a mě bylo blbé se ho na to potřetí ptát, tak jsem si to pustil z nahrávky, která má čistější zvuk.</p>
-      <h3 id="9958dd1c-1be0-448f-b984-f7b144760aa0" class="">Problém s pingem</h3>
-      <p id="979e28dd-06c0-4317-ad7a-9478db815322" class="">Ping je podle většiny smluv negarantovaný (=nikdo vám ho řešit nebude), ale pokud je někde v &gt;400ms rozmezí, dá se to nechat řešit technikem. Musíte ovšem naměřit ping (ideálně někam na nic.cz, ne do azerbajdžánu) a poslat ho emailem, tak se na to připravte hned ze začátku. Taky platí, že je nutné měřit ve chvíli, kdy jsou všechny ostatní počítače fyzicky odpojené od modemu. To znamená vypnout wifi a vytáhnout všechny ostatní kabely.</p>
-      <p id="236cfe47-5868-4ef4-97b4-24207349369e" class="">Tohle po vás bude chtít operátor na lince a to samé bude dělat technik - nevěřili byste, jak často se stává, že zákazník si kazí ping sám tím, že na některém počítači běží třeba torrenty bez jeho vědomí. Řekl bych, že to je tak 6 z 10 případů <em>„problému s pingem“</em>.</p>
-      <h3 id="e3346fb3-1772-4187-8d6e-717668c6b49e" class="">Kdy můžu volat?</h3>
-      <p id="71aa06be-b1da-4c27-be3a-ffbf35448bfc" class="">Nonstop. Ve dne i v noci, o víkendech i o svátcích, prostě kdykoliv. Když vás ve 4 ráno napadne, že byste mohli zavolat, klidně. Jako operátor jsem sloužil mnoho nočních. Když mě ve čtyři hodiny ráno probudilo zběsilé zazvonění, bylo to někdy docela drsné, ale máte na to právo :)</p>
-      <p id="a1dad73f-e6f0-40dc-a40b-3650a18707bc" class="">To nejhorší, co se vám může stát je, že se nedovoláte. Pokud ale ohlašujete poruchu v noci, či uvedete dostupnost na telefonu jako <em>„nonstop“</em>, počítejte s tím, že vám skutečně někdo může zavolat ve čtyři ráno, že byla porucha vyřešena. Operátoři na lince tohle dělat musí, protože jsou firmy, které skutečně jedou nonstop a kde se každá minuta zpoždění počítá.</p>
-      <h3 id="0f3f0e9e-05a8-496b-b194-069f91808eb8" class="">Jak se může stát, že potkám operátora blbce?</h3>
-      <p id="908020e5-0112-4fe0-9789-2b733da4729c" class=""><em>&lt;F&gt;</em> je opravdu velká firma, jejíž pobočka má v Čechách cca 10 000 zaměstnanců. Spousta z nich jsou zaměstnanci agenturní, kteří nepracují pro <em>&lt;F&gt;</em>, ale pro nějakou agenturu (zdravím <em>Addecto</em>). Dělají sice stejnou práci, ale mají nižší plat (agentura si bere cca 5k pro sebe), nemají žádné výhody, jako sick days, nebo vitamíny. Nemají také smlouvu na neurčito a v podstatě mohou být (a jsou) z měsíce na měsíc vyhozeni.</p>
-      <p id="9b21d07e-120a-4b65-93e6-30b1091931fc" class="">Je jasné, že tohle vůbec nezlepšuje morálku. Než jsem z <em>&lt;F&gt;</em> odešel, panoval navíc obecný trend slučování všeho do velkých openspace místností, kde bylo naprosté peklo pracovat. Takhle nás přesunuli z malé kanceláře pro 8 lidí do gigantického openspace, kde nás sedělo cca tři sta lidí. Pak přišly zákazy a příkazy (tak ty bys chtěl mít hrnek s čajem u počítače? tak to teda ne!), divné ovládání klimatizace a čím dál větší tlaky na rychlost a počty hovorů. Než jsem odešel, začal jsem tu práci nesnášet a to mě ještě půl roku před tím bavila.</p>
-      <p id="f8b2dbfa-f57b-42d5-b8f7-eee03bb9ca7b" class="">Všichni lidi co pracovali v našem oddělení měli zpočátku práci rádi. Opravdu nás bavilo řešit poruchy a chtěli jsme tak nějak altruisticky pomáhat, ať už zákazníkům, tak i sobě v rámci týmu (vím že to zní jako strašně klišé, ale fakt je to pravda).</p>
-      <p id="646b0c5a-d2de-4285-a788-bb13f53e1812" class="">I když to nebyla nijak moc dobře placená práce (nástupák 17k hrubého), tak přinášela velkou satisfakci. Podobné je to třeba u doktorů, záchranářů a hasičů - ačkoliv jsou to obecně docela práce na hovno, člověka těší vidět, že někomu pomáhá. Nás těšilo řešit poruchy a pomáhat zákazníkům s nefunkčním internetem.</p>
-      <p id="835c62a4-d44c-42ae-8c7c-dea6ad360846" class="">Pak přišly nové politiky, začaly tlaky na velké počty hovorů a naopak přestalo být prioritou, jestli jste něco vyřešili. Je to jako kdyby doktor měl ošetřit za den 50 lidí, přičemž by hrálo roli jen tohle číslo, nikoliv kolika z nich skutečně pomohl a jestli někoho vyléčil.</p>
-      <p id="caf60106-e36d-43fa-a00c-37af877e5b27" class="">Management se rozhodl, že tlakem nastaví hranici tak daleko, jak to jen ještě půjde. Kolik toho asi tak operátoři snesou? A kolik toho snesou zákazníci?</p>
-      <p id="d8d668c8-f708-4d23-bff6-9dd658118749" class="">Tohle šlo do takových krajností, že jsem byl u toho, když záchranáři vyváželi případ pokusu o sebevraždu v práci. Kromě toho, že to vedlo k totální destrukci stávajících struktur lidí a všichni, kdo mohli odešli, tak vedlejší efekt je ohromná fluktuace lidí. V téhle práci prostě většina nováčků moc dlouho nevydrží, někde jsem slyšel, že současný průměr je asi 3 měsíce. Zcela logicky jim pak nezáleží na nějaké kvalitě odvedení práce, nebo jak se k vám budou chovat.</p>
-      <p id="12cb18eb-b4b3-4974-bf5a-5ad16308b054" class="">Určitě nechci říct, že tam zůstali jen lidé, kteří na práci kašlou, sám dobře vím, že díky hypotékám je tam zaseklých hodně opravdu skvělých lidí. Mezi nimi je ale zvýšená fluktuace „blbců“, protože firma je jako gigantická obluda, která na jednom konci požírá nové zaměstnance, aby většinu z nich do čtvrt roku zase vyhodila.</p>
-      <p id="b7df64be-9d70-4421-8282-8095e17363b7" class="">No, takže takhle se stane, že narazíte na někoho, kdo to má na salámu. Řešení je jednoduché - zavěste a zavolejte znovu, třeba vylosujete někoho lepšího.</p>
-      <h3 id="0f701bce-65eb-4f4c-9661-dbcb07abbefa" class="">Proč je třeba restartovat modem?</h3>
-      <p id="2e105f5e-145c-4c8f-ba19-6811542922d1" class="">Modemy jsou malé počítače a jako všechny počítače je potřeba je jednou za čas restartovat. Někdy se přehřejí, jindy prostě dojde k nějakém softwarovému deadlocku. Běžné levné modemy Huawei/Comtrend/Zyxel rozhodně nejsou dělané na routování velkého množství dat, nebo na nějakou spolehlivost. Hlavní kritérium je cena a podle toho to vypadá.</p>
-      <p id="9741ad03-442a-4b9f-b904-3f4ba6c9ac32" class="">Pokud chcete něco stabilního, pořiďte si Cisco, nebo MikroTik, ale nepočítejte s tím, že to bude stát 500kč.</p>
-      <h3 id="952ad7de-3435-4263-a2f8-6581891c05ec" class="">Kolísá mi rychlost internetu, co s tím?</h3>
-      <p id="c8550f30-615c-400b-96cd-56246716a477" class="">Kolísání rychlosti internetu jsem měl rád ze všeho nejmíň a to hned z několika důvodů:</p>
-      <ul id="da0ce50b-3923-4e2c-bd9b-ef48986d4e7c" class="bulleted-list">
-        <li style="list-style-type:disc"><strong>Rychlost není garantovaná.</strong> Když podepisujete smlouvu, je tam uvedená magická formulka „až“, která značí, že spojení může být až takhle rychlé, ale nemusí.</li>
-      </ul>
-      <ul id="20962ec9-1fa8-4f17-99d0-dab87151b355" class="bulleted-list">
-        <li style="list-style-type:disc"><strong>Agregace.</strong> xDSL má agregaci 1:50, to znamená, že po stejných drátech jde ještě 50 dalších lidí. Tohle je optimalizace, jak na linku s kapacitou třeba 1000Mb/s nacpat 50 zákazníků s kapacitou 50Mb/s, i když správně by se tam mělo vejít jen 50 zákazníků s kapacitou 20Mb/s, nebo 20 zákazníků s kapacitou 50Mb/s. Spoléhá se zde na to, že linka je vytížena různě a všichni najednou nestahují. Problém samozřejmě nastane, když všichni najednou stahovat začnou, protože pak vám padne internet z 50Mb/s jen na těch 20Mb/s. Je to podobné jako s vodovodem - když si všichni v celé čtvrti začnou napouštět vodu, tak nepoteče pořádně nikomu, protože systém je dimenzovaný na střídání spotřeby v čase. Máte samozřejmě možnost si koupit garantovanou rychlost bez agregace, ale je to podstatně dražší.</li>
-      </ul>
-      <ul id="d711e02f-b2a0-40f8-bbf5-5b59bd3f9321" class="bulleted-list">
-        <li style="list-style-type:disc"><strong>Wifi.</strong> Lidi mají spoustu podivných představ o wifi, přitom je to bezlicenční pásmo, které je často brutálně rušené a co dneska funguje zítra nemusí. Wifi navíc není součástí připojení, ale bonusová funkce vašeho modemu. Pokud vám nejde, smůla.</li>
-      </ul>
-      <ul id="7d378c61-086a-4e85-9a17-6d9fd0b6c187" class="bulleted-list">
-        <li style="list-style-type:disc"><strong>Skryté stahování.</strong> Někde na pozadí v systému se stahuje aktualizace, či někdo úplně jiný, třeba soused je připojený na vaší wifi a stahuje něco přes torrent. Hledat tenhle případ je solidní detektivka.</li>
-      </ul>
-      <ul id="719ae12f-f56c-4b24-a26a-a3f62c445841" class="bulleted-list">
-        <li style="list-style-type:disc"><strong>Počasí.</strong> Některá starší vedení když navlhnou, tak vznikne slabý svod a internet se brutálně zpomalí. Když se pak udělá hezky, tak problém sám od sebe zmizí. Tohle je peklo pro techniky, protože poruchu musí více/méně hledat za deště, jinak se neprojevuje a určitě si dokážete představit, jaká je sranda se plížit za bouřky a deště lesem, lézt po vedení, když kolem šlehají blesky a snažit se ještě k tomu něco změřit.</li>
-      </ul>
-      <ul id="0f7174c4-6896-47a8-ab87-2360bd851a62" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <strong>Automatika ústředny.</strong> xDSL má různé <a href="http://www.rubytech-brasil.ws/whatsnewtxt/pictures/8profile.gif">profily</a> (jakési rychlostní stupně) a ústředny samy sledují parametry na vedení a podle jejich změny tyto profily přepínají. To je v žádaná vlastnost, protože třeba za toho deště vám samy shodí rychlostní profil z 12a, kde se spojení vůbec nenaváže na 8b, kde spojení sice běží pomalu, ale nevypadává. Problém je, že někdy to po dešti už nenahodí.
-        </li>
-      </ul>
-      <p id="6f01a993-226f-49a7-b9c4-6d973b4a725a" class="">Jak je vidět, možností, kde by mohl být problém je fakt hodně. Určitě má smysl tuhle poruchu ohlásit, ale nijak moc bych se nespoléhal, že bude nalezeno nějaké řešení. Také počítejte s tím, že to může chvíli trvat a vyžadovat spoustu spolupráce při měření.</p>
-      <h3 id="ba5e79ad-b320-473f-bf1d-22f2de334f12" class="">Mám pocit, že se můj požadavek neřeší. Co s tím?</h3>
-      <p id="31d44722-b7b1-4e7c-ae97-3313407646ad" class="">Jednoduše zavolejte a zeptejte se na stav.</p>
-      <blockquote id="ac0daa00-df21-4e3f-b0bd-48f0653f4939" class="">
-        Dobrý den, chtěl bych informaci ohledně řešení čísla ticketu
-        <p id="cf95c782-fa4c-48ed-a956-a50427abbea3" class=""><em>&lt;zapsané číslo ticketu, viz pravidlo 2&gt;</em></p>
-      </blockquote>
-      <p id="33d2eebb-b697-4f97-bb9a-6cbcc5f684c7" class="">Tohle můžete opakovat každých pár hodin. Je dobré při tom trvat na zapsání vašeho dotazu do ticketu:</p>
-      <blockquote id="693f182b-c3f5-4136-b1b5-b53d03e8986a" class="">
-        Proč jsem nebyl informován? Pan
-        <p id="12119f10-89cf-4a06-ae26-05e68d01df73" class=""><em>&lt;zapsané jméno operátora, viz pravidlo 2&gt;</em></p>
-        <p id="3132d7dc-dd2f-42eb-899e-785a5bf37189" class=""><em>&lt;číslo&gt;</em></p>
-      </blockquote>
-      <h3 id="bef96f93-5c14-49cb-a321-16fa2ed18d73" class="">Můj požadavek se neřeší. Co s tím?</h3>
-      <p id="49d52ae6-4de0-4be5-8cbf-39a730044eec" class="">Jednoduše zavolejte a požádejte o vyjádření:</p>
-      <blockquote id="3c58f4ba-bc98-44ea-9e5a-bc24ede7a88c" class="">
-        Dobrý den, chtěl bych
-        <p id="08271628-900a-476c-99fb-191d0589296d" class=""><strong>oficiální vyjádření</strong></p>
-        <p id="322f1a55-6ede-4e4b-91f0-ed9c6f3deadc" class=""><em>&lt;zapsané číslo ticketu, viz pravidlo 2&gt;</em></p>
-        <p id="4c167b0b-7c90-4cdb-ae53-52990f3e5049" class=""><em>&lt;email&gt;</em></p>
-        <p id="45d7588b-a39a-4bf3-b0a5-1617032d96fc" class=""><em>&lt;adresa&gt;</em></p>
-      </blockquote>
-      <p id="e884d4c8-c2d7-4080-ae6d-af00095ae80f" class="">Písemná vyjádření emailem většinou přijdou do pár dní, poštou pak do maximálně 31 dní.</p>
-      <p id="12fa4071-3277-48d8-ac8d-fbdc25842e8e" class="">Jako vždycky předtím, takhle to prostě chodí a nemá smysl se vztekat. Občas se stane, že se v korporaci něco rozbije - lidi, nebo proces. Pokud to chcete řešit a ne si jen zanadávat, buďte chladní, konstruktivní a požadujte vyjádření od nadřízeného. To každého operátora vyděsí podstatně víc, než nějaké nadávky.</p>
-      <h3 id="99b802cd-5350-4ad6-9910-cdd68e188d76" class="">Můj požadavek se vůbec neřeší, Co s tím?</h3>
-      <p id="0c70d99f-2e1f-416f-979c-ad428e0f3f63" class="">Nyní můžete podat oficiální stížnost. Stížností existuje několik druhů:</p>
-      <ul id="fc4331a4-c812-4a6d-b41e-7735384dca0e" class="bulleted-list">
-        <li style="list-style-type:disc">Stížnost na technika. Budete potřebovat plné jméno technika a číslo ticketu, viz pravidlo 2.</li>
-      </ul>
-      <ul id="a4102252-447d-4ec3-9608-5bf6998dd2e7" class="bulleted-list">
-        <li style="list-style-type:disc">Stížnost na operátora. Budete potřebovat plné jméno operátora a číslo ticketu, viz pravidlo 2.</li>
-      </ul>
-      <ul id="a7dd0ed0-2aa7-4d9d-af5a-77a335cc3117" class="bulleted-list">
-        <li style="list-style-type:disc">Stížnost k ČTU a žádost o prošetření kauzy. Budete potřebovat číslo ticketu, viz pravidlo 2.</li>
-      </ul>
-      <p id="c42a6920-4315-41ee-844a-2b24c2ab5197" class="">První dvě podávejte v tištěné formě na adresu pobočky firmy, s nápisem Stížnost viditelně na obálce.</p>
-      <p id="ed9020b4-49f6-474b-a798-a637f71519a2" class="">ČTU má na <a href="https://www.ctu.cz/jsem-obcan.html">stránkách formulář</a>, kde si můžete vybrat, co vás konkrétně trápí. Určitě se vyplatí k tomuhle kroku přistoupit - nestojí vás to nic, kromě trochy času a alespoň se něco bude dít. Věřte mi, že klepnutí přes prsty bude bolet podstatně víc, než váš odchod. To mi připomíná:</p>
-      <p id="58a1c9b8-2819-4932-915d-5fffbffc8201" class="">Operátorům na telefonu nemá smysl vyhrožovat odchodem od služeb firmy, pokud nejste zrovna zákazník, který dělá obrat v řádu stovek tisíc měsíčně. Operátorovi je úplně na salámu, jestli u firmy budete, nebo ne. Nedoporučuji to používat jako výhrůžku, maximálně jen jako poslední krok, když už všechno selže. Problém je, že pokud nepůjdete k nějakému malému poskytovateli, tak u ostatních máte stejný korporátní bullshit v bledě modrém, dokonce často na úplně stejném vedení. Proto se většinou vyplatí poruchu řešit.</p>
-      <h3 id="98385c18-0c93-409b-9fd2-ec4700efd50a" class="">Už to nemůžu vydržet a prostě si chci zanadávat</h3>
-      <p id="abbead1f-c390-4403-b38f-25de0154aa19" class="">OK, tohle se může stát. Já sám jsem nadával skoro pořád, nikdy však k zákazníkům (hodí se funkce <em>mute</em> na telefonu), takže to dobře chápu. Zkuste se ovládnout a vynadávat se jen tak do prázdna.</p>
-      <p id="6990484c-1993-43d1-b20d-3c2f725a0c3a" class="">Pokud to nejde a prostě musíte spustit na operátora, nikdy, NIKDY nenadávejte operátorovi. Jednak ho tím naserete a to poslední co chcete je nasrat někoho, kdo má řešit vaše potíže, ale hlavně každý operátor má v popisu práce možnost zavěsit, jakmile začnete být osobní. Sám jsem takhle taky několikrát zavěšoval.</p>
-      <p id="71203feb-73fb-4bd8-a41d-77a6374597c6" class="">Jestliže fakt chcete nadávat, jednoduše nebuďte osobní a nadávejte na firmu a její služby. Například:</p>
-      <ul id="8912fd0c-2814-40e6-8141-c9364798145c" class="bulleted-list">
-        <li style="list-style-type:disc"><em>„Ta vaše firma, ta je tak na hovno, kurva, kdo tohle má vydržet, mě už z toho asi praskne kokot.“</em></li>
-      </ul>
-      <ul id="221e5057-5a6e-4d78-8698-825cbf585cee" class="bulleted-list">
-        <li style="list-style-type:disc"><em>„Ješiš prdel, tomuhle říkáte internet? Vždyť je to do píče úplně k ničemu.“</em></li>
-      </ul>
-      <ul id="969b508b-9953-465a-a261-cbfd5d32f7e7" class="bulleted-list">
-        <li style="list-style-type:disc"><em>„Ti vaši technici, to je taky banda dementů. Ten kretén sem přijel, chvíli se v tom vrtal a pak posral i zbytek a ještě si zlomil nohu, když spadnul ze sloupu. To jsem ještě neviděl.“</em></li>
-      </ul>
-      <p id="4cc8e6b3-8c02-45f1-b1f0-544acf10c564" class="">Osobně jsem měl tenhle druh nadávek docela rád. Většinou jsem si dal na telefonu <em>mute</em>, pustil jsem hlasitý odposlech a spolu s ostatními operátory jsme se tomu smáli. Smáli jsme se hlavně podání, ale taky protože to často byla pravda. Fakt jsme firma plná dementů, sakra, vždyť já bych mohl vyprávět! A tak jsem čas od času vypnul <em>mute</em>, řekl cosi jako <em>„ano, za to se omlouvám“</em> a pak se zas smál výbuchům.</p>
-      <p id="6e369864-8841-42e2-9c68-414cb783bc65" class="">Ve chvíli kdy ale zákazník začal být osobní a nadávat mě, tak končil. <em>„Nezlobte se, tohle nemám zapotřebí, naschle“ [konec hovoru]</em>. Stejná pravidla mají v každé korporaci, takže to vážně nemá smysl zkoušet. Velmi pikantní to bylo na nočních, kde jsem byl sám a tihle zákazníci mi pak za 20 minut zkroušeně znova volali s uctivými prosbami, abych ten problém řešil.</p>
-      <h2 id="b46e6338-984c-4e4f-a441-16f083a75c5b" class="">Závěr</h2>
-      <p id="11575e92-4a17-4ec6-8c09-ea1a7fb703df" class="">Výše uvedený postup je možné použít pro jednání s v podstatě libovolnou korporací, do jisté velké míry pak i se státní správou. I když byl text psaný z pohledu jednání s velkým poskytovatelem internetu, úplně stejně to funguje na poskytovatele energií jako je elektřina, nebo plyn, na poskytovatele jízdenek, či letenek, nebo třeba na dopravní služby (zkušenosti mám s jednáním se Student agency, ČSAD Slaný, DPD a ČEZem, kde dokonce používají stejné fráze, jaké jsme měli my).</p>
-      <p id="010f8efd-c470-4b7d-ad1e-086c9328c90e" class="">Všechny velké korporace fungují stejně - používají nějaký trouble-ticket systém, mají různě velká oddělení, kde levá ruka neví, co dělá pravá a všichni se nejvíc bojí formálních postihů, nikoliv výhrůžek zákazníků. Všude mají nějaký slang, všude na ně tlačí management, všude se používá outsourcing telefonistů někam pryč, takže lidi se kterými bude mluvit vůbec nemají tušení, co se děje ve vaší lokalitě, dokud jim to neřeknete.</p>
-      <p id="23a052ea-3538-4128-8757-afd2e150c2f9" class="">Pokud chcete opravdu zapůsobit na operátora, uvědomte si, že je to taky jen člověk. Hezky ho pozdravte, popište srozumitelně co vás trápí. Vemte si číslo ticketu, stejně tak jeho jméno.</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b1224f6c-520e-4fa3-8dc5-2381d4619dbe" class=""><time>@2015/12/28</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="22067a9f-6ed3-4525-87db-7d743d3d8acb" class="">První práce, co jsem kdy dělal byla „specialista korporátního service-desku“ v nejmenované firmě <em>&lt;F&gt;</em>. Jednalo se v podstatě o řešení poruch a technických požadavků zákazníků. Něco o tom vím, tak jsem se rozhodl sepsat nějaké zkušenosti ohledně hlášení poruch.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="a199b29b-2005-41cb-a655-0b017a06dc56" class="">Disclaimer</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d9e0290e-eded-4d57-9d0e-233d101613e9" class="">Firmu naschvál nejmenuji, protože jsem podepsal jakési NDA, ale zároveň i z toho důvodu, že díky další praxi vím, že to ve všech velkých korporacích poskytujících internet vypadá podobně. Z legálních důvodů tedy tento článek vnímejte jako tréning v psaní smyšlených příběhů. Všechny osoby jsou smyšlené, všechny údaje náhodné a veškerá podobnost je čistě souhrou okolností.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="5f858e4e-ba34-497e-877f-818f76e00b7f" class="">Práce</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1ff7ac13-9df2-4968-9d16-89149f19faea" class="">Ale zpět k práci; ta vypada tak, že jsem seděl u počítače, na hlavě sluchátka s mikrofonem a čekal na hovor. Když přišel, tak jsem se představil (<em>„Dobrý den, u telefonu &lt;jméno&gt; &lt;příjmení&gt;, &lt;F&gt; Service-desk, jak vám mohu pomoci?“</em>) průběžně si všechno co mi zákazník říkal sepisoval a zároveň při tom spouštěl různé diagnostiky (na fyzickou linku, na spojení s modemem, na log připojení, log parametrů na vedení atd).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ffbdb1ea-90bd-4273-b36b-cbca549ba17f" class="">Část problémů jsem vyřešil přímo se zákazníkem po telefonu. Obyčejný restart modemu vyřeší tak 50% všech problémů, jindy se mi podařilo něco rekonfigurovat přímo z mých aplikací. Když to nevyšlo, tak jsem soupis informací spolu se všemi diagnostikami uložil do takzvaného trouble-ticketu (TT). Poté jsem jeho číslo nahlásil zákazníkovi a odeslal TT na jiné oddělení, což mohlo být buďto fyzická kontrola sítí, konfigurace modemů, dispečink výjezdů techniků, IP konfigurace, doménáři, emailáři a tak podobně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1ef47837-d5e5-4f92-88d8-84d08ca37d82" class="">Na jiném oddělení něco zkonfigurovali, či proměřili a po cca hodině to vrátili k nám. To se projevilo tak, že u člověka, který obsluhoval „frontu“ se najednou v aplikaci objevil řádek se zadaným TT, on si v něm přečetl log kombinovaný se zápisem ostatních pracovníků a podle něj buď zavolal zákazníkovi, že je vše vyřešeno (v takovém případě se zároveň zeptal, jestli můžeme TT uzavřít), či aby s ním domluvil další spolupráci, spočívající v dalším restartu, či vyslání technika.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f9d0d40a-1b93-487e-804b-22d6a7279751" class="">Technika mohl občas naplánovat samotný operátor, v některých jiných případech byl nucen předávat celý požadavek na „dispečink“, odkud potom zákazníkovi zavolali přímo manažeři techniků a domluvili s ním čas příjezdu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8cf62c6c-8b40-4165-905d-a0c3b00752f2" class="">Obecně se dá říct, že naprostou většinu poruch jsme vyřešili do 30 hodin, mezi což nepočítám čekání na technika - když vám v pondělí zákazník řekne, že v místě problému někdo bude až v pátek odpoledne, tak se počítá jen doba, kdy tam technik skutečně je a něco opravuje. Většina techniků odjížděla opravovat ještě ten den, nebo nejpozději příští den, včetně víkendů a svátků.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3f71065e-f9be-45a5-8baf-e6f711d64928" class="">Celý systém se zdá docela jednoduchý, ale bylo tam hodně neoficiálních vedlejších záležitostí, kdy se ukazoval pravý důvod, proč vlastně děláme tuhle práci a nejsou tam místo nás stroje. Typicky to byly situace, kdy volá naštvaný zákazník, kterého je třeba uklidnit, nebo se někde něco zasekne a je potřeba to pošťouchnout telefonátem na konkrétní oddělení, zjebat technika, že nepřijel, když měl (většinou to bylo proto, že něco jiného zabralo víc času, než s čím počítal a prostě neodjede od rozdělané zakázky na jinou opravu), nebo zákazníkovi vysvětlit, že o jeho poruše víme, ale řešit jí teď nebudeme, protože souvisí třeba s povodněmi a celá ústředna je momentálně dva metry pod vodou a až voda opadne, tak budeme muset postavit novou, protože stará má v háji statiku..</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="75d355d1-e773-4389-8f73-0cbd2b18dc21" class="">Důvod, proč jsem se rozhodl sepsat tenhle blogpost není nostalgické vzpomenutí si na práci v <em>&lt;F&gt;</em>, ale protože spousta lidí, včetně mých známých a kamarádů, má naprosto rozhozené představy o tom, jak a kdy by se měly hlásit poruchy a jak bude celý průběh řešení vypadat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="314bbdd2-59a5-4fe6-bafc-45efca5f636d" class="">Jak hlásit poruchy</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="25f30181-cf79-4910-97ee-58c3cc9a1e1d" class="">Pravidlo číslo 1: Uklidněte se.</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9283a8ba-a5a7-45e4-8c6b-a8329b816cd5" class="">Já vím, že vám nejde internet, což může být frustrující, ale neberte to jako osobní útok. S vysokou pravděpodobností se jedná o technickou závadu způsobenou přírodou, nikoliv promyšlenou sabotáž, která má za úkol vás poškodit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bcacef10-b121-441f-a5bb-efc96c30cb22" class="">Tohle pravidlo je naprosto nejdůležitější ze všeho, co zde dneska budu psát; <strong>berte to s klidem</strong>. Lidé mají podivuhodně silnou schopnost brát si věci osobně a hledat zlovůli vůči jejich osobě v situacích, kde žádná není. To že vám nejde internet není facka reality do vaší tváře, ale náhodně překopnutý kabel ukrajinským bagristou, voda zatékající do rozvaděče, nebo zkorodované dráty.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b27284f8-8806-4d7f-85d0-f4a03cdccf6d" class="">Internet je svého druhu potrubí, skoro ve všech vlastnostech podobný potrubí s vodou. Stejně jako vodovodní potrubí je čas od času potřeba ho opravit, či vyčistit. Oboje potrubí zvládne pouze určitý tlak, oboje má jen omezenou kapacitu, oboje občas vytéká jinudy, než by mělo (z internetového jde svodem někde elektřina do země). To je prostě fakt a když máte jako firma tisíce kilometrů vedení po celé české republice, od obrovských informačních dálnic po maličké větve vedoucí do každé dědiny o třech barácích, je prostě absolutní jistotou, že bude docházet k poruchám, i kdyby celý zbytek světa byl naprosto ideální.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c057d0d8-9731-47cd-8044-47249c1ae036" class="">Poruchy se dějí a dít budou u libovolné firmy, na libovolném vedení. Je to stejná konstanta života, jako že jednoho dne zemřete. Není v tom nic osobního. Nemůžete si vybrat kde a kdy, můžete si ale vybrat způsob, jakým se k tomu postavíte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="2148c48c-f929-46cb-80b6-e1eb80f76fff" class="">Vztek nepomáhá</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fd95534e-cec4-40df-b8f0-19432a6a01c1" class="">Pro mnohé bude naprosto překvapující fakt, že pokud budete operátorovi volat v afektu, nejen že vám to nepomůže, ale doslova vám to uškodí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2f8cba83-155b-496a-9813-058e5f992fb8" class="">Tohle nemyslím nějak abstraktně, že stres škodí zdraví a poškozuje vaší karmu - naopak! Operátor na druhé straně telefonu je také jen člověk, s úplně stejnou psychologií jako většina ostatních lidí. Má větší praxi ve zvládání konfliktních zákazníků, to ano, ale rozhodně to neznamená, že mu dělá dobře, když na něj někdo křičí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="65397e8e-0637-443e-8b28-5b7d5dc26598" class="">Osobně jsem byl vůči tomuhle později už vcelku imunní, ale spousta mých kolegů měla snahu se řvoucích zákazníků co nejrychleji zbavit. Přepojit je někam jinam (jedno kam, hlavně pryč), slíbit jim, že všechno bude růžové a skvělé, hlavně aby už sakra zavěsili a přestali řvát.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7ab35eef-d9eb-4a4e-8685-c0a7d4f6c30d" class="">Někteří mí kolegové dokonce podobné poruchy házeli do černých děr (zrušená oddělení, kde není nikdo, kdo by poruchy řešil), či psali do zápisu JTK (Je To Kráva/Kokot), což upozornilo všechny ostatní, že se mají držet od poruchy dál, protože na ně bude zákazník řvát.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="56c764ec-d311-45fd-a4bc-d2ace96ca6c8" class="">Pro zákazníka to mělo jen jeden jediný efekt; horší zážitek. Je to docela paradoxní; nejen že si nepomohl, vystresoval sám sebe i druhého člověka, ale dokonce ještě zhoršil celý průběh řešení poruchy a protáhl dobu řešení na delší. Nikdo se totiž poruchy nechtěl dotknout, dokud to skutečně nebylo naprosto nutné, jako kdyby byla otrávená.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9ed66d07-8882-42a1-95a5-1e3295aa66cb" class="">Takže pravidlo číslo jedna: Buďte klidní.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="644301b8-ca38-468f-8dbb-63f4152a221b" class="">Pravidlo číslo 2: Požadujte informace</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4a6c987a-e721-4072-8fdb-69f32137333f" class="">Tohle pravidlo považuji za velmi důležité, po pravidlu číslo jedna asi za nejdůležitější.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fb3faee5-7d0a-47be-aaa1-aefe1a56dc16" class="">Co to znamená? <strong>Chtějte „číslo trouble-ticketu“</strong>, či „číslo poruchy“. <strong>Zapište si ho</strong>, je to to nejdůležitější, co máte v rukou ohledně řešení vaší poruchy. S tímhle číslem máte možnost si stěžovat, poruchu znova otevírat, trvat na vyslání jiných techniků, sepsání vyjádření o řešení poruchy, či dát celou věc k soudu. Bez tohohle čísla nemáte nic.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1b0e8fc8-2af0-4bac-a5b1-cab114d16faf" class="">Pokud chcete ukázat, že vám skutečně záleží na korektním vedení poruchy, zeptejte se na jméno. Já mám třeba hodně špatnou paměť na jména, proto se klidně v půlce hovoru zeptám na jméno operátora:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="07574a6c-86a6-4ece-9d29-f211ee56d625" class="">
+          Slečno, omlouvám se, zapomněl jsem vaše jméno a chtěl bych si ho zapsat do mého protokolu. Můžete mi ho zopakovat?
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="83311eef-2514-44cb-8a5d-43387df9a6b0" class="">Tohle se může zdát jako blbost, ale můžu vám garantovat, že je to stokrát lepší než nadávky a výhrůžky. Každý operátor po tomhle zbystří a začne být velmi korektní. S jeho jménem máte možnost podávat stížnosti, nebo provádět psychologické hacky. Věta <em>„moc vám děkuji za pomoc, Andreo, vážím si toho, co pro mě děláte“</em> působí na operátora tak, že si poruchu poznamená někam vedle a sám jí bude ve volném čase sledovat, jen proto, že jste mu takhle pěkně zalichotili.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="714270e0-6604-47a7-b914-7b0cc9169d30" class="">Pravidlo číslo 3: Připravte se</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1aff30f8-f576-425c-ae52-b5503805f87e" class="">Příprava? Jaká příprava? Já mám přece poruchu, tak jí sakra koukejte řešit!</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b3e1a4f8-9a77-4155-9f72-d16343b31443" class="">Ano. Ač se to v tu chvíli zdá jako velký opruz, bude zapotřebí nějaká minimální součinnost i od vás:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="4cbb8af1-3d73-44f5-9d87-b560a1dd949a" class="">Restarty, restarty, restarty..</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="de6b42ad-10cc-4849-a517-41f84422d0b0" class="">Restartujte zařízení vytažením napájecího kabelu z elektřiny a opětovným zapojením po cca 15 vteřinách. Tohle samo o sobě vyřeší velkou část poruch internetu, ale i zaseknutí IP telefonů - v takovém případě musíte ovšem restartovat i telefon.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7210d9d5-a4ff-45da-959d-079eff4f99bd" class="">Tenhle krok nelze přeskočit a pokud ho neuděláte teď, stejně ho budete muset udělat za pár minut s operátorem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="07f854fb-5c7f-40ef-84d6-4aa4e438267f" class="">Projev poruchy</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36f9ea77-532e-4e34-aa22-2d8e831a81c8" class="">Nějak si sesumírujte, co vám vlastně nejde:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="278fc4d6-b07c-4907-b784-65586e8c6c13" class="">Nejde vám internet? Jak se to projevuje? Jsou tam výpadky, nebo nejde vůbec? Nebo jde pomalu? Možná se vám přerušuje stahování po každém megabajtu? Projevuje se to jen na wifi, nebo i během připojení kabelem? Rozpadají se vám telefonní hovory? Nebo v nich chrčí, či se tam ozývá tón? Zkoušeli jste restart? Pokud ne, jděte ho zkusit :)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="afa3bb12-da68-40eb-bf9d-dfee110d453e" class="">Poznamenejte si, co kde bliká, jestli něco svítí červeně či zeleně (myšleno nápisy u diod, nemá smysl říkat <em>„takové světélko mi tam svítí červeně“</em>). Jak u modemu, tak u IP telefonu, či settopboxu u televize. Můžete to začít zjišťovat až při hovoru, ale když to budete vědět předem, podstatně vše urychlíte a čím méně času strávíte telefonováním, tím dřív se bude porucha řešit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="ec1f6be9-f0f2-424c-afee-baa816b13269" class="">Identifikace linky</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a281f839-5e83-4596-a9f2-94ff6c0b01d1" class="">Zjistěte si identifikaci linky. Identifikátorem myslím telefonní číslo pevného internetu (ano, i čistě internetové xDSL linky mají svoje číslo), nebo tzv. Case ID jiných datových služeb.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5ed821a7-9044-49f9-a0bf-268e840dcafc" class="">Telefonní číslo vypadá jako běžné číslo, například (vymýšlím si): 381 720 108. Case ID je pak kód u linek, které nefungují po telefonu, například CSID: 12827. Někdy také začínají písmenem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1b1c1b65-e85a-4b5a-924a-b08172954db3" class="">Pokud máte telefon vedený na soukromou osobu a ne na firmu, budete také potřebovat „ověření“, typicky se jedná o rodné číslo a jméno majitele.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="438dd951-a41e-4ded-b0b0-9c32103c4986" class="">Nevím identifikaci</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="74f760c5-0484-4c86-b60c-528976255671" class="">Pokud nic z tohohle nevíte, někdy je možné linku dohledat i podle adresy a jména firmy / osoby, ale operátoři tohle velmi neradi dělají, protože to zahrnuje prohledávání fyzických rozpisů linek. Všichni operátoři jsou tlačení časem na počty hovorů svými šéfy, tudíž jen málokterý bude chtít věnovat 15 minut dohledávání vašeho čísla, nehledě na to, že to nemají v popisu práce.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="58f59510-45b8-40e7-84b0-ec22ee7254be" class="">Pokud budete působit mile a ztraceně, možná si na vás vyhradí čas, v opačném případě vám prostě řeknou, ať zavoláte až budete mít nějaké info, protože do té doby v podstatě nejste považováni za legitimní požadavek.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="0ec2f514-49ce-41e0-ba6d-078425138e18" class="">Telefonní číslo poruchové linky</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4b19e378-c56d-458c-b0be-f2c51d3cfce7" class="">Budete také potřebovat vědět, kde hlásit váš problém. Zde samozřejmě záleží na firmě, u které máte internet:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="765f9082-b27c-4d4b-a75a-eba6b54c031e" class="">O2</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ff29316-f74d-47ab-9f8b-456654e47e57" class="">800 184 084 pro nefiremní zákazníky. Někdy, hlavně v případě větších poruch tam bývá automat, který vám oznámí, že začal řešit poruchu. Teoreticky by se vám měl někdo ozvat zpět, ale občas to nevyjde. Pokud by se stalo, že se do hodiny nikdo neozve, doporučuji zavolat na 800 333 777 a požádat o přepojení na, cituji <em>„oddělení poruch pro soukromé osoby“</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f01c90be-2a3d-4a32-bc0a-7e6d6b1deab2" class="">800 111 777, alternativně pak 800 333 777 pro korporátní zákazníky. Obě čísla vedou na stejná oddělení, jen u jednoho vás to spáruje podle čísla mobilu automaticky, u druhého zpravidla ne.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="04ff3d5c-14c1-4ac0-a72c-ad05905f7d09" class="">GTS</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="73744eb5-97ea-4cb7-b3ab-a394996f90a7" class="">Hlavní kontaktní linka zdarma je 800 990 990. Technická kontaktní linka (poruchy) poté 13 100.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="a16e6cb4-5f94-470d-a7e9-eb44aa72b61d" class="">Vodafone</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4066dc4a-6956-4c2f-ad05-951efe030335" class="">800 777 777 pro nefiremní zákazníky, nebo 800 777 700 pro firemní.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="6815f310-2873-43b3-8c0a-2f7a659d2f94" class="">ČD-Telematika</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5cef58b7-3e7e-4e40-aa91-2c47e296aa1d" class="">972 110 000 (částečně zpoplatněné!) je zákaznická linka, odkud by vás měli přepojit na poruchy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="75660d5d-8fbd-462b-b2bb-2623658705c0" class="">V rámci přípravy vám také velmi doporučuji si někam na disk uložit tenhle článek. <strong>Ve chvíli, kdy vám nepůjde internet je zpravidla pozdě hledat číslo na poruchy.</strong> To byste měli mít napsané někde offline.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d3c45faf-b69d-4200-b46d-ea12c954dbe7" class="">Kdy hlásit poruchy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fbe4ca62-672a-400d-9afc-d163f1ef3173" class="">Platí úplně jednoduché pravidlo: poruchy hlásíme ve chvíli, kdy je máme.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b51338dc-29be-4545-ba2d-f9a5dff81600" class="">Vypadá to triviálně, že? Proč o tom mluvím? Spousta lidí žije v domnění, že některé poruchy se vyřeší samy, či že si někdo z firmy všimne, že k poruše došlo a začne na ní sám pracovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="74bc8598-7e6f-418d-9a22-4325a24b6c82" class="">Takhle to ale vůbec nefunguje. Pokud nenahlásíte poruchu, nikdo jí nikdy neopraví, hlavně proto, že o ní nikdo neví, ale taky proto, že prostě přednost mají poruchy praktické (ohlášené, tlačené zákazníky) před teoretickými (třeba zachycenými automatem, ale když si nikdo nestěžuje tak proč to řešit?).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="acada7e4-c27b-47fc-a5ed-06319e05ba02" class="">Jedinou výjimkou z tohohle jsou poruchy velkých ústředen, či překopnuté kabely, kde poruchu ohlásilo už několik desítek lidí před vámi. To se ale zpravidla nedozvíte, proto je dobré poruchu stejně ohlásit. Pokud na lince čekáte dlouho a sousedovi taky nejde internet, pravděpodobně je to už ohlášené. Můžete to zkusit později (zpravidla je tam někdo nonstop), nebo doufat, že se to rozjede.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="52347d1e-c7a1-4f14-9dc2-e65c85017ed9" class="">Jak vypadá ohlašování poruchy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c90a2694-0366-4844-a400-ff5047bffcae" class="">Nemá cenu hlásit poruchy emailem. Pokud nejste opravdu velká korporace, emaily nejsou oficiálním komunikačním kanálem a mohou být ignorovány. Stejně tak nemá smysl hlásit poruchy dopisem, či voláním na obchodní oddělení. Sice se můžete dočkat přepojení, ale můžete takhle skákat třeba po pěti odděleních, protože obchoďáci obecně nemají tušení, kam vás spojit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="87d7bc5e-5067-4281-ab51-67ef63b96788" class="">Rozhodně nemá smysl hlásit poruchy někde na chatu, či jít do prodejny a hledat tam někoho, kdo vám pomůže. To jsou veskrze nekompetentní lidi, kteří nemají vůbec tušení, jak se poruchy řeší a málokdo z nich má nějaké relevantní technické vzdělání, mimo týdenní kurz na veškeré internetové technologie. Většina z nich zákazníkům vypráví vcelku blbosti. Jejich práce rozhodně není řešit poruchy, ale prodávat výrobky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="11b4f9cb-0a47-48d5-8dae-571e52fdd6e2" class="">Pokud chcete, aby se porucha skutečně řešila, jediný způsob je osobně zavolat na poruchovou linku, viz čísla nahoře.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a8fc2708-1ffc-483e-a588-93ec6c88a9e6" class="">Takže někam zavoláte, dovoláte se do automatu, kde vyberete, že chcete nahlásit poruchu, či mluvit s operátorem. Ozve se melodie, najednou hovor někdo vezme a představí se, například takto:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="6bc6f4bd-6775-4b2c-b32a-a517c971abf1" class="">
+          Dobrý den, tady Franta Opička, poruchová linka, co pro vás mohu udělat?
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a3d1f495-3c0b-4c63-bade-a2d0e75f7eb3" class="">Teď přijde řada na vás odpovědět, co pro vás operátor může udělat. Slušností je se představit a nezačínat hned <em>„no, nejde mi internet, opravte to!“</em>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="d3715873-6272-498b-bfb7-3e5e9e9a0427" class="">
+          Dobrý den, tady Rostislav Pumlíč. Mám výpadky internetu, mohl byste se na to podívat?
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0258a89b-7083-4e7b-b434-6bf9436f00f8" class="">Můžete rovnou nadiktovat i číslo linky, pokud to neuděláte, operátor se na to zeptá:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="1fdb11cb-1244-497b-9237-8ecd23f227c9" class="">
+          Určitě. Poprosím o číslo linky a vaše rodné číslo, abych ověřil oprávněnost požadavku.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c01b595f-19ed-4555-a2f8-53c82bbd1715" class="">Načež odpovíte z předem připravených materiálů:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="40f5e326-d4bc-4317-a693-faec355e405f" class="">
+          Ano. Třista-osmdesát-jedna, sedmset-dvacet, sto-osm.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="96e1396c-713a-4617-a31d-7f891b0bff5e" class="">K tomuhle mě napadá perlička; většina lidí diktuje číslo naprosto zfetovaně. Běžní lidé během hovoru přepínají dvojice, trojice, jedno čísla, někdo to diktuje i jako <em>„třista-osmdesát-jedna milionů, sedmset-dvacet tisíc, sto osm“</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="deedc1a5-b2d7-4edd-8115-95f1c1f96500" class="">Profesionála navyklého jednání s lidmi poznáte podle toho, že diktuje číslo buďto po trojicích, nebo po číslech. Také vám dávají audio-potvrzení, že obdrželi správně zadanou trojici a někdy automaticky přepnou na diktování po číslech, když slyší, že s tím máte problém. Sice to nemá žádný velký význam, ale dokázalo to pobavit a dodat sondu zmatenosti duše volajícího.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="88a31d5a-4b69-4992-b741-fca4bb8e8929" class="">Operátor na to řekne cosi jako:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="fde7ab1d-dbf2-4c00-accc-27345538b680" class="">
+          Děkuji. Už to tady vidím, linka je vedena na Rostislava Pumlíče, ulice Patočkova 53, Litoměřice. Teď si spustím diagnostiky a podívám co je na lince za možnou poruchu
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7fa5d5d3-5e07-4eb4-97ea-e5fae79b907f" class="">* Všimněte si, že jsem nenapsal <em>„problém“</em>. Tohle slovo je operátorů zapovězeno, protože působí negativně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="02021ac3-472a-43eb-a934-9594d55f6ed6" class="">Po tomhle budou nejspíš následovat průpovídky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3759d4eb-6b94-4692-ac4a-4666ea57444d" class="">Na korporátním oddělení jsme mohli zákazníka dávat takzvaně do <em>„holdu“</em>, to znamená, že jsme se omluvili, řekli že budeme dělat měření, vypnuli hovor a zákazník slyšel hudbu (‚bublinky‘). My jsme mezi tím mohli řešit jeho poruchu s dalšími odděleními přes druhý kanál telefonu, dojídat pizzu, nebo si vyprávět vtip, než se diagnostiky provedou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="455b2f34-6c03-4df8-b569-25279c3d54f2" class="">V odděleních pro fyzické osoby tahle praxe neplatila a součástí práce operátora bylo zákazníkovi vyprávět pohádku a bavit ho těch 5 - 10 minut, než doběhnou diagnostiky. Osobně jsem byl rád, že nic takového dělat nemusím, protože když jsem to kdysi zkoušel, tak jsem z toho byl naprosto ochraptělý a v podstatě jsem byl nucený si vymýšlet kraviny.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="da66b389-1e43-4465-ac18-29a50bba2112" class="">
+          Tak, teď se mi provádí diagnostika vedení a vidím tu ryba „svod na zkratu“ pod URákem, při es-en-er jedenáct na odporu 2000 kilo..
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5119ac8d-5ef2-4101-836e-95242068022d" class="">Což sice byly věci z diagnostik, ale jednak je to v podstatě kravina (svod na zkratu je protiřečení si), druhak to zákazníkovi nic neřekne. Spousta z operátorů byla časem v pokušení začít si vymýšlet psychologické hry, například říct náhodně slovo „ryba“ a zkoušet, jestli si toho zákazník všimne, nebo ne. Takže buďte rádi za hudbu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="07bbd5d3-0a8b-43ad-a385-b974dcb8d538" class="">Potom následuje nějaké oznámení:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="24618890-d97e-479f-a96a-4a7c1f782ad8" class="">
+          Ano, vidím tu svod na vedení, poruchu tedy předám kolegům technikům, kteří vám vyjedou opravit vedení. Vypadá to, že je to mezi 2 a 3 kilometrem. Můžeme si naplánovat výjezd?
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1e72e812-7a30-4306-84e3-468191a5675a" class="">Po čemž následuje domluvení si, že k výjezdu technika na opravu dojde zítra v 11:30, je tedy dobré, aby doma někdo byl, kdyby musel třeba restartovat modem, nebo vyměnit UR (uživatelský rozvaděč, krabička na baráku).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b41968a0-27ca-42f9-be1e-6880c4ee7176" class="">Nyní následuje čas uplatnit <strong>pravidlo číslo dva</strong> - požadovat číslo troubleticketu a jména operátora a oboje si zapsat na papír. Budete to potřebovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6b45db39-34eb-412c-b8e5-28ceec98a96f" class="">Poté vyjede technik, problém odstraní, nebo ne a zpětně vám někdo zavolá, že byla porucha vyřešena. Tohle by tedy byl popis ideálního průběhu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3c90a514-a53d-4863-ad14-bc10a1af18c5" class="">Neideální průběh</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="136cad76-7c44-40c8-9549-4a3286eaf70b" class="">Samozřejmě, život je pestrý a hovor může mít desítky různých průběhů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="6ec0b8c0-2e53-4516-afdd-714a5d845b95" class="">Operátor blbec</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2ee4c2e3-d1e2-4736-beda-57557a483a19" class="">Stát se může například, že narazíte na operátora blbce, který k vám bude nepříjemný. V takovém případě doporučuji v hovoru nepokračovat a jednoduše zavěsit a zavolat znova. Systém routování hovorů je více/méně náhodný a příště trefíte jiného operátora, který může být fajn. Když ne, celý krok zopakujte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c12f81b2-8a4d-4b67-ab8a-3771b1afc51b" class="">Tohle nemá smysl zkoušet v noci či o svátcích, kdy je tam jen jeden / dva lidi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="a6dc29d7-1137-4661-8d9f-5d5f20f0d9ad" class="">Velká fronta</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5272daf1-f2c3-47fa-84fc-4119539b8e6b" class="">„Restart“ hovoru může být někdy nepoužitelný, když jste ve větší čekačce a čekáte na spojení s operátorem třeba 20 minut. V takovém případě máte prostě smůlu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b998eeb4-2d08-4acc-8738-7ed493ea69d8" class="">Obecně velké čekačky znamenají velké poruchy, takže je slušná šance, že tu vaší už někdo řeší. Například jsem zažil, když vyhořela ústředna pro 11 tisíc lidí, protože technik zapojil omylem obráceně napájení. V tu chvíli podle přehledové tabule najednou volalo asi 1200 lidí, každý z nich chtěl ohlásit poruchu a nás bylo zrovna v práci 12 (korporátní team, ne poruchy fyzických osob). Asi si umíte představit, jak to celé vypadalo. Spousta naštvaných lidí čekajících třeba hodinu, aby nám řekli něco, co už dávno víme a na čem se pracuje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8e40c145-b0dd-477a-ba1f-7feda93fd60b" class="">Později byla zavedena jakási hláska v těhle případech, ale její nasazení rozhodně nebylo automatické, musela to udělat šéfová.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="88ad55f2-bc08-445a-9e93-2c7a949c2eca" class="">Nevyřešení poruchy</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b64b3267-e760-4df3-b797-ba0277bc356c" class="">Stane se, že přijede technik, který opraví zřejmou poruchu, všechno ozkouší a zas odjede. Přesto vám služba stále nefunguje. Tohle bylo typické po bouřkách, kde blesk uhodil do vedení a vysmažil jak vedení, tak modem, či UR.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a0868237-5d70-46eb-8fd8-9e47465efe8d" class="">Technik pak opraví vedení, opraví i krabičku na domě, ale už vám nebude opravovat vedení v domě, ani vyměňovat modem, protože je to oboje vaším majetkem. Pokud chcete, máte možnost nechat si tam vyslat jiného technika, který vám opravu zpoplatněně provede, stejně tak ale můžete objednat třeba elektrikáře.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="41dd2e79-232f-440c-9e7f-371f90fd0963" class="">Technik taky mohl něco přehlédnout. Každopádně opět zavolejte a trvejte na dalším proměření, případně opětovném vyslání technika.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="3e98f5e2-7e79-4f7e-8942-89e8bc663f45" class="">Nevyřešení poruchy - technik blbec</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b30b204b-4ce8-4ab0-bd9e-c2be8c104bd5" class="">Zažil jsem také, i když zcela výjimečně, že poruchu řešil technik blbec. Přijel, posral i to co předtím fungovalo a zas odjel.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a84d50ba-23ca-457c-af7e-621b8793d44a" class="">Pokud se vám tohle stane, neřvěte, nebrečte operátorovi do telefonu, ale trvejte na vyslání lepšího a zkušenějšího technika a také uvedení tohoto do záznamu. Doslova řekněte:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="c946f4c6-a171-4b99-b9a1-d0eaeff14a1d" class="">
+          Nesouhlasím s vyřešením poruchy
+          <div style="display:contents" dir="auto">
+            <p id="6f8ba3a7-1ace-4ca4-b3e1-f8d1ed7eb44c" class=""><em>&lt;číslo poruchy, viz pravidlo číslo dva&gt;</em></p>
+          </div>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="49f8272c-1384-4279-9d72-566bab603e4b" class="">Netřeba se při tom rozčilovat, či stresovat. Korporace, se kterou jednáte je jako stroj složený z lidí. Stresovat se z něj je jako stresovat se z bankomatu, nebo automatu na limonádu. Nijak vám to nepomůže, protože to na něj nemá žádný vliv.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="708efed1-0bf8-4080-810c-9159a8b871ea" class="">FAQ</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="e92d24b2-9cfe-4167-96e9-9b6a4f1034ab" class="">Opravdu jsou hovory nahrávané?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33aea191-2bc2-403d-8201-cfabe437421e" class="">Ano. Více/méně každý hovor je nahraný, i když pro některé přepojované to za dost ezoterických podmínek nemusí platit. Nahrávají se jednak kvůli výhrůžkám, ale také kvůli hodnocení operátorů externím auditorem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="92d77a2e-bbc9-4849-86c9-040cae7d10c1" class="">Každý operátor má každý měsíc hodnoceno několik náhodných hovorů, kde se bere v potaz jeho profesionalita a jak byl hovor veden. Pokud se choval nekorektně, může přijít o prémie, či být vyhozen.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e5310ffa-a462-4e5b-b111-9ebb1c2f28e8" class="">Naprostou většinu nahraných hovorů nikdo neposlouchá. Občas jsme si o volných chvílích pouštěli nějaké vtipné nahrávky, nejčastější důvod poslechu ale byl, že mi zákazník nadiktoval nesrozumitelně nějakou informaci a mě bylo blbé se ho na to potřetí ptát, tak jsem si to pustil z nahrávky, která má čistější zvuk.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="9958dd1c-1be0-448f-b984-f7b144760aa0" class="">Problém s pingem</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="979e28dd-06c0-4317-ad7a-9478db815322" class="">Ping je podle většiny smluv negarantovaný (=nikdo vám ho řešit nebude), ale pokud je někde v &gt;400ms rozmezí, dá se to nechat řešit technikem. Musíte ovšem naměřit ping (ideálně někam na nic.cz, ne do azerbajdžánu) a poslat ho emailem, tak se na to připravte hned ze začátku. Taky platí, že je nutné měřit ve chvíli, kdy jsou všechny ostatní počítače fyzicky odpojené od modemu. To znamená vypnout wifi a vytáhnout všechny ostatní kabely.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="236cfe47-5868-4ef4-97b4-24207349369e" class="">Tohle po vás bude chtít operátor na lince a to samé bude dělat technik - nevěřili byste, jak často se stává, že zákazník si kazí ping sám tím, že na některém počítači běží třeba torrenty bez jeho vědomí. Řekl bych, že to je tak 6 z 10 případů <em>„problému s pingem“</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="e3346fb3-1772-4187-8d6e-717668c6b49e" class="">Kdy můžu volat?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="71aa06be-b1da-4c27-be3a-ffbf35448bfc" class="">Nonstop. Ve dne i v noci, o víkendech i o svátcích, prostě kdykoliv. Když vás ve 4 ráno napadne, že byste mohli zavolat, klidně. Jako operátor jsem sloužil mnoho nočních. Když mě ve čtyři hodiny ráno probudilo zběsilé zazvonění, bylo to někdy docela drsné, ale máte na to právo :)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a1dad73f-e6f0-40dc-a40b-3650a18707bc" class="">To nejhorší, co se vám může stát je, že se nedovoláte. Pokud ale ohlašujete poruchu v noci, či uvedete dostupnost na telefonu jako <em>„nonstop“</em>, počítejte s tím, že vám skutečně někdo může zavolat ve čtyři ráno, že byla porucha vyřešena. Operátoři na lince tohle dělat musí, protože jsou firmy, které skutečně jedou nonstop a kde se každá minuta zpoždění počítá.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="0f3f0e9e-05a8-496b-b194-069f91808eb8" class="">Jak se může stát, že potkám operátora blbce?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="908020e5-0112-4fe0-9789-2b733da4729c" class=""><em>&lt;F&gt;</em> je opravdu velká firma, jejíž pobočka má v Čechách cca 10 000 zaměstnanců. Spousta z nich jsou zaměstnanci agenturní, kteří nepracují pro <em>&lt;F&gt;</em>, ale pro nějakou agenturu (zdravím <em>Addecto</em>). Dělají sice stejnou práci, ale mají nižší plat (agentura si bere cca 5k pro sebe), nemají žádné výhody, jako sick days, nebo vitamíny. Nemají také smlouvu na neurčito a v podstatě mohou být (a jsou) z měsíce na měsíc vyhozeni.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9b21d07e-120a-4b65-93e6-30b1091931fc" class="">Je jasné, že tohle vůbec nezlepšuje morálku. Než jsem z <em>&lt;F&gt;</em> odešel, panoval navíc obecný trend slučování všeho do velkých openspace místností, kde bylo naprosté peklo pracovat. Takhle nás přesunuli z malé kanceláře pro 8 lidí do gigantického openspace, kde nás sedělo cca tři sta lidí. Pak přišly zákazy a příkazy (tak ty bys chtěl mít hrnek s čajem u počítače? tak to teda ne!), divné ovládání klimatizace a čím dál větší tlaky na rychlost a počty hovorů. Než jsem odešel, začal jsem tu práci nesnášet a to mě ještě půl roku před tím bavila.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f8b2dbfa-f57b-42d5-b8f7-eee03bb9ca7b" class="">Všichni lidi co pracovali v našem oddělení měli zpočátku práci rádi. Opravdu nás bavilo řešit poruchy a chtěli jsme tak nějak altruisticky pomáhat, ať už zákazníkům, tak i sobě v rámci týmu (vím že to zní jako strašně klišé, ale fakt je to pravda).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="646b0c5a-d2de-4285-a788-bb13f53e1812" class="">I když to nebyla nijak moc dobře placená práce (nástupák 17k hrubého), tak přinášela velkou satisfakci. Podobné je to třeba u doktorů, záchranářů a hasičů - ačkoliv jsou to obecně docela práce na hovno, člověka těší vidět, že někomu pomáhá. Nás těšilo řešit poruchy a pomáhat zákazníkům s nefunkčním internetem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="835c62a4-d44c-42ae-8c7c-dea6ad360846" class="">Pak přišly nové politiky, začaly tlaky na velké počty hovorů a naopak přestalo být prioritou, jestli jste něco vyřešili. Je to jako kdyby doktor měl ošetřit za den 50 lidí, přičemž by hrálo roli jen tohle číslo, nikoliv kolika z nich skutečně pomohl a jestli někoho vyléčil.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="caf60106-e36d-43fa-a00c-37af877e5b27" class="">Management se rozhodl, že tlakem nastaví hranici tak daleko, jak to jen ještě půjde. Kolik toho asi tak operátoři snesou? A kolik toho snesou zákazníci?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d8d668c8-f708-4d23-bff6-9dd658118749" class="">Tohle šlo do takových krajností, že jsem byl u toho, když záchranáři vyváželi případ pokusu o sebevraždu v práci. Kromě toho, že to vedlo k totální destrukci stávajících struktur lidí a všichni, kdo mohli odešli, tak vedlejší efekt je ohromná fluktuace lidí. V téhle práci prostě většina nováčků moc dlouho nevydrží, někde jsem slyšel, že současný průměr je asi 3 měsíce. Zcela logicky jim pak nezáleží na nějaké kvalitě odvedení práce, nebo jak se k vám budou chovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="12cb18eb-b4b3-4974-bf5a-5ad16308b054" class="">Určitě nechci říct, že tam zůstali jen lidé, kteří na práci kašlou, sám dobře vím, že díky hypotékám je tam zaseklých hodně opravdu skvělých lidí. Mezi nimi je ale zvýšená fluktuace „blbců“, protože firma je jako gigantická obluda, která na jednom konci požírá nové zaměstnance, aby většinu z nich do čtvrt roku zase vyhodila.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b7df64be-9d70-4421-8282-8095e17363b7" class="">No, takže takhle se stane, že narazíte na někoho, kdo to má na salámu. Řešení je jednoduché - zavěste a zavolejte znovu, třeba vylosujete někoho lepšího.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="0f701bce-65eb-4f4c-9661-dbcb07abbefa" class="">Proč je třeba restartovat modem?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2e105f5e-145c-4c8f-ba19-6811542922d1" class="">Modemy jsou malé počítače a jako všechny počítače je potřeba je jednou za čas restartovat. Někdy se přehřejí, jindy prostě dojde k nějakém softwarovému deadlocku. Běžné levné modemy Huawei/Comtrend/Zyxel rozhodně nejsou dělané na routování velkého množství dat, nebo na nějakou spolehlivost. Hlavní kritérium je cena a podle toho to vypadá.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9741ad03-442a-4b9f-b904-3f4ba6c9ac32" class="">Pokud chcete něco stabilního, pořiďte si Cisco, nebo MikroTik, ale nepočítejte s tím, že to bude stát 500kč.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="952ad7de-3435-4263-a2f8-6581891c05ec" class="">Kolísá mi rychlost internetu, co s tím?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c8550f30-615c-400b-96cd-56246716a477" class="">Kolísání rychlosti internetu jsem měl rád ze všeho nejmíň a to hned z několika důvodů:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="da0ce50b-3923-4e2c-bd9b-ef48986d4e7c" class="bulleted-list">
+          <li style="list-style-type:disc"><strong>Rychlost není garantovaná.</strong> Když podepisujete smlouvu, je tam uvedená magická formulka „až“, která značí, že spojení může být až takhle rychlé, ale nemusí.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="20962ec9-1fa8-4f17-99d0-dab87151b355" class="bulleted-list">
+          <li style="list-style-type:disc"><strong>Agregace.</strong> xDSL má agregaci 1:50, to znamená, že po stejných drátech jde ještě 50 dalších lidí. Tohle je optimalizace, jak na linku s kapacitou třeba 1000Mb/s nacpat 50 zákazníků s kapacitou 50Mb/s, i když správně by se tam mělo vejít jen 50 zákazníků s kapacitou 20Mb/s, nebo 20 zákazníků s kapacitou 50Mb/s. Spoléhá se zde na to, že linka je vytížena různě a všichni najednou nestahují. Problém samozřejmě nastane, když všichni najednou stahovat začnou, protože pak vám padne internet z 50Mb/s jen na těch 20Mb/s. Je to podobné jako s vodovodem - když si všichni v celé čtvrti začnou napouštět vodu, tak nepoteče pořádně nikomu, protože systém je dimenzovaný na střídání spotřeby v čase. Máte samozřejmě možnost si koupit garantovanou rychlost bez agregace, ale je to podstatně dražší.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d711e02f-b2a0-40f8-bbf5-5b59bd3f9321" class="bulleted-list">
+          <li style="list-style-type:disc"><strong>Wifi.</strong> Lidi mají spoustu podivných představ o wifi, přitom je to bezlicenční pásmo, které je často brutálně rušené a co dneska funguje zítra nemusí. Wifi navíc není součástí připojení, ale bonusová funkce vašeho modemu. Pokud vám nejde, smůla.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="7d378c61-086a-4e85-9a17-6d9fd0b6c187" class="bulleted-list">
+          <li style="list-style-type:disc"><strong>Skryté stahování.</strong> Někde na pozadí v systému se stahuje aktualizace, či někdo úplně jiný, třeba soused je připojený na vaší wifi a stahuje něco přes torrent. Hledat tenhle případ je solidní detektivka.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="719ae12f-f56c-4b24-a26a-a3f62c445841" class="bulleted-list">
+          <li style="list-style-type:disc"><strong>Počasí.</strong> Některá starší vedení když navlhnou, tak vznikne slabý svod a internet se brutálně zpomalí. Když se pak udělá hezky, tak problém sám od sebe zmizí. Tohle je peklo pro techniky, protože poruchu musí více/méně hledat za deště, jinak se neprojevuje a určitě si dokážete představit, jaká je sranda se plížit za bouřky a deště lesem, lézt po vedení, když kolem šlehají blesky a snažit se ještě k tomu něco změřit.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0f7174c4-6896-47a8-ab87-2360bd851a62" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <strong>Automatika ústředny.</strong> xDSL má různé <a href="http://www.rubytech-brasil.ws/whatsnewtxt/pictures/8profile.gif">profily</a> (jakési rychlostní stupně) a ústředny samy sledují parametry na vedení a podle jejich změny tyto profily přepínají. To je v žádaná vlastnost, protože třeba za toho deště vám samy shodí rychlostní profil z 12a, kde se spojení vůbec nenaváže na 8b, kde spojení sice běží pomalu, ale nevypadává. Problém je, že někdy to po dešti už nenahodí.
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6f01a993-226f-49a7-b9c4-6d973b4a725a" class="">Jak je vidět, možností, kde by mohl být problém je fakt hodně. Určitě má smysl tuhle poruchu ohlásit, ale nijak moc bych se nespoléhal, že bude nalezeno nějaké řešení. Také počítejte s tím, že to může chvíli trvat a vyžadovat spoustu spolupráce při měření.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="ba5e79ad-b320-473f-bf1d-22f2de334f12" class="">Mám pocit, že se můj požadavek neřeší. Co s tím?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="31d44722-b7b1-4e7c-ae97-3313407646ad" class="">Jednoduše zavolejte a zeptejte se na stav.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="ac0daa00-df21-4e3f-b0bd-48f0653f4939" class="">
+          Dobrý den, chtěl bych informaci ohledně řešení čísla ticketu
+          <div style="display:contents" dir="auto">
+            <p id="cf95c782-fa4c-48ed-a956-a50427abbea3" class=""><em>&lt;zapsané číslo ticketu, viz pravidlo 2&gt;</em></p>
+          </div>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33d2eebb-b697-4f97-bb9a-6cbcc5f684c7" class="">Tohle můžete opakovat každých pár hodin. Je dobré při tom trvat na zapsání vašeho dotazu do ticketu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="693f182b-c3f5-4136-b1b5-b53d03e8986a" class="">
+          Proč jsem nebyl informován? Pan
+          <div style="display:contents" dir="auto">
+            <p id="12119f10-89cf-4a06-ae26-05e68d01df73" class=""><em>&lt;zapsané jméno operátora, viz pravidlo 2&gt;</em></p>
+          </div>
+          <div style="display:contents" dir="auto">
+            <p id="3132d7dc-dd2f-42eb-899e-785a5bf37189" class=""><em>&lt;číslo&gt;</em></p>
+          </div>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="bef96f93-5c14-49cb-a321-16fa2ed18d73" class="">Můj požadavek se neřeší. Co s tím?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="49d52ae6-4de0-4be5-8cbf-39a730044eec" class="">Jednoduše zavolejte a požádejte o vyjádření:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="3c58f4ba-bc98-44ea-9e5a-bc24ede7a88c" class="">
+          Dobrý den, chtěl bych
+          <div style="display:contents" dir="auto">
+            <p id="08271628-900a-476c-99fb-191d0589296d" class=""><strong>oficiální vyjádření</strong></p>
+          </div>
+          <div style="display:contents" dir="auto">
+            <p id="322f1a55-6ede-4e4b-91f0-ed9c6f3deadc" class=""><em>&lt;zapsané číslo ticketu, viz pravidlo 2&gt;</em></p>
+          </div>
+          <div style="display:contents" dir="auto">
+            <p id="4c167b0b-7c90-4cdb-ae53-52990f3e5049" class=""><em>&lt;email&gt;</em></p>
+          </div>
+          <div style="display:contents" dir="auto">
+            <p id="45d7588b-a39a-4bf3-b0a5-1617032d96fc" class=""><em>&lt;adresa&gt;</em></p>
+          </div>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e884d4c8-c2d7-4080-ae6d-af00095ae80f" class="">Písemná vyjádření emailem většinou přijdou do pár dní, poštou pak do maximálně 31 dní.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="12fa4071-3277-48d8-ac8d-fbdc25842e8e" class="">Jako vždycky předtím, takhle to prostě chodí a nemá smysl se vztekat. Občas se stane, že se v korporaci něco rozbije - lidi, nebo proces. Pokud to chcete řešit a ne si jen zanadávat, buďte chladní, konstruktivní a požadujte vyjádření od nadřízeného. To každého operátora vyděsí podstatně víc, než nějaké nadávky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="99b802cd-5350-4ad6-9910-cdd68e188d76" class="">Můj požadavek se vůbec neřeší, Co s tím?</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0c70d99f-2e1f-416f-979c-ad428e0f3f63" class="">Nyní můžete podat oficiální stížnost. Stížností existuje několik druhů:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="fc4331a4-c812-4a6d-b41e-7735384dca0e" class="bulleted-list">
+          <li style="list-style-type:disc">Stížnost na technika. Budete potřebovat plné jméno technika a číslo ticketu, viz pravidlo 2.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="a4102252-447d-4ec3-9608-5bf6998dd2e7" class="bulleted-list">
+          <li style="list-style-type:disc">Stížnost na operátora. Budete potřebovat plné jméno operátora a číslo ticketu, viz pravidlo 2.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="a7dd0ed0-2aa7-4d9d-af5a-77a335cc3117" class="bulleted-list">
+          <li style="list-style-type:disc">Stížnost k ČTU a žádost o prošetření kauzy. Budete potřebovat číslo ticketu, viz pravidlo 2.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c42a6920-4315-41ee-844a-2b24c2ab5197" class="">První dvě podávejte v tištěné formě na adresu pobočky firmy, s nápisem Stížnost viditelně na obálce.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ed9020b4-49f6-474b-a798-a637f71519a2" class="">ČTU má na <a href="https://www.ctu.cz/jsem-obcan.html">stránkách formulář</a>, kde si můžete vybrat, co vás konkrétně trápí. Určitě se vyplatí k tomuhle kroku přistoupit - nestojí vás to nic, kromě trochy času a alespoň se něco bude dít. Věřte mi, že klepnutí přes prsty bude bolet podstatně víc, než váš odchod. To mi připomíná:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="58a1c9b8-2819-4932-915d-5fffbffc8201" class="">Operátorům na telefonu nemá smysl vyhrožovat odchodem od služeb firmy, pokud nejste zrovna zákazník, který dělá obrat v řádu stovek tisíc měsíčně. Operátorovi je úplně na salámu, jestli u firmy budete, nebo ne. Nedoporučuji to používat jako výhrůžku, maximálně jen jako poslední krok, když už všechno selže. Problém je, že pokud nepůjdete k nějakému malému poskytovateli, tak u ostatních máte stejný korporátní bullshit v bledě modrém, dokonce často na úplně stejném vedení. Proto se většinou vyplatí poruchu řešit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="98385c18-0c93-409b-9fd2-ec4700efd50a" class="">Už to nemůžu vydržet a prostě si chci zanadávat</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="abbead1f-c390-4403-b38f-25de0154aa19" class="">OK, tohle se může stát. Já sám jsem nadával skoro pořád, nikdy však k zákazníkům (hodí se funkce <em>mute</em> na telefonu), takže to dobře chápu. Zkuste se ovládnout a vynadávat se jen tak do prázdna.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6990484c-1993-43d1-b20d-3c2f725a0c3a" class="">Pokud to nejde a prostě musíte spustit na operátora, nikdy, NIKDY nenadávejte operátorovi. Jednak ho tím naserete a to poslední co chcete je nasrat někoho, kdo má řešit vaše potíže, ale hlavně každý operátor má v popisu práce možnost zavěsit, jakmile začnete být osobní. Sám jsem takhle taky několikrát zavěšoval.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="71203feb-73fb-4bd8-a41d-77a6374597c6" class="">Jestliže fakt chcete nadávat, jednoduše nebuďte osobní a nadávejte na firmu a její služby. Například:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8912fd0c-2814-40e6-8141-c9364798145c" class="bulleted-list">
+          <li style="list-style-type:disc"><em>„Ta vaše firma, ta je tak na hovno, kurva, kdo tohle má vydržet, mě už z toho asi praskne kokot.“</em></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="221e5057-5a6e-4d78-8698-825cbf585cee" class="bulleted-list">
+          <li style="list-style-type:disc"><em>„Ješiš prdel, tomuhle říkáte internet? Vždyť je to do píče úplně k ničemu.“</em></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="969b508b-9953-465a-a261-cbfd5d32f7e7" class="bulleted-list">
+          <li style="list-style-type:disc"><em>„Ti vaši technici, to je taky banda dementů. Ten kretén sem přijel, chvíli se v tom vrtal a pak posral i zbytek a ještě si zlomil nohu, když spadnul ze sloupu. To jsem ještě neviděl.“</em></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4cc8e6b3-8c02-45f1-b1f0-544acf10c564" class="">Osobně jsem měl tenhle druh nadávek docela rád. Většinou jsem si dal na telefonu <em>mute</em>, pustil jsem hlasitý odposlech a spolu s ostatními operátory jsme se tomu smáli. Smáli jsme se hlavně podání, ale taky protože to často byla pravda. Fakt jsme firma plná dementů, sakra, vždyť já bych mohl vyprávět! A tak jsem čas od času vypnul <em>mute</em>, řekl cosi jako <em>„ano, za to se omlouvám“</em> a pak se zas smál výbuchům.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6e369864-8841-42e2-9c68-414cb783bc65" class="">Ve chvíli kdy ale zákazník začal být osobní a nadávat mě, tak končil. <em>„Nezlobte se, tohle nemám zapotřebí, naschle“ [konec hovoru]</em>. Stejná pravidla mají v každé korporaci, takže to vážně nemá smysl zkoušet. Velmi pikantní to bylo na nočních, kde jsem byl sám a tihle zákazníci mi pak za 20 minut zkroušeně znova volali s uctivými prosbami, abych ten problém řešil.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="b46e6338-984c-4e4f-a441-16f083a75c5b" class="">Závěr</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="11575e92-4a17-4ec6-8c09-ea1a7fb703df" class="">Výše uvedený postup je možné použít pro jednání s v podstatě libovolnou korporací, do jisté velké míry pak i se státní správou. I když byl text psaný z pohledu jednání s velkým poskytovatelem internetu, úplně stejně to funguje na poskytovatele energií jako je elektřina, nebo plyn, na poskytovatele jízdenek, či letenek, nebo třeba na dopravní služby (zkušenosti mám s jednáním se Student agency, ČSAD Slaný, DPD a ČEZem, kde dokonce používají stejné fráze, jaké jsme měli my).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="010f8efd-c470-4b7d-ad1e-086c9328c90e" class="">Všechny velké korporace fungují stejně - používají nějaký trouble-ticket systém, mají různě velká oddělení, kde levá ruka neví, co dělá pravá a všichni se nejvíc bojí formálních postihů, nikoliv výhrůžek zákazníků. Všude mají nějaký slang, všude na ně tlačí management, všude se používá outsourcing telefonistů někam pryč, takže lidi se kterými bude mluvit vůbec nemají tušení, co se děje ve vaší lokalitě, dokud jim to neřeknete.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="23a052ea-3538-4128-8757-afd2e150c2f9" class="">Pokud chcete opravdu zapůsobit na operátora, uvědomte si, že je to taky jen člověk. Hezky ho pozdravte, popište srozumitelně co vás trápí. Vemte si číslo ticketu, stejně tak jeho jméno.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

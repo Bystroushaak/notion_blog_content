@@ -11,14 +11,11 @@
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:creator" content="@Bystroushaak">
   <meta name="twitter:title" content="Jak se píše programovací jazyk 2: Lexer">
-  <meta name="twitter:description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer.">
-  <meta property="og:description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer.">
   <meta name="twitter:image" content="https://blog.rfox.eu/cz/Programovani/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_2_Lexer/self_syntax_overview_thumb.jpg">
   <meta property="og:image" content="https://blog.rfox.eu/cz/Programovani/Jak_se_pise_programovaci_jazyk/Jak_se_pise_programovaci_jazyk_2_Lexer/self_syntax_overview_thumb.jpg">
   <meta property="og:image:width" content="440">
   <meta property="og:image:height" content="220">
-  <script src="../../../../scripts.js"></script>
-  <meta name="description" content="V předchozí části (Jak se píše programovací jazyk 1: Motivace) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: lexer."><!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="../../../../scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
   <script>
@@ -124,35 +121,70 @@
   </div><a href="../../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../../index.html" class="breadcrumb" title="Programování">Programování</a> / <a href="../index.html" class="breadcrumb" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 2: Lexer
   <article id="9524512c-8edc-4049-b39e-5b512821d5ee" class="page sans">
     <header>
-      <h1 class="page-title">Jak se píše programovací jazyk 2: Lexer</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Jak se píše programovací jazyk 2: Lexer</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="c864860e-9b70-46e5-b852-41fd1131b488" class=""><time>@2019/02/09</time></p>
-      <p id="5f2c0a54-ca38-440b-a5d9-69db0750c99a" class="">V předchozí části (<a href="../Jak_se_pise_programovaci_jazyk_1_Motivace.html" title="Jak se píše programovací jazyk 1: Motivace">Jak se píše programovací jazyk 1: Motivace</a>) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: <em>lexer</em>.</p>
-      <h1 id="8b20632d-d3a1-4428-9fba-071aee8b6a86" class="">Self</h1>
-      <p id="35bfa657-671b-4658-b31f-e45f2fbdfe8c" class="">Základní syntaxi Selfu dobře popisuje následující obrázek:</p>
-      <figure id="8772dd13-3403-4daa-bfde-5edbd6d41144" class="image">
-        <a href="self_syntax_overview.png" title="self_syntax_overview.png"><img style="width:1640px" src="self_syntax_overview_thumb.jpg"></a>
-      </figure>
-      <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
-      <h1 id="0a6fd39f-fc58-4c70-9004-c0f8b81b7385" class="">tinySelf</h1>
-      <p id="85b76b84-dddf-405a-9136-ff09dc65637e" class="">tinySelf, jak jsem se kdysi nerozvážně (ukázalo se, že stejně pojmenovaný projekt už kdysi existoval) rozhodl můj jazyk nazvat, je v podstatě Self, i když trochu „vylepšený“ po stránce syntaxe.</p>
-      <p id="23ea7e83-9ed6-4c1f-997a-2bae013e0097" class="">Například jsem přidal podporu pro kaskády, jak je používá Smalltalk. Nikdy jsem nechápal, proč v původním Selfu nejsou, když tam dokonale sednou. Taky jsem změnil <code>"komentář"</code> na <code># komentář</code>, protože uvozovky se podle mého názoru víc hodí na stringy, než na komentáře a také se lépe píšou na české klávesnici, než standardní Selfovské <code>'stringy'</code> psané jednoduchými uvozovkami. Pro stringy je nyní možné používat obojí, což člověku šetří escapování, pokud zrovna potřebuje napsat string s uvozovkami.</p>
-      <p id="d530fb48-2a2b-49fe-81c1-3b509a152291" class="">Kromě toho jsem změnil i syntaxi objektů a bloků, kde jsem umožnil vynechání otevíracího <code>|</code>, takže je možné psát <code>(slot |)</code> místo <code>(| slot |)</code>. K parsování to stejně není zapotřebí a vždycky mi to přišlo jako zbytečný opruz. Chtěl jsem přidat i <code>(| code)</code>, ale ukázalo se, že to už parseru vadí hodně, takže je nutné zapisovat objekty bez slotů jako <code>(|| code)</code>.</p>
-      <p id="a70d23a9-f928-4c45-bb4b-7c44100ac5cf" class="">Oproti Selfu také není podtržítko na začátku zprávy rezervované pro volání primitivních zpráv. <code>_s</code> je normálně použitelná unární zpráva. Primitivní zprávy (volání kódu interpretru) jsou implementované jako zprávy poslané objektu <code>primitive</code>. Primitivních zpráv je stejně v běžném kódu minimum, tak mi nikdy nebylo jasné, proč by pro ně měla být vyhrazená syntaxe.</p>
-      <h1 id="b5088aa4-3756-46a4-a4fe-dba95d964e61" class="">Lexer</h1>
-      <p id="b967d2f3-3fc8-491b-ba3a-c8198a728852" class="">Psaní jazyka začíná lexerem. Ten definuje, z jakých komponent se jazyk skládá rozřezáním zdrojového kódu na <em>tokeny</em>. Ve standardním imperativním jazyce to můžou být různé příkazy, definice funkce, if podmínky, klíčová slova a tak podobně. V tinySelfu je to vesměs definice objektů, slotů, bloků, nebo posílání zpráv mezi nimi.</p>
-      <p id="c591eed2-1cfb-4674-bbe9-e535edef102e" class="">Lexer vám kód rozřeže na pole jednotlivých elementů. Z kódu jako:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="f556fa7d-7fd3-40cb-b4e6-9504fd4cddbf" class="code"><code class="language-Plain Text">(| asd = 1 | ^asd.)</code></pre>
-      <p id="eed70684-d623-4ab4-82f0-415229e1cabc" class="">vám udělá pole ve stylu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="a0491164-811b-49ff-9b15-30ae5f383f1d" class="code"><code class="language-Python">[
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c864860e-9b70-46e5-b852-41fd1131b488" class=""><time>@2019/02/09</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5f2c0a54-ca38-440b-a5d9-69db0750c99a" class="">V předchozí části (<a href="../Jak_se_pise_programovaci_jazyk_1_Motivace.html" title="Jak se píše programovací jazyk 1: Motivace">Jak se píše programovací jazyk 1: Motivace</a>) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: <em>lexer</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="8b20632d-d3a1-4428-9fba-071aee8b6a86" class="">Self</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="35bfa657-671b-4658-b31f-e45f2fbdfe8c" class="">Základní syntaxi Selfu dobře popisuje následující obrázek:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="8772dd13-3403-4daa-bfde-5edbd6d41144" class="image">
+          <a href="self_syntax_overview.png" title="self_syntax_overview.png"><img style="width:1640px" src="self_syntax_overview_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="0a6fd39f-fc58-4c70-9004-c0f8b81b7385" class="">tinySelf</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="85b76b84-dddf-405a-9136-ff09dc65637e" class="">tinySelf, jak jsem se kdysi nerozvážně (ukázalo se, že stejně pojmenovaný projekt už kdysi existoval) rozhodl můj jazyk nazvat, je v podstatě Self, i když trochu „vylepšený“ po stránce syntaxe.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="23ea7e83-9ed6-4c1f-997a-2bae013e0097" class="">Například jsem přidal podporu pro kaskády, jak je používá Smalltalk. Nikdy jsem nechápal, proč v původním Selfu nejsou, když tam dokonale sednou. Taky jsem změnil <code>"komentář"</code> na <code># komentář</code>, protože uvozovky se podle mého názoru víc hodí na stringy, než na komentáře a také se lépe píšou na české klávesnici, než standardní Selfovské <code>'stringy'</code> psané jednoduchými uvozovkami. Pro stringy je nyní možné používat obojí, což člověku šetří escapování, pokud zrovna potřebuje napsat string s uvozovkami.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d530fb48-2a2b-49fe-81c1-3b509a152291" class="">Kromě toho jsem změnil i syntaxi objektů a bloků, kde jsem umožnil vynechání otevíracího <code>|</code>, takže je možné psát <code>(slot |)</code> místo <code>(| slot |)</code>. K parsování to stejně není zapotřebí a vždycky mi to přišlo jako zbytečný opruz. Chtěl jsem přidat i <code>(| code)</code>, ale ukázalo se, že to už parseru vadí hodně, takže je nutné zapisovat objekty bez slotů jako <code>(|| code)</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a70d23a9-f928-4c45-bb4b-7c44100ac5cf" class="">Oproti Selfu také není podtržítko na začátku zprávy rezervované pro volání primitivních zpráv. <code>_s</code> je normálně použitelná unární zpráva. Primitivní zprávy (volání kódu interpretru) jsou implementované jako zprávy poslané objektu <code>primitive</code>. Primitivních zpráv je stejně v běžném kódu minimum, tak mi nikdy nebylo jasné, proč by pro ně měla být vyhrazená syntaxe.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="b5088aa4-3756-46a4-a4fe-dba95d964e61" class="">Lexer</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b967d2f3-3fc8-491b-ba3a-c8198a728852" class="">Psaní jazyka začíná lexerem. Ten definuje, z jakých komponent se jazyk skládá rozřezáním zdrojového kódu na <em>tokeny</em>. Ve standardním imperativním jazyce to můžou být různé příkazy, definice funkce, if podmínky, klíčová slova a tak podobně. V tinySelfu je to vesměs definice objektů, slotů, bloků, nebo posílání zpráv mezi nimi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c591eed2-1cfb-4674-bbe9-e535edef102e" class="">Lexer vám kód rozřeže na pole jednotlivých elementů. Z kódu jako:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="f556fa7d-7fd3-40cb-b4e6-9504fd4cddbf" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">(| asd = 1 | ^asd.)</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eed70684-d623-4ab4-82f0-415229e1cabc" class="">vám udělá pole ve stylu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="a0491164-811b-49ff-9b15-30ae5f383f1d" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">[
   Token("OBJ_START", "("),
   Token("SEPARATOR", "|"),
   Token("IDENTIFIER", "asd"),
@@ -163,64 +195,176 @@
   Token("IDENTIFIER", "asd"),
   Token("OBJ_END", ")")
 ]</code></pre>
-      <p id="6988b7fd-2227-4e54-b0b6-d1f3bc32bb66" class="">Výstupem je plochá struktura, do které byl jen rozřezán vstupní řetězec a kde byly ke každé části přiřazeny typy tokenu.</p>
-      <p id="07be088b-1e29-45c9-939e-e38dbe0a1a2a" class="">Lexer je možné si napsat ručně, formou stavového automatu, který v cyklu prochází kód znak po znaku a postupně ho rozřezává a analyzuje rozřezané kousky (<em>tokeny</em>), aby jim přisoudil typ. Kdysi jsem něco podobného z neznalosti a z nutnosti <a href="https://github.com/Bystroushaak/pyDHTMLParser/blob/master/src/dhtmlparser/__init__.py#L43">udělal</a> (tenkrát v D nebyl žádný lexer), když jsem si psal <a href="https://github.com/Bystroushaak/pyDHTMLParser">HTML parser</a>, proto mi věřte, když vám tento přístup <strong>DÚRAZNĚ NEDOPORUČÍM</strong>.</p>
-      <p id="96dce62b-2407-4d7b-96d3-2ec58ffb46dd" class="">Jedná o nepružný, k chybám náchylný, na pochopení složitý a těžce udržitelný přístup. Až na některé velmi speciální případy, kdy přesně víte co děláte a proč, se vám vždy vyplatí použít nějakou knihovnu, kterou nakrmíte popisy tokenů a ona vám stavový automat na základě popisu vygeneruje.</p>
-      <p id="205b13b8-66bb-4fc4-aa0d-d8db05e899b6" class="">V mém případě se jedná o knihovnu <a href="https://rply.readthedocs.io/">rply</a> (podrobnosti přinese příští díl), konkrétně část <a href="https://rply.readthedocs.io/en/latest/users-guide/lexers.html">rply.LexerGenerator</a>.</p>
-      <h2 id="7a092455-a136-4588-b1bc-a710628ebeeb" class="">tinySelfové tokeny</h2>
-      <p id="be067035-9c53-4d35-918c-929c2c214ad8" class="">tinySelf je tvořen následujícími tokeny:</p>
-      <h2 id="753ec819-5d46-4d5f-9826-cb51795b679e" class="">SELF</h2>
-      <p id="95bf47e9-46db-4f62-8dbf-0f6129aa5e80" class="">Klíčové slovo <code>self</code> tvoří token Self. Použití je podobné jako třeba v pythonu, či <code>this</code> v javě.</p>
-      <h2 id="6da31ed7-77cc-4825-a6a4-7f633529b25a" class="">NUMBER</h2>
-      <p id="e712e7b6-a317-499b-9bd7-bd5244b77956" class="">Čísla. <code>5</code> je číslo. <code>-5</code> je číslo. <code>4.32</code> je taky číslo, stejně jako <code>\xFF</code>.</p>
-      <h2 id="9c4ae08a-e2ab-49c4-a874-81427d1d398f" class="">OBJ_START</h2>
-      <p id="f7519207-a16c-4a33-8597-f2654a468bca" class="">Začátek definice objektu. Jedná se jednoduše o závorku <code>(</code> za níž následuje zbytek objektu.</p>
-      <h2 id="0d973a4b-623f-4228-8d84-8c636e52f04b" class="">OBJ_END</h2>
-      <p id="09b83185-30d7-4478-b7d5-67c5dfaf09a7" class="">Ukončovací závorka <code>)</code> značící konec objektu. Nejkratší (prázdný) objekt v Selfu je <code>()</code>.</p>
-      <h2 id="5d3b1b67-1097-4ec5-8f4d-33c3e9a0d1ba" class="">BLOCK_START</h2>
-      <p id="293fdb5d-e7b4-40a5-a179-afbf36468b63" class="">Začátek bloku <code>[</code>. Bloky jsou objekty, které mají <em>parenta</em> nadefinovaného na <em>lokální scope</em>, takže se chovají podobně jako lambda funkce.</p>
-      <h2 id="bbcac4bb-6d47-469e-8c34-65ffeb33bb53" class="">BLOCK_END</h2>
-      <p id="79712cf1-cf03-4d20-a316-35d1dc96d500" class="">Konec bloku <code>]</code>. Nejkratší blok vypadá takhle; <code>[]</code>.</p>
-      <h2 id="798e3a20-2ac9-4d61-b78c-e8389ba78cce" class="">SINGLE_Q_STRING a DOUBLE_Q_STRING</h2>
-      <p id="22934ff7-b6b2-47f3-9648-399ec4069c1a" class="">Definice stringů. Jak jsem zmiňoval, bere se ‘string’ a “string” se standardníma escape sekvencema.</p>
-      <h2 id="037650cd-5a6b-4006-bf34-25b1ea6de368" class="">FIRST_KW</h2>
-      <p id="956ffdc7-49a4-4107-907a-4745f844cf41" class="">V Selfu existují tři druhy zpráv objektům; unární, binární a <em>keyword</em>. Unární nepřijímá žádný parametr. Binární jeden, <em>keyword</em> pak libovolný počet.</p>
-      <p id="2be4ac3c-b7b5-4a2a-9987-48a7074d9dd6" class="">Self přinesl oproti Smalltalku drobné vylepšení, kde <em>keyword</em> zprávy jsou jednoznačně parsovatelné prostým okem tím, že vynucuje každé následující klíčové slovo zprávy začínat velkým písmenem.</p>
-      <p id="8db8ad88-5df2-4337-a78c-609b3da1b28c" class="">Ve Smalltalku může zpráva <code>at: 1 put: 2</code> znamenat buď <code>(at: 1) put: 2</code>, tedy poslání zprávy <code>at:</code> a následné poslání zprávy <code>put:</code> výsledku z prvního volání, nebo poslání zprávy <code>at:put:</code> se dvěma parametry <code>1</code> a <code>2</code>. V Selfu je nutné druhý popsaný případ zapsat jako <code>at: 1 Put: 2</code>, což jednoznačně identifikuje kde <em>keyword</em> zpráva začíná a končí. Proto taky lexer rozlišuje začátek <em>keyword</em> zprávy (string začínající malým písmenem s dvojtečkou na konci) a pokračování.</p>
-      <h2 id="47b4fb3b-7701-46f4-9cf6-8ac15bd3e90f" class="">KEYWORD</h2>
-      <p id="4afa751c-fc37-49fa-b2fb-645baf5381d4" class="">Zmiňované pokračování zprávy. String začínající velkým písmenem, s dvojtečkou na konci.</p>
-      <h2 id="52d75364-61cf-4bde-8dee-50775b16516e" class="">IDENTIFIER</h2>
-      <p id="619b51c3-dd6e-4e89-acae-64dd5edb2cd1" class="">String začínající malým či velkým písmenem, či podtržítkem následující tím samým, či číslicí. <code>asd</code>, <code>BSD</code>, <code>_A</code> či <code>_35</code> jsou validní identifikátory, respektive unární zprávy.</p>
-      <h2 id="16353b7e-bb0a-4845-a314-c6d7c81b78cc" class="">OPERATOR</h2>
-      <p id="944f2249-c94b-424b-ae5c-6a7b0267378e" class="">Jako operátor (binární zprávu) je možné použít znaky z množiny: <code>!@$%&amp;*-+~/?&lt;&gt;,</code> v libovolném počtu opakování. <code>@</code> je operátor, stejně jako <code>@@</code>.</p>
-      <p id="4a7f7a05-ec7c-4d41-9163-3314650a815d" class="">Operátory vždy očekávají jeden parametr. <code>a + b</code> je binární zpráva oprerátoru <code>+</code> s parametrem <code>b</code> zaslaná objektu <code>a</code>.</p>
-      <h2 id="83da27ec-5146-4ae7-b966-7a5f058d56d2" class="">ARGUMENT</h2>
-      <p id="af5e9b81-888b-4968-9726-11e51edd655f" class="">Hlavně u bloků je potřeba napsat co za argumenty přijímají. Argumenty se zapisují jako identifikátory začínající dvojtečkou.</p>
-      <p id="cd7690aa-b983-42e2-b580-a09333e94018" class="">Ukázky:</p>
-      <p id="cce17b42-6bd2-401b-8f38-2a2fd9ecc5e8" class=""><code>:a</code></p>
-      <p id="2031c169-76a8-4870-9c91-bd2b10b8ad01" class=""><code>:parameter</code></p>
-      <p id="0426728d-0e56-43fe-a07b-5ccf6c6f8531" class=""><code>:_</code></p>
-      <p id="dee373ce-6fdf-440f-b6dc-af457a9b457d" class=""><code>:_5OK</code></p>
-      <h2 id="230107dd-1f0c-42d8-9619-de7d4f3d426a" class="">ASSIGNMENT</h2>
-      <p id="714a6f95-b883-4470-927b-5b28d387b80c" class="">Speciální operátor přiřazení. Má význam v definici slotů, kde definuje sloty pouze ke čtení. Také je ho možné použít jako běžný operátor (binární zprávu). Zapisuje se jako znak pro rovná se (<code>=</code>).</p>
-      <h2 id="a391da66-4ccf-417d-a1b9-ab4a28815dfb" class="">RW_ASSIGNMENT</h2>
-      <p id="b6874338-b77d-45fd-8843-9d399c3ba91b" class="">Přiřazení do slotu ke čtení i zápisu. Takto jde přiřazovat pouze konstanty, nebo reference na jiné objekty, nikoliv metody.</p>
-      <p id="d6c99af6-1725-49a5-b148-f3fea8dd7b1c" class="">Zapisuje se jako šipka do leva (<code>&lt;-</code>).</p>
-      <h2 id="078a79d8-8ac5-4b80-b775-eba8a111d1c8" class="">RETURN</h2>
-      <p id="c8cdc9dc-6a85-482b-a70b-03954b4ff9be" class="">Vrácení hodnoty z objektu / bloku. Zapisuje se jako stříška (<code>^</code>).</p>
-      <h2 id="0b8a4c07-48a4-489e-973e-d303d0e43288" class="">END_OF_EXPR</h2>
-      <p id="fba1e9ba-e31b-407f-9082-8b922d444534" class="">Konec výrazu. Odděluje řetězce zpráv. Zapisuje se stejně jako ve Smalltalku tečkou (<code>.</code>).</p>
-      <h2 id="d77d9cfc-80f0-495f-a861-fd2c4eaeae8f" class="">SEPARATOR</h2>
-      <p id="f2074862-865a-4470-953e-0bdd7810ad80" class="">Oddělovač slotů od kódu. Zapisuje se jako svislá čárka (<code>|</code>).</p>
-      <h2 id="b616fedf-4097-4b20-9c07-d26fcacd17de" class="">CASCADE</h2>
-      <p id="d67732f0-d366-4dec-a741-e363fc388d4b" class="">Vyhrazený operátor kaskády. Zapisuje se jako středník (<code>;</code>). Sděluje interpretru, že následující zpráva se posílá stejnému objektu jako předchozí.</p>
-      <h2 id="451df77c-70c1-457d-af0d-856221443d37" class="">COMMENT</h2>
-      <p id="ca8fb076-fc00-42d4-a340-2886f55334c6" class="">Komentář začínající <code>#</code>, končící koncem řádku.</p>
-      <h2 id="043f5e92-cbb7-4fa1-9e88-c1140e50ee46" class="">Ještě k lexeru</h2>
-      <p id="c6cf9848-af5d-440a-8396-0269c5afd865" class="">Může se zdát, že v lexeru je toho spousta, ale ve skutečnosti je celý jazyk dost jednoduchý a ukázka všeho co je v něm možné se vejde tak nějak na pohlednici:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="bc1599af-2247-4fa3-87cb-5073515d9ba8" class="code"><code class="language-Plain Text">()  # Prázdný objekt.
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6988b7fd-2227-4e54-b0b6-d1f3bc32bb66" class="">Výstupem je plochá struktura, do které byl jen rozřezán vstupní řetězec a kde byly ke každé části přiřazeny typy tokenu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="07be088b-1e29-45c9-939e-e38dbe0a1a2a" class="">Lexer je možné si napsat ručně, formou stavového automatu, který v cyklu prochází kód znak po znaku a postupně ho rozřezává a analyzuje rozřezané kousky (<em>tokeny</em>), aby jim přisoudil typ. Kdysi jsem něco podobného z neznalosti a z nutnosti <a href="https://github.com/Bystroushaak/pyDHTMLParser/blob/master/src/dhtmlparser/__init__.py#L43">udělal</a> (tenkrát v D nebyl žádný lexer), když jsem si psal <a href="https://github.com/Bystroushaak/pyDHTMLParser">HTML parser</a>, proto mi věřte, když vám tento přístup <strong>DÚRAZNĚ NEDOPORUČÍM</strong>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="96dce62b-2407-4d7b-96d3-2ec58ffb46dd" class="">Jedná o nepružný, k chybám náchylný, na pochopení složitý a těžce udržitelný přístup. Až na některé velmi speciální případy, kdy přesně víte co děláte a proč, se vám vždy vyplatí použít nějakou knihovnu, kterou nakrmíte popisy tokenů a ona vám stavový automat na základě popisu vygeneruje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="205b13b8-66bb-4fc4-aa0d-d8db05e899b6" class="">V mém případě se jedná o knihovnu <a href="https://rply.readthedocs.io/">rply</a> (podrobnosti přinese příští díl), konkrétně část <a href="https://rply.readthedocs.io/en/latest/users-guide/lexers.html">rply.LexerGenerator</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="7a092455-a136-4588-b1bc-a710628ebeeb" class="">tinySelfové tokeny</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="be067035-9c53-4d35-918c-929c2c214ad8" class="">tinySelf je tvořen následujícími tokeny:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="753ec819-5d46-4d5f-9826-cb51795b679e" class="">SELF</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="95bf47e9-46db-4f62-8dbf-0f6129aa5e80" class="">Klíčové slovo <code>self</code> tvoří token Self. Použití je podobné jako třeba v pythonu, či <code>this</code> v javě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="6da31ed7-77cc-4825-a6a4-7f633529b25a" class="">NUMBER</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e712e7b6-a317-499b-9bd7-bd5244b77956" class="">Čísla. <code>5</code> je číslo. <code>-5</code> je číslo. <code>4.32</code> je taky číslo, stejně jako <code>\xFF</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="9c4ae08a-e2ab-49c4-a874-81427d1d398f" class="">OBJ_START</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f7519207-a16c-4a33-8597-f2654a468bca" class="">Začátek definice objektu. Jedná se jednoduše o závorku <code>(</code> za níž následuje zbytek objektu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="0d973a4b-623f-4228-8d84-8c636e52f04b" class="">OBJ_END</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="09b83185-30d7-4478-b7d5-67c5dfaf09a7" class="">Ukončovací závorka <code>)</code> značící konec objektu. Nejkratší (prázdný) objekt v Selfu je <code>()</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="5d3b1b67-1097-4ec5-8f4d-33c3e9a0d1ba" class="">BLOCK_START</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="293fdb5d-e7b4-40a5-a179-afbf36468b63" class="">Začátek bloku <code>[</code>. Bloky jsou objekty, které mají <em>parenta</em> nadefinovaného na <em>lokální scope</em>, takže se chovají podobně jako lambda funkce.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="bbcac4bb-6d47-469e-8c34-65ffeb33bb53" class="">BLOCK_END</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="79712cf1-cf03-4d20-a316-35d1dc96d500" class="">Konec bloku <code>]</code>. Nejkratší blok vypadá takhle; <code>[]</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="798e3a20-2ac9-4d61-b78c-e8389ba78cce" class="">SINGLE_Q_STRING a DOUBLE_Q_STRING</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="22934ff7-b6b2-47f3-9648-399ec4069c1a" class="">Definice stringů. Jak jsem zmiňoval, bere se ‘string’ a “string” se standardníma escape sekvencema.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="037650cd-5a6b-4006-bf34-25b1ea6de368" class="">FIRST_KW</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="956ffdc7-49a4-4107-907a-4745f844cf41" class="">V Selfu existují tři druhy zpráv objektům; unární, binární a <em>keyword</em>. Unární nepřijímá žádný parametr. Binární jeden, <em>keyword</em> pak libovolný počet.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2be4ac3c-b7b5-4a2a-9987-48a7074d9dd6" class="">Self přinesl oproti Smalltalku drobné vylepšení, kde <em>keyword</em> zprávy jsou jednoznačně parsovatelné prostým okem tím, že vynucuje každé následující klíčové slovo zprávy začínat velkým písmenem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8db8ad88-5df2-4337-a78c-609b3da1b28c" class="">Ve Smalltalku může zpráva <code>at: 1 put: 2</code> znamenat buď <code>(at: 1) put: 2</code>, tedy poslání zprávy <code>at:</code> a následné poslání zprávy <code>put:</code> výsledku z prvního volání, nebo poslání zprávy <code>at:put:</code> se dvěma parametry <code>1</code> a <code>2</code>. V Selfu je nutné druhý popsaný případ zapsat jako <code>at: 1 Put: 2</code>, což jednoznačně identifikuje kde <em>keyword</em> zpráva začíná a končí. Proto taky lexer rozlišuje začátek <em>keyword</em> zprávy (string začínající malým písmenem s dvojtečkou na konci) a pokračování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="47b4fb3b-7701-46f4-9cf6-8ac15bd3e90f" class="">KEYWORD</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4afa751c-fc37-49fa-b2fb-645baf5381d4" class="">Zmiňované pokračování zprávy. String začínající velkým písmenem, s dvojtečkou na konci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="52d75364-61cf-4bde-8dee-50775b16516e" class="">IDENTIFIER</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="619b51c3-dd6e-4e89-acae-64dd5edb2cd1" class="">String začínající malým či velkým písmenem, či podtržítkem následující tím samým, či číslicí. <code>asd</code>, <code>BSD</code>, <code>_A</code> či <code>_35</code> jsou validní identifikátory, respektive unární zprávy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="16353b7e-bb0a-4845-a314-c6d7c81b78cc" class="">OPERATOR</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="944f2249-c94b-424b-ae5c-6a7b0267378e" class="">Jako operátor (binární zprávu) je možné použít znaky z množiny: <code>!@$%&amp;*-+~/?&lt;&gt;,</code> v libovolném počtu opakování. <code>@</code> je operátor, stejně jako <code>@@</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4a7f7a05-ec7c-4d41-9163-3314650a815d" class="">Operátory vždy očekávají jeden parametr. <code>a + b</code> je binární zpráva oprerátoru <code>+</code> s parametrem <code>b</code> zaslaná objektu <code>a</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="83da27ec-5146-4ae7-b966-7a5f058d56d2" class="">ARGUMENT</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="af5e9b81-888b-4968-9726-11e51edd655f" class="">Hlavně u bloků je potřeba napsat co za argumenty přijímají. Argumenty se zapisují jako identifikátory začínající dvojtečkou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cd7690aa-b983-42e2-b580-a09333e94018" class="">Ukázky:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cce17b42-6bd2-401b-8f38-2a2fd9ecc5e8" class=""><code>:a</code></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2031c169-76a8-4870-9c91-bd2b10b8ad01" class=""><code>:parameter</code></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0426728d-0e56-43fe-a07b-5ccf6c6f8531" class=""><code>:_</code></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dee373ce-6fdf-440f-b6dc-af457a9b457d" class=""><code>:_5OK</code></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="230107dd-1f0c-42d8-9619-de7d4f3d426a" class="">ASSIGNMENT</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="714a6f95-b883-4470-927b-5b28d387b80c" class="">Speciální operátor přiřazení. Má význam v definici slotů, kde definuje sloty pouze ke čtení. Také je ho možné použít jako běžný operátor (binární zprávu). Zapisuje se jako znak pro rovná se (<code>=</code>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="a391da66-4ccf-417d-a1b9-ab4a28815dfb" class="">RW_ASSIGNMENT</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b6874338-b77d-45fd-8843-9d399c3ba91b" class="">Přiřazení do slotu ke čtení i zápisu. Takto jde přiřazovat pouze konstanty, nebo reference na jiné objekty, nikoliv metody.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d6c99af6-1725-49a5-b148-f3fea8dd7b1c" class="">Zapisuje se jako šipka do leva (<code>&lt;-</code>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="078a79d8-8ac5-4b80-b775-eba8a111d1c8" class="">RETURN</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c8cdc9dc-6a85-482b-a70b-03954b4ff9be" class="">Vrácení hodnoty z objektu / bloku. Zapisuje se jako stříška (<code>^</code>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="0b8a4c07-48a4-489e-973e-d303d0e43288" class="">END_OF_EXPR</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fba1e9ba-e31b-407f-9082-8b922d444534" class="">Konec výrazu. Odděluje řetězce zpráv. Zapisuje se stejně jako ve Smalltalku tečkou (<code>.</code>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d77d9cfc-80f0-495f-a861-fd2c4eaeae8f" class="">SEPARATOR</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f2074862-865a-4470-953e-0bdd7810ad80" class="">Oddělovač slotů od kódu. Zapisuje se jako svislá čárka (<code>|</code>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="b616fedf-4097-4b20-9c07-d26fcacd17de" class="">CASCADE</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d67732f0-d366-4dec-a741-e363fc388d4b" class="">Vyhrazený operátor kaskády. Zapisuje se jako středník (<code>;</code>). Sděluje interpretru, že následující zpráva se posílá stejnému objektu jako předchozí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="451df77c-70c1-457d-af0d-856221443d37" class="">COMMENT</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ca8fb076-fc00-42d4-a340-2886f55334c6" class="">Komentář začínající <code>#</code>, končící koncem řádku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="043f5e92-cbb7-4fa1-9e88-c1140e50ee46" class="">Ještě k lexeru</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c6cf9848-af5d-440a-8396-0269c5afd865" class="">Může se zdát, že v lexeru je toho spousta, ale ve skutečnosti je celý jazyk dost jednoduchý a ukázka všeho co je v něm možné se vejde tak nějak na pohlednici:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="bc1599af-2247-4fa3-87cb-5073515d9ba8" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">()  # Prázdný objekt.
 (| |)  # Taky prázdný objekt, ale s definicí (prázdných) slotů.
 (| slot |)  # Objekt obsahující jeden slot (key/val storage, kde slot = nil.).
 
@@ -247,10 +391,14 @@
 
   ^ (| output = "vysledek". line &lt;- "metody" |)
 )</code></pre>
-      <p id="544b8f83-4919-4bff-90f9-ac89f91115d2" class="">Celý kód lexeru se vejde na 40 řádek a jde jen o definici jednotlivých elementů jazyka pomocí regexpů:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="ab9a968b-b114-4473-bb13-8025370d6874" class="code"><code class="language-Python"># -*- coding: utf-8 -*-
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="544b8f83-4919-4bff-90f9-ac89f91115d2" class="">Celý kód lexeru se vejde na 40 řádek a jde jen o definici jednotlivých elementů jazyka pomocí regexpů:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="ab9a968b-b114-4473-bb13-8025370d6874" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># -*- coding: utf-8 -*-
 from rply import LexerGenerator
 
 
@@ -290,15 +438,26 @@ lg.add('COMMENT', r'#.*[\n|$]?')
 
 
 lexer = lg.build()</code></pre>
-      <h1 id="1583ad73-574e-45ec-abb1-961d09c57101" class="">Pokračování</h1>
-      <p id="68d98e0a-9d17-47fc-8427-86b8e9a270d7" class="">V příštím díle se podíváme na parser, který tokeny bere a sestavuje z nich AST - <a href="https://cs.wikipedia.org/wiki/Syntaktick%C3%BD_strom">abstraktní syntaktický strom</a>.</p>
-      <h1 id="18653535-6f1e-4db5-924a-13246757a5a2" class="">Relevantní diskuze</h1>
-      <ul id="8e9b3cbf-e1b8-4784-a1d8-c42b17cd866c" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-2-lexer">Jak se píše programovací jazyk 2: Lexer</a> (abclinuxu)
-        </li>
-      </ul>
-      <p id="e830f99a-ad2b-4be8-af9a-4f96fee5965b" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="1583ad73-574e-45ec-abb1-961d09c57101" class="">Pokračování</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="68d98e0a-9d17-47fc-8427-86b8e9a270d7" class="">V příštím díle se podíváme na parser, který tokeny bere a sestavuje z nich AST - <a href="https://cs.wikipedia.org/wiki/Syntaktick%C3%BD_strom">abstraktní syntaktický strom</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="18653535-6f1e-4db5-924a-13246757a5a2" class="">Relevantní diskuze</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8e9b3cbf-e1b8-4784-a1d8-c42b17cd866c" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-2-lexer">Jak se píše programovací jazyk 2: Lexer</a> (abclinuxu)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e830f99a-ad2b-4be8-af9a-4f96fee5965b" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

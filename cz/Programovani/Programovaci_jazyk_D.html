@@ -116,52 +116,94 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Programování">Programování</a> / Programovací jazyk D
   <article id="d4477a52-e532-4f0a-919d-7cdc9ef8072e" class="page sans">
     <header>
-      <h1 class="page-title">Programovací jazyk D</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Programovací jazyk D</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="67f50808-5f66-42d2-9123-0d9d8ed15904" class=""><time>@2011/03/14</time></p>
-      <p id="a906e22a-feaa-4241-8aa7-e8d042570f88" class="">Před pár lety, když jsem ještě chodil na střední školu nám mistr na praxi vyprávěl o tom jak před dlouhou dobou dělal pro nějakou rodinu elektriku v baráku. Jelikož byl poctivý řemeslník, rozuměl své práci a odvedl jí dobře, pozvali ho na kafe a povídali si s ním. Tenkrát ho zaujalo, že měli uprostřed obýváku na zemi položený velký a dlouhý trám, který všichni přeskakovali a dělali jako kdyby tam nebyl. Nejdříve se na to ze slušnosti nechtěl zeptat, ale jelikož to byl zvídavý člověk, vrtalo mu to hlavou a nakonec neodolal a vznesl dotaz proč že to mají ten trám uprostřed obýváku, když jim tam překáží. Dostalo se mu odpovědi že už tam tak ležel když dům někdy před dvaceti lety koupili. Bylo mu to trochu divné, tak se zeptal proč ho nikdo z nich neodstranil. "My ho tam nedali," řekla mu paní domu a brala celou věc za vyřízenou.</p>
-      <p id="41fe6593-3370-4fa3-82ad-d9336db23fec" class="">Nevím nakolik je tenhle příběh pravdivý a nakolik si ho mistr tenkrát vymyslel, ale úplně stejné mi to přijde s programovacími jazyky. Existuje 1337 programovacích jazyků, jeden dementnější než druhý. Více/méně všechny široce používané si s sebou táhnou podivné dědictví různých trámů, které jsou navršené v obývácích a nutí programátora je podlejzat, přeskakovat a snažit se aby náhodou nějaký neshodil. Často se přitom nejedná o nic jiného, než o dementní syntaxi, kterou by šlo lehce vyřešit, kdyby se ovšem někomu chtělo daný trám odnést a poslat do prdele členy rodiny kteří si budou stěžovat že bez něj to už není ono.</p>
-      <p id="efcd1ee2-64d2-49b7-b19e-71169f4128e4" class="">Je opravdu obdivuhodné, že jednou za čas se mezi tvůrci najde někdo, kdo dokáže myslet trochu jinak než většina a odstranit většinu trámů, ba co víc, dokonce ještě vybílit zdi a přidat pohodlnou sedací soupravu, na které je vskutku radost sedět. Mezi tyto tvůrce patří kromě <a href="http://cs.wikipedia.org/wiki/Guido_van_Rossum">Guida van Rossuma</a> (tvůrce jazyka python) i <a href="http://cs.wikipedia.org/wiki/Walter_Bright">Walter Bright</a>.</p>
-      <h2 id="1ddd1b9b-3098-4f32-89cd-1b5df600c5a2" class="">C++ fucking sucks</h2>
-      <p id="c5d53c9f-c166-4193-9e85-1b0bd7c13f04" class="">Na začátku jsem se naučil pascal. Byla to doba kdy jsem na programování měl jen jeden názor - <em>fuck yeah!</em> Později jsem nakousl PHP, naučil se python, absolvoval rok basicu, dva roky středoškolské výuky s C++, dva semestry vysokoškolských kurzů javy, semestr C/C++, semestr JavaScriptu/PHP a semestr C#. Během té doby jsem si škrtl i o různé obskurní jazyky, ale většinou se jednalo o věci které ani nemá cenu zmiňovat a už jsem je prakticky zapomněl a navíc si procvičoval dovednosti snad ve všem, kromě pascalu. Pokaždé když jsem v té době měl vytvořit nějaký kompilovaný program, připadalo mi, že cokoliv v čem bych ho dokázal napsat stojí za naprostou vyližprdel. Bylo to jako kdybych si zkoušel kabáty a žádný mi nesedl. V jednom jsem mohl nemohl roztáhnout ruce, ve druhém je zase dát k sobě a třetí se nedal dopnout.</p>
-      <p id="22a0a50a-da75-4e97-8e55-2064919811c5" class="">Během té doby jsem strávil několik večerů hledáním na netu. Na IRC se mi smáli, že dokonalý jazyk neexistuje, že nemá cenu se namáhat, ale stejně jsem googlil a zkoušel. Když už jsem byl jen kousek od toho to vzdát, vzpomněl jsem si, že kdysi dávno, když jsem byl ještě totální IRC nováček, vyskytoval se na mém prvním kanálu člověk pod nickem DarkCraft, který si pochvaloval <a href="http://en.wikipedia.org/wiki/D_programming">D</a>. Trochu jsem zagooglil a zjistil jsem, že zrovna před nedávnem vyšla revoluční, druhá verze - <strong>D2</strong>.</p>
-      <p id="07aa90fa-bf30-463f-a0a9-ac47c732e8c0" class="">Pustil jsem se do čtení a zjistil jsem, že Walter Bright měl podobný názor jako já - C++ smrdí. Nezískal ten názor tím že by si ho zkusil na střední/vysoké škole, ale poté co pracoval dlouhá léta jako programátor a mimo jiné si napsal vlastní, komerčně úspěšný kompilátor C++. I ten největší C++lover snad musí uznat, že nejspíš věděl o čem mluvil. Walter si uvědomil, že C++ má pošahanou syntaxi a navíc programátorovi hází trámy pod nohy, proto se rozhodl vytvořit nový, lepší jazyk. Jelikož se jeho firma jmenovala <a href="http://www.digitalmars.com/">DigitalMars</a>, pojmenoval jej <strong>Mars</strong>. S tím jak se komunita jazyka <strong>Mars</strong> rozrůstala, začali se objevovat lidé, kterým se jazyk líbil a začali ho místo <strong>Mars</strong> nazývat prostě <strong>D</strong>, aby dali najevo že se jedná o něco lepšího jak C++. Postupně se tento název ujal natolik, že i samotný Walter ho přijal za vlastní a v dnešní době už se na původní jméno prakticky zapomnělo.</p>
-      <h2 id="1b8b62a6-eaf4-4427-83f5-3e6149cbd8c6" class="">D</h2>
-      <p id="e6f84526-9875-42dc-9896-23a9dc8c4a5a" class="">Jazyk <strong>D</strong> je systémový, kompilovaný programovací jazyk. Je to také jediný kompilovaný jazyk ve kterém mě skutečně baví programovat, podobně jako třeba v pythonu. Žádné kreténské .h soubory, rozdíly mezi definicí metody v těle třídy a za třídou, dementní stringy, couty a ciny, makra jak ze středověku a podivné erorry při používání šablon. Naopak - spousta vychytávek jako jsou asociativní pole, pohodlné foreach, moduly, ucházející API, porovnávání polí operátorem porovnání (==), nikoliv pomocí obskurních metod z jakéhosi API, vlastní operátor pro porovnání referencí (is), operátor pro spojování polí a strigů (~), plná podpora UTF atp..</p>
-      <p id="9ea596e5-b39f-4383-a93f-2c059e795ed0" class="">Nevím jak bych měl tento pocit z <strong>D</strong> přiblížit někomu kdo v něm nikdy nedělal, proto se prostě budete muset spokojit s tím, že o něm prohlásím že je skutečně příjemný a promyšlený, s minimem trámů které by bylo třeba přeskakovat a podlejzat. <strong>D</strong> mě baví - proto jsem o něm založil české stránky a napsal tento článek.</p>
-      <p id="24a24aa7-eab2-4678-821c-421ebccbecf1" class="">Pokud se mi podařilo navodit ve vás pocit že <strong>D</strong> není úplně marný, zkuste se podívat na czwiki4d, popřípadě další odkazy které jsem uvedl:</p>
-      <ul id="8a73d0ba-70c9-4b06-b10a-fe3028df633d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://kitakitsune.org/D/">czwiki4d</a> <strong>[cz]</strong> - mé stránky obsahující české informace o <strong>D</strong>, jedná se o dokuwiki, takže pokud má někdo zájem, můžu mu zřídit účet
-        </li>
-      </ul>
-      <ul id="8672e775-8a22-4359-bfee-1e763553687e" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://cs.wikipedia.org/wiki/D_%28programovac%C3%AD_jazyk%29">Programovací jazyk D - Wikipedie</a> <strong>[cz]</strong> - záznam na české wikipedii, přidával jsem tam nějaké ty informace, ale stejně se z toho nic moc nedozvíte
-        </li>
-      </ul>
-      <ul id="63f2feef-af3f-42ec-9cdb-6a75ed20f4a7" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://d.over.cz/">Programovací jazyk D</a> <strong>[cz]</strong> - jakýsi studentský projekt obsahující slajdy a nějakou dokumentaci, bohužel 4 roky neaktualizovaný..
-        </li>
-      </ul>
-      <ul id="e5b12898-53d7-4779-9ff0-ca1c73f5d299" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.digitalmars.com/d/">D Programming Language - Digital Mars</a> <strong>[en]</strong> - oficiální stránky jazyka, dokumentace, diskuzní fóra, maillisty, tipy a triky, bugtrack atp..
-        </li>
-      </ul>
-      <ul id="8c245c09-a344-413d-90e2-f887ce089915" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://en.wikipedia.org/wiki/D_programming">D (programming language) - Wikipedia</a> <strong>[en]</strong> - velice podrobná stránka na anglické wikipedii, doporučuji!
-        </li>
-      </ul>
-      <h2 id="4bd1bb90-7a5d-4dbb-890f-514f3997c1d0" class="">Heh, "závěr"</h2>
-      <p id="da212601-441c-4d95-aab7-7daecfcd189a" class="">Na závěr bych se chci zmínit o excelentní knize <a href="http://www.amazon.com/D-Programming-Language-Andrei-Alexandrescu/dp/0321635361">The D programming Language</a>. Dá se sehnat i v elektronické verzi (oficiálně i neoficiálně), osobně jsem si koupil k vánocům papírovou. Četl jsem už několik knih o programování a programovacích jazycích (mimo jiné třeba Programovací jazyk C od Kernighana a Ritchieho), ale žádná mě ani zdaleka nenadchla tak jako tato.</p>
-      <p id="6ba3c871-e2d8-414d-a308-728b9f99f9b6" class="">Rozdíl mezi touhle knihou a běžnými příručkami je asi takový, jako mezi čerstvě vystudovanou učitelkou češtiny která u nás ve čtvrťáku po půl roce vyhořela (prý odešla radši učit na mateřskou školku) a pánem v důchodu, který nastoupil po ní. Nejen že dokázal podat češtinu zajímavým způsobem (!!!), ale navíc to pro něj byl koníček a uměl vysvětlit i kde se to v našem jazyce vzalo, proč to vzniklo a jak se to rozšířilo..</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="67f50808-5f66-42d2-9123-0d9d8ed15904" class=""><time>@2011/03/14</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a906e22a-feaa-4241-8aa7-e8d042570f88" class="">Před pár lety, když jsem ještě chodil na střední školu nám mistr na praxi vyprávěl o tom jak před dlouhou dobou dělal pro nějakou rodinu elektriku v baráku. Jelikož byl poctivý řemeslník, rozuměl své práci a odvedl jí dobře, pozvali ho na kafe a povídali si s ním. Tenkrát ho zaujalo, že měli uprostřed obýváku na zemi položený velký a dlouhý trám, který všichni přeskakovali a dělali jako kdyby tam nebyl. Nejdříve se na to ze slušnosti nechtěl zeptat, ale jelikož to byl zvídavý člověk, vrtalo mu to hlavou a nakonec neodolal a vznesl dotaz proč že to mají ten trám uprostřed obýváku, když jim tam překáží. Dostalo se mu odpovědi že už tam tak ležel když dům někdy před dvaceti lety koupili. Bylo mu to trochu divné, tak se zeptal proč ho nikdo z nich neodstranil. "My ho tam nedali," řekla mu paní domu a brala celou věc za vyřízenou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="41fe6593-3370-4fa3-82ad-d9336db23fec" class="">Nevím nakolik je tenhle příběh pravdivý a nakolik si ho mistr tenkrát vymyslel, ale úplně stejné mi to přijde s programovacími jazyky. Existuje 1337 programovacích jazyků, jeden dementnější než druhý. Více/méně všechny široce používané si s sebou táhnou podivné dědictví různých trámů, které jsou navršené v obývácích a nutí programátora je podlejzat, přeskakovat a snažit se aby náhodou nějaký neshodil. Často se přitom nejedná o nic jiného, než o dementní syntaxi, kterou by šlo lehce vyřešit, kdyby se ovšem někomu chtělo daný trám odnést a poslat do prdele členy rodiny kteří si budou stěžovat že bez něj to už není ono.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="efcd1ee2-64d2-49b7-b19e-71169f4128e4" class="">Je opravdu obdivuhodné, že jednou za čas se mezi tvůrci najde někdo, kdo dokáže myslet trochu jinak než většina a odstranit většinu trámů, ba co víc, dokonce ještě vybílit zdi a přidat pohodlnou sedací soupravu, na které je vskutku radost sedět. Mezi tyto tvůrce patří kromě <a href="http://cs.wikipedia.org/wiki/Guido_van_Rossum">Guida van Rossuma</a> (tvůrce jazyka python) i <a href="http://cs.wikipedia.org/wiki/Walter_Bright">Walter Bright</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="1ddd1b9b-3098-4f32-89cd-1b5df600c5a2" class="">C++ fucking sucks</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c5d53c9f-c166-4193-9e85-1b0bd7c13f04" class="">Na začátku jsem se naučil pascal. Byla to doba kdy jsem na programování měl jen jeden názor - <em>fuck yeah!</em> Později jsem nakousl PHP, naučil se python, absolvoval rok basicu, dva roky středoškolské výuky s C++, dva semestry vysokoškolských kurzů javy, semestr C/C++, semestr JavaScriptu/PHP a semestr C#. Během té doby jsem si škrtl i o různé obskurní jazyky, ale většinou se jednalo o věci které ani nemá cenu zmiňovat a už jsem je prakticky zapomněl a navíc si procvičoval dovednosti snad ve všem, kromě pascalu. Pokaždé když jsem v té době měl vytvořit nějaký kompilovaný program, připadalo mi, že cokoliv v čem bych ho dokázal napsat stojí za naprostou vyližprdel. Bylo to jako kdybych si zkoušel kabáty a žádný mi nesedl. V jednom jsem mohl nemohl roztáhnout ruce, ve druhém je zase dát k sobě a třetí se nedal dopnout.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="22a0a50a-da75-4e97-8e55-2064919811c5" class="">Během té doby jsem strávil několik večerů hledáním na netu. Na IRC se mi smáli, že dokonalý jazyk neexistuje, že nemá cenu se namáhat, ale stejně jsem googlil a zkoušel. Když už jsem byl jen kousek od toho to vzdát, vzpomněl jsem si, že kdysi dávno, když jsem byl ještě totální IRC nováček, vyskytoval se na mém prvním kanálu člověk pod nickem DarkCraft, který si pochvaloval <a href="http://en.wikipedia.org/wiki/D_programming">D</a>. Trochu jsem zagooglil a zjistil jsem, že zrovna před nedávnem vyšla revoluční, druhá verze - <strong>D2</strong>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="07aa90fa-bf30-463f-a0a9-ac47c732e8c0" class="">Pustil jsem se do čtení a zjistil jsem, že Walter Bright měl podobný názor jako já - C++ smrdí. Nezískal ten názor tím že by si ho zkusil na střední/vysoké škole, ale poté co pracoval dlouhá léta jako programátor a mimo jiné si napsal vlastní, komerčně úspěšný kompilátor C++. I ten největší C++lover snad musí uznat, že nejspíš věděl o čem mluvil. Walter si uvědomil, že C++ má pošahanou syntaxi a navíc programátorovi hází trámy pod nohy, proto se rozhodl vytvořit nový, lepší jazyk. Jelikož se jeho firma jmenovala <a href="http://www.digitalmars.com/">DigitalMars</a>, pojmenoval jej <strong>Mars</strong>. S tím jak se komunita jazyka <strong>Mars</strong> rozrůstala, začali se objevovat lidé, kterým se jazyk líbil a začali ho místo <strong>Mars</strong> nazývat prostě <strong>D</strong>, aby dali najevo že se jedná o něco lepšího jak C++. Postupně se tento název ujal natolik, že i samotný Walter ho přijal za vlastní a v dnešní době už se na původní jméno prakticky zapomnělo.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="1b8b62a6-eaf4-4427-83f5-3e6149cbd8c6" class="">D</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e6f84526-9875-42dc-9896-23a9dc8c4a5a" class="">Jazyk <strong>D</strong> je systémový, kompilovaný programovací jazyk. Je to také jediný kompilovaný jazyk ve kterém mě skutečně baví programovat, podobně jako třeba v pythonu. Žádné kreténské .h soubory, rozdíly mezi definicí metody v těle třídy a za třídou, dementní stringy, couty a ciny, makra jak ze středověku a podivné erorry při používání šablon. Naopak - spousta vychytávek jako jsou asociativní pole, pohodlné foreach, moduly, ucházející API, porovnávání polí operátorem porovnání (==), nikoliv pomocí obskurních metod z jakéhosi API, vlastní operátor pro porovnání referencí (is), operátor pro spojování polí a strigů (~), plná podpora UTF atp..</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9ea596e5-b39f-4383-a93f-2c059e795ed0" class="">Nevím jak bych měl tento pocit z <strong>D</strong> přiblížit někomu kdo v něm nikdy nedělal, proto se prostě budete muset spokojit s tím, že o něm prohlásím že je skutečně příjemný a promyšlený, s minimem trámů které by bylo třeba přeskakovat a podlejzat. <strong>D</strong> mě baví - proto jsem o něm založil české stránky a napsal tento článek.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="24a24aa7-eab2-4678-821c-421ebccbecf1" class="">Pokud se mi podařilo navodit ve vás pocit že <strong>D</strong> není úplně marný, zkuste se podívat na czwiki4d, popřípadě další odkazy které jsem uvedl:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8a73d0ba-70c9-4b06-b10a-fe3028df633d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://kitakitsune.org/D/">czwiki4d</a> <strong>[cz]</strong> - mé stránky obsahující české informace o <strong>D</strong>, jedná se o dokuwiki, takže pokud má někdo zájem, můžu mu zřídit účet
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8672e775-8a22-4359-bfee-1e763553687e" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://cs.wikipedia.org/wiki/D_%28programovac%C3%AD_jazyk%29">Programovací jazyk D - Wikipedie</a> <strong>[cz]</strong> - záznam na české wikipedii, přidával jsem tam nějaké ty informace, ale stejně se z toho nic moc nedozvíte
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="63f2feef-af3f-42ec-9cdb-6a75ed20f4a7" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://d.over.cz/">Programovací jazyk D</a> <strong>[cz]</strong> - jakýsi studentský projekt obsahující slajdy a nějakou dokumentaci, bohužel 4 roky neaktualizovaný..
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e5b12898-53d7-4779-9ff0-ca1c73f5d299" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.digitalmars.com/d/">D Programming Language - Digital Mars</a> <strong>[en]</strong> - oficiální stránky jazyka, dokumentace, diskuzní fóra, maillisty, tipy a triky, bugtrack atp..
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8c245c09-a344-413d-90e2-f887ce089915" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://en.wikipedia.org/wiki/D_programming">D (programming language) - Wikipedia</a> <strong>[en]</strong> - velice podrobná stránka na anglické wikipedii, doporučuji!
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="4bd1bb90-7a5d-4dbb-890f-514f3997c1d0" class="">Heh, "závěr"</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="da212601-441c-4d95-aab7-7daecfcd189a" class="">Na závěr bych se chci zmínit o excelentní knize <a href="http://www.amazon.com/D-Programming-Language-Andrei-Alexandrescu/dp/0321635361">The D programming Language</a>. Dá se sehnat i v elektronické verzi (oficiálně i neoficiálně), osobně jsem si koupil k vánocům papírovou. Četl jsem už několik knih o programování a programovacích jazycích (mimo jiné třeba Programovací jazyk C od Kernighana a Ritchieho), ale žádná mě ani zdaleka nenadchla tak jako tato.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6ba3c871-e2d8-414d-a308-728b9f99f9b6" class="">Rozdíl mezi touhle knihou a běžnými příručkami je asi takový, jako mezi čerstvě vystudovanou učitelkou češtiny která u nás ve čtvrťáku po půl roce vyhořela (prý odešla radši učit na mateřskou školku) a pánem v důchodu, který nastoupil po ní. Nejen že dokázal podat češtinu zajímavým způsobem (!!!), ale navíc to pro něj byl koníček a uměl vysvětlit i kde se to v našem jazyce vzalo, proč to vzniklo a jak se to rozšířilo..</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

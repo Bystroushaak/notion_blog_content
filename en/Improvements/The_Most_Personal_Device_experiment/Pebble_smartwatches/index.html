@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
           <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
@@ -135,45 +135,97 @@
   </div><a href="../../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../../index.html" class="breadcrumb" title="Improvements">Improvements</a> / <a href="../index.html" class="breadcrumb" title="The Most Personal Device experiment">The Most Personal Device experiment</a> / Pebble smartwatches
   <article id="5772ac92-4c8e-46d8-92f9-03560e58d37a" class="page sans">
     <header>
-      <h1 class="page-title">Pebble smartwatches</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Pebble smartwatches</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="725fc0cb-3556-4679-a83f-186bd8c17a2b" class=""><time>@2020/06/09</time></p>
-      <p id="1b7cd247-a62b-4b7a-a478-d2418959dfc6" class="">I've bought Pebble time steel smartwatches with the idea, that I'll try to program them. See <a href="../../The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a> for details. This didn't go well for several reasons:</p>
-      <figure id="ab467a3d-478d-4115-8bd2-2b8dea80d594" class="image">
-        <a href="../pebble_time_steel.jpg" title="pebble_time_steel.jpg"><img style="width:432px" src="../pebble_time_steel.jpg"></a>
-      </figure>
-      <h1 id="d4c5087d-c27a-4d2c-9ea4-008f4f78ab38" class="">Fucking cloud</h1>
-      <p id="c6909b31-55e3-4093-afe0-846f07d8546a" class="">Pebble got bought by FitBit, and then they discarded all online services for Pebble programming. This means that cloud IDE and iPhone app suddenly wasn't available for programming purposes. iPhone app still exists, but it can't be easily used to program the watches.</p>
-      <figure id="0609025a-6d44-4965-bd71-60e36d875db5" class="image">
-        <a href="pebble.jpg" title="pebble.jpg"><img style="width:432px" src="pebble.jpg"></a>
-      </figure>
-      <p id="3ea0b0d5-39aa-4420-a1bc-fd807c3d732c" class="">Project <a href="https://rebble.io/">Rebble</a> appeared, but never got significant traction. You can use it to hack the iPhone app to allow you upload apps to your watches, and talk with them via Bluetooth LE, but its kinda broken, pairing often fails and it is altogether a horrible solution.</p>
-      <h1 id="c2c5ab21-15b3-451e-91cf-c55c7aee1bc3" class="">Open source alternatives did not delivered</h1>
-      <p id="8984e803-5db5-4e00-b360-0156e8e46b71" class="">There exists a project called <a href="https://github.com/ginge/FreeRTOS-Pebble">FreeRTOS-Pebble</a>, where people are trying to create new firmware for the pebbles. It's great project, but development is slow, and core features of the watches are not supported.</p>
-      <p id="44879bb4-67e1-4a85-9230-43028635c94b" class="">The biggest problem is, that it's really hard to use. You have to download and compile a bunch of C stuff manually, and go to discord to download bitstream for FPGA display driver and generally do all kinds of stuff, that you rather wouldn't.</p>
-      <p id="743564d0-82f9-451d-b521-f2e2ff4f8dc6" class="">I've tried to build a virtual machine in VirtualBox with the build environment several times, and I think I succeeded on last try, but I've spent maybe ten hours trying to make it work and that sucked out all my enthusiasm for it.</p>
-      <p id="74c40789-82c4-4fe4-a922-9d185dc3ae08" class="">When it works, you should be able to create your own apps using C programming language. But you are developing for the dead platform, on almost dead opensource project.</p>
-      <h1 id="3935f8b2-4107-4ce0-b91b-bf3a87722f75" class="">Small battery</h1>
-      <p id="4512bbdc-8e10-4879-aeaf-349ff9770c54" class="">This is one of those things, that I don't get. There is plenty of space inside the case, and they could easily make it bigger to support bigger battery. See the beefy and absurdly thick steel case?</p>
-      <figure id="cfa87137-c396-41f3-82de-820fa8d5e772" class="image">
-        <a href="pebble_disassembled.jpg" title="pebble_disassembled.jpg"><img style="width:384px" src="pebble_disassembled.jpg"></a>
-      </figure>
-      <p id="5f7f943f-3f0e-41a1-b0d8-a14cfac934d8" class="">With the battery that was used, I only got something like three days of battery life. That doesn't sound bad, but it was.</p>
-      <h1 id="7883e105-95d8-4647-85d2-c9fd621b520f" class="">Failing flex cable</h1>
-      <p id="4098a7a6-73d0-4595-b9f6-e3addc9c637f" class="">And then the flex cable, that is used to deliver information to the display, failed. It didn't stopped working, but began to show random patterns from time to time. To say that this was annoying is understatement.</p>
-      <p id="277b5dc2-52f8-4a2f-831c-943737d442b6" class="">When I've tried to repair the issue, I've accidentally destroyed the cable and that was it. Pebble experiment finally ended.</p>
-      <h1 id="bf9718a5-dbd7-4c64-904d-bb553d51ba05" class="">Was it worth it?</h1>
-      <p id="5e81bb21-0829-4dfb-b753-2097456b1ae4" class="">I've bought them in the middle of 2019 from someone on eBay, so it didn't cost me much (something like 50€) and it was an interesting learning experience.</p>
-      <p id="c4c883a7-843e-429b-808a-827493042fd9" class="">It shown me, that software matters, and everything linked with cloud is dead in the long term. And also I've used them for more than a year as regular smartwatches.</p>
-      <h1 id="8bda7cd9-2cac-4432-a07f-941ec47e875c" class="">Subpages</h1>
-      <figure id="ae6b9bb1-e609-40fa-afba-2a3b7ab7fc8e" class="link-to-page">
-        <a href="Raw_notes.html" title="Raw notes"><span class="icon">🗎</span>Raw notes</a>
-      </figure>
-      <p id="0216a36d-51b5-42a8-9bc7-7c1443de7e7d" class=""></p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="725fc0cb-3556-4679-a83f-186bd8c17a2b" class=""><time>@2020/06/09</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1b7cd247-a62b-4b7a-a478-d2418959dfc6" class="">I've bought Pebble time steel smartwatches with the idea, that I'll try to program them. See <a href="../../The_Most_Personal_Device_experiment.html" title="The Most Personal Device experiment"><span class="icon">📂</span>The Most Personal Device experiment</a> for details. This didn't go well for several reasons:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="ab467a3d-478d-4115-8bd2-2b8dea80d594" class="image">
+          <a href="../pebble_time_steel.jpg" title="pebble_time_steel.jpg"><img style="width:432px" src="../pebble_time_steel.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="d4c5087d-c27a-4d2c-9ea4-008f4f78ab38" class="">Fucking cloud</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c6909b31-55e3-4093-afe0-846f07d8546a" class="">Pebble got bought by FitBit, and then they discarded all online services for Pebble programming. This means that cloud IDE and iPhone app suddenly wasn't available for programming purposes. iPhone app still exists, but it can't be easily used to program the watches.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="0609025a-6d44-4965-bd71-60e36d875db5" class="image">
+          <a href="pebble.jpg" title="pebble.jpg"><img style="width:432px" src="pebble.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3ea0b0d5-39aa-4420-a1bc-fd807c3d732c" class="">Project <a href="https://rebble.io/">Rebble</a> appeared, but never got significant traction. You can use it to hack the iPhone app to allow you upload apps to your watches, and talk with them via Bluetooth LE, but its kinda broken, pairing often fails and it is altogether a horrible solution.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="c2c5ab21-15b3-451e-91cf-c55c7aee1bc3" class="">Open source alternatives did not delivered</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8984e803-5db5-4e00-b360-0156e8e46b71" class="">There exists a project called <a href="https://github.com/ginge/FreeRTOS-Pebble">FreeRTOS-Pebble</a>, where people are trying to create new firmware for the pebbles. It's great project, but development is slow, and core features of the watches are not supported.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="44879bb4-67e1-4a85-9230-43028635c94b" class="">The biggest problem is, that it's really hard to use. You have to download and compile a bunch of C stuff manually, and go to discord to download bitstream for FPGA display driver and generally do all kinds of stuff, that you rather wouldn't.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="743564d0-82f9-451d-b521-f2e2ff4f8dc6" class="">I've tried to build a virtual machine in VirtualBox with the build environment several times, and I think I succeeded on last try, but I've spent maybe ten hours trying to make it work and that sucked out all my enthusiasm for it.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="74c40789-82c4-4fe4-a922-9d185dc3ae08" class="">When it works, you should be able to create your own apps using C programming language. But you are developing for the dead platform, on almost dead opensource project.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="3935f8b2-4107-4ce0-b91b-bf3a87722f75" class="">Small battery</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4512bbdc-8e10-4879-aeaf-349ff9770c54" class="">This is one of those things, that I don't get. There is plenty of space inside the case, and they could easily make it bigger to support bigger battery. See the beefy and absurdly thick steel case?</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="cfa87137-c396-41f3-82de-820fa8d5e772" class="image">
+          <a href="pebble_disassembled.jpg" title="pebble_disassembled.jpg"><img style="width:384px" src="pebble_disassembled.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5f7f943f-3f0e-41a1-b0d8-a14cfac934d8" class="">With the battery that was used, I only got something like three days of battery life. That doesn't sound bad, but it was.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="7883e105-95d8-4647-85d2-c9fd621b520f" class="">Failing flex cable</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4098a7a6-73d0-4595-b9f6-e3addc9c637f" class="">And then the flex cable, that is used to deliver information to the display, failed. It didn't stopped working, but began to show random patterns from time to time. To say that this was annoying is understatement.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="277b5dc2-52f8-4a2f-831c-943737d442b6" class="">When I've tried to repair the issue, I've accidentally destroyed the cable and that was it. Pebble experiment finally ended.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="bf9718a5-dbd7-4c64-904d-bb553d51ba05" class="">Was it worth it?</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5e81bb21-0829-4dfb-b753-2097456b1ae4" class="">I've bought them in the middle of 2019 from someone on eBay, so it didn't cost me much (something like 50€) and it was an interesting learning experience.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c4c883a7-843e-429b-808a-827493042fd9" class="">It shown me, that software matters, and everything linked with cloud is dead in the long term. And also I've used them for more than a year as regular smartwatches.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="8bda7cd9-2cac-4432-a07f-941ec47e875c" class="">Subpages</h1>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="ae6b9bb1-e609-40fa-afba-2a3b7ab7fc8e" class="link-to-page">
+          <a href="Raw_notes.html" title="Raw notes"><span class="icon">🗎</span>Raw notes</a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0216a36d-51b5-42a8-9bc7-7c1443de7e7d" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -184,6 +236,9 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../../../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -210,9 +265,6 @@
         </li>
         <li>
           <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

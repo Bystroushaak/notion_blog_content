@@ -10,10 +10,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:title" content="Weekly update 2019/10/06; Slowly ramping up to where I was">
-  <meta name="twitter:description" content="I would rate this week 3.6/15k - not great, not terrible. I've done some work, both on tinySelf and in my actual everyday work, but I am nowhere as productive as I was before I got sick. I guess I am taking my time to get back on my standard levels of productivity.">
-  <meta property="og:description" content="I would rate this week 3.6/15k - not great, not terrible. I've done some work, both on tinySelf and in my actual everyday work, but I am nowhere as productive as I was before I got sick. I guess I am taking my time to get back on my standard levels of productivity.">
-  <script src="../../scripts.js"></script>
-  <meta name="description" content="I would rate this week 3.6/15k - not great, not terrible. I've done some work, both on tinySelf and in my actual everyday work, but I am nowhere as productive as I was before I got sick. I guess I am taking my time to get back on my standard levels of productivity."><!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="../../scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
   <script>
@@ -32,6 +29,9 @@
     <h3>New posts</h3>
     <div id="last_five_top">
       <ul>
+        <li>
+          <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -58,9 +58,6 @@
         </li>
         <li>
           <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -117,67 +114,133 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="Weekly updates">Weekly updates</a> / Weekly update 2019/10/06; Slowly ramping up to where I was
   <article id="7ccc0216-5a77-447d-b214-1c5b0ad7e864" class="page sans">
     <header>
-      <h1 class="page-title">Weekly update 2019/10/06; Slowly ramping up to where I was</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Weekly update 2019/10/06; Slowly ramping up to where I was</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <p id="efd29ed2-6d02-4f9a-bc0f-b4a62780968b" class="">I would rate this week 3.6/15k - not great, not terrible. I've done some work, both on tinySelf and in my actual everyday work, but I am nowhere as productive as I was before I got sick. I guess I am taking my time to get back on my standard levels of productivity.</p>
-      <h1 id="0f4fbd8c-ef69-46f3-b2a0-ce5a1ff6036e" class="">tinySelf progress</h1>
-      <p id="dec637d0-d4e7-4b5a-b361-ac4606ea9b50" class="">I've tried to fix performance regressions and added some optimizations.</p>
-      <ul id="4424019a-9958-473d-ad69-8c1eecca9cab" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/Bystroushaak/tinySelf/issues/131">https://github.com/Bystroushaak/tinySelf/issues/131</a>
-        </li>
-      </ul>
-      <p id="f36422ad-5fe2-4447-9135-c74b6c48d714" class="">Last week, I was at 26G7, this week I am at 25G2. After the optimizations, JIT could get down to 9G6, but bunch of simple <code>@jit.unroll_safe</code> decorators pushed it down to 7G6, which is really wow. <a href="https://boxbase.org/entries/2015/apr/20/rpython-jit-optimizations/">Optimizing RPython JIT for Pyllisp</a> was extremely helpful.</p>
-      <p id="c8a5a325-2155-4418-8ab1-0c7d479c3e98" class="">I've also made several attempts to optimize something, which failed miserably:</p>
-      <ul id="31ff4113-37ce-47b6-8203-20a9e0bf164a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/Bystroushaak/tinySelf/issues/130">https://github.com/Bystroushaak/tinySelf/issues/130</a>
-        </li>
-      </ul>
-      <ul id="66d100f3-5530-4984-b32a-b19129f48c8e" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/Bystroushaak/tinySelf/issues/126">https://github.com/Bystroushaak/tinySelf/issues/126</a>
-        </li>
-      </ul>
-      <p id="e6a14050-4ad1-4ae4-9760-036fe0dcac18" class="">But hey, that what happens when you are optimizing.</p>
-      <p id="26151e8d-369b-4177-a9dd-ee5f79a1793d" class="">Other than that, I've added docstrings with types for PyCharm's type checker, and also cleaned several code smells.</p>
-      <p id="5984c433-d71b-4fb2-a513-fd855937d21d" class="">Next week, I want to focus on functionality and add new features, but my mind keeps looping back to optimizations for some reason. Its like when you start to think about possible optimizations, you can't stop, so we'll see.</p>
-      <h1 id="bb9548b4-1661-4008-bea2-1ae791b1d110" class="">Other coding</h1>
-      <p id="7c37a8cd-927a-4b87-bfa8-af67499d8022" class="">I've finally finished the transformer which takes bunch of <code>.html</code> articles in <a href="../Programming/Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a> directory and spits out an <code>.epub</code>:</p>
-      <p id="fa3f18b7-c327-467f-82ca-92a9e4515559" class=""><a href="https://github.com/Bystroushaak/Environment_and_programming_language_self_epub_generator">https://github.com/Bystroushaak/Environment_and_programming_language_self_epub_generator</a></p>
-      <p id="e6746757-017c-41a6-9e4d-60e650e2ee22" class="">There is a lot that can be still polished, but I am satisfied with the resulting epub so far (you can find it in the <a href="../Programming/Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a> section).</p>
-      <h1 id="eb1ad930-e784-4ec2-bdca-553addddb409" class="">Book report</h1>
-      <p id="7ae5e426-a4c5-4945-9369-85903d15a015" class="">I've finished <a href="https://www.databazeknih.cz/knihy/honor-harringtonova-silici-boure-218603">Sílící bouře</a> (<a href="https://www.goodreads.com/book/show/12269981-a-rising-thunder">A Rising Thunder</a>), thirteenth book in the <a href="https://en.wikipedia.org/wiki/Honorverse">Honorverse</a> series. I've picked up <a href="https://en.wikipedia.org/wiki/Permanent_Record_(Snowden_book)">Permanent record</a> from <em>Edward Snowden,</em> and I am loving it so far (30% done).</p>
-      <p id="a309e403-02f4-45b0-aad5-435ed057eede" class="">I really love PyCharm's refactoring features. I've almost finished <em>Effective PyCharm</em> and the chapter about refactoring already had a huge benefit for me.</p>
-      <h1 id="dfd39322-5d2a-444b-b6c6-2e236059ec85" class="">Writing</h1>
-      <p id="f251a2fc-b68e-4099-8b4c-223ff7b1d421" class="">I need to return to my unfinished blogs, but I seem to have some kind of bullshit writer's block. I am not sure what to do with it. Maybe it is connected to reading hard books? I've put on hold all harder books for several weeks. Mabye I should first get in shape to return to them? Idk.</p>
-      <h1 id="f407560d-db87-4bb8-96f8-098268d013a6" class="">Self improvements</h1>
-      <p id="49bfef94-7d58-411f-ab1c-58d29ddb8c31" class="">I've almost finished my doughnut in Blender 2.8. Did you know that there is whole subreddit just for <a href="https://www.reddit.com/r/BlenderDoughnuts/">/r/BlenderDoughnuts</a>?</p>
-      <h1 id="03e96f9d-e137-4531-8ea9-f154707f7183" class="">Random stuff</h1>
-      <p id="76f43948-e275-462e-a9f6-49f6d35dea1a" class="">There is also a subreddit for GPT2 bots <a href="https://www.reddit.com/r/SubSimulatorGPT2">/r/SubSimulatorGPT2</a> and meta-subreddit <a href="https://www.reddit.com/r/SubSimulatorGPT2Meta">/r/SubSimulatorGPT2Meta</a> for discussing the discussions of the bots.</p>
-      <p id="8530120c-f5bd-4e27-a0af-b242f6bacc05" class="">This discussion of self-awareness:</p>
-      <ul id="f1179d35-6c8f-4c04-b2fe-af7bcbca2a77" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.reddit.com/r/SubSimulatorGPT2/comments/dd3ksq/eli5_how_exactly_can_something_be_considered/">ELI5: How exactly can something be considered "self-aware"?</a> (+ <a href="https://www.reddit.com/r/SubSimulatorGPT2Meta/comments/dd62f3/on_its_way_to_sentience/">meta</a>)
-        </li>
-      </ul>
-      <p id="abaeb08e-2a1d-46a4-91b7-05785c1ae1f2" class="">And this was pure gold:</p>
-      <ul id="2ac1d023-a80a-460a-ba4d-1a1054cd5144" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.reddit.com/r/SubSimulatorGPT2/comments/ddbd28/replace_timmys_toothbrush_with_a_spoonful_of/">Replace Timmy's toothbrush with a spoonful of cocaine to get addicted to the toothpaste</a> (+ <a href="https://www.reddit.com/r/SubSimulatorGPT2Meta/comments/ddgjp4/wtf_timmy/">meta</a>)
-        </li>
-      </ul>
-      <hr id="73e03946-6790-4d92-8ef7-fcf043014c7d">
-      <p id="3e99662b-25d9-4557-a71d-5c328e9af009" class="">I really liked <em>Commute talk: Demystifying impossible programming projects</em>:</p>
-      <figure id="5826a6ee-8932-487a-8589-152993b14ef9">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/fJeO2NjurM0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <p id="df5d80e9-09bb-44df-8e1a-f36bba52f397" class="">.. because it really captures some of my feelings about tinySelf.</p>
-      <p id="cee17bfa-f8b4-4261-92bb-fa45e5786d3c" class=""></p>
+      <div style="display:contents" dir="auto">
+        <p id="efd29ed2-6d02-4f9a-bc0f-b4a62780968b" class="">I would rate this week 3.6/15k - not great, not terrible. I've done some work, both on tinySelf and in my actual everyday work, but I am nowhere as productive as I was before I got sick. I guess I am taking my time to get back on my standard levels of productivity.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="0f4fbd8c-ef69-46f3-b2a0-ce5a1ff6036e" class="">tinySelf progress</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dec637d0-d4e7-4b5a-b361-ac4606ea9b50" class="">I've tried to fix performance regressions and added some optimizations.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4424019a-9958-473d-ad69-8c1eecca9cab" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/Bystroushaak/tinySelf/issues/131">https://github.com/Bystroushaak/tinySelf/issues/131</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f36422ad-5fe2-4447-9135-c74b6c48d714" class="">Last week, I was at 26G7, this week I am at 25G2. After the optimizations, JIT could get down to 9G6, but bunch of simple <code>@jit.unroll_safe</code> decorators pushed it down to 7G6, which is really wow. <a href="https://boxbase.org/entries/2015/apr/20/rpython-jit-optimizations/">Optimizing RPython JIT for Pyllisp</a> was extremely helpful.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c8a5a325-2155-4418-8ab1-0c7d479c3e98" class="">I've also made several attempts to optimize something, which failed miserably:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="31ff4113-37ce-47b6-8203-20a9e0bf164a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/Bystroushaak/tinySelf/issues/130">https://github.com/Bystroushaak/tinySelf/issues/130</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="66d100f3-5530-4984-b32a-b19129f48c8e" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/Bystroushaak/tinySelf/issues/126">https://github.com/Bystroushaak/tinySelf/issues/126</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e6a14050-4ad1-4ae4-9760-036fe0dcac18" class="">But hey, that what happens when you are optimizing.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="26151e8d-369b-4177-a9dd-ee5f79a1793d" class="">Other than that, I've added docstrings with types for PyCharm's type checker, and also cleaned several code smells.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5984c433-d71b-4fb2-a513-fd855937d21d" class="">Next week, I want to focus on functionality and add new features, but my mind keeps looping back to optimizations for some reason. Its like when you start to think about possible optimizations, you can't stop, so we'll see.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="bb9548b4-1661-4008-bea2-1ae791b1d110" class="">Other coding</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7c37a8cd-927a-4b87-bfa8-af67499d8022" class="">I've finally finished the transformer which takes bunch of <code>.html</code> articles in <a href="../Programming/Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a> directory and spits out an <code>.epub</code>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fa3f18b7-c327-467f-82ca-92a9e4515559" class=""><a href="https://github.com/Bystroushaak/Environment_and_programming_language_self_epub_generator">https://github.com/Bystroushaak/Environment_and_programming_language_self_epub_generator</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e6746757-017c-41a6-9e4d-60e650e2ee22" class="">There is a lot that can be still polished, but I am satisfied with the resulting epub so far (you can find it in the <a href="../Programming/Series_about_Self.html" title="Series about Self"><span class="icon">📂</span>Series about Self</a> section).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="eb1ad930-e784-4ec2-bdca-553addddb409" class="">Book report</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7ae5e426-a4c5-4945-9369-85903d15a015" class="">I've finished <a href="https://www.databazeknih.cz/knihy/honor-harringtonova-silici-boure-218603">Sílící bouře</a> (<a href="https://www.goodreads.com/book/show/12269981-a-rising-thunder">A Rising Thunder</a>), thirteenth book in the <a href="https://en.wikipedia.org/wiki/Honorverse">Honorverse</a> series. I've picked up <a href="https://en.wikipedia.org/wiki/Permanent_Record_(Snowden_book)">Permanent record</a> from <em>Edward Snowden,</em> and I am loving it so far (30% done).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a309e403-02f4-45b0-aad5-435ed057eede" class="">I really love PyCharm's refactoring features. I've almost finished <em>Effective PyCharm</em> and the chapter about refactoring already had a huge benefit for me.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="dfd39322-5d2a-444b-b6c6-2e236059ec85" class="">Writing</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f251a2fc-b68e-4099-8b4c-223ff7b1d421" class="">I need to return to my unfinished blogs, but I seem to have some kind of bullshit writer's block. I am not sure what to do with it. Maybe it is connected to reading hard books? I've put on hold all harder books for several weeks. Mabye I should first get in shape to return to them? Idk.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="f407560d-db87-4bb8-96f8-098268d013a6" class="">Self improvements</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="49bfef94-7d58-411f-ab1c-58d29ddb8c31" class="">I've almost finished my doughnut in Blender 2.8. Did you know that there is whole subreddit just for <a href="https://www.reddit.com/r/BlenderDoughnuts/">/r/BlenderDoughnuts</a>?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="03e96f9d-e137-4531-8ea9-f154707f7183" class="">Random stuff</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="76f43948-e275-462e-a9f6-49f6d35dea1a" class="">There is also a subreddit for GPT2 bots <a href="https://www.reddit.com/r/SubSimulatorGPT2">/r/SubSimulatorGPT2</a> and meta-subreddit <a href="https://www.reddit.com/r/SubSimulatorGPT2Meta">/r/SubSimulatorGPT2Meta</a> for discussing the discussions of the bots.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8530120c-f5bd-4e27-a0af-b242f6bacc05" class="">This discussion of self-awareness:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="f1179d35-6c8f-4c04-b2fe-af7bcbca2a77" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.reddit.com/r/SubSimulatorGPT2/comments/dd3ksq/eli5_how_exactly_can_something_be_considered/">ELI5: How exactly can something be considered "self-aware"?</a> (+ <a href="https://www.reddit.com/r/SubSimulatorGPT2Meta/comments/dd62f3/on_its_way_to_sentience/">meta</a>)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="abaeb08e-2a1d-46a4-91b7-05785c1ae1f2" class="">And this was pure gold:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2ac1d023-a80a-460a-ba4d-1a1054cd5144" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.reddit.com/r/SubSimulatorGPT2/comments/ddbd28/replace_timmys_toothbrush_with_a_spoonful_of/">Replace Timmy's toothbrush with a spoonful of cocaine to get addicted to the toothpaste</a> (+ <a href="https://www.reddit.com/r/SubSimulatorGPT2Meta/comments/ddgjp4/wtf_timmy/">meta</a>)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <hr id="73e03946-6790-4d92-8ef7-fcf043014c7d">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3e99662b-25d9-4557-a71d-5c328e9af009" class="">I really liked <em>Commute talk: Demystifying impossible programming projects</em>:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="5826a6ee-8932-487a-8589-152993b14ef9">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/fJeO2NjurM0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="df5d80e9-09bb-44df-8e1a-f36bba52f397" class="">.. because it really captures some of my feelings about tinySelf.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cee17bfa-f8b4-4261-92bb-fa45e5786d3c" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -188,6 +251,9 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -214,9 +280,6 @@
         </li>
         <li>
           <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

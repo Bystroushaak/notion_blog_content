@@ -34,6 +34,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../en/Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
           <a href="../../en/3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
         <li>
@@ -59,9 +62,6 @@
         </li>
         <li>
           <a href="../../en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../en/Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -130,21 +130,36 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Paperclips">Paperclips</a> / <a href="index.html" class="breadcrumb" title="Things that disappeared">Things that disappeared</a> / PyAtom disappeared
   <article id="960474c6-ce34-4c6e-abc8-451623314fa6" class="page sans">
     <header>
-      <h1 class="page-title">PyAtom disappeared</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">PyAtom disappeared</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="4f0c3c12-ea09-4da6-8c8d-8cfea875ab14" class=""><time>@2020/12/06</time></p>
-      <p id="0fcc0f6f-95ab-4434-996c-087920c56749" class="">I've used <code>pyatom</code> module to generate Atom feeds for my blog, but also generally for all kinds of stuff for maybe four or five years. Then it disappeared.</p>
-      <p id="47d26984-24c9-4b2f-bc52-7229316175c7" class="">It is no longer on <a href="https://github.com/sramana/pyatom">GitHub</a> (<a href="https://web.archive.org/web/20180610232732/https://github.com/sramana/pyatom">webarchive</a>), and no longer on pypi. This forced me to use something else, and I have chosen <a href="https://feedgen.kiesow.be/">feedgen</a> (there is not much choice). So if your reader got confused, I am sorry.</p>
-      <p id="0624c884-33f7-40be-809b-898c03d9f0a5" class="">The disappearance kinda pissed me off, because PyAtom was one of those modules, that <a href="https://github.com/Bystroushaak/notion_blog_generator/commit/6c70a540976feee2daa46c58abd25eb7736abad7">had</a> really good and intuitive architecture. You create an instance of the Feed, add some entries and you are done.</p>
-      <p id="dc8c3ef2-0c0c-44de-8d0d-1d01a7776208" class="">Feedgen is this weird abstraction of toughly-coupled code with the actual XML representation. It uses some weird reverse OOP, where you call methods, which return empty instances, and you then fill them by calling methods.</p>
-      <p id="d6b751ee-235a-4dd2-9d1e-b459f2b78b20" class="">Instead of this:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre class="code"><code><span class="n">feed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4f0c3c12-ea09-4da6-8c8d-8cfea875ab14" class=""><time>@2020/12/06</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0fcc0f6f-95ab-4434-996c-087920c56749" class="">I've used <code>pyatom</code> module to generate Atom feeds for my blog, but also generally for all kinds of stuff for maybe four or five years. Then it disappeared.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="47d26984-24c9-4b2f-bc52-7229316175c7" class="">It is no longer on <a href="https://github.com/sramana/pyatom">GitHub</a> (<a href="https://web.archive.org/web/20180610232732/https://github.com/sramana/pyatom">webarchive</a>), and no longer on pypi. This forced me to use something else, and I have chosen <a href="https://feedgen.kiesow.be/">feedgen</a> (there is not much choice). So if your reader got confused, I am sorry.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0624c884-33f7-40be-809b-898c03d9f0a5" class="">The disappearance kinda pissed me off, because PyAtom was one of those modules, that <a href="https://github.com/Bystroushaak/notion_blog_generator/commit/6c70a540976feee2daa46c58abd25eb7736abad7">had</a> really good and intuitive architecture. You create an instance of the Feed, add some entries and you are done.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dc8c3ef2-0c0c-44de-8d0d-1d01a7776208" class="">Feedgen is this weird abstraction of toughly-coupled code with the actual XML representation. It uses some weird reverse OOP, where you call methods, which return empty instances, and you then fill them by calling methods.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d6b751ee-235a-4dd2-9d1e-b459f2b78b20" class="">Instead of this:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre class="code"><code><span class="n">feed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
     <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
     <span class="n">content</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">description_clean</span> <span class="ow">or</span> <span class="s2">"No description."</span><span class="p">,</span>
     <span class="n">content_type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span>
@@ -153,10 +168,14 @@
     <span class="n">updated</span><span class="o">=</span><span class="n">dateparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">raw_date</span><span class="p">)</span>
 <span class="p">)</span>
 </code></pre>
-      <p id="0cde8e13-1562-45b1-83f8-ab4765abd3c3" class="">You have to use something like this:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre class="code"><code><span class="n">entry</span> <span class="o">=</span> <span class="n">feed</span><span class="o">.</span><span class="n">add_entry</span><span class="p">()</span>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0cde8e13-1562-45b1-83f8-ab4765abd3c3" class="">You have to use something like this:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre class="code"><code><span class="n">entry</span> <span class="o">=</span> <span class="n">feed</span><span class="o">.</span><span class="n">add_entry</span><span class="p">()</span>
 <span class="n">entry</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">entry</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 <span class="n">entry</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
@@ -165,12 +184,20 @@
 <span class="n">entry</span><span class="o">.</span><span class="n">author</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">twitter_handle</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"@"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)})</span>
 <span class="n">entry</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">description_clean</span> <span class="ow">or</span> <span class="s2">"No description."</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">)</span>
 </code></pre>
-      <p id="4b383e2e-ff6a-43d8-99cb-0b7b4cc63f04" class="">I really don't get why they can't just use constructors for the new <code>Entry</code>, or just method calls. And why half of the setter/getter methods (I kid you not, in python! At least they avoided using get/set prefixes, but created hermaphrodite methods instead) expect dictionaries with parameters. Why don't they just use keyword arguments? And sometimes they do use keyword arguments, but for really wtf lowlevel stuff like "<code>href</code>" parameters.</p>
-      <h3 id="6f5ad293-cb55-4155-b0b7-42eebbc1a283" class="">Edit <time>@2023/08/29</time></h3>
-      <p id="9d0d03dd-ecc4-4223-b4b4-5e45a349a5c1" class="">Since then, I’ve used <a href="https://pypi.org/project/feedgenerator/">feedgenerator</a> several times, and it seems lovely, just;</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="7e9f48fe-6d8a-4e53-8021-18f8fad4f44f" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#lang:pyton3
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4b383e2e-ff6a-43d8-99cb-0b7b4cc63f04" class="">I really don't get why they can't just use constructors for the new <code>Entry</code>, or just method calls. And why half of the setter/getter methods (I kid you not, in python! At least they avoided using get/set prefixes, but created hermaphrodite methods instead) expect dictionaries with parameters. Why don't they just use keyword arguments? And sometimes they do use keyword arguments, but for really wtf lowlevel stuff like "<code>href</code>" parameters.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="6f5ad293-cb55-4155-b0b7-42eebbc1a283" class="">Edit <time>@2023/08/29</time></h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9d0d03dd-ecc4-4223-b4b4-5e45a349a5c1" class="">Since then, I’ve used <a href="https://pypi.org/project/feedgenerator/">feedgenerator</a> several times, and it seems lovely, just;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="7e9f48fe-6d8a-4e53-8021-18f8fad4f44f" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#lang:pyton3
 feed_generator = feedgenerator.Atom1Feed(
     title="United States House Committee on Oversight and Accountability UAP articles",
     link="https://oversight.house.gov/release/",
@@ -188,7 +215,10 @@ feed_generator.add_item(
 )
 
 feed_generator.writeString("utf-8")</code></pre>
-      <p id="9c47192a-aa73-469a-8f85-59926fc8425f" class="">without any other fucking around. Great.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9c47192a-aa73-469a-8f85-59926fc8425f" class="">without any other fucking around. Great.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -199,6 +229,9 @@ feed_generator.writeString("utf-8")</code></pre>
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../../en/Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../../en/3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -225,9 +258,6 @@ feed_generator.writeString("utf-8")</code></pre>
         </li>
         <li>
           <a href="../../en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../en/Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

@@ -116,24 +116,50 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Programování">Programování</a> / Proč používám Unix/Linux
   <article id="83d98690-6ef5-46e6-9987-0a475b977acf" class="page sans">
     <header>
-      <h1 class="page-title">Proč používám Unix/Linux</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Proč používám Unix/Linux</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="238f90e7-2380-4998-a6d1-92acd50c773d" class=""><time>@2011/02/18</time></p>
-      <p id="64ddc6f0-2f6b-4223-8bde-a10720b9a079" class="">Není to tak dávno, co na IRC chanu, kam běžně chodím, vypukl další nesmyslný flame na téma Linux vs Windows. Mezi obhájci Windows byl člověk, který poměrně dlouho používal Fedoru, takže znal klady i zápory Linuxu poměrně dobře. Už si nevzpomínám jak flame skončil, ani který systém <em>"vyhrál"</em>, ale někdy během něj jsem si uvědomil proč vlastně používám Linux.</p>
-      <p id="b443e997-c6a2-4602-8b61-7f937ca11541" class="">Důvod je překvapivě jednoduchý - <strong>protože Unix/Linux poskytuje lepší</strong> <em><strong>uživatelské</strong></em> <strong>API.</strong></p>
-      <p id="6b5ba9b4-4b78-4ab3-a8ee-1c269f89a67f" class="">Osobně mi vyhovuje takový operační systém, který poskytuje spoustu API na uživatelské úrovni a vůbec nejlepší by bylo, kdyby byl celý systém jen API + několik grafických nástaveb, které jeho ovládání zpřístupňují pro uživatele. Pod termínem <em>"uživatelské API"</em> si představuji takové API, se kterým můžu jako uživatel nějak interagovat, tedy například shell, nikoli volání funkcí WinAPI z programu, který později zkompiluji.</p>
-      <p id="12dbe443-2cae-4961-bab5-e0c39219af3b" class="">Před pár lety dostal od kamaráda <a href="http://www.atarista.com/800xe.htm">Atari 800XE</a> a o nějaký ten rok později jsem si k němu sehnal zdroj. Když jsem Atari spustil, nějak jsem nepobral co to má být - čekal na mě jakýsi prompt, ale k příkazové řádce to mělo daleko.</p>
-      <p id="2faf1455-355d-4edf-be67-ceafe55bb178" class="">Tenkrát mě to dost zaujalo, tak jsem se rozhodl že zjistím jak to vlastně funguje. Jelikož zrovna probíhalo nechvalně známé Liberecké mistrovství, vyhodili nás z koleje a dostali jsme cca měsíc volna - času jsem tedy měl dost.</p>
-      <p id="fb4f8f7c-fe98-4cb4-8aed-a45b5050ecab" class="">Dva týdny jsem strávil čtením různých starých zdrojů, prozkoumáváním diskmagů a blogů nadšenců. Během té doby jsem zjistil mimo jiné i to, že tam vlastně žádný operační systém není a člověk pracuje doslova v hardware. Na <em>"příkazové řádce"</em> máte k dispozici nějaké to API a programovací jazyk (basic), kterým ho můžete automatizovat. Dost mi to tenkrát učarovalo a od té doby se čas od času ponořím do historie a čtu si jaké to bylo tenkrát..</p>
-      <p id="59e65ac0-850b-432c-9c01-d34a5d1216c0" class="">Unixové systémy mají k výše uvedenému principu ovládání počítače docela blízko - jsou v podstatě celé složené z API, i když míra abstrakce je o několik řádů dál. Silná příkazová řádka vám umožňuje udělat prakticky cokoliv. Každý program umí odpovědět na zavolání a přijímat informace pomocí nějaké standardizované, zdokumentované cesty. V moderních distribucích získáte po instalaci tisíce programů, které rozšiřují dostupné API, navíc je můžete různě propojovat, definovat jak a kdy se mají spustit a když k tomu přidáte práci s internetem, nemá to chybu.</p>
-      <p id="5c608911-8cf9-42f4-bd3b-5bcf5d3fdca1" class="">V Linuxu je automatizace všemožných úkolů samozřejmostí a unixová filozofie praví, že uživatel by měl skládat to co chce, z mnoha malých, úzce zaměřených programů, do větších scriptů. Nejlepší na tom je, že lidé to tak skutečně dělají. Pokud někdo (programátor) vytvoří program pro Windows, je to často jednoúčelovka pouze pro uživatele, která je nepoužitelná jinak než klikáním. Na Linuxu je téměř pravidlem, že samotné GUI používá API jiných programů, popřípadě poskytuje nové API, které může uživatel využít.</p>
-      <p id="4f438622-e538-43c8-8b59-e03a0a620682" class="">Windows nic podobného nenabízí. Po instalaci získáte holý systém, ve kterém je prakticky nulové uživatelské vybavení. Poté co si dostahujete desítky programů, z různých často pochybných zdrojů, získáte systém, který je jednoduše graficky ovladatelný, ale neposkytuje skoro žádné uživatelské API, které by se dalo volat. Samozřejmě existují vyjímky, ale dohromady to nevytváří ani zdaleka to, co libovolný unixový systém.</p>
-      <p id="88336dc0-204e-4f41-8b94-5aa52e26e7b3" class="">Způsob jakým funguje Windows je vhodný pro běžné lidi, kteří nechtějí vědět jak věci fungují, počítače je nezajímají a nehrozí, že by se kdy snažili něco zautomatizovat. Kdysi dávno jsem se mezi ně také řadil, takže mi Windows přišly jako ten nejlepší systém. Jak jsem se učil čím dál lépe programovat, moje potřeba automatizovat rostla, jenže Windows v tomto ohledu stály za hovno, i když jsem je používal ve spojení s pythonem. Jednoho dne jsem se odhodlal zkusit Linux, a zjistil jsem že mi vyhovuje. Přečetl jsem si pár manuálů a cítil jsem se v něm jako ryba ve vodě.</p>
-      <p id="c2218976-e4a7-47ca-bb2f-66074d46e432" class="">Netvrdím že unixové systémy jsou <strong>ty nejlepší</strong> existující z hlediska uživatelského API, ale <strong>pokud vím</strong> tak jsou nejlepším jednoduše dostupným kompromisem, mezi klikacím ovládáním a scriptovatelným API. Windows to možná dohnaly <a href="http://cs.wikipedia.org/wiki/Windows_PowerShell">powershellem</a>, ale zatím jsem se s ním nesetkal, takže se k němu nemůžu vyjadřovat.</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="238f90e7-2380-4998-a6d1-92acd50c773d" class=""><time>@2011/02/18</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="64ddc6f0-2f6b-4223-8bde-a10720b9a079" class="">Není to tak dávno, co na IRC chanu, kam běžně chodím, vypukl další nesmyslný flame na téma Linux vs Windows. Mezi obhájci Windows byl člověk, který poměrně dlouho používal Fedoru, takže znal klady i zápory Linuxu poměrně dobře. Už si nevzpomínám jak flame skončil, ani který systém <em>"vyhrál"</em>, ale někdy během něj jsem si uvědomil proč vlastně používám Linux.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b443e997-c6a2-4602-8b61-7f937ca11541" class="">Důvod je překvapivě jednoduchý - <strong>protože Unix/Linux poskytuje lepší</strong> <em><strong>uživatelské</strong></em> <strong>API.</strong></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6b5ba9b4-4b78-4ab3-a8ee-1c269f89a67f" class="">Osobně mi vyhovuje takový operační systém, který poskytuje spoustu API na uživatelské úrovni a vůbec nejlepší by bylo, kdyby byl celý systém jen API + několik grafických nástaveb, které jeho ovládání zpřístupňují pro uživatele. Pod termínem <em>"uživatelské API"</em> si představuji takové API, se kterým můžu jako uživatel nějak interagovat, tedy například shell, nikoli volání funkcí WinAPI z programu, který později zkompiluji.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="12dbe443-2cae-4961-bab5-e0c39219af3b" class="">Před pár lety dostal od kamaráda <a href="http://www.atarista.com/800xe.htm">Atari 800XE</a> a o nějaký ten rok později jsem si k němu sehnal zdroj. Když jsem Atari spustil, nějak jsem nepobral co to má být - čekal na mě jakýsi prompt, ale k příkazové řádce to mělo daleko.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2faf1455-355d-4edf-be67-ceafe55bb178" class="">Tenkrát mě to dost zaujalo, tak jsem se rozhodl že zjistím jak to vlastně funguje. Jelikož zrovna probíhalo nechvalně známé Liberecké mistrovství, vyhodili nás z koleje a dostali jsme cca měsíc volna - času jsem tedy měl dost.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fb4f8f7c-fe98-4cb4-8aed-a45b5050ecab" class="">Dva týdny jsem strávil čtením různých starých zdrojů, prozkoumáváním diskmagů a blogů nadšenců. Během té doby jsem zjistil mimo jiné i to, že tam vlastně žádný operační systém není a člověk pracuje doslova v hardware. Na <em>"příkazové řádce"</em> máte k dispozici nějaké to API a programovací jazyk (basic), kterým ho můžete automatizovat. Dost mi to tenkrát učarovalo a od té doby se čas od času ponořím do historie a čtu si jaké to bylo tenkrát..</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="59e65ac0-850b-432c-9c01-d34a5d1216c0" class="">Unixové systémy mají k výše uvedenému principu ovládání počítače docela blízko - jsou v podstatě celé složené z API, i když míra abstrakce je o několik řádů dál. Silná příkazová řádka vám umožňuje udělat prakticky cokoliv. Každý program umí odpovědět na zavolání a přijímat informace pomocí nějaké standardizované, zdokumentované cesty. V moderních distribucích získáte po instalaci tisíce programů, které rozšiřují dostupné API, navíc je můžete různě propojovat, definovat jak a kdy se mají spustit a když k tomu přidáte práci s internetem, nemá to chybu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5c608911-8cf9-42f4-bd3b-5bcf5d3fdca1" class="">V Linuxu je automatizace všemožných úkolů samozřejmostí a unixová filozofie praví, že uživatel by měl skládat to co chce, z mnoha malých, úzce zaměřených programů, do větších scriptů. Nejlepší na tom je, že lidé to tak skutečně dělají. Pokud někdo (programátor) vytvoří program pro Windows, je to často jednoúčelovka pouze pro uživatele, která je nepoužitelná jinak než klikáním. Na Linuxu je téměř pravidlem, že samotné GUI používá API jiných programů, popřípadě poskytuje nové API, které může uživatel využít.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4f438622-e538-43c8-8b59-e03a0a620682" class="">Windows nic podobného nenabízí. Po instalaci získáte holý systém, ve kterém je prakticky nulové uživatelské vybavení. Poté co si dostahujete desítky programů, z různých často pochybných zdrojů, získáte systém, který je jednoduše graficky ovladatelný, ale neposkytuje skoro žádné uživatelské API, které by se dalo volat. Samozřejmě existují vyjímky, ale dohromady to nevytváří ani zdaleka to, co libovolný unixový systém.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="88336dc0-204e-4f41-8b94-5aa52e26e7b3" class="">Způsob jakým funguje Windows je vhodný pro běžné lidi, kteří nechtějí vědět jak věci fungují, počítače je nezajímají a nehrozí, že by se kdy snažili něco zautomatizovat. Kdysi dávno jsem se mezi ně také řadil, takže mi Windows přišly jako ten nejlepší systém. Jak jsem se učil čím dál lépe programovat, moje potřeba automatizovat rostla, jenže Windows v tomto ohledu stály za hovno, i když jsem je používal ve spojení s pythonem. Jednoho dne jsem se odhodlal zkusit Linux, a zjistil jsem že mi vyhovuje. Přečetl jsem si pár manuálů a cítil jsem se v něm jako ryba ve vodě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c2218976-e4a7-47ca-bb2f-66074d46e432" class="">Netvrdím že unixové systémy jsou <strong>ty nejlepší</strong> existující z hlediska uživatelského API, ale <strong>pokud vím</strong> tak jsou nejlepším jednoduše dostupným kompromisem, mezi klikacím ovládáním a scriptovatelným API. Windows to možná dohnaly <a href="http://cs.wikipedia.org/wiki/Windows_PowerShell">powershellem</a>, ale zatím jsem se s ním nesetkal, takže se k němu nemůžu vyjadřovat.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

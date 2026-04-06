@@ -121,30 +121,59 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Hardware">Hardware</a> / Jak na programy z Arduina v ATmega8 bez bootloaderu
   <article id="f53d7f07-e452-4f1a-bea8-b534abdb2e19" class="page sans">
     <header>
-      <h1 class="page-title">Jak na programy z Arduina v ATmega8 bez bootloaderu</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Jak na programy z Arduina v ATmega8 bez bootloaderu</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="730e45be-3400-4b95-9d23-487906a8f300" class=""><time>@2011/05/14</time></p>
-      <p id="5a631dea-9f14-4eb7-b6d0-d958f4522610" class="">V tomto blogpostu jsou popsány dvě věci - jak použít Arduino jako programátor pro rodinu AVR a jak použít programy z Arduina v ATmega8-16PU bez nutnosti bootloaderu a dalších opičin.</p>
-      <p id="ffeb9a2c-d9bd-4054-af7f-ad7957be8814" class=""><a href="http://cs.wikipedia.org/wiki/Arduino">Arduino</a> mám už nějaký ten pátek a musím říct, že je to skvělá věc. Stovky knihoven, jednoduché, přesto mocné a snadno pochopitelné API, zabudovaná podpora USB, příjemné, multiplatformní IDE .. co víc si přát? Jediný jeho "problém" je cena. Přeci jen stojí <a href="http://www.czechduino.cz/">nemalé peníze</a> a tak není úplně optimální ho zabudovávat do projektů na trvalo.</p>
-      <p id="0955c08b-432f-4fcf-9a54-79dfb3f18db4" class="">Naštěstí existuje způsob, jak tento problém odstranit - nepoužívat celé Arduino, ale jen samotný čip s regulátorem napětí. Je jasné že přijdete o možnost komunikace s počítačem, ale to se mi nezdá jako nevýhoda - předpokládám že na Arduinu program ozkoušíte a pak ho již funkční vpálíte do standalone ATmegy. Doma se mi už delší dobu válí pár ATmega8-16PU ještě z doby kdy stály cca 70kč, takže to budu demonstrovat na nich. Pokud je nemáte, můžete klidně použít jejich novější verzi - <a href="http://www.gme.cz/cz/atmega88-20pu-p432-191.html">ATmega88</a>, nebo něco výkonnějšího.</p>
-      <h1 id="ed63f3b3-7d83-45b9-b1f9-fc0a98b09c65" class="">Jak na to?</h1>
-      <p id="6997b545-91c1-4e45-bc70-af4c3cb0d672" class="">Celý postup se dá rozdělit do těchto kroků:</p>
-      <h2 id="d8c1fdf3-642a-4e72-978e-83d67afc58fc" class="">I. Zapojení podle schématu</h2>
-      <p id="a94c3482-281d-4e7d-b273-ad704351eea2" class="">Na začátku je zapotřebí zapojit obvod podle následujícího schématu:</p>
-      <figure id="f7cca947-573c-4025-a25a-47dc76452434" class="image">
-        <a href="Jak_na_programy_z_Arduina_v_ATmega8_bez_bootloaderu/Untitled.png" title="Untitled.png"><img style="width:319px" src="Jak_na_programy_z_Arduina_v_ATmega8_bez_bootloaderu/Untitled.png"></a>
-      </figure>
-      <h2 id="d54a72f6-7d56-4f99-8c8d-3db8ba907a3d" class="">II. Upload programátoru do Arduina</h2>
-      <p id="d63b59b4-df51-4ada-ba80-7307b64235e7" class="">Dál následuje přeměna Arduina na programátor. Jedná se o velice jednoduchý krok - stačí si stáhnout <a href="http://code.google.com/p/mega-isp/">mega-isp</a> sketch. Poté co jej flashnete do Arduina se z něj stane primitivní, ale pro naše účely postačující programátor.</p>
-      <h2 id="cc481e55-2317-4249-ba89-54d233f84991" class="">III. Změna konfiguračního souboru</h2>
-      <p id="412bfa94-33f7-43fc-b42d-37c6e24dc944" class="">Protože <a href="http://arduino.cc/en/Main/Software">Arduino IDE</a> normálně používá jiné čipy, je zapotřebí mu sdělit že chceme kompilovat pro <em>náš</em> mikroprocesor. Ve složce <strong>arduino-00{V}/hardware/arduino</strong> (kde {V} je současná verze, v době psaní článku 22) najdete soubor <strong>boards.txt</strong>. Otevřete ho a přidejte na konec cosi jako:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="4bd73bb6-434e-49a3-b1e9-b9719b8f926a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">atmega8noxtal.name=ATmega8-noxtal @8MHz
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="730e45be-3400-4b95-9d23-487906a8f300" class=""><time>@2011/05/14</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5a631dea-9f14-4eb7-b6d0-d958f4522610" class="">V tomto blogpostu jsou popsány dvě věci - jak použít Arduino jako programátor pro rodinu AVR a jak použít programy z Arduina v ATmega8-16PU bez nutnosti bootloaderu a dalších opičin.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ffeb9a2c-d9bd-4054-af7f-ad7957be8814" class=""><a href="http://cs.wikipedia.org/wiki/Arduino">Arduino</a> mám už nějaký ten pátek a musím říct, že je to skvělá věc. Stovky knihoven, jednoduché, přesto mocné a snadno pochopitelné API, zabudovaná podpora USB, příjemné, multiplatformní IDE .. co víc si přát? Jediný jeho "problém" je cena. Přeci jen stojí <a href="http://www.czechduino.cz/">nemalé peníze</a> a tak není úplně optimální ho zabudovávat do projektů na trvalo.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0955c08b-432f-4fcf-9a54-79dfb3f18db4" class="">Naštěstí existuje způsob, jak tento problém odstranit - nepoužívat celé Arduino, ale jen samotný čip s regulátorem napětí. Je jasné že přijdete o možnost komunikace s počítačem, ale to se mi nezdá jako nevýhoda - předpokládám že na Arduinu program ozkoušíte a pak ho již funkční vpálíte do standalone ATmegy. Doma se mi už delší dobu válí pár ATmega8-16PU ještě z doby kdy stály cca 70kč, takže to budu demonstrovat na nich. Pokud je nemáte, můžete klidně použít jejich novější verzi - <a href="http://www.gme.cz/cz/atmega88-20pu-p432-191.html">ATmega88</a>, nebo něco výkonnějšího.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="ed63f3b3-7d83-45b9-b1f9-fc0a98b09c65" class="">Jak na to?</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6997b545-91c1-4e45-bc70-af4c3cb0d672" class="">Celý postup se dá rozdělit do těchto kroků:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d8c1fdf3-642a-4e72-978e-83d67afc58fc" class="">I. Zapojení podle schématu</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a94c3482-281d-4e7d-b273-ad704351eea2" class="">Na začátku je zapotřebí zapojit obvod podle následujícího schématu:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="f7cca947-573c-4025-a25a-47dc76452434" class="image">
+          <a href="Jak_na_programy_z_Arduina_v_ATmega8_bez_bootloaderu/Untitled.png" title="Untitled.png"><img style="width:319px" src="Jak_na_programy_z_Arduina_v_ATmega8_bez_bootloaderu/Untitled.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d54a72f6-7d56-4f99-8c8d-3db8ba907a3d" class="">II. Upload programátoru do Arduina</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d63b59b4-df51-4ada-ba80-7307b64235e7" class="">Dál následuje přeměna Arduina na programátor. Jedná se o velice jednoduchý krok - stačí si stáhnout <a href="http://code.google.com/p/mega-isp/">mega-isp</a> sketch. Poté co jej flashnete do Arduina se z něj stane primitivní, ale pro naše účely postačující programátor.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="cc481e55-2317-4249-ba89-54d233f84991" class="">III. Změna konfiguračního souboru</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="412bfa94-33f7-43fc-b42d-37c6e24dc944" class="">Protože <a href="http://arduino.cc/en/Main/Software">Arduino IDE</a> normálně používá jiné čipy, je zapotřebí mu sdělit že chceme kompilovat pro <em>náš</em> mikroprocesor. Ve složce <strong>arduino-00{V}/hardware/arduino</strong> (kde {V} je současná verze, v době psaní článku 22) najdete soubor <strong>boards.txt</strong>. Otevřete ho a přidejte na konec cosi jako:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="4bd73bb6-434e-49a3-b1e9-b9719b8f926a" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">atmega8noxtal.name=ATmega8-noxtal @8MHz
 
 atmega8noxtal.upload.protocol=stk500
 atmega8noxtal.upload.maximum_size=7168
@@ -160,13 +189,23 @@ atmega8noxtal.bootloader.lock_bits=0x0F
 atmega8noxtal.build.mcu=atmega8
 atmega8noxtal.build.f_cpu=8000000L
 atmega8noxtal.build.core=arduino</code></pre>
-      <p id="149badc0-07a6-408e-865a-bcf0a39eddd7" class="">Povšiměte si hlavně řádek s parametry <strong>build.f_cpu</strong> a <strong>build.mcu</strong>, kam dosaďte frekvenci na které váš čip poběží (8000000L je vhodné pro interní oscilátor) a vámi používaný čip (parametr je pro avr-gcc, najdete ho v <a href="http://linux.die.net/man/1/avr-gcc">manu</a>). Upravený soubor uložte.</p>
-      <h2 id="3366e22e-0c06-40fe-9610-55a541848789" class="">IV. Kompilace programu</h2>
-      <p id="10927668-411e-4497-8a01-bc8ef67e583f" class="">Spusťte IDE. V záložce <strong>Tools/Boards</strong> se vám objevila nová deska (<strong>ATmega8-noxtal @8MHz</strong>) - vyberte jí.</p>
-      <p id="2b4d5e3c-29ef-4c54-a1b8-39019b5ab0c0" class="">Nyní si něco naprogramujte, můžete použít třeba základní sketch z File/Examples/Basics/Blink, nezapomeňte však na potřebný výstup připojit diodu. Já jsem použil toto:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="cecd94f8-58bc-4883-8429-67bb58860947" class="code"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">#define LEDPIN 8
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="149badc0-07a6-408e-865a-bcf0a39eddd7" class="">Povšiměte si hlavně řádek s parametry <strong>build.f_cpu</strong> a <strong>build.mcu</strong>, kam dosaďte frekvenci na které váš čip poběží (8000000L je vhodné pro interní oscilátor) a vámi používaný čip (parametr je pro avr-gcc, najdete ho v <a href="http://linux.die.net/man/1/avr-gcc">manu</a>). Upravený soubor uložte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3366e22e-0c06-40fe-9610-55a541848789" class="">IV. Kompilace programu</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="10927668-411e-4497-8a01-bc8ef67e583f" class="">Spusťte IDE. V záložce <strong>Tools/Boards</strong> se vám objevila nová deska (<strong>ATmega8-noxtal @8MHz</strong>) - vyberte jí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2b4d5e3c-29ef-4c54-a1b8-39019b5ab0c0" class="">Nyní si něco naprogramujte, můžete použít třeba základní sketch z File/Examples/Basics/Blink, nezapomeňte však na potřebný výstup připojit diodu. Já jsem použil toto:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="cecd94f8-58bc-4883-8429-67bb58860947" class="code code-wrap"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">#define LEDPIN 8
  
 void setup(){
   pinMode(LEDPIN, OUTPUT);
@@ -178,17 +217,31 @@ void loop(){
   digitalWrite(LEDPIN, LOW);    // sets the LED off
   delay(1000);                  // waits for a second
 }</code></pre>
-      <p id="c1713f7f-4547-4074-96e3-adc460f4e7c8" class="">Nyní program <span style="border-bottom:0.05em solid">zkompilujte</span> kliknutím na ikonu šipky v levo nahoře. <strong>Nepokoušejte se program uploadnout, nevložil by se do čipu, ale do Arduina!</strong></p>
-      <h2 id="53046b6c-fa02-40de-a389-6a8c4430edab" class="">V. Upload</h2>
-      <p id="e22dc411-f24e-4e5e-af5e-7326d103b08b" class="">Doufám že máte nainstalované <a href="http://www.nongnu.org/avrdude/">avrdude</a>, pokud ne, nainstalujte si ho.</p>
-      <p id="19457324-bbbc-4b16-ac32-e63b197b6384" class="">Další část je poněkud .. nečistá. Otevřete si /tmp a najděte složku se jménem začínajícím na <strong>build</strong>. Nezavírejte během toho IDE, jinak se smaže. Otevřete si v ní konzoli a zadejte příkaz</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="454cd4b0-28bb-4d0f-a79c-0f83c47f7905" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`</code></pre>
-      <p id="ec469a1c-a595-4698-a490-fb4d249ea9fd" class="">Za <strong>m8</strong> dosaďte váš čip dle <a href="http://linux.die.net/man/1/avrdude">manuálu</a> avrdude.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="41caa603-eb41-4854-b488-14824cbbccd9" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$ avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c1713f7f-4547-4074-96e3-adc460f4e7c8" class="">Nyní program <span style="border-bottom:0.05em solid">zkompilujte</span> kliknutím na ikonu šipky v levo nahoře. <strong>Nepokoušejte se program uploadnout, nevložil by se do čipu, ale do Arduina!</strong></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="53046b6c-fa02-40de-a389-6a8c4430edab" class="">V. Upload</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e22dc411-f24e-4e5e-af5e-7326d103b08b" class="">Doufám že máte nainstalované <a href="http://www.nongnu.org/avrdude/">avrdude</a>, pokud ne, nainstalujte si ho.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="19457324-bbbc-4b16-ac32-e63b197b6384" class="">Další část je poněkud .. nečistá. Otevřete si /tmp a najděte složku se jménem začínajícím na <strong>build</strong>. Nezavírejte během toho IDE, jinak se smaže. Otevřete si v ní konzoli a zadejte příkaz</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="454cd4b0-28bb-4d0f-a79c-0f83c47f7905" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ec469a1c-a595-4698-a490-fb4d249ea9fd" class="">Za <strong>m8</strong> dosaďte váš čip dle <a href="http://linux.die.net/man/1/avrdude">manuálu</a> avrdude.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="41caa603-eb41-4854-b488-14824cbbccd9" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$ avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`
 
 avrdude: AVR device initialized and ready to accept instructions
 
@@ -221,11 +274,17 @@ avrdude: safemode: Fuses OK
 avrdude done.  Thank you.
 
 bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$</code></pre>
-      <h2 id="19b5af92-094f-4252-878c-8842a927ce99" class="">Co dělat když to nejde</h2>
-      <p id="cbde740d-9fd1-4853-a48a-f73037a49e25" class="">Pokud se vám stane, že avrdude vypisuje cosi jako</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="94fe5224-4674-4412-ba45-750804697eb9" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">avrdude: AVR device initialized and ready to accept instructions
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="19b5af92-094f-4252-878c-8842a927ce99" class="">Co dělat když to nejde</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cbde740d-9fd1-4853-a48a-f73037a49e25" class="">Pokud se vám stane, že avrdude vypisuje cosi jako</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="94fe5224-4674-4412-ba45-750804697eb9" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">avrdude: AVR device initialized and ready to accept instructions
 
 Reading | ################################################## | 100% 0.12s
 
@@ -236,37 +295,60 @@ avrdude: Yikes!  Invalid device signature.
 
 
 avrdude done.  Thank you.</code></pre>
-      <p id="901bcf30-4802-493a-8ab2-2651db8df71f" class="">neklesejte na mysli a zkontrolujte zapojení drátů - tahle chyba typicky nastává pokud dráty nemají kontakt, čip je zablokovaný (teba jste v minulosti použili špatné fuse), nebo vypálený.</p>
-      <h1 id="f0a8021b-a22c-4c55-9189-902577773e34" class="">Odkazy</h1>
-      <ul id="65629308-f2b4-42f1-bca1-32a85db10288" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.arduino.cc/en/Main/PinMapping">Piny</a> - porovnání pinů ATmega8 s označeními použitými v Arduinu
-        </li>
-      </ul>
-      <ul id="fdfa1b02-ad35-4550-bb2b-f418c6e7b3fe" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.arduino.cc/playground/Learning/AtmegaStandalone">Atmega Standalone</a> - nějaká ta teorie, ovšem zdaleka ne všechna
-        </li>
-      </ul>
-      <ul id="02a458fa-5ed2-4bec-ae04-e4b4615041fa" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://letsmakerobots.com/node/16014">Programming an atmega with the Arduino IDE</a> - odsud jsem kdysi získal inspiraci
-        </li>
-      </ul>
-      <ul id="50938743-dfae-42b7-a8b7-4572917776c1" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://kitakitsune.org/">kitakitsune.org</a> - něco pro zlepšení SEO :P
-        </li>
-      </ul>
-      <ul id="128cbb1a-3608-4061-8c0a-af29df85e7c9" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://todbot.com/blog/2009/05/26/minimal-arduino-with-atmega8/">ATmega8 s nějakými těmi stabilizačními obvody</a>
-        </li>
-      </ul>
-      <h1 id="fbd18e34-4cbd-4ca5-aa6a-303368f4e48a" class="">Závěr</h1>
-      <p id="27859119-905b-45f1-95fa-a6ce411a3e1f" class="">Jedná se o poměrně užitečnou schopnost IDE, protože kdo někdy zkusil programovat AVR v čistém C, určitě mi dá za pravdu že programovat Arduino je mnohokrát jednodušší a komfortnější. Doufám že tento blogpost pomůže těm kteří by to sami nezvládli a ukáže možnost těm, které to nenapadlo.</p>
-      <p id="94324c49-ab07-41e7-9666-b0fed1dbca85" class="">Na závěr bych rád poděkoval <a href="http://asciiwolf.com/">AsciiWolfovi</a>, že mě svými dotazy donutil tohle sepsat :).</p>
-      <p id="4923f2b8-0733-4dd1-b564-7ce61a1a1d4d" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="901bcf30-4802-493a-8ab2-2651db8df71f" class="">neklesejte na mysli a zkontrolujte zapojení drátů - tahle chyba typicky nastává pokud dráty nemají kontakt, čip je zablokovaný (teba jste v minulosti použili špatné fuse), nebo vypálený.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="f0a8021b-a22c-4c55-9189-902577773e34" class="">Odkazy</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="65629308-f2b4-42f1-bca1-32a85db10288" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.arduino.cc/en/Main/PinMapping">Piny</a> - porovnání pinů ATmega8 s označeními použitými v Arduinu
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="fdfa1b02-ad35-4550-bb2b-f418c6e7b3fe" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.arduino.cc/playground/Learning/AtmegaStandalone">Atmega Standalone</a> - nějaká ta teorie, ovšem zdaleka ne všechna
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="02a458fa-5ed2-4bec-ae04-e4b4615041fa" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://letsmakerobots.com/node/16014">Programming an atmega with the Arduino IDE</a> - odsud jsem kdysi získal inspiraci
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="50938743-dfae-42b7-a8b7-4572917776c1" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://kitakitsune.org/">kitakitsune.org</a> - něco pro zlepšení SEO :P
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="128cbb1a-3608-4061-8c0a-af29df85e7c9" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://todbot.com/blog/2009/05/26/minimal-arduino-with-atmega8/">ATmega8 s nějakými těmi stabilizačními obvody</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="fbd18e34-4cbd-4ca5-aa6a-303368f4e48a" class="">Závěr</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="27859119-905b-45f1-95fa-a6ce411a3e1f" class="">Jedná se o poměrně užitečnou schopnost IDE, protože kdo někdy zkusil programovat AVR v čistém C, určitě mi dá za pravdu že programovat Arduino je mnohokrát jednodušší a komfortnější. Doufám že tento blogpost pomůže těm kteří by to sami nezvládli a ukáže možnost těm, které to nenapadlo.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="94324c49-ab07-41e7-9666-b0fed1dbca85" class="">Na závěr bych rád poděkoval <a href="http://asciiwolf.com/">AsciiWolfovi</a>, že mě svými dotazy donutil tohle sepsat :).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4923f2b8-0733-4dd1-b564-7ce61a1a1d4d" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

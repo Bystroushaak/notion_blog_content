@@ -129,110 +129,200 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Programování">Programování</a> / Jak na vlastní LLM (GPT)
   <article id="f573db6f-7721-4fb1-98b2-a27736780416" class="page sans">
     <header>
-      <h1 class="page-title">Jak na vlastní LLM (GPT)</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Jak na vlastní LLM (GPT)</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="c861c231-f560-4583-988e-c158833bd9a5" class=""><time>@2023/04/13</time></p>
-      <figure class="block-color-gray_background callout" style="display:flex" id="0bf77b22-486a-4358-8907-94fbe8886724">
-        <div style="font-size:1.5em">
-          <span class="icon">👉</span>
-        </div>
-        <div style="width:100%">
-          This article was also published in English language: <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>.
-        </div>
-      </figure>
-      <blockquote id="ccb23b9a-322d-4f5d-b4f8-646887e7b52b" class="">
-        Představte si, že jste stroj.
-        <p id="8bf0fe32-cbd1-46cb-b3f5-e7a59949313f" class="">Jasně, já vím. Ale představte si, že jste <em>jiný druh stroje</em>, postavený z kovu a plastu a navržený ne slepým, náhodným přirozeným výběrem, ale inženýry a astrofyziky, kteří mají oči pevně upřené na konkrétní cíle. Představte si, že vaším účelem není rozmnožovat se, nebo dokonce přežít, ale shromažďovat informace.</p>
-        <p id="cc2e4272-74d1-48b6-bf4e-bbf082c5698f" class="">— <a href="https://www.databazeknih.cz/knihy/slepozrakost-77865">Slepozrakost</a>, Peter Watts</p>
-      </blockquote>
-      <hr id="4cacd4e0-1bec-479a-82b3-69cf7eb75b38">
-      <p id="cc73e3eb-1d7d-4eaf-afb3-157251fa7af9" class="">Celebrity technického světa se <a href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/">bouří</a>, že by to chtělo pozastavit vývoj na poli velkých jazykových modelů na alespoň 6 měsíců.</p>
-      <ul id="18fbdcf7-39f4-4058-a696-5577797df271" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.seznamzpravy.cz/clanek/tech-technologie-zastavte-vyvoj-umele-inteligence-volaji-odbornici-a-musk-lidstvo-to-nestiha-228605">Naléhavá výzva hvězd IT: Zastavte vývoj umělé inteligence, jde moc rychle</a>
-        </li>
-      </ul>
-      <ul id="6328fd76-8f3e-4b03-aa1e-aace444f66b3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://denikn.cz/minuta/1113210/">Musk podepsal otevřený dopis pro zastavení vývoje umělé inteligence</a>
-        </li>
-      </ul>
-      <ul id="7d799613-5788-44d2-9e27-f088571f9e11" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.idnes.cz/technet/software/musk-ai-umela-inteligence.A230329_095318_software_alv">Musk a odborníci žádají pozastavení vývoje umělé inteligence, bojí se rizik</a>
-        </li>
-      </ul>
-      <p id="289607a1-b12e-4a56-8921-a3c1b174b727" class="">Jako správní chaotičtí neutrálové si tedy rozjedem vlastní AI doma. Ale s předmluvou a nějakým tím kontextem, ať vlastně víme co děláme.</p>
-      <h1 id="fb718140-ca18-41d9-b398-2b71e3bfe179" class="">Jak chápat GPT / LLM</h1>
-      <p id="1eb46c8a-c6e9-4a40-994f-556f5405ab2c" class="">Setkávám se s jedním zásadním nepochopením, které často mají lidi co trochu tuší jak to funguje;</p>
-      <blockquote id="a1100d50-461b-49fa-b598-1654fb3ff120" class="">
-        Je to jen doplňovač dalšího slova (tokenu).
-      </blockquote>
-      <p id="9a3742c6-031a-4efb-b58a-f4c13a7d7e1a" class="">Což jako jo, ale technicky vzato když píšete na klávesnici, tak jste taky jen doplňovače dalšího slova.</p>
-      <figure id="0750013c-42ee-4b25-aa35-034cd642f0ba" class="image">
-        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled.png" title="Untitled.png"><img style="width:576px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled.png"></a>
-        <figcaption>
-          <em>(Zdroj:</em> <em><a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">What Is ChatGPT Doing … and Why Does It Work?</a></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="0fbe2853-b27a-4285-9adf-6c5be94b4011" class="">Jak vysvětluje třeba Ilya Sutskever (jeden z tvůrců):</p>
-      <figure id="8f913aae-cb77-4292-b2f4-11c3d906c4b8">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Yf1o0TQzry8?start=394" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <p id="5c01da96-67e1-4a29-9edd-585a2490b23a" class="">K tomu aby neuronová síť mohla predikovat další token nad gigantickým datasetem, jímž byla trénována, si musí vytvořit bohaté vnitřní reprezentace. Ty zahrnují nejen všechny možné lidské jazyky, ale i znalosti, vztahy a vzory.</p>
-      <p id="703cd2a2-7a90-4652-8d21-a7396d55b92e" class="">Tohle se někdy označuje jako <em>“komprese”</em>, protože síť je, způsobem jakým je trénována na velkém množství dat, nucena vytvořit tyto reprezentace nad omezeným setem vah a neuronů. Mohla by teoreticky ukládat miliardy ukázek stylem čínského pokoje, kde si prostě uloží <em>“otázka”</em> - <em>“odpověď”</em> (počátek doplňovaného textu - následující token). Ale tím jak je nucena operovat s omezeným množstvím dostupné vnitřní paměti jí nezbývá nic jiného, než pochopit stále abstraktnější vzory. Nějakým způsobem si to vnitřně reprezentovat jako <em>“znalosti”</em> a <em>“chápání”</em>.</p>
-      <figure id="0383fefa-9488-4465-b248-c92a492d1930" class="image">
-        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_1.png" title="Untitled_1.png"><img style="width:949px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_1.png"></a>
-        <figcaption>
-          <em>(PlantUML vygeneroval GPT4, obrázek vpravo</em> <em><strong>DALL·E 2</strong></em><em>)</em>
-        </figcaption>
-      </figure>
-      <p id="43614f15-9eb3-4928-8e6e-3512cca9ac16" class="">Tohle rozpoznávání vzorů se děje jak na úrovni jazyka (syntaxe a gramatika), tak na úrovni <em>word embeddings</em> (význam slov, jak spolu souvisí), tak na mnohem abstraktnější úrovni (jak fungují věci o kterých je řeč a jak spolu souvisí).</p>
-      <p id="718690d3-a807-4b51-b7d0-4583c6041938" class="">Nefunguje to tedy tak, že to doplňuje konverzace doslovně na základě toho co už to někde vidělo. Proto jsou tyto modely schopné například překládat mezi jazyky líp než všechno co dosud existovalo - protože opravdu rozumí kontextu toho o čem je řeč.</p>
-      <p id="f7b30599-2e74-49ce-b420-afe3bb7ac583" class="">Pokud by model jen doplňoval na základě toho co už někde viděl, tak by překládat schopný nebyl, pokud by předtím danou větu, nebo ideálně celý odstavec už někde neviděl.</p>
-      <p id="b40ea546-992e-4b24-b18a-892fc7d427b8" class="">Jak <a href="https://www.youtube.com/watch?v=goOa0biX6Tc">říká</a> Ilya Sutskever, představte si, že při trénování doplňuje třeba text detektivky, kde vrah je oznámen až na poslední stránce knihy plné různého vyšetřování. Aby byla síť schopna korektně doplnit jméno vraha když ho v textu detektiv vysloví, musí <em>chápat</em> všechny možné souvislosti, celé vyšetřování, různé důkazy a tak podobně.</p>
-      <h2 id="9c007c0a-d969-4884-8303-894c58e2eb2e" class="">Simulátory</h2>
-      <p id="ae7dc46c-480d-4e47-bc69-73f813ff186b" class="">Předtím než přišel chat mode byly výsledky, například u GPT3, poměrně nevalné. Jasně, něco to dělalo, ale člověk se z toho po počátečním překvapení úplně neposadil na zadek, a dost často se to vydalo úplně jiným směrem, než bych chtěl. Celkově to působilo dost omezeně.</p>
-      <p id="f5be9ebd-b1f9-4b42-86b5-c8c1b2c893c8" class="">Jak už pozorovalo mnoho lidí, dramaticky záleželo na promptu který byl AI zadán. Někdy neuměla vysvětlit nebo udělat nic. Jindy to zvládla, když se jí řeklo ať předstírá že je Sherlock Holmes.</p>
-      <p id="2924d1cf-19b6-4a60-9444-929bc1d359cf" class="">Za tohle může v podstatě způsob jakým byla trénována a že je to doplňovač textu. Má prostě tendence doplňovat. K tomu aby doplňovala chytře a užitečně je v podstatě třeba nastavit kontext tak, že <em>doplňuje</em> příběh o chytré a užitečné postavě - třeba Sherlocku Holmesovi. Tak jak by to bylo v trénovacích datech. Chytré chování v příbězích o chytrých lidech. Pokud člověk nechal doplnit něco bez patřičného kontextu, tak výsledky byly dost náhodné.</p>
-      <p id="398af488-86d8-4cfd-868c-2ccbc92c5475" class=""><a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a> je krásný blog na tohle téma, se spoustou ukázek.</p>
-      <h2 id="041419ec-2e94-4aa6-9ad7-35f5115bb597" class="">Chat</h2>
-      <p id="a9747b0e-7418-4aea-9d06-8c6ead040382" class="">S tím přichází překvapivě vysoká užitečnost chatu. Chat není nějaká radikálně nová funkcionalita, ale jen způsob jakým je používáno auto-doplňování. Například v <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> najdeme v podsložce <code>prompts/</code> soubor <code>chat-with-bob.txt</code>. Ten má následující obsah:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="0423cc15-6bb7-4dbc-8c3a-c21a7ea67b31" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c861c231-f560-4583-988e-c158833bd9a5" class=""><time>@2023/04/13</time></p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure class="block-color-gray_background callout" style="display:flex" id="3899216b-0421-4659-8ee4-b4d36ca720a4">
+          <div style="font-size:1.5em">
+            <span class="icon">👉</span>
+          </div>
+          <div style="width:100%">
+            <div style="display:contents" dir="auto">
+              <p id="0bf77b22-486a-4358-8907-94fbe8886724" class="">This article was also published in English language: <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>.</p>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="ltr"></div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="ccb23b9a-322d-4f5d-b4f8-646887e7b52b" class="">
+          Představte si, že jste stroj.
+          <div style="display:contents" dir="auto">
+            <p id="8bf0fe32-cbd1-46cb-b3f5-e7a59949313f" class="">Jasně, já vím. Ale představte si, že jste <em>jiný druh stroje</em>, postavený z kovu a plastu a navržený ne slepým, náhodným přirozeným výběrem, ale inženýry a astrofyziky, kteří mají oči pevně upřené na konkrétní cíle. Představte si, že vaším účelem není rozmnožovat se, nebo dokonce přežít, ale shromažďovat informace.</p>
+          </div>
+          <div style="display:contents" dir="auto">
+            <p id="cc2e4272-74d1-48b6-bf4e-bbf082c5698f" class="">— <a href="https://www.databazeknih.cz/knihy/slepozrakost-77865">Slepozrakost</a>, Peter Watts</p>
+          </div>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <hr id="4cacd4e0-1bec-479a-82b3-69cf7eb75b38">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cc73e3eb-1d7d-4eaf-afb3-157251fa7af9" class="">Celebrity technického světa se <a href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/">bouří</a>, že by to chtělo pozastavit vývoj na poli velkých jazykových modelů na alespoň 6 měsíců.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="18fbdcf7-39f4-4058-a696-5577797df271" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.seznamzpravy.cz/clanek/tech-technologie-zastavte-vyvoj-umele-inteligence-volaji-odbornici-a-musk-lidstvo-to-nestiha-228605">Naléhavá výzva hvězd IT: Zastavte vývoj umělé inteligence, jde moc rychle</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="6328fd76-8f3e-4b03-aa1e-aace444f66b3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://denikn.cz/minuta/1113210/">Musk podepsal otevřený dopis pro zastavení vývoje umělé inteligence</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="7d799613-5788-44d2-9e27-f088571f9e11" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.idnes.cz/technet/software/musk-ai-umela-inteligence.A230329_095318_software_alv">Musk a odborníci žádají pozastavení vývoje umělé inteligence, bojí se rizik</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="289607a1-b12e-4a56-8921-a3c1b174b727" class="">Jako správní chaotičtí neutrálové si tedy rozjedem vlastní AI doma. Ale s předmluvou a nějakým tím kontextem, ať vlastně víme co děláme.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="fb718140-ca18-41d9-b398-2b71e3bfe179" class="">Jak chápat GPT / LLM</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1eb46c8a-c6e9-4a40-994f-556f5405ab2c" class="">Setkávám se s jedním zásadním nepochopením, které často mají lidi co trochu tuší jak to funguje;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="a1100d50-461b-49fa-b598-1654fb3ff120" class="">
+          Je to jen doplňovač dalšího slova (tokenu).
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9a3742c6-031a-4efb-b58a-f4c13a7d7e1a" class="">Což jako jo, ale technicky vzato když píšete na klávesnici, tak jste taky jen doplňovače dalšího slova.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="0750013c-42ee-4b25-aa35-034cd642f0ba" class="image">
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled.png" title="Untitled.png"><img style="width:576px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled.png"></a>
+          <figcaption>
+            <em>(Zdroj:</em> <em><a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">What Is ChatGPT Doing … and Why Does It Work?</a></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0fbe2853-b27a-4285-9adf-6c5be94b4011" class="">Jak vysvětluje třeba Ilya Sutskever (jeden z tvůrců):</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="8f913aae-cb77-4292-b2f4-11c3d906c4b8">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Yf1o0TQzry8?start=394" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5c01da96-67e1-4a29-9edd-585a2490b23a" class="">K tomu aby neuronová síť mohla predikovat další token nad gigantickým datasetem, jímž byla trénována, si musí vytvořit bohaté vnitřní reprezentace. Ty zahrnují nejen všechny možné lidské jazyky, ale i znalosti, vztahy a vzory.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="703cd2a2-7a90-4652-8d21-a7396d55b92e" class="">Tohle se někdy označuje jako <em>“komprese”</em>, protože síť je, způsobem jakým je trénována na velkém množství dat, nucena vytvořit tyto reprezentace nad omezeným setem vah a neuronů. Mohla by teoreticky ukládat miliardy ukázek stylem čínského pokoje, kde si prostě uloží <em>“otázka”</em> - <em>“odpověď”</em> (počátek doplňovaného textu - následující token). Ale tím jak je nucena operovat s omezeným množstvím dostupné vnitřní paměti jí nezbývá nic jiného, než pochopit stále abstraktnější vzory. Nějakým způsobem si to vnitřně reprezentovat jako <em>“znalosti”</em> a <em>“chápání”</em>.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="0383fefa-9488-4465-b248-c92a492d1930" class="image">
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_1.png" title="Untitled_1.png"><img style="width:949px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_1.png"></a>
+          <figcaption>
+            <em>(PlantUML vygeneroval GPT4, obrázek vpravo</em> <em><strong>DALL·E 2</strong></em><em>)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="43614f15-9eb3-4928-8e6e-3512cca9ac16" class="">Tohle rozpoznávání vzorů se děje jak na úrovni jazyka (syntaxe a gramatika), tak na úrovni <em>word embeddings</em> (význam slov, jak spolu souvisí), tak na mnohem abstraktnější úrovni (jak fungují věci o kterých je řeč a jak spolu souvisí).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="718690d3-a807-4b51-b7d0-4583c6041938" class="">Nefunguje to tedy tak, že to doplňuje konverzace doslovně na základě toho co už to někde vidělo. Proto jsou tyto modely schopné například překládat mezi jazyky líp než všechno co dosud existovalo - protože opravdu rozumí kontextu toho o čem je řeč.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f7b30599-2e74-49ce-b420-afe3bb7ac583" class="">Pokud by model jen doplňoval na základě toho co už někde viděl, tak by překládat schopný nebyl, pokud by předtím danou větu, nebo ideálně celý odstavec už někde neviděl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b40ea546-992e-4b24-b18a-892fc7d427b8" class="">Jak <a href="https://www.youtube.com/watch?v=goOa0biX6Tc">říká</a> Ilya Sutskever, představte si, že při trénování doplňuje třeba text detektivky, kde vrah je oznámen až na poslední stránce knihy plné různého vyšetřování. Aby byla síť schopna korektně doplnit jméno vraha když ho v textu detektiv vysloví, musí <em>chápat</em> všechny možné souvislosti, celé vyšetřování, různé důkazy a tak podobně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="9c007c0a-d969-4884-8303-894c58e2eb2e" class="">Simulátory</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ae7dc46c-480d-4e47-bc69-73f813ff186b" class="">Předtím než přišel chat mode byly výsledky, například u GPT3, poměrně nevalné. Jasně, něco to dělalo, ale člověk se z toho po počátečním překvapení úplně neposadil na zadek, a dost často se to vydalo úplně jiným směrem, než bych chtěl. Celkově to působilo dost omezeně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f5be9ebd-b1f9-4b42-86b5-c8c1b2c893c8" class="">Jak už pozorovalo mnoho lidí, dramaticky záleželo na promptu který byl AI zadán. Někdy neuměla vysvětlit nebo udělat nic. Jindy to zvládla, když se jí řeklo ať předstírá že je Sherlock Holmes.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2924d1cf-19b6-4a60-9444-929bc1d359cf" class="">Za tohle může v podstatě způsob jakým byla trénována a že je to doplňovač textu. Má prostě tendence doplňovat. K tomu aby doplňovala chytře a užitečně je v podstatě třeba nastavit kontext tak, že <em>doplňuje</em> příběh o chytré a užitečné postavě - třeba Sherlocku Holmesovi. Tak jak by to bylo v trénovacích datech. Chytré chování v příbězích o chytrých lidech. Pokud člověk nechal doplnit něco bez patřičného kontextu, tak výsledky byly dost náhodné.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="398af488-86d8-4cfd-868c-2ccbc92c5475" class=""><a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a> je krásný blog na tohle téma, se spoustou ukázek.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="041419ec-2e94-4aa6-9ad7-35f5115bb597" class="">Chat</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a9747b0e-7418-4aea-9d06-8c6ead040382" class="">S tím přichází překvapivě vysoká užitečnost chatu. Chat není nějaká radikálně nová funkcionalita, ale jen způsob jakým je používáno auto-doplňování. Například v <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> najdeme v podsložce <code>prompts/</code> soubor <code>chat-with-bob.txt</code>. Ten má následující obsah:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="0423cc15-6bb7-4dbc-8c3a-c21a7ea67b31" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
 
 User: Hello, Bob.
 Bob: Hello. How may I help you today?
 User: Please tell me the largest city in Europe.
 Bob: Sure. The largest city in Europe is Moscow, the capital of Russia.
 User:</code></pre>
-      <p id="b18764e6-25f0-44c4-8199-6937e442947e" class="">Celý <em>chat mode</em> funguje úplně triviálně - prvně předhodí síti k doplňování přepis rozhovoru s AI asistentem, kde je na začátku nějaký <em>prompt</em>, potom následuje ukázka <em>formátu</em> (otázka, odpověď). Jakmile program narazí ve výstupu na pattern <code>User:</code>, použije se jednoduchý pattern matching:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="84568ae0-dc4a-4d11-9aad-c996d19f92b0" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">-r PROMPT, --reverse-prompt PROMPT
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b18764e6-25f0-44c4-8199-6937e442947e" class="">Celý <em>chat mode</em> funguje úplně triviálně - prvně předhodí síti k doplňování přepis rozhovoru s AI asistentem, kde je na začátku nějaký <em>prompt</em>, potom následuje ukázka <em>formátu</em> (otázka, odpověď). Jakmile program narazí ve výstupu na pattern <code>User:</code>, použije se jednoduchý pattern matching:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="84568ae0-dc4a-4d11-9aad-c996d19f92b0" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">-r PROMPT, --reverse-prompt PROMPT
      run in interactive mode and poll user input upon seeing PROMPT (can be
      specified more than once for multiple prompts).</code></pre>
-      <p id="330e3ebc-32d3-4972-9f2b-d23bbd67f2a5" class="">Pokud najde string v tomhle parametru, načte trochu dat od uživatele, přidá je k původnímu dokumentu a pokračuje v doplňování. Tím vzniká celá iluze chatu, přestože model pořád jen dál doplňuje “přepis” rozhovoru člověka s umělou inteligencí.</p>
-      <p id="ff7f0934-54de-41df-a638-464b8a5c4dd8" class="">Když se podíváte na ten <em>prompt</em>, tak tam je uveden kontext simulátoru - přepis konverzace s užitečným nápomocným asistentem, který má <em>formát</em> střídajících se otázek a odpovědí. Model se tedy chová užitečně a nápomocně, protože doplňuje příběh o tom jak by to vypadalo, kdyby se choval užitečně a nápomocně.</p>
-      <p id="20855f43-d922-4373-b535-bc6d93b4fb39" class="">Z toho taky plyne že když se bavíte s chatem na openAI, nemáte přístup k tomu jak vypadá ten kontext. Ovšem pokud jdete do <a href="https://platform.openai.com/playground">playgroundu</a>, můžete si ten <em>prompt</em> do jisté míry nastavit (píšu <em>do jisté</em> <em>míry</em>, protože OpenAI k tomu imho přidává vlastní <em>prompt</em>):</p>
-      <figure id="a5195827-126d-45ce-8e11-36d60dd57e37" class="image">
-        <a href="Screenshot_from_2023-04-11_10-34-44.png" title="Screenshot_from_2023-04-11_10-34-44.png"><img style="width:1220px" src="Screenshot_from_2023-04-11_10-34-44_thumb.jpg"></a>
-      </figure>
-      <p id="2baf03b8-83f8-451b-9b75-5e3a8bc02bc0" class="">Zde je ukázka reakce s jiným <em>promptem</em>:</p>
-      <figure id="7414901b-307f-40b1-9e96-b85aa948bd28" class="image">
-        <a href="Screenshot_from_2023-04-11_10-34-21.png" title="Screenshot_from_2023-04-11_10-34-21.png"><img style="width:1210px" src="Screenshot_from_2023-04-11_10-34-21_thumb.jpg"></a>
-      </figure>
-      <p id="dc2b6399-e625-4178-bf5c-9f2bb4ca455d" class=""><em>Prompty</em> taky můžou uvádět podstatně složitější <em>formát</em>, například jde simulovat jakési hlubší přemýšlení nad otázkami, viz <a href="https://github.com/ggerganov/llama.cpp/blob/master/prompts/reason-act.txt">llama.cpp/prompts/reason-act.txt</a>:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="100d689f-dfe0-4fe6-bffa-52925d5bc43c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">You run in a loop of Thought, Action, Observation.
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="330e3ebc-32d3-4972-9f2b-d23bbd67f2a5" class="">Pokud najde string v tomhle parametru, načte trochu dat od uživatele, přidá je k původnímu dokumentu a pokračuje v doplňování. Tím vzniká celá iluze chatu, přestože model pořád jen dál doplňuje “přepis” rozhovoru člověka s umělou inteligencí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ff7f0934-54de-41df-a638-464b8a5c4dd8" class="">Když se podíváte na ten <em>prompt</em>, tak tam je uveden kontext simulátoru - přepis konverzace s užitečným nápomocným asistentem, který má <em>formát</em> střídajících se otázek a odpovědí. Model se tedy chová užitečně a nápomocně, protože doplňuje příběh o tom jak by to vypadalo, kdyby se choval užitečně a nápomocně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="20855f43-d922-4373-b535-bc6d93b4fb39" class="">Z toho taky plyne že když se bavíte s chatem na openAI, nemáte přístup k tomu jak vypadá ten kontext. Ovšem pokud jdete do <a href="https://platform.openai.com/playground">playgroundu</a>, můžete si ten <em>prompt</em> do jisté míry nastavit (píšu <em>do jisté</em> <em>míry</em>, protože OpenAI k tomu imho přidává vlastní <em>prompt</em>):</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a5195827-126d-45ce-8e11-36d60dd57e37" class="image">
+          <a href="Screenshot_from_2023-04-11_10-34-44.png" title="Screenshot_from_2023-04-11_10-34-44.png"><img style="width:1220px" src="Screenshot_from_2023-04-11_10-34-44_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2baf03b8-83f8-451b-9b75-5e3a8bc02bc0" class="">Zde je ukázka reakce s jiným <em>promptem</em>:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="7414901b-307f-40b1-9e96-b85aa948bd28" class="image">
+          <a href="Screenshot_from_2023-04-11_10-34-21.png" title="Screenshot_from_2023-04-11_10-34-21.png"><img style="width:1210px" src="Screenshot_from_2023-04-11_10-34-21_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dc2b6399-e625-4178-bf5c-9f2bb4ca455d" class=""><em>Prompty</em> taky můžou uvádět podstatně složitější <em>formát</em>, například jde simulovat jakési hlubší přemýšlení nad otázkami, viz <a href="https://github.com/ggerganov/llama.cpp/blob/master/prompts/reason-act.txt">llama.cpp/prompts/reason-act.txt</a>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="100d689f-dfe0-4fe6-bffa-52925d5bc43c" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">You run in a loop of Thought, Action, Observation.
 At the end of the loop either Answer or restate your Thought and Action.
 Use Thought to describe your thoughts about the question you have been asked.
 Use Action to run one of these actions available to you:
@@ -250,182 +340,328 @@ Question: What is capital of france?
 Thought: Do I need to use an action? No, I know the answer
 Answer: Paris is the capital of France
 Question:</code></pre>
-      <p id="0cc27aab-fe86-48d6-8606-1452cda2d024" class="">Tedy model se jen nesnaží dát odpověď, ale prvně se <em>Zamyslí</em>, potom naplánuje <em>Akci,</em> následovanou <em>Pozorováním</em>, po kterém se znovu <em>Zamyslí</em> a nakonec poskytne <em>Odpověď</em>. Tímhle je možné obejít některé nedostatky modelu, jako například krátkodobou paměť, nebo problémy s dlouhodobým plánováním.</p>
-      <h2 id="d45ce5de-1697-47de-b9a0-a957dc050f43" class="">Human alignment & shoggoth</h2>
-      <p id="fdeb9e40-7eac-4f20-abc6-97ab2d59f78a" class="">S <em>chat modem</em> se ukázalo, že existující LLM můžou fungovat jako užitečná AI, akorát jsou úplně cizí našemu očekávání a často nedělají co po nich chceme.</p>
-      <p id="887ec62d-36e4-4278-80fb-763da70dd03d" class="">Zajímavý vývoj posledních asi půl roku je, že se dají poměrně rychle ohnout pomocí <a href="https://huggingface.co/blog/rlhf">RLHF</a> (Reinforcement Learning from Human Feedback), tedy něco jako <em>učení z lidské zpětné vazby</em>. To spočívá v tom, že původní fungující model se rozšíří nějakou další vrstvou která udává <em>vhodnost</em> odpovědi, a pak se doučí na různých ukázkách konverzací <em>přijatelné chování</em>. Model se neučí nová fakta, nebo novým způsobem uvažovat o světě, ale v podstatě co od něj chceme, co je pro lidi relevantní a co není. <em>Human alignment</em> (<em>příklon k lidskosti?</em>).</p>
-      <p id="6c94e0fc-d10a-4e56-a142-fe4c5ec0b44f" class="">Tak vznikl meme Shoggoth, příšery s lidskou maskou, protože na pozadí je to pořád něco úplně cizího, simulátor kterému byla nasazena přívětivá maska:</p>
-      <div id="0e8314e4-9650-4f52-b04f-3ffe00a911d5" class="column-list">
-        <div id="00306cd7-2118-40ef-adde-68c4e28d2049" style="width:33.333333333333336%" class="column">
-          <figure id="dd7d9780-aa9e-42d2-bbdf-71ee5bae482d" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FqZ6ud1WcAMvZvt.jpeg" title="FqZ6ud1WcAMvZvt.jpeg"><img style="width:1400px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FqZ6ud1WcAMvZvt_thumb.jpg"></a>
-            <figcaption>
-              <em>(Source:</em> <em><a href="https://twitter.com/mealreplacer/status/1632126858299863040">https://twitter.com/mealreplacer/status/1632126858299863040</a></em><em>)</em>
-            </figcaption>
-          </figure>
-        </div>
-        <div id="65885ae1-6203-461c-8032-5e8d6c646a6e" style="width:33.333333333333336%" class="column">
-          <figure id="7b6bb1a5-6c28-463e-96ed-8230e7094e6d" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Fsvsl4AWcAA6xo7.jpeg" title="Fsvsl4AWcAA6xo7.jpeg"><img style="width:708px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Fsvsl4AWcAA6xo7.jpeg"></a>
-            <figcaption>
-              <em>(Source:</em> <em><a href="https://twitter.com/LionTNC/status/1642666630831276035">https://twitter.com/LionTNC/status/1642666630831276035</a></em><em>)</em>
-            </figcaption>
-          </figure>
-        </div>
-        <div id="7419d5f1-c8d5-434f-9c6a-c2c7ad8a95b6" style="width:33.33333333333333%" class="column">
-          <figure id="0ef468b0-d144-4a5c-8aea-df4d5563b1b5" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/407.jpg" title="407.jpg"><img style="width:2118px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/407_thumb.jpg"></a>
-          </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0cc27aab-fe86-48d6-8606-1452cda2d024" class="">Tedy model se jen nesnaží dát odpověď, ale prvně se <em>Zamyslí</em>, potom naplánuje <em>Akci,</em> následovanou <em>Pozorováním</em>, po kterém se znovu <em>Zamyslí</em> a nakonec poskytne <em>Odpověď</em>. Tímhle je možné obejít některé nedostatky modelu, jako například krátkodobou paměť, nebo problémy s dlouhodobým plánováním.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d45ce5de-1697-47de-b9a0-a957dc050f43" class="">Human alignment & shoggoth</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fdeb9e40-7eac-4f20-abc6-97ab2d59f78a" class="">S <em>chat modem</em> se ukázalo, že existující LLM můžou fungovat jako užitečná AI, akorát jsou úplně cizí našemu očekávání a často nedělají co po nich chceme.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="887ec62d-36e4-4278-80fb-763da70dd03d" class="">Zajímavý vývoj posledních asi půl roku je, že se dají poměrně rychle ohnout pomocí <a href="https://huggingface.co/blog/rlhf">RLHF</a> (Reinforcement Learning from Human Feedback), tedy něco jako <em>učení z lidské zpětné vazby</em>. To spočívá v tom, že původní fungující model se rozšíří nějakou další vrstvou která udává <em>vhodnost</em> odpovědi, a pak se doučí na různých ukázkách konverzací <em>přijatelné chování</em>. Model se neučí nová fakta, nebo novým způsobem uvažovat o světě, ale v podstatě co od něj chceme, co je pro lidi relevantní a co není. <em>Human alignment</em> (<em>příklon k lidskosti?</em>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6c94e0fc-d10a-4e56-a142-fe4c5ec0b44f" class="">Tak vznikl meme Shoggoth, příšery s lidskou maskou, protože na pozadí je to pořád něco úplně cizího, simulátor kterému byla nasazena přívětivá maska:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="0e8314e4-9650-4f52-b04f-3ffe00a911d5" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="00306cd7-2118-40ef-adde-68c4e28d2049" style="width:33.333333333333336%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="dd7d9780-aa9e-42d2-bbdf-71ee5bae482d" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FqZ6ud1WcAMvZvt.jpeg" title="FqZ6ud1WcAMvZvt.jpeg"><img style="width:1400px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FqZ6ud1WcAMvZvt_thumb.jpg"></a>
+                  <figcaption>
+                    <em>(Source:</em> <em><a href="https://twitter.com/mealreplacer/status/1632126858299863040">https://twitter.com/mealreplacer/status/1632126858299863040</a></em><em>)</em>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="65885ae1-6203-461c-8032-5e8d6c646a6e" style="width:33.333333333333336%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="7b6bb1a5-6c28-463e-96ed-8230e7094e6d" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Fsvsl4AWcAA6xo7.jpeg" title="Fsvsl4AWcAA6xo7.jpeg"><img style="width:708px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Fsvsl4AWcAA6xo7.jpeg"></a>
+                  <figcaption>
+                    <em>(Source:</em> <em><a href="https://twitter.com/LionTNC/status/1642666630831276035">https://twitter.com/LionTNC/status/1642666630831276035</a></em><em>)</em>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="7419d5f1-c8d5-434f-9c6a-c2c7ad8a95b6" style="width:33.33333333333333%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="0ef468b0-d144-4a5c-8aea-df4d5563b1b5" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/407.jpg" title="407.jpg"><img style="width:2118px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/407_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="9d45751c-04e5-49eb-adbc-185bbb9a141c" class="column-list">
-        <div id="e0d7fe95-729b-416b-be4b-772fc392003e" style="width:37.5%" class="column">
-          <figure id="b1e2bd9b-fa3f-46d5-8afb-01f52d79eca5" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FtOw0qtXoAU0XpK.png" title="FtOw0qtXoAU0XpK.png"><img style="width:652px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FtOw0qtXoAU0XpK.png"></a>
-            <figcaption>
-              <em>(Source:</em> <em><a href="https://twitter.com/JCorvinusVR/status/1644852722611486720">https://twitter.com/JCorvinusVR/status/1644852722611486720</a></em><em>)</em>
-            </figcaption>
-          </figure>
-        </div>
-        <div id="0908610e-0ead-412d-b862-bdd4a4abecc0" style="width:62.5%" class="column">
-          <figure id="65a3352d-ddcf-46b8-9b69-1730ef4a2abc" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FoO-U_gaYAAIlPZ.jpeg" title="FoO-U_gaYAAIlPZ.jpeg"><img style="width:793px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FoO-U_gaYAAIlPZ.jpeg"></a>
-            <figcaption>
-              <em>(Source:</em> <em><a href="https://twitter.com/anthrupad/status/1622349563922362368">https://twitter.com/anthrupad/status/1622349563922362368</a></em><em>)</em>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-      <div id="4225640a-dbd5-4447-a8dc-052ec5fa0e3c" class="column-list">
-        <div id="d49f4f58-130f-47ec-84f2-f920f63ff54a" style="width:50%" class="column">
-          <figure id="8b27f5d8-048b-4a98-8ba5-a8a0940c84ba" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/4bb.jpg" title="4bb.jpg"><img style="width:1436px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/4bb_thumb.jpg"></a>
-          </figure>
-        </div>
-        <div id="7cfbcd81-ab46-4216-b0e1-2653cb904901" style="width:50%" class="column">
-          <figure id="0c0b7dc6-bcc5-484f-bcc7-8d807ae282be" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/18c.jpg" title="18c.jpg"><img style="width:1750px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/18c_thumb.jpg"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <div id="9d45751c-04e5-49eb-adbc-185bbb9a141c" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="e0d7fe95-729b-416b-be4b-772fc392003e" style="width:37.5%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="b1e2bd9b-fa3f-46d5-8afb-01f52d79eca5" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FtOw0qtXoAU0XpK.png" title="FtOw0qtXoAU0XpK.png"><img style="width:652px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FtOw0qtXoAU0XpK.png"></a>
+                  <figcaption>
+                    <em>(Source:</em> <em><a href="https://twitter.com/JCorvinusVR/status/1644852722611486720">https://twitter.com/JCorvinusVR/status/1644852722611486720</a></em><em>)</em>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="0908610e-0ead-412d-b862-bdd4a4abecc0" style="width:62.5%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="65a3352d-ddcf-46b8-9b69-1730ef4a2abc" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/FoO-U_gaYAAIlPZ.jpeg" title="FoO-U_gaYAAIlPZ.jpeg"><img style="width:793px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/FoO-U_gaYAAIlPZ.jpeg"></a>
+                  <figcaption>
+                    <em>(Source:</em> <em><a href="https://twitter.com/anthrupad/status/1622349563922362368">https://twitter.com/anthrupad/status/1622349563922362368</a></em><em>)</em>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="481a05d5-9de3-4d43-a24b-0b72a23b1089" class="">Ty obrázky jsou cute, ale jak už poznamenal někdo na twitteru, jsou principiálně špatná analogie. Správné zobrazení by bylo místo mnoha očí mít mnoho masek, protože Shoggoth sám o sobě v podstatě není.</p>
-      <figure id="e783b3b5-6fb4-43e9-b877-8ef1476169ae" class="image">
-        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/e3b.jpg" title="e3b.jpg"><img style="width:900px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/e3b.jpg"></a>
-      </figure>
-      <p id="1a3064f3-0275-4d7a-871b-2234c1fa2c6a" class="">Je to něco jako hlas všech textů lidstva s maskou všech postav všech příběhů. Tomu někdo navrch nasprejoval smajlíka ve tvaru chatbota, se kterým si myslíte, že si povídáte.</p>
-      <p id="72e03c31-fe35-476b-ba1e-39d578bb4c8b" class="">To nemyslím tak jako <em>“berte informace s rezervou”</em>, nebo <em>“nespoléhejte na ně”</em>, ale spíš jako že nátura Shoggotha je Shoggoth. Shoggoth musí simulovat, aby doplňoval text. Když nechápe, tak ve většině případů vypadl z role a neví co má předstírat. Musíte mu ten kontext uvést. Ne kontext rozhovoru, ale toho co má být, jako co má vést rozhovor. Meh.</p>
-      <h2 id="0aa82e8d-bc4a-42e0-a808-8ab11da6b9fb" class="">Malé modely, proč a jak fungují</h2>
-      <p id="a52d3161-cf73-4844-bd4d-4a3dff0a1fa4" class="">Článek <a href="https://www.lesswrong.com/posts/6Fpvch8RR29qLEWNH/chinchilla-s-wild-implications">chinchilla's wild implications</a> ukazuje na proč není počet vah (parametrů) úplně směrodatná metrika, která by měla být cílem, a že víc dat vyhrává nad větším množstvím <em>parametrů</em> modelu.</p>
-      <p id="987e523b-59c1-4987-b967-6e232d7d0bcc" class="">Poněkud překvapivě se ukázalo, že když člověk vezme tyhle <em>human alignment</em> data a nacpe je do výrazně menších modelů, tak se jde v různých benchmarcích dostat někam na úroveň lehce pod GPT3. GPT3 je 175B, GPT4 je údajně 6x větší, ale čísla jsem nenašel, někdo tvrdí že má 10x víc parametrů. “B” v popisu je tam pro anglický <em>billion</em>, česky <em>miliarda</em> (parametrů).</p>
-      <p id="13be2104-3c8f-4575-9700-3c5149ac3260" class="">Story za tím;</p>
-      <p id="d386a67b-c95e-48e9-8579-11c23d37bf2d" class="">Facebook (Meta AI, ehm) vytvořil set relativně malých <em><a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">llama</a></em> modelů 7B, 13B, 33B, a 65B, které natrénovali tak nějak standardním způsobem. Pak to všechno +- zveřejnili. Původně asi úplně, zpětně se v shitstormu kolem veřejnosti diskutující ohledně zneužití GPT4 rozhodli ho dávat jen po vyplnění formuláře dalším <em>výzkumníkům (.edu mail je velké plus)</em>. Samozřejmě se stalo očividné a modely jsou šířeny všude možně (torrent, mrk mrk).</p>
-      <p id="c9fca292-a491-4cdc-a680-a700cecf30c3" class="">Lidi ze Standfordu vzali ten nejmenší <em>llama</em> 7B model a použili na něm <a href="https://arxiv.org/pdf/2212.10560.pdf">self-instruct</a> fine tuning, čímž stvořili <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpacu</a>.</p>
-      <figure id="05863919-b125-4e24-985b-00122b426cfd">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/xslW5sQOkC8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div style="display:contents" dir="auto">
+        <div id="4225640a-dbd5-4447-a8dc-052ec5fa0e3c" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="d49f4f58-130f-47ec-84f2-f920f63ff54a" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="8b27f5d8-048b-4a98-8ba5-a8a0940c84ba" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/4bb.jpg" title="4bb.jpg"><img style="width:1436px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/4bb_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="7cfbcd81-ab46-4216-b0e1-2653cb904901" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="0c0b7dc6-bcc5-484f-bcc7-8d807ae282be" class="image">
+                  <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/18c.jpg" title="18c.jpg"><img style="width:1750px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/18c_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
-      </figure>
-      <p id="63a6814c-2834-4a3d-b156-8c7eb09db56e" class="">Na tomhle je zajímavé, že narozdíl od původního RLHF, které probíhalo formou tisíce hodnocených konverzací s uživateli ve stylu <em>“uživatel si s modelem povídá, pak vybere jestli dobrý nebo špatný, model se pak trénuje aby dělal víc dobrý a míň špatný”</em> k tomu použili GPT3.5. Tedy <em>“jeden model trénuje druhý model na dobrý a špatný”</em>. Tím byl pronesen úvodní přípitek večírku <a href="https://cs.wikipedia.org/wiki/Technologick%C3%A1_singularita">Singularity</a> (bájný stav, kdy naše technologie začne vylepšovat sebe sama).</p>
-      <figure id="24b14980-9a03-4c06-bd29-9da19b276037" class="image">
-        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_2.png" title="Untitled_2.png"><img style="width:599px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_2.png"></a>
-      </figure>
-      <p id="5a8275cb-e5d4-4d64-8d1d-e41d88a66c5b" class="">Překvapivě se ukázalo, že stačí asi 52 tisíc těhle ukázek, tedy v podstatě nic ve srovnání s množstvím ostatních trénovacích dat, a model se dostává v benchmarcích a automatizovaných testech o desítky procent blíž k úrovni GPT3.</p>
-      <p id="695b4a0d-cd29-4856-99a4-8436e1e76a78" class="">Alpaca potom byla <a href="https://github.com/tatsu-lab/stanford_alpaca">uvolněna</a> super divným způsobem; protože původní model byl facebooku a ten ho přestal šířit, uvolnili v podstatě jen něco jako diff od <em>llamy</em>. Tedy k tomu aby se dal rozchodit bylo potřeba někde sehnat <em>llamu</em>. Všichni se plácali po zádech, jak jsou zodpovědní a brání šíření spamu a dezinformací. To jim vydrželo přibližně do druhého dne, než to někdo zkombinoval a hodil na net.</p>
-      <p id="b3307b73-4848-4592-9720-a81f591a9525" class=""><em>Podle mého současného názoru</em> tohle všechno znamená, že ty žádané a zajímavé schopnosti jsou i v menších modelech. Ta těžká část, která byla dosud řešena čím dál větším počtem parametrů spočívá do jisté míry čistě v tom aby ten model vyabstrahoval co po něm vlastně chcem. Což tam jde dohackovat mnohem levněji.</p>
-      <p id="3c12fb54-8883-4ee5-a324-c477fd51cbd6" class="">Co ovšem zavětřila asi tak půlka internetu nebyl ani tak samotný model, ale informace že:</p>
-      <blockquote id="53b396e9-8d36-4ce9-8441-838741b3f49c" class="">
-        <em>Alpaca behaves qualitatively similarly to OpenAI’s text-davinci-003, while being surprisingly small and easy/cheap to reproduce (&lt;600$).</em>
-      </blockquote>
-      <blockquote id="40f04410-b8de-4fef-8df4-4f39dc61e726" class="">
-        <em>while being surprisingly small and easy/cheap to reproduce (&lt;600$).</em>
-      </blockquote>
-      <blockquote id="6e1e8991-c4b2-4562-9143-70ee224e937e" class="">
-        <em>cheap to reproduce (&lt;600$).</em>
-      </blockquote>
-      <blockquote id="7edf7b7d-5b85-43c5-a750-3d3ff417ab89" class="">
-        <em>600$</em>
-      </blockquote>
-      <p id="47b6e9e8-d5ad-4701-8ece-df6d5b04215f" class="">Jen pro kontext, téhle úrovně funkcionality se u větších modelů se pohybuje v řádu milionů dolarů. Party začala. Během posledních pár týdnů proběhlo kvašení, jehož výsledkem je mimo jiné:</p>
-      <ol type="1" id="a7ec007d-477e-4384-9eb1-4a7a298aaa84" class="numbered-list" start="1">
-        <li>
-          <a href="https://www.reddit.com/r/LocalLLaMA/">r/LocalLLaMA</a> subreddit věnovaný provozování, používání a trénování malých modelů
-        </li>
-      </ol>
-      <ol type="1" id="05e00e6e-91ea-456c-a605-0247d07efd1e" class="numbered-list" start="2">
-        <li>
-          <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> přepis python kódu do C++, takže běží podstatně rychleji i na CPU
-        </li>
-      </ol>
-      <ol type="1" id="0ae44b35-a974-420f-bec5-8d85fa172c49" class="numbered-list" start="3">
-        <li>
-          <a href="https://www.reddit.com/r/Oobabooga/">r/Oobabooga</a> a <a href="https://github.com/oobabooga/text-generation-webui/">Text generation web UI</a> (user friendly web UI ve stylu <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a>)
-        </li>
-      </ol>
-      <ol type="1" id="93923a74-b875-41fb-8986-675e0e4c76e7" class="numbered-list" start="4">
-        <li>
-          <a href="https://vicuna.lmsys.org/">Vicuna</a> (v době článku asi nejschopnější malý model)
-        </li>
-      </ol>
-      <ol type="1" id="b932c8de-8d3f-4cb9-bdd8-400ccc0d0a58" class="numbered-list" start="5">
-        <li>
-          <a href="https://github.com/nomic-ai/gpt4all">GPT4All</a> llama model natrénovaný na ~800k GPT3 konverzacích, s binárkami i scripty i modely a vším
-        </li>
-      </ol>
-      <ol type="1" id="c8e99791-59c4-40b2-98ed-60dc1f5841f6" class="numbered-list" start="6">
-        <li>
-          <a href="https://github.com/tloen/alpaca-lora">Alpaca-LoRA</a> alternativa k Alpace za použití <a href="https://arxiv.org/pdf/2106.09685.pdf">LoRA</a> (specifický způsob jak trénovat existující modely)
-        </li>
-      </ol>
-      <ol type="1" id="659b436c-8e61-4b8b-922d-e3263a83f014" class="numbered-list" start="7">
-        <li>
-          <a href="https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM">GPT-4-LLM</a> trénovací data pro <em>fine tuning</em> modelů
-        </li>
-      </ol>
-      <ol type="1" id="b46a59be-1459-4616-9dea-140a7a7f3c5e" class="numbered-list" start="8">
-        <li>
-          <a href="https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered">ShareGPT_Vicuna_unfiltered</a> trénovací data ze kterých bylo vyhozeno filtrování (sex, rasismus a tak podobně)
-        </li>
-      </ol>
-      <p id="ed77b074-a37c-4970-8060-3acd6af6c4b4" class="">a každý den něco dalšího.</p>
-      <p id="20e20e9a-5d71-457a-aa56-2c7b5fb29bc3" class="">Mimochodem, tohle je jeden z těch úžasných momentů <em>na rozhraní</em>. Když se něco mění. Taková ta chvíle co se zdá divoká, ale člověk na to zpětně vzpomíná. Něco jako nostalgické devadesátky, nebo začátek bitcoinu. Ta doba co srší potenciálem, věci nejsou jasně dané a všechno je zdánlivě možné. Chce se to chvíli zastavit a ocenit tenhle okamžik, protože typicky vám to dojde až zpětně. Otevírají se nové dimenze (<a href="../../Ostatni/Vytvareni_prostoru_oteviranim_dimenzi.html" title="Vytváření prostorů otevíráním dimenzí">Vytváření prostorů otevíráním dimenzí</a>), kolabují a tak. Fakt cool.</p>
-      <h2 id="840fdbed-348f-4a00-a8fa-d62b289726a5" class="">Jak rozjet lokální model</h2>
-      <p id="2b36e123-1c6d-4530-a522-4ff983b986ba" class="">Tenhle článek jsem původně začal psát, protože jsem to doma zkoušel a bylo to docela složité. Během doby co jsem ho psal se všechno natolik zjednodušilo, že původní text totálně ztratil smysl.</p>
-      <p id="dfd6caeb-9e1a-4677-99e9-54de799dcfee" class="">Rozjedeme si teď Vicunu (nebo si <a href="https://www.reddit.com/r/LocalLLaMA/wiki/models/">tady</a> vyberte něco jiného).</p>
-      <p id="c3687d55-9411-41cb-bdd9-3474c40b87dc" class="">Někam na NVMe, kde mámě aspoň sto giga místa si prvně naklonujeme <a href="https://github.com/oobabooga/text-generation-webui/">textgeneration-web-ui</a>:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="861a831a-efb8-4539-9118-c1fdb04372ad" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/oobabooga/text-generation-webui.git</code></pre>
-      <p id="e2afdb5b-a464-4280-8b5e-7fa0fde707be" class="">Přejdeme do složky <code>models/</code> a dáme klonovat Vicunu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="b607f695-0938-4d85-8476-16d837002c64" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://huggingface.co/eachadea/vicuna-13b</code></pre>
-      <p id="d7b377f4-a518-4330-93dc-0426b0450789" class="">Jedná se o pytorch model. Zatímco se klonuje, otevřeme si další terminál, a nainstalujeme si závislosti. Prvně minicondu (nebo anacondu):</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="fcf9abc7-75c0-4832-b45b-2667e88b5fd2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">curl -sL "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" &gt; "Miniconda3.sh"
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="481a05d5-9de3-4d43-a24b-0b72a23b1089" class="">Ty obrázky jsou cute, ale jak už poznamenal někdo na twitteru, jsou principiálně špatná analogie. Správné zobrazení by bylo místo mnoha očí mít mnoho masek, protože Shoggoth sám o sobě v podstatě není.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e783b3b5-6fb4-43e9-b877-8ef1476169ae" class="image">
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/e3b.jpg" title="e3b.jpg"><img style="width:900px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/e3b.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1a3064f3-0275-4d7a-871b-2234c1fa2c6a" class="">Je to něco jako hlas všech textů lidstva s maskou všech postav všech příběhů. Tomu někdo navrch nasprejoval smajlíka ve tvaru chatbota, se kterým si myslíte, že si povídáte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="72e03c31-fe35-476b-ba1e-39d578bb4c8b" class="">To nemyslím tak jako <em>“berte informace s rezervou”</em>, nebo <em>“nespoléhejte na ně”</em>, ale spíš jako že nátura Shoggotha je Shoggoth. Shoggoth musí simulovat, aby doplňoval text. Když nechápe, tak ve většině případů vypadl z role a neví co má předstírat. Musíte mu ten kontext uvést. Ne kontext rozhovoru, ale toho co má být, jako co má vést rozhovor. Meh.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="0aa82e8d-bc4a-42e0-a808-8ab11da6b9fb" class="">Malé modely, proč a jak fungují</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a52d3161-cf73-4844-bd4d-4a3dff0a1fa4" class="">Článek <a href="https://www.lesswrong.com/posts/6Fpvch8RR29qLEWNH/chinchilla-s-wild-implications">chinchilla's wild implications</a> ukazuje na proč není počet vah (parametrů) úplně směrodatná metrika, která by měla být cílem, a že víc dat vyhrává nad větším množstvím <em>parametrů</em> modelu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="987e523b-59c1-4987-b967-6e232d7d0bcc" class="">Poněkud překvapivě se ukázalo, že když člověk vezme tyhle <em>human alignment</em> data a nacpe je do výrazně menších modelů, tak se jde v různých benchmarcích dostat někam na úroveň lehce pod GPT3. GPT3 je 175B, GPT4 je údajně 6x větší, ale čísla jsem nenašel, někdo tvrdí že má 10x víc parametrů. “B” v popisu je tam pro anglický <em>billion</em>, česky <em>miliarda</em> (parametrů).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="13be2104-3c8f-4575-9700-3c5149ac3260" class="">Story za tím;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d386a67b-c95e-48e9-8579-11c23d37bf2d" class="">Facebook (Meta AI, ehm) vytvořil set relativně malých <em><a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">llama</a></em> modelů 7B, 13B, 33B, a 65B, které natrénovali tak nějak standardním způsobem. Pak to všechno +- zveřejnili. Původně asi úplně, zpětně se v shitstormu kolem veřejnosti diskutující ohledně zneužití GPT4 rozhodli ho dávat jen po vyplnění formuláře dalším <em>výzkumníkům (.edu mail je velké plus)</em>. Samozřejmě se stalo očividné a modely jsou šířeny všude možně (torrent, mrk mrk).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c9fca292-a491-4cdc-a680-a700cecf30c3" class="">Lidi ze Standfordu vzali ten nejmenší <em>llama</em> 7B model a použili na něm <a href="https://arxiv.org/pdf/2212.10560.pdf">self-instruct</a> fine tuning, čímž stvořili <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpacu</a>.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="05863919-b125-4e24-985b-00122b426cfd">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/xslW5sQOkC8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="63a6814c-2834-4a3d-b156-8c7eb09db56e" class="">Na tomhle je zajímavé, že narozdíl od původního RLHF, které probíhalo formou tisíce hodnocených konverzací s uživateli ve stylu <em>“uživatel si s modelem povídá, pak vybere jestli dobrý nebo špatný, model se pak trénuje aby dělal víc dobrý a míň špatný”</em> k tomu použili GPT3.5. Tedy <em>“jeden model trénuje druhý model na dobrý a špatný”</em>. Tím byl pronesen úvodní přípitek večírku <a href="https://cs.wikipedia.org/wiki/Technologick%C3%A1_singularita">Singularity</a> (bájný stav, kdy naše technologie začne vylepšovat sebe sama).</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="24b14980-9a03-4c06-bd29-9da19b276037" class="image">
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_2.png" title="Untitled_2.png"><img style="width:599px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Untitled_2.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5a8275cb-e5d4-4d64-8d1d-e41d88a66c5b" class="">Překvapivě se ukázalo, že stačí asi 52 tisíc těhle ukázek, tedy v podstatě nic ve srovnání s množstvím ostatních trénovacích dat, a model se dostává v benchmarcích a automatizovaných testech o desítky procent blíž k úrovni GPT3.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="695b4a0d-cd29-4856-99a4-8436e1e76a78" class="">Alpaca potom byla <a href="https://github.com/tatsu-lab/stanford_alpaca">uvolněna</a> super divným způsobem; protože původní model byl facebooku a ten ho přestal šířit, uvolnili v podstatě jen něco jako diff od <em>llamy</em>. Tedy k tomu aby se dal rozchodit bylo potřeba někde sehnat <em>llamu</em>. Všichni se plácali po zádech, jak jsou zodpovědní a brání šíření spamu a dezinformací. To jim vydrželo přibližně do druhého dne, než to někdo zkombinoval a hodil na net.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b3307b73-4848-4592-9720-a81f591a9525" class=""><em>Podle mého současného názoru</em> tohle všechno znamená, že ty žádané a zajímavé schopnosti jsou i v menších modelech. Ta těžká část, která byla dosud řešena čím dál větším počtem parametrů spočívá do jisté míry čistě v tom aby ten model vyabstrahoval co po něm vlastně chcem. Což tam jde dohackovat mnohem levněji.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3c12fb54-8883-4ee5-a324-c477fd51cbd6" class="">Co ovšem zavětřila asi tak půlka internetu nebyl ani tak samotný model, ale informace že:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="53b396e9-8d36-4ce9-8441-838741b3f49c" class="">
+          <em>Alpaca behaves qualitatively similarly to OpenAI’s text-davinci-003, while being surprisingly small and easy/cheap to reproduce (&lt;600$).</em>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="40f04410-b8de-4fef-8df4-4f39dc61e726" class="">
+          <em>while being surprisingly small and easy/cheap to reproduce (&lt;600$).</em>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="6e1e8991-c4b2-4562-9143-70ee224e937e" class="">
+          <em>cheap to reproduce (&lt;600$).</em>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="7edf7b7d-5b85-43c5-a750-3d3ff417ab89" class="">
+          <em>600$</em>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="47b6e9e8-d5ad-4701-8ece-df6d5b04215f" class="">Jen pro kontext, téhle úrovně funkcionality se u větších modelů se pohybuje v řádu milionů dolarů. Party začala. Během posledních pár týdnů proběhlo kvašení, jehož výsledkem je mimo jiné:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="a7ec007d-477e-4384-9eb1-4a7a298aaa84" class="numbered-list" start="1">
+          <li>
+            <a href="https://www.reddit.com/r/LocalLLaMA/">r/LocalLLaMA</a> subreddit věnovaný provozování, používání a trénování malých modelů
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="05e00e6e-91ea-456c-a605-0247d07efd1e" class="numbered-list" start="2">
+          <li>
+            <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> přepis python kódu do C++, takže běží podstatně rychleji i na CPU
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="0ae44b35-a974-420f-bec5-8d85fa172c49" class="numbered-list" start="3">
+          <li>
+            <a href="https://www.reddit.com/r/Oobabooga/">r/Oobabooga</a> a <a href="https://github.com/oobabooga/text-generation-webui/">Text generation web UI</a> (user friendly web UI ve stylu <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui</a>)
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="93923a74-b875-41fb-8986-675e0e4c76e7" class="numbered-list" start="4">
+          <li>
+            <a href="https://vicuna.lmsys.org/">Vicuna</a> (v době článku asi nejschopnější malý model)
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="b932c8de-8d3f-4cb9-bdd8-400ccc0d0a58" class="numbered-list" start="5">
+          <li>
+            <a href="https://github.com/nomic-ai/gpt4all">GPT4All</a> llama model natrénovaný na ~800k GPT3 konverzacích, s binárkami i scripty i modely a vším
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="c8e99791-59c4-40b2-98ed-60dc1f5841f6" class="numbered-list" start="6">
+          <li>
+            <a href="https://github.com/tloen/alpaca-lora">Alpaca-LoRA</a> alternativa k Alpace za použití <a href="https://arxiv.org/pdf/2106.09685.pdf">LoRA</a> (specifický způsob jak trénovat existující modely)
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="659b436c-8e61-4b8b-922d-e3263a83f014" class="numbered-list" start="7">
+          <li>
+            <a href="https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM">GPT-4-LLM</a> trénovací data pro <em>fine tuning</em> modelů
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="b46a59be-1459-4616-9dea-140a7a7f3c5e" class="numbered-list" start="8">
+          <li>
+            <a href="https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered">ShareGPT_Vicuna_unfiltered</a> trénovací data ze kterých bylo vyhozeno filtrování (sex, rasismus a tak podobně)
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ed77b074-a37c-4970-8060-3acd6af6c4b4" class="">a každý den něco dalšího.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="20e20e9a-5d71-457a-aa56-2c7b5fb29bc3" class="">Mimochodem, tohle je jeden z těch úžasných momentů <em>na rozhraní</em>. Když se něco mění. Taková ta chvíle co se zdá divoká, ale člověk na to zpětně vzpomíná. Něco jako nostalgické devadesátky, nebo začátek bitcoinu. Ta doba co srší potenciálem, věci nejsou jasně dané a všechno je zdánlivě možné. Chce se to chvíli zastavit a ocenit tenhle okamžik, protože typicky vám to dojde až zpětně. Otevírají se nové dimenze (<a href="../../Ostatni/Vytvareni_prostoru_oteviranim_dimenzi.html" title="Vytváření prostorů otevíráním dimenzí">Vytváření prostorů otevíráním dimenzí</a>), kolabují a tak. Fakt cool.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="840fdbed-348f-4a00-a8fa-d62b289726a5" class="">Jak rozjet lokální model</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2b36e123-1c6d-4530-a522-4ff983b986ba" class="">Tenhle článek jsem původně začal psát, protože jsem to doma zkoušel a bylo to docela složité. Během doby co jsem ho psal se všechno natolik zjednodušilo, že původní text totálně ztratil smysl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dfd6caeb-9e1a-4677-99e9-54de799dcfee" class="">Rozjedeme si teď Vicunu (nebo si <a href="https://www.reddit.com/r/LocalLLaMA/wiki/models/">tady</a> vyberte něco jiného).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c3687d55-9411-41cb-bdd9-3474c40b87dc" class="">Někam na NVMe, kde mámě aspoň sto giga místa si prvně naklonujeme <a href="https://github.com/oobabooga/text-generation-webui/">textgeneration-web-ui</a>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="861a831a-efb8-4539-9118-c1fdb04372ad" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/oobabooga/text-generation-webui.git</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e2afdb5b-a464-4280-8b5e-7fa0fde707be" class="">Přejdeme do složky <code>models/</code> a dáme klonovat Vicunu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="b607f695-0938-4d85-8476-16d837002c64" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://huggingface.co/eachadea/vicuna-13b</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d7b377f4-a518-4330-93dc-0426b0450789" class="">Jedná se o pytorch model. Zatímco se klonuje, otevřeme si další terminál, a nainstalujeme si závislosti. Prvně minicondu (nebo anacondu):</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="fcf9abc7-75c0-4832-b45b-2667e88b5fd2" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">curl -sL "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" &gt; "Miniconda3.sh"
 bash Miniconda3.sh</code></pre>
-      <p id="287f8e3b-8344-4c7e-889e-64845ac4881a" class="">Potom nějaké ty nutnosti pro buildování:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="13d7163d-f5ea-4476-b0b1-61504561ca7a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt install build-essential</code></pre>
-      <p id="b3112a70-f791-4119-90dd-c36927235b7f" class="">Vyrobíme si nový <code>conda</code> environment:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="bb440199-12d0-4e84-8d69-8270962a97df" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">conda create -n textgen python=3.10.9
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="287f8e3b-8344-4c7e-889e-64845ac4881a" class="">Potom nějaké ty nutnosti pro buildování:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="13d7163d-f5ea-4476-b0b1-61504561ca7a" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt install build-essential</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b3112a70-f791-4119-90dd-c36927235b7f" class="">Vyrobíme si nový <code>conda</code> environment:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="bb440199-12d0-4e84-8d69-8270962a97df" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">conda create -n textgen python=3.10.9
 conda activate textgen</code></pre>
-      <p id="67242636-db6c-4b7b-abea-53350793c452" class="">V něm pak nainstalujeme závislosti:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="f7b75ae9-72ec-4727-b3d1-7d4289c634d6" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pip3 install torch torchvision torchaudio
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="67242636-db6c-4b7b-abea-53350793c452" class="">V něm pak nainstalujeme závislosti:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="f7b75ae9-72ec-4727-b3d1-7d4289c634d6" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pip3 install torch torchvision torchaudio
 pip install -r requirements.txt</code></pre>
-      <p id="d00031e9-aa68-4a4b-ac5e-2cec39d0f53e" class="">No a to je všechno. Počkáme až se model stáhne a pak to celé spustíme:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="e03f7116-c3e5-4b32-81cb-d412ebd21875" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">python server.py --cpu</code></pre>
-      <p id="ec230c8e-0130-45d1-b32a-efffebcd4b8d" class="">Parametr <code>--cpu</code> je možné vynechat, pokud máte grafickou kartu s 24G VRAM.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="7612ab64-8f44-4a99-84e3-a1c250311acd" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ python server.py --cpu --chat
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d00031e9-aa68-4a4b-ac5e-2cec39d0f53e" class="">No a to je všechno. Počkáme až se model stáhne a pak to celé spustíme:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="e03f7116-c3e5-4b32-81cb-d412ebd21875" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">python server.py --cpu</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ec230c8e-0130-45d1-b32a-efffebcd4b8d" class="">Parametr <code>--cpu</code> je možné vynechat, pokud máte grafickou kartu s 24G VRAM.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="7612ab64-8f44-4a99-84e3-a1c250311acd" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ python server.py --cpu --chat
 
 ===================================BUG REPORT===================================
 Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
@@ -440,80 +676,148 @@ Loaded the model in 15.10 seconds.
 Running on local URL:  http://127.0.0.1:7860
 
 To create a public link, set `share=True` in `launch()`.</code></pre>
-      <p id="20cc8734-4aca-42b7-8f19-541b605fb3c9" class="">Na portu <code>7860</code> naběhlo webové rozhraní:</p>
-      <figure id="dda34ec2-0792-4132-af21-eafdb88b0842" class="image">
-        <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02.jpg" title="Screenshot_from_2023-04-12_01-23-02.jpg"><img style="width:1201px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02_thumb.jpg"></a>
-      </figure>
-      <p id="1ea5c46d-0a1f-4c4f-a30b-bdb321828ebe" class="">Slova se u mě objevují velmi pomalu, asi tak jedno za pět vteřin. Postupně se načítá po znacích, jak ho model generuje. Chtělo by to grafickou kartu s větší pamětí, do mojí 3070Ti se model nevleze.</p>
-      <h3 id="e5fe1d77-42d1-484e-8083-13ee9198c03b" class="">llama.cpp</h3>
-      <p id="ab949baa-b40a-44df-ae42-324d6d39b35a" class="">Naštěstí je tu ještě <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, C++ přepis python kódu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="c0301978-6ece-41c5-a04e-f71be89fd755" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
-      <p id="29d631cb-be9c-41c2-a72d-c2d9d8347399" class="">Pak jí zbuildíme příkazem <code>make</code>.</p>
-      <p id="c706b468-476e-4249-85fd-ea7e177d6add" class="">Menší problém je, že <code>llama.cpp</code> používá optimalizovaný formát ukládání dat, který musíme z původního pytorch tensoru (<code>.pth</code>) překonvertovat na <code>.ggml</code>. V <code>llama.cpp</code> je na to konverzní script.</p>
-      <p id="7bb5d626-a74b-4726-9500-e164064d0861" class="">Aktivujeme zase <code>textgen</code> condu z předchozí kapitoly.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="6c2f12dd-f12b-4a92-b2e6-fae864284ce2" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">$ conda activate textgen
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="20cc8734-4aca-42b7-8f19-541b605fb3c9" class="">Na portu <code>7860</code> naběhlo webové rozhraní:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="dda34ec2-0792-4132-af21-eafdb88b0842" class="image">
+          <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02.jpg" title="Screenshot_from_2023-04-12_01-23-02.jpg"><img style="width:1201px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_01-23-02_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1ea5c46d-0a1f-4c4f-a30b-bdb321828ebe" class="">Slova se u mě objevují velmi pomalu, asi tak jedno za pět vteřin. Postupně se načítá po znacích, jak ho model generuje. Chtělo by to grafickou kartu s větší pamětí, do mojí 3070Ti se model nevleze.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="e5fe1d77-42d1-484e-8083-13ee9198c03b" class="">llama.cpp</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ab949baa-b40a-44df-ae42-324d6d39b35a" class="">Naštěstí je tu ještě <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, C++ přepis python kódu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="c0301978-6ece-41c5-a04e-f71be89fd755" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/ggerganov/llama.cpp.git</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="29d631cb-be9c-41c2-a72d-c2d9d8347399" class="">Pak jí zbuildíme příkazem <code>make</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c706b468-476e-4249-85fd-ea7e177d6add" class="">Menší problém je, že <code>llama.cpp</code> používá optimalizovaný formát ukládání dat, který musíme z původního pytorch tensoru (<code>.pth</code>) překonvertovat na <code>.ggml</code>. V <code>llama.cpp</code> je na to konverzní script.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7bb5d626-a74b-4726-9500-e164064d0861" class="">Aktivujeme zase <code>textgen</code> condu z předchozí kapitoly.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="6c2f12dd-f12b-4a92-b2e6-fae864284ce2" class="code code-wrap"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">$ conda activate textgen
 (textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
-      <p id="c7c4a236-2e52-4e0d-96c6-beead25bb625" class="">Při spuštění si stěžuje že chybí soubor <code>added_tokens.json</code>:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="eb384d7e-88c3-4290-ba83-22f48c3aa4aa" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">Exception: Vocab size mismatch (model has 32001, but ../models/vicuna-13b/tokenizer.model has 32000).  Most likely you are missing added_tokens.json (should be in ../models/vicuna-13b).</code></pre>
-      <p id="a7e58fec-53be-43db-880a-cc28de0b092c" class="">Takže ho tam přidáme:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="82ea6a17-146f-4557-b3e8-eadcffc476c2" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c7c4a236-2e52-4e0d-96c6-beead25bb625" class="">Při spuštění si stěžuje že chybí soubor <code>added_tokens.json</code>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="eb384d7e-88c3-4290-ba83-22f48c3aa4aa" class="code code-wrap"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">Exception: Vocab size mismatch (model has 32001, but ../models/vicuna-13b/tokenizer.model has 32000).  Most likely you are missing added_tokens.json (should be in ../models/vicuna-13b).</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a7e58fec-53be-43db-880a-cc28de0b092c" class="">Takže ho tam přidáme:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="82ea6a17-146f-4557-b3e8-eadcffc476c2" class="code code-wrap"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
     "&lt;unk&gt;": 32000
 }</code></pre>
-      <p id="30b7ec7d-b5b5-4549-9c36-96072243d930" class="">Kde jsem to vzal? Poslední hodnota v <code>tokenizer_config.json</code> ve složce vicuny. Úplně random a netuším jestli je to správně (spíš ne, ale +- to funguje).</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="927a4171-18a4-4bec-9e9d-0b4d3e7861af" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
-      <p id="82ccc5dc-58f7-4628-be90-b48c03702bb8" class="">Což vybleje soubor <code>../models/vicuna-13b/ggml-model-f32.bin</code>, ten se dá potom už pustit přes <code>llama.cpp</code>. Alternativně je možné dát jako parametr <code>--outtype f16</code> pro menší velikost, aby se vám to vešlo do paměti (ekvivalent <em>kvantizace</em> z jiných projektů).</p>
-      <p id="9509ce23-8658-4283-b77d-3797066527c8" class="">No a pak už to zbývá jen spustit a hrát si s tím:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="20350d04-13c4-4bf3-9474-c78a43154296" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">./main -m ../models/vicuna-13b/ggml-model-f32.bin --color --repeat_penalty 1.0 -i -t 15 -r "User:" -f prompts/chat-with-bob.txt</code></pre>
-      <p id="ddf0cfc5-42ff-4faf-88be-b712d46458a7" class="">U mě na počítači se text objevuje rychlostí asi jednoho slova za vteřinu.</p>
-      <h3 id="5e105158-a978-49c6-8087-7741b4eb50a1" class="">Nutno dodat</h3>
-      <p id="46c4a241-3bd7-4d56-aefb-38a874ef2729" class="">Menší modely jsou samozřejmě méně schopné, ale nejsou úplně neschopné. Pokud pozorujete divné chování, je možné:</p>
-      <ol type="1" id="9d55c72f-ae8e-4288-bccd-b80ecb1c0431" class="numbered-list" start="1">
-        <li>Máte ne-ideálně nastavené různé vedlejší hodnoty modelu. Těch je spousta a pokud jste je nenastavovali, tak je někdo nastavil za vás, a dost často blbě. Typicky <code>temperature</code> je něco co chcete mít někde u <code>0.7</code>.
-          <figure id="abe6b8d1-3816-4890-9115-6e870886e342" class="image">
-            <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_02-05-28.png" title="Screenshot_from_2023-04-12_02-05-28.png"><img style="width:1049px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_02-05-28.png"></a>
-          </figure>
-        </li>
-      </ol>
-      <ol type="1" id="0f54b64d-ac18-4e8a-9f2a-edc2f5cc3a56" class="numbered-list" start="2">
-        <li><em>Prompt</em>. Jak jsem vysvětloval, LLM jsou simulátory. Mějte pořád na paměti, že nemluvíte s člověkem, mluvíte se Shoggothem co simuluje AI asistenta. Chce to podle toho konstruovat kontext / prompt. Pokud tam žádný nenastavíte, tak je to Shoggoth a místy mluví neexistujícími jazyky, místy se opakuje a místy bleje binární duhu.</li>
-      </ol>
-      <ol type="1" id="f1df257c-83d8-42d4-9849-91cfa3648357" class="numbered-list" start="3">
-        <li><em>Quantization</em>. Jde narazit na modely, které mají v názvu něco ve stylu <code>4bit</code> a tak podobně. Úplně jsem to nestudoval, ale jestli to chápu správně, tak jsou to v podstatě modely kde se váhy neuronové sítě přepočítaly na 4bitová čísla, aby se to vešlo do paměti. Tedy to ztratilo přesnost a z toho co jsem tak četl, tak to sice nějak funguje, ale občas dost hůř.</li>
-      </ol>
-      <ol type="1" id="15141499-a873-4af9-8b35-b96b50c69666" class="numbered-list" start="4">
-        <li>Můžete mít model co prostě za moc nestojí. Z některých byly vyházeny trénovací data v jiných jazycích než v angličtině, některé byly přiohnuty tak že fungují na něco skvěle a na zbytek skoro vůbec.</li>
-      </ol>
-      <p id="2b8f5a79-3167-4b1e-b176-058b92c03d78" class="">Tady jsou konkrétní ukázky některých problémů:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="fadd331c-663e-49ab-b332-126866aba913" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Question: Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="30b7ec7d-b5b5-4549-9c36-96072243d930" class="">Kde jsem to vzal? Poslední hodnota v <code>tokenizer_config.json</code> ve složce vicuny. Úplně random a netuším jestli je to správně (spíš ne, ale +- to funguje).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="927a4171-18a4-4bec-9e9d-0b4d3e7861af" class="code code-wrap"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">(textgen) $ python3 convert.py ../models/vicuna-13b --outtype f32</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="82ccc5dc-58f7-4628-be90-b48c03702bb8" class="">Což vybleje soubor <code>../models/vicuna-13b/ggml-model-f32.bin</code>, ten se dá potom už pustit přes <code>llama.cpp</code>. Alternativně je možné dát jako parametr <code>--outtype f16</code> pro menší velikost, aby se vám to vešlo do paměti (ekvivalent <em>kvantizace</em> z jiných projektů).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9509ce23-8658-4283-b77d-3797066527c8" class="">No a pak už to zbývá jen spustit a hrát si s tím:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="20350d04-13c4-4bf3-9474-c78a43154296" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">./main -m ../models/vicuna-13b/ggml-model-f32.bin --color --repeat_penalty 1.0 -i -t 15 -r "User:" -f prompts/chat-with-bob.txt</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ddf0cfc5-42ff-4faf-88be-b712d46458a7" class="">U mě na počítači se text objevuje rychlostí asi jednoho slova za vteřinu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="5e105158-a978-49c6-8087-7741b4eb50a1" class="">Nutno dodat</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="46c4a241-3bd7-4d56-aefb-38a874ef2729" class="">Menší modely jsou samozřejmě méně schopné, ale nejsou úplně neschopné. Pokud pozorujete divné chování, je možné:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="9d55c72f-ae8e-4288-bccd-b80ecb1c0431" class="numbered-list" start="1">
+          <li>Máte ne-ideálně nastavené různé vedlejší hodnoty modelu. Těch je spousta a pokud jste je nenastavovali, tak je někdo nastavil za vás, a dost často blbě. Typicky <code>temperature</code> je něco co chcete mít někde u <code>0.7</code>.
+            <div style="display:contents" dir="ltr">
+              <figure id="abe6b8d1-3816-4890-9115-6e870886e342" class="image">
+                <a href="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_02-05-28.png" title="Screenshot_from_2023-04-12_02-05-28.png"><img style="width:1049px" src="../../../en/Programming/How_to_run_your_own_LLM_GPT/Screenshot_from_2023-04-12_02-05-28.png"></a>
+              </figure>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="0f54b64d-ac18-4e8a-9f2a-edc2f5cc3a56" class="numbered-list" start="2">
+          <li><em>Prompt</em>. Jak jsem vysvětloval, LLM jsou simulátory. Mějte pořád na paměti, že nemluvíte s člověkem, mluvíte se Shoggothem co simuluje AI asistenta. Chce to podle toho konstruovat kontext / prompt. Pokud tam žádný nenastavíte, tak je to Shoggoth a místy mluví neexistujícími jazyky, místy se opakuje a místy bleje binární duhu.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="f1df257c-83d8-42d4-9849-91cfa3648357" class="numbered-list" start="3">
+          <li><em>Quantization</em>. Jde narazit na modely, které mají v názvu něco ve stylu <code>4bit</code> a tak podobně. Úplně jsem to nestudoval, ale jestli to chápu správně, tak jsou to v podstatě modely kde se váhy neuronové sítě přepočítaly na 4bitová čísla, aby se to vešlo do paměti. Tedy to ztratilo přesnost a z toho co jsem tak četl, tak to sice nějak funguje, ale občas dost hůř.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="15141499-a873-4af9-8b35-b96b50c69666" class="numbered-list" start="4">
+          <li>Můžete mít model co prostě za moc nestojí. Z některých byly vyházeny trénovací data v jiných jazycích než v angličtině, některé byly přiohnuty tak že fungují na něco skvěle a na zbytek skoro vůbec.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2b8f5a79-3167-4b1e-b176-058b92c03d78" class="">Tady jsou konkrétní ukázky některých problémů:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="fadd331c-663e-49ab-b332-126866aba913" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Question: Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
 Thought: I think this is asking to find all files with the .md extension and then cat them into a single file called blogs.md
 Action: I will use the find tool
 Observation: The find tool found 5 files with the .md extension and the command cat'ed them into a single file called blogs.md</code></pre>
-      <p id="74499aeb-c869-428a-a656-d14418de99c4" class="">Vicuna místo aby to udělala, tak simulovala že něco dělá. Blbej kontext promptu. S <em>chat with bob</em> promptem:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="074f3c0a-d9f4-4761-83b7-c8d27362b270" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">User:Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="74499aeb-c869-428a-a656-d14418de99c4" class="">Vicuna místo aby to udělala, tak simulovala že něco dělá. Blbej kontext promptu. S <em>chat with bob</em> promptem:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="074f3c0a-d9f4-4761-83b7-c8d27362b270" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">User:Convert to python: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
 ### Assistant: Here is the Python command equivalent to the given command:
 ```css
 find .</code></pre>
-      <p id="f5ebbcc8-6240-4046-a207-40a695550a14" class="">Očividně úplně blbě. Teď bych se mohl naštvat a říct si, že ten model je krám na úrovni GPT2 a vlastně k ničemu.</p>
-      <p id="61c89f1f-27f3-42b3-bbf0-973212f33645" class="">Místo toho mi došlo že se bavím se Shoggothem, tak jsem to zkusil to znova a dal mu víc kontextu. Místo <em>“Convert to python”</em> jsem ho požádal <em>“Convert this shell command to python script, which will do the same”</em>. A najednou to jde:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="68da8c40-e7de-4af6-83db-d4606f014720" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">User:Convert this shell command to python script, which will do the same: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f5ebbcc8-6240-4046-a207-40a695550a14" class="">Očividně úplně blbě. Teď bych se mohl naštvat a říct si, že ten model je krám na úrovni GPT2 a vlastně k ničemu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="61c89f1f-27f3-42b3-bbf0-973212f33645" class="">Místo toho mi došlo že se bavím se Shoggothem, tak jsem to zkusil to znova a dal mu víc kontextu. Místo <em>“Convert to python”</em> jsem ho požádal <em>“Convert this shell command to python script, which will do the same”</em>. A najednou to jde:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="68da8c40-e7de-4af6-83db-d4606f014720" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">User:Convert this shell command to python script, which will do the same: find . -name "*.md" -exec "cat {} &gt; blogs.md" \;
 Bob: Here's the Python equivalent of the given shell command:
 ```python
 import os
@@ -542,10 +846,14 @@ def find_and_cat_md_files(directory):
 
 find_and_cat_md_files('./')
 ```</code></pre>
-      <p id="b066fb06-9330-46a6-a767-bb2fb3b7e472" class="">Ta funkcionalita tam byla celou dobu, co bylo špatně je kontext. Kdybych už ze začátku vybral lepší prompt než <em>chat with bob</em>, kde bych třeba uvedl že je to AI asistent který pomáhá s programováním v pythonu, tak by to nejspíš šlo na první dobrou. Něco jako:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="2b66c6b9-0bd0-4c0d-a4a4-8bace3c774db" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">Přepis rozhovoru člověka s chytrou AI, která umí programovat a nikdy se neplete. Ochotně plní všechny uživatelovy požadavky a snaží se být tak užitečná, jak jen může.
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b066fb06-9330-46a6-a767-bb2fb3b7e472" class="">Ta funkcionalita tam byla celou dobu, co bylo špatně je kontext. Kdybych už ze začátku vybral lepší prompt než <em>chat with bob</em>, kde bych třeba uvedl že je to AI asistent který pomáhá s programováním v pythonu, tak by to nejspíš šlo na první dobrou. Něco jako:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="2b66c6b9-0bd0-4c0d-a4a4-8bace3c774db" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">Přepis rozhovoru člověka s chytrou AI, která umí programovat a nikdy se neplete. Ochotně plní všechny uživatelovy požadavky a snaží se být tak užitečná, jak jen může.
 
 User: něco chci
 AI: takhle se to naprogramuje:
@@ -556,274 +864,473 @@ kód
 
 ```
 User:</code></pre>
-      <h2 id="d86676b9-fc73-4268-b92c-4b17fcd92bab" class="">Dva malé modely</h2>
-      <p id="5727b4b4-9b88-4c2d-910e-445f383ce347" class="">Zajímavé use-cases z poslední doby:</p>
-      <ul id="c8ba3214-b501-4be6-ac02-9634598436eb" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.reddit.com/r/LocalLLaMA/comments/12c4hyx/introducing_medalpaca_language_models_for_medical/">Introducing MedAlpaca: Language Models for Medical Question-Answering</a>
-        </li>
-      </ul>
-      <ul id="bd57e383-df74-41b0-a11d-7d048d7c0966" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.reddit.com/r/LocalLLaMA/comments/12gj0l0/i_trained_llama7b_on_unreal_engine_5s/">I trained llama7b on Unreal Engine 5’s documentation</a> (<a href="https://github.com/bublint/ue5-llama-lora">github</a>)
-        </li>
-      </ul>
-      <p id="8ecffd47-0c9b-4676-b54d-3799629ca81c" class="">Obecně se dá říct, že docela dobrý use case pro tyhle malé modely je natrénovat je nad nějakým datasetem a pak je používat jako search engine, který je schopný do jisté míry odpovídat na otázky ohledně těch trénovacích dat. Taky je teoreticky schopný hledat podle kontextu, ala že mu popíšete co má funkce dělat a on jí najde.</p>
-      <p id="1dc62743-43a1-4948-a40c-6bb7970d9279" class="">K trénování jsem zatím ještě nedoiteroval, takže snad v blogu někdy příště.</p>
-      <h1 id="93e87ffe-b903-4491-a35e-777205e8e78d" class="">GPT4</h1>
-      <p id="935136af-8ebb-4139-acfd-cd9acf5f3a2c" class="">Malé modely jsou cool a mají svoje použití, ale srovnávat s GPT4 se tenhle pár týdnů starý vývoj nedá.</p>
-      <p id="db97da60-c389-4a62-9c04-66d77ac8f177" class="">Od doby co vyšel GPT4 říkám pořád všem že naprosto nemá smysl ztrácet čas s GPT3 (GPT3.5). Ten rozdíl je <em>brutální</em>.</p>
-      <p id="5f972e71-2b83-4449-b646-b6c16cb9e5a1" class="">Můj osobní pocit z toho je někde mezi ohromením, bázní, nostalgií ze současnosti pohledem budoucnosti (bylo fajn programovat, škoda že už jsme u konce) a opilostí možnostmi.</p>
-      <h2 id="8b48cc21-6840-4f11-931e-4fc09d4024cb" class="">Kde vzít přístup k GPT4</h2>
-      <p id="073a2c0f-12ed-4080-b19b-863c20efa8d9" class="">Jedna možnost je samozřejmě si zaplatit <em>chat plus</em>, ale to stojí 20$/měsíc a má to momentálně docela přísný rate limiting:</p>
-      <blockquote id="47ed4fe4-3f76-4fc4-80b8-017593508121" class="">
-        GPT-4 currently has a cap of 25 messages every 3 hours.
-      </blockquote>
-      <blockquote id="7cc01057-a7e0-4c9c-92d4-6faf02de1658" class="">
-        GPT-4 má v současnosti limit 25 zpráv každé 3 hodiny.
-      </blockquote>
-      <p id="27b39a00-be49-4ee9-a5d8-9e44c79d1e5b" class="">Proto doporučuji se zaregistrovat na <a href="https://platform.openai.com/playground">playgroundu</a>, jakémsi testovacím webu pro různé modely, kde je možné si s nimi hrát, než je začnete používat přes API.</p>
-      <p id="3ef4a2e5-4ec8-4ebe-8753-37cef9e4ec58" class="">Do žádosti o přístup stačí napsat něco jako že jste developer a že si to chcete osahat. Musíte to slinkovat s kreditkou a počítejte s tím že se za použití <a href="https://openai.com/pricing">platí</a>, ale vesměs dost málo (týdně jsem utratil třeba dva dolary).</p>
-      <h2 id="b74caaf5-64e0-44fe-bc35-2db187a731a1" class="">Sparks of Artificial General Intelligence</h2>
-      <p id="a2da6ce8-48b1-4285-a8fb-3456dab6cf6d" class="">Vyšlo <a href="https://arxiv.org/pdf/2303.12712.pdf">Sparks of Artificial General Intelligence: Early experiments with GPT-4</a>. A to ukázalo, že se změnilo všechno, jen si většina z nás ještě nevšimla.</p>
-      <p id="189bc4e0-c2f9-4236-9b59-8109754230f8" class="">Tady jsou nějaké drobty z toho vysosané jako video:</p>
-      <figure id="677d7171-164b-4345-ac9e-0907140ffdd2">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Mqg3aTGNxZ0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <p id="866a0086-2001-497f-95e9-a6fda161a9a9" class="">Nebo tady jako delší talk:</p>
-      <figure id="ac3ca78d-8578-434d-8634-8c696524d8c4">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/qbIk7-JPB2c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <p id="2bb2c6bb-fdef-40a1-b09d-be4757d4fbe2" class="">Ale obecně doporučuji si přečíst to PDF, čte se to jak sci-fi. Mohl bych se snažit to asi nějak víc vychválit a vnutit, ale meh. Stojí to za to.</p>
-      <h2 id="c6af8207-eb37-44ab-ba6a-91775856eb01" class="">Use cases pro inspiraci (lidi se ptali)</h2>
-      <p id="266189ba-45bf-40db-878a-89461f025e06" class="">Tak nějak všechno. Beru to prostě jako <em>“intelektuální motor”</em>, do kterého se dá naházet co chcete a ono to většinou nějak udělá, typicky líp než random kontraktor na mikro tržištích. Ale kdybych měl něco vybrat:</p>
-      <ol type="1" id="ea948c2d-751f-44bb-ba01-4dbd96422077" class="numbered-list" start="1">
-        <li>Nápověda a plnění konkrétních věcí k PyQt. Většinou vím co chci, nemůžu si vzpomenout na jméno konkrétní metody, nebo objektu, nebo co importovat. Tak to napíšu GPT4 a ono mi vrátí widget, nebo nějakou operaci. Ideální použití, protože to můžu jednoduše kontrolovat. Výhoda je že to často zasadí i do kontextu, když tam pastnu třeba jména existujících proměnných.</li>
-      </ol>
-      <ol type="1" id="a88a5925-698a-4421-858a-637be7393efa" class="numbered-list" start="2">
-        <li>To samé s boto3. Dělám v práci dost často s AWS v pythonu a občas si nemůžu vzpomenout na parametry DynamoDB query, nebo jestli se někde používá client, nebo resource a tak podobně. Super hlavně na ty složitější věci <em>“dej mi klienta co se připojí někam a bude filtrovat resources podle properties timestamp tohohle objektu a ..”</em>. Během minuty to vyřeší něco na čem jsem typicky strávil třeba půl hodiny hledáním a zkoušením. Žádný složitý kód, spíš nudný boilerplate specifik různých knihoven.</li>
-      </ol>
-      <ol type="1" id="1008a468-580e-4c36-a965-da58bdf5087b" class="numbered-list" start="3">
-        <li>Procházecí galerie v čistém JS na blogu. Byl jsem líný to programovat ručně (a nejsem nadšený z JS), tak jsem prostě vzal existující javascript, který galerii neřešil vůbec, řekl GPT4 co chci. Stačilo chvíli s ním konverzovat ohledně toho co se mi na jeho řešení nelíbí, jako že chci větší tlačítka vpřed a vzad, a pak z toho byl funkční kód. Taky mám v plánu ho nechat přepsat nějaké specifika CSS u mě na blogu, ze kterých mám chuť se zabít. Typicky škálování na různých DPI a podpora mobilních devices.</li>
-      </ol>
-      <ol type="1" id="eee4f724-a035-4035-a3de-d1c036cd5445" class="numbered-list" start="4">
-        <li>Psaní ORM v různých frameworcích. Typicky se tím moc nenamáhám, prostě řeknu co chci, v jakém frameworku a ono to různé dotazy a inserty a podobné věci vymyslí z 98% za mě. Modely si zatím píšu sám.</li>
-      </ol>
-      <ol type="1" id="906de22e-4848-4f1c-98b3-74af0375828e" class="numbered-list" start="5">
-        <li>Psaní HTML parserů. To mě vždycky nebaví, tak jsem prostě vzal kostru objektu s datama co chci (holá dataclass v pythonu), zkopíroval README z mého parseru, vybral kus HTML a řekl GPT ať to doprogramuje. A on to doprogramoval. Tohle skvěle šetří čas.</li>
-      </ol>
-      <ol type="1" id="669f7914-83ca-4e97-a63d-828ef35637b6" class="numbered-list" start="6">
-        <li>Vyrábění JQ dotazů na základě examplů JSONu. Prostě copypaste kusu JSONu, <em>“dej mi jq command co z toho vytáhne všechny X”</em>. Vrátil dlouhý JQ command, který funguje.</li>
-      </ol>
-      <ol type="1" id="2bd9a38b-1aab-4612-a6d4-90fd56bdab73" class="numbered-list" start="7">
-        <li>Generování plantuml a dalších podobných věcí, kdy to nějakou kostru nastřelí na základě nějakého slovního popisu a já pak jen doplním zbývajících 10%. Asi by tím šlo generovat třeba README na základě krátkého snippetu parsování parametrů a pár textových zmínek o detailech jako jak pustit testy (“je to v pytestu”) a tak podobně.</li>
-      </ol>
-      <ol type="1" id="8d6f739b-97e6-49e7-b0a5-08c9fd45eaf8" class="numbered-list" start="8">
-        <li>Generování Dockerfiles a Docker compose věcí. Hrozný oser to psát ručně.</li>
-      </ol>
-      <ol type="1" id="fc67d030-ce21-4748-b009-09303135690b" class="numbered-list" start="9">
-        <li>Debugování. Typicky třeba helm/kubernetes. Někde se zaseknu, nemůžu nic vygooglit. Když chybovou hlášku copypastnu GPT4, tak během pár zpráv vyřeší něco na čem jsem byl zaseklý hodiny (z nedávné doby třeba detaily ohledně anotací kubernetu, route53, ssl certifikátů, values, overrides a podobné lahůdky, nebo když se podělal EFS driver). Jako <em>“odsekávač”</em> co vás <em>odsekne</em> ze <em>záseku</em> (čeština &lt;3), je GPT naprosto geniální a člověk místo aby na něčem zabíjel čas, tak se posunuje úžasně rychle dál.</li>
-      </ol>
-      <ol type="1" id="f753787e-6190-4f39-9e01-0e43f9b0ef79" class="numbered-list" start="10">
-        <li>Do budoucna chci asi nějak nascriptovat překlad blogu do různých dalších jazyků. Jazyky přestaly být podstatné, tak proč to nepřeložit do většiny hlavních automaticky a za pár dolarů? Už teď to má lepší kvalitu než levní lidští překladatelé (150kč/normostrana) z různých tržišť a cena bude v řádu dolarů za článek. Edit: Anglická verze článku byla přesně takhle přeložena a stálo to $7, protože jsem použil GPT4, kdybych použil 3, tak je to asi ještě levnější.</li>
-      </ol>
-      <p id="dc84c1d4-48e7-4a71-8173-59c7539b2221" class="">Samozřejmě je třeba říct dvě věci:</p>
-      <ol type="1" id="b79a7350-013c-4ea7-8961-d7ff250c7ad2" class="numbered-list" start="1">
-        <li>Momentálně tam neposílám osobní, nebo firemní data. Vždycky něco popíšu a nechám si něco vygenerovat. Obecně nic citlivého asi na internet posílat nechcete a tady to platí taky. Bůh ví co s tím za 10 let bude nějaká další verze AI dělat.</li>
-      </ol>
-      <ol type="1" id="bf91d4fa-4a54-4cf0-90d2-1a0c3ea13a3d" class="numbered-list" start="2">
-        <li>Nikdy ničemu z toho z podstaty nevěřím. Je to Shoggoth s kým se bavím, ne kolega. Což ovšem neznamená, že to není užitečné, jen od toho nečekejte zázraky a všechno ověřujte.</li>
-      </ol>
-      <h3 id="7c1c9116-9584-4179-853e-29a781ebf56f" class="">Nějaké plány do budoucna</h3>
-      <p id="0dd6d63b-d5b5-4f85-9939-d7a17c3b02bb" class="">Vyzkoušet tréning menších modelů na vlastních datasetech. Asi formou EC2 v AWS, než kupováním nové grafiky za 50k, ale uvidíme. Vesměs všechny konzumní grafiky mají pořád málo VRAM.</p>
-      <p id="754acebb-d39a-4e7d-845b-d044efa2b114" class="">Vyzkoušet vytvořit vlastní embedingy a vektorové databáze a jak moc dobře to funguje na vyhledávání skrz OpenAI. Lidi to používají, jde mi o to zjistit jakou to má užitečnost a možná to vztáhnout na všechno co mám v PC.</p>
-      <p id="9af91f20-ca22-445e-829f-8ab662292b50" class="">Zkusit nějak vecpat GPT4 různé nástroje, integrovat do různých věcí API a tím zlepšit jeho užitečnost. Nejde mi o užitečnost modelu - ta je fantastická už teď, jen mě nebaví pořád dokola psát ty samé prompty, nebo tam/zpět nějak kostrbatě kopírovat různé kusy kódu. Ideálně to nějak líp integrovat do systému (kliknu pravým, vyberu konverzace s GPT, otevře se mi moje custom gui kde řeším ty data s chatbotem).</p>
-      <h2 id="e0bd251d-faca-4bfc-9471-75287885d946" class="">Trendy a budoucnost</h2>
-      <p id="ad535e6a-9647-48d1-9174-bdc30e7d24d9" class="">Očividné jsou samozřejmě větší modely, ale spíš taky modely s větším kontextovým oknem. Osobně jsem si zatím ještě nenačetl co to vlastně limituje, ale těch 8k kontextu (jak moc tokenů je ten model schopný vnímat) v GPT4 dělá brutální rozdíl oproti 1/2k GPT3. A to mají i 32k verzi, jen má pomalejší uvedení mezi lidi.</p>
-      <p id="e3290b4e-5245-4217-8296-12327722978c" class="">V roce 2020 jsem v článku <a href="../../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a> psal:</p>
-      <blockquote id="05b7b670-54bc-4f77-98cb-b0f6241058fb" class="">
-        Myslím že se zpřístupněním API se otevře nová pozice „kormidelníka“ výstupu, tedy druh specializace lidí, jenž budou nabízet generování „předpřipravení“ a nastavení parametrů pro řešení konkrétních problémů.
-      </blockquote>
-      <p id="3438bcfe-6a4a-438f-8bf4-88c6bfc0119c" class="">Tak už to existuje jako pracovní pozice a říká se tomu <em>“prompt engineering”</em>. Cool. Co jsem tak viděl, tak se rozjíždí docela business ohledně implementace AI do všeho možného. Často dost vaporware, ale třeba ve vyhledávání přes ty <em>embeddingy</em> to působilo dost hustě.</p>
-      <p id="3b826d74-78f2-4216-9989-8d09fac6b474" class="">Momentálně asi největší problém všech modelů je jejich izolovanost, omezený kontext a neschopnost se učit. Takže do budoucna:</p>
-      <ol type="1" id="a2963632-8df5-438f-97fe-a94c1bd3a9e9" class="numbered-list" start="1">
-        <li>Nebudou izolované - budou mít přístup k nástrojům a například bude jednoduché do nich nacpat svoje data. Tohle vnímám jako velkou bolest, ideálně bych to chtěl mít lokálně běžící a napříč vším. <em>“Najdi mi odkaz co včera posílal kamarád na IRC”</em>. <em>“Před pár lety jsem napsal script co vypisuje strukturu HTML webů, najdi ho mezi stovkama dalších”</em>. <em>“Tu akci co jsem teď udělal, napiš na ní script a přiřaď klávesovou zkratku”</em>. <em>“Ty data co teď vidím na monitoru, udělej s nima tohle a tohle”</em>. Siri a Alexa, co není úplně dementní a k ničemu. “Nástroje” (integrace s různými API) už jsou v betaverzi a prý to funguje skvěle.</li>
-      </ol>
-      <ol type="1" id="e9a3ca52-8ccb-493c-8502-d834a51cb235" class="numbered-list" start="2">
-        <li>Budou mít čím dal větší kontext. Jednou se budeme těm 32k kontextu smát a nechápat, stejně jako si neumíme představit fungovat dneska na osmibitu s 32k RAM.</li>
-      </ol>
-      <ol type="1" id="a1e6860c-2434-499d-a6d0-954cd1928381" class="numbered-list" start="3">
-        <li>Modely se samozřejmě budou učit, a budou mít různé formy dlouhodobé paměti, ať už přeučení, nebo věci jako <a href="https://www.pinecone.io/">pinecone</a> a další odkladače embedingů. Taky budou mít integrovanou reflexi, tedy schopnost nějak vidět do vlastního uvažování a například vyložit tokenizaci, jak jsou uloženy data a tak podobně. Tohle dneska jde zjistit, ale je to brutálně složité a kostrbaté.
-        </li>
-      </ol>
-      <p id="882cfca8-da6a-40db-8f4b-501397c6a57e" class="">Postupně budou schopny dělat úplně všechno. To už jsou vesměs teď, akorát je to v plenkách, alignment občas nefunguje a sem tam stojí víc námahy to modelu vysvětlit, než to udělat ručně. Ale zlepšuje se to skokama na úroveň, která mě stále překvapuje, přestože jsem docela informovaný.</p>
-      <h2 id="6ee05db9-ff9b-43e0-a59f-24bf64683e43" class="">AGI</h2>
-      <p id="507303b8-4ab4-410a-b10d-3f42c31001ca" class="">A blíží se konec. Ne lidstva, ale blogu. Takže k AGI:</p>
-      <p id="5298ea4e-80a4-45d2-9246-1166d7415a13" class="">Podle mého názoru tohle přímo povede k AGI, tedy Artificial General Intelligence, AI která je v průměru schopná <em>všeho</em> intelektuálního stejně dobře, nebo líp než <em>člověk</em> (což neznamená že bude <em>pořád</em> dělat <em>všechno</em> líp než <em>všichni</em> ostatní).</p>
-      <p id="96e3646e-54d6-477c-98c6-37b3f456e1c4" class="">Ne že by to bylo úplně na dohled, ale teď je to jen otázka vyzkoušení různých přístupů, zlepšení škálování a tak podobně. Po sto letech kdy nikdo neměl vůbec žádné tušení co jak na to, a vědci se ani nedokázali shodnout na pojmu “inteligence”, je tohle konečně tady. Jen je to zatím stále poněkud hloupé.</p>
-      <p id="39ec2e92-2004-4167-900a-085920fec82c" class="">Tohle je jako první letadlo. Letí to, hurá. Ale hlavně to ukazuje <em>cestu</em>, a že <em>je to možné</em>, a nejspíš i <em>jak</em>. Teď jde jen o to na tom chvíli dělat, starým dobrým iterativním vývojem.</p>
-      <p id="88788a43-2b77-4db4-9349-e30fd6e501ce" class="">Co mě velmi zaujalo jsou jakési <a href="https://en.wikipedia.org/wiki/Strange_loop">strangeloopy</a>, které lidi s GPT poslední dobou dělají. Krásným příkladem je třeba <a href="https://github.com/Torantulino/Auto-GPT">Auto-GPT: An Autonomous GPT-4 Experiment</a>. Což v podstatě vezme váš request, model se prvně zamyslí jak ho udělat, a pak pomocí různých nástrojů interaguje s webem a diskem a tak podobně, a když je něco moc velké (přesahuje to kontextové okno), tak na to spouští další modely, které instruuje. Během toho si různě ukládá informace na disk, které si pak čte zpátky, aby instruoval sám sebe. Teoreticky je to schopné plnit docela vysokoúrovňové cíle, v praxi je to zatím pořád v plenkách a dost často se to někde ztratí.</p>
-      <p id="12d64658-d414-4e8d-a5e6-2a787c5ea928" class="">Momentálně je to tedy dost nepoužitelné, ale celkově to začíná docela dobře simulovat složitější myšlenkové procesy. Dost mi to připomělo můj starý blogpost <a href="../../Crypto/Entity.html" title="Entity">Entity</a>, kde jsem popisoval systém, co není inteligentní, ale pronajímá si na vylepšování sebe sama inteligenci od lidí. A tohle v podstatě dokáže podobně delegovat inteligenci, akorát samo na sebe.</p>
-      <h1 id="6f65d856-a508-4cb1-884b-20a88506b318" class="">Odkazovník</h1>
-      <ul id="98f95bf5-2f13-4c3f-a025-155de42ab388" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/abs/2302.13971">LLaMA: Open and Efficient Foundation Language Models</a>
-        </li>
-      </ul>
-      <ul id="9f2b9b68-27f4-4864-9593-7b5deac52a55" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpaca: A Strong, Replicable Instruction-Following Model</a>
-        </li>
-      </ul>
-      <ul id="987571ef-d8b4-4b77-9738-13629a3d4db6" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a>
-        </li>
-      </ul>
-      <ul id="4a504626-5dad-4cfa-bee8-93896cdeb2d3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/pointnetwork/point-alpaca">point-alpaca</a>
-        </li>
-      </ul>
-      <ul id="25b6d604-a819-4702-9237-d1d26d5fce23" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
-        </li>
-      </ul>
-      <ul id="174deb01-11f2-4f69-a418-2ad4b5c7b4ad" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/pdf/2212.10560.pdf">SELF-INSTRUCT: Aligning Language Model with Self Generated Instructions</a>
-        </li>
-      </ul>
-      <ul id="31e9fc03-17c9-41fb-83ef-cf9cfc90c803" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/pdf/2106.09685.pdf">LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</a>
-        </li>
-      </ul>
-      <ul id="91995b01-1f11-426c-9021-838a7fd267ed" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
-        </li>
-      </ul>
-      <ul id="ec2d7402-a50b-4578-85bc-bf3852854ef3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/pdf/2303.11366.pdf">Reflexion: an autonomous agent with dynamic memory and self-reflection</a>
-        </li>
-      </ul>
-      <ul id="34197024-eff1-4eef-b1d1-3301127d674d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a>
-        </li>
-      </ul>
-      <h3 id="76e1bffc-0708-453f-9115-be8490782e41" class="">Random poznámky</h3>
-      <p id="86edcfb9-127f-4060-96bb-ff11cd4537a4" class="">V twitter infosféře chcete sledovat <a href="https://twitter.com/Plinz">Joshu Bacha</a>. A <a href="https://twitter.com/JCorvinusVR">JCorvinus</a> taky docela jede.</p>
-      <p id="b37ab524-7168-4467-a5c1-81a9dfb5e7ec" class="">Tohle stojí za shlédnutí:</p>
-      <figure id="9a215463-48c2-43ac-bb75-9216b95326b9">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/L_Guz73e6fw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <figure id="38919c51-41fa-4bec-ab26-3a6d79954048">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/goOa0biX6Tc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <p id="30b0fe9b-a3fd-4745-b311-018c41fd523e" class="">Nekonečné diskuze o morálce a copyrightu a inteligenci a zneužitelnosti a tak podobně jsou podle mého názoru jalový <a href="https://www.definitions.net/definition/bikeshedding">bikeshedding</a>. Lidi to pořád řeší, protože to může řešit každý, ale na výsledku debaty naprosto nezáleží. Neplýtvat na tom čas.</p>
-      <p id="3cad6498-a8e6-4e30-92bb-5faa254e271c" class="">Depresi z toho že AI bude umět všechno líp než vy asi netřeba, už teď existuje na světě někdo, kdo asi umí cokoliv z toho co umíte líp než vy. Pokud berete motivaci jen z tohohle, tak si prostě najděte jinou motivaci. Třeba se zamyslete jak vám to umožní zlepšit svůj potenciál dosahovat cílů které fakt chcete.</p>
-      <h3 id="e85c478b-0f2f-423b-a326-993777bd49c6" class="">Edit <time>@2023/04/20</time></h3>
-      <p id="d63dcbd9-3c05-496b-b9b1-da8136f5eaa1" class="">Pár dalších zajímavých odkazů</p>
-      <ul id="972560d6-372c-444b-8600-d7d473602411" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://twitter.com/lmsysorg/status/1646618380114468864">Vicuna 1.1 byla vydána</a>
-        </li>
-      </ul>
-      <ul id="6643176a-1282-4096-951e-79dbccb35584" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.lesswrong.com/posts/566kBoPi76t8KAkoD/on-autogpt">On AutoGPT</a>
-        </li>
-      </ul>
-      <ul id="e7bce56d-186e-4156-9a8e-41fceb0747dd" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism">Cyborgism</a>
-        </li>
-      </ul>
-      <ul id="6f939c2f-217c-4e31-bce8-0deace6546c0" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://twitter.com/HarshaAngeri/status/1646563694686654467">BabyAGI</a> (<a href="https://github.com/yoheinakajima/babyagi">github</a>)
-        </li>
-      </ul>
-      <ul id="f14180b5-11ae-47c6-9975-306b8ad2e910" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/yeagerai/yeagerai-agent">Yeager.ai Agent</a> (github)
-        </li>
-      </ul>
-      <ul id="8792ec98-f1d1-4bb3-bac6-37a5b2bea684" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://python.langchain.com/en/latest/index.html">LangChain</a>
-        </li>
-      </ul>
-      <ul id="faa8d769-a24f-4293-a2bc-cc8ef5545e97" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://vercel.com/templates/ai">https://vercel.com/templates/ai</a> (Discover templates for building Artificial Intelligence (AI) applications.)
-        </li>
-      </ul>
-      <ul id="0f956d80-85de-44fd-88c1-b767b9fa7eac" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/abs/2304.05332">Emergent autonomous scientific research capabilities of large language models</a>
-        </li>
-      </ul>
-      <ul id="d3472515-50d9-4e8c-9c98-750535590ac9" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.nextplatform.com/2022/12/01/counting-the-cost-of-training-large-language-models/">COUNTING THE COST OF TRAINING LARGE LANGUAGE MODELS</a>
-        </li>
-      </ul>
-      <ul id="84a46bf4-5ffc-4d35-b421-c0704c5d5a13" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.nextplatform.com/2023/03/29/cerebras-smashes-ai-wide-open-countering-hypocrites/">CEREBRAS SMASHES AI WIDE OPEN, COUNTERING HYPOCRITES</a>
-        </li>
-      </ul>
-      <ul id="b9b81176-2d0c-4ee6-9501-303ef33f3213" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
-        </li>
-      </ul>
-      <ul id="2c51db83-442f-477f-a91f-7734a3a5d10f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
-        </li>
-      </ul>
-      <ul id="902bfcf0-7e4b-47c8-ad01-43d6dfb1ee8a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://arxiv.org/pdf/2304.06762.pdf">Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study</a>
-        </li>
-      </ul>
-      <ul id="f8521eb2-639d-4a7b-b584-b54e234e500e" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://blog.replit.com/llm-training">How to train your own Large Language Models</a>
-        </li>
-      </ul>
-      <ul id="c90952c4-7fa2-4a9d-b9ae-ec58c9524fe3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat">DeepSpeed Chat: Easy, Fast and Affordable RLHF Training of ChatGPT-like Models at All Scales</a>
-        </li>
-      </ul>
-      <ul id="3a31edb5-02ba-4f07-a347-94be28ac9c0e" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://twitter.com/mitchellh/status/1638967450510458882">https://twitter.com/mitchellh/status/1638967450510458882</a>
-        </li>
-      </ul>
-      <p id="522baa72-933d-41e8-86d4-af8362583852" class="">Taky <a href="https://www.reddit.com/user/lostlifon/">Nofil z redditu</a> posílá dobré shrnutí novinek každý týden: <a href="https://www.reddit.com/r/ChatGPT/comments/12o29gl/gpt4_week_4_the_rise_of_agents_and_the_beginning/">GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era</a>.</p>
-      <h1 id="a18d9467-0175-4d60-b451-c4826457fcfd" class="">Diskuze</h1>
-      <ul id="c14d1584-b316-4767-bf41-f112701fb65a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.abclinuxu.cz/blog/bystroushaak/2023/4/jak-na-vlastni-llm-gpt/diskuse">abclinuxu</a> (114+ příspěvků)
-        </li>
-      </ul>
-      <p id="a68443f7-cc4d-49cb-980d-3ac6cc101d1b" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d86676b9-fc73-4268-b92c-4b17fcd92bab" class="">Dva malé modely</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5727b4b4-9b88-4c2d-910e-445f383ce347" class="">Zajímavé use-cases z poslední doby:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c8ba3214-b501-4be6-ac02-9634598436eb" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.reddit.com/r/LocalLLaMA/comments/12c4hyx/introducing_medalpaca_language_models_for_medical/">Introducing MedAlpaca: Language Models for Medical Question-Answering</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="bd57e383-df74-41b0-a11d-7d048d7c0966" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.reddit.com/r/LocalLLaMA/comments/12gj0l0/i_trained_llama7b_on_unreal_engine_5s/">I trained llama7b on Unreal Engine 5’s documentation</a> (<a href="https://github.com/bublint/ue5-llama-lora">github</a>)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8ecffd47-0c9b-4676-b54d-3799629ca81c" class="">Obecně se dá říct, že docela dobrý use case pro tyhle malé modely je natrénovat je nad nějakým datasetem a pak je používat jako search engine, který je schopný do jisté míry odpovídat na otázky ohledně těch trénovacích dat. Taky je teoreticky schopný hledat podle kontextu, ala že mu popíšete co má funkce dělat a on jí najde.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1dc62743-43a1-4948-a40c-6bb7970d9279" class="">K trénování jsem zatím ještě nedoiteroval, takže snad v blogu někdy příště.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="93e87ffe-b903-4491-a35e-777205e8e78d" class="">GPT4</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="935136af-8ebb-4139-acfd-cd9acf5f3a2c" class="">Malé modely jsou cool a mají svoje použití, ale srovnávat s GPT4 se tenhle pár týdnů starý vývoj nedá.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="db97da60-c389-4a62-9c04-66d77ac8f177" class="">Od doby co vyšel GPT4 říkám pořád všem že naprosto nemá smysl ztrácet čas s GPT3 (GPT3.5). Ten rozdíl je <em>brutální</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5f972e71-2b83-4449-b646-b6c16cb9e5a1" class="">Můj osobní pocit z toho je někde mezi ohromením, bázní, nostalgií ze současnosti pohledem budoucnosti (bylo fajn programovat, škoda že už jsme u konce) a opilostí možnostmi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="8b48cc21-6840-4f11-931e-4fc09d4024cb" class="">Kde vzít přístup k GPT4</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="073a2c0f-12ed-4080-b19b-863c20efa8d9" class="">Jedna možnost je samozřejmě si zaplatit <em>chat plus</em>, ale to stojí 20$/měsíc a má to momentálně docela přísný rate limiting:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="47ed4fe4-3f76-4fc4-80b8-017593508121" class="">
+          GPT-4 currently has a cap of 25 messages every 3 hours.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="7cc01057-a7e0-4c9c-92d4-6faf02de1658" class="">
+          GPT-4 má v současnosti limit 25 zpráv každé 3 hodiny.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="27b39a00-be49-4ee9-a5d8-9e44c79d1e5b" class="">Proto doporučuji se zaregistrovat na <a href="https://platform.openai.com/playground">playgroundu</a>, jakémsi testovacím webu pro různé modely, kde je možné si s nimi hrát, než je začnete používat přes API.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3ef4a2e5-4ec8-4ebe-8753-37cef9e4ec58" class="">Do žádosti o přístup stačí napsat něco jako že jste developer a že si to chcete osahat. Musíte to slinkovat s kreditkou a počítejte s tím že se za použití <a href="https://openai.com/pricing">platí</a>, ale vesměs dost málo (týdně jsem utratil třeba dva dolary).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="b74caaf5-64e0-44fe-bc35-2db187a731a1" class="">Sparks of Artificial General Intelligence</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a2da6ce8-48b1-4285-a8fb-3456dab6cf6d" class="">Vyšlo <a href="https://arxiv.org/pdf/2303.12712.pdf">Sparks of Artificial General Intelligence: Early experiments with GPT-4</a>. A to ukázalo, že se změnilo všechno, jen si většina z nás ještě nevšimla.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="189bc4e0-c2f9-4236-9b59-8109754230f8" class="">Tady jsou nějaké drobty z toho vysosané jako video:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="677d7171-164b-4345-ac9e-0907140ffdd2">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Mqg3aTGNxZ0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="866a0086-2001-497f-95e9-a6fda161a9a9" class="">Nebo tady jako delší talk:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="ac3ca78d-8578-434d-8634-8c696524d8c4">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/qbIk7-JPB2c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2bb2c6bb-fdef-40a1-b09d-be4757d4fbe2" class="">Ale obecně doporučuji si přečíst to PDF, čte se to jak sci-fi. Mohl bych se snažit to asi nějak víc vychválit a vnutit, ale meh. Stojí to za to.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c6af8207-eb37-44ab-ba6a-91775856eb01" class="">Use cases pro inspiraci (lidi se ptali)</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="266189ba-45bf-40db-878a-89461f025e06" class="">Tak nějak všechno. Beru to prostě jako <em>“intelektuální motor”</em>, do kterého se dá naházet co chcete a ono to většinou nějak udělá, typicky líp než random kontraktor na mikro tržištích. Ale kdybych měl něco vybrat:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="ea948c2d-751f-44bb-ba01-4dbd96422077" class="numbered-list" start="1">
+          <li>Nápověda a plnění konkrétních věcí k PyQt. Většinou vím co chci, nemůžu si vzpomenout na jméno konkrétní metody, nebo objektu, nebo co importovat. Tak to napíšu GPT4 a ono mi vrátí widget, nebo nějakou operaci. Ideální použití, protože to můžu jednoduše kontrolovat. Výhoda je že to často zasadí i do kontextu, když tam pastnu třeba jména existujících proměnných.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="a88a5925-698a-4421-858a-637be7393efa" class="numbered-list" start="2">
+          <li>To samé s boto3. Dělám v práci dost často s AWS v pythonu a občas si nemůžu vzpomenout na parametry DynamoDB query, nebo jestli se někde používá client, nebo resource a tak podobně. Super hlavně na ty složitější věci <em>“dej mi klienta co se připojí někam a bude filtrovat resources podle properties timestamp tohohle objektu a ..”</em>. Během minuty to vyřeší něco na čem jsem typicky strávil třeba půl hodiny hledáním a zkoušením. Žádný složitý kód, spíš nudný boilerplate specifik různých knihoven.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="1008a468-580e-4c36-a965-da58bdf5087b" class="numbered-list" start="3">
+          <li>Procházecí galerie v čistém JS na blogu. Byl jsem líný to programovat ručně (a nejsem nadšený z JS), tak jsem prostě vzal existující javascript, který galerii neřešil vůbec, řekl GPT4 co chci. Stačilo chvíli s ním konverzovat ohledně toho co se mi na jeho řešení nelíbí, jako že chci větší tlačítka vpřed a vzad, a pak z toho byl funkční kód. Taky mám v plánu ho nechat přepsat nějaké specifika CSS u mě na blogu, ze kterých mám chuť se zabít. Typicky škálování na různých DPI a podpora mobilních devices.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="eee4f724-a035-4035-a3de-d1c036cd5445" class="numbered-list" start="4">
+          <li>Psaní ORM v různých frameworcích. Typicky se tím moc nenamáhám, prostě řeknu co chci, v jakém frameworku a ono to různé dotazy a inserty a podobné věci vymyslí z 98% za mě. Modely si zatím píšu sám.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="906de22e-4848-4f1c-98b3-74af0375828e" class="numbered-list" start="5">
+          <li>Psaní HTML parserů. To mě vždycky nebaví, tak jsem prostě vzal kostru objektu s datama co chci (holá dataclass v pythonu), zkopíroval README z mého parseru, vybral kus HTML a řekl GPT ať to doprogramuje. A on to doprogramoval. Tohle skvěle šetří čas.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="669f7914-83ca-4e97-a63d-828ef35637b6" class="numbered-list" start="6">
+          <li>Vyrábění JQ dotazů na základě examplů JSONu. Prostě copypaste kusu JSONu, <em>“dej mi jq command co z toho vytáhne všechny X”</em>. Vrátil dlouhý JQ command, který funguje.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="2bd9a38b-1aab-4612-a6d4-90fd56bdab73" class="numbered-list" start="7">
+          <li>Generování plantuml a dalších podobných věcí, kdy to nějakou kostru nastřelí na základě nějakého slovního popisu a já pak jen doplním zbývajících 10%. Asi by tím šlo generovat třeba README na základě krátkého snippetu parsování parametrů a pár textových zmínek o detailech jako jak pustit testy (“je to v pytestu”) a tak podobně.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="8d6f739b-97e6-49e7-b0a5-08c9fd45eaf8" class="numbered-list" start="8">
+          <li>Generování Dockerfiles a Docker compose věcí. Hrozný oser to psát ručně.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="fc67d030-ce21-4748-b009-09303135690b" class="numbered-list" start="9">
+          <li>Debugování. Typicky třeba helm/kubernetes. Někde se zaseknu, nemůžu nic vygooglit. Když chybovou hlášku copypastnu GPT4, tak během pár zpráv vyřeší něco na čem jsem byl zaseklý hodiny (z nedávné doby třeba detaily ohledně anotací kubernetu, route53, ssl certifikátů, values, overrides a podobné lahůdky, nebo když se podělal EFS driver). Jako <em>“odsekávač”</em> co vás <em>odsekne</em> ze <em>záseku</em> (čeština &lt;3), je GPT naprosto geniální a člověk místo aby na něčem zabíjel čas, tak se posunuje úžasně rychle dál.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="f753787e-6190-4f39-9e01-0e43f9b0ef79" class="numbered-list numbered-list-digits-2" start="10">
+          <li>Do budoucna chci asi nějak nascriptovat překlad blogu do různých dalších jazyků. Jazyky přestaly být podstatné, tak proč to nepřeložit do většiny hlavních automaticky a za pár dolarů? Už teď to má lepší kvalitu než levní lidští překladatelé (150kč/normostrana) z různých tržišť a cena bude v řádu dolarů za článek. Edit: Anglická verze článku byla přesně takhle přeložena a stálo to $7, protože jsem použil GPT4, kdybych použil 3, tak je to asi ještě levnější.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dc84c1d4-48e7-4a71-8173-59c7539b2221" class="">Samozřejmě je třeba říct dvě věci:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="b79a7350-013c-4ea7-8961-d7ff250c7ad2" class="numbered-list" start="1">
+          <li>Momentálně tam neposílám osobní, nebo firemní data. Vždycky něco popíšu a nechám si něco vygenerovat. Obecně nic citlivého asi na internet posílat nechcete a tady to platí taky. Bůh ví co s tím za 10 let bude nějaká další verze AI dělat.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="bf91d4fa-4a54-4cf0-90d2-1a0c3ea13a3d" class="numbered-list" start="2">
+          <li>Nikdy ničemu z toho z podstaty nevěřím. Je to Shoggoth s kým se bavím, ne kolega. Což ovšem neznamená, že to není užitečné, jen od toho nečekejte zázraky a všechno ověřujte.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="7c1c9116-9584-4179-853e-29a781ebf56f" class="">Nějaké plány do budoucna</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0dd6d63b-d5b5-4f85-9939-d7a17c3b02bb" class="">Vyzkoušet tréning menších modelů na vlastních datasetech. Asi formou EC2 v AWS, než kupováním nové grafiky za 50k, ale uvidíme. Vesměs všechny konzumní grafiky mají pořád málo VRAM.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="754acebb-d39a-4e7d-845b-d044efa2b114" class="">Vyzkoušet vytvořit vlastní embedingy a vektorové databáze a jak moc dobře to funguje na vyhledávání skrz OpenAI. Lidi to používají, jde mi o to zjistit jakou to má užitečnost a možná to vztáhnout na všechno co mám v PC.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9af91f20-ca22-445e-829f-8ab662292b50" class="">Zkusit nějak vecpat GPT4 různé nástroje, integrovat do různých věcí API a tím zlepšit jeho užitečnost. Nejde mi o užitečnost modelu - ta je fantastická už teď, jen mě nebaví pořád dokola psát ty samé prompty, nebo tam/zpět nějak kostrbatě kopírovat různé kusy kódu. Ideálně to nějak líp integrovat do systému (kliknu pravým, vyberu konverzace s GPT, otevře se mi moje custom gui kde řeším ty data s chatbotem).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="e0bd251d-faca-4bfc-9471-75287885d946" class="">Trendy a budoucnost</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ad535e6a-9647-48d1-9174-bdc30e7d24d9" class="">Očividné jsou samozřejmě větší modely, ale spíš taky modely s větším kontextovým oknem. Osobně jsem si zatím ještě nenačetl co to vlastně limituje, ale těch 8k kontextu (jak moc tokenů je ten model schopný vnímat) v GPT4 dělá brutální rozdíl oproti 1/2k GPT3. A to mají i 32k verzi, jen má pomalejší uvedení mezi lidi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e3290b4e-5245-4217-8296-12327722978c" class="">V roce 2020 jsem v článku <a href="../../Predstaveni/GPT-3.html" title="GPT-3">GPT-3</a> psal:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="05b7b670-54bc-4f77-98cb-b0f6241058fb" class="">
+          Myslím že se zpřístupněním API se otevře nová pozice „kormidelníka“ výstupu, tedy druh specializace lidí, jenž budou nabízet generování „předpřipravení“ a nastavení parametrů pro řešení konkrétních problémů.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3438bcfe-6a4a-438f-8bf4-88c6bfc0119c" class="">Tak už to existuje jako pracovní pozice a říká se tomu <em>“prompt engineering”</em>. Cool. Co jsem tak viděl, tak se rozjíždí docela business ohledně implementace AI do všeho možného. Často dost vaporware, ale třeba ve vyhledávání přes ty <em>embeddingy</em> to působilo dost hustě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3b826d74-78f2-4216-9989-8d09fac6b474" class="">Momentálně asi největší problém všech modelů je jejich izolovanost, omezený kontext a neschopnost se učit. Takže do budoucna:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="a2963632-8df5-438f-97fe-a94c1bd3a9e9" class="numbered-list" start="1">
+          <li>Nebudou izolované - budou mít přístup k nástrojům a například bude jednoduché do nich nacpat svoje data. Tohle vnímám jako velkou bolest, ideálně bych to chtěl mít lokálně běžící a napříč vším. <em>“Najdi mi odkaz co včera posílal kamarád na IRC”</em>. <em>“Před pár lety jsem napsal script co vypisuje strukturu HTML webů, najdi ho mezi stovkama dalších”</em>. <em>“Tu akci co jsem teď udělal, napiš na ní script a přiřaď klávesovou zkratku”</em>. <em>“Ty data co teď vidím na monitoru, udělej s nima tohle a tohle”</em>. Siri a Alexa, co není úplně dementní a k ničemu. “Nástroje” (integrace s různými API) už jsou v betaverzi a prý to funguje skvěle.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="e9a3ca52-8ccb-493c-8502-d834a51cb235" class="numbered-list" start="2">
+          <li>Budou mít čím dal větší kontext. Jednou se budeme těm 32k kontextu smát a nechápat, stejně jako si neumíme představit fungovat dneska na osmibitu s 32k RAM.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="a1e6860c-2434-499d-a6d0-954cd1928381" class="numbered-list" start="3">
+          <li>Modely se samozřejmě budou učit, a budou mít různé formy dlouhodobé paměti, ať už přeučení, nebo věci jako <a href="https://www.pinecone.io/">pinecone</a> a další odkladače embedingů. Taky budou mít integrovanou reflexi, tedy schopnost nějak vidět do vlastního uvažování a například vyložit tokenizaci, jak jsou uloženy data a tak podobně. Tohle dneska jde zjistit, ale je to brutálně složité a kostrbaté.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="882cfca8-da6a-40db-8f4b-501397c6a57e" class="">Postupně budou schopny dělat úplně všechno. To už jsou vesměs teď, akorát je to v plenkách, alignment občas nefunguje a sem tam stojí víc námahy to modelu vysvětlit, než to udělat ručně. Ale zlepšuje se to skokama na úroveň, která mě stále překvapuje, přestože jsem docela informovaný.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="6ee05db9-ff9b-43e0-a59f-24bf64683e43" class="">AGI</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="507303b8-4ab4-410a-b10d-3f42c31001ca" class="">A blíží se konec. Ne lidstva, ale blogu. Takže k AGI:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5298ea4e-80a4-45d2-9246-1166d7415a13" class="">Podle mého názoru tohle přímo povede k AGI, tedy Artificial General Intelligence, AI která je v průměru schopná <em>všeho</em> intelektuálního stejně dobře, nebo líp než <em>člověk</em> (což neznamená že bude <em>pořád</em> dělat <em>všechno</em> líp než <em>všichni</em> ostatní).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="96e3646e-54d6-477c-98c6-37b3f456e1c4" class="">Ne že by to bylo úplně na dohled, ale teď je to jen otázka vyzkoušení různých přístupů, zlepšení škálování a tak podobně. Po sto letech kdy nikdo neměl vůbec žádné tušení co jak na to, a vědci se ani nedokázali shodnout na pojmu “inteligence”, je tohle konečně tady. Jen je to zatím stále poněkud hloupé.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="39ec2e92-2004-4167-900a-085920fec82c" class="">Tohle je jako první letadlo. Letí to, hurá. Ale hlavně to ukazuje <em>cestu</em>, a že <em>je to možné</em>, a nejspíš i <em>jak</em>. Teď jde jen o to na tom chvíli dělat, starým dobrým iterativním vývojem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="88788a43-2b77-4db4-9349-e30fd6e501ce" class="">Co mě velmi zaujalo jsou jakési <a href="https://en.wikipedia.org/wiki/Strange_loop">strangeloopy</a>, které lidi s GPT poslední dobou dělají. Krásným příkladem je třeba <a href="https://github.com/Torantulino/Auto-GPT">Auto-GPT: An Autonomous GPT-4 Experiment</a>. Což v podstatě vezme váš request, model se prvně zamyslí jak ho udělat, a pak pomocí různých nástrojů interaguje s webem a diskem a tak podobně, a když je něco moc velké (přesahuje to kontextové okno), tak na to spouští další modely, které instruuje. Během toho si různě ukládá informace na disk, které si pak čte zpátky, aby instruoval sám sebe. Teoreticky je to schopné plnit docela vysokoúrovňové cíle, v praxi je to zatím pořád v plenkách a dost často se to někde ztratí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="12d64658-d414-4e8d-a5e6-2a787c5ea928" class="">Momentálně je to tedy dost nepoužitelné, ale celkově to začíná docela dobře simulovat složitější myšlenkové procesy. Dost mi to připomělo můj starý blogpost <a href="../../Crypto/Entity.html" title="Entity">Entity</a>, kde jsem popisoval systém, co není inteligentní, ale pronajímá si na vylepšování sebe sama inteligenci od lidí. A tohle v podstatě dokáže podobně delegovat inteligenci, akorát samo na sebe.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="6f65d856-a508-4cb1-884b-20a88506b318" class="">Odkazovník</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="98f95bf5-2f13-4c3f-a025-155de42ab388" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/abs/2302.13971">LLaMA: Open and Efficient Foundation Language Models</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="9f2b9b68-27f4-4864-9593-7b5deac52a55" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpaca: A Strong, Replicable Instruction-Following Model</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="987571ef-d8b4-4b77-9738-13629a3d4db6" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4a504626-5dad-4cfa-bee8-93896cdeb2d3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/pointnetwork/point-alpaca">point-alpaca</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="25b6d604-a819-4702-9237-d1d26d5fce23" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="174deb01-11f2-4f69-a418-2ad4b5c7b4ad" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/pdf/2212.10560.pdf">SELF-INSTRUCT: Aligning Language Model with Self Generated Instructions</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="31e9fc03-17c9-41fb-83ef-cf9cfc90c803" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/pdf/2106.09685.pdf">LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="91995b01-1f11-426c-9021-838a7fd267ed" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="ec2d7402-a50b-4578-85bc-bf3852854ef3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/pdf/2303.11366.pdf">Reflexion: an autonomous agent with dynamic memory and self-reflection</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="34197024-eff1-4eef-b1d1-3301127d674d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/abs/2304.03442">Generative Agents: Interactive Simulacra of Human Behavior</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="76e1bffc-0708-453f-9115-be8490782e41" class="">Random poznámky</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="86edcfb9-127f-4060-96bb-ff11cd4537a4" class="">V twitter infosféře chcete sledovat <a href="https://twitter.com/Plinz">Joshu Bacha</a>. A <a href="https://twitter.com/JCorvinusVR">JCorvinus</a> taky docela jede.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b37ab524-7168-4467-a5c1-81a9dfb5e7ec" class="">Tohle stojí za shlédnutí:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="9a215463-48c2-43ac-bb75-9216b95326b9">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/L_Guz73e6fw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="38919c51-41fa-4bec-ab26-3a6d79954048">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/goOa0biX6Tc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="30b0fe9b-a3fd-4745-b311-018c41fd523e" class="">Nekonečné diskuze o morálce a copyrightu a inteligenci a zneužitelnosti a tak podobně jsou podle mého názoru jalový <a href="https://www.definitions.net/definition/bikeshedding">bikeshedding</a>. Lidi to pořád řeší, protože to může řešit každý, ale na výsledku debaty naprosto nezáleží. Neplýtvat na tom čas.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3cad6498-a8e6-4e30-92bb-5faa254e271c" class="">Depresi z toho že AI bude umět všechno líp než vy asi netřeba, už teď existuje na světě někdo, kdo asi umí cokoliv z toho co umíte líp než vy. Pokud berete motivaci jen z tohohle, tak si prostě najděte jinou motivaci. Třeba se zamyslete jak vám to umožní zlepšit svůj potenciál dosahovat cílů které fakt chcete.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="e85c478b-0f2f-423b-a326-993777bd49c6" class="">Edit <time>@2023/04/20</time></h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d63dcbd9-3c05-496b-b9b1-da8136f5eaa1" class="">Pár dalších zajímavých odkazů</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="972560d6-372c-444b-8600-d7d473602411" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://twitter.com/lmsysorg/status/1646618380114468864">Vicuna 1.1 byla vydána</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="6643176a-1282-4096-951e-79dbccb35584" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.lesswrong.com/posts/566kBoPi76t8KAkoD/on-autogpt">On AutoGPT</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e7bce56d-186e-4156-9a8e-41fceb0747dd" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism">Cyborgism</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="6f939c2f-217c-4e31-bce8-0deace6546c0" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://twitter.com/HarshaAngeri/status/1646563694686654467">BabyAGI</a> (<a href="https://github.com/yoheinakajima/babyagi">github</a>)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="f14180b5-11ae-47c6-9975-306b8ad2e910" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/yeagerai/yeagerai-agent">Yeager.ai Agent</a> (github)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8792ec98-f1d1-4bb3-bac6-37a5b2bea684" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://python.langchain.com/en/latest/index.html">LangChain</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="faa8d769-a24f-4293-a2bc-cc8ef5545e97" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://vercel.com/templates/ai">https://vercel.com/templates/ai</a> (Discover templates for building Artificial Intelligence (AI) applications.)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0f956d80-85de-44fd-88c1-b767b9fa7eac" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/abs/2304.05332">Emergent autonomous scientific research capabilities of large language models</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d3472515-50d9-4e8c-9c98-750535590ac9" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.nextplatform.com/2022/12/01/counting-the-cost-of-training-large-language-models/">COUNTING THE COST OF TRAINING LARGE LANGUAGE MODELS</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="84a46bf4-5ffc-4d35-b421-c0704c5d5a13" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.nextplatform.com/2023/03/29/cerebras-smashes-ai-wide-open-countering-hypocrites/">CEREBRAS SMASHES AI WIDE OPEN, COUNTERING HYPOCRITES</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b9b81176-2d0c-4ee6-9501-303ef33f3213" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://huggingface.co/blog/stackllama">StackLLaMA: A hands-on guide to train LLaMA with RLHF</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2c51db83-442f-477f-a91f-7734a3a5d10f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://huggingface.co/blog/rlhf">Illustrating Reinforcement Learning from Human Feedback (RLHF)</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="902bfcf0-7e4b-47c8-ad01-43d6dfb1ee8a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://arxiv.org/pdf/2304.06762.pdf">Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="f8521eb2-639d-4a7b-b584-b54e234e500e" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://blog.replit.com/llm-training">How to train your own Large Language Models</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c90952c4-7fa2-4a9d-b9ae-ec58c9524fe3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat">DeepSpeed Chat: Easy, Fast and Affordable RLHF Training of ChatGPT-like Models at All Scales</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="3a31edb5-02ba-4f07-a347-94be28ac9c0e" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://twitter.com/mitchellh/status/1638967450510458882">https://twitter.com/mitchellh/status/1638967450510458882</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="522baa72-933d-41e8-86d4-af8362583852" class="">Taky <a href="https://www.reddit.com/user/lostlifon/">Nofil z redditu</a> posílá dobré shrnutí novinek každý týden: <a href="https://www.reddit.com/r/ChatGPT/comments/12o29gl/gpt4_week_4_the_rise_of_agents_and_the_beginning/">GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="a18d9467-0175-4d60-b451-c4826457fcfd" class="">Diskuze</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="c14d1584-b316-4767-bf41-f112701fb65a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.abclinuxu.cz/blog/bystroushaak/2023/4/jak-na-vlastni-llm-gpt/diskuse">abclinuxu</a> (114+ příspěvků)
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a68443f7-cc4d-49cb-980d-3ac6cc101d1b" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

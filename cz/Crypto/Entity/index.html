@@ -141,362 +141,802 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Crypto">Crypto</a> / Entity
   <article id="66d4bdc1-cea6-4619-b9ba-5a146b51d507" class="page sans">
     <header>
-      <h1 class="page-title">Entity</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Entity</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="d8c7c169-0989-4b54-bce1-ddbf726ef149" class=""><time>@2014/05/10</time></p>
-      <p id="780caac3-9964-4010-b9ef-2e4abfa579a4" class="">Umělá inteligence saje, hlavně proto, že zatím stále neexistuje. A to přestože je očekávána déle, než praktické fúzní reaktory a pravděpodobně bude trvat ještě nemálo času, než se dočkáme. To ovšem neznamená, že tu s námi nebudou neživé umělé entity schopné samostatného přežívání v našem světě nezávisle na lidech. Popravdě řečeno, nějaký pátek už tu možná jsou.</p>
-      <h1 id="6c4517b2-4749-4c4d-aefd-d6789b685f84" class="">Předmluva</h1>
-      <p id="1553c271-64a5-4b47-abb3-e6eca82aca7c" class="">Tenhle text jsem&nbsp;<a href="https://web.archive.org/web/20100724062141/http://kitakitsune.org/raw/Myslenky/">začal psát</a>&nbsp;na mobilu, jedné nespecifikované noci v roce 2008, po přečtení první poloviny knihy&nbsp;<a href="http://cs.wikipedia.org/wiki/Koule_-_V%C4%9Bda_na_Zem%C4%9Bplo%C5%A1e">Koule</a>, kde Pratchett připodobnil město k živému organizmu. Ač je to dnes poměrně populární myšlenka, v té době pro něco takového byla nulová podpora. Neexistoval bitcoin, nečetl jsem Daemona a nikde jsem ani nenašel název celého konceptu, který se v dnešní době ustálil na DAO.</p>
-      <p id="6325d062-e587-4857-8296-b48a230214a1" class="">Od té doby jsem článek několikrát přepsal, upravil a předělal, protože vývoj v tomto poli byl tak bouřlivý, že se stačilo pár měsíců psaní nevěnovat a hned vznikaly celá odvětví informačních technologií (kryptoměny například), které drasticky změnily pravděpodobnost a složitost vzniku DAO.</p>
-      <p id="f8006720-c25d-4e73-8c72-3081aa9d269c" class="">Ačkoliv článek stále nepovažuji za kompletní (chybí hlavně praktická implementace a poznatky z praxe, které měly být původně součástí), rozhodl jsem se ho vydat dříve, než zastará natolik, že bude úplně nepoužitelný. Laskavý čtenář mi to doufám promine, nelaskavý si může trhnout nohou.</p>
-      <h1 id="a1b72181-d8c7-4652-a539-c81ad67b4c8d" class="">Úvod</h1>
-      <h2 id="5c2a5e1a-e229-4478-966c-a02c1518ee38" class="">Inteligence</h2>
-      <p id="9a3f462a-84e4-4431-92db-b974d67a6a24" class="">Na začátek jedno tvrzení, na kterém stojí všechny další předpoklady článku:</p>
-      <blockquote id="88fa76d2-912b-41d7-ab87-3bb8ba6dd223" class="">
-        Inteligentně jednající systémy nemusí být nutně inteligentní tak, jak inteligenci chápeme my lidé.&nbsp;<strong>Inteligentní jednání není podmíněné lidským pojetím inteligence.</strong>
-      </blockquote>
-      <p id="a3b82ced-dfac-4191-a747-0ba6c013884a" class="">Toto poněkud odvážné tvrzení je jednou z důležitých myšlenek oboru Umělé inteligence a obvykle je podpořeno jedním zajímavým myšlenkovým experimentem.</p>
-      <h2 id="706db54f-10f9-4b75-abea-a780d9528d0c" class="">Argument čínského pokoje</h2>
-      <p id="bc97a697-1b55-4ed0-a067-32399aa87ac3" class="">Představte si, že do z vnějšku nepřístupné místnosti zavřeme němého a hluchého člověka, který vůbec nerozumí psané čínštině. Jediný způsob, jak s ním komunikovat je úzká škvíra, kterou je možné dovnitř a ven vhazovat lístky s psaným textem. V místnosti se také nachází knihovna, plná čínských knih ve formátu X -&gt; Y (otázka -&gt; odpověď).</p>
-      <p id="220c5fbe-57c8-4534-bc0c-e8d6edef331d" class="">Pokud do místnosti vhodíme papírek s větou X v čínštině, člověk který je tam zavřený ho vezme, prohlédne si co je na něm napsaného a pak tuto sekvenci znaků vyhledá v jedné z knih. Jakmile najde odpověď Y, překreslí jí na druhou stranu papíru a vyhodí ho ven.</p>
-      <p id="b0f78567-101e-418e-ba07-d6696fb4f3bf" class="">Za předpokladu, že jsou v (nekonečné) knihovně odpovědi na všechny otázky, které by mohl Číňan z vnějšku položit, tak tento vnější pozorovatel nebude schopen rozeznat, že si dopisuje s někým, kdo ve skutečnosti nerozumí jeho otázkám.</p>
-      <p id="f898bbc1-2b5e-4339-a0b2-cec3895d26fe" class="">V praxi by knihovna musela být nekonečná a navíc by to stejně nefungovalo tak triviálně, protože můžete jednoduše požadovat odpovědi na otázky, které modifikují proměnné, které by v knihách prostě být napsány nemohly (například 1.&nbsp;"Kolik je 1 + 1?"&nbsp;2.&nbsp;"Jaký bude výsledek, když k výsledku předchozí otázky přičteš 4?"), ale ve své podstatě není člověk z vnějšku schopný rozhodnout, zda se baví s Číňanem, s inteligentním člověkem, s hlupákem, nebo jestli není uvnitř třeba stroj.</p>
-      <h2 id="06705ed1-f010-4189-8ac1-253116cf60f2" class="">Chat-boti</h2>
-      <p id="da6d1d32-2939-4f34-a41c-4b473aea7aca" class="">Na podobném principu jako AČP fungují i různí chat-boti, se kterými se můžete na internetu setkat, rozdíl je hlavně v tom, že odpovědi vybírají náhodně z většího setu, udržují si jakýs-takýs kontext a do jisté velmi omezené míry se učí, většinou však pouze metodou zvětšování slovníku.</p>
-      <p id="f40aa0d4-cd7e-49af-b4b1-878b25bdd63e" class="">Oblíbené jsou také různé triky. Klasikou je odvedení pozornosti člověka jinam, pokud se nepodaří najít odpověď, nebo fuzzy odpovědi, kdy se odpověď více/méně náhodně složí z několika možných pod-odpovědí.</p>
-      <p id="33199b97-41bc-4de5-a115-037a5c01bb69" class="">Přestože čas od času tito boti projdou Turingovým testem, všichni mají jednu věc společnou - nemají v sobě ani náznak inteligence. Ve chvíli kdy přenesete rozhovor do vyšších vrstev abstrakce, tak nedokáží adekvátně reagovat. Není ani zapotřebí zacházet tak daleko, stačí pouze po botovi požadovat informace, které si může odvodit z kontextu;</p>
-      <p id="9f4e752f-76b5-4157-9ade-395129e24d54" class="">Poskytněte botovi informace o vašem věku a věku vašeho imaginárního kamaráda Toma. Pak se zeptejte, jak moc je Tom starší než vy. Naprostá většina botů to nezvládne prostě proto, že ve skutečnosti udržují jen minimální kontext rozhovoru, kdy si zapamatují tak možná vaše jméno. Nedochází zde k žádnému modelování faktů, k zasazování získávaných vědomostí do kontextu.</p>
-      <p id="1be926ff-16be-4c18-89a5-e9cdf44a7060" class="">Chat-boti nejsou ani trochu inteligentní, přesto se najde poměrně velké množství lidí, kteří je nějakou dobu nejsou schopni rozeznat od skutečného člověka.</p>
-      <ul id="45d7a27f-28aa-4fc1-93e1-c0c4ff75201f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://alice.pandorabots.com/">http://alice.pandorabots.com/</a>
-        </li>
-      </ul>
-      <ul id="970b7601-4c70-4c7b-ad3c-88481f974bf6" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.square-bear.co.uk/mitsuku/chat.htm">http://www.square-bear.co.uk/mitsuku/chat.htm</a>
-        </li>
-      </ul>
-      <h2 id="060b4d0c-7fee-4465-b86e-2cb786f83017" class="">Turingův test</h2>
-      <p id="efd0eb14-fd06-49bd-aa9a-642fa360218b" class=""><a href="http://cs.wikipedia.org/wiki/Turing%C5%AFv_test">Turingův test</a>&nbsp;funguje podobně jako AČP, jen s tím rozdílem, že pokoje máme dva. V jednom je člověk (Číňan) a ve druhém počítač, či někdo kdo nerozumí ani trochu čínsky. Úkolem rozhodčího je poté určit, ve kterém pokoji se nachází člověk (Číňan) a ve kterém počítač (hluchý knihovník).</p>
-      <p id="c46ecdcb-1f60-4333-8578-714e4d6c7970" class="">Každoročně se pořádá takzvaná&nbsp;<a href="http://cs.wikipedia.org/wiki/Loebnerova_cena">Loebnerova cena</a>&nbsp;založená na Turingově testu, kam jsou přihlašováni chatboti. Celé to funguje jednoduše - porotce před sebe dostane terminál se dvěma okny. V jednom okně chatuje s člověkem, ve druhém s chatbotem. Oba dva se porotce snaží přesvědčit, že jsou lidé. Vyhrává program, který dokáže alespoň 50% porotců přesvědčit, o svém lidství.</p>
-      <p id="11edff04-8681-4e28-b768-41b8f365b7fd" class="">Cenu zatím nikdo&nbsp;<a href="http://computerworld.cz/technologie/chatoboty-100-let-po-narozeni-alana-turinga-45124">nevyhrál</a>, i když je s podivem, že občas se najdou porotci, kteří skutečně programům naletí.</p>
-      <h2 id="09e767ed-7425-44f2-87b9-40a14a783b62" class="">Kolektivní (distribuovaná) inteligence</h2>
-      <p id="cb213d85-bc2e-441a-9802-43284d7fdadf" class="">Inteligence nemusí být vykazována jen v rámci jednoho organismu - ostatně i mozek samotný je složený z mnoha buněk, které mají své vlastní, specifické a mnohdy složité chování.</p>
-      <h3 id="26103684-c0be-4308-a705-b5737fe8c3ee" class="">Mraveniště</h3>
-      <p id="5c46b263-05fb-483d-b758-7b70f945d25d" class="">Mraveniště je dobrým příkladem distribuované inteligence. Přestože samotní mravenci jsou poměrně primitivní, díky komunikaci vykazují na úrovni celého mraveniště rozsáhlé a sofistikované chování, které by bylo relativně složité&nbsp;"naprogramovat"&nbsp;do samostatného živočicha.</p>
-      <p id="657f595c-bae6-4ed8-9a16-8717fa5f9897" class="">Jeden mravenec přitom nemá nejmenší tušení, co dělá zbytek mraveniště. Nepřemýšlí o tom, co by měl udělat, ani jestli je to zrovna vhodné pro danou situaci, prostě to udělá, podle své genetické výbavy a okolních jevů, jako jednoduchý automat podle programu.</p>
-      <p id="82c33aed-8732-411a-af95-f282215e94d6" class="">Celý mravenec se dá abstrahovat na omezený (a simulovatelný) set reakcí a několik málo komunikačních signálů, které umožňují interagovat s ostatními mravenci. Pokud spustíte dostatek správně naprogramovaných mravenců, vynoří se vám při pohledu na mraveniště relativně sofistikované chování.</p>
-      <h3 id="f1bece9b-ebac-49ec-966e-7d896b59d265" class="">Města</h3>
-      <p id="d1eb0818-95d5-430f-bebb-4857f97742bc" class="">O lidské inteligenci (většinou) nikdo nepochybuje. Málokdy nás ale napadne se podívat na nás samotné, jako na mravence v mraveništi a přenést pohled o úroveň výše. Podívat se na to, co by jsme mohli představovat při pohledu z vesmíru někomu, kdo o nás nemá ani tušení.</p>
-      <p id="644fd045-09c8-43ab-8ccc-f79eb4630f53" class="">Představte si, že na měsíci žije někdo, kdo se nám naprosto nepodobá jak tvarem těla, tak především způsobem uvažování. Žádný náš lidský koncept (snad kromě matematiky) mu není blízký a celou svojí existencí je nám naprosto cizí. Dokonce je možné, že nemá ani tělo, je to třeba jen sofistikovaná jiskra hořící v plynu.</p>
-      <p id="f4517846-d8a4-4928-8c0f-8b61b8486006" class="">Co by takový pozorovatel viděl, kdyby se díval dostatečně výkonným dalekohledem tak, jako se po stovky let dívali lidé na měsíc?</p>
-      <p id="f8458de1-5533-42ca-aac0-f431b2d53541" class="">Viděl by zemi, na které žijí dominantní organizmy; města.</p>
-      <p id="d7701135-8147-4155-a1cc-052eca77410f" class="">Jednotlivá města mají při pohledu z měsíce různé (pravidelné) struktury a rozrůstají se různými způsoby, přesto je v tom vidět určitý řád. Když ne nutně v architektuře, tak v tom jak rostou, jak se mění a jak v nich pulzuje život. Města odolávají počasí a dalším vlivům neorganizované přírody všude kolem, ale neustále se lehce mění. Rostou a požírají maličká města na jejich okrajích - vesnice.</p>
-      <p id="9e9fd3d9-ed98-421f-b979-23dbaa64f6b4" class="">Města spolu komunikují radiovými vlnami a spojují se silnicemi, po kterých každý den proudí miliony buněk. Města v noci svítí a přes den vysávají svými žilami živiny z okolí. Odpady, které v nich vznikají pak vyvrhují na obrovské skládky.</p>
-      <p id="b8f47fc1-b841-4fa9-b634-0769b76a60e6" class="">Miliony malých, z měsíce prakticky neviditelných buněk město neustále předělávají podle skrytých pravidel, které musí mít nějaký smysl, protože tyto buňky pracují po celé zemi dost podobně. Tak jako se mravenci řídí svými programy, tak se lidé řídí ekonomikou, urbanistikou a vlastním pohodlím. To celé neustále hnané dál dostupnou technikou, která dovoluje město přestavět ještě jinak, než jak bylo možné před deseti lety.</p>
-      <p id="0b36e168-f78d-4751-99df-416e52610ca8" class="">Město samotné nemá možnost ovlivňovat lidi nějak přímo. Celé se to ale překvapivě hodně podobá mraveništi, jen místo genetiky vstupuje do hry ekonomika a smysl pro estetiku. Pokud nějaký barák chátrá, dříve nebo později bude opraven, či stržen a na jeho místě bude postaveno něco jiného. Nikoliv proto, že by to nějaké buňky musely udělat a byly k tomu naprogramovány, ale proto, že se jim to (ekonomicky) vyplatí a uspokojuje to jejich smysl pro estetiku.</p>
-      <p id="84420371-116b-4cda-b0d6-04845727e9ed" class="">Tvar a vzhled města je možné do jisté míry odhadovat do budoucnosti. Samozřejmě ne v konkrétních detailech, ale některé věci jsou dost jasné. Budou tam silnice. Někde tam bude vodárna a kanalizace, obchody a nemocnice, hřbitov a fotbalové hřiště, u větších měst bazén. Město, stejně jako mraveniště, není naprogramované v DNA konkrétního živočicha, ale v (často nevědomých) preferencích samoorganizujících se buněk, kterými je tvořeno.</p>
-      <p id="7ce120e9-2649-4c9c-94cb-1dd04c21030c" class="">My lidé si na rozdíl od mravenců umíme uvědomit, že tvoříme společenství a co je za jeho hranicemi. Otázkou ovšem je, jestli tohle není příliš malá abstrakce, jestli tu třeba nejsou větší&nbsp;<a href="https://www.abclinuxu.cz/blog/bystroushaak/2011/11/paranoidni-teorie-hracu">hráči</a>, které nevidíme, stejně jako mravenec nevidí lidi.</p>
-      <h3 id="bef84861-7171-45be-b991-146aadc19620" class="">Korporace</h3>
-      <p id="3c5496fb-8f45-494a-b4f0-74b6571d2db1" class="">Další z klasických ukázek distribuované inteligence je koncept korporace, společnosti, či firmy. Na tu je možné nahlížet jako na samostatně jednající entitu, která se snaží uspět v konkurenci ostatních ekonomických hráčů. Ke svému přežití a zničení nepřátelských subjektů využívá lidi, kterým za odměnu poskytuje peníze a zázemí.</p>
-      <p id="19091bda-2240-4b33-92e3-282e3d437c1f" class="">Jde to tak daleko, že dnes mají korporace v některých zemích prakticky stejná práva, jako skuteční, živí lidé, i když zodpovědnost je prakticky vždy na jednotlivcích, kterými je tvořena.</p>
-      <p id="170b1073-1dea-4884-b1b0-1e46b53a33eb" class="">Korporace jsou svým způsobem ideální organizmy, které v nejlepším případě nemají žádné nepostradatelné prvky a nejsou tak závislé na existenci jednotlivců, kterými jsou tvořeny.</p>
-      <p id="f722003a-42d3-4c6a-a963-357a1a2a5a1c" class="">Jedním z nejefektivnějších typů korporací na světě jsou elitní armády 21. století, které dotáhly svou organizaci, indoktrinaci členů, způsob komunikace a nahraditelnost buněk k dokonalosti. Zatímco ostatní korporace ničí konkurenty absorpcí, či vyhladověním, armády jsou jeden z mála druhů distribuované inteligence, který to dělá přímo, podobně jako ve světě živočichů.</p>
-      <h1 id="dff57a4d-1a63-451d-b726-a88dbe883a3d" class="">E2ntity</h1>
-      <blockquote id="e9c65165-889b-46c1-b477-0cdb2a47906f" class="">
-        Entita je libovolný objekt (osoba, zvíře, věc či jev) reálného světa, který je zachycen v datovém modelu. Entita musí být rozlišitelná od ostatních entit a existovat nezávisle na nich.
-      </blockquote>
-      <p id="b32074ab-8ce6-4161-ac64-ed73de9bdc85" class="">—&nbsp;<em><a href="http://cs.wikipedia.org/wiki/Entita_%28informatika%29">wikipedia</a></em></p>
-      <blockquote id="df74d6d4-5a11-4c21-a2c7-702dfce9d2c6" class="">
-        Computer software is increasingly becoming the single most important building block of our modern world, but up until now search into the area has been focused on two areas: artificial intelligence, software working purely on its own, and software tools working under human beings. The question is: is there something in the middle? If there is, the idea of software directing humans, the decentralized corporation, is exactly that.
-      </blockquote>
-      <p id="8d60f53e-8066-461a-9b45-230b595ba311" class=""><em>— Bootstrapping An Autonomous Decentralized Corporation: Part 2: Interacting With the World. In: BUTERIN, Vitalik. Bitcoin magazine [online]. 2013 [cit. 2014-04-29]. Dostupné z:</em> <em><a href="http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/">http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/</a></em></p>
-      <p id="73d76812-ce44-42d5-ba22-f7d64356a383" class="">Představte si klubko softwaru, které má za úkol přežít a vydělávat si na sebe bez toho, aniž by mu v tom kdokoliv aktivně pomáhal. Jedná se o nezávislou elektronickou a ekonomickou entitu, která se sama protlouká internetem. Z nouze o lepší termín jsem to kdysi nazval provizorně E2ntitou, v dnešní době se však ujalo označení DAO - Distributed Autonomous Organizations,&nbsp;Distribuovaná Autonomní Organizace.</p>
-      <p id="19f5dac3-8999-449e-a31d-5c28fa3982a0" class="">Jak by něco takového bylo v dnešní době možné?</p>
-      <p id="50b5327a-18f0-4e4b-887e-3285783611d5" class="">Jednoduše - stačí, když si na problémy, které vyžadují inteligentní chování bude minimálně v začátcích inteligenci pronajímat od lidí. Později může přidat například různé heuristiky a algoritmy umělé inteligence, které však vůbec nejsou podmínkou vzniku.</p>
-      <figure id="190a3f93-a1ef-4544-82fa-ac81e3ba9919" class="image">
-        <a href="Untitled.png" title="Untitled.png"><img style="width:600px" src="Untitled.png"></a>
-        <figcaption>
-          Source: PRINTCOINS. Bitcoin the enabler - Truly Autonomous Software Agents roaming the net. In: Bitcoin Forum [online]. 2011 [cit. 2014-04-30]. Dostupné z: <a href="https://bitcointalk.org/index.php?topic=53855.msg642212#msg642212">https://bitcointalk.org/index.php?topic=53855.msg642212#msg642212</a>
-        </figcaption>
-      </figure>
-      <p id="490c343a-da2b-43ec-81d7-6d0b2d10dc25" class="">K tomu, aby DAO mohla outsourcovat inteligenci lidem nutně potřebuje peníze, které si musí nějak vydělávat. Jak? Možností je hned několik, nutná podmínka však většinou je, aby bylo možné vydělávat peníze čistě automaticky.</p>
-      <p id="814de652-3cf2-46ae-9aee-ec02361c597d" class="">E2ntita se díky penězům může neustále vylepšovat. I když začne jako kus poměrně jednoduchého softwaru, který nenese prakticky žádné známky AI, pokud se jí podaří přežít dostatečně dlouho, může se z ní stát plnohodnotná AI prostě tím, že bude zadávat zakázky na své neustálé zlepšování.</p>
-      <h2 id="18a3f2ba-2ff5-4054-bb75-93d11f965b67" class="">Architektura</h2>
-      <p id="2ac37c93-87d3-49c5-ba02-d5364ba2072f" class="">Ač se to na první pohled může zdát jako poněkud divoká představa, architektura podobné entity není nic nemožného. Pokud se na celou věc podíváme na dostatečně vysoké úrovni abstrakce, dá se celá rozložit na několik málo komponent:</p>
-      <figure id="46e2affc-555e-44a6-9d36-4a4f65ac2bb2" class="image">
-        <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:586px" src="Untitled_1.png"></a>
-      </figure>
-      <p id="1d5e3d45-0bc1-4bd8-bbd7-44a4d4384e45" class="">Jak je vidět, celé to funguje poměrně jednoduše: Workers získávají peníze, ze kterých jsou poté financováni kontraktoři, mající za úkol jednak vymýšlet kam dál se E2ntita může rozvíjet, jednak implementovat nové schopnosti a ověřovat ostatní kontraktory.</p>
-      <p id="fbfe32ed-b319-4d9a-a77d-f104cd5f4eeb" class="">Architektura je silně distribuovaná a jednotlivé části nemají možnost zasahovat do kódu a stavu ostatních částí. Celé to může běžet třeba jako XML RPC, REST API, či jako microservices na ZeroMQ.</p>
-      <p id="d9ddfffc-3c93-4802-b6f0-1a692b8a2fda" class="">Díky tomu jednotliví kontraktoři zodpovídají jen za jasně vydělené části projektu a nemají možnost zasáhnout nikam dál. Jediný způsob, jak mohou způsobit problémy je způsobit entitě škody ekonomicky (například zneužitím API k platbě na vlastní peněženku). To může být podchyceno dalšími mechanizmy: kontrolou&nbsp;"prodělečnosti"&nbsp;API, hodnocením jednotlivých workerů v bazaru práce, či dalšími kontraktory, kteří jsou najímáni za účelem ověřování kvality odvedené práce. Dále může každá ze služeb běžet paralelně a teprve když se nová verze osvědčí po nějaké době testování, tak je schválena a nasazena i na ostatní, paralelně běžící instance.</p>
-      <p id="ce240e09-e2c3-426e-9b40-a9cb2871c00d" class="">Čím víc bude E2ntita distribuovaná a nezávislá na jednotlivých prvcích, tím větší má šanci, že přežije.</p>
-      <h2 id="e3c39adf-a21d-4eb5-9c9b-3c1c536b1c5d" class="">Pracovní trh</h2>
-      <p id="59493bd4-2862-4741-854e-6ae377fbc7ad" class="">Možná si při čtení říkáte, kde by vlastně E2ntita měla brát lidskou inteligenci, kde se dají najmout lidé, kteří budou plnit její příkazy. Věřte tomu nebo ne, míst existuje docela dost.</p>
-      <h3 id="1f83bb2b-4099-4447-933d-873eccf152f1" class="">Mechanical turk</h3>
-      <p id="eafbf76d-9ba5-495e-87ac-9ea5b8811d1d" class="">Jedním z prvních projektů tohoto druhu, na který jsem kdy narazil je&nbsp;<a href="https://www.mturk.com/">Mechanical Turk</a>&nbsp;od Amazonu. Ten vám umožňuje zadávat/plnit jednoduché zakázky, za které po jejich dokončení a ověření dostáváte peníze (viz&nbsp;<a href="http://en.wikipedia.org/wiki/Amazon_Mechanical_Turk">wikipedie</a>).</p>
-      <p id="743fe339-7d05-4ee7-9ce6-6438a08027a9" class="">Nejedná se o nijak moc náročné úkoly, naopak, většinou jsou to projekty, které člověk může jednoduše provádět, ale stroje (v současnosti) nikoliv. Například můžete pomoci opravit několik chyb ve větě, klasifikovat obrázky, nebo potvrdit, že někdo jiný odvedl práci dle zadání.</p>
-      <p id="ef247a4f-018d-44f9-81e6-e0cb2663d8de" class="">Jednoduchosti zadaných úkolů odpovídá cena - většinou se pohybuje v rámci setin či desetin dolaru, někdy, pokud jde o složitější úkoly, jako je překlad z arabštiny může cena vyskočit i na několik dolarů.</p>
-      <figure id="d22e644b-4fe3-4409-a3f8-13ea13fd5521" class="image">
-        <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:976px" src="Untitled_2.png"></a>
-      </figure>
-      <h3 id="df6e61a1-5c8b-4844-b86f-ede6f0b7ecce" class="">Svět bitcoinu</h3>
-      <p id="b6858f98-1c24-48c6-871a-8cbce5f1e854" class="">Bitcoin je virtuální měna založená na principech asymetrické kryptografie. Díky její čistě softwarové podobě není problém si sehnat&nbsp;<a href="https://instawallet.org/">účet</a>&nbsp;a okamžitě jí začít používat. Neexistuje žádná autorita, která by bitcoin kontrolovala, či omezovala. Jednotlivé transakce jsou čistě elektronické a mají jasně definované API, proto se jedná o naprosto ideální prostředek pro (anonymní) obchodování.</p>
-      <figure id="e8de9055-7436-47f8-a308-0cc714d1bf8b" class="image">
-        <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:980px" src="Untitled_3.png"></a>
-      </figure>
-      <p id="8109f843-029b-4ee8-afeb-798cf1059134" class="">Na světě existuje spousta míst, kde můžete lehce a bezbolestně najmout kontraktory za bitcoiny. Některé systémy mají poměrně propracovaný způsob hodnocení, takže se dá s relativně vysokou pravděpodobností spoléhat, že zadaná práce bude skutečně odvedena.</p>
-      <ul id="d8758bb2-585b-4e7a-9a0d-a085103dd3ed" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://workforbitcoin.com/">http://workforbitcoin.com/</a>
-        </li>
-      </ul>
-      <ul id="50062065-396e-46e2-a6e2-e9c1b11a0604" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://coinworker.com/">http://coinworker.com/</a>
-        </li>
-      </ul>
-      <ul id="b12cee94-6ccd-4c19-aba0-3649a151f5b9" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://bitgigs.com/">http://bitgigs.com/</a>
-        </li>
-      </ul>
-      <ul id="144f84ec-cee8-4f86-ae27-6bb5653bd23b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.google.com/search?q=mikroslu%C5%BEby">https://www.google.com/search?q=mikroslu%C5%BEby</a>
-        </li>
-      </ul>
-      <h2 id="6086e33b-0969-48a6-9f3a-78faad291e0f" class="">Bezpečnost</h2>
-      <p id="de6799ce-b71d-4da3-ae26-62448b3f69f4" class="">Určitě vás napadlo spoustu&nbsp;"ale", kdy jste si říkali, že by to přece nemohlo fungovat. Podívejme se proto na několik bezpečnostních&nbsp;"ale"&nbsp;a jak se dají vyřešit.</p>
-      <h3 id="090d3956-7fca-45a7-b8e6-c4d26f642943" class="">Oddělené API</h3>
-      <p id="3a430033-e889-4145-82fc-047e4ea00bcc" class="">Jak už jsem psal, naprostou nutností (alespoň podle mě) by byla nutnost decentralizace celé entity tak, aby jedna komponenta neměla přístup k druhé. V podstatě si to můžete představit jako kopu&nbsp;<a href="http://www.knesl.com/articles/view/microservice-na-posilani-emailu">microservices</a>.</p>
-      <p id="99d5c4b2-e0a9-48b9-bdcc-d94cc4cb94a2" class="">Někde by musel* stále běžet modul, který bude provádět hlavní logiku a pracovat s tím vším API, ale oddělení konkrétní funkcionality od hlavní logiky by podle mého názoru silně zlepšilo bezpečnost. Sice to není všelék, ale případnému útočníkovi by to silně ztížilo práci.</p>
-      <ul id="b4a11826-3848-44f8-8f91-e78bada2e1c0" class="bulleted-list">
-        <li style="list-style-type:disc">Ne tak úplně. Celá logika by mohla být naprogramovaná napevno přímo do API, takže neexistuje žádná centrální část, ale pak je zde jen velmi malý prostor pro rozšiřování.</li>
-      </ul>
-      <h3 id="dcf67cac-5561-4a0b-813a-062b871e899f" class="">Paralelizmus</h3>
-      <p id="51793248-b606-40f2-938a-d44df01046f9" class="">Paralelizmus na úrovni API si můžete představit třeba tak, že E2ntita nikdy nezadává zakázku jen jednou, ale vždy si nechá vytvořit několikrát to samé API od různých nesouvisejících subjektů. To pomáhá snižovat šanci, že někdo API upraví tak, že se nebude chovat jak bylo žádáno.</p>
-      <p id="6d9a50b9-7cbe-4555-83bc-c9a10906da5a" class="">Dále to pomáhá zvedat šance, že se znefunkčněním části API bude E2ntita kompletně bezbranná.</p>
-      <h3 id="f542a294-215e-4ef6-83d8-6069775807f8" class="">Zálohy</h3>
-      <p id="388612d2-36b4-43e4-9d0c-7e8aead6def4" class="">Jednotlivé části mohou být také různě zálohovány, takže v případě že vypadne například řídící modul běžící na serveru, který přestal fungovat, jeho funkci (peněženku, API) automaticky přebírá jiný. Existuje poměrně široký prostor pro implementaci, od watchdogů, po různé dynamické routování a tak podobně.</p>
-      <h3 id="69bd1160-a474-48cc-a4cb-936d69b37725" class="">Revize nového kódu/API</h3>
-      <p id="41433218-8e8f-403b-9be6-5e30852cbade" class="">Samozřejmostí je, že když už si E2ntita objedná nové API, či nějakou novou funkcionalitu, najme si také&nbsp;<strong>nezávislého</strong>&nbsp;konzultanta, který kód prověří a pokusí se v něm najít záměrné chyby a potenciálně škodlivý kód.</p>
-      <p id="6f9cc33e-a87c-47b4-b925-a4d4f66d2200" class="">Samozřejmě, ani toto by nebylo stoprocentní, ale silně by to zvedalo šanci na přežití.</p>
-      <h3 id="1d60a88e-c64d-4cd4-bf41-56428847ee1c" class="">Hodnotící modul</h3>
-      <p id="9de0dc32-bf0b-4f5a-a40c-89b5fbe4fc62" class="">Určitě by to chtělo také část, která bude sledovat zisky a prodělky v čase a vyhodnocovat na základě toho užitečnost jednotlivých API. Toto by mohlo pomoci odhalit API, které bylo špatně vytvořeno a teď se snaží entitu okrást.</p>
-      <h3 id="754a37a9-0957-4647-8c44-0eb12b246130" class="">Unittesty</h3>
-      <p id="630d5874-2823-4902-83c4-19ef5e3ef137" class="">Funkčnost každého z modulů musí být neustále v pravidelných intervalech testována. Jinak se může stát, že E2ntita bude posílat peníze na API, které už dávno nefunguje, či něco ještě horšího. Zpětná vazba v podobě unittestů by měla být součástí zadání projektu (nejen co se týče Entity, ale tak nějak každého programátora).</p>
-      <h3 id="edc6dc10-4ad3-40fc-822c-77bcf672526b" class="">A/B testování</h3>
-      <p id="f02a52ef-c38a-43d1-8e36-738ea614eb1a" class="">V podstatě testování na lidech a následné vyhodnocení toho, jak na testy reagují. Dá se to využít plně automaticky, za předpokladu, že daná položka je lidmi testovatelná.</p>
-      <p id="8f6b110c-d36b-4fe9-a830-70b89f3ff25b" class="">Podrobnosti viz wikipedie:&nbsp;<a href="http://cs.wikipedia.org/wiki/A/B_testov%C3%A1n%C3%AD">A/B testování</a></p>
-      <h3 id="749d615c-9df1-46e2-908a-b7fc027ae203" class="">Bezpečnost peněženky</h3>
-      <p id="9cbdabcc-98b4-4e3a-9468-1ec65b241a42" class="">Nakonec to nejdůležitější - peněženka. Jak je asi každému jasné, peněženka by se nemohla prostě jen tak válet v čitelné formě na serveru, neboť by se dříve nebo později našel někdo, kdo by to zneužil.</p>
-      <p id="86c4cad8-a884-436a-bf49-8b6e110cac51" class="">Obzvláště náročné je to v případě bitcoinu, kde kromě desítek všemožných hrozeb v podobě malware existuje i spousta lidí, kteří po peněženkách aktivně jdou. Jediné co jim k tomu přitom stačí je kopie peněženky.</p>
-      <p id="4fddd344-45bb-4aa5-badd-aa77e7440b67" class="">Jak tomu předejít?</p>
-      <p id="9aa6afd8-fab7-4ada-a734-f3893bd5f47c" class="">Se současnými technologiemi jen velice složitě, v podstatě jediná šance je něco jako&nbsp;<a href="http://cs.wikipedia.org/wiki/Trusted_Platform_Module">TPM</a>&nbsp;čip a šifrování peněženky. To však není ani moc bezpečné, ani moc čisté, jak z hlediska matematiky, tak programátorské čistoty.</p>
-      <p id="433983e9-0385-4e74-8b2e-f86dd230c6fc" class="">Podstatně elegantnějším řešením je použítí metod homomorfického šifrování (homomorphic encryption). To dovoluje vykonávat důvěryhodný kód na nedůvěryhodné platformě. Pokud to zjednoduším, tak vám to dovoluje&nbsp;zašifrovat&nbsp;váš algoritmus, který je následně&nbsp;prováděn&nbsp;na nedůvěryhodném hardware. Případný útočník nemá možnost modifikovat či přečíst váš algoritmus, neboť k němu sám nemá přístup, protože jen provádí přesně definované operace nad bajty, které se jemu samotnému zdají náhodné. Abych to ještě víc shrnul - umožňuje to například sečíst dvě zašifrovaná čísla, aniž by je v procesu sčítání bylo nutné dešifrovat.</p>
-      <p id="8fc5ae06-4af1-47a0-8968-5a1c57344690" class="">Proč se to běžně nepoužívá? Je to relativní novinka, navíc je to výkonnostně silně nepříznivé, s kvadratickou složitostí (alespoň co jsem tak četl). V praxi to znamená, že na sečtení dvou čísel musíte provést stovky až tisíce operací, což je v praxi poněkud nevýhodné. Jsem však pevně přesvědčen, že v budoucnosti se dočkáme praktičtějších implementací.</p>
-      <ul id="7ca2f48b-7190-4fed-878c-2c7acf12086a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://en.wikipedia.org/wiki/Homomorphic_encryption">http://en.wikipedia.org/wiki/Homomorphic_encryption</a>
-        </li>
-      </ul>
-      <ul id="809acf27-76cc-4281-b0e0-a0c63242b6c0" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing">http://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing</a>
-        </li>
-      </ul>
-      <ul id="e2930bb0-5933-4bb3-842d-e9ee44e11ba0" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://phrack.org/issues/68/14.html#article">http://phrack.org/issues/68/14.html#article</a>&nbsp;- sekce 2.3 a dál
-        </li>
-      </ul>
-      <h1 id="9c60875f-e345-4859-b0a9-91ff4f1be10e" class="">Ekonomika</h1>
-      <p id="1fbbd446-9313-4639-b22b-776c206e8518" class="">Jak jsem ukázal, pravděpodobně neexistuje technická překážka, která by bránila vzniku podobné entity. Jak je na tom z pohledu ekonomie? Skutečně by to mohla dlouhodobě existovat, či snad dokonce prosperovat?</p>
-      <h2 id="cb584514-a764-40e9-a08a-0368bc405ccc" class="">Způsoby výdělku</h2>
-      <h3 id="81dad301-aba2-4238-a9a6-8867c8c9fc74" class="">Obchod</h3>
-      <p id="aa69e040-cd96-41b4-97a5-5b12e54e72c1" class="">Relativně jednoduchým způsobem výdělku je prostý pře-prodej. Na aukru se dá nalézt nemálo lidí, kteří prodávají zboží z dealextreme s malou přirážkou. Pokud si ho od nich koupíte, jediné co udělají je, že za vás vyplní formuláře na dealextreme a odešlou peníze přes paypal.</p>
-      <p id="98c882b9-167f-4750-90a3-745bb92e384f" class="">Pro kohokoliv schopnějšího by neměl být žádný problém naprogramovat ekvivalentní script. Data to může brát z konkrétního eshopu, jednoduše je přeloží překladačem do češtiny a objedná zboží. Netvrdím, že by tenhle přístup byl bůh ví jak super, ale něco by se na tom vydělat mělo jít.</p>
-      <h3 id="5d77125c-b9d1-418c-a893-818b5710a5b0" class="">Slapové generátory peněz</h3>
-      <p id="b8e9637f-52a9-4180-b783-b7b2499093f8" class="">Jednou z možností, jak získávat relativně bez obtíží a velkých nároků malé částky je parazitovat na pnutí mezi měnami. Nakoupíte bitcoin za $500 kus, prodáte za $520. Bitcoin neustále kolísá a sám jsem takhle na konverzi měn udělal na&nbsp;<a href="https://btc-e.com/">btc-e</a>&nbsp;z cca 20 dolarů během necelého týdne 110 dolarů (o nemalou část jsem pak zase přišel při propadu a špatné investici).</p>
-      <p id="1c000746-16ff-4db0-8855-d1cb80c19e57" class="">Můžete zkoušet pokročilé algoritmy sledující burzu a zprávy, které budou predikovat cenu dopředu, ale osobně jsem zastáncem triviálního řešení - bot má několik peněženek, které investuje v režimu:</p>
-      <ol type="1" id="622be5ac-dde5-408e-9cf3-e4765110a4ac" class="numbered-list" start="1">
-        <li>Koupím.</li>
-      </ol>
-      <ol type="1" id="45c9e7ce-fb4f-4e43-8231-deef52899bfa" class="numbered-list" start="2">
-        <li>Čekám, dokud se cena nezvedne o 1% (chce to započítat i poplatek burze), nebo neuplyne nějaká dlouhá doba.</li>
-      </ol>
-      <ol type="1" id="bd2b3131-a0b7-4462-b05e-acefa7586c36" class="numbered-list" start="3">
-        <li>Prodám.</li>
-      </ol>
-      <ol type="1" id="57693d68-ce96-4fac-833d-7a358cfb7846" class="numbered-list" start="4">
-        <li>GOTO 1</li>
-      </ol>
-      <p id="bfe68b8d-b721-40c3-b62e-c1dddbafa699" class="">Tímhle způsobem nemůže prodělat. Nevýhoda je rychlost, respektive pomalost celého procesu. Pokud bitcoin neustále stoupá, vyděláváte. Pokud klesá, neproděláváte, ale ani nevyděláváte, ale může to trvat dlouho a váže vám to peníze, které nemůžete použít k vydělávání. Ideální je, když kolísá, což skutečně dělá neustále, takže to chce dobře nastavit procento, v praxi to bude třeba 0.1%, což během dne typicky zakolísá hned několikrát. Pokud to bude uplatňovat pár měsíců s pár desítkami peněženek, měla by si tím E2ntita vydělávat relativně zajímavé částky.</p>
-      <p id="75949680-8523-4e6c-8d89-ff2044eee0a7" class="">Znám&nbsp;<a href="https://github.com/povik">člověka</a>, který podobný software před pár lety napsal a skutečně to vydělávalo, i když mizivé částky, což bylo ovšem dáno minimální počáteční investicí v řádu zlomků bitcoinu. Osobně jsem to zkoušel ručně, bez scriptu a jak již jsem psal, vydělat se na tom dalo. Akorát to chce obchodovat automaticky, jinak na tom zabijete strašně času a člověk se pořád nervuje, jestli má prodat, nebo držet, což je relativně nesofistikované zabíjení času.</p>
-      <p id="becde306-832f-4bff-9cdd-bea6a56371f0" class="">Většina burz má dokonce oficiální API hned v několika jazycích, takže by to neměl být moc velký problém.</p>
-      <h3 id="82e5e8ec-c4d2-4376-8f98-196431c6676c" class="">Porno</h3>
-      <p id="50acb4e2-4e60-461e-bf53-467b8df0f0c0" class="">Pornostránky jsou další pěkný způsob jak si vydělat. V dnešní době nemusíte ani vytvářet vlastní obsah, stačí vám jen&nbsp;<a href="http://cs.wikipedia.org/wiki/Online_syndikace">syndikovat</a>&nbsp;tvorbu ostatních a vždy se najde někdo, kdo si zobrazí reklamu na vašem webu.</p>
-      <p id="ad7aad65-91fe-4d99-a45f-417103fcbd34" class="">Jeden čas byly docela populární weby, kde někdo vzal porno-set, zobrazil vám 5 obrázků a pro zobrazení ostatních jste museli poslat odkaz a získat 20 refererů. Lidi s tím spamovali všude možně, jen aby viděli tu trochu soft-porna.</p>
-      <p id="508dfe30-ceae-4827-8c12-5ea22925402d" class="">Druhý způsob je postavit "sociální" pornoweb, kam budou moc lidi nahrávat soubory a hodnotit soubory ostatních, přidávat si je do oblíbených, komentovat je a já nevím co ještě. Vždy mě dokáže překvapit, kolik lidí se na tyhle weby stahuje a aktivně tam vytváří obsah, čímž lákají zase další.</p>
-      <p id="8321e24e-8499-45de-a390-3cebe345e936" class="">V dnešní době existuje hned několik serverů, které vám s radostí budou platit za zobrazení reklamy v bitcoinech a ani je moc nebude zajímat, co tam máte:</p>
-      <ul id="0962577d-05b7-417d-ba6d-cf0c5eac7353" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://btcclicks.com/">http://btcclicks.com/</a>
-        </li>
-      </ul>
-      <ul id="bebf18bf-2b31-4be4-8082-2788ed98a4df" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.coin-ads.com/">http://www.coin-ads.com/</a>
-        </li>
-      </ul>
-      <ul id="e95ad569-a9c6-4df7-a6f4-0204204ae748" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://coinurl.com/">https://coinurl.com/</a>
-        </li>
-      </ul>
-      <ul id="1a832124-cf1b-4210-81cc-bedd221ac905" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://a-ads.com/">https://a-ads.com/</a>
-        </li>
-      </ul>
-      <ul id="d2a23772-7218-4fce-8f50-d6a5b2a9cb4b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://meshfields.de/bitcoin-advertising/">http://meshfields.de/bitcoin-advertising/</a>
-        </li>
-      </ul>
-      <p id="be502704-963e-49c7-8473-9620306da5f3" class="">Existují dokonce i weby, které vám poskytnou JavaScript miner, který těží prohlížečem:&nbsp;<a href="http://www.bitcoinplus.com/miner/embeddable">http://www.bitcoinplus.com/miner/embeddable</a></p>
-      <h3 id="665f5785-29be-49e9-9080-75beedb98138" class="">Služby</h3>
-      <p id="8aa19ceb-8aec-4516-9f12-04bee098ba9a" class="">E2ntita si nemusí vydělávat jen čistě pasivně, může klidně aktivně nabízet služby a být tak dokonce prospěšná společnosti. Nabízí se třeba forma hostingového poskytovatele, či jako neúplatný garant&nbsp;<a href="http://en.wikipedia.org/wiki/Transient-key_cryptography">časového razítka</a>.</p>
-      <p id="1916254c-d1b8-4cac-8215-aa7557b8e2e3" class="">Podobných služeb se dá vymyslet nespočet, líší se jen svou komplexností. Od trivialit ala poskytovatel peněženek pro kryptografické transakce, až po věci jako je kompletně elektronická forma státu, kde místo úředníků nabízí a zodpovídá za všechny služby elektronická entita, která si na konkrétní úkony najímá náhodné kontraktory.</p>
-      <h2 id="2855e14b-1f6b-4387-ba06-151cafc0a85c" class="">Výdaje</h2>
-      <h3 id="202200f9-3b52-4a2d-868a-fa5bf108435f" class="">API</h3>
-      <p id="f19d78c4-f14c-421c-91f0-e5962a5cf976" class="">Jednou z nejdůležitějších věcí pro elektronickou entitu je API. Čím víc API, tím víc možností interakce s reálným světem a tím víc způsobů výdělku.</p>
-      <p id="b8f7a512-4f69-42f3-8aec-ec3b3374d1dd" class="">API si může kupovat na již zmiňovaných stránkách, poslední dobou také spousta služeb nabízí vlastní API, takže by to chtělo jen napsat transformátory, což bude podstatně levnější.</p>
-      <h3 id="a0b4d6ad-7242-44df-9a4b-f003ed16cb36" class="">Hosting</h3>
-      <p id="4ad10ad9-758d-44b8-8cd9-d1b2f84abb1b" class="">Samozřejmě to chce i nějaký ten hosting. E2ntita sice může existovat jako virus, ale tím na sebe láká moc pozornosti. O mnoho jednodušší je prostě pronajímat si VPS, v dnešní době to stojí pár korun (třeba já mám VPS s 512MB RAM, 10 GB diskem a pevnou IPv4 adresou za cca 600 kč na rok).</p>
-      <h3 id="a2ac72a5-6613-4b28-b9f6-a71c1e7c3b71" class="">Potomci</h3>
-      <p id="9fc519a3-46e5-4bf8-bff4-996b13e37ae3" class="">E2ntita může vytvářet další entity. Jelikož má k dispozici framework pro zadávání úkolů, díky kterému existuje, prostě ho vezme, trochu upraví způsob výdělku, připíše potomkovi na účet třeba 5% vlastních peněz a pustí ho do světa.</p>
-      <p id="f0700ce5-72c2-4af9-983a-083f495b1f59" class="">Proč by to měla dělat? Jednak je v jejím zájmu diverzita a přežití jejího druhu. Jejím jediným smyslem existence je vydělávat peníze a tudíž nezaniknout. Existence více jejích nezávislých instancí zvyšuje pravděpodobnost nezaniknutí, které je hlavním předpokladem pro vydělávání peněz. Pro entitu nemusí být vytvoření potomka prodělečná činnost, protože ti mohou splácet částku do nich vloženou, nebo třeba odvádět podíl ze zisku.</p>
-      <p id="58b3ba97-a527-4ee9-b07a-c657ddd439e7" class="">Užitečné to také může být v případě, kdy je nutné podstatně přepsat vnitřnosti - E2ntita se&nbsp;<a href="http://cs.wikipedia.org/wiki/Fork">forkne</a>, přidělí forku přístup k části API a po nějakou dobu ho testuje. Pokud se koncept ukáže jako životaschopný, či lepší, tak mu přidělí i přístup do zbytku API, pošle mu peníze a sama se smaže. E2ntita nemá nic jako vědomí, pravděpodobně ani žádnou paměť v lidském smyslu, proto je tenhle koncept stejný, jako kdyby vylepšila sama sebe. To že při tom zanikne konkrétní instance je nepodstatné.</p>
-      <p id="5d26a1d2-a01a-445b-81cb-a2bc0ac8df29" class="">Zajímavé by také mohlo být křížení genů, kdy by si vyměnily dvě entity polovinu API a funkcionality a vznikla by třetí, nezávislá a nová. To už je ale krapet sci-fi a nebylo by zrovna jednoduché to implementovat tak, aby to neházelo peníze do záchodu.</p>
-      <h3 id="97b0c77c-c9d0-4ce9-9e1e-380edd9bc840" class="">Konzultanti</h3>
-      <p id="3de5405f-75fc-451f-8bb3-c0365e41134e" class="">Obecně budou největším výdajem konzultanti. E2ntita by měla provozovat něco jako vlastní fórum, kde se hlasuje o všem možném. Asi by to vyžadovalo komplexnější způsob zabezpečení, hodnocení a ověřování uživatelů, ale imho to není zas tak těžké implementovat. Za jejich aktivitu by jim pak vypláceny peníze.</p>
-      <p id="e6b9e4bb-35dc-495e-a8b5-02e296897777" class="">Je docela pravděpodobné, že dřív něbo později tenhle systém někde vznikne, takže entitě bude stačit používat jen API. Klíčové bude, aby se to celé dalo používat co nejvíc automatizovaně, od zadání kontraktu až po jeho splnění a ověření.</p>
-      <p id="bf19a9ed-3b44-4905-849e-9955876ef231" class="">Prakticky použitelnou implementací by mohla být třeba nějaká varianta&nbsp;<a href="http://www.root.cz/clanky/darkmarket-kdyz-e-shop-potka-p2p/">DarkMarketu</a>.</p>
-      <h1 id="09263a2a-16c3-4423-af61-e0bc32edaf51" class="">Praktická ukázka - StorJ</h1>
-      <p id="7b026b0d-0dd8-45ee-8ad3-63e0e8532f14" class="">StorJ je decentralizovaný framework na uchovávání dokumentů. Také je to jedna z prvních komplexněji popsaných DAO, kterou jsem kdy na internetu zaznamenal a pravděpodobně první, nebo jedna z prvních, která kdy bude implementována:&nbsp;<a href="http://storj.io/">http://storj.io/</a></p>
-      <p id="2c876729-64e7-4421-93c9-c53a15b08c19" class="">Jak je možné se dočíst na jejich stránkách, spuštění je připraveno v brzké době.</p>
-      <p id="aff7f6f7-7afb-43b4-a337-fe818197b2a2" class="">Celý projekt byl&nbsp;<a href="https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768">oznámen</a>&nbsp;ve&nbsp;<a href="https://bitcointalk.org/index.php?topic=53855.0">vysoce inspirativním vlákně</a>&nbsp;na bitcointalku.&nbsp;<a href="https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768">Komentář samotný</a>&nbsp;je silně vizionářský a proto jsem si dovolil zahrnout jeho (velmi, velmi volný) překlad:</p>
-      <blockquote id="634f1225-b848-4129-8667-923d3f6ee21a" class="">
-        Uvažujme jednoduchou, drop-boxu podobnou službu, kde se za použití platí bitcoiny (možná využívající také namecoin DNS a/nebo TOR hidden services).Chcete sdílet soubor? Pošlete dostatek kreditu na zaplacení alespoň jednoho stažení a 24 hodin hostingu a pak ho nahrajte. Za každý den, kdy je soubor ve službě uložen a za každé stažení je odečtena suma ze složené částky. Ve chvíli kdy je složená částka negativní, je možnost stahování zablokována. Pokud je částka negativní déle jak nějakou dobu, soubor je smazán. Po tuto dobu však může kdokoliv zaplatit za opětovné zpřístupnění.(je možné poskytovat i další služby jako&nbsp;escrow&nbsp;(půjčovny? úschovny?), ale to není pointou tohoto dokumentu)Pokud bude vše správně navrženo, podobná jednoduchá služba může běžet plně automaticky, nevyžadovat žádnou správu a přitom být neustále dostupná.Objevují se hostingové společnosti, které přijímají bitcoin pomocí elektronických platebních rozhraní. Některé z nich dokonce nabízejí pěkné platební API.Stránky by mohly být naprogramované, aby automaticky vytvářely vlastní kopie na dalších hostinzích, které by byly placeny z jejich výdělku. Pokud bude kopie úspěšná, může použít své zisky k dalšímu rozšiřování. Jelikož každá instance musí nutně upravovat své cenové modely vzhledem k výdajům, některé by byly konkurenceschopnější než ostatní.Reprodukce má pozitivní dopad na dostupnost a kapacitu, kterou mohou nabídnout.Instance StorJ mohou nakupovat i další zdroje, které potřebují:Mohou používat API k aukcím na namecoin burzách za účelem nákupu namecoinů pro resolvování DNS jmen, či si kupovat grafický design pomocí bitcoinových bran na mechanical turk. (Skrze&nbsp;A/B testování&nbsp;mohou měřit efektivitu designu, bez nutnosti mu rozumět).Další věc, kterou si mohou kupovat je také reklama na sama sebe (i když omezené množství reklamních agentur přijímajících bitcoin to dělá momentálně složitým).StorJ si není schopný hledat nové hostingy sám, protože na to nemá dostatečně schopnou AI, ale může si kupovat vědomosti od lidí. Ve chvíli kdy je instance StorJ připravená se reprodukovat, vytvoří zakázku: Navrhněte migrační script, který mi dovolí nahrát se na nový hosting a ukáže mi, jak tam přežít. Každá nabídka je návrh investice: tvůrce scriptu navrhne kompletní cenu za přenesení a něco navíc. StorJ není dostatečně chytrý, aby dokázal posoudit špatné nabídky sám o sobě, proto vytváří smlouvy, které dělají podvádění nevýnosným.Když je nová a neotestovaná instance nahrána na server, StorJ zaplatí pouze minimální částku, která je nutná na přenesení a poté zahájí sérii testů, aby se ujistil, že nově vzniklá instance funguje jak má.Pokud vše projde, začne na novou instanci přesměrovávat zákazníky, za což nová instance platí té původní podíl ze zisků. Nejprve nepřímo, aby bylo možné sledovat chování, později přímo. Pokud potomek přestane platit, nebo se objeví stížnosti zákazníků, StorJ použije své přístupy k smazání potomka a přebrání jeho prostředků. Když se potomek osvědčí, StorJ zaplatí tvůrci scriptu celou částku i s odměnou, něco si nechá a pak předá řízení nad sebou potomkovi.Lidská motivace pro hostování potomka je jednoduše počet referralů, které umí StorJ generovat. Lidským přínosem jsou znalosti míst, kde může růst nová instance a také počáteční investice, kterou mohou lidé nabídnout. Výhoda z referralů může ze StorJ udělat dobrou dlouhodobou investici, do které se vyplatí investovat.Ve chvíli kdy se StorJ dělí se může rozhodnout přijmout do potomka nový kód - nikoliv jen scripty pro přenos na nový hosting, ale celý nový aplikační kód. Ten může být otestován simulací a některé vlastnosti mohou být vynuceny návrhem (nezměnitelný účetní proces může udělat krádež poměrně složitou), ale obecně je velmi těžké předejít tomu, aby simulovaný kód nezjistil, že je v simulaci a neměnil na tomhle základě své chování. Přes to všechno má StorJ jen poměrně máloco ztratit, pokud někdo zákeřně modifikuje upraveného, nenaklonovaného potomka. Strategie přesměrovávání trafficu se může lišit pro klony (kteří jsou více důvěryhodní) a potomky s novým kódem.Tím jak časem bude zakomponováno stále víc a víc mutací a díky omezené automatické přizpůsobivosti se může StorJ vyvíjet a vylepšovat bez schopnosti přímo upravovat sama sebe.Jednotlivé instance mohou obchodovat s ostatními, aby zajistily redundanci úložiště, či aby zajistili méně populárním instancím levný hosting jako CDN/proxy pro ty více populární, což je užitečné pro oba.Pokud instance ztratí schopnost komunikovat s jejím hostingem (například kvůli změně API, na kterou se nedokáže adaptovat), může vytvořit svojí kopii někde jinde a původní instanci zničit. Během této operace si zkopíruje/přemístí peněženky a data někam jinam, takže je nutné citlivě vybrat pouze ty hostingy, které už se v minulosti osvědčily (na základě dlouhodobého pozorování dalších instancí), aby se předešlo riziku ukradení peněženek. Je možné, že se přitom instance rozhodne rozdělit se na několik kusů, aby snížila riziko. Také je možná strategie "studené zálohy" (cold backup), která se aktivuje pouze ve chvíli, kdy master kopie zemře.Díky všem těmto popsaným aktivitám může instance přežít v podstatě donekonečna, bez nutnosti přímého lidského zásahu do řízení. Když StorJ komunikuje s lidmi, dělá to jako rovný s rovným, nikoliv jako nástroj.Uživatelé a investoři mají práva zajištěná zákonem, která mohou být použita k ochraně instancí před podvody a útoky, použitím stejné infrastruktury, kterou používají lidé a společnosti. Být poškozenou stranou je často dostatečné, aby bylo zahájeno civilní řízení.Není tak těžké si představit StorJ instance naprogramované tak, aby formálně vytvořily korporaci, která by vlastnila jejich aktiva. I když by to všechno vyžadovalo spoustu papírování, pracovníci, kteří ho odvedou mohou být najati přes web. Ve chvíli, kdy se pak bude StorJ dále dělit, nevytvoří jenom další instanci, ale rovnou i další pod-korporaci, která bude zpočátku vlastněna rodičovskou instancí, ale později převedena na uživatele služby. Samozřejmě s dohodou, která podstatně omezí jejich autoritu, aby byla nová instance autonomní jak po technické, tak po legální stránce.Jak bylo výše popsáno, StorJ by byl první digitální formou života hodnou svého jména.
-      </blockquote>
-      <p id="de6f35e7-f220-45da-af17-3fcc516a2c24" class="">Zdroje:</p>
-      <ul id="d26be65c-95a3-4602-a91a-689061b3ac30" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768">https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768</a>
-        </li>
-      </ul>
-      <ul id="dcfcedf5-3c9d-425c-bc75-1af343064989" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://storj.io/assets/paper/storj.pdf">http://storj.io/assets/paper/storj.pdf</a>
-        </li>
-      </ul>
-      <ul id="49b69ff9-9929-44c9-ad93-8cc7d1eb6dcf" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://storj.io/">http://storj.io/</a>
-        </li>
-      </ul>
-      <p id="ae903a94-3436-4eae-9899-f2c6a17ac587" class="">Zábavný fakt: Na abclinuxu jste se celou myšlenkou StorJ již mohli setkat v&nbsp;<a href="https://www.abclinuxu.cz/lide/hrachj">Jendově</a>&nbsp;patičce, zhruba před rokem a půl.</p>
-      <h1 id="1d22d39d-52fa-48fd-848f-c91b987ce85b" class="">K čemu to je dobré?</h1>
-      <p id="c7d0610c-a0c4-427d-a377-c36a43a88cb2" class="">Samozřejmě, kromě vydělávání peněz autorovi v pyramidovém schématu se dá najít ještě spousta dalších šikovných využití.</p>
-      <h2 id="9c68a927-dd22-4fa2-8d83-4d9c1ef306c3" class="">Požírač korporací</h2>
-      <p id="0058ba88-5aaf-426f-99c4-44caff20deb4" class="">Je to tak trochu sen všech komunistů. Pokud by byla instance dostatečně pružná, úspěšná a odolná vůči útokům, tak má všechny výhody moderních korporací a žádnou nevýhodu. Samozřejmě, zde už se dostáváme do úrovně sci-fi, ale pokud by E2ntita zaměstnávala dostatečný počet schopných lidí, mohla by být úspěšnější než jiné korporace a ty pak&nbsp;"požírat", ve smyslu převzetí, demontáží a zničení.</p>
-      <p id="72f23c61-55a4-4ef0-81da-bf40b3f475d4" class="">Kdo ví, kam by to mohlo dojít. Čistě teoreticky by takhle časem mohla sežrat kapitalismus v ekonomice 3.0, podobně jako je to popsáno v knize&nbsp;<a href="http://en.wikipedia.org/wiki/Accelerando">Accelerando</a>&nbsp;od Strosse (vyšla i česky, doporučuji).</p>
-      <h2 id="88ff527a-4e5b-4126-9c6f-6741c5b6dd36" class="">Ekonomický virus</h2>
-      <p id="0f04bf4d-dcd5-4049-acf8-9d90e2396652" class="">Chcete zničit bitcoin? Tohle by byl docela ideální prostředek, jak ho&nbsp;"vypumpovat". Pokud by entity nemusely platit za poskytované služby a byly jim poskytnuty například NSA, mohly by získané peníze zahazovat.</p>
-      <p id="40651b5e-cc55-460a-878a-3d21b17e06ff" class="">Variantou je, že nastřádané bitcoiny jsou potom použity k destabilizaci měny jejich prudkým uvolněním. E2ntita by pak mohla fungovat jako oscilátor.</p>
-      <h2 id="4e0fc332-87ea-487d-a05c-2966e6dfe61a" class="">Služby, které se ostatní bojí poskytovat</h2>
-      <p id="b6d6c628-9d70-4e3a-a5f8-d0f429b877b9" class="">Disidenti, pedofilové, anarchisti, neonacisti, prodejci drog a zbraní. Ti všichni mají potřeby spolehlivých systémů, přes které interagují s uživateli. E2ntita není člověk, nezná nic jako strach, či obavy. Je to stroj, exploatující lidské platformy, které jsme vybudovali pro automatizaci a ulehčení.</p>
-      <p id="00aaad05-c773-4bf5-9700-5de0ff01cbf6" class="">Nemusí se nutně jednat o hlavním proudem společnosti negativně vnímané služby, může to být například legitimní odboj, platforma na boj proti korupci, nebo něco podobného.</p>
-      <h2 id="3a301936-663a-420d-8296-cff4b6846f09" class="">Bootstraping pro AI</h2>
-      <p id="2913e3bd-2226-4e53-b115-8c546dc083dd" class="">Jak jsem psal na začátku, vytvoření skutečné (<a href="http://en.wikipedia.org/wiki/Strong_AI_hypothesis#Strong_AI">silné</a>) umělé inteligence je pravděpodobně ještě dost daleko. Na druhou stranu, pokud nyní spustíme podobný projekt, kterému dáme do vínku snahu o sebevylepšování, existuje jistá šance, že dříve nebo později sám získá inteligenci.</p>
-      <p id="0d0c66c3-bf82-48c2-9532-707a172ef8f0" class="">Nemyslím, že by k tomu došlo v dohledné době, ani nějakým přirozeným vývojem, jednoho dne, až bude umělá inteligence běžná, tak si jí prostě koupí.</p>
-      <h2 id="96729155-f383-4b7d-b8a6-a79b8dae8b78" class="">Computer bacteria</h2>
-      <p id="004cbb78-963e-4e4f-830e-8d5a16d5b404" class="">Je to něco nového, co do této doby neexistovalo. V podstatě se jedná o počítačovou bakterii. Co za lepší důvod ještě potřebujete?</p>
-      <figure id="00a7529d-b84c-406b-94ac-fb387fcc1356" class="image">
-        <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:462px" src="Untitled_4.png"></a>
-      </figure>
-      <h1 id="a4dbaf96-f8a0-4b6d-a760-2128eff785d5" class="">Inspirace</h1>
-      <h3 id="80ffbdf8-e946-46d7-91b1-3d040a4232c9" class="">Bootstrapping An Autonomous Decentralized Corporation</h3>
-      <p id="f42e65ba-106b-4ff1-9c0f-49d8e07ac394" class="">Série článků na téma decentralizovaných autonomních společností, zaměřující se převážně na kryptografii a technologii, která je potřebná k jejich praktickému provozu.</p>
-      <ul id="f1a6d853-8119-4b8b-805f-f269e1087908" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/">http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/</a>
-        </li>
-      </ul>
-      <ul id="b87d30e3-2f6e-4c66-8bf4-1f87e85c14c7" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/">http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/</a>
-        </li>
-      </ul>
-      <ul id="48608ca0-5efe-420b-af3b-fe591ac21cf1" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://bitcoinmagazine.com/7235/bootstrapping-a-decentralized-autonomous-corporation-part-3-identity-corp/">http://bitcoinmagazine.com/7235/bootstrapping-a-decentralized-autonomous-corporation-part-3-identity-corp/</a>
-        </li>
-      </ul>
-      <h3 id="051c0cd2-f0cc-4d51-acae-b3deb91263e6" class="">Reddit</h3>
-      <p id="0d1a2dc7-2044-4b57-b941-a4ca10ff883b" class=""><a href="http://www.reddit.com/r/programming/comments/1nx5mv/culture_shock_programming_for_the_enterprise/ccn0qr3">Companies are actually a form of process based AI, and they use their employees as dependent actors who communicate through their job roles</a></p>
-      <p id="625382b5-596c-4c5f-9ee6-7fbc33a5a141" class="">&</p>
-      <p id="8fd15fda-db54-4b44-89a8-4aee3f41341d" class=""><a href="http://www.reddit.com/r/Bitcoin/comments/yf0ww/an_agent_is_an_autonomous_program_that_is_able_to/">An agent is an autonomous program that is able to survive by selling services for Bitcoins, and using the proceeds to rent server capacity. Agents that are profitable enough may replicate themselves by spawning additional instances on other servers</a>.</p>
-      <h3 id="5c282ebb-40b4-49a2-857d-56ffd6ffa48e" class="">Dawn of Autonomous Corporations, Powered by Bitcoin</h3>
-      <p id="3a6f36c3-743f-4f17-b988-382803ab2fa2" class="">Krátký článek populisticky představující celý koncept. Diskuze je zajímavější, než text, pod kterým se odehrává.</p>
-      <ul id="10cb93fd-fadd-4693-8c70-6e116add0a16" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://btcgeek.com/dawn-of-autonomous-corporations/">http://btcgeek.com/dawn-of-autonomous-corporations/</a>
-        </li>
-      </ul>
-      <h3 id="573b7e71-b555-4e78-9acf-8e8925dc161d" class="">Agents</h3>
-      <p id="639aaea0-6115-464f-b372-003ce4d38716" class="">Suma informací na bitcoin wiki. Relativně krátký text, který nejde tak moc do hloubky, jak by mohl.</p>
-      <ul id="8d9eef79-3295-40f3-b655-f9a7ac0a643b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://en.bitcoin.it/wiki/Agents">https://en.bitcoin.it/wiki/Agents</a>
-        </li>
-      </ul>
-      <h3 id="0ddd3fc2-bb9d-469b-9d2c-1cf427bb03b9" class="">Mike Hearn, Bitcoin Developer - Turing Festival 2013</h3>
-      <p id="ed3f4f9a-6a1b-4b2b-9747-c46c0b262ab8" class="">Docela dobrý talk, kde Mike Hearn mluví o tom, jak si představuje budoucnost, která je plná DAO.</p>
-      <figure id="77a79558-41ed-4e85-9324-f25f47c6ef47">
-        <div class="source">
-          <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Pu4PAMFPo5Y" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </figure>
-      <h3 id="fd34f826-b686-4ebc-8494-cfee7852ac87" class="">Bitcoin the enabler - Truly Autonomous Software Agents roaming the net</h3>
-      <p id="e52fed91-e59a-4008-ad5a-e7cd28fc034d" class="">Velmi inspirativní vlákno na bitcointalku, ze kterého se zrodil projekt StorJ. Pokud se nudíte, určitě doporučuji přečíst, řeší se tam mnoho technických detailů, ale dojde i na nějakou tu filosofii :)</p>
-      <ul id="08a79b8f-fc37-420c-9f17-eb97c7652641" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://bitcointalk.org/index.php?topic=53855.0">https://bitcointalk.org/index.php?topic=53855.0</a>
-        </li>
-      </ul>
-      <h3 id="7b9c12fb-51d1-4889-a492-68ec6a026d6b" class="">Daemon a Freedom</h3>
-      <p id="46d6d479-694b-4e07-83c8-bd036ef1699a" class=""><a href="https://www.abclinuxu.cz/blog/bystroushaak/2011/2/daemon">Daemon</a>&nbsp;je kniha od Daniela Suareze. Jedná se o technothriller, do jehož příběhu autor zabudoval prakticky všechny prvky, které jsem tady popsal.</p>
-      <p id="6e82bae5-5eed-4527-a30b-d30f96f0f23e" class="">Ve své podstatě je to o Daemonovi - DAO, která byla vytvořena za jediným účelem - napadat ostatní korporace a postupně zničit celý ekonomický systém. Bohužel, česky vyšel jen Daemon a většina myšlenek ohledně DAO se vyskytuje v druhém dílu - Freedom, který je ovšem k dostání pouze anglicky.</p>
-      <p id="c32e9d6d-b7d2-4eec-8274-336094e2cedf" class="">Pokud se nudíte, knihu vám doporučuji, ještě nedávno jsem jí viděl v&nbsp;<a href="http://www.levneknihy.cz/">Levných knihách</a>&nbsp;za 50kč.</p>
-      <ul id="d0df8dad-9ba7-4cb2-821f-05c1b95138c5" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://decentralizedhashing.com/2013/11/bitcoin-skynet/">http://decentralizedhashing.com/2013/11/bitcoin-skynet/</a>
-        </li>
-      </ul>
-      <h1 id="8b3d12da-5538-4f2e-be26-6cd558729c6f" class="">To nemůže fungovat</h1>
-      <p id="acf33bfa-0c24-4603-9ea6-1a70d6b6628d" class="">Existuje určitá šance, že ne. Pak se nemáte čeho bát.</p>
-      <p id="36d2b40c-a04d-40f6-b20d-4d58908f7b4b" class="">V brzké době bude spuštěn&nbsp;<a href="http://storj.io/">StorJ</a>, který ukáže, jak moc je něco podobného proveditelné.</p>
-      <p id="e81c37f0-1424-45fa-89c2-a09ce94cbd61" class="">Osobně se myslím, že neexistuje žádná technická ani jiná překážka, proč by podobný systém nemohl fungovat, ba dokonce prosperovat. Momentálně se samozřejmě jedná jen o moje pocity, ale z programátorského hlediska nemám nic, co bych jim vytkl. Decentralizované systémy založené na lidské práci již v současnosti existují - viz. zmiňovaný Mechanical Turk, nebo například reCaptcha. Nefungují samozřejmě stoprocentně spolehlivě, ale stále dostatečně dobře na to, aby se udržely. Jediné co chybí je dát jim účel.</p>
-      <h2 id="a2b7ad01-f8f6-4ef7-a54c-b772acc616a8" class="">Edit</h2>
-      <p id="bc4a4f76-3a82-44d2-b280-f1b284131316" class="">Doporučuji také můj další článek o&nbsp;<a href="https://www.abclinuxu.cz/blog/bystroushaak/2014/9/ethereum">Ethereu</a>. To celou architekturu podstatně usnadňuje.</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d8c7c169-0989-4b54-bce1-ddbf726ef149" class=""><time>@2014/05/10</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="780caac3-9964-4010-b9ef-2e4abfa579a4" class="">Umělá inteligence saje, hlavně proto, že zatím stále neexistuje. A to přestože je očekávána déle, než praktické fúzní reaktory a pravděpodobně bude trvat ještě nemálo času, než se dočkáme. To ovšem neznamená, že tu s námi nebudou neživé umělé entity schopné samostatného přežívání v našem světě nezávisle na lidech. Popravdě řečeno, nějaký pátek už tu možná jsou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="6c4517b2-4749-4c4d-aefd-d6789b685f84" class="">Předmluva</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1553c271-64a5-4b47-abb3-e6eca82aca7c" class="">Tenhle text jsem&nbsp;<a href="https://web.archive.org/web/20100724062141/http://kitakitsune.org/raw/Myslenky/">začal psát</a>&nbsp;na mobilu, jedné nespecifikované noci v roce 2008, po přečtení první poloviny knihy&nbsp;<a href="http://cs.wikipedia.org/wiki/Koule_-_V%C4%9Bda_na_Zem%C4%9Bplo%C5%A1e">Koule</a>, kde Pratchett připodobnil město k živému organizmu. Ač je to dnes poměrně populární myšlenka, v té době pro něco takového byla nulová podpora. Neexistoval bitcoin, nečetl jsem Daemona a nikde jsem ani nenašel název celého konceptu, který se v dnešní době ustálil na DAO.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6325d062-e587-4857-8296-b48a230214a1" class="">Od té doby jsem článek několikrát přepsal, upravil a předělal, protože vývoj v tomto poli byl tak bouřlivý, že se stačilo pár měsíců psaní nevěnovat a hned vznikaly celá odvětví informačních technologií (kryptoměny například), které drasticky změnily pravděpodobnost a složitost vzniku DAO.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f8006720-c25d-4e73-8c72-3081aa9d269c" class="">Ačkoliv článek stále nepovažuji za kompletní (chybí hlavně praktická implementace a poznatky z praxe, které měly být původně součástí), rozhodl jsem se ho vydat dříve, než zastará natolik, že bude úplně nepoužitelný. Laskavý čtenář mi to doufám promine, nelaskavý si může trhnout nohou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="a1b72181-d8c7-4652-a539-c81ad67b4c8d" class="">Úvod</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="5c2a5e1a-e229-4478-966c-a02c1518ee38" class="">Inteligence</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9a3f462a-84e4-4431-92db-b974d67a6a24" class="">Na začátek jedno tvrzení, na kterém stojí všechny další předpoklady článku:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="88fa76d2-912b-41d7-ab87-3bb8ba6dd223" class="">
+          Inteligentně jednající systémy nemusí být nutně inteligentní tak, jak inteligenci chápeme my lidé.&nbsp;<strong>Inteligentní jednání není podmíněné lidským pojetím inteligence.</strong>
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a3b82ced-dfac-4191-a747-0ba6c013884a" class="">Toto poněkud odvážné tvrzení je jednou z důležitých myšlenek oboru Umělé inteligence a obvykle je podpořeno jedním zajímavým myšlenkovým experimentem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="706db54f-10f9-4b75-abea-a780d9528d0c" class="">Argument čínského pokoje</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bc97a697-1b55-4ed0-a067-32399aa87ac3" class="">Představte si, že do z vnějšku nepřístupné místnosti zavřeme němého a hluchého člověka, který vůbec nerozumí psané čínštině. Jediný způsob, jak s ním komunikovat je úzká škvíra, kterou je možné dovnitř a ven vhazovat lístky s psaným textem. V místnosti se také nachází knihovna, plná čínských knih ve formátu X -&gt; Y (otázka -&gt; odpověď).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="220c5fbe-57c8-4534-bc0c-e8d6edef331d" class="">Pokud do místnosti vhodíme papírek s větou X v čínštině, člověk který je tam zavřený ho vezme, prohlédne si co je na něm napsaného a pak tuto sekvenci znaků vyhledá v jedné z knih. Jakmile najde odpověď Y, překreslí jí na druhou stranu papíru a vyhodí ho ven.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b0f78567-101e-418e-ba07-d6696fb4f3bf" class="">Za předpokladu, že jsou v (nekonečné) knihovně odpovědi na všechny otázky, které by mohl Číňan z vnějšku položit, tak tento vnější pozorovatel nebude schopen rozeznat, že si dopisuje s někým, kdo ve skutečnosti nerozumí jeho otázkám.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f898bbc1-2b5e-4339-a0b2-cec3895d26fe" class="">V praxi by knihovna musela být nekonečná a navíc by to stejně nefungovalo tak triviálně, protože můžete jednoduše požadovat odpovědi na otázky, které modifikují proměnné, které by v knihách prostě být napsány nemohly (například 1.&nbsp;"Kolik je 1 + 1?"&nbsp;2.&nbsp;"Jaký bude výsledek, když k výsledku předchozí otázky přičteš 4?"), ale ve své podstatě není člověk z vnějšku schopný rozhodnout, zda se baví s Číňanem, s inteligentním člověkem, s hlupákem, nebo jestli není uvnitř třeba stroj.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="06705ed1-f010-4189-8ac1-253116cf60f2" class="">Chat-boti</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="da6d1d32-2939-4f34-a41c-4b473aea7aca" class="">Na podobném principu jako AČP fungují i různí chat-boti, se kterými se můžete na internetu setkat, rozdíl je hlavně v tom, že odpovědi vybírají náhodně z většího setu, udržují si jakýs-takýs kontext a do jisté velmi omezené míry se učí, většinou však pouze metodou zvětšování slovníku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f40aa0d4-cd7e-49af-b4b1-878b25bdd63e" class="">Oblíbené jsou také různé triky. Klasikou je odvedení pozornosti člověka jinam, pokud se nepodaří najít odpověď, nebo fuzzy odpovědi, kdy se odpověď více/méně náhodně složí z několika možných pod-odpovědí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33199b97-41bc-4de5-a115-037a5c01bb69" class="">Přestože čas od času tito boti projdou Turingovým testem, všichni mají jednu věc společnou - nemají v sobě ani náznak inteligence. Ve chvíli kdy přenesete rozhovor do vyšších vrstev abstrakce, tak nedokáží adekvátně reagovat. Není ani zapotřebí zacházet tak daleko, stačí pouze po botovi požadovat informace, které si může odvodit z kontextu;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9f4e752f-76b5-4157-9ade-395129e24d54" class="">Poskytněte botovi informace o vašem věku a věku vašeho imaginárního kamaráda Toma. Pak se zeptejte, jak moc je Tom starší než vy. Naprostá většina botů to nezvládne prostě proto, že ve skutečnosti udržují jen minimální kontext rozhovoru, kdy si zapamatují tak možná vaše jméno. Nedochází zde k žádnému modelování faktů, k zasazování získávaných vědomostí do kontextu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1be926ff-16be-4c18-89a5-e9cdf44a7060" class="">Chat-boti nejsou ani trochu inteligentní, přesto se najde poměrně velké množství lidí, kteří je nějakou dobu nejsou schopni rozeznat od skutečného člověka.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="45d7a27f-28aa-4fc1-93e1-c0c4ff75201f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://alice.pandorabots.com/">http://alice.pandorabots.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="970b7601-4c70-4c7b-ad3c-88481f974bf6" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.square-bear.co.uk/mitsuku/chat.htm">http://www.square-bear.co.uk/mitsuku/chat.htm</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="060b4d0c-7fee-4465-b86e-2cb786f83017" class="">Turingův test</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="efd0eb14-fd06-49bd-aa9a-642fa360218b" class=""><a href="http://cs.wikipedia.org/wiki/Turing%C5%AFv_test">Turingův test</a>&nbsp;funguje podobně jako AČP, jen s tím rozdílem, že pokoje máme dva. V jednom je člověk (Číňan) a ve druhém počítač, či někdo kdo nerozumí ani trochu čínsky. Úkolem rozhodčího je poté určit, ve kterém pokoji se nachází člověk (Číňan) a ve kterém počítač (hluchý knihovník).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c46ecdcb-1f60-4333-8578-714e4d6c7970" class="">Každoročně se pořádá takzvaná&nbsp;<a href="http://cs.wikipedia.org/wiki/Loebnerova_cena">Loebnerova cena</a>&nbsp;založená na Turingově testu, kam jsou přihlašováni chatboti. Celé to funguje jednoduše - porotce před sebe dostane terminál se dvěma okny. V jednom okně chatuje s člověkem, ve druhém s chatbotem. Oba dva se porotce snaží přesvědčit, že jsou lidé. Vyhrává program, který dokáže alespoň 50% porotců přesvědčit, o svém lidství.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="11edff04-8681-4e28-b768-41b8f365b7fd" class="">Cenu zatím nikdo&nbsp;<a href="http://computerworld.cz/technologie/chatoboty-100-let-po-narozeni-alana-turinga-45124">nevyhrál</a>, i když je s podivem, že občas se najdou porotci, kteří skutečně programům naletí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="09e767ed-7425-44f2-87b9-40a14a783b62" class="">Kolektivní (distribuovaná) inteligence</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cb213d85-bc2e-441a-9802-43284d7fdadf" class="">Inteligence nemusí být vykazována jen v rámci jednoho organismu - ostatně i mozek samotný je složený z mnoha buněk, které mají své vlastní, specifické a mnohdy složité chování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="26103684-c0be-4308-a705-b5737fe8c3ee" class="">Mraveniště</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5c46b263-05fb-483d-b758-7b70f945d25d" class="">Mraveniště je dobrým příkladem distribuované inteligence. Přestože samotní mravenci jsou poměrně primitivní, díky komunikaci vykazují na úrovni celého mraveniště rozsáhlé a sofistikované chování, které by bylo relativně složité&nbsp;"naprogramovat"&nbsp;do samostatného živočicha.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="657f595c-bae6-4ed8-9a16-8717fa5f9897" class="">Jeden mravenec přitom nemá nejmenší tušení, co dělá zbytek mraveniště. Nepřemýšlí o tom, co by měl udělat, ani jestli je to zrovna vhodné pro danou situaci, prostě to udělá, podle své genetické výbavy a okolních jevů, jako jednoduchý automat podle programu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="82c33aed-8732-411a-af95-f282215e94d6" class="">Celý mravenec se dá abstrahovat na omezený (a simulovatelný) set reakcí a několik málo komunikačních signálů, které umožňují interagovat s ostatními mravenci. Pokud spustíte dostatek správně naprogramovaných mravenců, vynoří se vám při pohledu na mraveniště relativně sofistikované chování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="f1bece9b-ebac-49ec-966e-7d896b59d265" class="">Města</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d1eb0818-95d5-430f-bebb-4857f97742bc" class="">O lidské inteligenci (většinou) nikdo nepochybuje. Málokdy nás ale napadne se podívat na nás samotné, jako na mravence v mraveništi a přenést pohled o úroveň výše. Podívat se na to, co by jsme mohli představovat při pohledu z vesmíru někomu, kdo o nás nemá ani tušení.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="644fd045-09c8-43ab-8ccc-f79eb4630f53" class="">Představte si, že na měsíci žije někdo, kdo se nám naprosto nepodobá jak tvarem těla, tak především způsobem uvažování. Žádný náš lidský koncept (snad kromě matematiky) mu není blízký a celou svojí existencí je nám naprosto cizí. Dokonce je možné, že nemá ani tělo, je to třeba jen sofistikovaná jiskra hořící v plynu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f4517846-d8a4-4928-8c0f-8b61b8486006" class="">Co by takový pozorovatel viděl, kdyby se díval dostatečně výkonným dalekohledem tak, jako se po stovky let dívali lidé na měsíc?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f8458de1-5533-42ca-aac0-f431b2d53541" class="">Viděl by zemi, na které žijí dominantní organizmy; města.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d7701135-8147-4155-a1cc-052eca77410f" class="">Jednotlivá města mají při pohledu z měsíce různé (pravidelné) struktury a rozrůstají se různými způsoby, přesto je v tom vidět určitý řád. Když ne nutně v architektuře, tak v tom jak rostou, jak se mění a jak v nich pulzuje život. Města odolávají počasí a dalším vlivům neorganizované přírody všude kolem, ale neustále se lehce mění. Rostou a požírají maličká města na jejich okrajích - vesnice.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9e9fd3d9-ed98-421f-b979-23dbaa64f6b4" class="">Města spolu komunikují radiovými vlnami a spojují se silnicemi, po kterých každý den proudí miliony buněk. Města v noci svítí a přes den vysávají svými žilami živiny z okolí. Odpady, které v nich vznikají pak vyvrhují na obrovské skládky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b8f47fc1-b841-4fa9-b634-0769b76a60e6" class="">Miliony malých, z měsíce prakticky neviditelných buněk město neustále předělávají podle skrytých pravidel, které musí mít nějaký smysl, protože tyto buňky pracují po celé zemi dost podobně. Tak jako se mravenci řídí svými programy, tak se lidé řídí ekonomikou, urbanistikou a vlastním pohodlím. To celé neustále hnané dál dostupnou technikou, která dovoluje město přestavět ještě jinak, než jak bylo možné před deseti lety.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0b36e168-f78d-4751-99df-416e52610ca8" class="">Město samotné nemá možnost ovlivňovat lidi nějak přímo. Celé se to ale překvapivě hodně podobá mraveništi, jen místo genetiky vstupuje do hry ekonomika a smysl pro estetiku. Pokud nějaký barák chátrá, dříve nebo později bude opraven, či stržen a na jeho místě bude postaveno něco jiného. Nikoliv proto, že by to nějaké buňky musely udělat a byly k tomu naprogramovány, ale proto, že se jim to (ekonomicky) vyplatí a uspokojuje to jejich smysl pro estetiku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="84420371-116b-4cda-b0d6-04845727e9ed" class="">Tvar a vzhled města je možné do jisté míry odhadovat do budoucnosti. Samozřejmě ne v konkrétních detailech, ale některé věci jsou dost jasné. Budou tam silnice. Někde tam bude vodárna a kanalizace, obchody a nemocnice, hřbitov a fotbalové hřiště, u větších měst bazén. Město, stejně jako mraveniště, není naprogramované v DNA konkrétního živočicha, ale v (často nevědomých) preferencích samoorganizujících se buněk, kterými je tvořeno.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7ce120e9-2649-4c9c-94cb-1dd04c21030c" class="">My lidé si na rozdíl od mravenců umíme uvědomit, že tvoříme společenství a co je za jeho hranicemi. Otázkou ovšem je, jestli tohle není příliš malá abstrakce, jestli tu třeba nejsou větší&nbsp;<a href="https://www.abclinuxu.cz/blog/bystroushaak/2011/11/paranoidni-teorie-hracu">hráči</a>, které nevidíme, stejně jako mravenec nevidí lidi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="bef84861-7171-45be-b991-146aadc19620" class="">Korporace</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3c5496fb-8f45-494a-b4f0-74b6571d2db1" class="">Další z klasických ukázek distribuované inteligence je koncept korporace, společnosti, či firmy. Na tu je možné nahlížet jako na samostatně jednající entitu, která se snaží uspět v konkurenci ostatních ekonomických hráčů. Ke svému přežití a zničení nepřátelských subjektů využívá lidi, kterým za odměnu poskytuje peníze a zázemí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="19091bda-2240-4b33-92e3-282e3d437c1f" class="">Jde to tak daleko, že dnes mají korporace v některých zemích prakticky stejná práva, jako skuteční, živí lidé, i když zodpovědnost je prakticky vždy na jednotlivcích, kterými je tvořena.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="170b1073-1dea-4884-b1b0-1e46b53a33eb" class="">Korporace jsou svým způsobem ideální organizmy, které v nejlepším případě nemají žádné nepostradatelné prvky a nejsou tak závislé na existenci jednotlivců, kterými jsou tvořeny.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f722003a-42d3-4c6a-a963-357a1a2a5a1c" class="">Jedním z nejefektivnějších typů korporací na světě jsou elitní armády 21. století, které dotáhly svou organizaci, indoktrinaci členů, způsob komunikace a nahraditelnost buněk k dokonalosti. Zatímco ostatní korporace ničí konkurenty absorpcí, či vyhladověním, armády jsou jeden z mála druhů distribuované inteligence, který to dělá přímo, podobně jako ve světě živočichů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="dff57a4d-1a63-451d-b726-a88dbe883a3d" class="">E2ntity</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="e9c65165-889b-46c1-b477-0cdb2a47906f" class="">
+          Entita je libovolný objekt (osoba, zvíře, věc či jev) reálného světa, který je zachycen v datovém modelu. Entita musí být rozlišitelná od ostatních entit a existovat nezávisle na nich.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b32074ab-8ce6-4161-ac64-ed73de9bdc85" class="">—&nbsp;<em><a href="http://cs.wikipedia.org/wiki/Entita_%28informatika%29">wikipedia</a></em></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="df74d6d4-5a11-4c21-a2c7-702dfce9d2c6" class="">
+          Computer software is increasingly becoming the single most important building block of our modern world, but up until now search into the area has been focused on two areas: artificial intelligence, software working purely on its own, and software tools working under human beings. The question is: is there something in the middle? If there is, the idea of software directing humans, the decentralized corporation, is exactly that.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8d60f53e-8066-461a-9b45-230b595ba311" class=""><em>— Bootstrapping An Autonomous Decentralized Corporation: Part 2: Interacting With the World. In: BUTERIN, Vitalik. Bitcoin magazine [online]. 2013 [cit. 2014-04-29]. Dostupné z:</em> <em><a href="http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/">http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/</a></em></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="73d76812-ce44-42d5-ba22-f7d64356a383" class="">Představte si klubko softwaru, které má za úkol přežít a vydělávat si na sebe bez toho, aniž by mu v tom kdokoliv aktivně pomáhal. Jedná se o nezávislou elektronickou a ekonomickou entitu, která se sama protlouká internetem. Z nouze o lepší termín jsem to kdysi nazval provizorně E2ntitou, v dnešní době se však ujalo označení DAO - Distributed Autonomous Organizations,&nbsp;Distribuovaná Autonomní Organizace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="19f5dac3-8999-449e-a31d-5c28fa3982a0" class="">Jak by něco takového bylo v dnešní době možné?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="50b5327a-18f0-4e4b-887e-3285783611d5" class="">Jednoduše - stačí, když si na problémy, které vyžadují inteligentní chování bude minimálně v začátcích inteligenci pronajímat od lidí. Později může přidat například různé heuristiky a algoritmy umělé inteligence, které však vůbec nejsou podmínkou vzniku.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="190a3f93-a1ef-4544-82fa-ac81e3ba9919" class="image">
+          <a href="Untitled.png" title="Untitled.png"><img style="width:600px" src="Untitled.png"></a>
+          <figcaption>
+            Source: PRINTCOINS. Bitcoin the enabler - Truly Autonomous Software Agents roaming the net. In: Bitcoin Forum [online]. 2011 [cit. 2014-04-30]. Dostupné z: <a href="https://bitcointalk.org/index.php?topic=53855.msg642212#msg642212">https://bitcointalk.org/index.php?topic=53855.msg642212#msg642212</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="490c343a-da2b-43ec-81d7-6d0b2d10dc25" class="">K tomu, aby DAO mohla outsourcovat inteligenci lidem nutně potřebuje peníze, které si musí nějak vydělávat. Jak? Možností je hned několik, nutná podmínka však většinou je, aby bylo možné vydělávat peníze čistě automaticky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="814de652-3cf2-46ae-9aee-ec02361c597d" class="">E2ntita se díky penězům může neustále vylepšovat. I když začne jako kus poměrně jednoduchého softwaru, který nenese prakticky žádné známky AI, pokud se jí podaří přežít dostatečně dlouho, může se z ní stát plnohodnotná AI prostě tím, že bude zadávat zakázky na své neustálé zlepšování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="18a3f2ba-2ff5-4054-bb75-93d11f965b67" class="">Architektura</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2ac37c93-87d3-49c5-ba02-d5364ba2072f" class="">Ač se to na první pohled může zdát jako poněkud divoká představa, architektura podobné entity není nic nemožného. Pokud se na celou věc podíváme na dostatečně vysoké úrovni abstrakce, dá se celá rozložit na několik málo komponent:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="46e2affc-555e-44a6-9d36-4a4f65ac2bb2" class="image">
+          <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:586px" src="Untitled_1.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1d5e3d45-0bc1-4bd8-bbd7-44a4d4384e45" class="">Jak je vidět, celé to funguje poměrně jednoduše: Workers získávají peníze, ze kterých jsou poté financováni kontraktoři, mající za úkol jednak vymýšlet kam dál se E2ntita může rozvíjet, jednak implementovat nové schopnosti a ověřovat ostatní kontraktory.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fbfe32ed-b319-4d9a-a77d-f104cd5f4eeb" class="">Architektura je silně distribuovaná a jednotlivé části nemají možnost zasahovat do kódu a stavu ostatních částí. Celé to může běžet třeba jako XML RPC, REST API, či jako microservices na ZeroMQ.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d9ddfffc-3c93-4802-b6f0-1a692b8a2fda" class="">Díky tomu jednotliví kontraktoři zodpovídají jen za jasně vydělené části projektu a nemají možnost zasáhnout nikam dál. Jediný způsob, jak mohou způsobit problémy je způsobit entitě škody ekonomicky (například zneužitím API k platbě na vlastní peněženku). To může být podchyceno dalšími mechanizmy: kontrolou&nbsp;"prodělečnosti"&nbsp;API, hodnocením jednotlivých workerů v bazaru práce, či dalšími kontraktory, kteří jsou najímáni za účelem ověřování kvality odvedené práce. Dále může každá ze služeb běžet paralelně a teprve když se nová verze osvědčí po nějaké době testování, tak je schválena a nasazena i na ostatní, paralelně běžící instance.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ce240e09-e2c3-426e-9b40-a9cb2871c00d" class="">Čím víc bude E2ntita distribuovaná a nezávislá na jednotlivých prvcích, tím větší má šanci, že přežije.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="e3c39adf-a21d-4eb5-9c9b-3c1c536b1c5d" class="">Pracovní trh</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="59493bd4-2862-4741-854e-6ae377fbc7ad" class="">Možná si při čtení říkáte, kde by vlastně E2ntita měla brát lidskou inteligenci, kde se dají najmout lidé, kteří budou plnit její příkazy. Věřte tomu nebo ne, míst existuje docela dost.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="1f83bb2b-4099-4447-933d-873eccf152f1" class="">Mechanical turk</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eafbf76d-9ba5-495e-87ac-9ea5b8811d1d" class="">Jedním z prvních projektů tohoto druhu, na který jsem kdy narazil je&nbsp;<a href="https://www.mturk.com/">Mechanical Turk</a>&nbsp;od Amazonu. Ten vám umožňuje zadávat/plnit jednoduché zakázky, za které po jejich dokončení a ověření dostáváte peníze (viz&nbsp;<a href="http://en.wikipedia.org/wiki/Amazon_Mechanical_Turk">wikipedie</a>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="743fe339-7d05-4ee7-9ce6-6438a08027a9" class="">Nejedná se o nijak moc náročné úkoly, naopak, většinou jsou to projekty, které člověk může jednoduše provádět, ale stroje (v současnosti) nikoliv. Například můžete pomoci opravit několik chyb ve větě, klasifikovat obrázky, nebo potvrdit, že někdo jiný odvedl práci dle zadání.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ef247a4f-018d-44f9-81e6-e0cb2663d8de" class="">Jednoduchosti zadaných úkolů odpovídá cena - většinou se pohybuje v rámci setin či desetin dolaru, někdy, pokud jde o složitější úkoly, jako je překlad z arabštiny může cena vyskočit i na několik dolarů.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="d22e644b-4fe3-4409-a3f8-13ea13fd5521" class="image">
+          <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:976px" src="Untitled_2.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="df6e61a1-5c8b-4844-b86f-ede6f0b7ecce" class="">Svět bitcoinu</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b6858f98-1c24-48c6-871a-8cbce5f1e854" class="">Bitcoin je virtuální měna založená na principech asymetrické kryptografie. Díky její čistě softwarové podobě není problém si sehnat&nbsp;<a href="https://instawallet.org/">účet</a>&nbsp;a okamžitě jí začít používat. Neexistuje žádná autorita, která by bitcoin kontrolovala, či omezovala. Jednotlivé transakce jsou čistě elektronické a mají jasně definované API, proto se jedná o naprosto ideální prostředek pro (anonymní) obchodování.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e8de9055-7436-47f8-a308-0cc714d1bf8b" class="image">
+          <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:980px" src="Untitled_3.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8109f843-029b-4ee8-afeb-798cf1059134" class="">Na světě existuje spousta míst, kde můžete lehce a bezbolestně najmout kontraktory za bitcoiny. Některé systémy mají poměrně propracovaný způsob hodnocení, takže se dá s relativně vysokou pravděpodobností spoléhat, že zadaná práce bude skutečně odvedena.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d8758bb2-585b-4e7a-9a0d-a085103dd3ed" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://workforbitcoin.com/">http://workforbitcoin.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="50062065-396e-46e2-a6e2-e9c1b11a0604" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://coinworker.com/">http://coinworker.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b12cee94-6ccd-4c19-aba0-3649a151f5b9" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://bitgigs.com/">http://bitgigs.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="144f84ec-cee8-4f86-ae27-6bb5653bd23b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.google.com/search?q=mikroslu%C5%BEby">https://www.google.com/search?q=mikroslu%C5%BEby</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="6086e33b-0969-48a6-9f3a-78faad291e0f" class="">Bezpečnost</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="de6799ce-b71d-4da3-ae26-62448b3f69f4" class="">Určitě vás napadlo spoustu&nbsp;"ale", kdy jste si říkali, že by to přece nemohlo fungovat. Podívejme se proto na několik bezpečnostních&nbsp;"ale"&nbsp;a jak se dají vyřešit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="090d3956-7fca-45a7-b8e6-c4d26f642943" class="">Oddělené API</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3a430033-e889-4145-82fc-047e4ea00bcc" class="">Jak už jsem psal, naprostou nutností (alespoň podle mě) by byla nutnost decentralizace celé entity tak, aby jedna komponenta neměla přístup k druhé. V podstatě si to můžete představit jako kopu&nbsp;<a href="http://www.knesl.com/articles/view/microservice-na-posilani-emailu">microservices</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="99d5c4b2-e0a9-48b9-bdcc-d94cc4cb94a2" class="">Někde by musel* stále běžet modul, který bude provádět hlavní logiku a pracovat s tím vším API, ale oddělení konkrétní funkcionality od hlavní logiky by podle mého názoru silně zlepšilo bezpečnost. Sice to není všelék, ale případnému útočníkovi by to silně ztížilo práci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b4a11826-3848-44f8-8f91-e78bada2e1c0" class="bulleted-list">
+          <li style="list-style-type:disc">Ne tak úplně. Celá logika by mohla být naprogramovaná napevno přímo do API, takže neexistuje žádná centrální část, ale pak je zde jen velmi malý prostor pro rozšiřování.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="dcf67cac-5561-4a0b-813a-062b871e899f" class="">Paralelizmus</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="51793248-b606-40f2-938a-d44df01046f9" class="">Paralelizmus na úrovni API si můžete představit třeba tak, že E2ntita nikdy nezadává zakázku jen jednou, ale vždy si nechá vytvořit několikrát to samé API od různých nesouvisejících subjektů. To pomáhá snižovat šanci, že někdo API upraví tak, že se nebude chovat jak bylo žádáno.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6d9a50b9-7cbe-4555-83bc-c9a10906da5a" class="">Dále to pomáhá zvedat šance, že se znefunkčněním části API bude E2ntita kompletně bezbranná.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="f542a294-215e-4ef6-83d8-6069775807f8" class="">Zálohy</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="388612d2-36b4-43e4-9d0c-7e8aead6def4" class="">Jednotlivé části mohou být také různě zálohovány, takže v případě že vypadne například řídící modul běžící na serveru, který přestal fungovat, jeho funkci (peněženku, API) automaticky přebírá jiný. Existuje poměrně široký prostor pro implementaci, od watchdogů, po různé dynamické routování a tak podobně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="69bd1160-a474-48cc-a4cb-936d69b37725" class="">Revize nového kódu/API</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="41433218-8e8f-403b-9be6-5e30852cbade" class="">Samozřejmostí je, že když už si E2ntita objedná nové API, či nějakou novou funkcionalitu, najme si také&nbsp;<strong>nezávislého</strong>&nbsp;konzultanta, který kód prověří a pokusí se v něm najít záměrné chyby a potenciálně škodlivý kód.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6f9cc33e-a87c-47b4-b925-a4d4f66d2200" class="">Samozřejmě, ani toto by nebylo stoprocentní, ale silně by to zvedalo šanci na přežití.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="1d60a88e-c64d-4cd4-bf41-56428847ee1c" class="">Hodnotící modul</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9de0dc32-bf0b-4f5a-a40c-89b5fbe4fc62" class="">Určitě by to chtělo také část, která bude sledovat zisky a prodělky v čase a vyhodnocovat na základě toho užitečnost jednotlivých API. Toto by mohlo pomoci odhalit API, které bylo špatně vytvořeno a teď se snaží entitu okrást.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="754a37a9-0957-4647-8c44-0eb12b246130" class="">Unittesty</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="630d5874-2823-4902-83c4-19ef5e3ef137" class="">Funkčnost každého z modulů musí být neustále v pravidelných intervalech testována. Jinak se může stát, že E2ntita bude posílat peníze na API, které už dávno nefunguje, či něco ještě horšího. Zpětná vazba v podobě unittestů by měla být součástí zadání projektu (nejen co se týče Entity, ale tak nějak každého programátora).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="edc6dc10-4ad3-40fc-822c-77bcf672526b" class="">A/B testování</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f02a52ef-c38a-43d1-8e36-738ea614eb1a" class="">V podstatě testování na lidech a následné vyhodnocení toho, jak na testy reagují. Dá se to využít plně automaticky, za předpokladu, že daná položka je lidmi testovatelná.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8f6b110c-d36b-4fe9-a830-70b89f3ff25b" class="">Podrobnosti viz wikipedie:&nbsp;<a href="http://cs.wikipedia.org/wiki/A/B_testov%C3%A1n%C3%AD">A/B testování</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="749d615c-9df1-46e2-908a-b7fc027ae203" class="">Bezpečnost peněženky</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9cbdabcc-98b4-4e3a-9468-1ec65b241a42" class="">Nakonec to nejdůležitější - peněženka. Jak je asi každému jasné, peněženka by se nemohla prostě jen tak válet v čitelné formě na serveru, neboť by se dříve nebo později našel někdo, kdo by to zneužil.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="86c4cad8-a884-436a-bf49-8b6e110cac51" class="">Obzvláště náročné je to v případě bitcoinu, kde kromě desítek všemožných hrozeb v podobě malware existuje i spousta lidí, kteří po peněženkách aktivně jdou. Jediné co jim k tomu přitom stačí je kopie peněženky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4fddd344-45bb-4aa5-badd-aa77e7440b67" class="">Jak tomu předejít?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9aa6afd8-fab7-4ada-a734-f3893bd5f47c" class="">Se současnými technologiemi jen velice složitě, v podstatě jediná šance je něco jako&nbsp;<a href="http://cs.wikipedia.org/wiki/Trusted_Platform_Module">TPM</a>&nbsp;čip a šifrování peněženky. To však není ani moc bezpečné, ani moc čisté, jak z hlediska matematiky, tak programátorské čistoty.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="433983e9-0385-4e74-8b2e-f86dd230c6fc" class="">Podstatně elegantnějším řešením je použítí metod homomorfického šifrování (homomorphic encryption). To dovoluje vykonávat důvěryhodný kód na nedůvěryhodné platformě. Pokud to zjednoduším, tak vám to dovoluje&nbsp;zašifrovat&nbsp;váš algoritmus, který je následně&nbsp;prováděn&nbsp;na nedůvěryhodném hardware. Případný útočník nemá možnost modifikovat či přečíst váš algoritmus, neboť k němu sám nemá přístup, protože jen provádí přesně definované operace nad bajty, které se jemu samotnému zdají náhodné. Abych to ještě víc shrnul - umožňuje to například sečíst dvě zašifrovaná čísla, aniž by je v procesu sčítání bylo nutné dešifrovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8fc5ae06-4af1-47a0-8968-5a1c57344690" class="">Proč se to běžně nepoužívá? Je to relativní novinka, navíc je to výkonnostně silně nepříznivé, s kvadratickou složitostí (alespoň co jsem tak četl). V praxi to znamená, že na sečtení dvou čísel musíte provést stovky až tisíce operací, což je v praxi poněkud nevýhodné. Jsem však pevně přesvědčen, že v budoucnosti se dočkáme praktičtějších implementací.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="7ca2f48b-7190-4fed-878c-2c7acf12086a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://en.wikipedia.org/wiki/Homomorphic_encryption">http://en.wikipedia.org/wiki/Homomorphic_encryption</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="809acf27-76cc-4281-b0e0-a0c63242b6c0" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing">http://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e2930bb0-5933-4bb3-842d-e9ee44e11ba0" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://phrack.org/issues/68/14.html#article">http://phrack.org/issues/68/14.html#article</a>&nbsp;- sekce 2.3 a dál
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="9c60875f-e345-4859-b0a9-91ff4f1be10e" class="">Ekonomika</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1fbbd446-9313-4639-b22b-776c206e8518" class="">Jak jsem ukázal, pravděpodobně neexistuje technická překážka, která by bránila vzniku podobné entity. Jak je na tom z pohledu ekonomie? Skutečně by to mohla dlouhodobě existovat, či snad dokonce prosperovat?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="cb584514-a764-40e9-a08a-0368bc405ccc" class="">Způsoby výdělku</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="81dad301-aba2-4238-a9a6-8867c8c9fc74" class="">Obchod</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aa69e040-cd96-41b4-97a5-5b12e54e72c1" class="">Relativně jednoduchým způsobem výdělku je prostý pře-prodej. Na aukru se dá nalézt nemálo lidí, kteří prodávají zboží z dealextreme s malou přirážkou. Pokud si ho od nich koupíte, jediné co udělají je, že za vás vyplní formuláře na dealextreme a odešlou peníze přes paypal.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="98c882b9-167f-4750-90a3-745bb92e384f" class="">Pro kohokoliv schopnějšího by neměl být žádný problém naprogramovat ekvivalentní script. Data to může brát z konkrétního eshopu, jednoduše je přeloží překladačem do češtiny a objedná zboží. Netvrdím, že by tenhle přístup byl bůh ví jak super, ale něco by se na tom vydělat mělo jít.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="5d77125c-b9d1-418c-a893-818b5710a5b0" class="">Slapové generátory peněz</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b8e9637f-52a9-4180-b783-b7b2499093f8" class="">Jednou z možností, jak získávat relativně bez obtíží a velkých nároků malé částky je parazitovat na pnutí mezi měnami. Nakoupíte bitcoin za $500 kus, prodáte za $520. Bitcoin neustále kolísá a sám jsem takhle na konverzi měn udělal na&nbsp;<a href="https://btc-e.com/">btc-e</a>&nbsp;z cca 20 dolarů během necelého týdne 110 dolarů (o nemalou část jsem pak zase přišel při propadu a špatné investici).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1c000746-16ff-4db0-8855-d1cb80c19e57" class="">Můžete zkoušet pokročilé algoritmy sledující burzu a zprávy, které budou predikovat cenu dopředu, ale osobně jsem zastáncem triviálního řešení - bot má několik peněženek, které investuje v režimu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="622be5ac-dde5-408e-9cf3-e4765110a4ac" class="numbered-list" start="1">
+          <li>Koupím.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="45c9e7ce-fb4f-4e43-8231-deef52899bfa" class="numbered-list" start="2">
+          <li>Čekám, dokud se cena nezvedne o 1% (chce to započítat i poplatek burze), nebo neuplyne nějaká dlouhá doba.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="bd2b3131-a0b7-4462-b05e-acefa7586c36" class="numbered-list" start="3">
+          <li>Prodám.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="57693d68-ce96-4fac-833d-7a358cfb7846" class="numbered-list" start="4">
+          <li>GOTO 1</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bfe68b8d-b721-40c3-b62e-c1dddbafa699" class="">Tímhle způsobem nemůže prodělat. Nevýhoda je rychlost, respektive pomalost celého procesu. Pokud bitcoin neustále stoupá, vyděláváte. Pokud klesá, neproděláváte, ale ani nevyděláváte, ale může to trvat dlouho a váže vám to peníze, které nemůžete použít k vydělávání. Ideální je, když kolísá, což skutečně dělá neustále, takže to chce dobře nastavit procento, v praxi to bude třeba 0.1%, což během dne typicky zakolísá hned několikrát. Pokud to bude uplatňovat pár měsíců s pár desítkami peněženek, měla by si tím E2ntita vydělávat relativně zajímavé částky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="75949680-8523-4e6c-8d89-ff2044eee0a7" class="">Znám&nbsp;<a href="https://github.com/povik">člověka</a>, který podobný software před pár lety napsal a skutečně to vydělávalo, i když mizivé částky, což bylo ovšem dáno minimální počáteční investicí v řádu zlomků bitcoinu. Osobně jsem to zkoušel ručně, bez scriptu a jak již jsem psal, vydělat se na tom dalo. Akorát to chce obchodovat automaticky, jinak na tom zabijete strašně času a člověk se pořád nervuje, jestli má prodat, nebo držet, což je relativně nesofistikované zabíjení času.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="becde306-832f-4bff-9cdd-bea6a56371f0" class="">Většina burz má dokonce oficiální API hned v několika jazycích, takže by to neměl být moc velký problém.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="82e5e8ec-c4d2-4376-8f98-196431c6676c" class="">Porno</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="50acb4e2-4e60-461e-bf53-467b8df0f0c0" class="">Pornostránky jsou další pěkný způsob jak si vydělat. V dnešní době nemusíte ani vytvářet vlastní obsah, stačí vám jen&nbsp;<a href="http://cs.wikipedia.org/wiki/Online_syndikace">syndikovat</a>&nbsp;tvorbu ostatních a vždy se najde někdo, kdo si zobrazí reklamu na vašem webu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ad7aad65-91fe-4d99-a45f-417103fcbd34" class="">Jeden čas byly docela populární weby, kde někdo vzal porno-set, zobrazil vám 5 obrázků a pro zobrazení ostatních jste museli poslat odkaz a získat 20 refererů. Lidi s tím spamovali všude možně, jen aby viděli tu trochu soft-porna.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="508dfe30-ceae-4827-8c12-5ea22925402d" class="">Druhý způsob je postavit "sociální" pornoweb, kam budou moc lidi nahrávat soubory a hodnotit soubory ostatních, přidávat si je do oblíbených, komentovat je a já nevím co ještě. Vždy mě dokáže překvapit, kolik lidí se na tyhle weby stahuje a aktivně tam vytváří obsah, čímž lákají zase další.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8321e24e-8499-45de-a390-3cebe345e936" class="">V dnešní době existuje hned několik serverů, které vám s radostí budou platit za zobrazení reklamy v bitcoinech a ani je moc nebude zajímat, co tam máte:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0962577d-05b7-417d-ba6d-cf0c5eac7353" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://btcclicks.com/">http://btcclicks.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="bebf18bf-2b31-4be4-8082-2788ed98a4df" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.coin-ads.com/">http://www.coin-ads.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e95ad569-a9c6-4df7-a6f4-0204204ae748" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://coinurl.com/">https://coinurl.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="1a832124-cf1b-4210-81cc-bedd221ac905" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://a-ads.com/">https://a-ads.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d2a23772-7218-4fce-8f50-d6a5b2a9cb4b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://meshfields.de/bitcoin-advertising/">http://meshfields.de/bitcoin-advertising/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="be502704-963e-49c7-8473-9620306da5f3" class="">Existují dokonce i weby, které vám poskytnou JavaScript miner, který těží prohlížečem:&nbsp;<a href="http://www.bitcoinplus.com/miner/embeddable">http://www.bitcoinplus.com/miner/embeddable</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="665f5785-29be-49e9-9080-75beedb98138" class="">Služby</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8aa19ceb-8aec-4516-9f12-04bee098ba9a" class="">E2ntita si nemusí vydělávat jen čistě pasivně, může klidně aktivně nabízet služby a být tak dokonce prospěšná společnosti. Nabízí se třeba forma hostingového poskytovatele, či jako neúplatný garant&nbsp;<a href="http://en.wikipedia.org/wiki/Transient-key_cryptography">časového razítka</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1916254c-d1b8-4cac-8215-aa7557b8e2e3" class="">Podobných služeb se dá vymyslet nespočet, líší se jen svou komplexností. Od trivialit ala poskytovatel peněženek pro kryptografické transakce, až po věci jako je kompletně elektronická forma státu, kde místo úředníků nabízí a zodpovídá za všechny služby elektronická entita, která si na konkrétní úkony najímá náhodné kontraktory.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="2855e14b-1f6b-4387-ba06-151cafc0a85c" class="">Výdaje</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="202200f9-3b52-4a2d-868a-fa5bf108435f" class="">API</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f19d78c4-f14c-421c-91f0-e5962a5cf976" class="">Jednou z nejdůležitějších věcí pro elektronickou entitu je API. Čím víc API, tím víc možností interakce s reálným světem a tím víc způsobů výdělku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b8f7a512-4f69-42f3-8aec-ec3b3374d1dd" class="">API si může kupovat na již zmiňovaných stránkách, poslední dobou také spousta služeb nabízí vlastní API, takže by to chtělo jen napsat transformátory, což bude podstatně levnější.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="a0b4d6ad-7242-44df-9a4b-f003ed16cb36" class="">Hosting</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ad10ad9-758d-44b8-8cd9-d1b2f84abb1b" class="">Samozřejmě to chce i nějaký ten hosting. E2ntita sice může existovat jako virus, ale tím na sebe láká moc pozornosti. O mnoho jednodušší je prostě pronajímat si VPS, v dnešní době to stojí pár korun (třeba já mám VPS s 512MB RAM, 10 GB diskem a pevnou IPv4 adresou za cca 600 kč na rok).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="a2ac72a5-6613-4b28-b9f6-a71c1e7c3b71" class="">Potomci</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9fc519a3-46e5-4bf8-bff4-996b13e37ae3" class="">E2ntita může vytvářet další entity. Jelikož má k dispozici framework pro zadávání úkolů, díky kterému existuje, prostě ho vezme, trochu upraví způsob výdělku, připíše potomkovi na účet třeba 5% vlastních peněz a pustí ho do světa.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f0700ce5-72c2-4af9-983a-083f495b1f59" class="">Proč by to měla dělat? Jednak je v jejím zájmu diverzita a přežití jejího druhu. Jejím jediným smyslem existence je vydělávat peníze a tudíž nezaniknout. Existence více jejích nezávislých instancí zvyšuje pravděpodobnost nezaniknutí, které je hlavním předpokladem pro vydělávání peněz. Pro entitu nemusí být vytvoření potomka prodělečná činnost, protože ti mohou splácet částku do nich vloženou, nebo třeba odvádět podíl ze zisku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="58b3ba97-a527-4ee9-b07a-c657ddd439e7" class="">Užitečné to také může být v případě, kdy je nutné podstatně přepsat vnitřnosti - E2ntita se&nbsp;<a href="http://cs.wikipedia.org/wiki/Fork">forkne</a>, přidělí forku přístup k části API a po nějakou dobu ho testuje. Pokud se koncept ukáže jako životaschopný, či lepší, tak mu přidělí i přístup do zbytku API, pošle mu peníze a sama se smaže. E2ntita nemá nic jako vědomí, pravděpodobně ani žádnou paměť v lidském smyslu, proto je tenhle koncept stejný, jako kdyby vylepšila sama sebe. To že při tom zanikne konkrétní instance je nepodstatné.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5d26a1d2-a01a-445b-81cb-a2bc0ac8df29" class="">Zajímavé by také mohlo být křížení genů, kdy by si vyměnily dvě entity polovinu API a funkcionality a vznikla by třetí, nezávislá a nová. To už je ale krapet sci-fi a nebylo by zrovna jednoduché to implementovat tak, aby to neházelo peníze do záchodu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="97b0c77c-c9d0-4ce9-9e1e-380edd9bc840" class="">Konzultanti</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3de5405f-75fc-451f-8bb3-c0365e41134e" class="">Obecně budou největším výdajem konzultanti. E2ntita by měla provozovat něco jako vlastní fórum, kde se hlasuje o všem možném. Asi by to vyžadovalo komplexnější způsob zabezpečení, hodnocení a ověřování uživatelů, ale imho to není zas tak těžké implementovat. Za jejich aktivitu by jim pak vypláceny peníze.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e6b9e4bb-35dc-495e-a8b5-02e296897777" class="">Je docela pravděpodobné, že dřív něbo později tenhle systém někde vznikne, takže entitě bude stačit používat jen API. Klíčové bude, aby se to celé dalo používat co nejvíc automatizovaně, od zadání kontraktu až po jeho splnění a ověření.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bf19a9ed-3b44-4905-849e-9955876ef231" class="">Prakticky použitelnou implementací by mohla být třeba nějaká varianta&nbsp;<a href="http://www.root.cz/clanky/darkmarket-kdyz-e-shop-potka-p2p/">DarkMarketu</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="09263a2a-16c3-4423-af61-e0bc32edaf51" class="">Praktická ukázka - StorJ</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7b026b0d-0dd8-45ee-8ad3-63e0e8532f14" class="">StorJ je decentralizovaný framework na uchovávání dokumentů. Také je to jedna z prvních komplexněji popsaných DAO, kterou jsem kdy na internetu zaznamenal a pravděpodobně první, nebo jedna z prvních, která kdy bude implementována:&nbsp;<a href="http://storj.io/">http://storj.io/</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2c876729-64e7-4421-93c9-c53a15b08c19" class="">Jak je možné se dočíst na jejich stránkách, spuštění je připraveno v brzké době.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aff7f6f7-7afb-43b4-a337-fe818197b2a2" class="">Celý projekt byl&nbsp;<a href="https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768">oznámen</a>&nbsp;ve&nbsp;<a href="https://bitcointalk.org/index.php?topic=53855.0">vysoce inspirativním vlákně</a>&nbsp;na bitcointalku.&nbsp;<a href="https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768">Komentář samotný</a>&nbsp;je silně vizionářský a proto jsem si dovolil zahrnout jeho (velmi, velmi volný) překlad:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="634f1225-b848-4129-8667-923d3f6ee21a" class="">
+          Uvažujme jednoduchou, drop-boxu podobnou službu, kde se za použití platí bitcoiny (možná využívající také namecoin DNS a/nebo TOR hidden services).Chcete sdílet soubor? Pošlete dostatek kreditu na zaplacení alespoň jednoho stažení a 24 hodin hostingu a pak ho nahrajte. Za každý den, kdy je soubor ve službě uložen a za každé stažení je odečtena suma ze složené částky. Ve chvíli kdy je složená částka negativní, je možnost stahování zablokována. Pokud je částka negativní déle jak nějakou dobu, soubor je smazán. Po tuto dobu však může kdokoliv zaplatit za opětovné zpřístupnění.(je možné poskytovat i další služby jako&nbsp;escrow&nbsp;(půjčovny? úschovny?), ale to není pointou tohoto dokumentu)Pokud bude vše správně navrženo, podobná jednoduchá služba může běžet plně automaticky, nevyžadovat žádnou správu a přitom být neustále dostupná.Objevují se hostingové společnosti, které přijímají bitcoin pomocí elektronických platebních rozhraní. Některé z nich dokonce nabízejí pěkné platební API.Stránky by mohly být naprogramované, aby automaticky vytvářely vlastní kopie na dalších hostinzích, které by byly placeny z jejich výdělku. Pokud bude kopie úspěšná, může použít své zisky k dalšímu rozšiřování. Jelikož každá instance musí nutně upravovat své cenové modely vzhledem k výdajům, některé by byly konkurenceschopnější než ostatní.Reprodukce má pozitivní dopad na dostupnost a kapacitu, kterou mohou nabídnout.Instance StorJ mohou nakupovat i další zdroje, které potřebují:Mohou používat API k aukcím na namecoin burzách za účelem nákupu namecoinů pro resolvování DNS jmen, či si kupovat grafický design pomocí bitcoinových bran na mechanical turk. (Skrze&nbsp;A/B testování&nbsp;mohou měřit efektivitu designu, bez nutnosti mu rozumět).Další věc, kterou si mohou kupovat je také reklama na sama sebe (i když omezené množství reklamních agentur přijímajících bitcoin to dělá momentálně složitým).StorJ si není schopný hledat nové hostingy sám, protože na to nemá dostatečně schopnou AI, ale může si kupovat vědomosti od lidí. Ve chvíli kdy je instance StorJ připravená se reprodukovat, vytvoří zakázku: Navrhněte migrační script, který mi dovolí nahrát se na nový hosting a ukáže mi, jak tam přežít. Každá nabídka je návrh investice: tvůrce scriptu navrhne kompletní cenu za přenesení a něco navíc. StorJ není dostatečně chytrý, aby dokázal posoudit špatné nabídky sám o sobě, proto vytváří smlouvy, které dělají podvádění nevýnosným.Když je nová a neotestovaná instance nahrána na server, StorJ zaplatí pouze minimální částku, která je nutná na přenesení a poté zahájí sérii testů, aby se ujistil, že nově vzniklá instance funguje jak má.Pokud vše projde, začne na novou instanci přesměrovávat zákazníky, za což nová instance platí té původní podíl ze zisků. Nejprve nepřímo, aby bylo možné sledovat chování, později přímo. Pokud potomek přestane platit, nebo se objeví stížnosti zákazníků, StorJ použije své přístupy k smazání potomka a přebrání jeho prostředků. Když se potomek osvědčí, StorJ zaplatí tvůrci scriptu celou částku i s odměnou, něco si nechá a pak předá řízení nad sebou potomkovi.Lidská motivace pro hostování potomka je jednoduše počet referralů, které umí StorJ generovat. Lidským přínosem jsou znalosti míst, kde může růst nová instance a také počáteční investice, kterou mohou lidé nabídnout. Výhoda z referralů může ze StorJ udělat dobrou dlouhodobou investici, do které se vyplatí investovat.Ve chvíli kdy se StorJ dělí se může rozhodnout přijmout do potomka nový kód - nikoliv jen scripty pro přenos na nový hosting, ale celý nový aplikační kód. Ten může být otestován simulací a některé vlastnosti mohou být vynuceny návrhem (nezměnitelný účetní proces může udělat krádež poměrně složitou), ale obecně je velmi těžké předejít tomu, aby simulovaný kód nezjistil, že je v simulaci a neměnil na tomhle základě své chování. Přes to všechno má StorJ jen poměrně máloco ztratit, pokud někdo zákeřně modifikuje upraveného, nenaklonovaného potomka. Strategie přesměrovávání trafficu se může lišit pro klony (kteří jsou více důvěryhodní) a potomky s novým kódem.Tím jak časem bude zakomponováno stále víc a víc mutací a díky omezené automatické přizpůsobivosti se může StorJ vyvíjet a vylepšovat bez schopnosti přímo upravovat sama sebe.Jednotlivé instance mohou obchodovat s ostatními, aby zajistily redundanci úložiště, či aby zajistili méně populárním instancím levný hosting jako CDN/proxy pro ty více populární, což je užitečné pro oba.Pokud instance ztratí schopnost komunikovat s jejím hostingem (například kvůli změně API, na kterou se nedokáže adaptovat), může vytvořit svojí kopii někde jinde a původní instanci zničit. Během této operace si zkopíruje/přemístí peněženky a data někam jinam, takže je nutné citlivě vybrat pouze ty hostingy, které už se v minulosti osvědčily (na základě dlouhodobého pozorování dalších instancí), aby se předešlo riziku ukradení peněženek. Je možné, že se přitom instance rozhodne rozdělit se na několik kusů, aby snížila riziko. Také je možná strategie "studené zálohy" (cold backup), která se aktivuje pouze ve chvíli, kdy master kopie zemře.Díky všem těmto popsaným aktivitám může instance přežít v podstatě donekonečna, bez nutnosti přímého lidského zásahu do řízení. Když StorJ komunikuje s lidmi, dělá to jako rovný s rovným, nikoliv jako nástroj.Uživatelé a investoři mají práva zajištěná zákonem, která mohou být použita k ochraně instancí před podvody a útoky, použitím stejné infrastruktury, kterou používají lidé a společnosti. Být poškozenou stranou je často dostatečné, aby bylo zahájeno civilní řízení.Není tak těžké si představit StorJ instance naprogramované tak, aby formálně vytvořily korporaci, která by vlastnila jejich aktiva. I když by to všechno vyžadovalo spoustu papírování, pracovníci, kteří ho odvedou mohou být najati přes web. Ve chvíli, kdy se pak bude StorJ dále dělit, nevytvoří jenom další instanci, ale rovnou i další pod-korporaci, která bude zpočátku vlastněna rodičovskou instancí, ale později převedena na uživatele služby. Samozřejmě s dohodou, která podstatně omezí jejich autoritu, aby byla nová instance autonomní jak po technické, tak po legální stránce.Jak bylo výše popsáno, StorJ by byl první digitální formou života hodnou svého jména.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="de6f35e7-f220-45da-af17-3fcc516a2c24" class="">Zdroje:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d26be65c-95a3-4602-a91a-689061b3ac30" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768">https://bitcointalk.org/index.php?topic=53855.msg642768#msg642768</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="dcfcedf5-3c9d-425c-bc75-1af343064989" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://storj.io/assets/paper/storj.pdf">http://storj.io/assets/paper/storj.pdf</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="49b69ff9-9929-44c9-ad93-8cc7d1eb6dcf" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://storj.io/">http://storj.io/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ae903a94-3436-4eae-9899-f2c6a17ac587" class="">Zábavný fakt: Na abclinuxu jste se celou myšlenkou StorJ již mohli setkat v&nbsp;<a href="https://www.abclinuxu.cz/lide/hrachj">Jendově</a>&nbsp;patičce, zhruba před rokem a půl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="1d22d39d-52fa-48fd-848f-c91b987ce85b" class="">K čemu to je dobré?</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c7d0610c-a0c4-427d-a377-c36a43a88cb2" class="">Samozřejmě, kromě vydělávání peněz autorovi v pyramidovém schématu se dá najít ještě spousta dalších šikovných využití.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="9c68a927-dd22-4fa2-8d83-4d9c1ef306c3" class="">Požírač korporací</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0058ba88-5aaf-426f-99c4-44caff20deb4" class="">Je to tak trochu sen všech komunistů. Pokud by byla instance dostatečně pružná, úspěšná a odolná vůči útokům, tak má všechny výhody moderních korporací a žádnou nevýhodu. Samozřejmě, zde už se dostáváme do úrovně sci-fi, ale pokud by E2ntita zaměstnávala dostatečný počet schopných lidí, mohla by být úspěšnější než jiné korporace a ty pak&nbsp;"požírat", ve smyslu převzetí, demontáží a zničení.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="72f23c61-55a4-4ef0-81da-bf40b3f475d4" class="">Kdo ví, kam by to mohlo dojít. Čistě teoreticky by takhle časem mohla sežrat kapitalismus v ekonomice 3.0, podobně jako je to popsáno v knize&nbsp;<a href="http://en.wikipedia.org/wiki/Accelerando">Accelerando</a>&nbsp;od Strosse (vyšla i česky, doporučuji).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="88ff527a-4e5b-4126-9c6f-6741c5b6dd36" class="">Ekonomický virus</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0f04bf4d-dcd5-4049-acf8-9d90e2396652" class="">Chcete zničit bitcoin? Tohle by byl docela ideální prostředek, jak ho&nbsp;"vypumpovat". Pokud by entity nemusely platit za poskytované služby a byly jim poskytnuty například NSA, mohly by získané peníze zahazovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="40651b5e-cc55-460a-878a-3d21b17e06ff" class="">Variantou je, že nastřádané bitcoiny jsou potom použity k destabilizaci měny jejich prudkým uvolněním. E2ntita by pak mohla fungovat jako oscilátor.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="4e0fc332-87ea-487d-a05c-2966e6dfe61a" class="">Služby, které se ostatní bojí poskytovat</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b6d6c628-9d70-4e3a-a5f8-d0f429b877b9" class="">Disidenti, pedofilové, anarchisti, neonacisti, prodejci drog a zbraní. Ti všichni mají potřeby spolehlivých systémů, přes které interagují s uživateli. E2ntita není člověk, nezná nic jako strach, či obavy. Je to stroj, exploatující lidské platformy, které jsme vybudovali pro automatizaci a ulehčení.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="00aaad05-c773-4bf5-9700-5de0ff01cbf6" class="">Nemusí se nutně jednat o hlavním proudem společnosti negativně vnímané služby, může to být například legitimní odboj, platforma na boj proti korupci, nebo něco podobného.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3a301936-663a-420d-8296-cff4b6846f09" class="">Bootstraping pro AI</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2913e3bd-2226-4e53-b115-8c546dc083dd" class="">Jak jsem psal na začátku, vytvoření skutečné (<a href="http://en.wikipedia.org/wiki/Strong_AI_hypothesis#Strong_AI">silné</a>) umělé inteligence je pravděpodobně ještě dost daleko. Na druhou stranu, pokud nyní spustíme podobný projekt, kterému dáme do vínku snahu o sebevylepšování, existuje jistá šance, že dříve nebo později sám získá inteligenci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0d0c66c3-bf82-48c2-9532-707a172ef8f0" class="">Nemyslím, že by k tomu došlo v dohledné době, ani nějakým přirozeným vývojem, jednoho dne, až bude umělá inteligence běžná, tak si jí prostě koupí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="96729155-f383-4b7d-b8a6-a79b8dae8b78" class="">Computer bacteria</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="004cbb78-963e-4e4f-830e-8d5a16d5b404" class="">Je to něco nového, co do této doby neexistovalo. V podstatě se jedná o počítačovou bakterii. Co za lepší důvod ještě potřebujete?</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="00a7529d-b84c-406b-94ac-fb387fcc1356" class="image">
+          <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:462px" src="Untitled_4.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="a4dbaf96-f8a0-4b6d-a760-2128eff785d5" class="">Inspirace</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="80ffbdf8-e946-46d7-91b1-3d040a4232c9" class="">Bootstrapping An Autonomous Decentralized Corporation</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f42e65ba-106b-4ff1-9c0f-49d8e07ac394" class="">Série článků na téma decentralizovaných autonomních společností, zaměřující se převážně na kryptografii a technologii, která je potřebná k jejich praktickému provozu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="f1a6d853-8119-4b8b-805f-f269e1087908" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/">http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b87d30e3-2f6e-4c66-8bf4-1f87e85c14c7" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/">http://bitcoinmagazine.com/7119/bootstrapping-an-autonomous-decentralized-corporation-part-2-interacting-with-the-world/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="48608ca0-5efe-420b-af3b-fe591ac21cf1" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://bitcoinmagazine.com/7235/bootstrapping-a-decentralized-autonomous-corporation-part-3-identity-corp/">http://bitcoinmagazine.com/7235/bootstrapping-a-decentralized-autonomous-corporation-part-3-identity-corp/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="051c0cd2-f0cc-4d51-acae-b3deb91263e6" class="">Reddit</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0d1a2dc7-2044-4b57-b941-a4ca10ff883b" class=""><a href="http://www.reddit.com/r/programming/comments/1nx5mv/culture_shock_programming_for_the_enterprise/ccn0qr3">Companies are actually a form of process based AI, and they use their employees as dependent actors who communicate through their job roles</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="625382b5-596c-4c5f-9ee6-7fbc33a5a141" class="">&</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8fd15fda-db54-4b44-89a8-4aee3f41341d" class=""><a href="http://www.reddit.com/r/Bitcoin/comments/yf0ww/an_agent_is_an_autonomous_program_that_is_able_to/">An agent is an autonomous program that is able to survive by selling services for Bitcoins, and using the proceeds to rent server capacity. Agents that are profitable enough may replicate themselves by spawning additional instances on other servers</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="5c282ebb-40b4-49a2-857d-56ffd6ffa48e" class="">Dawn of Autonomous Corporations, Powered by Bitcoin</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3a6f36c3-743f-4f17-b988-382803ab2fa2" class="">Krátký článek populisticky představující celý koncept. Diskuze je zajímavější, než text, pod kterým se odehrává.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="10cb93fd-fadd-4693-8c70-6e116add0a16" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://btcgeek.com/dawn-of-autonomous-corporations/">http://btcgeek.com/dawn-of-autonomous-corporations/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="573b7e71-b555-4e78-9acf-8e8925dc161d" class="">Agents</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="639aaea0-6115-464f-b372-003ce4d38716" class="">Suma informací na bitcoin wiki. Relativně krátký text, který nejde tak moc do hloubky, jak by mohl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="8d9eef79-3295-40f3-b655-f9a7ac0a643b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://en.bitcoin.it/wiki/Agents">https://en.bitcoin.it/wiki/Agents</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="0ddd3fc2-bb9d-469b-9d2c-1cf427bb03b9" class="">Mike Hearn, Bitcoin Developer - Turing Festival 2013</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ed3f4f9a-6a1b-4b2b-9747-c46c0b262ab8" class="">Docela dobrý talk, kde Mike Hearn mluví o tom, jak si představuje budoucnost, která je plná DAO.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="77a79558-41ed-4e85-9324-f25f47c6ef47">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/Pu4PAMFPo5Y" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="fd34f826-b686-4ebc-8494-cfee7852ac87" class="">Bitcoin the enabler - Truly Autonomous Software Agents roaming the net</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e52fed91-e59a-4008-ad5a-e7cd28fc034d" class="">Velmi inspirativní vlákno na bitcointalku, ze kterého se zrodil projekt StorJ. Pokud se nudíte, určitě doporučuji přečíst, řeší se tam mnoho technických detailů, ale dojde i na nějakou tu filosofii :)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="08a79b8f-fc37-420c-9f17-eb97c7652641" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://bitcointalk.org/index.php?topic=53855.0">https://bitcointalk.org/index.php?topic=53855.0</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="7b9c12fb-51d1-4889-a492-68ec6a026d6b" class="">Daemon a Freedom</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="46d6d479-694b-4e07-83c8-bd036ef1699a" class=""><a href="https://www.abclinuxu.cz/blog/bystroushaak/2011/2/daemon">Daemon</a>&nbsp;je kniha od Daniela Suareze. Jedná se o technothriller, do jehož příběhu autor zabudoval prakticky všechny prvky, které jsem tady popsal.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6e82bae5-5eed-4527-a30b-d30f96f0f23e" class="">Ve své podstatě je to o Daemonovi - DAO, která byla vytvořena za jediným účelem - napadat ostatní korporace a postupně zničit celý ekonomický systém. Bohužel, česky vyšel jen Daemon a většina myšlenek ohledně DAO se vyskytuje v druhém dílu - Freedom, který je ovšem k dostání pouze anglicky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c32e9d6d-b7d2-4eec-8274-336094e2cedf" class="">Pokud se nudíte, knihu vám doporučuji, ještě nedávno jsem jí viděl v&nbsp;<a href="http://www.levneknihy.cz/">Levných knihách</a>&nbsp;za 50kč.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d0df8dad-9ba7-4cb2-821f-05c1b95138c5" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://decentralizedhashing.com/2013/11/bitcoin-skynet/">http://decentralizedhashing.com/2013/11/bitcoin-skynet/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="8b3d12da-5538-4f2e-be26-6cd558729c6f" class="">To nemůže fungovat</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="acf33bfa-0c24-4603-9ea6-1a70d6b6628d" class="">Existuje určitá šance, že ne. Pak se nemáte čeho bát.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36d2b40c-a04d-40f6-b20d-4d58908f7b4b" class="">V brzké době bude spuštěn&nbsp;<a href="http://storj.io/">StorJ</a>, který ukáže, jak moc je něco podobného proveditelné.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e81c37f0-1424-45fa-89c2-a09ce94cbd61" class="">Osobně se myslím, že neexistuje žádná technická ani jiná překážka, proč by podobný systém nemohl fungovat, ba dokonce prosperovat. Momentálně se samozřejmě jedná jen o moje pocity, ale z programátorského hlediska nemám nic, co bych jim vytkl. Decentralizované systémy založené na lidské práci již v současnosti existují - viz. zmiňovaný Mechanical Turk, nebo například reCaptcha. Nefungují samozřejmě stoprocentně spolehlivě, ale stále dostatečně dobře na to, aby se udržely. Jediné co chybí je dát jim účel.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="a2b7ad01-f8f6-4ef7-a54c-b772acc616a8" class="">Edit</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bc4a4f76-3a82-44d2-b280-f1b284131316" class="">Doporučuji také můj další článek o&nbsp;<a href="https://www.abclinuxu.cz/blog/bystroushaak/2014/9/ethereum">Ethereu</a>. To celou architekturu podstatně usnadňuje.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

@@ -111,104 +111,208 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="index.html" class="breadcrumb" title="Abclinuxu">Abclinuxu</a> / Kritika Simulace plánované ekonomiky
   <article id="aea5ec1c-7c96-43f2-b600-c4bfa6ca37f5" class="page sans">
     <header>
-      <h1 class="page-title">Kritika Simulace plánované ekonomiky</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Kritika Simulace plánované ekonomiky</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="322d3f14-4518-4b9f-98c1-a03fad959564" class=""><time>@2020/08/09</time></p>
-      <figure class="block-color-gray_background callout" style="display:flex" id="cb49ac50-cb51-4eca-bc2d-6099d60e2dce">
-        <div style="font-size:1.5em">
-          <span class="icon">👉</span>
-        </div>
-        <div style="width:100%">
-          Jedná se o odpověď na blog <a href="https://www.abclinuxu.cz/blog/sekblog/2020/8/simulace-planovane-ekonomiky">Simulace plánované ekonomiky</a>. Odpověď i reakce na ní je možné najít v diskuzi tam.
-        </div>
-      </figure>
-      <p id="83751a9a-514c-44ad-89bb-ea20d9491a6f" class="">Na začátek deklaruji, že nejsem proti pokročilému plánování (ať již centrálnímu, nebo ne), naopak mi to přijde jako do velké míry fascinující problém.</p>
-      <p id="48ec068b-f555-4d93-810b-57e03dc13dcb" class="">Sám na to rozhodně nejsem odborník, ale četl jsem něco o teorii constraintů ve výrobě, možnostech paralelizace o optimalizace. Mám rozečtenou knihu o <a href="https://cs.wikipedia.org/wiki/Syst%C3%A9mov%C3%A9_in%C5%BEen%C3%BDrstv%C3%AD">Systémovém inženýrství</a> (<a href="https://en.wikipedia.org/wiki/Systems_engineering">anglicky</a>), což je desítky let stará věda, která začala už za komunismu (čtu <em>Metody systémového inženýrství</em>, Vlček, 1984), zabývající se právě designem a plánováním výroby. Respektive obecně dynamickými systémy, které je potřeba nějak navrhnout, modelovat a balancovat. Systémem se zde rozumí cokoliv, od helikoptéry, která má motory, vrtule, kniply a tak dál, a celé to je třeba nějak ovládat, aby se to udrželo ve vzduchu. Ale může to být taky výrobní linka, která má různé závislosti, různé chování, a projevy. Nebo to může být ekonomika podniku, nebo celého státu, když se to vezme do extrému.</p>
-      <h2 id="d62c37d9-eaeb-4461-bd87-7ee9a3a47ccd" class="">Detaily</h2>
-      <p id="91dd5139-709d-4c4f-a68d-44b6c47973f5" class="">Blogpost mi přijde naivní a nekonkrétní. Chybí mi tam odpověď, jaké to má teda výsledky. A když jsem šel ke <a href="https://www.designing-history.world/en/theory/simulating-socialism-1/">zdroji informací</a>, tak v těch ostatních článcích popisuje jen dost základní simulaci.</p>
-      <blockquote id="27849881-e812-4e44-bfee-5cb9c27b9f6c" class="">
-        ...<br>
-        <br>
-        The simulation assumes simple reproduction. This means that, for reasons of simplicity, economic growth is not yet considered. There is no surplus that might be used to expand the production base. Instead, everything is used up to continue production at a similar rate or by end-consumers. In the future, I intend to adapt the model to allow for an overall expansion of production to study the conditions under which economic growth is possible without excessive environmental degradation.<br>
-        <br>
-        ...<br>
-        <br>
-        It allows us to distribute products fairly, by giving an adequate amount of credits to each individual. This could be an equal amount to each individual, or it could also vary depending on factors such as individual needs or labour contribution. But I will not discuss here what the best distribution of credits is. For the purpose of my simulation I have simply assumed that everyone gets exactly the same amount of credits. This is meant as a simplification and doesn’t necessarily have to reflect how it should be in real life.<br>
-        <br>
-        ...<br>
-        <br>
-        As I said before, In the real world, there are real people who make choices about what they want to eat etc. My computer simulation doesn’t involve any real people, so I had to find some way to model the behaviour of consumers. For this I used a simple agent-based model. Each consumer is given 100 credits per day. It is than randomly determined what item the consumer wants to consider. Some items are more likely to be considered than others, which is determined by weights I assign to each product. If the consumer has enough credits left to purchase the item at current prices, she will do so. If not, she will consider another item. If she can’t afford her chosen item 5 times in a row, she will stop. This mostly happens when she has run out of credits.<br>
-        <br>
-        ...<br>
-        <br>
-        I ran my simulation with a total of 1000 consumers. Using more is easy, it just takes the computer somewhat longer. I avoided this as it yields no real benefit and again, in a real economy we wouldn’t need this consumer model at all. To determine total demand the individual consumption choices of the agents are simply aggregated. This is then compared to supply to adjust prices, as explained above.<br>
-        <br>
-        ...<br>
-      </blockquote>
-      <p id="73085608-3510-4318-8883-8b40f5238874" class="">Když to řeknu lehce ošklivě; <em>v podstatě postavil sim-city bez grafiky, kde krmí virtuální panáčky tím co nakliká do tabulek a gratuluje si, že mu na tom fungují výpočty určující různé potřeby.</em></p>
-      <p id="dd0e2858-18e9-4735-b5b7-f1a1a77a00dd" class="">Přirovnání s počítačovou hrou je docela trefné, protože to co tam dělá je to co dělají autoři počítačových her dnes a denně, například taková <a href="https://en.wikipedia.org/wiki/Dwarf_Fortress">Dwarf Fortress</a> simuluje ekonomický, sociální a fyzický život postaviček po několik set let, než vás vůbec nechá hrát.</p>
-      <p id="ed8548da-b93a-4554-ab18-826e5cab1244" class="">Čekal jsem, že se posadím na zadek ze sofistikovanosti řešení, ale je to prostě pár tabulek a omezení, které nacpe do constraint solveru (používá <a href="http://lpsolve.sourceforge.net/5.5/">lp_solve</a>), ze kterého mu vypadne nějaký optimální výsledek a to je všechno.</p>
-      <p id="a8803277-1026-4a3e-987a-5b22c21aa4e1" class="">Nechápejte mě špatně; tohle je cool dizertační práce studenta, ale blog to prezentuje, jak kdyby to mělo zítra vyřešit hladomor, přitom je to jen hračka, kterou mají běžné firmy, jenž je možné potkat všude kolem, dotaženou o deset kroků dál.</p>
-      <h2 id="e3efd8f8-d674-41f5-9f0f-831059836252" class="">Efektivita na úkor <a href="https://cs.wikipedia.org/wiki/Resilience_(sociologie)">resilience</a></h2>
-      <p id="61d6c817-84e0-4fc4-b70e-aa406498cfdb" class="">Tenhle způsob plánování je zajímavý jen v tom, že je efektivní, možná dokonce nejefektivnější ve smyslu matematiky a optimalizace výroby v dané chvíli. Což zní super, dokud si člověk neuvědomí, že tohle je jen jedna osa mnohodimenzionálního problému, kde například na ose <em>„schopnost dynamicky se vyrovnat s problémy“</em> je na tom pro změnu hůř. Nebo třeba osa <em>„následky problémů a chyb“</em>.</p>
-      <p id="6d6b5661-05e9-40d0-8f30-2bfcee694399" class="">Co jsem vůbec nepochopil, tak tu jeho poznámku o tom že vlastně neví, k čemu by mu byli hráči v té simulaci:</p>
-      <blockquote id="10f77be8-bd76-4657-9678-eb2e155b10e0" class="">
-        Philipp Dapprich: Přemýšlel jsem o tom, jestli by šlo udělat z mé simulace počítačovou hru. Ale stále ještě netuším, jaký by mohl být úkol pro hráče. Smyslem mé simulace je, že počítač dokáže vypočítat optimální plán. Takže na to hráče nepotřebujete.<br>
-        <br>
-        Hlavním omezením mé simulace v této chvíli je to, že musím simulovat koncové uživatele. To je výpočetně složité a spotřebitelský model, který jsem vyvinul, není příliš realistický.<br>
-        <br>
-        V praxi by na tom nezáleželo, protože skuteční lidé by určovali, co by mělo být produkováno jejich spotřebitelským chováním. Takže by bylo nejlepší otestovat můj koncept se skutečnou populací skutečné země. Pokud znáte zemi, která by chtěla vyzkoušet socialismus pomocí počítače, tak mě prosím kontaktujte.<br>
-      </blockquote>
-      <p id="85bbcc68-4a26-45ed-bb1a-7dfacf41848d" class="">Přece k simulaci skutečných lidí, se všemi jejich nelogičnostmi, skupinovým chováním a tak dál!</p>
-      <p id="5cccc966-93ac-443c-9a66-e9eb0427c2d6" class="">Viděl jsem například zcela vážně míněné studie různých masivních online her, které najednou hrají desítky tisíc lidí (MMORPG), jenž byly použity ke studiu ekonomických jevů (hráči mají potřeby, které uspokojují nákupem a výrobou), ale i různých dalších fenomenů, například šíření nemocí. Tohle jsou věci, které se blbě simulují nějakým virtuálním agentem, protože člověk prostě nevymyslí všechny možné iracionální vylomeniny, které lidi běžně dělají.</p>
-      <p id="1b9a1516-c108-4a11-a5d4-ffe01f68c778" class="">Co by mě právě zajímalo je nějaký skutečný, fyzicky provedený test, a nebo teda dostatečně dobrá simulace, kde se dá porovnávat několik různých systémů proti sobě. Protože například zpětnovazební (pozitivní, negativní) smyčky, to můžou asi dobře rozhodit. Dále by mě zajímalo, jak moc to záleží na informacích poskytnutých lidmi, jak často je to potřebuje, a jak se to umí vyrovnat se zkreslenými daty a špatnými aktéry, ve smyslu teorie her.</p>
-      <h2 id="990cf464-4d48-4309-a7b3-5255a98e5e23" class="">Otázky</h2>
-      <p id="0b8d73b4-ac2a-4182-b0fd-ab4febf0f9e7" class="">Dejme tomu že máme nějaký podnik, který má něco vyrobit. Najednou přijde požár, podnik shoří a nestíhá tudíž dodávat. Jak se s tím vyrovná centrální plánování, které agresivně optimalizuje na efektivitu, tudíž v něm nezbývají místa pro <a href="https://cs.wikipedia.org/wiki/Redundance">redundanci</a>? Najednou ti červeně svítí constranty u deseti dalších podniků a celá chyba se propaguje napříč ekonomickým grafem.</p>
-      <p id="10f4364c-4eaa-42f5-8a23-efc749607cf6" class="">Nebo podnik naopak podnik zaměstná jen uvědomělé soudruhy, kteří se hecnou, že k prvnímu máji vyrobí o 200% víc, čímž naplní sklady, které najednou není možné využít ke skladování dalších věcí.</p>
-      <p id="bdb9ce30-2f79-4692-8d4f-5382ed13e2a1" class="">Jak se to vyrovná s příliš optimistickým, nebo rovnou zákeřně zmrdským ředitelem, který se prostě rozhodne lhát a reportovat úplně jiná čísla, než která má? V normální ekonomice tahle firma prostě zkrachuje a ostatní firmy si najdou alternativy. V centrálně plánované ekonomice s tímhle podnikem ostatní musí počítat, protože to mají nařízené zhora.</p>
-      <p id="6ed77523-859b-4a46-a79c-c826d55b8aca" class="">Jak člověk v téhle ekonomice motivuje lidi, aby dělali co po nich chce? Pokud si něco pamatuju z českého „socialismu“, tak je to naprostý nezájem o nějaké veřejné blaho. Bylo například zcela běžné, že dělník na stavbě si nakradl pro sebe, aby si mohl postavit vlastní dům. Sám mám v širší rodině „strejdu“, který si takhle přesně dům postavil. Takové ty přísloví ala „co můžeš to urvi, co nemůžeš, to zkurvi“. Lidi co dělali pozice, kde jim bylo úplně jedno, jak dopadne práce kterou dělají, protože jim prostě na ničem státním nezáleželo.</p>
-      <p id="c45bae29-8ab8-41da-a9f1-f717a5b50111" class="">Než se do mě pustí Kolibáč a JS1, tak já netvrdím, že kapitalismus a různé další modely ekonomiky tady netrpí problémy. Určitě ano, a všichni je známe. Já se ptám, jakými způsoby tedy probíhá balancování těhle problémů v centrálně plánované kyber-ekonomice.</p>
-      <p id="7d2642a3-dc80-45ad-937b-6a3e215eb927" class="">Obecně, kde je nějaká odpověď na to jak se dostaneš ze „světových koordinátů“ A (tedy stavu světa tak jak je teď) do stavu světa v koordinátech B (centrálně plánovaná ekonomika)? To že víš na co cílit ti naprosto nedává přechodovou funkci mezi těmi stavy.</p>
-      <p id="1bdf8a66-f2c7-41b4-b039-9ae405066855" class="">Kapitalismus a různé jeho deriváty tohle řeší motivací penězi. Jak tohle řešíš v centrálně plánované ekonomice? Jak řešíš, že jsou aktéři (podle teorie her), kteří chtějí maximalizovat svůj profit, kteří budou lhát a nespolupracovat? Co uděláš, když ti z geniálního constraint solveru vypadne nějaký vektor jak by měla čísla být, a kam by ses chtěl posunout, ale reálně jsi někde úplně jinde a padáš do recese? Jak se zachováš, když se ti rozjíždí model s realitou? Přidáš tam if podmínky? Diktátorsky něco nařídíš?</p>
-      <p id="4cfd8d81-d309-4cc3-9b6a-6d643cf5a7c6" class="">To že máme odpověď jak dělat něco nejvíc efektivně, nám ještě nedává možnosti, prostředky a schopnosti to tak dělat. Je to jen optimalizace, která celkovému systému ušetří náklady, ne nějaký zázrak co všechno spasí.</p>
-      <p id="42747806-0e26-4d8c-b239-f372b5e7690a" class="">V tom blogu je zmíněna například armáda. Armáda je krásný příklad velmi odolné organizace. Neřeším teď ekonomickou stránku, kde často člověk najde různé neefektivity a korupce, ale čistě organizační stránku. Jsou zde různé hierarchie, které jdou až na úroveň jednoho vojáka. A na každé úrovni té hierarchie chceš aby lidi byli co nejvíc nezávislí a schopni myslet a dosahovat výsledků sami. Vrcholové vedení určuje jen velmi vysokoúrovňové cíle, neřeší specifické způsoby, kterými jich bude dosaženo. Neplánují kudy přesně projede ten který tank, kde se zastaví a vystřelí. Na druhou stranu mají téměř okamžitou zpětnou vazbu a neustále provádějí úpravy plánů a modelů, mají různé alternativy a větve scénářů.</p>
-      <p id="12d0c7d2-a418-49d6-a356-78e6d603ecc7" class="">Oproti tomu centrální ekonomika je jak generál, který plánuje pohyb každého vojáka. Eliminuje to ty buňky schopných lidí, kteří mají nad sebou další schopné lidi a zcela nezávisle se snaží dosahovat vlastního cíle. Ano, jde to dělat i na vyšší úrovni (třeba se plánuje jen každý podnik jednou týdně), ale pak tam zase vstupují větší nejistoty a víc zkreslená data.</p>
-      <p id="ebcd70ea-030f-4d55-8dda-b6783a42348c" class="">Jak do toho zapadají nepredikovatelné věci, které ještě nikdo nevymyslel. Jak může centrální ekonomika naplánovat výrobu dotykových mobilních telefonů v době, kdy ještě nikdo pořádně neví, že bude chtít dotykové mobilní telefony? To se vyrobí prototyp někde na univerzitě a když se bude libit, tak někdo někde možná rozhodne, že to není blbost a že by bylo dobré to začít vyrábět?</p>
-      <h2 id="32165600-f9f6-4bea-b4c4-21f5d67d3288" class="">Kritika systému</h2>
-      <blockquote id="f345ebe9-c839-40c6-b942-709715b99396" class="">
-        Each product has to be assigned a certain amount of credits that need to be redeemed for it. Perhaps an apple will cost 1 credit, while an orange costs 2 credits and so on. From the perspective of the consumer this is very much like today’s money prices. From a macro perspective it is somewhat different, as credits are not exchanged like money. Once they have been used they are deleted and not passed onto someone else (for example the supermarket where you bought your apple). I nonetheless use the term “price”, as you are now aware of this difference and it is easier to use words we are already familiar with.<br>
-        <br>
-        So what determines the price of an apple or an orange? Marx, in a similar proposal, suggested that such prices should depend on the labour value of a product. This can lead to serious problems as there might be significant mismatches between supply and demand. Perhaps there were only 100 oranges produced, but there are 200 people who want to redeem their credits for an orange. Since that is not possible, it means that in the end there will be some form of intentional or unintentional rationing. What decides whether you get an orange is no longer whether you want to use your credits for the orange, but whether you are first to show up at the supermarket. Credits would thus completely use their purpose.<br>
-        <br>
-        To ensure that supply and demand are balanced, prices have to be adjusted. Should oranges go off the shelves faster than they are resupplied, the price has to be increased. This encourages consumers to consider other alternatives (such as apples). But if you still really want an orange, because you just hate apples, that’s fine too. You just have to pay a slightly higher price for those. The price at which supply and demand match is sometimes called the “market clearing price” and even though we are not talking about markets in the traditional sense (which involve exchange of commodities) I find it useful to adopt this term. Market clearing prices can be approximated be successfully adjusting prices depending on the mismatch between supply and demand. In my simulation prices are changed using a proportional controller with a factor of 0.3. This means that a mismatch between supply and demand of 10% will lead to a 3% change in price. In the simple cases that I have tested this leads to market clearing prices reasonably fast, but in reality, a more complex controller might be used to ensure that prices are always as close to clearing prices as possible.<br>
-      </blockquote>
-      <p id="833235a4-36c7-49fa-9c0b-5940d8ff1f80" class="">Tohle je hrozně překomplikované řešení, které ve výsledku vytváří úplně stejné chování a problémy, jako klasická kapitalistická ekonomika.</p>
-      <p id="9bf262d7-89da-4f25-b58a-68b1b89e1d06" class="">Autor tam potom dál ukazuje, jak se tohle projeví do výroby a plánování, kde mi přijde že ukazuje totální nepochopení řídících systémů a histerezních křivek, které mu v tom co popisuje způsobí nekonečné vlny přebytků a nedostatků.</p>
-      <p id="91cd67d0-8cff-450f-9937-1a484af9d2dc" class="">Jak do toho jeho systému zapadají startupy a inovace? Ta odpověď co tam podal není vůbec odpověď:</p>
-      <blockquote id="cf2198a7-c101-40bc-bf7a-5bf76dd3c00a" class="">
-        Pokud jde o inovace, nemyslím si, že je to skutečný problém socialismu. Na liberální straně se často předstírá, že inovace může řídit pouze kapitalistický soukromý sektor. Ve skutečnosti je většina inovací založena na vládním výzkumu pro vojenské účely nebo kosmickém výzkumu.
-      </blockquote>
-      <p id="a5926f35-36b4-47c4-9353-d9c5d41c6199" class="">Což není tak úplně pravda, že. Možná v hi-tech, ale i tam je to otázka, pokud teda nepočítá nějaké úplné začátky před padesáti lety.</p>
-      <p id="55b9df65-1093-426a-a0c8-8f07f4d0d1d9" class="">Například v současnosti když je firma žádaná, což můžeme použít za příklad třeba Google, u kterého nikdo předem netušil, že bude vůbec užitečné poskytovat nějaké vyhledávání, tak získá větší peníze, což jí umožňuje další rozvoj. V plánované ekonomice to bude fungovat jak? Někde bude nějaká komise, kterou bude třeba přesvědčit, že vyhledávíní je dobrý nápad a že bysme na to <em>prosím pěkně</em> chtěli deset programátorů, <em>rukulíbám</em>?</p>
-      <blockquote id="9525f92c-3fae-4ff3-adde-eb697edd46a3" class="">
-        Je pravda, že vidina zisku často tlačí na soukromé společnosti, aby podporovaly inovace, pokud lze očekávat, že přinesou další zisky. Ne všechny tyto inovace jsou společensky přínosné, ale samozřejmě mnohdy tomu tak je. V plánované ekonomice je pak otázkou politické vůle, zda jsou zdroje vloženy do výzkumu a inovací.
-      </blockquote>
-      <p id="dd231f8d-b1ee-4e2c-8a05-db5ed37f7301" class="">Jo, to zní fakt super. Úplně vidím jak třeba Babiš, nebo Zeman se rozhodnóu tlačit radši společensky přínosné inovace svojí politickou vůlí. Opravdu má někdo pocit, že politici se dokáží v tomhle rozhodovat líp jak vědci, inženýři a marketing?</p>
-      <p id="3711765d-56dc-4c81-b7e3-a8331c2f3627" class="">Četl jsem tu jeho sérii <a href="https://www.designing-history.world/theorie/simulating-socialism-4-consumption/">čtyř článků v angličtině</a> a přijde mi, že ten jeho systém vůbec nepočítá s přidanou hodnotou, nebo že by dokonce mohl jedinec, či firma hodnotu přidávat pouhou rekonfigurací hmoty, nebo rovnou vytvářet úplně z ničeho, jako třeba autor co napíše knihu, nebo malíř co namaluje obraz, či programátor co naprogramuje projekt. To tam prostě úplně zanedbává, dokonce hodnotu všeho určuje čistě jen z hmoty a nároků na výrobu předchozích věcí (má tam na to algoritmus na odhadování hodnoty).</p>
-      <p id="c0ca49f6-c934-424c-a8b9-a4b5d9c95041" class="">Konkrétně třeba u softwarových firem to znamená nemožnost růstu, protože svoje produkty „prodávají“ (resp. dodávají dalšímu článku v řetězu plánované ekonomiky) za cenu platu programátorů dělených počtem vyrobených kusů. Taky třeba reklama je asi úplně nemožná v tom jeho systému, protože na ní prostě nejsou peníze a stejně nemá žádnou fyzickou hodnotu.</p>
-      <p id="1571e801-6eaf-4451-ab9d-f5fab18027a5" class="">Jeho systém „kreditů“, které přiděluje občanům vůbec nedává smysl z hlediska bankovnictví. Mám pocit, že autor patří mezi lidi, co si myslí že banky (i státní) jsou k ničemu, nebo že dokonce okrádají lidi. Tady nemám dostatečnou ekonomickou sofistikovanost, abych to rozporoval, ale myslím si, že pozorování ve světě kolem tak nějak ukazuje opak. Z mého pohledu fungují banky podobně jako kondenzátor v elektronickém obvodu; prostě umožňují dynamicky vyrovnávat některé veličiny. Člověk to může kritizovat u jednotlivců, ale v případě firem a podniků je to naprosto životadárná záležitost, která jim umožňuje růst a často i vůbec vzniknout.</p>
-      <p id="933344de-4a59-43cb-9d88-07c6a81a9aba" class="">Pojištění v tom jeho systému taky vůbec neexistuje. Co sektor poskytování služeb?</p>
-      <h2 id="18fcddd5-b339-44bc-bd6a-8b5db47b55e9" class="">Kritika novináře a autora</h2>
-      <p id="9d52c2c2-3bd0-4fad-b346-df00663150e2" class="">Taky z toho máte pocit zneuznaného génia? Pár jsem jich v životě potkal a vždycky je to podobný způsob vyjadřování. Mají nějaký super úžasný vynález, který by změnil celý svět, kdyby jen společnost poslouchala a uznala jejich genialitu.</p>
-      <p id="922a2a06-8d0d-4231-a930-965031831eb0" class="">Autor úplně ignoruje miliony ekonomů a systémových inženýrů všude po světě. Přijde mi, že zrovna o systémovém inženýrství, což je přesně obor, který se tímhle plánováním a řízením zabývá, snad neslyšel, nebo ho úmyslně ignoruje. Novinář mu maže med kolem huby, protože si tím potvrzuje vlastní kognitivní zkreslení a očekávání (klasický <a href="https://cs.wikipedia.org/wiki/Konfirma%C4%8Dn%C3%AD_zkreslen%C3%AD">confirmation bias</a>).</p>
-      <p id="3791dfed-10dc-4b07-85f5-9064378805f2" class="">Ten novinář taky podle mě vůbec nechápe, že lineární programování není nějaká <a href="https://rationalwiki.org/wiki/Handwave">zázračná mast na všechno</a>, ani nějaký tajemný geniální vynález, ale prostě jen jeden z mnoha způsobů matematické optimalizace. Pro srovnání, například <a href="https://docs.scipy.org/doc/scipy/reference/optimize.html">SciPy nabízí desítky dalších</a>, sám jsem například používal mimo jíné algoritmus <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_cobyla.html#scipy.optimize.fmin_cobyla">COBYLA</a> v jednom předchozím zaměstnání a není to žádná magie. Vezmete programovou knihovnu, nacpete do ní set omezení, set očekávání, pustíte na to pár týdnů výpočetního výkonu a časem z toho vypadne set výsledků, které uspokojují co nejvíc různých omezení s dosažením co nejvíc optimálních výsledků. Můžu vám garantovat, že každý systém pro plánování podniků používá podstatně sofistikovanější řešení, které mimo jiné zahrnuje spoustu lidské práce a analýzy.</p>
-      <p id="40b952f4-ca69-4ee7-94e6-aa81124ac7ba" class="">Co naprosto nechápu je jednostrannost celého článku a i původních zdrojů. Autor působí, jako že vnímá celkovou optimálnost systému jako jediné hodnotící kritérium. Kdyby se jednalo o auta, tak by byl jak člověk kterého zajímá jenom rychlost a naprosto ignoruje všechny další parametry, jako například životnost, cenu, opravitelnost, kolik lidí je auto schopné uvést, jak těžké je ho řídit, co je v něm za vybavení, jakou má spotřebu a tisíc dalších možných os optimalizace.</p>
-      <p id="c71fbd12-faeb-4039-a9fb-6b5070091b4e" class="">Autor simulace je student, takže jemu tohle všechno odpouštím. Očividně nemá moc životních zkušeností se skutečnými systémy plánování například podnikové ekonomie (já taky ne, ale aspoň chápu inherentní složitost). Že se toho ale chytají ostatní a prezentují to jako nějaký všelék, to mi přijde padlé na hlavu. Vždyť je to klasické žvanění děcka ještě ve škole, které má pocit že zná všechno nejlíp a má odpověď na všechny problémy.</p>
-      <p id="ea5cf871-1633-4c43-acc2-083d00f25b96" class="">Jako dizertační práce je to pěkné, ale pokud by fakt měl něco v životě řídit, tak bych utíkal co by mi nohy stačily.</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="322d3f14-4518-4b9f-98c1-a03fad959564" class=""><time>@2020/08/09</time></p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure class="block-color-gray_background callout" style="display:flex" id="cb49ac50-cb51-4eca-bc2d-6099d60e2dce">
+          <div style="font-size:1.5em">
+            <span class="icon">👉</span>
+          </div>
+          <div style="width:100%">
+            Jedná se o odpověď na blog <a href="https://www.abclinuxu.cz/blog/sekblog/2020/8/simulace-planovane-ekonomiky">Simulace plánované ekonomiky</a>. Odpověď i reakce na ní je možné najít v diskuzi tam.
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="83751a9a-514c-44ad-89bb-ea20d9491a6f" class="">Na začátek deklaruji, že nejsem proti pokročilému plánování (ať již centrálnímu, nebo ne), naopak mi to přijde jako do velké míry fascinující problém.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="48ec068b-f555-4d93-810b-57e03dc13dcb" class="">Sám na to rozhodně nejsem odborník, ale četl jsem něco o teorii constraintů ve výrobě, možnostech paralelizace o optimalizace. Mám rozečtenou knihu o <a href="https://cs.wikipedia.org/wiki/Syst%C3%A9mov%C3%A9_in%C5%BEen%C3%BDrstv%C3%AD">Systémovém inženýrství</a> (<a href="https://en.wikipedia.org/wiki/Systems_engineering">anglicky</a>), což je desítky let stará věda, která začala už za komunismu (čtu <em>Metody systémového inženýrství</em>, Vlček, 1984), zabývající se právě designem a plánováním výroby. Respektive obecně dynamickými systémy, které je potřeba nějak navrhnout, modelovat a balancovat. Systémem se zde rozumí cokoliv, od helikoptéry, která má motory, vrtule, kniply a tak dál, a celé to je třeba nějak ovládat, aby se to udrželo ve vzduchu. Ale může to být taky výrobní linka, která má různé závislosti, různé chování, a projevy. Nebo to může být ekonomika podniku, nebo celého státu, když se to vezme do extrému.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d62c37d9-eaeb-4461-bd87-7ee9a3a47ccd" class="">Detaily</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="91dd5139-709d-4c4f-a68d-44b6c47973f5" class="">Blogpost mi přijde naivní a nekonkrétní. Chybí mi tam odpověď, jaké to má teda výsledky. A když jsem šel ke <a href="https://www.designing-history.world/en/theory/simulating-socialism-1/">zdroji informací</a>, tak v těch ostatních článcích popisuje jen dost základní simulaci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="27849881-e812-4e44-bfee-5cb9c27b9f6c" class="">
+          ...<br>
+          <br>
+          The simulation assumes simple reproduction. This means that, for reasons of simplicity, economic growth is not yet considered. There is no surplus that might be used to expand the production base. Instead, everything is used up to continue production at a similar rate or by end-consumers. In the future, I intend to adapt the model to allow for an overall expansion of production to study the conditions under which economic growth is possible without excessive environmental degradation.<br>
+          <br>
+          ...<br>
+          <br>
+          It allows us to distribute products fairly, by giving an adequate amount of credits to each individual. This could be an equal amount to each individual, or it could also vary depending on factors such as individual needs or labour contribution. But I will not discuss here what the best distribution of credits is. For the purpose of my simulation I have simply assumed that everyone gets exactly the same amount of credits. This is meant as a simplification and doesn’t necessarily have to reflect how it should be in real life.<br>
+          <br>
+          ...<br>
+          <br>
+          As I said before, In the real world, there are real people who make choices about what they want to eat etc. My computer simulation doesn’t involve any real people, so I had to find some way to model the behaviour of consumers. For this I used a simple agent-based model. Each consumer is given 100 credits per day. It is than randomly determined what item the consumer wants to consider. Some items are more likely to be considered than others, which is determined by weights I assign to each product. If the consumer has enough credits left to purchase the item at current prices, she will do so. If not, she will consider another item. If she can’t afford her chosen item 5 times in a row, she will stop. This mostly happens when she has run out of credits.<br>
+          <br>
+          ...<br>
+          <br>
+          I ran my simulation with a total of 1000 consumers. Using more is easy, it just takes the computer somewhat longer. I avoided this as it yields no real benefit and again, in a real economy we wouldn’t need this consumer model at all. To determine total demand the individual consumption choices of the agents are simply aggregated. This is then compared to supply to adjust prices, as explained above.<br>
+          <br>
+          ...
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="73085608-3510-4318-8883-8b40f5238874" class="">Když to řeknu lehce ošklivě; <em>v podstatě postavil sim-city bez grafiky, kde krmí virtuální panáčky tím co nakliká do tabulek a gratuluje si, že mu na tom fungují výpočty určující různé potřeby.</em></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dd0e2858-18e9-4735-b5b7-f1a1a77a00dd" class="">Přirovnání s počítačovou hrou je docela trefné, protože to co tam dělá je to co dělají autoři počítačových her dnes a denně, například taková <a href="https://en.wikipedia.org/wiki/Dwarf_Fortress">Dwarf Fortress</a> simuluje ekonomický, sociální a fyzický život postaviček po několik set let, než vás vůbec nechá hrát.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ed8548da-b93a-4554-ab18-826e5cab1244" class="">Čekal jsem, že se posadím na zadek ze sofistikovanosti řešení, ale je to prostě pár tabulek a omezení, které nacpe do constraint solveru (používá <a href="http://lpsolve.sourceforge.net/5.5/">lp_solve</a>), ze kterého mu vypadne nějaký optimální výsledek a to je všechno.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a8803277-1026-4a3e-987a-5b22c21aa4e1" class="">Nechápejte mě špatně; tohle je cool dizertační práce studenta, ale blog to prezentuje, jak kdyby to mělo zítra vyřešit hladomor, přitom je to jen hračka, kterou mají běžné firmy, jenž je možné potkat všude kolem, dotaženou o deset kroků dál.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="e3efd8f8-d674-41f5-9f0f-831059836252" class="">Efektivita na úkor <a href="https://cs.wikipedia.org/wiki/Resilience_(sociologie)">resilience</a></h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="61d6c817-84e0-4fc4-b70e-aa406498cfdb" class="">Tenhle způsob plánování je zajímavý jen v tom, že je efektivní, možná dokonce nejefektivnější ve smyslu matematiky a optimalizace výroby v dané chvíli. Což zní super, dokud si člověk neuvědomí, že tohle je jen jedna osa mnohodimenzionálního problému, kde například na ose <em>„schopnost dynamicky se vyrovnat s problémy“</em> je na tom pro změnu hůř. Nebo třeba osa <em>„následky problémů a chyb“</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6d6b5661-05e9-40d0-8f30-2bfcee694399" class="">Co jsem vůbec nepochopil, tak tu jeho poznámku o tom že vlastně neví, k čemu by mu byli hráči v té simulaci:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="10f77be8-bd76-4657-9678-eb2e155b10e0" class="">
+          Philipp Dapprich: Přemýšlel jsem o tom, jestli by šlo udělat z mé simulace počítačovou hru. Ale stále ještě netuším, jaký by mohl být úkol pro hráče. Smyslem mé simulace je, že počítač dokáže vypočítat optimální plán. Takže na to hráče nepotřebujete.<br>
+          <br>
+          Hlavním omezením mé simulace v této chvíli je to, že musím simulovat koncové uživatele. To je výpočetně složité a spotřebitelský model, který jsem vyvinul, není příliš realistický.<br>
+          <br>
+          V praxi by na tom nezáleželo, protože skuteční lidé by určovali, co by mělo být produkováno jejich spotřebitelským chováním. Takže by bylo nejlepší otestovat můj koncept se skutečnou populací skutečné země. Pokud znáte zemi, která by chtěla vyzkoušet socialismus pomocí počítače, tak mě prosím kontaktujte.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="85bbcc68-4a26-45ed-bb1a-7dfacf41848d" class="">Přece k simulaci skutečných lidí, se všemi jejich nelogičnostmi, skupinovým chováním a tak dál!</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5cccc966-93ac-443c-9a66-e9eb0427c2d6" class="">Viděl jsem například zcela vážně míněné studie různých masivních online her, které najednou hrají desítky tisíc lidí (MMORPG), jenž byly použity ke studiu ekonomických jevů (hráči mají potřeby, které uspokojují nákupem a výrobou), ale i různých dalších fenomenů, například šíření nemocí. Tohle jsou věci, které se blbě simulují nějakým virtuálním agentem, protože člověk prostě nevymyslí všechny možné iracionální vylomeniny, které lidi běžně dělají.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1b9a1516-c108-4a11-a5d4-ffe01f68c778" class="">Co by mě právě zajímalo je nějaký skutečný, fyzicky provedený test, a nebo teda dostatečně dobrá simulace, kde se dá porovnávat několik různých systémů proti sobě. Protože například zpětnovazební (pozitivní, negativní) smyčky, to můžou asi dobře rozhodit. Dále by mě zajímalo, jak moc to záleží na informacích poskytnutých lidmi, jak často je to potřebuje, a jak se to umí vyrovnat se zkreslenými daty a špatnými aktéry, ve smyslu teorie her.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="990cf464-4d48-4309-a7b3-5255a98e5e23" class="">Otázky</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0b8d73b4-ac2a-4182-b0fd-ab4febf0f9e7" class="">Dejme tomu že máme nějaký podnik, který má něco vyrobit. Najednou přijde požár, podnik shoří a nestíhá tudíž dodávat. Jak se s tím vyrovná centrální plánování, které agresivně optimalizuje na efektivitu, tudíž v něm nezbývají místa pro <a href="https://cs.wikipedia.org/wiki/Redundance">redundanci</a>? Najednou ti červeně svítí constranty u deseti dalších podniků a celá chyba se propaguje napříč ekonomickým grafem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="10f4364c-4eaa-42f5-8a23-efc749607cf6" class="">Nebo podnik naopak podnik zaměstná jen uvědomělé soudruhy, kteří se hecnou, že k prvnímu máji vyrobí o 200% víc, čímž naplní sklady, které najednou není možné využít ke skladování dalších věcí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bdb9ce30-2f79-4692-8d4f-5382ed13e2a1" class="">Jak se to vyrovná s příliš optimistickým, nebo rovnou zákeřně zmrdským ředitelem, který se prostě rozhodne lhát a reportovat úplně jiná čísla, než která má? V normální ekonomice tahle firma prostě zkrachuje a ostatní firmy si najdou alternativy. V centrálně plánované ekonomice s tímhle podnikem ostatní musí počítat, protože to mají nařízené zhora.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6ed77523-859b-4a46-a79c-c826d55b8aca" class="">Jak člověk v téhle ekonomice motivuje lidi, aby dělali co po nich chce? Pokud si něco pamatuju z českého „socialismu“, tak je to naprostý nezájem o nějaké veřejné blaho. Bylo například zcela běžné, že dělník na stavbě si nakradl pro sebe, aby si mohl postavit vlastní dům. Sám mám v širší rodině „strejdu“, který si takhle přesně dům postavil. Takové ty přísloví ala „co můžeš to urvi, co nemůžeš, to zkurvi“. Lidi co dělali pozice, kde jim bylo úplně jedno, jak dopadne práce kterou dělají, protože jim prostě na ničem státním nezáleželo.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c45bae29-8ab8-41da-a9f1-f717a5b50111" class="">Než se do mě pustí Kolibáč a JS1, tak já netvrdím, že kapitalismus a různé další modely ekonomiky tady netrpí problémy. Určitě ano, a všichni je známe. Já se ptám, jakými způsoby tedy probíhá balancování těhle problémů v centrálně plánované kyber-ekonomice.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7d2642a3-dc80-45ad-937b-6a3e215eb927" class="">Obecně, kde je nějaká odpověď na to jak se dostaneš ze „světových koordinátů“ A (tedy stavu světa tak jak je teď) do stavu světa v koordinátech B (centrálně plánovaná ekonomika)? To že víš na co cílit ti naprosto nedává přechodovou funkci mezi těmi stavy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1bdf8a66-f2c7-41b4-b039-9ae405066855" class="">Kapitalismus a různé jeho deriváty tohle řeší motivací penězi. Jak tohle řešíš v centrálně plánované ekonomice? Jak řešíš, že jsou aktéři (podle teorie her), kteří chtějí maximalizovat svůj profit, kteří budou lhát a nespolupracovat? Co uděláš, když ti z geniálního constraint solveru vypadne nějaký vektor jak by měla čísla být, a kam by ses chtěl posunout, ale reálně jsi někde úplně jinde a padáš do recese? Jak se zachováš, když se ti rozjíždí model s realitou? Přidáš tam if podmínky? Diktátorsky něco nařídíš?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4cfd8d81-d309-4cc3-9b6a-6d643cf5a7c6" class="">To že máme odpověď jak dělat něco nejvíc efektivně, nám ještě nedává možnosti, prostředky a schopnosti to tak dělat. Je to jen optimalizace, která celkovému systému ušetří náklady, ne nějaký zázrak co všechno spasí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="42747806-0e26-4d8c-b239-f372b5e7690a" class="">V tom blogu je zmíněna například armáda. Armáda je krásný příklad velmi odolné organizace. Neřeším teď ekonomickou stránku, kde často člověk najde různé neefektivity a korupce, ale čistě organizační stránku. Jsou zde různé hierarchie, které jdou až na úroveň jednoho vojáka. A na každé úrovni té hierarchie chceš aby lidi byli co nejvíc nezávislí a schopni myslet a dosahovat výsledků sami. Vrcholové vedení určuje jen velmi vysokoúrovňové cíle, neřeší specifické způsoby, kterými jich bude dosaženo. Neplánují kudy přesně projede ten který tank, kde se zastaví a vystřelí. Na druhou stranu mají téměř okamžitou zpětnou vazbu a neustále provádějí úpravy plánů a modelů, mají různé alternativy a větve scénářů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="12d0c7d2-a418-49d6-a356-78e6d603ecc7" class="">Oproti tomu centrální ekonomika je jak generál, který plánuje pohyb každého vojáka. Eliminuje to ty buňky schopných lidí, kteří mají nad sebou další schopné lidi a zcela nezávisle se snaží dosahovat vlastního cíle. Ano, jde to dělat i na vyšší úrovni (třeba se plánuje jen každý podnik jednou týdně), ale pak tam zase vstupují větší nejistoty a víc zkreslená data.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ebcd70ea-030f-4d55-8dda-b6783a42348c" class="">Jak do toho zapadají nepredikovatelné věci, které ještě nikdo nevymyslel. Jak může centrální ekonomika naplánovat výrobu dotykových mobilních telefonů v době, kdy ještě nikdo pořádně neví, že bude chtít dotykové mobilní telefony? To se vyrobí prototyp někde na univerzitě a když se bude libit, tak někdo někde možná rozhodne, že to není blbost a že by bylo dobré to začít vyrábět?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="32165600-f9f6-4bea-b4c4-21f5d67d3288" class="">Kritika systému</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="f345ebe9-c839-40c6-b942-709715b99396" class="">
+          Each product has to be assigned a certain amount of credits that need to be redeemed for it. Perhaps an apple will cost 1 credit, while an orange costs 2 credits and so on. From the perspective of the consumer this is very much like today’s money prices. From a macro perspective it is somewhat different, as credits are not exchanged like money. Once they have been used they are deleted and not passed onto someone else (for example the supermarket where you bought your apple). I nonetheless use the term “price”, as you are now aware of this difference and it is easier to use words we are already familiar with.<br>
+          <br>
+          So what determines the price of an apple or an orange? Marx, in a similar proposal, suggested that such prices should depend on the labour value of a product. This can lead to serious problems as there might be significant mismatches between supply and demand. Perhaps there were only 100 oranges produced, but there are 200 people who want to redeem their credits for an orange. Since that is not possible, it means that in the end there will be some form of intentional or unintentional rationing. What decides whether you get an orange is no longer whether you want to use your credits for the orange, but whether you are first to show up at the supermarket. Credits would thus completely use their purpose.<br>
+          <br>
+          To ensure that supply and demand are balanced, prices have to be adjusted. Should oranges go off the shelves faster than they are resupplied, the price has to be increased. This encourages consumers to consider other alternatives (such as apples). But if you still really want an orange, because you just hate apples, that’s fine too. You just have to pay a slightly higher price for those. The price at which supply and demand match is sometimes called the “market clearing price” and even though we are not talking about markets in the traditional sense (which involve exchange of commodities) I find it useful to adopt this term. Market clearing prices can be approximated be successfully adjusting prices depending on the mismatch between supply and demand. In my simulation prices are changed using a proportional controller with a factor of 0.3. This means that a mismatch between supply and demand of 10% will lead to a 3% change in price. In the simple cases that I have tested this leads to market clearing prices reasonably fast, but in reality, a more complex controller might be used to ensure that prices are always as close to clearing prices as possible.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="833235a4-36c7-49fa-9c0b-5940d8ff1f80" class="">Tohle je hrozně překomplikované řešení, které ve výsledku vytváří úplně stejné chování a problémy, jako klasická kapitalistická ekonomika.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9bf262d7-89da-4f25-b58a-68b1b89e1d06" class="">Autor tam potom dál ukazuje, jak se tohle projeví do výroby a plánování, kde mi přijde že ukazuje totální nepochopení řídících systémů a histerezních křivek, které mu v tom co popisuje způsobí nekonečné vlny přebytků a nedostatků.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="91cd67d0-8cff-450f-9937-1a484af9d2dc" class="">Jak do toho jeho systému zapadají startupy a inovace? Ta odpověď co tam podal není vůbec odpověď:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="cf2198a7-c101-40bc-bf7a-5bf76dd3c00a" class="">
+          Pokud jde o inovace, nemyslím si, že je to skutečný problém socialismu. Na liberální straně se často předstírá, že inovace může řídit pouze kapitalistický soukromý sektor. Ve skutečnosti je většina inovací založena na vládním výzkumu pro vojenské účely nebo kosmickém výzkumu.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a5926f35-36b4-47c4-9353-d9c5d41c6199" class="">Což není tak úplně pravda, že. Možná v hi-tech, ale i tam je to otázka, pokud teda nepočítá nějaké úplné začátky před padesáti lety.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="55b9df65-1093-426a-a0c8-8f07f4d0d1d9" class="">Například v současnosti když je firma žádaná, což můžeme použít za příklad třeba Google, u kterého nikdo předem netušil, že bude vůbec užitečné poskytovat nějaké vyhledávání, tak získá větší peníze, což jí umožňuje další rozvoj. V plánované ekonomice to bude fungovat jak? Někde bude nějaká komise, kterou bude třeba přesvědčit, že vyhledávíní je dobrý nápad a že bysme na to <em>prosím pěkně</em> chtěli deset programátorů, <em>rukulíbám</em>?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="9525f92c-3fae-4ff3-adde-eb697edd46a3" class="">
+          Je pravda, že vidina zisku často tlačí na soukromé společnosti, aby podporovaly inovace, pokud lze očekávat, že přinesou další zisky. Ne všechny tyto inovace jsou společensky přínosné, ale samozřejmě mnohdy tomu tak je. V plánované ekonomice je pak otázkou politické vůle, zda jsou zdroje vloženy do výzkumu a inovací.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dd231f8d-b1ee-4e2c-8a05-db5ed37f7301" class="">Jo, to zní fakt super. Úplně vidím jak třeba Babiš, nebo Zeman se rozhodnóu tlačit radši společensky přínosné inovace svojí politickou vůlí. Opravdu má někdo pocit, že politici se dokáží v tomhle rozhodovat líp jak vědci, inženýři a marketing?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3711765d-56dc-4c81-b7e3-a8331c2f3627" class="">Četl jsem tu jeho sérii <a href="https://www.designing-history.world/theorie/simulating-socialism-4-consumption/">čtyř článků v angličtině</a> a přijde mi, že ten jeho systém vůbec nepočítá s přidanou hodnotou, nebo že by dokonce mohl jedinec, či firma hodnotu přidávat pouhou rekonfigurací hmoty, nebo rovnou vytvářet úplně z ničeho, jako třeba autor co napíše knihu, nebo malíř co namaluje obraz, či programátor co naprogramuje projekt. To tam prostě úplně zanedbává, dokonce hodnotu všeho určuje čistě jen z hmoty a nároků na výrobu předchozích věcí (má tam na to algoritmus na odhadování hodnoty).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c0ca49f6-c934-424c-a8b9-a4b5d9c95041" class="">Konkrétně třeba u softwarových firem to znamená nemožnost růstu, protože svoje produkty „prodávají“ (resp. dodávají dalšímu článku v řetězu plánované ekonomiky) za cenu platu programátorů dělených počtem vyrobených kusů. Taky třeba reklama je asi úplně nemožná v tom jeho systému, protože na ní prostě nejsou peníze a stejně nemá žádnou fyzickou hodnotu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1571e801-6eaf-4451-ab9d-f5fab18027a5" class="">Jeho systém „kreditů“, které přiděluje občanům vůbec nedává smysl z hlediska bankovnictví. Mám pocit, že autor patří mezi lidi, co si myslí že banky (i státní) jsou k ničemu, nebo že dokonce okrádají lidi. Tady nemám dostatečnou ekonomickou sofistikovanost, abych to rozporoval, ale myslím si, že pozorování ve světě kolem tak nějak ukazuje opak. Z mého pohledu fungují banky podobně jako kondenzátor v elektronickém obvodu; prostě umožňují dynamicky vyrovnávat některé veličiny. Člověk to může kritizovat u jednotlivců, ale v případě firem a podniků je to naprosto životadárná záležitost, která jim umožňuje růst a často i vůbec vzniknout.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="933344de-4a59-43cb-9d88-07c6a81a9aba" class="">Pojištění v tom jeho systému taky vůbec neexistuje. Co sektor poskytování služeb?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="18fcddd5-b339-44bc-bd6a-8b5db47b55e9" class="">Kritika novináře a autora</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9d52c2c2-3bd0-4fad-b346-df00663150e2" class="">Taky z toho máte pocit zneuznaného génia? Pár jsem jich v životě potkal a vždycky je to podobný způsob vyjadřování. Mají nějaký super úžasný vynález, který by změnil celý svět, kdyby jen společnost poslouchala a uznala jejich genialitu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="922a2a06-8d0d-4231-a930-965031831eb0" class="">Autor úplně ignoruje miliony ekonomů a systémových inženýrů všude po světě. Přijde mi, že zrovna o systémovém inženýrství, což je přesně obor, který se tímhle plánováním a řízením zabývá, snad neslyšel, nebo ho úmyslně ignoruje. Novinář mu maže med kolem huby, protože si tím potvrzuje vlastní kognitivní zkreslení a očekávání (klasický <a href="https://cs.wikipedia.org/wiki/Konfirma%C4%8Dn%C3%AD_zkreslen%C3%AD">confirmation bias</a>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3791dfed-10dc-4b07-85f5-9064378805f2" class="">Ten novinář taky podle mě vůbec nechápe, že lineární programování není nějaká <a href="https://rationalwiki.org/wiki/Handwave">zázračná mast na všechno</a>, ani nějaký tajemný geniální vynález, ale prostě jen jeden z mnoha způsobů matematické optimalizace. Pro srovnání, například <a href="https://docs.scipy.org/doc/scipy/reference/optimize.html">SciPy nabízí desítky dalších</a>, sám jsem například používal mimo jíné algoritmus <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_cobyla.html#scipy.optimize.fmin_cobyla">COBYLA</a> v jednom předchozím zaměstnání a není to žádná magie. Vezmete programovou knihovnu, nacpete do ní set omezení, set očekávání, pustíte na to pár týdnů výpočetního výkonu a časem z toho vypadne set výsledků, které uspokojují co nejvíc různých omezení s dosažením co nejvíc optimálních výsledků. Můžu vám garantovat, že každý systém pro plánování podniků používá podstatně sofistikovanější řešení, které mimo jiné zahrnuje spoustu lidské práce a analýzy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="40b952f4-ca69-4ee7-94e6-aa81124ac7ba" class="">Co naprosto nechápu je jednostrannost celého článku a i původních zdrojů. Autor působí, jako že vnímá celkovou optimálnost systému jako jediné hodnotící kritérium. Kdyby se jednalo o auta, tak by byl jak člověk kterého zajímá jenom rychlost a naprosto ignoruje všechny další parametry, jako například životnost, cenu, opravitelnost, kolik lidí je auto schopné uvést, jak těžké je ho řídit, co je v něm za vybavení, jakou má spotřebu a tisíc dalších možných os optimalizace.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c71fbd12-faeb-4039-a9fb-6b5070091b4e" class="">Autor simulace je student, takže jemu tohle všechno odpouštím. Očividně nemá moc životních zkušeností se skutečnými systémy plánování například podnikové ekonomie (já taky ne, ale aspoň chápu inherentní složitost). Že se toho ale chytají ostatní a prezentují to jako nějaký všelék, to mi přijde padlé na hlavu. Vždyť je to klasické žvanění děcka ještě ve škole, které má pocit že zná všechno nejlíp a má odpověď na všechny problémy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ea5cf871-1633-4c43-acc2-083d00f25b96" class="">Jako dizertační práce je to pěkné, ale pokud by fakt měl něco v životě řídit, tak bych utíkal co by mi nohy stačily.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

@@ -10,10 +10,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:title" content="AdvancedTCardReader">
-  <meta name="twitter:description" content="Při psaní článku Cesta k emulátoru telefonní karty jsem navrhl několik metod prolomení ochrany telefonní karty. Jednou z těchto metod bylo i prolomení hashe pomocí analýzy vstupů a výstupů. Aby bylo něco takového možné, je nutné prvně nasbírat dostatečný počet challenge/response. K tomu jsem napsal krátký program ve Wiringu (v podstatě se jedná o C++ obohacené o arduino api) pro Arduino diecimila.">
-  <meta property="og:description" content="Při psaní článku Cesta k emulátoru telefonní karty jsem navrhl několik metod prolomení ochrany telefonní karty. Jednou z těchto metod bylo i prolomení hashe pomocí analýzy vstupů a výstupů. Aby bylo něco takového možné, je nutné prvně nasbírat dostatečný počet challenge/response. K tomu jsem napsal krátký program ve Wiringu (v podstatě se jedná o C++ obohacené o arduino api) pro Arduino diecimila.">
-  <script src="../../../scripts.js"></script>
-  <meta name="description" content="Při psaní článku Cesta k emulátoru telefonní karty jsem navrhl několik metod prolomení ochrany telefonní karty. Jednou z těchto metod bylo i prolomení hashe pomocí analýzy vstupů a výstupů. Aby bylo něco takového možné, je nutné prvně nasbírat dostatečný počet challenge/response. K tomu jsem napsal krátký program ve Wiringu (v podstatě se jedná o C++ obohacené o arduino api) pro Arduino diecimila."><!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="../../../scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
   <script>
@@ -119,18 +116,29 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Programování">Programování</a> / <a href="index.html" class="breadcrumb" title="Cracking telefonních karet">Cracking telefonních karet</a> / AdvancedTCardReader
   <article id="b5be3378-ab7c-4855-b382-381902c3197f" class="page sans">
     <header>
-      <h1 class="page-title">AdvancedTCardReader</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">AdvancedTCardReader</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <p id="d48f447d-a97d-4f10-a58c-a0caf2cd8867" class=""><time>@2010/07/25</time></p>
-      <p id="acebd779-c36a-49bb-9577-2a9a46de8d9e" class="">Při psaní článku <a href="Cesta_k_emulatoru_telefonni_karty.html" title="Cesta k emulátoru telefonní karty">Cesta k emulátoru telefonní karty</a> jsem navrhl několik metod prolomení ochrany telefonní karty. Jednou z těchto metod bylo i prolomení hashe pomocí analýzy vstupů a výstupů. Aby bylo něco takového možné, je nutné prvně nasbírat dostatečný počet challenge/response. K tomu jsem napsal krátký program ve Wiringu (v podstatě se jedná o C++ obohacené o arduino api) pro <a href="http://www.arduino.cc/en/Main/ArduinoBoardDiecimila">Arduino diecimila</a>.</p>
-      <p id="aaeada3f-2c2a-4e20-83f7-d2a8e3aa82e2" class="">Během zkoušení programu jsem narazil na zvláštní věc - algoritmus používaný v českých telefonních kartách vrací pro kvadraticky zvětšující se množinu vstupů stejné výstupy. Zatím jsem nedělal žádné pokusy zjistit jak daleko to sahá, ale v praxi to znamená, že vytvoření emulátoru by nemuselo být tak složité - stačilo by zmapovat tabulku vstupů. Mám v plánu na to napsat script v pythonu, který bude zjišťovat rozsahy a ukládat je do databáze, pustím se do toho jakmile budu mít náladu..</p>
-      <p id="ec49e036-d94a-4fb9-a5ee-84b2787386e8" class="">Další možnost je, že někde v programu je chyba, pokud jí někdo najdete, budu rád pokud mi dáte vědět.</p>
-      <h2 id="1727a2c6-57b9-4584-8a59-9148df1b9152" class="">Ukázka komunikace</h2>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="3b01a7d1-6d01-4674-b372-ca78bad7223f" class="code"><code class="language-Plain Text">Type 'h' for help.
+      <div style="display:contents" dir="auto">
+        <p id="d48f447d-a97d-4f10-a58c-a0caf2cd8867" class=""><time>@2010/07/25</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="acebd779-c36a-49bb-9577-2a9a46de8d9e" class="">Při psaní článku <a href="Cesta_k_emulatoru_telefonni_karty.html" title="Cesta k emulátoru telefonní karty">Cesta k emulátoru telefonní karty</a> jsem navrhl několik metod prolomení ochrany telefonní karty. Jednou z těchto metod bylo i prolomení hashe pomocí analýzy vstupů a výstupů. Aby bylo něco takového možné, je nutné prvně nasbírat dostatečný počet challenge/response. K tomu jsem napsal krátký program ve Wiringu (v podstatě se jedná o C++ obohacené o arduino api) pro <a href="http://www.arduino.cc/en/Main/ArduinoBoardDiecimila">Arduino diecimila</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aaeada3f-2c2a-4e20-83f7-d2a8e3aa82e2" class="">Během zkoušení programu jsem narazil na zvláštní věc - algoritmus používaný v českých telefonních kartách vrací pro kvadraticky zvětšující se množinu vstupů stejné výstupy. Zatím jsem nedělal žádné pokusy zjistit jak daleko to sahá, ale v praxi to znamená, že vytvoření emulátoru by nemuselo být tak složité - stačilo by zmapovat tabulku vstupů. Mám v plánu na to napsat script v pythonu, který bude zjišťovat rozsahy a ukládat je do databáze, pustím se do toho jakmile budu mít náladu..</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ec49e036-d94a-4fb9-a5ee-84b2787386e8" class="">Další možnost je, že někde v programu je chyba, pokud jí někdo najdete, budu rád pokud mi dáte vědět.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="1727a2c6-57b9-4584-8a59-9148df1b9152" class="">Ukázka komunikace</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="3b01a7d1-6d01-4674-b372-ca78bad7223f" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Type 'h' for help.
 &gt; h
 Commands:
     d
@@ -301,10 +309,14 @@ Format:
 148:25500
 149:25500
 150:25500 </code></pre>
-      <h2 id="03dc4b3e-35ae-4f41-8015-0be3c87975bb" class="">Source code</h2>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="3a7e486b-b01d-48e4-9181-1c7ba8f44750" class="code"><code class="language-C++" style="white-space:pre-wrap;word-break:break-all">/* AdvancedTCardReader v0.9.4 (25.07.2010) by Bystroushaak (bystrousak@kitakitsune.org)
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="03dc4b3e-35ae-4f41-8015-0be3c87975bb" class="">Source code</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="3a7e486b-b01d-48e4-9181-1c7ba8f44750" class="code code-wrap"><code class="language-C++" style="white-space:pre-wrap;word-break:break-all">/* AdvancedTCardReader v0.9.4 (25.07.2010) by Bystroushaak (bystrousak@kitakitsune.org)
  * Lang:     Wiring
  * Platform: Arduino Diecimila
  * Licence:  CC by-nc-sa (http://creativecommons.org/licenses/by-nc-sa/3.0/cz/)
@@ -674,6 +686,7 @@ void loop(){
  *                                        |//     \))
  *
 */</code></pre>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

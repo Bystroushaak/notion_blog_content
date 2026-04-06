@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
           <a href="Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -135,57 +135,99 @@
   </div><a href="../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../index.html" class="breadcrumb" title="English section">English section</a> / <a href="index.html" class="breadcrumb" title="3D printing">3D printing</a> / How to set Blender for 3D printing
   <article id="b9e2dbd1-dc01-4285-b2d6-46e18fe1b5d8" class="page sans">
     <header>
-      <h1 class="page-title">How to set Blender for 3D printing</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">How to set Blender for 3D printing</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="a7720250-c75f-4a6d-80da-19036c366a18" class=""><time>@2021/06/24</time></p>
-      <p id="984f9dbd-1ae1-433e-bebd-fb592d9ea188" class="">I use this empty Blender file as a template for creating projects for 3D printing.</p>
-      <figure id="7c9205a9-f1af-49a8-a384-9517ec8c35aa">
-        <div class="source">
-          <a href="How_to_set_Blender_for_3D_printing/template.blend" title="template.blend">template.blend</a>
-        </div>
-        <figcaption>
-          <a href="http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend">http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend</a>
-        </figcaption>
-      </figure>
-      <p id="c5d43346-ec36-4210-b5ac-1af6330589a8" class="">There is nothing special in it, except that the measurement units are preset to more suitable units, so that the <code>STL</code> exports work right out of the box, and you don't have scaling issues in Slicer software:</p>
-      <figure id="9e9997f6-a7e2-4f26-85ba-a72eee38556c" class="image">
-        <a href="How_to_set_Blender_for_3D_printing/blender_settings.png" title="blender_settings.png"><img style="width:336px" src="How_to_set_Blender_for_3D_printing/blender_settings.png"></a>
-      </figure>
-      <p id="dd957f68-3d54-4b75-ac7f-06d3f20f6104" class="">More specifically:</p>
-      <ul id="aba2c8a3-4e25-40b5-ae5c-7335098bad05" class="bulleted-list">
-        <li style="list-style-type:disc">Unit scale: <code>0.001</code></li>
-      </ul>
-      <ul id="ddce56f3-56bf-4610-9f17-f72d67b809c2" class="bulleted-list">
-        <li style="list-style-type:disc">Length: <code>centimeters</code></li>
-      </ul>
-      <h1 id="fe43f261-34b1-4282-a430-e23fa5d1d645" class="">Plugins</h1>
-      <p id="1c2483a5-89e8-4d6a-9c92-1c971e333921" class="">It may also be a good idea to turn on two Blender add-ons, which are shipped with Blender, but turned off by default:</p>
-      <ul id="7383e021-d4d3-45db-9d84-28da9bc92d75" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://docs.blender.org/manual/en/latest/addons/mesh/3d_print_toolbox.html">Mesh: 3D-Print Toolbox</a>
-        </li>
-      </ul>
-      <ul id="b84fcb0f-7e7e-4c4e-9011-4b521b41fc16" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://docs.blender.org/manual/en/latest/addons/3d_view/measureit.html">3D View: Measureit</a>
-        </li>
-      </ul>
-      <p id="3d36722e-fb9e-400f-bf50-5dfc2cb5a562" class="">They both add a new menu to the toolbar.</p>
-      <h2 id="9bef8234-5a9c-41c8-ac95-d737213add89" class="">3D-Print Toolbox</h2>
-      <figure id="a5220e1d-52f7-4f17-8b53-84d02ccc74b3" class="image">
-        <a href="How_to_set_Blender_for_3D_printing/3D_toolbox.jpg" title="3D_toolbox.jpg"><img style="width:288px" src="How_to_set_Blender_for_3D_printing/3D_toolbox.jpg"></a>
-      </figure>
-      <p id="92c3489e-e0d9-499f-a945-e148a9022c32" class="">This add-on allows you to export <code>STL</code> for printing with one click. It also has <code>Check all</code> and <code>Make Manifold</code> buttons, which are sometimes useful. They can sometimes fix models which act weirdly in Slicer because they have weird geometry.</p>
-      <h2 id="dad1138b-a6ba-4bcf-a879-c6883a44e074" class="">Measureit</h2>
-      <p id="4f5da6e8-2497-4ff4-ab36-f8e3844cfdd4" class="">This allows you to measure distances between vertexes, angles and so on. You have to select for example two vertexes and then click on <code>Segment</code> button, then on <code>Show</code> next to the ghost and you'll see something like this.</p>
-      <figure id="d58e4da4-1cee-4c70-8915-6d51d43c623e" class="image">
-        <a href="How_to_set_Blender_for_3D_printing/measure_it_toolbar.jpg" title="measure_it_toolbar.jpg"><img style="width:624px" src="How_to_set_Blender_for_3D_printing/measure_it_toolbar_thumb.jpg"></a>
-      </figure>
-      <p id="c516270b-a2ee-4edc-b27a-1a5f91c9b270" class="">It can allow you more cad-like modeling with precision, but it doesn't survive transformations, and it sometimes acts weird, so usefulness is limited.</p>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a7720250-c75f-4a6d-80da-19036c366a18" class=""><time>@2021/06/24</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="984f9dbd-1ae1-433e-bebd-fb592d9ea188" class="">I use this empty Blender file as a template for creating projects for 3D printing.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="7c9205a9-f1af-49a8-a384-9517ec8c35aa">
+          <div class="source">
+            <a href="How_to_set_Blender_for_3D_printing/template.blend" title="template.blend">template.blend</a>
+          </div>
+          <figcaption>
+            <a href="http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend">http://storage.rfox.eu/setting_up_blender_for_3D_printing/template.blend</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c5d43346-ec36-4210-b5ac-1af6330589a8" class="">There is nothing special in it, except that the measurement units are preset to more suitable units, so that the <code>STL</code> exports work right out of the box, and you don't have scaling issues in Slicer software:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="9e9997f6-a7e2-4f26-85ba-a72eee38556c" class="image">
+          <a href="How_to_set_Blender_for_3D_printing/blender_settings.png" title="blender_settings.png"><img style="width:336px" src="How_to_set_Blender_for_3D_printing/blender_settings.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dd957f68-3d54-4b75-ac7f-06d3f20f6104" class="">More specifically:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="aba2c8a3-4e25-40b5-ae5c-7335098bad05" class="bulleted-list">
+          <li style="list-style-type:disc">Unit scale: <code>0.001</code></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="ddce56f3-56bf-4610-9f17-f72d67b809c2" class="bulleted-list">
+          <li style="list-style-type:disc">Length: <code>centimeters</code></li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="fe43f261-34b1-4282-a430-e23fa5d1d645" class="">Plugins</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1c2483a5-89e8-4d6a-9c92-1c971e333921" class="">It may also be a good idea to turn on two Blender add-ons, which are shipped with Blender, but turned off by default:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="7383e021-d4d3-45db-9d84-28da9bc92d75" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://docs.blender.org/manual/en/latest/addons/mesh/3d_print_toolbox.html">Mesh: 3D-Print Toolbox</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b84fcb0f-7e7e-4c4e-9011-4b521b41fc16" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://docs.blender.org/manual/en/latest/addons/3d_view/measureit.html">3D View: Measureit</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3d36722e-fb9e-400f-bf50-5dfc2cb5a562" class="">They both add a new menu to the toolbar.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="9bef8234-5a9c-41c8-ac95-d737213add89" class="">3D-Print Toolbox</h2>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a5220e1d-52f7-4f17-8b53-84d02ccc74b3" class="image">
+          <a href="How_to_set_Blender_for_3D_printing/3D_toolbox.jpg" title="3D_toolbox.jpg"><img style="width:288px" src="How_to_set_Blender_for_3D_printing/3D_toolbox.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="92c3489e-e0d9-499f-a945-e148a9022c32" class="">This add-on allows you to export <code>STL</code> for printing with one click. It also has <code>Check all</code> and <code>Make Manifold</code> buttons, which are sometimes useful. They can sometimes fix models which act weirdly in Slicer because they have weird geometry.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="dad1138b-a6ba-4bcf-a879-c6883a44e074" class="">Measureit</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4f5da6e8-2497-4ff4-ab36-f8e3844cfdd4" class="">This allows you to measure distances between vertexes, angles and so on. You have to select for example two vertexes and then click on <code>Segment</code> button, then on <code>Show</code> next to the ghost and you'll see something like this.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="d58e4da4-1cee-4c70-8915-6d51d43c623e" class="image">
+          <a href="How_to_set_Blender_for_3D_printing/measure_it_toolbar.jpg" title="measure_it_toolbar.jpg"><img style="width:624px" src="How_to_set_Blender_for_3D_printing/measure_it_toolbar_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c516270b-a2ee-4edc-b27a-1a5f91c9b270" class="">It can allow you more cad-like modeling with precision, but it doesn't survive transformations, and it sometimes acts weird, so usefulness is limited.</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -196,6 +238,9 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -222,9 +267,6 @@
         </li>
         <li>
           <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

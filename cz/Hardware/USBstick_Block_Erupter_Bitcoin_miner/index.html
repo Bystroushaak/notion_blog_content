@@ -129,359 +129,563 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Hardware">Hardware</a> / USBstick Block Erupter (Bitcoin miner)
   <article id="233076e2-b46b-4596-ac1f-33980264beea" class="page sans">
     <header>
-      <h1 class="page-title">USBstick Block Erupter (Bitcoin miner)</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">USBstick Block Erupter (Bitcoin miner)</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="471325d8-21ec-48a9-85cb-b17383c98923" class=""><time>@2013/10/01</time></p>
-      <p id="6e384513-504a-42a1-ad69-f10bac5f31b1" class="">Na aukru se poslední dobou roztrhl pytel s malými zařízeními, které stačí zastrčit do USB a ony vám po spuštění patřičného programu začnou na účet připisovat zlomky Bitcoinů. Jedno takové jsem si koupil za účelem výzkumu, abych otestoval, jestli se vůbec vyplatí něco takového provozovat.</p>
-      <p id="9975b576-a47e-423c-8d9b-41f2b6732868" class="">Text očekává od čtenáře základní znalost Bitcoinu a povědomí o tom, že Bitcoiny se dají těžit.</p>
-      <h1 id="f943ddc4-4156-4ab1-89db-121c5b8e391e" class="">Trocha historie</h1>
-      <p id="b80c0d3e-d618-4766-8ec8-75668242d284" class="">Historie zařízení pro těžbu Bitcoinů se dá rozdělit do několika generací. Jedná se o mé rozdělení, které jsem si právě vymyslel, takže je možné, že obecně se to dělí trochu jinak.</p>
-      <h2 id="b269f31e-7b0b-459f-bdb9-a847635b2ace" class="">První generace: CPU</h2>
-      <p id="5f6a091e-a836-4f86-b4f3-54943a386b70" class="">Kdysi dávno, když Bitcoin začínal bylo možné vydělat si něco tím, že člověk na počítači spustil speciální program a ten přes CPU těžil. Když jsem se dostal k Bitcoinu já, bylo ještě pořád možné tímhle způsobem vytěžit poměrně zajímavé částky, okolo 0.01 za den při spuštění na několika osmi-jádrových počítačích.</p>
-      <p id="6ee2fd0c-0ba8-4a9b-a2b1-9d4042f0e8ad" class="">V dnešní době již těžení na CPU nemá smysl, protože si nevydělají ani na elektřinu, kterou spotřebují. Pokud tedy nemáte <a href="http://www.symantec.com/connect/blogs/grappling-zeroaccess-botnet">botnet</a>, nemá ani cenu se je pokoušet těžit tímto způsobem.</p>
-      <p id="5f5aaaf4-7445-49f2-949a-0411ebe392c2" class="">Zde je pro přehled pár tabulek. Jedná se o data z <a href="https://en.bitcoin.it/wiki/Mining_hardware_comparison">Mining hardware comparsion</a>. Hlavní jednotkou od které se vše odvíjí je megahash, tedy milion provedených hashů za vteřinu, na Joule, či za jeden dolar ceny.</p>
-      <h3 id="2367157e-ec86-4388-8e5f-6a06c1f66605" class="">AMD</h3>
-      <table id="2512bd51-83f3-4c6a-ac51-e28a52ccf5d8" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="7b578a76-af89-49e2-a12f-3db2e457bc84">
-            <th id="tzY^" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="B@&lt;V" class="simple-table-header-color simple-table-header">Průměr</th>
-            <th id="={=c" class="simple-table-header-color simple-table-header">Minimum</th>
-            <th id="GmM{" class="simple-table-header-color simple-table-header">Maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="f9c792bd-9f5e-460f-83c8-8dcfb067707f">
-            <td id="tzY^" class="">Hashrate Mh/s</td>
-            <td id="B@&lt;V" class="">20.41</td>
-            <td id="={=c" class="">0.062</td>
-            <td id="GmM{" class="">115</td>
-          </tr>
-          <tr id="dff40ff1-d0a5-4e47-9d0d-a90de51f3c14">
-            <td id="tzY^" class="">Výkon Mh/J</td>
-            <td id="B@&lt;V" class="">n/a</td>
-            <td id="={=c" class="">0.009</td>
-            <td id="GmM{" class="">0.6</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="8d599e08-419f-4a29-a0a1-f6793e1ac28f" class="">Intel</h3>
-      <table id="361693a7-f5e7-4687-96aa-1aeed36e3213" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="ebd10e03-4ec2-4254-ae47-e5f4eb47f56a">
-            <th id="Up~f" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="Xx[R" class="simple-table-header-color simple-table-header">Průměr</th>
-            <th id="}gtm" class="simple-table-header-color simple-table-header">Minimum</th>
-            <th id="kG@C" class="simple-table-header-color simple-table-header">Maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="66f8347b-6604-4ea4-a4de-15d141095f75">
-            <td id="Up~f" class="">Hashrate Mh/s</td>
-            <td id="Xx[R" class="">10.12</td>
-            <td id="}gtm" class="">0.0245</td>
-            <td id="kG@C" class="">66.6</td>
-          </tr>
-          <tr id="e6d0244c-50a4-47ea-ba72-d15ef1f6cd58">
-            <td id="Up~f" class="">Výkon Mh/J</td>
-            <td id="Xx[R" class="">n/a</td>
-            <td id="}gtm" class="">0.008</td>
-            <td id="kG@C" class="">0.3</td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="8b6e28f0-6958-43f8-b3bb-dc4f90ee75d2" class="">Arm</h3>
-      <table id="c4eb3f36-27b7-47bf-b132-68e8b4d65035" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="50662f73-cd58-47d6-a796-03166a1435ac">
-            <th id="[[~K" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="hWH:" class="simple-table-header-color simple-table-header">Průměr</th>
-            <th id="ge=R" class="simple-table-header-color simple-table-header">Minimum</th>
-            <th id="JrhP" class="simple-table-header-color simple-table-header">Maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="39d615b8-f9c6-4aa4-ba6f-dfabb1644cd1">
-            <td id="[[~K" class="">Hashrate Mh/s</td>
-            <td id="hWH:" class="">0.37</td>
-            <td id="ge=R" class="">0.11</td>
-            <td id="JrhP" class="">1.3</td>
-          </tr>
-          <tr id="351b2c74-2a32-47ad-9fa7-5c0555ab07bd">
-            <td id="[[~K" class="">Výkon Mh/J</td>
-            <td id="hWH:" class="">n/a</td>
-            <td id="ge=R" class="">0.2</td>
-            <td id="JrhP" class="">1.4</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="3cff9782-60cb-46b8-85d0-bb22625c3350" class="">Druhá generace: GPU</h2>
-      <p id="5724cbe5-2062-43cd-a878-4359052c5641" class="">Druhá generace přišla s přechodem na výkonné grafické karty, které byly o celé řády výkonnější, než těžba na CPU. Dodnes tak někteří těží, protože nakoupili mining rigy nacpané grafikami ještě v době, kdy se jim nákup vyplatil a zaplatil.</p>
-      <p id="bfbbadad-6741-452c-9cf4-572034c3fb98" class="">Tato generace se pomalu blíží ke svému konci, protože už delší dobu se vám nevyplatí koupit grafiku za pět a více tisíc korun, kterou zapojíte do desky za další tisíce, přidáte zdroj a další komponenty za další tisíce a získáte výkon, který je srovnatelný s ASIC obvodem do USB za pár stovek. To ani nemluvím o tom, že energeticky si to na sebe nevydělá, pokud nemáte zrovna nějaký silně optimalizovaný mining rig.</p>
-      <table id="fdfc49c4-9771-4dfb-8b56-f73fe3899f84" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="a4a01787-602e-42a6-aefd-0150ba313822">
-            <th id="RtSF" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="MAgx" class="simple-table-header-color simple-table-header">Minimum</th>
-            <th id="&lt;iS\" class="simple-table-header-color simple-table-header">Maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="8350b6b6-6526-423c-83e3-5c047aa4176d">
-            <td id="RtSF" class="">Hashrate Mh/s</td>
-            <td id="MAgx" class="">120</td>
-            <td id="&lt;iS\" class="">700</td>
-          </tr>
-          <tr id="acbc1921-ae84-429e-8d95-fdee63d113dc">
-            <td id="RtSF" class="">Výkon Mh/J</td>
-            <td id="MAgx" class="">1.3</td>
-            <td id="&lt;iS\" class="">2.4</td>
-          </tr>
-          <tr id="d6a40f68-1ab1-49c8-8ad1-187d671e5aa2">
-            <td id="RtSF" class="">Cena Mh/$</td>
-            <td id="MAgx" class="">1.1</td>
-            <td id="&lt;iS\" class="">3.3</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="07545944-adc7-4891-885d-778ef61f37ab" class="">Třetí generace: FPGA</h2>
-      <p id="0eaf5561-28a8-4dc8-8548-4972acb8b6b2" class=""><a href="http://cs.wikipedia.org/wiki/Programovateln%C3%A9_hradlov%C3%A9_pole">FPGA</a> představují přechod mezi zařízeními, které pro Bitcoiny nebyly vůbec zamýšlené, a zařízeními, které byly vytvořeny čistě pro těžbu Bitcoinů. Co se technologie týče, jedná se o obvody, které jsou složeny z mnoha malých bloků, které je možné naprogramovat pro prakticky libovolnou činnost. Pokud by vás zajímaly podrobnosti, doporučuji zdejší <a href="https://abclinuxu.cz/stitky/programovatelna-logika">seriál o programovatelné logice</a>.</p>
-      <figure id="e0902997-e48b-49ac-8b55-923cac75e2e4" class="image">
-        <a href="Untitled.png" title="Untitled.png"><img style="width:200px" src="Untitled.png"></a>
-        <figcaption>
-          <em>Obrázek pochází z</em> <a href="https://bitcointalk.org/index.php?topic=79835.0"><em>Bitcoin fóra</em></a><em>. Tento FPGA je možné na aukru koupit za cenu cca 1800kč a jeho výkon se pohybuje okolo 400Mh/s.</em>
-        </figcaption>
-      </figure>
-      <p id="53ae9c7d-ad24-4bc9-a25d-0b1fc7dc888d" class="">FPGA jsou rychlejší a energeticky výhodnější, než GPU a CPU, ale stále se jedná o poměrně objemné desky, které je nutno chladit aktivními chladiči a žerou dost energie.</p>
-      <table id="34731a33-2e41-46ff-9862-fe2c23c097b3" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="b95b690b-556d-4b46-badb-2ae3a631d72c">
-            <th id="^:]k" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="Ec&lt;K" class="simple-table-header-color simple-table-header">Průměr</th>
-            <th id="m&lt;]{" class="simple-table-header-color simple-table-header">Minimum</th>
-            <th id="WUDg" class="simple-table-header-color simple-table-header">Maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="27cd5d6b-a39b-4a2d-9ef8-a9a6f744b1ec">
-            <td id="^:]k" class="">Hashrate Mh/s</td>
-            <td id="Ec&lt;K" class="">789.38</td>
-            <td id="m&lt;]{" class="">5</td>
-            <td id="WUDg" class="">6000</td>
-          </tr>
-          <tr id="c70424b9-e706-4abc-9b5c-323d5c2ecc7e">
-            <td id="^:]k" class="">Výkon Mh/J</td>
-            <td id="Ec&lt;K" class="">18.05</td>
-            <td id="m&lt;]{" class="">10.4</td>
-            <td id="WUDg" class="">23.25</td>
-          </tr>
-          <tr id="4f6a0f04-34d0-44d4-88c6-62efa306bc48">
-            <td id="^:]k" class="">Cena Mh/$</td>
-            <td id="Ec&lt;K" class="">0.7</td>
-            <td id="m&lt;]{" class="">0.03</td>
-            <td id="WUDg" class="">2.15</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="53406644-08f0-4188-a14a-967c4a8bed7a" class="">Čtvrtá generace: ASIC</h2>
-      <p id="46ee54ed-ab64-4a9d-83c4-c04fdc829d89" class=""><a href="http://en.wikipedia.org/wiki/Application-specific_integrated_circuit">ASIC</a> obvody jsou podle mého názoru zatím na dlouhou dobu poslední generací. Jedná se o na míru dělané čipy, které výpočty nijak ne-emulují, ani nepočítají obecnými procesory, ale realizují plně optimalizovanými elektronickými hradly přímo na křemíku. Co se týče dalších generací, neočekávám v brzké době (10 let) přechod na něco revolučnějšího, spíš závod o nanometry.</p>
-      <p id="7ebe4d00-9df5-4501-be2b-163694892e1d" class="">Jak je asi každému jasné, tyto obvody jsou o celé řády výkonnější než předchozí technologie a také podstatně méně náročné na elektřinu - srovnejme si například nejoptimálnější ARM, který dosahuje okolo 1.3Mh/J a nejoptimálnější, nejnadupanější a nejdražší ASIC čipy, které se pohybují u 1792Mh/J. Například v tomto článku recenzovaný ASIC BlockErupter sebere při výkonu 336Mh/s cca 2W.</p>
-      <p id="7d4107f4-7a01-47ab-81b7-ef467feb9b65" class="">ASIC čipy mají výhodu v brutálním výkonu, druhá strana mince je v tom, že díky specializaci čistě na těžení Bitcoinů vám <a href="http://bitcoin.stackexchange.com/questions/7236/bitcoin-mining-asics-used-for-cryptographic-application-rainbow-tables">k ničemu jinému nebudou</a> a až stoupne obtížnost těžby natolik, že si na sebe energeticky nevydělají, tak je ani nemůžete použít (či prodat) jako počítačové komponenty, ale rovnou vyhodit. To je velký rozdíl oproti třeba takovým FPGA, do kterých můžete vpálit nový <a href="http://cs.wikipedia.org/wiki/VHDL">VHDL script</a> a rázem je z nich jiné zařízení, které může dál skvěle sloužit.</p>
-      <p id="aaf1a379-fa06-4ebc-b96f-5913e8694624" class="">První řádek tabulky berte jen orientačně, protože v něm jsou započítány mining rigy, ne jen samostatné čipy. Zbylé dva řádky však reflektují nárůst výkonu docela dobře.</p>
-      <table id="87d54bea-a257-4d30-8b92-bdef220430ed" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="9ec39cdc-f4cd-4356-b4d9-bebd07dd9a12">
-            <th id="OD&gt;A" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="pdAy" class="simple-table-header-color simple-table-header">Průměr</th>
-            <th id="&gt;ogI" class="simple-table-header-color simple-table-header">Minimum</th>
-            <th id="NsHk" class="simple-table-header-color simple-table-header">Maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="b1d9c67c-457d-4233-a1b3-068d76b23599">
-            <td id="OD&gt;A" class="">Hashrate Mh/s</td>
-            <td id="pdAy" class="">159905</td>
-            <td id="&gt;ogI" class="">333</td>
-            <td id="NsHk" class="">1344000</td>
-          </tr>
-          <tr id="c4c4c4bf-6adb-4263-a645-faa6fec8361c">
-            <td id="OD&gt;A" class="">Výkon Mh/J</td>
-            <td id="pdAy" class="">667.5</td>
-            <td id="&gt;ogI" class="">107</td>
-            <td id="NsHk" class="">1792</td>
-          </tr>
-          <tr id="c7cf8ed2-84ce-48f6-9c55-79e071d0a7bd">
-            <td id="OD&gt;A" class="">Cena Mh/$</td>
-            <td id="pdAy" class="">64.5</td>
-            <td id="&gt;ogI" class="">13</td>
-            <td id="NsHk" class="">336</td>
-          </tr>
-        </tbody>
-      </table>
-      <h1 id="6ddc7890-392a-4cf5-a1bf-60ae07fb5b06" class="">USB Miner Block Erupter</h1>
-      <p id="2d39da23-ab57-4c0a-950c-3f67cd7ff82e" class="">Jedná se o jednoduché zařízení postavené nad 130nm ASIC <a href="https://bitcointalk.org/index.php?topic=91173.msg1211518#msg1211518">čipem</a> Block Erupter.</p>
-      <p id="ddd43d56-170e-4b2f-970d-ae4574d4d113" class="">Okolo tohoto zařízení poslední dobou probíhá mezi i jinak neznalými lidmi senzace, kdy je s radostí nakupují s vidinou zisku. Schválně jsem si vzal <a href="http://aukro.cz/rss.php?feed=search&amp;sg=0&amp;string=bitcoin">RSS výsledky</a> z vyhledávání na keyword <code>bitcoin</code> a během uplynulého týdne jsem sledoval, jak se jich prodalo několik kusů i za vcelku přemrštěné ceny okolo 1200kč, i když běžná prodejní hodnota v době psaní článku je přibližně 650kč v Čechách, nebo cca $23 v Americe (poštovné to ale krapet prodraží).</p>
-      <p id="f60d682d-088d-4cc6-a6a0-c247e0487307" class="">V číslech:</p>
-      <table id="db49a26e-0d9c-409f-9597-76cfc0fd3125" class="simple-table">
-        <thead class="simple-table-header">
-          <tr id="104250ca-5b44-4178-94fb-4ff6a5ae5365">
-            <th id="fGfS" class="simple-table-header-color simple-table-header">Veličina</th>
-            <th id="DEWL" class="simple-table-header-color simple-table-header">Hodnota</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="a98a2528-0528-4242-a949-ef2f4f0031a0">
-            <td id="fGfS" class="">Hashrate Mh/s</td>
-            <td id="DEWL" class="">336</td>
-          </tr>
-          <tr id="d5adf306-f08c-4c21-9005-8377bdd57abd">
-            <td id="fGfS" class="">Výkon Mh/J</td>
-            <td id="DEWL" class="">~130</td>
-          </tr>
-          <tr id="a3528c40-70a7-427e-9155-01d6d9e4c64b">
-            <td id="fGfS" class="">Cena Mh/$</td>
-            <td id="DEWL" class="">14.6</td>
-          </tr>
-          <tr id="c22e4c52-0237-4169-ab6d-7af46f71470d">
-            <td id="fGfS" class="">Cena Mh/kč</td>
-            <td id="DEWL" class="">~0.51</td>
-          </tr>
-        </tbody>
-      </table>
-      <p id="a66ebbf3-29c3-4206-be35-893e98431ef3" class="">Detaily:</p>
-      <ul id="17ec02dd-a85b-45ea-a005-cbe270eb509d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.blockerupter.co.uk/">http://www.blockerupter.co.uk/</a>
-        </li>
-      </ul>
-      <ul id="1360394c-8370-45e8-89c6-907ecd3ed805" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://eligius.st/~gateway/products/block-erupter-sapphire">http://eligius.st/~gateway/products/block-erupter-sapphire</a>
-        </li>
-      </ul>
-      <h2 id="21b954a7-27d2-4db5-a558-fca0128e5906" class="">První dojmy</h2>
-      <p id="34113764-f597-4edf-a8a0-13016e4d65e4" class="">Můj první dojem se dá zcela jednoznačně shrnout do slov <em>"jé, to je ale prcek"</em>. Zařízení je velké zhruba jako běžný USB flashdisk.</p>
-      <div id="5f1fc8df-f83a-4110-9cd2-57b06cc4983b" class="column-list">
-        <div id="9ef766e5-b937-4d44-a5dd-edd401c7a8fb" style="width:50%" class="column">
-          <figure id="676bd44a-ceba-4aa0-83ac-b408d82dc258" class="image">
-            <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:1500px" src="Untitled_1_thumb.jpg"></a>
-          </figure>
-        </div>
-        <div id="8f79e879-4119-4fd4-8ab5-e3d7f80689e7" style="width:50%" class="column">
-          <figure id="d521d99e-7882-4645-bdbb-8e2fec3b11bd" class="image">
-            <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:2500px" src="Untitled_2_thumb.jpg"></a>
-          </figure>
-          <figure id="59a3dc4d-426c-4e72-bd75-35a9bbe79713" class="image">
-            <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:1200px" src="Untitled_3_thumb.jpg"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="471325d8-21ec-48a9-85cb-b17383c98923" class=""><time>@2013/10/01</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6e384513-504a-42a1-ad69-f10bac5f31b1" class="">Na aukru se poslední dobou roztrhl pytel s malými zařízeními, které stačí zastrčit do USB a ony vám po spuštění patřičného programu začnou na účet připisovat zlomky Bitcoinů. Jedno takové jsem si koupil za účelem výzkumu, abych otestoval, jestli se vůbec vyplatí něco takového provozovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9975b576-a47e-423c-8d9b-41f2b6732868" class="">Text očekává od čtenáře základní znalost Bitcoinu a povědomí o tom, že Bitcoiny se dají těžit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="f943ddc4-4156-4ab1-89db-121c5b8e391e" class="">Trocha historie</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b80c0d3e-d618-4766-8ec8-75668242d284" class="">Historie zařízení pro těžbu Bitcoinů se dá rozdělit do několika generací. Jedná se o mé rozdělení, které jsem si právě vymyslel, takže je možné, že obecně se to dělí trochu jinak.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="b269f31e-7b0b-459f-bdb9-a847635b2ace" class="">První generace: CPU</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5f6a091e-a836-4f86-b4f3-54943a386b70" class="">Kdysi dávno, když Bitcoin začínal bylo možné vydělat si něco tím, že člověk na počítači spustil speciální program a ten přes CPU těžil. Když jsem se dostal k Bitcoinu já, bylo ještě pořád možné tímhle způsobem vytěžit poměrně zajímavé částky, okolo 0.01 za den při spuštění na několika osmi-jádrových počítačích.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6ee2fd0c-0ba8-4a9b-a2b1-9d4042f0e8ad" class="">V dnešní době již těžení na CPU nemá smysl, protože si nevydělají ani na elektřinu, kterou spotřebují. Pokud tedy nemáte <a href="http://www.symantec.com/connect/blogs/grappling-zeroaccess-botnet">botnet</a>, nemá ani cenu se je pokoušet těžit tímto způsobem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5f5aaaf4-7445-49f2-949a-0411ebe392c2" class="">Zde je pro přehled pár tabulek. Jedná se o data z <a href="https://en.bitcoin.it/wiki/Mining_hardware_comparison">Mining hardware comparsion</a>. Hlavní jednotkou od které se vše odvíjí je megahash, tedy milion provedených hashů za vteřinu, na Joule, či za jeden dolar ceny.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="2367157e-ec86-4388-8e5f-6a06c1f66605" class="">AMD</h3>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="2512bd51-83f3-4c6a-ac51-e28a52ccf5d8" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="7b578a76-af89-49e2-a12f-3db2e457bc84">
+              <th id="tzY^" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="B@&lt;V" class="simple-table-header-color simple-table-header">Průměr</th>
+              <th id="={=c" class="simple-table-header-color simple-table-header">Minimum</th>
+              <th id="GmM{" class="simple-table-header-color simple-table-header">Maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="f9c792bd-9f5e-460f-83c8-8dcfb067707f">
+              <td id="tzY^" class="">Hashrate Mh/s</td>
+              <td id="B@&lt;V" class="">20.41</td>
+              <td id="={=c" class="">0.062</td>
+              <td id="GmM{" class="">115</td>
+            </tr>
+            <tr id="dff40ff1-d0a5-4e47-9d0d-a90de51f3c14">
+              <td id="tzY^" class="">Výkon Mh/J</td>
+              <td id="B@&lt;V" class="">n/a</td>
+              <td id="={=c" class="">0.009</td>
+              <td id="GmM{" class="">0.6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="8d599e08-419f-4a29-a0a1-f6793e1ac28f" class="">Intel</h3>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="361693a7-f5e7-4687-96aa-1aeed36e3213" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="ebd10e03-4ec2-4254-ae47-e5f4eb47f56a">
+              <th id="Up~f" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="Xx[R" class="simple-table-header-color simple-table-header">Průměr</th>
+              <th id="}gtm" class="simple-table-header-color simple-table-header">Minimum</th>
+              <th id="kG@C" class="simple-table-header-color simple-table-header">Maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="66f8347b-6604-4ea4-a4de-15d141095f75">
+              <td id="Up~f" class="">Hashrate Mh/s</td>
+              <td id="Xx[R" class="">10.12</td>
+              <td id="}gtm" class="">0.0245</td>
+              <td id="kG@C" class="">66.6</td>
+            </tr>
+            <tr id="e6d0244c-50a4-47ea-ba72-d15ef1f6cd58">
+              <td id="Up~f" class="">Výkon Mh/J</td>
+              <td id="Xx[R" class="">n/a</td>
+              <td id="}gtm" class="">0.008</td>
+              <td id="kG@C" class="">0.3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="8b6e28f0-6958-43f8-b3bb-dc4f90ee75d2" class="">Arm</h3>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="c4eb3f36-27b7-47bf-b132-68e8b4d65035" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="50662f73-cd58-47d6-a796-03166a1435ac">
+              <th id="[[~K" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="hWH:" class="simple-table-header-color simple-table-header">Průměr</th>
+              <th id="ge=R" class="simple-table-header-color simple-table-header">Minimum</th>
+              <th id="JrhP" class="simple-table-header-color simple-table-header">Maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="39d615b8-f9c6-4aa4-ba6f-dfabb1644cd1">
+              <td id="[[~K" class="">Hashrate Mh/s</td>
+              <td id="hWH:" class="">0.37</td>
+              <td id="ge=R" class="">0.11</td>
+              <td id="JrhP" class="">1.3</td>
+            </tr>
+            <tr id="351b2c74-2a32-47ad-9fa7-5c0555ab07bd">
+              <td id="[[~K" class="">Výkon Mh/J</td>
+              <td id="hWH:" class="">n/a</td>
+              <td id="ge=R" class="">0.2</td>
+              <td id="JrhP" class="">1.4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3cff9782-60cb-46b8-85d0-bb22625c3350" class="">Druhá generace: GPU</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5724cbe5-2062-43cd-a878-4359052c5641" class="">Druhá generace přišla s přechodem na výkonné grafické karty, které byly o celé řády výkonnější, než těžba na CPU. Dodnes tak někteří těží, protože nakoupili mining rigy nacpané grafikami ještě v době, kdy se jim nákup vyplatil a zaplatil.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bfbbadad-6741-452c-9cf4-572034c3fb98" class="">Tato generace se pomalu blíží ke svému konci, protože už delší dobu se vám nevyplatí koupit grafiku za pět a více tisíc korun, kterou zapojíte do desky za další tisíce, přidáte zdroj a další komponenty za další tisíce a získáte výkon, který je srovnatelný s ASIC obvodem do USB za pár stovek. To ani nemluvím o tom, že energeticky si to na sebe nevydělá, pokud nemáte zrovna nějaký silně optimalizovaný mining rig.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="fdfc49c4-9771-4dfb-8b56-f73fe3899f84" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="a4a01787-602e-42a6-aefd-0150ba313822">
+              <th id="RtSF" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="MAgx" class="simple-table-header-color simple-table-header">Minimum</th>
+              <th id="&lt;iS\" class="simple-table-header-color simple-table-header">Maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="8350b6b6-6526-423c-83e3-5c047aa4176d">
+              <td id="RtSF" class="">Hashrate Mh/s</td>
+              <td id="MAgx" class="">120</td>
+              <td id="&lt;iS\" class="">700</td>
+            </tr>
+            <tr id="acbc1921-ae84-429e-8d95-fdee63d113dc">
+              <td id="RtSF" class="">Výkon Mh/J</td>
+              <td id="MAgx" class="">1.3</td>
+              <td id="&lt;iS\" class="">2.4</td>
+            </tr>
+            <tr id="d6a40f68-1ab1-49c8-8ad1-187d671e5aa2">
+              <td id="RtSF" class="">Cena Mh/$</td>
+              <td id="MAgx" class="">1.1</td>
+              <td id="&lt;iS\" class="">3.3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="07545944-adc7-4891-885d-778ef61f37ab" class="">Třetí generace: FPGA</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0eaf5561-28a8-4dc8-8548-4972acb8b6b2" class=""><a href="http://cs.wikipedia.org/wiki/Programovateln%C3%A9_hradlov%C3%A9_pole">FPGA</a> představují přechod mezi zařízeními, které pro Bitcoiny nebyly vůbec zamýšlené, a zařízeními, které byly vytvořeny čistě pro těžbu Bitcoinů. Co se technologie týče, jedná se o obvody, které jsou složeny z mnoha malých bloků, které je možné naprogramovat pro prakticky libovolnou činnost. Pokud by vás zajímaly podrobnosti, doporučuji zdejší <a href="https://abclinuxu.cz/stitky/programovatelna-logika">seriál o programovatelné logice</a>.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e0902997-e48b-49ac-8b55-923cac75e2e4" class="image">
+          <a href="Untitled.png" title="Untitled.png"><img style="width:200px" src="Untitled.png"></a>
+          <figcaption>
+            <em>Obrázek pochází z</em> <a href="https://bitcointalk.org/index.php?topic=79835.0"><em>Bitcoin fóra</em></a><em>. Tento FPGA je možné na aukru koupit za cenu cca 1800kč a jeho výkon se pohybuje okolo 400Mh/s.</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="53ae9c7d-ad24-4bc9-a25d-0b1fc7dc888d" class="">FPGA jsou rychlejší a energeticky výhodnější, než GPU a CPU, ale stále se jedná o poměrně objemné desky, které je nutno chladit aktivními chladiči a žerou dost energie.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="34731a33-2e41-46ff-9862-fe2c23c097b3" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="b95b690b-556d-4b46-badb-2ae3a631d72c">
+              <th id="^:]k" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="Ec&lt;K" class="simple-table-header-color simple-table-header">Průměr</th>
+              <th id="m&lt;]{" class="simple-table-header-color simple-table-header">Minimum</th>
+              <th id="WUDg" class="simple-table-header-color simple-table-header">Maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="27cd5d6b-a39b-4a2d-9ef8-a9a6f744b1ec">
+              <td id="^:]k" class="">Hashrate Mh/s</td>
+              <td id="Ec&lt;K" class="">789.38</td>
+              <td id="m&lt;]{" class="">5</td>
+              <td id="WUDg" class="">6000</td>
+            </tr>
+            <tr id="c70424b9-e706-4abc-9b5c-323d5c2ecc7e">
+              <td id="^:]k" class="">Výkon Mh/J</td>
+              <td id="Ec&lt;K" class="">18.05</td>
+              <td id="m&lt;]{" class="">10.4</td>
+              <td id="WUDg" class="">23.25</td>
+            </tr>
+            <tr id="4f6a0f04-34d0-44d4-88c6-62efa306bc48">
+              <td id="^:]k" class="">Cena Mh/$</td>
+              <td id="Ec&lt;K" class="">0.7</td>
+              <td id="m&lt;]{" class="">0.03</td>
+              <td id="WUDg" class="">2.15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="53406644-08f0-4188-a14a-967c4a8bed7a" class="">Čtvrtá generace: ASIC</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="46ee54ed-ab64-4a9d-83c4-c04fdc829d89" class=""><a href="http://en.wikipedia.org/wiki/Application-specific_integrated_circuit">ASIC</a> obvody jsou podle mého názoru zatím na dlouhou dobu poslední generací. Jedná se o na míru dělané čipy, které výpočty nijak ne-emulují, ani nepočítají obecnými procesory, ale realizují plně optimalizovanými elektronickými hradly přímo na křemíku. Co se týče dalších generací, neočekávám v brzké době (10 let) přechod na něco revolučnějšího, spíš závod o nanometry.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7ebe4d00-9df5-4501-be2b-163694892e1d" class="">Jak je asi každému jasné, tyto obvody jsou o celé řády výkonnější než předchozí technologie a také podstatně méně náročné na elektřinu - srovnejme si například nejoptimálnější ARM, který dosahuje okolo 1.3Mh/J a nejoptimálnější, nejnadupanější a nejdražší ASIC čipy, které se pohybují u 1792Mh/J. Například v tomto článku recenzovaný ASIC BlockErupter sebere při výkonu 336Mh/s cca 2W.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7d4107f4-7a01-47ab-81b7-ef467feb9b65" class="">ASIC čipy mají výhodu v brutálním výkonu, druhá strana mince je v tom, že díky specializaci čistě na těžení Bitcoinů vám <a href="http://bitcoin.stackexchange.com/questions/7236/bitcoin-mining-asics-used-for-cryptographic-application-rainbow-tables">k ničemu jinému nebudou</a> a až stoupne obtížnost těžby natolik, že si na sebe energeticky nevydělají, tak je ani nemůžete použít (či prodat) jako počítačové komponenty, ale rovnou vyhodit. To je velký rozdíl oproti třeba takovým FPGA, do kterých můžete vpálit nový <a href="http://cs.wikipedia.org/wiki/VHDL">VHDL script</a> a rázem je z nich jiné zařízení, které může dál skvěle sloužit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aaf1a379-fa06-4ebc-b96f-5913e8694624" class="">První řádek tabulky berte jen orientačně, protože v něm jsou započítány mining rigy, ne jen samostatné čipy. Zbylé dva řádky však reflektují nárůst výkonu docela dobře.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="87d54bea-a257-4d30-8b92-bdef220430ed" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="9ec39cdc-f4cd-4356-b4d9-bebd07dd9a12">
+              <th id="OD&gt;A" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="pdAy" class="simple-table-header-color simple-table-header">Průměr</th>
+              <th id="&gt;ogI" class="simple-table-header-color simple-table-header">Minimum</th>
+              <th id="NsHk" class="simple-table-header-color simple-table-header">Maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="b1d9c67c-457d-4233-a1b3-068d76b23599">
+              <td id="OD&gt;A" class="">Hashrate Mh/s</td>
+              <td id="pdAy" class="">159905</td>
+              <td id="&gt;ogI" class="">333</td>
+              <td id="NsHk" class="">1344000</td>
+            </tr>
+            <tr id="c4c4c4bf-6adb-4263-a645-faa6fec8361c">
+              <td id="OD&gt;A" class="">Výkon Mh/J</td>
+              <td id="pdAy" class="">667.5</td>
+              <td id="&gt;ogI" class="">107</td>
+              <td id="NsHk" class="">1792</td>
+            </tr>
+            <tr id="c7cf8ed2-84ce-48f6-9c55-79e071d0a7bd">
+              <td id="OD&gt;A" class="">Cena Mh/$</td>
+              <td id="pdAy" class="">64.5</td>
+              <td id="&gt;ogI" class="">13</td>
+              <td id="NsHk" class="">336</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="6ddc7890-392a-4cf5-a1bf-60ae07fb5b06" class="">USB Miner Block Erupter</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2d39da23-ab57-4c0a-950c-3f67cd7ff82e" class="">Jedná se o jednoduché zařízení postavené nad 130nm ASIC <a href="https://bitcointalk.org/index.php?topic=91173.msg1211518#msg1211518">čipem</a> Block Erupter.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ddd43d56-170e-4b2f-970d-ae4574d4d113" class="">Okolo tohoto zařízení poslední dobou probíhá mezi i jinak neznalými lidmi senzace, kdy je s radostí nakupují s vidinou zisku. Schválně jsem si vzal <a href="http://aukro.cz/rss.php?feed=search&amp;sg=0&amp;string=bitcoin">RSS výsledky</a> z vyhledávání na keyword <code>bitcoin</code> a během uplynulého týdne jsem sledoval, jak se jich prodalo několik kusů i za vcelku přemrštěné ceny okolo 1200kč, i když běžná prodejní hodnota v době psaní článku je přibližně 650kč v Čechách, nebo cca $23 v Americe (poštovné to ale krapet prodraží).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f60d682d-088d-4cc6-a6a0-c247e0487307" class="">V číslech:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <div style="display:contents" dir="ltr"></div>
+        <table id="db49a26e-0d9c-409f-9597-76cfc0fd3125" class="simple-table">
+          <thead class="simple-table-header">
+            <tr id="104250ca-5b44-4178-94fb-4ff6a5ae5365">
+              <th id="fGfS" class="simple-table-header-color simple-table-header">Veličina</th>
+              <th id="DEWL" class="simple-table-header-color simple-table-header">Hodnota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="a98a2528-0528-4242-a949-ef2f4f0031a0">
+              <td id="fGfS" class="">Hashrate Mh/s</td>
+              <td id="DEWL" class="">336</td>
+            </tr>
+            <tr id="d5adf306-f08c-4c21-9005-8377bdd57abd">
+              <td id="fGfS" class="">Výkon Mh/J</td>
+              <td id="DEWL" class="">~130</td>
+            </tr>
+            <tr id="a3528c40-70a7-427e-9155-01d6d9e4c64b">
+              <td id="fGfS" class="">Cena Mh/$</td>
+              <td id="DEWL" class="">14.6</td>
+            </tr>
+            <tr id="c22e4c52-0237-4169-ab6d-7af46f71470d">
+              <td id="fGfS" class="">Cena Mh/kč</td>
+              <td id="DEWL" class="">~0.51</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a66ebbf3-29c3-4206-be35-893e98431ef3" class="">Detaily:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="17ec02dd-a85b-45ea-a005-cbe270eb509d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.blockerupter.co.uk/">http://www.blockerupter.co.uk/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="1360394c-8370-45e8-89c6-907ecd3ed805" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://eligius.st/~gateway/products/block-erupter-sapphire">http://eligius.st/~gateway/products/block-erupter-sapphire</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="21b954a7-27d2-4db5-a558-fca0128e5906" class="">První dojmy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="34113764-f597-4edf-a8a0-13016e4d65e4" class="">Můj první dojem se dá zcela jednoznačně shrnout do slov <em>"jé, to je ale prcek"</em>. Zařízení je velké zhruba jako běžný USB flashdisk.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="5f1fc8df-f83a-4110-9cd2-57b06cc4983b" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="9ef766e5-b937-4d44-a5dd-edd401c7a8fb" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="676bd44a-ceba-4aa0-83ac-b408d82dc258" class="image">
+                  <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:1500px" src="Untitled_1_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="8f79e879-4119-4fd4-8ab5-e3d7f80689e7" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="d521d99e-7882-4645-bdbb-8e2fec3b11bd" class="image">
+                  <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:2500px" src="Untitled_2_thumb.jpg"></a>
+                </figure>
+              </div>
+              <div style="display:contents" dir="ltr">
+                <figure id="59a3dc4d-426c-4e72-bd75-35a9bbe79713" class="image">
+                  <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:1200px" src="Untitled_3_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p id="75145358-53ce-4093-a68f-cd838e745b36" class="">Po pár minutách provozu je zde další podstatný dojem; <em>"au, to je horké"</em>. Provozní teplota bude někde nad 60°C. Bohužel tady nemám teploměr, abych to mohl přesně změřit.</p>
-      <h2 id="aedc83d7-7748-47fd-9d74-c750ad93e65c" class="">Zprovoznění pod linuxem</h2>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="f9072b55-5f1d-4e73-baee-e66d0a816f1a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ dmesg
+      <div style="display:contents" dir="auto">
+        <p id="75145358-53ce-4093-a68f-cd838e745b36" class="">Po pár minutách provozu je zde další podstatný dojem; <em>"au, to je horké"</em>. Provozní teplota bude někde nad 60°C. Bohužel tady nemám teploměr, abych to mohl přesně změřit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="aedc83d7-7748-47fd-9d74-c750ad93e65c" class="">Zprovoznění pod linuxem</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="f9072b55-5f1d-4e73-baee-e66d0a816f1a" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ dmesg
 [538899.776256] usb 4-2: new full-speed USB device number 4 using ohci_hcd
 [538899.949488] cp210x 4-2:1.0: cp210x converter detected</code></pre>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="efcc30c9-be38-4d30-bff1-1409fa29d6a9" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ lsusb
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="efcc30c9-be38-4d30-bff1-1409fa29d6a9" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">$ lsusb
 Bus 004 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x Composite Device</code></pre>
-      <h3 id="e209ae55-e1c2-4942-b994-daab8c7ee896" class="">cgminer</h3>
-      <p id="61a8497e-2500-4be9-9953-271e25201917" class="">K těžení používám program <code>cgminer</code>, který ze zařízení sbírá data a posílá je poolu, či naopak. <code>cgminer</code> nenajdete v repozitářích, takže je nutné si ho zkompilovat:</p>
-      <p id="053d6b60-405e-4345-a9b5-15575d1cf7dc" class="">Prvně to chce pár balíčků, většinu z nich nejspíš už v systému budete mít:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="f0d16eb9-c974-4d42-ae68-c37b43df1913" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt-get install autoconf gcc make git libcurl4-openssl-dev libncurses5-dev libtool libjansson-dev libudev-dev libusb-1.0-0-dev</code></pre>
-      <p id="0b15618d-c93c-4f8e-9364-d45dd06a3c33" class="">Stáhneme zdrojáky z <code>cgmineru</code> z githubu:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="23cccbf0-3b77-4304-92f0-2cbc07dc2fa1" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/ckolivas/cgminer.git</code></pre>
-      <p id="7b624c34-c9f6-4e1b-9136-f748a91cbb12" class="">a zkompilujeme je:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="1874c18a-abd3-4e38-ad91-3764c24d2769" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd cgminer./autogen.sh --enable-icarusmake</code></pre>
-      <p id="eec69004-8a7e-4a93-b757-c3e4e564886f" class="">To je vše.</p>
-      <h3 id="0605dfe5-c70b-4811-9556-675606344561" class="">Zapojení do poolu</h3>
-      <p id="89669376-150a-4d25-8070-c742c329675e" class="">Je samozřejmě možné těžit jen tak, ale odměny se nejspíš v tomhle století nedočkáte. Proto se dnes prakticky všichni zapojují do tzv <a href="http://mining.bitcoin.cz/">poolů</a>. Pokud nevíte ke kterému se přidat, zkuste český; <a href="http://mining.bitcoin.cz/">http://mining.bitcoin.cz/</a></p>
-      <figure id="cb432425-af40-4347-be96-de541b1caa01" class="image">
-        <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:1371px" src="Untitled_4_thumb.jpg"></a>
-      </figure>
-      <p id="5ec0541d-0df6-4a45-a9d5-7890133bc1d4" class="">Jakmile budete mít zaregistrované zařízení, stačí již jen spustit <code>cgminer</code> (jméno a heslo samozřejmě použijte vaše) a začít těžit.</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="029d8848-8e17-450d-8892-6377f765f2cb" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo ./cgminer -o stratum.bitcoin.cz:3333 -u Bystroushaak.worker1 -p hmrdPACp</code></pre>
-      <p id="2358f0cb-34da-41cc-bf58-08ab1e7c29f2" class="">Nyní by jste před sebou již měli vidět obrazovku <code>cgminer</code>u.</p>
-      <figure id="da4745a0-fc0c-4dae-9a54-569735f2c319" class="image">
-        <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:642px" src="Untitled_5.png"></a>
-      </figure>
-      <h2 id="e6885fec-06f2-46fd-8ead-33429e1fff3d" class="">Očekávání</h2>
-      <p id="265e0522-3bcc-4eb7-9d14-4b872cd88f38" class="">Na stránkách <a href="http://www.alloscomp.com/bitcoin/calculator">Bitcoin Mining Calculator</a>u je možné jednoduchým dosazením spočítat, že při hashrate 336Mh/s se bude měsíční výdělek pohybovat okolo 0.03BTC, či $4.39 (~84kč).</p>
-      <p id="dbf85541-64b4-4b97-b65b-f79bb780184b" class="">V praxi to tak jednoduché není, protože jak jsou do těžení zapojovány stále novější a výkonnější zařízení, tak klesá odměna pro všechny ostatní. Má osobní zkušenost je, že během týdne, kdy jsem miner testoval klesl <strong>očekávaný</strong> měsíční výtěžek z $5.4 (~105kč) na zmiňovaných $4.39 (~84kč).</p>
-      <p id="dfeef55a-198a-4d5e-904b-85a13074db22" class="">Jelikož se jedná jen o data z kalkulačky, nevím, jestli se jedná o nějaký skok, kdy autor updatoval metodu výpočtu, nebo konstanty, či zda takhle stoupá náročnost normálně.</p>
-      <h2 id="cdf20e21-c005-4756-8e09-7646741f43a7" class="">Realita</h2>
-      <p id="5626514d-7a3a-4b2e-b4f7-cfce0f23b397" class="">Po týdnu nonstop běhu v <a href="http://mining.bitcoin.cz/">českém poolu</a> zařízení vytěžilo 0.00671589 BTC, což v momentálním kurzu <a href="http://preev.com/">odpovídá</a> 0.8543 USD (16.31kč). Měsíční výdělek se tedy pohybuje okolo 65kč.</p>
-      <p id="ee2b6e33-84ac-4bb6-8768-aed2b9b0f5e2" class="">Návratnost investice do zařízení je při průměrné ceně na aukru 650kč okolo deseti měsíců, v čemž ovšem není započítáno postupné klesání odměn z těžby. Díky ní by se mohla protáhnout klidně na rok, nebo déle.</p>
-      <p id="c7c3b1fa-3194-4ca3-92e5-04ac3cb236f0" class="">Do výpočtů také není započítána elektřina, protože jí neplatím a spotřeba je oproti běžícímu serveru poměrně zanedbatelná (~2W).</p>
-      <h1 id="8b0a9386-dba4-493c-ad46-3b843230cc17" class="">Závěr</h1>
-      <p id="da3a64ee-a47a-498f-834b-2bfd1667b86b" class="">Pokud chcete na zařízení vydělávat, tak se vám nevyplatí. Rozhodně na něm nevyděláte nějaké podstatné částky, pokud jich tedy nekoupíte řádově desítky. Jenže k nim to pak chce i napájené USB huby a jejich cena vám s návratností zamává. Sice pak budete vydělávat třeba Bitcoin měsíčně, ale stejně se vám to vrátí tak za rok a to ještě za předpokladu, že odměny kvůli nasazení stále výkonnějších a větších ASIC rigů neklesnou.</p>
-      <figure id="437aca6b-c039-4f2f-9947-025161307b07" class="image">
-        <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:2611px" src="Untitled_6_thumb.jpg"></a>
-        <figcaption>
-          <em>(Obrázek pochází z</em> <em><a href="https://bitcointalk.org/index.php?topic=195004.0">Bitcoin fóra</a></em><em>.)</em>
-        </figcaption>
-      </figure>
-      <p id="e0a89581-3183-4e41-be46-b159ff4d7dbb" class="">Pokud chcete levné zařízení, které vám bude dlouhodobě poskytovat zdroj malých financí, je USB verze Block Erupteru momentálně jasnou volbou. Nesmíte ho však brát jako způsob výdělku, ale jako záměnu peněz v korunách, za pomalu uvolňovanou Bitcoin minci. Pořád však platí, že pokud si koupíte Bitcoiny přímo, pravděpodobně na tom dost ušetříte.</p>
-      <h3 id="676c1a92-7795-4e8d-aa7c-266974417132" class="">Trocha inspirace</h3>
-      <ul id="7f295a01-873e-4891-96db-6acd625970b3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.cleverpuffin.com/">http://www.cleverpuffin.com/</a>
-        </li>
-      </ul>
-      <ul id="158f7221-9189-4f82-8a6b-6f789ebfd78a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://airvpn.org/">https://airvpn.org/</a>
-        </li>
-      </ul>
-      <ul id="48a9ad83-1b7f-4d59-8c3e-b2ddd5917197" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://bittask.com/">http://bittask.com/</a>
-        </li>
-      </ul>
-      <ul id="1a95413c-4de6-4fda-a871-be334c3ba8f0" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://bitcash.cz/forum/forumdisplay.php?s=&amp;forumid=16">http://bitcash.cz/forum/forumdisplay.php?s=&amp;forumid=16</a>
-        </li>
-      </ul>
-      <ul id="704556bf-e70d-444e-a210-2d57c3d9ffe9" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://products.butterflylabs.com/homepage-subproducts/65nm-asic-bitcoin-mining-chip.html">https://products.butterflylabs.com/homepage-subproducts/65nm-asic-bitcoin-mining-chip.html</a>
-        </li>
-      </ul>
-      <ul id="d3214a7f-e493-45a6-a44a-874daff4d921" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://products.butterflylabs.com/homepage-new-products/600-gh-bitcoin-mining-card.html">https://products.butterflylabs.com/homepage-new-products/600-gh-bitcoin-mining-card.html</a>
-        </li>
-      </ul>
-      <ul id="197d1891-f40e-47c3-9f4e-8a5c48be56f5" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://products.butterflylabs.com/homepage-new-products/1-gh-cloud-hosted-bitcoin-hashing-power.html">https://products.butterflylabs.com/homepage-new-products/1-gh-cloud-hosted-bitcoin-hashing-power.html</a>
-        </li>
-      </ul>
-      <ul id="cf55583c-1726-4d11-82cb-a17e5ab79697" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://www.smenarnabitcoin.cz/smena.html">https://www.smenarnabitcoin.cz/smena.html</a>
-        </li>
-      </ul>
-      <ul id="45215bbf-9208-4f96-b1be-bde90c972665" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://bitpay.com/">https://bitpay.com/</a>
-        </li>
-      </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="e209ae55-e1c2-4942-b994-daab8c7ee896" class="">cgminer</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="61a8497e-2500-4be9-9953-271e25201917" class="">K těžení používám program <code>cgminer</code>, který ze zařízení sbírá data a posílá je poolu, či naopak. <code>cgminer</code> nenajdete v repozitářích, takže je nutné si ho zkompilovat:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="053d6b60-405e-4345-a9b5-15575d1cf7dc" class="">Prvně to chce pár balíčků, většinu z nich nejspíš už v systému budete mít:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="f0d16eb9-c974-4d42-ae68-c37b43df1913" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo apt-get install autoconf gcc make git libcurl4-openssl-dev libncurses5-dev libtool libjansson-dev libudev-dev libusb-1.0-0-dev</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0b15618d-c93c-4f8e-9364-d45dd06a3c33" class="">Stáhneme zdrojáky z <code>cgmineru</code> z githubu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="23cccbf0-3b77-4304-92f0-2cbc07dc2fa1" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">git clone https://github.com/ckolivas/cgminer.git</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7b624c34-c9f6-4e1b-9136-f748a91cbb12" class="">a zkompilujeme je:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="1874c18a-abd3-4e38-ad91-3764c24d2769" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd cgminer./autogen.sh --enable-icarusmake</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eec69004-8a7e-4a93-b757-c3e4e564886f" class="">To je vše.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="0605dfe5-c70b-4811-9556-675606344561" class="">Zapojení do poolu</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="89669376-150a-4d25-8070-c742c329675e" class="">Je samozřejmě možné těžit jen tak, ale odměny se nejspíš v tomhle století nedočkáte. Proto se dnes prakticky všichni zapojují do tzv <a href="http://mining.bitcoin.cz/">poolů</a>. Pokud nevíte ke kterému se přidat, zkuste český; <a href="http://mining.bitcoin.cz/">http://mining.bitcoin.cz/</a></p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="cb432425-af40-4347-be96-de541b1caa01" class="image">
+          <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:1371px" src="Untitled_4_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5ec0541d-0df6-4a45-a9d5-7890133bc1d4" class="">Jakmile budete mít zaregistrované zařízení, stačí již jen spustit <code>cgminer</code> (jméno a heslo samozřejmě použijte vaše) a začít těžit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="029d8848-8e17-450d-8892-6377f765f2cb" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo ./cgminer -o stratum.bitcoin.cz:3333 -u Bystroushaak.worker1 -p hmrdPACp</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2358f0cb-34da-41cc-bf58-08ab1e7c29f2" class="">Nyní by jste před sebou již měli vidět obrazovku <code>cgminer</code>u.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="da4745a0-fc0c-4dae-9a54-569735f2c319" class="image">
+          <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:642px" src="Untitled_5.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="e6885fec-06f2-46fd-8ead-33429e1fff3d" class="">Očekávání</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="265e0522-3bcc-4eb7-9d14-4b872cd88f38" class="">Na stránkách <a href="http://www.alloscomp.com/bitcoin/calculator">Bitcoin Mining Calculator</a>u je možné jednoduchým dosazením spočítat, že při hashrate 336Mh/s se bude měsíční výdělek pohybovat okolo 0.03BTC, či $4.39 (~84kč).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dbf85541-64b4-4b97-b65b-f79bb780184b" class="">V praxi to tak jednoduché není, protože jak jsou do těžení zapojovány stále novější a výkonnější zařízení, tak klesá odměna pro všechny ostatní. Má osobní zkušenost je, že během týdne, kdy jsem miner testoval klesl <strong>očekávaný</strong> měsíční výtěžek z $5.4 (~105kč) na zmiňovaných $4.39 (~84kč).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dfeef55a-198a-4d5e-904b-85a13074db22" class="">Jelikož se jedná jen o data z kalkulačky, nevím, jestli se jedná o nějaký skok, kdy autor updatoval metodu výpočtu, nebo konstanty, či zda takhle stoupá náročnost normálně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="cdf20e21-c005-4756-8e09-7646741f43a7" class="">Realita</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5626514d-7a3a-4b2e-b4f7-cfce0f23b397" class="">Po týdnu nonstop běhu v <a href="http://mining.bitcoin.cz/">českém poolu</a> zařízení vytěžilo 0.00671589 BTC, což v momentálním kurzu <a href="http://preev.com/">odpovídá</a> 0.8543 USD (16.31kč). Měsíční výdělek se tedy pohybuje okolo 65kč.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ee2b6e33-84ac-4bb6-8768-aed2b9b0f5e2" class="">Návratnost investice do zařízení je při průměrné ceně na aukru 650kč okolo deseti měsíců, v čemž ovšem není započítáno postupné klesání odměn z těžby. Díky ní by se mohla protáhnout klidně na rok, nebo déle.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c7c3b1fa-3194-4ca3-92e5-04ac3cb236f0" class="">Do výpočtů také není započítána elektřina, protože jí neplatím a spotřeba je oproti běžícímu serveru poměrně zanedbatelná (~2W).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="8b0a9386-dba4-493c-ad46-3b843230cc17" class="">Závěr</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="da3a64ee-a47a-498f-834b-2bfd1667b86b" class="">Pokud chcete na zařízení vydělávat, tak se vám nevyplatí. Rozhodně na něm nevyděláte nějaké podstatné částky, pokud jich tedy nekoupíte řádově desítky. Jenže k nim to pak chce i napájené USB huby a jejich cena vám s návratností zamává. Sice pak budete vydělávat třeba Bitcoin měsíčně, ale stejně se vám to vrátí tak za rok a to ještě za předpokladu, že odměny kvůli nasazení stále výkonnějších a větších ASIC rigů neklesnou.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="437aca6b-c039-4f2f-9947-025161307b07" class="image">
+          <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:2611px" src="Untitled_6_thumb.jpg"></a>
+          <figcaption>
+            <em>(Obrázek pochází z</em> <em><a href="https://bitcointalk.org/index.php?topic=195004.0">Bitcoin fóra</a></em><em>.)</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e0a89581-3183-4e41-be46-b159ff4d7dbb" class="">Pokud chcete levné zařízení, které vám bude dlouhodobě poskytovat zdroj malých financí, je USB verze Block Erupteru momentálně jasnou volbou. Nesmíte ho však brát jako způsob výdělku, ale jako záměnu peněz v korunách, za pomalu uvolňovanou Bitcoin minci. Pořád však platí, že pokud si koupíte Bitcoiny přímo, pravděpodobně na tom dost ušetříte.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="676c1a92-7795-4e8d-aa7c-266974417132" class="">Trocha inspirace</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="7f295a01-873e-4891-96db-6acd625970b3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.cleverpuffin.com/">http://www.cleverpuffin.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="158f7221-9189-4f82-8a6b-6f789ebfd78a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://airvpn.org/">https://airvpn.org/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="48a9ad83-1b7f-4d59-8c3e-b2ddd5917197" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://bittask.com/">http://bittask.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="1a95413c-4de6-4fda-a871-be334c3ba8f0" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://bitcash.cz/forum/forumdisplay.php?s=&amp;forumid=16">http://bitcash.cz/forum/forumdisplay.php?s=&amp;forumid=16</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="704556bf-e70d-444e-a210-2d57c3d9ffe9" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://products.butterflylabs.com/homepage-subproducts/65nm-asic-bitcoin-mining-chip.html">https://products.butterflylabs.com/homepage-subproducts/65nm-asic-bitcoin-mining-chip.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d3214a7f-e493-45a6-a44a-874daff4d921" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://products.butterflylabs.com/homepage-new-products/600-gh-bitcoin-mining-card.html">https://products.butterflylabs.com/homepage-new-products/600-gh-bitcoin-mining-card.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="197d1891-f40e-47c3-9f4e-8a5c48be56f5" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://products.butterflylabs.com/homepage-new-products/1-gh-cloud-hosted-bitcoin-hashing-power.html">https://products.butterflylabs.com/homepage-new-products/1-gh-cloud-hosted-bitcoin-hashing-power.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="cf55583c-1726-4d11-82cb-a17e5ab79697" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://www.smenarnabitcoin.cz/smena.html">https://www.smenarnabitcoin.cz/smena.html</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="45215bbf-9208-4f96-b1be-bde90c972665" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://bitpay.com/">https://bitpay.com/</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

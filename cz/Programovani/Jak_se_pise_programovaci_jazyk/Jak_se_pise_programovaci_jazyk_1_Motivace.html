@@ -10,10 +10,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:title" content="Jak se píše programovací jazyk 1: Motivace">
-  <meta name="twitter:description" content="Přibližně před rokem a něco jsem začal tvořit vlastní programovací jazyk a na obrazu paměti založené interaktivní prostředí ve stylu Smalltalku či Self (viz📂Seriál o Selfu). Zpočátku jsem vůbec neměl tušení jak na to, nakonec jsem však začal řešit jeden problém za druhým a tak vznikl tento seriál.">
-  <meta property="og:description" content="Přibližně před rokem a něco jsem začal tvořit vlastní programovací jazyk a na obrazu paměti založené interaktivní prostředí ve stylu Smalltalku či Self (viz📂Seriál o Selfu). Zpočátku jsem vůbec neměl tušení jak na to, nakonec jsem však začal řešit jeden problém za druhým a tak vznikl tento seriál.">
-  <script src="../../../scripts.js"></script>
-  <meta name="description" content="Přibližně před rokem a něco jsem začal tvořit vlastní programovací jazyk a na obrazu paměti založené interaktivní prostředí ve stylu Smalltalku či Self (viz📂Seriál o Selfu). Zpočátku jsem vůbec neměl tušení jak na to, nakonec jsem však začal řešit jeden problém za druhým a tak vznikl tento seriál."><!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="../../../scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
   <script>
@@ -122,100 +119,192 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Programování">Programování</a> / <a href="index.html" class="breadcrumb" title="Jak se píše programovací jazyk">Jak se píše programovací jazyk</a> / Jak se píše programovací jazyk 1: Motivace
   <article id="5ac54530-64f4-4498-aee5-6e19b73efbd5" class="page sans">
     <header>
-      <h1 class="page-title">Jak se píše programovací jazyk 1: Motivace</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Jak se píše programovací jazyk 1: Motivace</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="92eb7212-9027-4ddf-a2ac-ffce064ecf89" class=""><time>@2019/02/02</time></p>
-      <p id="eb150f7b-da91-4392-9737-1d4cd82ecdc5" class="">Přibližně před rokem a něco jsem začal tvořit vlastní programovací jazyk a na <em>obrazu paměti</em> založené interaktivní prostředí ve stylu Smalltalku či Self (viz<a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>). Zpočátku jsem vůbec neměl tušení jak na to, nakonec jsem však začal řešit jeden problém za druhým a tak vznikl tento seriál.</p>
-      <p id="d81d5c7d-f171-48ce-be2d-a45afa85bcc2" class="">Seriál jsem pojal tak trochu jako zápisky z cest touto pro mě nepoznanou a exotickou zemí interpretrů a objektových reprezentací. Mým cílem je ukázat čtenářům, že na dosah ruky existují zajímavé cizokrajné krajiny plné skrytých tajemství. Místa tvořená z kódu a logiky, zařící zvláštní vnitřní krásou. Chtěl bych vás inspirovat a podnítit vydat se do nich svou vlastní trasou.</p>
-      <p id="ad6a5519-ca8c-4d63-8ec6-68a20d143395" class="">Z tohoto cíle plyne omezení; seriál není průvodcem. Není to mapa, učebnice, či ukázka jak to správně dělat. Je to cestopis. Pracuji jako programátor v Pythonu, čímž byla do velké míry definována moje konkrétní cesta. Plně uznávám a respektuji, že ostatní můžou zvolit jinou cestu, či jiná rozhodnutí.</p>
-      <h1 id="5f136f49-b3ad-4980-8387-a5a3f11222fd" class="">Motivace</h1>
-      <p id="aaa5bf4d-6143-42d7-b656-4ac730adb913" class="">Je mi jasné, že hodně lidí teď napadá proč vlastně, k čemu tvořit nový programovací jazyk, proč se vůbec na tuhle cestu vydat.</p>
-      <p id="4ed07f78-3d33-4bea-ae07-4a39273580a6" class="">Mojí motivací je provést experimenty na následující témata:</p>
-      <ol type="1" id="cf4d0d30-0c3b-4898-bfd4-8dfc0ab3aaf7" class="numbered-list" start="1">
-        <li>Reprezentace dat objektovým programovacím jazykem, místo datově orientovanými formáty, jako JSON a XML.</li>
-      </ol>
-      <ol type="1" id="d5eccead-1b7e-4e03-81cc-e47eed9dcb3d" class="numbered-list" start="2">
-        <li>Na objektových prototypech založené grafické prostředí a jeho vztah a využitelnost k reprezentaci a práci s daty a informacemi.</li>
-      </ol>
-      <ol type="1" id="0525cb2c-11f7-467d-b5be-f3cb272f027b" class="numbered-list" start="3">
-        <li>Reflexe. Skrz jazyk, interpreter, ale i grafické rozhraní.</li>
-      </ol>
-      <ol type="1" id="596dc691-5cdc-4ab5-bda6-b99d9d77c35f" class="numbered-list" start="4">
-        <li>Test filosofické koncepce „explicitně strukturovaných dat“.</li>
-      </ol>
-      <ol type="1" id="a35320d8-46ca-4d10-804b-b2dc3668471e" class="numbered-list" start="5">
-        <li>Otestovat některé z myšlenek Engelbarta ohledně práce s infosférou.</li>
-      </ol>
-      <ol type="1" id="7bb4c533-3083-4fff-bd73-57a4fef6cbe8" class="numbered-list" start="6">
-        <li>Vytvořit platformu, na které bych mohl experimentálně otestovat některé z myšlenek Alana Kaye a Davida Ungara.</li>
-      </ol>
-      <ol type="1" id="4feabe4f-f74c-491e-8860-6d0cc467b554" class="numbered-list" start="7">
-        <li>Získat, otestovat a popsat na míru dělané prostředí <em>tight-coupled-loop</em> technologie, kterou popsal J. C. R. Licklider ve své stati <a href="https://en.wikipedia.org/wiki/Man-Computer_Symbiosis">Man-Computer Symbiosis</a>.
-        </li>
-      </ol>
-      <p id="d5405075-89db-4002-aa02-d7f2ab63c9ca" class="">Výsledky experimentů budou postupně vycházet na mém blogu: <a href="http://blog.rfox.eu">http://blog.rfox.eu</a>.</p>
-      <p id="3805a99a-4619-4890-bf78-976f0ce626d8" class="">Ač to možná bude vypadat na první pohled paradoxně, tak součástí motivace nikdy nebylo tvořit programovací jazyk. Přestože tenhle seriál bude primárně o tomto, cesta kterou jsem se vydal byla diktována tím, že mě v podstatě nezajímala konkrétní implementace, rychlost, nebo praktičnost k běžnému programování. Nechtěl jsem tvořit konkurenci Javy, Pythonu, nebo C. Nešlo mi o iterativní vylepšení existujících jazyků, či o získání co největší trakce, aby se toho chytla komunita.</p>
-      <p id="62badbea-cf6f-4e29-8702-5f7f5d86bfb1" class="">Moje snažení bylo diktováno výše uvedenými body. Chtěl jsem vyzkoušet jazyk jako na míru dělaný interface ke stroji. Věci zaměřené na průměrný set uživatelů jsou průměrné. Židle dělaná na průměrný zadek bude horší, než židle dělaná <a href="https://www.reddit.com/r/cpp/comments/a1c0yb/creating_a_virtual_kernel_platform_abstraction/">přímo na mírů</a> mému zadku a rozměrům. Jazyk formovaný konsenzem desítek a stovek uživatelů bude pro mě osobně v některých ohledech horší (specificky bod 7), než jazyk který si udělám přesně na míru sám, tak abych s ním mohl co nejvíc „srůst“. Podobně jako <a href="https://thenewstack.io/the-troubled-legacy-of-terry-davis-gods-lonely-programmer/">Terry Davis</a> se svým <a href="https://motherboard.vice.com/en_us/article/wnj43x/gods-lonely-programmer">Temple OS</a> jsem se rozhodl vydat kompletně jiným „pološíleným“ směrem, bez ohledu na to co si myslí a přejí ostatní.</p>
-      <p id="95cf0ece-2d00-4205-983e-eb2f2636468a" class="">Jako výchozí bod jsem si vzal programovací jazyk a grafické prostředí jazyka Self. Když jsem hledal věc, která by byla co nejpodobnější mé představě, Self byl to k čemu jsem dospěl oklikou přes rebol, lispy a smalltalky.</p>
-      <p id="09322d7c-801e-4104-9144-b93a67808d95" class="">Self je v jádru podobně jednoduchý jako lisp, akorát místo polí a funkcí používá objekty. Více se o něm můžete dozvědět v paralelně vycházejícím seriálu o něm: <a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
-      <h1 id="86bac8db-e614-436e-bb5c-4287da10fd4a" class="">Proč to není sebevražda</h1>
-      <p id="eaad1c24-1dc9-4768-b28a-5e4be3ce1cf7" class="">Originální Self je velký. 114 tisíc řádků C++ kódu a cca 350 tisíc řádek Self kódu (serializovaný výstup, reálně jich bude míň). Jak bych tomuhle mohl konkurovat?</p>
-      <p id="b9f9a287-b377-4689-be21-344c07cbea7f" class="">Self byl v době vzniku původně výzkumný projekt. To znamená, že je tam všechno možné. Garbage collector, JIT. Různé experimenty ohledně (v té době průlomového) vývoje na poli kompilátorů a interpretrů, ale i grafického rozhraní.</p>
-      <p id="97fa77fa-4478-4150-a343-8974af4f99ca" class="">Od začátku mi bylo jasné, že nechci psát vlastní interpreter na zelené louce. Přemýšlel jsem, jak kód transpilovat pro existující virtuální stroje, které používá například Java, C#, Python, Smalltalk nebo Lua. Ideálně tak, abych nemusel řešit garbage collector, ani JIT, což jsou složité věci, které stejně lépe nevymyslím.</p>
-      <p id="766fea40-a287-4e8b-a37e-8e33a3f61228" class="">Pokud by kód mého jazyka běžel nad některým z těchto prostředí, získal bych zároveň automaticky výhodu jejich standardní knihovny, což by mi ušetřilo další desítky tisíc řádků kódu a vynalézání věcí, jako je součet dvou velkých čísel.</p>
-      <p id="690d9613-7468-4f31-ac2b-9e335df83e3f" class="">Tím se celá snaha smrskla v podstatě na Lexer, který jednotlivé prvky jazyka rozřeže na pole, Parser, který z toho potom sestaví objektový strom v paměti (AST), což se dá poměrně jednoduše symbolicky vyhodnocovat (s tím mám zkušenosti z toho mého lispu) a tím i snadno debugovat. Dál taky “kompilátor” do bytecode cílového prostředí, což nemusí být nic moc fancy. Prostředí se ideálně postará i o JITování, a tedy smysluplně rychlý běh. Navrch pak musím přidat nějakou standardní knihovnu, ta se ale může do velké míry opírat o prostředí interpretru, vlastní objektový model, který bude stejný jako v Selfu (= jednoduché prototypy), grafické rozhraní, které nezaložím na prehistorické verzi Xlibu, ale na něčem modernějším, a způsob ukládání a načítání image.</p>
-      <p id="bdb7840f-99f1-477a-883e-928a71368835" class="">Pořád hodně práce, ale signifikantně méně, než kdybych to psal celé odznova.</p>
-      <p id="baa5d52a-0b42-4b36-bd12-e2e3b392b762" class="">Založil jsem si na to poznámkovou nodu a pár týdnů prováděl výzkum. Hledal jsem jednak tutoriály, dokumentace a různé projekty na githubu. Protože Self je podobný Smalltalku, měl jsem dobrý výchozí bod kde začít.</p>
-      <p id="32f7803e-689c-452a-b1e7-f74186730141" class="">Postupně jsem vyloučil jako cílovou platformu Luu i JVM. Hledáním jsem narazil na RPython, ve kterém je psán projekt Pypy. Když jsem přečetl zdroje jako <a href="https://media.readthedocs.org/pdf/building-an-interpreter-with-rpython/latest/building-an-interpreter-with-rpython.pdf">Building an Interpreter With RPython</a>, <a href="http://www.esug.org/data/ESUG2016/IWST/Papers/IWST_2016_paper_4.pdf">How to Build a High-Performance VM for Squeak/Smalltalk in Your Spare Time</a> a <a href="http://stefan-marr.de/2014/02/how-to-get-a-jit-compiler-for-free-implementing-som-smalltalk-with-rpython-and-truffle/">How to get a JIT Compiler for Free: Implementing SOM Smalltalk with RPython and Truffle</a>, které popisují stavbu interpretrů v pythonu s velmi dobrými zkušenostmi, měl jsem jasno. Některé z těch interpretrů navíc byly Smalltalk, či od něj odvozené jazyky, od čeho je k Selfu jen kousek. Navíc jsem v Pythonu zdaleka nejzkušenější, programuji v něm každý den už celé roky a těžko mě v něm něco překvapí. Rozhodně lepší, než cílit třeba na JVM a psát to celé v Javě.</p>
-      <p id="78bb5196-281f-453c-a821-13bcbc2e48af" class="">Jako inspirace mi pak sloužily projekty:</p>
-      <ul id="2d516a33-c534-45db-accf-8266d6926792" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/SOM-st/RPySOM">https://github.com/SOM-st/RPySOM</a>
-        </li>
-      </ul>
-      <ul id="76973bb3-546e-4c69-972b-093aaeae8b3b" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/HPI-SWA-Lab/RSqueak">https://github.com/HPI-SWA-Lab/RSqueak</a>
-        </li>
-      </ul>
-      <ul id="b2832de7-6a28-4199-ac95-4ffeb273152f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/joshsharp/python-braid/">https://github.com/joshsharp/python-braid/</a>
-        </li>
-      </ul>
-      <ul id="4f523187-3379-4903-b05a-fe5984f4e62a" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/Julian/BuildingAnInterpreter">https://github.com/Julian/BuildingAnInterpreter</a>
-        </li>
-      </ul>
-      <ul id="e3fd6de5-f217-4c37-8a47-81fe76c712dc" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://github.com/darius/tinyhiss">https://github.com/darius/tinyhiss</a>
-        </li>
-      </ul>
-      <ul id="4bab5671-7bf0-41d4-ac03-0fd1dfb3513f" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="https://som-st.github.io/">https://som-st.github.io/</a>
-        </li>
-      </ul>
-      <h1 id="ff768f9e-fcc7-4248-b6b2-02a64dc546f2" class="">RPython</h1>
-      <p id="bf9b1b28-dba7-4155-b1ac-974a2dc5b69a" class=""><a href="https://rpython.readthedocs.io/">RPython</a> je omezený subset jazyka Python vytvořený autořy alternativního python interpretru <a href="https://pypy.org/">pypy</a> právě za účelem snadné tvorby interpretrů, kde se za vás postarají o ty opravdu složité části. Na vás pak je napsat jazykový frontend, vymyslet si objektový model a dodat uživateli nějakou standardní knihovnu ve vašem jazyce. Jako bonus získáváte <em>state-of-the-art</em> JIT a kompilaci do C.</p>
-      <p id="b2de437e-d005-46d6-ab6a-2cc62035a2b1" class="">Alternativní řečeno: RPython vám dovolí podvádět. V podstatě vám umožňuje vyhnout se vší těžké práci.</p>
-      <p id="79e9d136-c469-4405-b686-b28e2594868a" class="">Pokud bych psal akademický projekt, nebo prováděl výzkum na poli objektových modelů, či JIT kompilátorů, asi bych si to chtěl udělat po svém. Ale jak už jsem psal na začátku, mým cílem nikdy nebylo vytvářet si vlastní programovací jazyk. Chtěl jsem systém. Potřebuji nástroj, ve kterém budu tvořit. Dělat si vlastní programovací jazyk je pro mě spíš opruz, než co jiného. Překážka na cestě, ne cíl.</p>
-      <p id="9f5ee774-f826-48a4-bde3-14cc86536378" class="">RPython má oproti standardnímu několik omezení. Například nejde mixovat datové typy ve standardních kontejnerech (pokud dáte do pole <code>int</code>, už tam nemůžete dát <code>str</code>). Taky nefunguje spousta modulů ze základní knihovny. Přesto se však stále jedná o docela vyskoúrovňový a relativně pohodlný jazyk.</p>
-      <p id="c84e2aff-39a3-4110-8e7d-37f05ff04162" class="">Pokud vás zajímají detaily, na rootu o tom vyšel docela hezký seriál: <a href="https://www.root.cz/clanky/rpython-prekvapive-vykonny-dialekt-pythonu-na-nemz-je-zalozen-pypy/">https://www.root.cz/clanky/rpython-prekvapive-vykonny-dialekt-pythonu-na-nemz-je-zalozen-pypy/</a></p>
-      <h1 id="72be5d52-8eda-4dd4-9a01-99484a4f59f8" class="">Pokračování</h1>
-      <p id="83c34bde-c00d-4529-a914-10214bcaab7a" class="">V příštím díle <a href="Jak_se_pise_programovaci_jazyk_2_Lexer.html" title="Jak se píše programovací jazyk 2: Lexer">Jak se píše programovací jazyk 2: Lexer</a> se podíváme, jak v něm napsat lexer, což bude následováno dílem o parseru, specifikách RPythonu, objektovém modelu, virtuálním stroji a kompilátoru syntaktických stromů do bytecode.</p>
-      <h1 id="3b548e1a-ed21-484d-b789-b5768d44bced" class="">Relevantní diskuze</h1>
-      <ul id="741df850-4bf3-4cc7-acd7-c3cc244273c3" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-1-motivace">Jak se píše programovací jazyk 1: Motivace</a> (abclinuxu)
-        </li>
-      </ul>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="92eb7212-9027-4ddf-a2ac-ffce064ecf89" class=""><time>@2019/02/02</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eb150f7b-da91-4392-9737-1d4cd82ecdc5" class="">Přibližně před rokem a něco jsem začal tvořit vlastní programovací jazyk a na <em>obrazu paměti</em> založené interaktivní prostředí ve stylu Smalltalku či Self (viz<a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>). Zpočátku jsem vůbec neměl tušení jak na to, nakonec jsem však začal řešit jeden problém za druhým a tak vznikl tento seriál.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d81d5c7d-f171-48ce-be2d-a45afa85bcc2" class="">Seriál jsem pojal tak trochu jako zápisky z cest touto pro mě nepoznanou a exotickou zemí interpretrů a objektových reprezentací. Mým cílem je ukázat čtenářům, že na dosah ruky existují zajímavé cizokrajné krajiny plné skrytých tajemství. Místa tvořená z kódu a logiky, zařící zvláštní vnitřní krásou. Chtěl bych vás inspirovat a podnítit vydat se do nich svou vlastní trasou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ad6a5519-ca8c-4d63-8ec6-68a20d143395" class="">Z tohoto cíle plyne omezení; seriál není průvodcem. Není to mapa, učebnice, či ukázka jak to správně dělat. Je to cestopis. Pracuji jako programátor v Pythonu, čímž byla do velké míry definována moje konkrétní cesta. Plně uznávám a respektuji, že ostatní můžou zvolit jinou cestu, či jiná rozhodnutí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="5f136f49-b3ad-4980-8387-a5a3f11222fd" class="">Motivace</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aaa5bf4d-6143-42d7-b656-4ac730adb913" class="">Je mi jasné, že hodně lidí teď napadá proč vlastně, k čemu tvořit nový programovací jazyk, proč se vůbec na tuhle cestu vydat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ed07f78-3d33-4bea-ae07-4a39273580a6" class="">Mojí motivací je provést experimenty na následující témata:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="cf4d0d30-0c3b-4898-bfd4-8dfc0ab3aaf7" class="numbered-list" start="1">
+          <li>Reprezentace dat objektovým programovacím jazykem, místo datově orientovanými formáty, jako JSON a XML.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="d5eccead-1b7e-4e03-81cc-e47eed9dcb3d" class="numbered-list" start="2">
+          <li>Na objektových prototypech založené grafické prostředí a jeho vztah a využitelnost k reprezentaci a práci s daty a informacemi.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="0525cb2c-11f7-467d-b5be-f3cb272f027b" class="numbered-list" start="3">
+          <li>Reflexe. Skrz jazyk, interpreter, ale i grafické rozhraní.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="596dc691-5cdc-4ab5-bda6-b99d9d77c35f" class="numbered-list" start="4">
+          <li>Test filosofické koncepce „explicitně strukturovaných dat“.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="a35320d8-46ca-4d10-804b-b2dc3668471e" class="numbered-list" start="5">
+          <li>Otestovat některé z myšlenek Engelbarta ohledně práce s infosférou.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="7bb4c533-3083-4fff-bd73-57a4fef6cbe8" class="numbered-list" start="6">
+          <li>Vytvořit platformu, na které bych mohl experimentálně otestovat některé z myšlenek Alana Kaye a Davida Ungara.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="4feabe4f-f74c-491e-8860-6d0cc467b554" class="numbered-list" start="7">
+          <li>Získat, otestovat a popsat na míru dělané prostředí <em>tight-coupled-loop</em> technologie, kterou popsal J. C. R. Licklider ve své stati <a href="https://en.wikipedia.org/wiki/Man-Computer_Symbiosis">Man-Computer Symbiosis</a>.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d5405075-89db-4002-aa02-d7f2ab63c9ca" class="">Výsledky experimentů budou postupně vycházet na mém blogu: <a href="http://blog.rfox.eu">http://blog.rfox.eu</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3805a99a-4619-4890-bf78-976f0ce626d8" class="">Ač to možná bude vypadat na první pohled paradoxně, tak součástí motivace nikdy nebylo tvořit programovací jazyk. Přestože tenhle seriál bude primárně o tomto, cesta kterou jsem se vydal byla diktována tím, že mě v podstatě nezajímala konkrétní implementace, rychlost, nebo praktičnost k běžnému programování. Nechtěl jsem tvořit konkurenci Javy, Pythonu, nebo C. Nešlo mi o iterativní vylepšení existujících jazyků, či o získání co největší trakce, aby se toho chytla komunita.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="62badbea-cf6f-4e29-8702-5f7f5d86bfb1" class="">Moje snažení bylo diktováno výše uvedenými body. Chtěl jsem vyzkoušet jazyk jako na míru dělaný interface ke stroji. Věci zaměřené na průměrný set uživatelů jsou průměrné. Židle dělaná na průměrný zadek bude horší, než židle dělaná <a href="https://www.reddit.com/r/cpp/comments/a1c0yb/creating_a_virtual_kernel_platform_abstraction/">přímo na mírů</a> mému zadku a rozměrům. Jazyk formovaný konsenzem desítek a stovek uživatelů bude pro mě osobně v některých ohledech horší (specificky bod 7), než jazyk který si udělám přesně na míru sám, tak abych s ním mohl co nejvíc „srůst“. Podobně jako <a href="https://thenewstack.io/the-troubled-legacy-of-terry-davis-gods-lonely-programmer/">Terry Davis</a> se svým <a href="https://motherboard.vice.com/en_us/article/wnj43x/gods-lonely-programmer">Temple OS</a> jsem se rozhodl vydat kompletně jiným „pološíleným“ směrem, bez ohledu na to co si myslí a přejí ostatní.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="95cf0ece-2d00-4205-983e-eb2f2636468a" class="">Jako výchozí bod jsem si vzal programovací jazyk a grafické prostředí jazyka Self. Když jsem hledal věc, která by byla co nejpodobnější mé představě, Self byl to k čemu jsem dospěl oklikou přes rebol, lispy a smalltalky.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="09322d7c-801e-4104-9144-b93a67808d95" class="">Self je v jádru podobně jednoduchý jako lisp, akorát místo polí a funkcí používá objekty. Více se o něm můžete dozvědět v paralelně vycházejícím seriálu o něm: <a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="86bac8db-e614-436e-bb5c-4287da10fd4a" class="">Proč to není sebevražda</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eaad1c24-1dc9-4768-b28a-5e4be3ce1cf7" class="">Originální Self je velký. 114 tisíc řádků C++ kódu a cca 350 tisíc řádek Self kódu (serializovaný výstup, reálně jich bude míň). Jak bych tomuhle mohl konkurovat?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b9f9a287-b377-4689-be21-344c07cbea7f" class="">Self byl v době vzniku původně výzkumný projekt. To znamená, že je tam všechno možné. Garbage collector, JIT. Různé experimenty ohledně (v té době průlomového) vývoje na poli kompilátorů a interpretrů, ale i grafického rozhraní.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="97fa77fa-4478-4150-a343-8974af4f99ca" class="">Od začátku mi bylo jasné, že nechci psát vlastní interpreter na zelené louce. Přemýšlel jsem, jak kód transpilovat pro existující virtuální stroje, které používá například Java, C#, Python, Smalltalk nebo Lua. Ideálně tak, abych nemusel řešit garbage collector, ani JIT, což jsou složité věci, které stejně lépe nevymyslím.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="766fea40-a287-4e8b-a37e-8e33a3f61228" class="">Pokud by kód mého jazyka běžel nad některým z těchto prostředí, získal bych zároveň automaticky výhodu jejich standardní knihovny, což by mi ušetřilo další desítky tisíc řádků kódu a vynalézání věcí, jako je součet dvou velkých čísel.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="690d9613-7468-4f31-ac2b-9e335df83e3f" class="">Tím se celá snaha smrskla v podstatě na Lexer, který jednotlivé prvky jazyka rozřeže na pole, Parser, který z toho potom sestaví objektový strom v paměti (AST), což se dá poměrně jednoduše symbolicky vyhodnocovat (s tím mám zkušenosti z toho mého lispu) a tím i snadno debugovat. Dál taky “kompilátor” do bytecode cílového prostředí, což nemusí být nic moc fancy. Prostředí se ideálně postará i o JITování, a tedy smysluplně rychlý běh. Navrch pak musím přidat nějakou standardní knihovnu, ta se ale může do velké míry opírat o prostředí interpretru, vlastní objektový model, který bude stejný jako v Selfu (= jednoduché prototypy), grafické rozhraní, které nezaložím na prehistorické verzi Xlibu, ale na něčem modernějším, a způsob ukládání a načítání image.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bdb7840f-99f1-477a-883e-928a71368835" class="">Pořád hodně práce, ale signifikantně méně, než kdybych to psal celé odznova.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="baa5d52a-0b42-4b36-bd12-e2e3b392b762" class="">Založil jsem si na to poznámkovou nodu a pár týdnů prováděl výzkum. Hledal jsem jednak tutoriály, dokumentace a různé projekty na githubu. Protože Self je podobný Smalltalku, měl jsem dobrý výchozí bod kde začít.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="32f7803e-689c-452a-b1e7-f74186730141" class="">Postupně jsem vyloučil jako cílovou platformu Luu i JVM. Hledáním jsem narazil na RPython, ve kterém je psán projekt Pypy. Když jsem přečetl zdroje jako <a href="https://media.readthedocs.org/pdf/building-an-interpreter-with-rpython/latest/building-an-interpreter-with-rpython.pdf">Building an Interpreter With RPython</a>, <a href="http://www.esug.org/data/ESUG2016/IWST/Papers/IWST_2016_paper_4.pdf">How to Build a High-Performance VM for Squeak/Smalltalk in Your Spare Time</a> a <a href="http://stefan-marr.de/2014/02/how-to-get-a-jit-compiler-for-free-implementing-som-smalltalk-with-rpython-and-truffle/">How to get a JIT Compiler for Free: Implementing SOM Smalltalk with RPython and Truffle</a>, které popisují stavbu interpretrů v pythonu s velmi dobrými zkušenostmi, měl jsem jasno. Některé z těch interpretrů navíc byly Smalltalk, či od něj odvozené jazyky, od čeho je k Selfu jen kousek. Navíc jsem v Pythonu zdaleka nejzkušenější, programuji v něm každý den už celé roky a těžko mě v něm něco překvapí. Rozhodně lepší, než cílit třeba na JVM a psát to celé v Javě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="78bb5196-281f-453c-a821-13bcbc2e48af" class="">Jako inspirace mi pak sloužily projekty:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2d516a33-c534-45db-accf-8266d6926792" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/SOM-st/RPySOM">https://github.com/SOM-st/RPySOM</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="76973bb3-546e-4c69-972b-093aaeae8b3b" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/HPI-SWA-Lab/RSqueak">https://github.com/HPI-SWA-Lab/RSqueak</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b2832de7-6a28-4199-ac95-4ffeb273152f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/joshsharp/python-braid/">https://github.com/joshsharp/python-braid/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4f523187-3379-4903-b05a-fe5984f4e62a" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/Julian/BuildingAnInterpreter">https://github.com/Julian/BuildingAnInterpreter</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="e3fd6de5-f217-4c37-8a47-81fe76c712dc" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://github.com/darius/tinyhiss">https://github.com/darius/tinyhiss</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="4bab5671-7bf0-41d4-ac03-0fd1dfb3513f" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://som-st.github.io/">https://som-st.github.io/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="ff768f9e-fcc7-4248-b6b2-02a64dc546f2" class="">RPython</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="bf9b1b28-dba7-4155-b1ac-974a2dc5b69a" class=""><a href="https://rpython.readthedocs.io/">RPython</a> je omezený subset jazyka Python vytvořený autořy alternativního python interpretru <a href="https://pypy.org/">pypy</a> právě za účelem snadné tvorby interpretrů, kde se za vás postarají o ty opravdu složité části. Na vás pak je napsat jazykový frontend, vymyslet si objektový model a dodat uživateli nějakou standardní knihovnu ve vašem jazyce. Jako bonus získáváte <em>state-of-the-art</em> JIT a kompilaci do C.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b2de437e-d005-46d6-ab6a-2cc62035a2b1" class="">Alternativní řečeno: RPython vám dovolí podvádět. V podstatě vám umožňuje vyhnout se vší těžké práci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="79e9d136-c469-4405-b686-b28e2594868a" class="">Pokud bych psal akademický projekt, nebo prováděl výzkum na poli objektových modelů, či JIT kompilátorů, asi bych si to chtěl udělat po svém. Ale jak už jsem psal na začátku, mým cílem nikdy nebylo vytvářet si vlastní programovací jazyk. Chtěl jsem systém. Potřebuji nástroj, ve kterém budu tvořit. Dělat si vlastní programovací jazyk je pro mě spíš opruz, než co jiného. Překážka na cestě, ne cíl.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9f5ee774-f826-48a4-bde3-14cc86536378" class="">RPython má oproti standardnímu několik omezení. Například nejde mixovat datové typy ve standardních kontejnerech (pokud dáte do pole <code>int</code>, už tam nemůžete dát <code>str</code>). Taky nefunguje spousta modulů ze základní knihovny. Přesto se však stále jedná o docela vyskoúrovňový a relativně pohodlný jazyk.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c84e2aff-39a3-4110-8e7d-37f05ff04162" class="">Pokud vás zajímají detaily, na rootu o tom vyšel docela hezký seriál: <a href="https://www.root.cz/clanky/rpython-prekvapive-vykonny-dialekt-pythonu-na-nemz-je-zalozen-pypy/">https://www.root.cz/clanky/rpython-prekvapive-vykonny-dialekt-pythonu-na-nemz-je-zalozen-pypy/</a></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="72be5d52-8eda-4dd4-9a01-99484a4f59f8" class="">Pokračování</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="83c34bde-c00d-4529-a914-10214bcaab7a" class="">V příštím díle <a href="Jak_se_pise_programovaci_jazyk_2_Lexer.html" title="Jak se píše programovací jazyk 2: Lexer">Jak se píše programovací jazyk 2: Lexer</a> se podíváme, jak v něm napsat lexer, což bude následováno dílem o parseru, specifikách RPythonu, objektovém modelu, virtuálním stroji a kompilátoru syntaktických stromů do bytecode.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="3b548e1a-ed21-484d-b789-b5768d44bced" class="">Relevantní diskuze</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="741df850-4bf3-4cc7-acd7-c3cc244273c3" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.abclinuxu.cz/blog/bystroushaak/2019/2/jak-se-pise-programovaci-jazyk-1-motivace">Jak se píše programovací jazyk 1: Motivace</a> (abclinuxu)
+          </li>
+        </ul>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

@@ -129,78 +129,175 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Programování">Programování</a> / Bolest proxy
   <article id="f67d2dd5-6196-4845-b2fd-b9b10f640938" class="page sans">
     <header>
-      <h1 class="page-title">Bolest proxy</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Bolest proxy</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="0d00f6a7-41fd-4cf2-ab4f-44d5c7b611da" class=""><time>@2015/02/10</time></p>
-      <p id="f5e91a52-2393-4fca-941c-3abcf929c38b" class="">Občas se stane, že potřebujete přistupovat k nějakému zdroji na internetu nepřímo. Pokud se jedná o desítky až stovky requestů, a neplánujete dělat nic <em>ošklivého</em>, dá se použít třeba VPS, nebo VPN. Pokud však potřebujete například postahovat nějakou větší databázi, která vám zabere tisíce a statisíce requestů, je většinou dobré, či přímo nutné, použít proxy.</p>
-      <h2 id="c0bfbbb5-d7fd-4813-9d4d-0463d7a6c0ba" class="">Kdy použít proxy</h2>
-      <p id="62ca7a77-846a-461b-b1ff-285e266d2ab4" class="">Obecně platí, že proxy server(y) je vhodné použít pouze tehdy, pokud chcete <em><strong>zmást</strong></em> cílový systém, aby si myslel, že jste někdo jiný.</p>
-      <p id="fae78c7a-4831-4029-a92b-3cefd6c280d5" class="">To může vypadat jako zcela samozřejmá informace, důležitý je ale důraz na slovo <em><strong>zmást</strong></em>, neboť cílem je zmatení, nikoliv neprůstřelná bezpečnost.</p>
-      <p id="9fa0d22c-18be-4432-bc34-b6f84173a768" class="">Nad použitými proxy většinou nemáme žádnou kontrolu a přestože se dají řetězit, čímž se bezpečnostní hledisko zvětšuje, nikdy nevíte, jestli proxy neloguje všechny přístupy do souboru, který její provozovatelé s radostí vydají každému, kdo si o něj řekne. Dnes je také běžné, že povinnost logovat přístupy na úrovni "<em>kdy-kdo-kam</em>" mají všichni poskytovatelé.</p>
-      <p id="b0d8e9c3-ea09-4494-aaf5-b83da5407100" class=""><strong>Pokud nad proxy serverem nemáte kontrolu, nespoléhejte na něj jako na anonymizační prvek!</strong></p>
-      <p id="15950758-8b9b-46dc-9c3a-216ebd6fb187" class="">Kdy je tedy vhodné použít proxy? Všude tam, kde není předpoklad, že se někdo bude vaší identitou zabývat. Z hlavy mě napadá například vytěžování databází, trolling, obcházení limitů na jeden účet či jednu IP adresu. Obecně tehdy, když chcete zabránit podezření, že mnoho přístupů ve skutečnosti pochází z jednoho zdroje.</p>
-      <p id="5ec1d0c0-1cf7-42ec-b449-3975c9ce20a7" class="">Výjimky z tohoto principu můžete udělat pouze tehdy, pokud vám nezáleží na zjistitelnosti stroje, ze kterého požadavky přichází, či pokud máte v cestě zapojeny další anonymizační prvky (TOR třeba).</p>
-      <p id="361cdc8f-195c-4c3f-b6ad-08f49823f822" class="">Při použití proxy je také nutno brát v úvahu, že provozovatel může číst veškerá přenášená data, pokud přes to netaháte ještě nějaký vlastní šifrovaný tunel. Nevyplatí se tedy přenášet loginy k systémům, na kterých vám záleží.</p>
-      <h2 id="ad6e9d92-707a-4e50-8736-8d47f051b32b" class="">Druhy proxy</h2>
-      <p id="c7231c98-ef61-46b8-9f7a-bc959fa57641" class="">Pro ty kdo se s proxy servery nikdy nesetkali zde v krátkosti uvedu jednotlivé parametry, které běžně proxy listy zobrazují:</p>
-      <h3 id="9d512697-f8ec-4f61-8111-d1400764c631" class="">Typ</h3>
-      <p id="d9b678c1-6bb4-4c3f-b438-a3d061547e2b" class="">HTTP - proxy přes kterou je možné směřovat HTTP požadavky. Vhodné k procházení webu. Port většinou 80 či 8080, ale může být i jiný.</p>
-      <p id="e361351a-8c4c-48f7-90c4-97cf86ffda97" class="">HTTPS - to samé jako předchozí, jen fungující skrz šifrovaný tunel na portu 443.</p>
-      <p id="a53e1592-7560-4983-bbac-303914bbef3b" class="">SOCKS - Pokud někde uvidíte jen <a href="http://en.wikipedia.org/wiki/SOCKS">SOCKS</a>, může se jednat o SOCKS4 či SOCKS5 proxy. SOCKS4 umožňuje přenos libovolného protokolu, neboť pracuje přímo se socketem a spojeními, nikoliv s HTTP requesty.</p>
-      <p id="900c45e3-a392-490e-b1ba-2e38de679b0a" class="">SOCKS5 - Vůbec nejlepší, neboť umožňuje jak IPv4, tak i IPv6 requesty, libovolné protokoly, autentizaci a tak dále. Navíc je docela vysokoúrovňová co se protokolu týče.</p>
-      <p id="7a65a8fe-e091-4763-aaa7-b5ca99a4c321" class="">Většinu času vám nejspíš vystačí HTTP proxy, neboť je nejjednodušší na použití a zcela dostatečná pro spoustu případů. V pythonu jsem napsal klienta <a href="https://github.com/Bystroushaak/httpkie">httpkie</a>, který umožňuje pro každou instanci použít jinou proxy. Tohle může být trochu problém u SOCKS, kde je v pythonu většinou <a href="https://github.com/Anorov/PySocks">nahrazován celý socket</a>, což může znesnadňovat paraelizaci.</p>
-      <h3 id="c49731f9-c38f-4908-b6b0-7e3c62e53e41" class="">Míra anonymity</h3>
-      <p id="5c897883-4ed3-4d2b-9017-ac6e5e0cd96e" class=""><em>Transparent</em> - pro běžné účely k ničemu, neboť tato proxy vyzrazuje vaší IP adresu přes hlavičku <code>HTTP_X_FORWARDED_FOR</code>. Občas se dá použít k obejití hloupějších firewallů.</p>
-      <p id="f61cd3a8-e8b9-4f2e-97e4-c7aafd8ff7f5" class=""><em>Anonymous</em> - proxy která vaší IP adresu maskuje tou svojí. Z <a href="http://www.freeproxy.ru/en/free_proxy/faq/proxy_anonymity.htm">hlaviček</a> se dá zjistit samotný fakt, že používáte proxy.</p>
-      <p id="c048597c-5391-4090-8f26-5922a20761dd" class=""><em>Elite</em> - proxy která skrývá vaší IP adresu a nedá se jednoduše zjistit, že se jedná o proxy server.</p>
-      <p id="2ae041c4-78e0-4d8f-9d70-08cf6597d454" class="">Pro většinu potřeb postačuje <em>Anonymous</em> proxy, neboť jsou dostatečně rychlé a když se nikdo nedívá, tak ani nezjistí, že se jedná o proxy.</p>
-      <h3 id="253955ce-7f91-47ac-a674-a32872b11593" class="">Port</h3>
-      <p id="cbfecc36-2345-464c-a071-1d825cd1bb9d" class="">Port, na kterém proxy naslouchá. Najít se dají v podstatě všechny možné, imho je nejžádoucnější chtít co nejvyšší, od deseti tisíc začínaje, protože ten většinou nenajdou ti, kdo se dívají zda se jedná o proxy zpětným scannem. Pro většinu použití však stačí ty běžné - 80, 443, 8000, 8080 atd..</p>
-      <h3 id="829929c9-f36d-4746-a796-17cb3188e32f" class="">Ping</h3>
-      <p id="3f2eaf38-b1f3-4cba-8539-73726b8cde2a" class="">Dalším často uváděným parametrem je <a href="http://cs.wikipedia.org/wiki/Ping">ping</a>. Někde se jedná o pouhé pingnutí proxy serveru, jinde je měřeno jak dlouho trvá jeden request.</p>
-      <p id="36eed3b6-630c-485f-a51f-4c3f3b8afe0e" class="">Tahle hodnota se v čase pořád mění podle zátěže, ale vždy chcete co nejnižší.</p>
-      <h3 id="ac2bbc1f-83fc-4d7a-aab8-87c12f181e98" class="">Země</h3>
-      <p id="5aa3fe47-38ad-4548-acc6-e58b3944e9f8" class="">Poslední často uváděnou hodnotou je země, kde se proxy server nachází. Většinou je dobré volit jinou zemi, než kde se zrovna nacházíte a vyhnout se zemím jako Čína, kde je vše monitorované. V některých případech také cílíte na službu, která bere pouze přístupy z čech (registrace na wz.cz například).</p>
-      <p id="4561863a-c184-4868-9cf2-2e536e7c77c6" class="">V praxi tohle pole moc neznamená, protože je detekováno na základě <a href="http://jecas.cz/geoip">geoip</a> a <a href="http://cs.wikipedia.org/wiki/Whois">whois</a> a vše může být úplně jinak, jen proto že poskytovatel byl moc líný měnit záznamy.</p>
-      <h2 id="3282a4a5-6c32-496e-813c-b789c0d302e9" class="">Kde vzít proxy</h2>
-      <p id="ea3a5e27-e53a-4acd-b0e3-e640ecff4784" class="">Máte tedy několik možností - proxy si zaplatit, což stojí peníze a také to klade větší nároky na zachování alespoň zdání anonymity, nebo se naučit pracovat s různými nestandardními chováními, které se dají nalézt u proxy zdarma.</p>
-      <p id="fbd96003-660a-41ca-add8-80b3556a975b" class="">Třetí možnost, která vyžaduje vytvoření vlastního botnetu zde nebudu uvažovat, protože jestli zvládnete tohle, tak tenhle problém vůbec nemusíte řešit a rovnou můžete použít cílové počítače pro běh vašeho programu.</p>
-      <h3 id="b9e64c80-97f3-44b6-bf8d-31501ff25d3c" class="">Placené proxy</h3>
-      <p id="d0c7dce1-fba5-45de-8c61-40d48d8b0832" class="">Co se týče placených proxy serverů, nekupujete si konkrétní údaje pro proxy, ale v drtivé většině případů přístup k neustále updatovanému proxy listu, kde by se teoreticky měly nacházet jen kvalitnější servery, které alespoň pár hodin budou vykazovat konzistentní chování.</p>
-      <p id="e44db671-dcd7-4c06-a4ea-f5daf5c9d1c4" class="">Není na tom moc co řešit - prostě převedete peníze na účet poskytovatele a zpět dostanete login na server, kde máte přístupný seznam několika stovek až tisíc proxy-serverů, většinou i s metadaty ohledně typu (Transparent/Anonymous/High anonymous, Sock/HTTP), odezvy a země původu.</p>
-      <p id="28d44fd1-388e-440c-a876-d412333926a3" class="">Někdy se platí za čas (<a href="http://incloak.com/proxy-list/">incloak</a>), jindy je přístup doživotní (<a href="http://proxylist.hidemyass.com/">hidemyass</a>).</p>
-      <h3 id="ad676674-75d7-488a-ac66-0526ca1d096b" class="">Neplacené proxy</h3>
-      <p id="f6798dc1-5bf7-40d4-9697-7db4b9bc09b7" class="">Neplacených proxy listů není tak moc - většinou se jedná jen o živé ukázky pro placené servery. To nám ovšem nijak nebrání napsat parser a strojově je zpracovávat.</p>
-      <p id="33e627fc-51bd-4670-82d1-a19afa9a46ca" class="">Příklady:</p>
-      <ul id="14fbd3f8-a49f-4a00-9e11-abe9a0eb4f82" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://incloak.com/proxy-list/">http://incloak.com/proxy-list/</a>
-        </li>
-      </ul>
-      <ul id="dfbe3e1a-aca9-49d6-8a51-31ecb4e1578d" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://proxylist.hidemyass.com/">http://proxylist.hidemyass.com/</a>
-        </li>
-      </ul>
-      <ul id="0ddd6196-90bc-4395-9ee6-44be9c6247e4" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://www.ip-adress.com/proxy_list/">http://www.ip-adress.com/proxy_list/</a>
-        </li>
-      </ul>
-      <ul id="ed2923ca-ebfa-4216-96fd-93feffa42f10" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <a href="http://proxies.org/">http://proxies.org</a>
-        </li>
-      </ul>
-      <p id="251470e4-1570-4531-8bc7-38cd1f9f8081" class="">Psaní jednotlivých parserů nechám na vás - za sebe můžu říct, že jsem napsal parsery na všechny uvedené a většina z nich nezabrala skoro žádnou práci, stačí k tomu prostě <a href="http://docs.python-requests.org/">stahovátko</a>, <a href="https://github.com/Bystroushaak/pyDHTMLParser">HTML parser</a> a trocha pythonu. Nejvíc ze všech mi dal zabrat server hidemyass.com, kde rychle zjistíte že vše je obfuscované a kompletní parser tedy vyžaduje částečnou implementaci Javascriptu a CSS. Jako bonus dostanete při opakovaných přístupech ban, takže potřebujete proxy, aby jste mohli stáhnout seznam proxy ;)</p>
-      <p id="eaf08fe5-f85c-400d-b6cc-5475a9ac8b7c" class="">Jako příklad zde uvádím implementaci HTTP proxy (!) grabberu na prvně jmenovaný server:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="1c405472-3e71-4335-99a7-e3642690c71f" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#! /usr/bin/env python
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0d00f6a7-41fd-4cf2-ab4f-44d5c7b611da" class=""><time>@2015/02/10</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f5e91a52-2393-4fca-941c-3abcf929c38b" class="">Občas se stane, že potřebujete přistupovat k nějakému zdroji na internetu nepřímo. Pokud se jedná o desítky až stovky requestů, a neplánujete dělat nic <em>ošklivého</em>, dá se použít třeba VPS, nebo VPN. Pokud však potřebujete například postahovat nějakou větší databázi, která vám zabere tisíce a statisíce requestů, je většinou dobré, či přímo nutné, použít proxy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="c0bfbbb5-d7fd-4813-9d4d-0463d7a6c0ba" class="">Kdy použít proxy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="62ca7a77-846a-461b-b1ff-285e266d2ab4" class="">Obecně platí, že proxy server(y) je vhodné použít pouze tehdy, pokud chcete <em><strong>zmást</strong></em> cílový systém, aby si myslel, že jste někdo jiný.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fae78c7a-4831-4029-a92b-3cefd6c280d5" class="">To může vypadat jako zcela samozřejmá informace, důležitý je ale důraz na slovo <em><strong>zmást</strong></em>, neboť cílem je zmatení, nikoliv neprůstřelná bezpečnost.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9fa0d22c-18be-4432-bc34-b6f84173a768" class="">Nad použitými proxy většinou nemáme žádnou kontrolu a přestože se dají řetězit, čímž se bezpečnostní hledisko zvětšuje, nikdy nevíte, jestli proxy neloguje všechny přístupy do souboru, který její provozovatelé s radostí vydají každému, kdo si o něj řekne. Dnes je také běžné, že povinnost logovat přístupy na úrovni "<em>kdy-kdo-kam</em>" mají všichni poskytovatelé.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b0d8e9c3-ea09-4494-aaf5-b83da5407100" class=""><strong>Pokud nad proxy serverem nemáte kontrolu, nespoléhejte na něj jako na anonymizační prvek!</strong></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="15950758-8b9b-46dc-9c3a-216ebd6fb187" class="">Kdy je tedy vhodné použít proxy? Všude tam, kde není předpoklad, že se někdo bude vaší identitou zabývat. Z hlavy mě napadá například vytěžování databází, trolling, obcházení limitů na jeden účet či jednu IP adresu. Obecně tehdy, když chcete zabránit podezření, že mnoho přístupů ve skutečnosti pochází z jednoho zdroje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5ec1d0c0-1cf7-42ec-b449-3975c9ce20a7" class="">Výjimky z tohoto principu můžete udělat pouze tehdy, pokud vám nezáleží na zjistitelnosti stroje, ze kterého požadavky přichází, či pokud máte v cestě zapojeny další anonymizační prvky (TOR třeba).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="361cdc8f-195c-4c3f-b6ad-08f49823f822" class="">Při použití proxy je také nutno brát v úvahu, že provozovatel může číst veškerá přenášená data, pokud přes to netaháte ještě nějaký vlastní šifrovaný tunel. Nevyplatí se tedy přenášet loginy k systémům, na kterých vám záleží.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="ad6e9d92-707a-4e50-8736-8d47f051b32b" class="">Druhy proxy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c7231c98-ef61-46b8-9f7a-bc959fa57641" class="">Pro ty kdo se s proxy servery nikdy nesetkali zde v krátkosti uvedu jednotlivé parametry, které běžně proxy listy zobrazují:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="9d512697-f8ec-4f61-8111-d1400764c631" class="">Typ</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d9b678c1-6bb4-4c3f-b438-a3d061547e2b" class="">HTTP - proxy přes kterou je možné směřovat HTTP požadavky. Vhodné k procházení webu. Port většinou 80 či 8080, ale může být i jiný.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e361351a-8c4c-48f7-90c4-97cf86ffda97" class="">HTTPS - to samé jako předchozí, jen fungující skrz šifrovaný tunel na portu 443.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a53e1592-7560-4983-bbac-303914bbef3b" class="">SOCKS - Pokud někde uvidíte jen <a href="http://en.wikipedia.org/wiki/SOCKS">SOCKS</a>, může se jednat o SOCKS4 či SOCKS5 proxy. SOCKS4 umožňuje přenos libovolného protokolu, neboť pracuje přímo se socketem a spojeními, nikoliv s HTTP requesty.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="900c45e3-a392-490e-b1ba-2e38de679b0a" class="">SOCKS5 - Vůbec nejlepší, neboť umožňuje jak IPv4, tak i IPv6 requesty, libovolné protokoly, autentizaci a tak dále. Navíc je docela vysokoúrovňová co se protokolu týče.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7a65a8fe-e091-4763-aaa7-b5ca99a4c321" class="">Většinu času vám nejspíš vystačí HTTP proxy, neboť je nejjednodušší na použití a zcela dostatečná pro spoustu případů. V pythonu jsem napsal klienta <a href="https://github.com/Bystroushaak/httpkie">httpkie</a>, který umožňuje pro každou instanci použít jinou proxy. Tohle může být trochu problém u SOCKS, kde je v pythonu většinou <a href="https://github.com/Anorov/PySocks">nahrazován celý socket</a>, což může znesnadňovat paraelizaci.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="c49731f9-c38f-4908-b6b0-7e3c62e53e41" class="">Míra anonymity</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5c897883-4ed3-4d2b-9017-ac6e5e0cd96e" class=""><em>Transparent</em> - pro běžné účely k ničemu, neboť tato proxy vyzrazuje vaší IP adresu přes hlavičku <code>HTTP_X_FORWARDED_FOR</code>. Občas se dá použít k obejití hloupějších firewallů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f61cd3a8-e8b9-4f2e-97e4-c7aafd8ff7f5" class=""><em>Anonymous</em> - proxy která vaší IP adresu maskuje tou svojí. Z <a href="http://www.freeproxy.ru/en/free_proxy/faq/proxy_anonymity.htm">hlaviček</a> se dá zjistit samotný fakt, že používáte proxy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c048597c-5391-4090-8f26-5922a20761dd" class=""><em>Elite</em> - proxy která skrývá vaší IP adresu a nedá se jednoduše zjistit, že se jedná o proxy server.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2ae041c4-78e0-4d8f-9d70-08cf6597d454" class="">Pro většinu potřeb postačuje <em>Anonymous</em> proxy, neboť jsou dostatečně rychlé a když se nikdo nedívá, tak ani nezjistí, že se jedná o proxy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="253955ce-7f91-47ac-a674-a32872b11593" class="">Port</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cbfecc36-2345-464c-a071-1d825cd1bb9d" class="">Port, na kterém proxy naslouchá. Najít se dají v podstatě všechny možné, imho je nejžádoucnější chtít co nejvyšší, od deseti tisíc začínaje, protože ten většinou nenajdou ti, kdo se dívají zda se jedná o proxy zpětným scannem. Pro většinu použití však stačí ty běžné - 80, 443, 8000, 8080 atd..</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="829929c9-f36d-4746-a796-17cb3188e32f" class="">Ping</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3f2eaf38-b1f3-4cba-8539-73726b8cde2a" class="">Dalším často uváděným parametrem je <a href="http://cs.wikipedia.org/wiki/Ping">ping</a>. Někde se jedná o pouhé pingnutí proxy serveru, jinde je měřeno jak dlouho trvá jeden request.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36eed3b6-630c-485f-a51f-4c3f3b8afe0e" class="">Tahle hodnota se v čase pořád mění podle zátěže, ale vždy chcete co nejnižší.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="ac2bbc1f-83fc-4d7a-aab8-87c12f181e98" class="">Země</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5aa3fe47-38ad-4548-acc6-e58b3944e9f8" class="">Poslední často uváděnou hodnotou je země, kde se proxy server nachází. Většinou je dobré volit jinou zemi, než kde se zrovna nacházíte a vyhnout se zemím jako Čína, kde je vše monitorované. V některých případech také cílíte na službu, která bere pouze přístupy z čech (registrace na wz.cz například).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4561863a-c184-4868-9cf2-2e536e7c77c6" class="">V praxi tohle pole moc neznamená, protože je detekováno na základě <a href="http://jecas.cz/geoip">geoip</a> a <a href="http://cs.wikipedia.org/wiki/Whois">whois</a> a vše může být úplně jinak, jen proto že poskytovatel byl moc líný měnit záznamy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3282a4a5-6c32-496e-813c-b789c0d302e9" class="">Kde vzít proxy</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ea3a5e27-e53a-4acd-b0e3-e640ecff4784" class="">Máte tedy několik možností - proxy si zaplatit, což stojí peníze a také to klade větší nároky na zachování alespoň zdání anonymity, nebo se naučit pracovat s různými nestandardními chováními, které se dají nalézt u proxy zdarma.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fbd96003-660a-41ca-add8-80b3556a975b" class="">Třetí možnost, která vyžaduje vytvoření vlastního botnetu zde nebudu uvažovat, protože jestli zvládnete tohle, tak tenhle problém vůbec nemusíte řešit a rovnou můžete použít cílové počítače pro běh vašeho programu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="b9e64c80-97f3-44b6-bf8d-31501ff25d3c" class="">Placené proxy</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d0c7dce1-fba5-45de-8c61-40d48d8b0832" class="">Co se týče placených proxy serverů, nekupujete si konkrétní údaje pro proxy, ale v drtivé většině případů přístup k neustále updatovanému proxy listu, kde by se teoreticky měly nacházet jen kvalitnější servery, které alespoň pár hodin budou vykazovat konzistentní chování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e44db671-dcd7-4c06-a4ea-f5daf5c9d1c4" class="">Není na tom moc co řešit - prostě převedete peníze na účet poskytovatele a zpět dostanete login na server, kde máte přístupný seznam několika stovek až tisíc proxy-serverů, většinou i s metadaty ohledně typu (Transparent/Anonymous/High anonymous, Sock/HTTP), odezvy a země původu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="28d44fd1-388e-440c-a876-d412333926a3" class="">Někdy se platí za čas (<a href="http://incloak.com/proxy-list/">incloak</a>), jindy je přístup doživotní (<a href="http://proxylist.hidemyass.com/">hidemyass</a>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="ad676674-75d7-488a-ac66-0526ca1d096b" class="">Neplacené proxy</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f6798dc1-5bf7-40d4-9697-7db4b9bc09b7" class="">Neplacených proxy listů není tak moc - většinou se jedná jen o živé ukázky pro placené servery. To nám ovšem nijak nebrání napsat parser a strojově je zpracovávat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33e627fc-51bd-4670-82d1-a19afa9a46ca" class="">Příklady:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="14fbd3f8-a49f-4a00-9e11-abe9a0eb4f82" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://incloak.com/proxy-list/">http://incloak.com/proxy-list/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="dfbe3e1a-aca9-49d6-8a51-31ecb4e1578d" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://proxylist.hidemyass.com/">http://proxylist.hidemyass.com/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0ddd6196-90bc-4395-9ee6-44be9c6247e4" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://www.ip-adress.com/proxy_list/">http://www.ip-adress.com/proxy_list/</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="ed2923ca-ebfa-4216-96fd-93feffa42f10" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="http://proxies.org/">http://proxies.org</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="251470e4-1570-4531-8bc7-38cd1f9f8081" class="">Psaní jednotlivých parserů nechám na vás - za sebe můžu říct, že jsem napsal parsery na všechny uvedené a většina z nich nezabrala skoro žádnou práci, stačí k tomu prostě <a href="http://docs.python-requests.org/">stahovátko</a>, <a href="https://github.com/Bystroushaak/pyDHTMLParser">HTML parser</a> a trocha pythonu. Nejvíc ze všech mi dal zabrat server hidemyass.com, kde rychle zjistíte že vše je obfuscované a kompletní parser tedy vyžaduje částečnou implementaci Javascriptu a CSS. Jako bonus dostanete při opakovaných přístupech ban, takže potřebujete proxy, aby jste mohli stáhnout seznam proxy ;)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eaf08fe5-f85c-400d-b6cc-5475a9ac8b7c" class="">Jako příklad zde uvádím implementaci HTTP proxy (!) grabberu na prvně jmenovaný server:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="1c405472-3e71-4335-99a7-e3642690c71f" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Interpreter version: python 2.7
@@ -242,95 +339,216 @@ if __name__ == '__main__':
     import json
     print json.dumps(getProxies())
     print len(getProxies())</code></pre>
-      <p id="b1bab2a4-b744-4383-852e-a610ab1471a0" class="">Jak vidíte, nejedná se o nic sofistikovaného a napsat celý script mi zabralo tak 30 minut.</p>
-      <h2 id="8fd867c7-0166-4fc0-adcb-e12380dce3a8" class="">Bolest</h2>
-      <p id="7c38bd03-54be-4e39-8707-033061ebb866" class="">Takže co existuje za proxy víte. Kde je vzít víte. Script, který stáhne šedesát čtyři nově publikovaných máte. Teď už vám nic nebrání v jejich použití. Celé to zakomponujete do existujícího programu a spustíte váš ďábelský plán. Teď už jen hromy, blesky a váš šílený chechot, který se line nocí..</p>
-      <p id="9b366dfe-c518-4ead-b338-1e23ad87565e" class="">Jenže ouha, celé to po chvíli vymrzlo. Chechot se mění do bolestného vytí a vás čekají dlouhé hodiny debugování a zjišťování, co je vlastně špatně.</p>
-      <h2 id="d7ab4b50-7297-4bd5-b587-f4b31ef6941c" class="">Co je vlastně špatně</h2>
-      <p id="3cd63740-d318-4114-baad-42898036001f" class="">Všechno to, co jste si mohli přečíst až sem jsou obecně známé informace, které jde poměrně lehce najít všude možně po internetu. To co bude následovat dál jsou zkušenosti, které většinou musíte získat tou horší, bolestivější cestou, protože o nich nikdo moc nepíše.</p>
-      <h3 id="f9030544-3bc5-447e-a911-5f49dba4cead" class="">Časová osa</h3>
-      <p id="e40453a1-5d8c-4b7b-a444-f965ef719469" class="">V ideálním světě by vznikla proxy, někdo by jí zaindexoval do proxy listu a vy by jste jí mohli používat. Proxy by byla neomezeně rychlá, plně anonymní a hlavně stále stejná, tedy konzistentní, až do konce světa.</p>
-      <p id="37be0417-25b1-44c9-9d41-3bf00241e04a" class="">Ve skutečném světě vznikne proxy, někdo jí zaindexuje a vy jí můžete používat. Na první request odpoví okamžitě, na druhý za 10 sekund a na další neodpoví nikdy. Nebo na něj bude odpovídat půl hodiny, či půl dne, písmenko za písmenkem, každou minutu jedno.</p>
-      <p id="4a34d950-109c-4c40-b7a1-dcee85a2c63a" class="">Proxy list nepoužíváte jen vy, ale zároveň pár (desítek) tisíc uživatelů, takže na každou proxy, která se tam vyskytne se automaticky vrhne i spousta dalších lidí. To že proxy server minutu funguje, další půl hodinu je zahlcen a potom znova funguje je zcela běžný stav.</p>
-      <p id="88480c5b-0ae7-4f50-87bc-c78d5355317e" class="">Dál je také nutné poznamenat, že žádná proxy nebude fungovat do nekonečna. Život většiny z nich je docela jepičí a měří se na dny, přičemž nikdy nevíte, jak dlouho se ta vámi používaná povaluje na proxylistu.</p>
-      <h3 id="be733200-6f82-45ab-9ee3-e79ceca648ce" class="">Lidi jsou svině</h3>
-      <p id="0d609381-2118-4977-8333-9c4d4fd88f6e" class="">Najdete servery, které vám na prvních 5 požadavků odpoví bleskově a potom začnou odpovídat už jen reklamní stránkou.</p>
-      <p id="7babb3f8-2226-413f-a889-9c5a6dce7b36" class="">Taky jsem viděl servery, které modifikují přenášená data a vkládají do nich reklamy, či <a href="https://blog.haschek.at/post/fd9bc">škodlivý kód</a> pomocí "on the fly" modifikace binárních souborů.</p>
-      <p id="2513c796-9dd9-4e35-afca-b07e33683f5f" class="">Velmi zřídka narazíte i na servery, které jsou několik requestů anonymní a potom se najednou přepnou na <em>transparent</em>.</p>
-      <p id="0293204e-51e0-42ff-af91-53da94abe161" class="">Už jsem psal, že život proxy je jepičí, ale nutno taky zdůraznit, že jejich umírání je skokové. Jak je jednou odhalí, tak budou vypnuty z milisekundy na milisekundu, dle zákona schválnosti nejčastěji právě uprostřed vašeho datového přenosu.</p>
-      <h3 id="dc8f41f4-dd0b-4238-88e4-f2affe171f04" class="">Na seznamy se nedá spolehnout</h3>
-      <p id="552d6554-b3cc-4e44-ad04-14c2a49ec542" class="">Dostali jste ze seznamu krásnou Elite proxy s malým pingem? Jak to víte?</p>
-      <p id="9ad4c669-7b3a-4edd-a9f1-78417082a8f6" class="">Nemá smysl věřit údajům, které si stáhnete ze seznamu, jsou spíš jen takové orientační, sloužící k filtrování ostatních záznamů co vás nezajímají.</p>
-      <h3 id="ef9c9817-ae6d-4b50-b881-18d84804a29e" class="">Seznamy se mění</h3>
-      <p id="33406986-8f5e-47a8-bc6f-1ec1ad843de7" class="">Pište si unittesty na vaše parsery proxy serverů. Ochrany na jednotlivých serverech se čas od času mění, stejně jako se mění design a layout stránky. To že nějaký grabber funguje teď neznamená, že bude fungovat i zítra, proto testujte, co vlastně vrací a jestli náhodou nepadl na tom, že server vás zabanoval, změnil adresu, nebo úplně přestal existovat.</p>
-      <p id="8ce0acd8-272b-421f-aa87-81eaf987b2d7" class="">Není nic víc otravného, než když se po měsíci přihlásíte na VPS, aby jste zkopírovali výsledky dlouhé sklizně a zjistíte, že celý script stál na tom, že mu vyschl proxy pool, protože nebylo odkud brát. Na tohle by vás měl program proaktivně upozornit mnohem dřív!</p>
-      <h2 id="921758fe-a955-4f35-af0b-d441e519ba32" class="">Jak s tím bojovat</h2>
-      <p id="96353b4a-40fa-4bf9-888f-75fff5829050" class="">Řešení je na dvou úrovních - na úrovni kódu a na úrovni filtrování proxy.</p>
-      <h3 id="b7caa224-276b-49fb-a18d-38a034b2d5b5" class="">Filtrování získaných proxy</h3>
-      <p id="c19bef9d-ec73-4122-8c08-36f11295c9ca" class="">Všechny proxy servery, které ze seznamu získáte si musíte prověřit na zde popsané jevy, před tím než je můžete použít. V krátkosti:</p>
-      <ol type="1" id="692021ac-d1f4-4127-b278-3d9a430d21ae" class="numbered-list" start="1">
-        <li>První věc co s nově získanou proxy uděláte je, že jí vyzkoušíte. Zkusíte přes ní stáhnout nějakou důvěrně známou stránku, která zároveň ideálně zobrazuje poslané hlavičky a IP adresu. Já za tímhle účelem používám <a href="http://anoncheck.security-portal.cz/">anoncheck od security-portálu</a>, protože už na něj mám napsané parsery. Ideálnější je však stránka, která vrací data nějak víc strukturovaně, například v XML.
-        </li>
-      </ol>
-      <ol type="1" id="eca343d1-c9f3-4a95-b776-36a8cf64a80e" class="numbered-list" start="2">
-        <li>Poté co prověříte, že proxy skutečně funguje (=nedošlo k chybě a dostali jste nějaká data) ověříte co se vám vlastně vrátilo. Zde je nutné provádět kontrolu celého obsahu, jestli z ní náhodou proxy něco nevyhodila, něco nenahradila či místo obsahu neposlala něco úplně jiného. Taky prověřte IP adresu, kterou proxy ukazuje a jestli v hlavičkách neposílá vaší původní.</li>
-      </ol>
-      <ol type="1" id="282965f2-f3b7-4e8d-b2ae-2387fd8f2ad1" class="numbered-list" start="3">
-        <li>Proveďte 5 requestů na náhodné stránky, například novinky, zprávy, zkuste různé domény v různých zemích.</li>
-      </ol>
-      <ol type="1" id="76b993c0-2d2a-459c-8cb3-7e4abcfe746e" class="numbered-list" start="4">
-        <li>Zopakujte kroky 1 a 2, ideálně přes jiný anoncheck, aby jste nedostali zpět cacheovaný výsledek odminule a tentokrát si zapisujte čas. Pokud je vše v pořádku a jestliže proxy stále vyhovuje maximálnímu času, který jste ochotni tolerovat, přidejte jí do databáze.</li>
-      </ol>
-      <ol type="1" id="066a3fc4-4faa-4b80-a2f2-1121b1ea7025" class="numbered-list" start="5">
-        <li>Krok 1 a 2 opakujte každých N minut (například 60, 120 atd..), aby jste odhalili proxy, které se časem mění, či jsou vypnuty.</li>
-      </ol>
-      <h3 id="13c3f48c-a4a7-4612-8d75-cfab15210c3f" class="">Na úrovni kódu</h3>
-      <p id="1d023e5a-75a9-405a-9637-c8deed591377" class="">Pokud sklízíte nějaké větší objemy dat a program poběží déle, než jen pár hodin, je nutné počítat s tím, že nebudete zadávat jen jednu proxy při spuštění a musí být přítomna nějaká cesta, jak z filtru nových proxy serverů načítat další a případně dát zpět vědět, že by měl filtr přesunout nefunkční proxy na banlist.</p>
-      <p id="1dc2fb73-8ad8-4f6e-92a1-a3e2eea0d27c" class="">Dál je nutné počítat s načítáním a ukládáním stavu - tohle přímo nesouvisí s proxy, ale je dobré počítat s tím, že program může zhavarovat a po startu by měl začít tam kde přestal, nikoliv dělat vše úplně odznova.</p>
-      <p id="599f7d10-160b-4622-9fff-fe6fcbf86e75" class="">Na úrovni funkce, která stahuje data z internetu je nutné počítat s několika efekty:</p>
-      <ol type="1" id="a74dc1c9-4e2c-4d6f-950c-4e42fed2f019" class="numbered-list" start="1">
-        <li>Cokoliv co stahujete může z ničeho nic zhavarovat. Pokud se to stane, zkuste to znova. Pokud to opět zhavaruje, potřebujete novou proxy a starou přidat na banlist. Skvěle se mi v tomhle ohledu osvědčil <code>@retry</code> dekorátor z balíku <a href="https://github.com/rholder/retrying">retrying</a>.
-        </li>
-      </ol>
-      <ol type="1" id="dee3f1c1-9fee-45dc-87e6-b227b6236b21" class="numbered-list" start="2">
-        <li>Cokoliv co stahujete může trvat nehorázně dlouho. Pokud se to stane, je nutné vyvolat timeout, k čemuž jsem si napsal vlastní dekorátor <code>@timeout</code>, jenž je možné nalézt v balíku <a href="https://github.com/Bystroushaak/timeout_wrapper">timeout_wrapper</a>. Jestliže se situace opakuje, použijte novou proxy a starou přidejte na banlist.
-        </li>
-      </ol>
-      <ol type="1" id="6ce64233-4378-4cc0-aec6-2a4ba81a21cf" class="numbered-list" start="3">
-        <li>Volitelně můžete kontrolovat integritu stahovaných dat. Pokud například sklízíte nějaký server, koukejte se po okolí začátku a konci HTML, jestli tam najednou proxy nezačala cpát reklamy. Někdy to vadí, někdy ne, to záleží na vás, projekt od projektu.</li>
-      </ol>
-      <h2 id="4ef9f0a7-b86c-4f52-a123-5c54bb4d8c7d" class="">Ideální architektura</h2>
-      <p id="b848b0e4-a1ad-4234-8182-e2535ecb9059" class="">Ideální architektura by vypadala nějak takhle:</p>
-      <p id="cb45880d-2a90-4dd8-a93e-c6592dabc22f" class="">Máte samostatně fungující stahovače, které pročesávají proxylisty a stahují z nich informace. Tyto informace cpou do fronty příchozích proxy.</p>
-      <p id="ceeb3fe3-74fb-4f36-8562-d04303c90cd6" class="">Frontu sleduje spouštěč prověřovačů. Pokud se v ní objeví nová proxy, která není na banlistu, je spuštěn proces prověřovače s timeoutem pár minut, který proxy prověří a případně jí schválí, či umístí na banlist, aby s ní příště neztrácel čas.</p>
-      <p id="6cb5cdfc-4c4b-4c63-bec0-f39b3f6c46ab" class="">Schválené proxy jsou přesunovány do fronty ověřených proxy listů, odkud si je berou aplikace. Pokud aplikace proxy použije, resetuje timeout do dalšího prověření. Jestliže se proxy během použití ukáže jako nevhodná, je přidána na banlist.</p>
-      <p id="913ee4d8-523b-48f9-af56-7f646827c301" class="">Pokud je proxy ve frontě ověřených proxy listů déle jak N minut, je znova předána na prověření.</p>
-      <figure id="52a20b37-516a-4cea-81f6-03e3205430cb" class="image">
-        <a href="Untitled.png" title="Untitled.png"><img style="width:797px" src="Untitled.png"></a>
-      </figure>
-      <h2 id="8903e552-6936-41ed-961c-dfeb449d75df" class="">Neideální architektura</h2>
-      <p id="d04bcd28-ac52-43b7-a135-e80d9242925f" class="">Pokud nejste zas tak moc zruční programátoři, nebo prostě a jednoduše nemáte moc času, celé se to dá udělat <em>špinavě</em> a <em>ošklivě</em>, podmínkou však je, že váš program umí pokračovat tam, kde přestal.</p>
-      <p id="e75f94b4-f14d-4d6b-a5c0-858fe7240867" class="">K tomu jsou zapotřebí dvě věci:</p>
-      <h3 id="7fd8b1dd-7ddc-4afa-aee7-fc55057672c1" class="">doitfaggot</h3>
-      <p id="fe926a16-bb3a-4b35-9c3d-aedab3196988" class="">Již dlouhá léta používám tento maximálně triviální scriptík, který jsem nazval <code>doitfaggot</code>:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="5a3686f4-3cd3-4ddc-88ed-095dd40eac34" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b1bab2a4-b744-4383-852e-a610ab1471a0" class="">Jak vidíte, nejedná se o nic sofistikovaného a napsat celý script mi zabralo tak 30 minut.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="8fd867c7-0166-4fc0-adcb-e12380dce3a8" class="">Bolest</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7c38bd03-54be-4e39-8707-033061ebb866" class="">Takže co existuje za proxy víte. Kde je vzít víte. Script, který stáhne šedesát čtyři nově publikovaných máte. Teď už vám nic nebrání v jejich použití. Celé to zakomponujete do existujícího programu a spustíte váš ďábelský plán. Teď už jen hromy, blesky a váš šílený chechot, který se line nocí..</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9b366dfe-c518-4ead-b338-1e23ad87565e" class="">Jenže ouha, celé to po chvíli vymrzlo. Chechot se mění do bolestného vytí a vás čekají dlouhé hodiny debugování a zjišťování, co je vlastně špatně.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d7ab4b50-7297-4bd5-b587-f4b31ef6941c" class="">Co je vlastně špatně</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3cd63740-d318-4114-baad-42898036001f" class="">Všechno to, co jste si mohli přečíst až sem jsou obecně známé informace, které jde poměrně lehce najít všude možně po internetu. To co bude následovat dál jsou zkušenosti, které většinou musíte získat tou horší, bolestivější cestou, protože o nich nikdo moc nepíše.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="f9030544-3bc5-447e-a911-5f49dba4cead" class="">Časová osa</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e40453a1-5d8c-4b7b-a444-f965ef719469" class="">V ideálním světě by vznikla proxy, někdo by jí zaindexoval do proxy listu a vy by jste jí mohli používat. Proxy by byla neomezeně rychlá, plně anonymní a hlavně stále stejná, tedy konzistentní, až do konce světa.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="37be0417-25b1-44c9-9d41-3bf00241e04a" class="">Ve skutečném světě vznikne proxy, někdo jí zaindexuje a vy jí můžete používat. Na první request odpoví okamžitě, na druhý za 10 sekund a na další neodpoví nikdy. Nebo na něj bude odpovídat půl hodiny, či půl dne, písmenko za písmenkem, každou minutu jedno.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4a34d950-109c-4c40-b7a1-dcee85a2c63a" class="">Proxy list nepoužíváte jen vy, ale zároveň pár (desítek) tisíc uživatelů, takže na každou proxy, která se tam vyskytne se automaticky vrhne i spousta dalších lidí. To že proxy server minutu funguje, další půl hodinu je zahlcen a potom znova funguje je zcela běžný stav.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="88480c5b-0ae7-4f50-87bc-c78d5355317e" class="">Dál je také nutné poznamenat, že žádná proxy nebude fungovat do nekonečna. Život většiny z nich je docela jepičí a měří se na dny, přičemž nikdy nevíte, jak dlouho se ta vámi používaná povaluje na proxylistu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="be733200-6f82-45ab-9ee3-e79ceca648ce" class="">Lidi jsou svině</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0d609381-2118-4977-8333-9c4d4fd88f6e" class="">Najdete servery, které vám na prvních 5 požadavků odpoví bleskově a potom začnou odpovídat už jen reklamní stránkou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7babb3f8-2226-413f-a889-9c5a6dce7b36" class="">Taky jsem viděl servery, které modifikují přenášená data a vkládají do nich reklamy, či <a href="https://blog.haschek.at/post/fd9bc">škodlivý kód</a> pomocí "on the fly" modifikace binárních souborů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2513c796-9dd9-4e35-afca-b07e33683f5f" class="">Velmi zřídka narazíte i na servery, které jsou několik requestů anonymní a potom se najednou přepnou na <em>transparent</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0293204e-51e0-42ff-af91-53da94abe161" class="">Už jsem psal, že život proxy je jepičí, ale nutno taky zdůraznit, že jejich umírání je skokové. Jak je jednou odhalí, tak budou vypnuty z milisekundy na milisekundu, dle zákona schválnosti nejčastěji právě uprostřed vašeho datového přenosu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="dc8f41f4-dd0b-4238-88e4-f2affe171f04" class="">Na seznamy se nedá spolehnout</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="552d6554-b3cc-4e44-ad04-14c2a49ec542" class="">Dostali jste ze seznamu krásnou Elite proxy s malým pingem? Jak to víte?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9ad4c669-7b3a-4edd-a9f1-78417082a8f6" class="">Nemá smysl věřit údajům, které si stáhnete ze seznamu, jsou spíš jen takové orientační, sloužící k filtrování ostatních záznamů co vás nezajímají.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="ef9c9817-ae6d-4b50-b881-18d84804a29e" class="">Seznamy se mění</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33406986-8f5e-47a8-bc6f-1ec1ad843de7" class="">Pište si unittesty na vaše parsery proxy serverů. Ochrany na jednotlivých serverech se čas od času mění, stejně jako se mění design a layout stránky. To že nějaký grabber funguje teď neznamená, že bude fungovat i zítra, proto testujte, co vlastně vrací a jestli náhodou nepadl na tom, že server vás zabanoval, změnil adresu, nebo úplně přestal existovat.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8ce0acd8-272b-421f-aa87-81eaf987b2d7" class="">Není nic víc otravného, než když se po měsíci přihlásíte na VPS, aby jste zkopírovali výsledky dlouhé sklizně a zjistíte, že celý script stál na tom, že mu vyschl proxy pool, protože nebylo odkud brát. Na tohle by vás měl program proaktivně upozornit mnohem dřív!</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="921758fe-a955-4f35-af0b-d441e519ba32" class="">Jak s tím bojovat</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="96353b4a-40fa-4bf9-888f-75fff5829050" class="">Řešení je na dvou úrovních - na úrovni kódu a na úrovni filtrování proxy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="b7caa224-276b-49fb-a18d-38a034b2d5b5" class="">Filtrování získaných proxy</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c19bef9d-ec73-4122-8c08-36f11295c9ca" class="">Všechny proxy servery, které ze seznamu získáte si musíte prověřit na zde popsané jevy, před tím než je můžete použít. V krátkosti:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="692021ac-d1f4-4127-b278-3d9a430d21ae" class="numbered-list" start="1">
+          <li>První věc co s nově získanou proxy uděláte je, že jí vyzkoušíte. Zkusíte přes ní stáhnout nějakou důvěrně známou stránku, která zároveň ideálně zobrazuje poslané hlavičky a IP adresu. Já za tímhle účelem používám <a href="http://anoncheck.security-portal.cz/">anoncheck od security-portálu</a>, protože už na něj mám napsané parsery. Ideálnější je však stránka, která vrací data nějak víc strukturovaně, například v XML.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="eca343d1-c9f3-4a95-b776-36a8cf64a80e" class="numbered-list" start="2">
+          <li>Poté co prověříte, že proxy skutečně funguje (=nedošlo k chybě a dostali jste nějaká data) ověříte co se vám vlastně vrátilo. Zde je nutné provádět kontrolu celého obsahu, jestli z ní náhodou proxy něco nevyhodila, něco nenahradila či místo obsahu neposlala něco úplně jiného. Taky prověřte IP adresu, kterou proxy ukazuje a jestli v hlavičkách neposílá vaší původní.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="282965f2-f3b7-4e8d-b2ae-2387fd8f2ad1" class="numbered-list" start="3">
+          <li>Proveďte 5 requestů na náhodné stránky, například novinky, zprávy, zkuste různé domény v různých zemích.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="76b993c0-2d2a-459c-8cb3-7e4abcfe746e" class="numbered-list" start="4">
+          <li>Zopakujte kroky 1 a 2, ideálně přes jiný anoncheck, aby jste nedostali zpět cacheovaný výsledek odminule a tentokrát si zapisujte čas. Pokud je vše v pořádku a jestliže proxy stále vyhovuje maximálnímu času, který jste ochotni tolerovat, přidejte jí do databáze.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="066a3fc4-4faa-4b80-a2f2-1121b1ea7025" class="numbered-list" start="5">
+          <li>Krok 1 a 2 opakujte každých N minut (například 60, 120 atd..), aby jste odhalili proxy, které se časem mění, či jsou vypnuty.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="13c3f48c-a4a7-4612-8d75-cfab15210c3f" class="">Na úrovni kódu</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1d023e5a-75a9-405a-9637-c8deed591377" class="">Pokud sklízíte nějaké větší objemy dat a program poběží déle, než jen pár hodin, je nutné počítat s tím, že nebudete zadávat jen jednu proxy při spuštění a musí být přítomna nějaká cesta, jak z filtru nových proxy serverů načítat další a případně dát zpět vědět, že by měl filtr přesunout nefunkční proxy na banlist.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1dc2fb73-8ad8-4f6e-92a1-a3e2eea0d27c" class="">Dál je nutné počítat s načítáním a ukládáním stavu - tohle přímo nesouvisí s proxy, ale je dobré počítat s tím, že program může zhavarovat a po startu by měl začít tam kde přestal, nikoliv dělat vše úplně odznova.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="599f7d10-160b-4622-9fff-fe6fcbf86e75" class="">Na úrovni funkce, která stahuje data z internetu je nutné počítat s několika efekty:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="a74dc1c9-4e2c-4d6f-950c-4e42fed2f019" class="numbered-list" start="1">
+          <li>Cokoliv co stahujete může z ničeho nic zhavarovat. Pokud se to stane, zkuste to znova. Pokud to opět zhavaruje, potřebujete novou proxy a starou přidat na banlist. Skvěle se mi v tomhle ohledu osvědčil <code>@retry</code> dekorátor z balíku <a href="https://github.com/rholder/retrying">retrying</a>.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="dee3f1c1-9fee-45dc-87e6-b227b6236b21" class="numbered-list" start="2">
+          <li>Cokoliv co stahujete může trvat nehorázně dlouho. Pokud se to stane, je nutné vyvolat timeout, k čemuž jsem si napsal vlastní dekorátor <code>@timeout</code>, jenž je možné nalézt v balíku <a href="https://github.com/Bystroushaak/timeout_wrapper">timeout_wrapper</a>. Jestliže se situace opakuje, použijte novou proxy a starou přidejte na banlist.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="1" id="6ce64233-4378-4cc0-aec6-2a4ba81a21cf" class="numbered-list" start="3">
+          <li>Volitelně můžete kontrolovat integritu stahovaných dat. Pokud například sklízíte nějaký server, koukejte se po okolí začátku a konci HTML, jestli tam najednou proxy nezačala cpát reklamy. Někdy to vadí, někdy ne, to záleží na vás, projekt od projektu.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="4ef9f0a7-b86c-4f52-a123-5c54bb4d8c7d" class="">Ideální architektura</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b848b0e4-a1ad-4234-8182-e2535ecb9059" class="">Ideální architektura by vypadala nějak takhle:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cb45880d-2a90-4dd8-a93e-c6592dabc22f" class="">Máte samostatně fungující stahovače, které pročesávají proxylisty a stahují z nich informace. Tyto informace cpou do fronty příchozích proxy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ceeb3fe3-74fb-4f36-8562-d04303c90cd6" class="">Frontu sleduje spouštěč prověřovačů. Pokud se v ní objeví nová proxy, která není na banlistu, je spuštěn proces prověřovače s timeoutem pár minut, který proxy prověří a případně jí schválí, či umístí na banlist, aby s ní příště neztrácel čas.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6cb5cdfc-4c4b-4c63-bec0-f39b3f6c46ab" class="">Schválené proxy jsou přesunovány do fronty ověřených proxy listů, odkud si je berou aplikace. Pokud aplikace proxy použije, resetuje timeout do dalšího prověření. Jestliže se proxy během použití ukáže jako nevhodná, je přidána na banlist.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="913ee4d8-523b-48f9-af56-7f646827c301" class="">Pokud je proxy ve frontě ověřených proxy listů déle jak N minut, je znova předána na prověření.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="52a20b37-516a-4cea-81f6-03e3205430cb" class="image">
+          <a href="Untitled.png" title="Untitled.png"><img style="width:797px" src="Untitled.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="8903e552-6936-41ed-961c-dfeb449d75df" class="">Neideální architektura</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d04bcd28-ac52-43b7-a135-e80d9242925f" class="">Pokud nejste zas tak moc zruční programátoři, nebo prostě a jednoduše nemáte moc času, celé se to dá udělat <em>špinavě</em> a <em>ošklivě</em>, podmínkou však je, že váš program umí pokračovat tam, kde přestal.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e75f94b4-f14d-4d6b-a5c0-858fe7240867" class="">K tomu jsou zapotřebí dvě věci:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="7fd8b1dd-7ddc-4afa-aee7-fc55057672c1" class="">doitfaggot</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="fe926a16-bb3a-4b35-9c3d-aedab3196988" class="">Již dlouhá léta používám tento maximálně triviální scriptík, který jsem nazval <code>doitfaggot</code>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="5a3686f4-3cd3-4ddc-88ed-095dd40eac34" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
 while ! $*; do
     :;
     sleep 2;
 done</code></pre>
-      <p id="a7ef5a44-47d5-4083-a5cc-a058e32ad967" class="">Jediné co tento script dělá je, že spouští parametr do té doby, dokud se neukončí s nulovým výstupním kódem.</p>
-      <h3 id="3431c813-cce4-435c-aeb8-a58cac983df9" class="">timeout</h3>
-      <p id="5cab2bd9-5235-41ca-8499-4c99c2a74fa3" class=""><a href="http://linux.die.net/man/1/timeout">timeout</a> je linuxový program, který spustí parametr a čeká na ukončení maximálně nějakou stanovenou dobu. Pokud program běží déle, je násilně ukončen.</p>
-      <h3 id="19df1c3c-2920-4975-91aa-937c138f4fc8" class="">quick n' dirty</h3>
-      <p id="dadfdfa8-0ad3-4794-ad08-b34e6645f8de" class="">Asi už vám došlo, jak to celé bude fungovat:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="ab2fe4d3-1cf5-4b86-82ce-9550a9dcca3b" class="code"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">doitfaggot timeout 10m my_program.py -p `./get_proxy.py | head -n 1`</code></pre>
-      <p id="343f36fa-facb-433f-9aba-f3ffcd2d75f0" class="">Celé to funguje tak, že <code>doitfaggot</code> spouští váš program dokud timeoutuje (=<code>timeout</code> vrací kód &gt;0), což se děje každých 10 minut. Jakmile se váš program korektně ukončí, <code>timeout</code> vrátí 0, čímž se vypne i <code>doitfaggot</code>. Proxy server je při každém zavolání načten jako parametr vašeho programu.</p>
-      <p id="4ca44f82-b81b-43a2-b425-17962e727c52" class="">Tento přístup je z programátorského hlediska neskutečná prasečina, ale dá se docela úspěšně použít na menší věci. V podstatě veškeré uvedené dobré rady a možné chybové chování ignoruje a hrubou silou to zkouší stále znova a znova a znova a zase, dokud neuspěje.</p>
-      <p id="8c166ca5-c9d2-48b2-b6d5-0bbca79edda2" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a7ef5a44-47d5-4083-a5cc-a058e32ad967" class="">Jediné co tento script dělá je, že spouští parametr do té doby, dokud se neukončí s nulovým výstupním kódem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="3431c813-cce4-435c-aeb8-a58cac983df9" class="">timeout</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5cab2bd9-5235-41ca-8499-4c99c2a74fa3" class=""><a href="http://linux.die.net/man/1/timeout">timeout</a> je linuxový program, který spustí parametr a čeká na ukončení maximálně nějakou stanovenou dobu. Pokud program běží déle, je násilně ukončen.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="19df1c3c-2920-4975-91aa-937c138f4fc8" class="">quick n' dirty</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dadfdfa8-0ad3-4794-ad08-b34e6645f8de" class="">Asi už vám došlo, jak to celé bude fungovat:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="ab2fe4d3-1cf5-4b86-82ce-9550a9dcca3b" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">doitfaggot timeout 10m my_program.py -p `./get_proxy.py | head -n 1`</code></pre>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="343f36fa-facb-433f-9aba-f3ffcd2d75f0" class="">Celé to funguje tak, že <code>doitfaggot</code> spouští váš program dokud timeoutuje (=<code>timeout</code> vrací kód &gt;0), což se děje každých 10 minut. Jakmile se váš program korektně ukončí, <code>timeout</code> vrátí 0, čímž se vypne i <code>doitfaggot</code>. Proxy server je při každém zavolání načten jako parametr vašeho programu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4ca44f82-b81b-43a2-b425-17962e727c52" class="">Tento přístup je z programátorského hlediska neskutečná prasečina, ale dá se docela úspěšně použít na menší věci. V podstatě veškeré uvedené dobré rady a možné chybové chování ignoruje a hrubou silou to zkouší stále znova a znova a znova a zase, dokud neuspěje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8c166ca5-c9d2-48b2-b6d5-0bbca79edda2" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

@@ -129,161 +129,301 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Hardware">Hardware</a> / BusPirate
   <article id="d1eb733b-1629-4928-af1e-5fa6ca2b5aac" class="page sans">
     <header>
-      <h1 class="page-title">BusPirate</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">BusPirate</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="2f4a0336-721f-4ab6-b575-2893b002b567" class=""><time>@2011/07/05</time></p>
-      <p id="33358b2d-c69a-45dd-895c-4c117ba9d5e1" class=""><a href="http://dangerousprototypes.com/bus-pirate-manual/">BusPirate</a> je velice užitečný opensource nástroj umožňující komunikaci po spoustě sběrnic. Jedná se o cosi jako netcat, tedy Švýcarský nůž pro každého bastlíře. Přišlo mi trochu škoda, že o něm v Čechách moc lidí neví, proto jsem se rozhodl popsat své dojmy po více než roce jeho používání.</p>
-      <h2 id="f516af0c-5619-4bdc-97ca-c29fda5479c3" class="">K čemu to je?</h2>
-      <p id="4e6587c2-9277-4d5d-9afc-5546dbbedbca" class="">Pokud se zabýváte elektronikou, určitě se vám už stalo, že jste potřebovali komunikovat se svým výtvorem po nějaké sběrnici, jenže vaše PC podporuje pouze USB, či s trochou štěstí obstarožní <a href="http://cs.wikipedia.org/wiki/RS232">RS232</a>. V takovém případě jste pravděpodobně byli nuceni sehnat či postavit konvertor, kterým jste umožnili komunikaci vašeho počítače s vytvářenou deskou. Tyto konvertory jsou většinou jednoúčelové a protože se v praxi setkáváme s více jak jednou sběrnicí, za chvíli se vám doma válí spousta jednoúčelových bastlů (klasikou je třeba <a href="http://hw.cz/Produkty/ART1054-RS-232-TTL-Converter.html">kovertor</a> RS232 &lt;&gt; TTL/<a href="http://cs.wikipedia.org/wiki/USART">UART</a>).</p>
-      <div id="717504c2-8f7f-4d40-99dd-3d62cd8fed99" class="column-list">
-        <div id="323f4e2b-5563-44a8-9154-7c7eda317a3e" style="width:50%" class="column">
-          <figure id="bd82d0f9-81dd-4717-a030-d16f9a798297" class="image">
-            <a href="Untitled.png" title="Untitled.png"><img style="width:1024px" src="Untitled.png"></a>
-          </figure>
-        </div>
-        <div id="aae8c44b-6cef-4769-a309-fb8e93c516c0" style="width:50%" class="column">
-          <figure id="dc6c3901-a0c6-40fb-bfea-00f3311c8492" class="image">
-            <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:800px" src="Untitled_1.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2f4a0336-721f-4ab6-b575-2893b002b567" class=""><time>@2011/07/05</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="33358b2d-c69a-45dd-895c-4c117ba9d5e1" class=""><a href="http://dangerousprototypes.com/bus-pirate-manual/">BusPirate</a> je velice užitečný opensource nástroj umožňující komunikaci po spoustě sběrnic. Jedná se o cosi jako netcat, tedy Švýcarský nůž pro každého bastlíře. Přišlo mi trochu škoda, že o něm v Čechách moc lidí neví, proto jsem se rozhodl popsat své dojmy po více než roce jeho používání.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="f516af0c-5619-4bdc-97ca-c29fda5479c3" class="">K čemu to je?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4e6587c2-9277-4d5d-9afc-5546dbbedbca" class="">Pokud se zabýváte elektronikou, určitě se vám už stalo, že jste potřebovali komunikovat se svým výtvorem po nějaké sběrnici, jenže vaše PC podporuje pouze USB, či s trochou štěstí obstarožní <a href="http://cs.wikipedia.org/wiki/RS232">RS232</a>. V takovém případě jste pravděpodobně byli nuceni sehnat či postavit konvertor, kterým jste umožnili komunikaci vašeho počítače s vytvářenou deskou. Tyto konvertory jsou většinou jednoúčelové a protože se v praxi setkáváme s více jak jednou sběrnicí, za chvíli se vám doma válí spousta jednoúčelových bastlů (klasikou je třeba <a href="http://hw.cz/Produkty/ART1054-RS-232-TTL-Converter.html">kovertor</a> RS232 &lt;&gt; TTL/<a href="http://cs.wikipedia.org/wiki/USART">UART</a>).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="717504c2-8f7f-4d40-99dd-3d62cd8fed99" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="323f4e2b-5563-44a8-9154-7c7eda317a3e" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="bd82d0f9-81dd-4717-a030-d16f9a798297" class="image">
+                  <a href="Untitled.png" title="Untitled.png"><img style="width:1024px" src="Untitled.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="aae8c44b-6cef-4769-a309-fb8e93c516c0" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="dc6c3901-a0c6-40fb-bfea-00f3311c8492" class="image">
+                  <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:800px" src="Untitled_1.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="6a8a8a2c-775e-44b3-af9e-d7a9cc424340" class="column-list">
-        <div id="cc8ad7a2-f6c8-4ea4-9815-b6da1448ad10" style="width:50%" class="column">
-          <figure id="b5947ea7-c6f9-4bbf-9bf1-35ee4aa2856d" class="image">
-            <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:640px" src="Untitled_2.png"></a>
-          </figure>
-        </div>
-        <div id="9c90d125-d5a0-4792-b40f-11e6324331dc" style="width:50%" class="column">
-          <figure id="c1f08474-1d03-4700-8312-84a12db89f9d" class="image">
-            <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:640px" src="Untitled_3.png"></a>
-          </figure>
-        </div>
-      </div>
-      <p id="3b65d5f5-ca84-4841-ac5d-e62020870964" class="">Jak doufám každý uzná, výše popsaná situace není moc ideální a proto vznikla myšlenka vytvořit cosi univerzálnějšího, co by po připojení do USB umožňovalo dnešním nadupaným, leč na sběrnice chudým počítačům komunikaci nějakým jednoduchým způsobem.</p>
-      <div id="233ed37f-3c03-40c7-89ec-03fad973329c" class="column-list">
-        <div id="9dd877b7-92a3-4d60-a19d-cf443c35acfa" style="width:43.75%" class="column">
-          <figure id="df76f532-8517-4c85-bfc2-685dfe864d62" class="image">
-            <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:640px" src="Untitled_4.png"></a>
-          </figure>
-        </div>
-        <div id="6349fbb2-1265-4e7e-aa74-28aef8336ce0" style="width:56.25%" class="column">
-          <figure id="f9b41346-211e-40ce-ae58-a151291a2d9e" class="image">
-            <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:640px" src="Untitled_5.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <div id="6a8a8a2c-775e-44b3-af9e-d7a9cc424340" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="cc8ad7a2-f6c8-4ea4-9815-b6da1448ad10" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="b5947ea7-c6f9-4bbf-9bf1-35ee4aa2856d" class="image">
+                  <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:640px" src="Untitled_2.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="9c90d125-d5a0-4792-b40f-11e6324331dc" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="c1f08474-1d03-4700-8312-84a12db89f9d" class="image">
+                  <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:640px" src="Untitled_3.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="a4c48036-acc6-410e-bf4f-08d55e7ba47e" class="column-list">
-        <div id="564ffb8f-848b-4243-887d-7af660614b3a" style="width:50%" class="column">
-          <figure id="34ee302b-2ed7-461a-9a6e-b6340daa59d4" class="image">
-            <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:800px" src="Untitled_6.png"></a>
-          </figure>
-        </div>
-        <div id="302c1561-6471-4bcb-8235-67cb358dff61" style="width:50%" class="column">
-          <figure id="3a1e9389-3fc2-4320-871a-6e824b9e37ef" class="image">
-            <a href="Untitled_7.png" title="Untitled_7.png"><img style="width:349px" src="Untitled_7.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <p id="3b65d5f5-ca84-4841-ac5d-e62020870964" class="">Jak doufám každý uzná, výše popsaná situace není moc ideální a proto vznikla myšlenka vytvořit cosi univerzálnějšího, co by po připojení do USB umožňovalo dnešním nadupaným, leč na sběrnice chudým počítačům komunikaci nějakým jednoduchým způsobem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="233ed37f-3c03-40c7-89ec-03fad973329c" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="9dd877b7-92a3-4d60-a19d-cf443c35acfa" style="width:43.75%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="df76f532-8517-4c85-bfc2-685dfe864d62" class="image">
+                  <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:640px" src="Untitled_4.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="6349fbb2-1265-4e7e-aa74-28aef8336ce0" style="width:56.25%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="f9b41346-211e-40ce-ae58-a151291a2d9e" class="image">
+                  <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:640px" src="Untitled_5.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <h2 id="326e7dd1-05c5-4e36-adad-1570f8f581ac" class="">Co to umí?</h2>
-      <p id="c2e38a3f-ef01-48d3-89b0-f62ec5a9762b" class="">BusPirate se dá použít pro komunikaci s těmito sběrnicemi:</p>
-      <ul id="d42dbc9a-0cad-45a4-848f-2c05f9b97d26" class="bulleted-list">
-        <li style="list-style-type:disc">1-Wire</li>
-      </ul>
-      <ul id="08bc9a34-7255-44bd-b398-b152726f395f" class="bulleted-list">
-        <li style="list-style-type:disc">IC
-          <p id="d81bbfeb-5291-4e54-b61a-664aea618ddd" class="">2</p>
-        </li>
-      </ul>
-      <ul id="da11782d-fff8-4fe5-becc-0c99e277cb26" class="bulleted-list">
-        <li style="list-style-type:disc">SPI</li>
-      </ul>
-      <ul id="9d3b956d-4aca-4843-8b15-45a13c70b685" class="bulleted-list">
-        <li style="list-style-type:disc">JTAG</li>
-      </ul>
-      <ul id="2efdb074-2977-4489-a1d7-869ce8c3508e" class="bulleted-list">
-        <li style="list-style-type:disc">Asynchronous serial</li>
-      </ul>
-      <ul id="df7e0ec1-1521-4a3c-91f3-6ec30f78e131" class="bulleted-list">
-        <li style="list-style-type:disc">MIDI</li>
-      </ul>
-      <ul id="f59e950f-0caf-466c-91d2-6ec335e289eb" class="bulleted-list">
-        <li style="list-style-type:disc">PC keyboard</li>
-      </ul>
-      <ul id="34e81c77-9302-4707-8b00-e4575aeae79e" class="bulleted-list">
-        <li style="list-style-type:disc">HD44780 LCD</li>
-      </ul>
-      <ul id="0990c67e-47c2-4049-96ca-425478a76a95" class="bulleted-list">
-        <li style="list-style-type:disc">2- and 3-wire libraries with bitwise pin control</li>
-      </ul>
-      <p id="5d976e8c-5f0a-41c8-9f77-24f1226deb9e" class="">Mezi další vlastnosti patří:</p>
-      <ul id="070ae87b-4a2a-4818-9669-d31373f606e8" class="bulleted-list">
-        <li style="list-style-type:disc">I/O 0 .. 5.5V</li>
-      </ul>
-      <ul id="9440b7d8-7161-451d-8986-de4e5e6a08a6" class="bulleted-list">
-        <li style="list-style-type:disc">0 .. 6V sonda</li>
-      </ul>
-      <ul id="88f42ef1-e611-45ee-87d5-acc748da893c" class="bulleted-list">
-        <li style="list-style-type:disc">1Hz .. 40MHz měření frekvence</li>
-      </ul>
-      <ul id="b406a3b7-a770-49ad-94fe-0f3df460599c" class="bulleted-list">
-        <li style="list-style-type:disc">1kHz .. 4MHz pwm modulátor, frekvenční generátor</li>
-      </ul>
-      <ul id="93afd4f1-421d-490d-9601-0e97c42dd756" class="bulleted-list">
-        <li style="list-style-type:disc">3.3V a 5V zdroj se softwarovým resetem</li>
-      </ul>
-      <ul id="59270aca-c473-4d96-bf64-23a76dbb9956" class="bulleted-list">
-        <li style="list-style-type:disc">Makra pro běžné operace</li>
-      </ul>
-      <ul id="da790334-56fb-4abe-a808-5af1ab7cb61b" class="bulleted-list">
-        <li style="list-style-type:disc">Sniffování sběrnic (SPI, I2C)</li>
-      </ul>
-      <ul id="0f116d7b-3f01-40aa-9431-c059e0f7da51" class="bulleted-list">
-        <li style="list-style-type:disc">Bootloader umožňující jednoduchý update firmware</li>
-      </ul>
-      <ul id="fd3650c5-0be2-4f53-a101-1fca9e565d89" class="bulleted-list">
-        <li style="list-style-type:disc">USB-&gt;Serial bridge</li>
-      </ul>
-      <ul id="6c3c5efc-40f9-4336-8337-b940380bf1d5" class="bulleted-list">
-        <li style="list-style-type:disc">10Hz .. 1MHz logický analyzér</li>
-      </ul>
-      <ul id="456b51c5-a890-45f1-ad61-9b5740ef54ed" class="bulleted-list">
-        <li style="list-style-type:disc">
-          <strong>Schopnost programovat AVR mikrokontrolery</strong>
-          <ul id="f292b88b-5d35-488b-8765-0390ff98d81a" class="bulleted-list">
-            <li style="list-style-type:circle">Podporovaný <a href="http://savannah.nongnu.org/projects/avrdude">avrdude</a>
-            </li>
-          </ul>
-          <ul id="cb1d8858-c45b-4f5c-976f-5bbf1cf5427a" class="bulleted-list">
-            <li style="list-style-type:circle">S alternativním firmwarem schopný emulace STK500v2</li>
-          </ul>
-        </li>
-      </ul>
-      <ul id="08eecca1-ec1d-44b2-88ba-d7c6a2c23210" class="bulleted-list">
-        <li style="list-style-type:disc">S alternativním firmwarem XSVF schopný programovat FPGA a CPLD obvody</li>
-      </ul>
-      <ul id="cef18f42-efbc-4325-9d12-17d9a209c8e7" class="bulleted-list">
-        <li style="list-style-type:disc">Scriptovatelný z pythonu, perlu atp..</li>
-      </ul>
-      <p id="6185fdc3-daed-4db4-bd17-886de641769a" class="">Jak je vidět, nejedná se o málo vlastností, naopak se dá říct že je to slušně zařízená elektronická laboratoř na jedné desce. Samozřejmě že profesionálové používají nástroje s lepšími parametry, ale pro obyčejného bastlíře se jedná o splněný sen.</p>
-      <h2 id="76cfe8e4-90a7-4437-9861-4d52dd29af76" class="">Jak to použít?</h2>
-      <p id="eb13973b-3746-4f0f-a78e-651e4e9dd1f7" class="">Po připojení do USB můžete se zařízením začít komunikovat. K tomu se pravděpodobně bude hodit <a href="http://en.wikipedia.org/wiki/Minicom">minicom</a>, jak ho nakonfigurovat najdete kromě <a href="http://dangerousprototypes.com/docs/Bus_Pirate#Linux.2C_Mac">oficiální dokumentace</a> třeba <a href="http://jumptuck.wordpress.com/2010/01/20/using-the-bus-pirate-with-ubuntu/">zde</a>.</p>
-      <p id="3c766f30-eb7c-44a4-a7b5-a5ce336cac9a" class="">Jakmile se minicom spustí, uvidíte před sebou jednoduchý shell, na který můžete zadávat příkazy které přepínají BusPirate do různých stavů (vybíráte napětí a sběrnice) a nastavují/čtou informace. Příkazy jsou většinou ve formě jednoho písmena/číslice, ukázku pro představu je možné najít třeba <a href="http://dangerousprototypes.com/docs/Bus_Pirate_menu_options_guide">zde</a>.</p>
-      <p id="dfbceed1-26f7-43c4-8448-ce271afbe0e2" class="">Poměrně zajímavou možností, se kterou zatím ale nemám zkušenosti je scriptování - jelikož komunikace probíhá v textovém režimu, není problém připojit se na daný port python scriptem a ovládat BusPirate z něj.</p>
-      <p id="5d32242c-c70d-4822-aecc-aa827057ef81" class="">Pokud budete chtít BusPirate využít jako AVR programátor, máte <a href="http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming">dvě možnosti</a>. Tou první je použít avrdude s podporou buspirate, tou druhou nahrání <a href="http://dangerousprototypes.com/docs/STK500_v2_AVR_programmer_clone">nového firmware</a>, který způsobí že se bude Buspirate tvářit jako STK500v2 programátor, tudíž můžete použít libovolný software na libovolném operačním systému. <a href="http://dangerousprototypes.com/docs/Pirate-Loader_console_upgrade_application_%28Linux,_Mac,_Windows%29">Nahrávání firmwaru</a> není nijak těžké, stačí kusem drátu přemostit propojku na desce a Pirate-Loaderem flashnout nový firmware.</p>
-      <h2 id="8ce140d8-4a4d-4265-a468-86626c728702" class="">Kolik to stojí?</h2>
-      <p id="64053b75-5556-4e7c-8185-47b1c93fcdba" class="">Díky tomu že se jedná o opensource, je <a href="http://www.seeedstudio.com/depot/bus-pirate-v3-assembled-p-609.html?cPath=61_68">cena</a> víc než sympatická - 30$, včetně celosvětového poštovného. K samotnému BusPirate doporučuji objednat ještě <a href="http://www.seeedstudio.com/depot/plastic-case-for-small-project-bus-pirate-v3-compatible-p-581.html?cPath=77">krabičku</a> a <a href="http://www.seeedstudio.com/depot/bus-pirate-probe-kit-p-526.html?cPath=178_180">sadu sond</a>, vyjde to na pár dolarů navíc a rozhodně se to vyplatí. Dál budete potřebovat miniusb kabel, ale předpokládám že se vám doma nějaký válí, protože dneska se používá snad všude. Dohromady za něj dáte tedy něco okolo 630 kč, což není vůbec špatné.</p>
-      <p id="be0dd584-9eb5-42ab-86b2-a9f6652368e1" class="">Dlouhou dobu jsem si lámal hlavu s tím, jak je možné že celosvětové poštovné stojí prakticky nic. Když mi potom domu BusPirate přišel, pochopil jsem to - i s krytem poměrně věrně kopíruje rozměry krabičky od sirek. Z fotek se to nezdá, ale je to fakt prcek o rozměrech ~ 5.5 x 3.5 cm.</p>
-      <h2 id="d09859d8-ec14-425d-aea7-9b72761532a5" class="">Má to nějaké nevýhody?</h2>
-      <p id="86c879c3-44ff-45ce-89a7-b12b6776b93e" class="">Osciloskop/logický analyzátor je tam spíš jen jako doplněk, který v praxi moc užitečný není (nízká rychlost, nestíněné sondy na obyčejných drátech atp..), ale na druhou stranu to není a ani nemá být hlavní funkce, takže se to dá pochopit.</p>
-      <p id="1bf95ccf-6629-415c-8ee6-c8027b6ee427" class="">Další nevýhoda jsou sondy, které sice stojí 5$, ale jejich kvalita je dost mizerná. Osobně si za ty prachy dokážu představit o dost lepší, to co jsem dostal jsou levné plastové výlisky, které vypadají že se co nevidět rozpadnou. Jejich barvy navíc neodpovídají barvám kabelů na kterých jsou nacvaklé, což vede k častým omylům. I přesto však doporučuji jejich zakoupení, protože v opačném případě si užijete pěknou otravu s jejich výrobou.</p>
-      <h2 id="8399347d-1a99-4fd8-94e3-1a2d4bb81d93" class="">Závěr</h2>
-      <p id="593b1294-5ffe-480b-b3cf-f5b07cfcb547" class="">BusPirate jsem si pořídil minulý rok k narozeninám a od té doby ho používám. Jedná se o pro mě nedocenitelnou pomůcku, bez které bych byl ztracený podobně jako bez kleští, nebo mikropájky - jde to i bez něj, ale pěkně blbě.</p>
-      <p id="0df760e7-bc87-48e8-8a16-47ff85eaf531" class="">Shrnuto a podtrženo - pokud uvažujete o koupi, můžu vám ho jen doporučit.</p>
-      <p id="58e88889-9b19-4939-9caf-5280faac565d" class=""></p>
+      <div style="display:contents" dir="auto">
+        <div id="a4c48036-acc6-410e-bf4f-08d55e7ba47e" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="564ffb8f-848b-4243-887d-7af660614b3a" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="34ee302b-2ed7-461a-9a6e-b6340daa59d4" class="image">
+                  <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:800px" src="Untitled_6.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="302c1561-6471-4bcb-8235-67cb358dff61" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="3a1e9389-3fc2-4320-871a-6e824b9e37ef" class="image">
+                  <a href="Untitled_7.png" title="Untitled_7.png"><img style="width:349px" src="Untitled_7.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="326e7dd1-05c5-4e36-adad-1570f8f581ac" class="">Co to umí?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c2e38a3f-ef01-48d3-89b0-f62ec5a9762b" class="">BusPirate se dá použít pro komunikaci s těmito sběrnicemi:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="d42dbc9a-0cad-45a4-848f-2c05f9b97d26" class="bulleted-list">
+          <li style="list-style-type:disc">1-Wire</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="08bc9a34-7255-44bd-b398-b152726f395f" class="bulleted-list">
+          <li style="list-style-type:disc">IC
+            <div style="display:contents" dir="auto">
+              <p id="d81bbfeb-5291-4e54-b61a-664aea618ddd" class="">2</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="da11782d-fff8-4fe5-becc-0c99e277cb26" class="bulleted-list">
+          <li style="list-style-type:disc">SPI</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="9d3b956d-4aca-4843-8b15-45a13c70b685" class="bulleted-list">
+          <li style="list-style-type:disc">JTAG</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="2efdb074-2977-4489-a1d7-869ce8c3508e" class="bulleted-list">
+          <li style="list-style-type:disc">Asynchronous serial</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="df7e0ec1-1521-4a3c-91f3-6ec30f78e131" class="bulleted-list">
+          <li style="list-style-type:disc">MIDI</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="f59e950f-0caf-466c-91d2-6ec335e289eb" class="bulleted-list">
+          <li style="list-style-type:disc">PC keyboard</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="34e81c77-9302-4707-8b00-e4575aeae79e" class="bulleted-list">
+          <li style="list-style-type:disc">HD44780 LCD</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0990c67e-47c2-4049-96ca-425478a76a95" class="bulleted-list">
+          <li style="list-style-type:disc">2- and 3-wire libraries with bitwise pin control</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5d976e8c-5f0a-41c8-9f77-24f1226deb9e" class="">Mezi další vlastnosti patří:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="070ae87b-4a2a-4818-9669-d31373f606e8" class="bulleted-list">
+          <li style="list-style-type:disc">I/O 0 .. 5.5V</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="9440b7d8-7161-451d-8986-de4e5e6a08a6" class="bulleted-list">
+          <li style="list-style-type:disc">0 .. 6V sonda</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="88f42ef1-e611-45ee-87d5-acc748da893c" class="bulleted-list">
+          <li style="list-style-type:disc">1Hz .. 40MHz měření frekvence</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="b406a3b7-a770-49ad-94fe-0f3df460599c" class="bulleted-list">
+          <li style="list-style-type:disc">1kHz .. 4MHz pwm modulátor, frekvenční generátor</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="93afd4f1-421d-490d-9601-0e97c42dd756" class="bulleted-list">
+          <li style="list-style-type:disc">3.3V a 5V zdroj se softwarovým resetem</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="59270aca-c473-4d96-bf64-23a76dbb9956" class="bulleted-list">
+          <li style="list-style-type:disc">Makra pro běžné operace</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="da790334-56fb-4abe-a808-5af1ab7cb61b" class="bulleted-list">
+          <li style="list-style-type:disc">Sniffování sběrnic (SPI, I2C)</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="0f116d7b-3f01-40aa-9431-c059e0f7da51" class="bulleted-list">
+          <li style="list-style-type:disc">Bootloader umožňující jednoduchý update firmware</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="fd3650c5-0be2-4f53-a101-1fca9e565d89" class="bulleted-list">
+          <li style="list-style-type:disc">USB-&gt;Serial bridge</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="6c3c5efc-40f9-4336-8337-b940380bf1d5" class="bulleted-list">
+          <li style="list-style-type:disc">10Hz .. 1MHz logický analyzér</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="456b51c5-a890-45f1-ad61-9b5740ef54ed" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <strong>Schopnost programovat AVR mikrokontrolery</strong>
+            <div style="display:contents" dir="auto">
+              <ul id="f292b88b-5d35-488b-8765-0390ff98d81a" class="bulleted-list">
+                <li style="list-style-type:circle">Podporovaný <a href="http://savannah.nongnu.org/projects/avrdude">avrdude</a>
+                </li>
+              </ul>
+            </div>
+            <div style="display:contents" dir="auto">
+              <ul id="cb1d8858-c45b-4f5c-976f-5bbf1cf5427a" class="bulleted-list">
+                <li style="list-style-type:circle">S alternativním firmwarem schopný emulace STK500v2</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="08eecca1-ec1d-44b2-88ba-d7c6a2c23210" class="bulleted-list">
+          <li style="list-style-type:disc">S alternativním firmwarem XSVF schopný programovat FPGA a CPLD obvody</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="cef18f42-efbc-4325-9d12-17d9a209c8e7" class="bulleted-list">
+          <li style="list-style-type:disc">Scriptovatelný z pythonu, perlu atp..</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6185fdc3-daed-4db4-bd17-886de641769a" class="">Jak je vidět, nejedná se o málo vlastností, naopak se dá říct že je to slušně zařízená elektronická laboratoř na jedné desce. Samozřejmě že profesionálové používají nástroje s lepšími parametry, ale pro obyčejného bastlíře se jedná o splněný sen.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="76cfe8e4-90a7-4437-9861-4d52dd29af76" class="">Jak to použít?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eb13973b-3746-4f0f-a78e-651e4e9dd1f7" class="">Po připojení do USB můžete se zařízením začít komunikovat. K tomu se pravděpodobně bude hodit <a href="http://en.wikipedia.org/wiki/Minicom">minicom</a>, jak ho nakonfigurovat najdete kromě <a href="http://dangerousprototypes.com/docs/Bus_Pirate#Linux.2C_Mac">oficiální dokumentace</a> třeba <a href="http://jumptuck.wordpress.com/2010/01/20/using-the-bus-pirate-with-ubuntu/">zde</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3c766f30-eb7c-44a4-a7b5-a5ce336cac9a" class="">Jakmile se minicom spustí, uvidíte před sebou jednoduchý shell, na který můžete zadávat příkazy které přepínají BusPirate do různých stavů (vybíráte napětí a sběrnice) a nastavují/čtou informace. Příkazy jsou většinou ve formě jednoho písmena/číslice, ukázku pro představu je možné najít třeba <a href="http://dangerousprototypes.com/docs/Bus_Pirate_menu_options_guide">zde</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dfbceed1-26f7-43c4-8448-ce271afbe0e2" class="">Poměrně zajímavou možností, se kterou zatím ale nemám zkušenosti je scriptování - jelikož komunikace probíhá v textovém režimu, není problém připojit se na daný port python scriptem a ovládat BusPirate z něj.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5d32242c-c70d-4822-aecc-aa827057ef81" class="">Pokud budete chtít BusPirate využít jako AVR programátor, máte <a href="http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming">dvě možnosti</a>. Tou první je použít avrdude s podporou buspirate, tou druhou nahrání <a href="http://dangerousprototypes.com/docs/STK500_v2_AVR_programmer_clone">nového firmware</a>, který způsobí že se bude Buspirate tvářit jako STK500v2 programátor, tudíž můžete použít libovolný software na libovolném operačním systému. <a href="http://dangerousprototypes.com/docs/Pirate-Loader_console_upgrade_application_%28Linux,_Mac,_Windows%29">Nahrávání firmwaru</a> není nijak těžké, stačí kusem drátu přemostit propojku na desce a Pirate-Loaderem flashnout nový firmware.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="8ce140d8-4a4d-4265-a468-86626c728702" class="">Kolik to stojí?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="64053b75-5556-4e7c-8185-47b1c93fcdba" class="">Díky tomu že se jedná o opensource, je <a href="http://www.seeedstudio.com/depot/bus-pirate-v3-assembled-p-609.html?cPath=61_68">cena</a> víc než sympatická - 30$, včetně celosvětového poštovného. K samotnému BusPirate doporučuji objednat ještě <a href="http://www.seeedstudio.com/depot/plastic-case-for-small-project-bus-pirate-v3-compatible-p-581.html?cPath=77">krabičku</a> a <a href="http://www.seeedstudio.com/depot/bus-pirate-probe-kit-p-526.html?cPath=178_180">sadu sond</a>, vyjde to na pár dolarů navíc a rozhodně se to vyplatí. Dál budete potřebovat miniusb kabel, ale předpokládám že se vám doma nějaký válí, protože dneska se používá snad všude. Dohromady za něj dáte tedy něco okolo 630 kč, což není vůbec špatné.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="be0dd584-9eb5-42ab-86b2-a9f6652368e1" class="">Dlouhou dobu jsem si lámal hlavu s tím, jak je možné že celosvětové poštovné stojí prakticky nic. Když mi potom domu BusPirate přišel, pochopil jsem to - i s krytem poměrně věrně kopíruje rozměry krabičky od sirek. Z fotek se to nezdá, ale je to fakt prcek o rozměrech ~ 5.5 x 3.5 cm.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="d09859d8-ec14-425d-aea7-9b72761532a5" class="">Má to nějaké nevýhody?</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="86c879c3-44ff-45ce-89a7-b12b6776b93e" class="">Osciloskop/logický analyzátor je tam spíš jen jako doplněk, který v praxi moc užitečný není (nízká rychlost, nestíněné sondy na obyčejných drátech atp..), ale na druhou stranu to není a ani nemá být hlavní funkce, takže se to dá pochopit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1bf95ccf-6629-415c-8ee6-c8027b6ee427" class="">Další nevýhoda jsou sondy, které sice stojí 5$, ale jejich kvalita je dost mizerná. Osobně si za ty prachy dokážu představit o dost lepší, to co jsem dostal jsou levné plastové výlisky, které vypadají že se co nevidět rozpadnou. Jejich barvy navíc neodpovídají barvám kabelů na kterých jsou nacvaklé, což vede k častým omylům. I přesto však doporučuji jejich zakoupení, protože v opačném případě si užijete pěknou otravu s jejich výrobou.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="8399347d-1a99-4fd8-94e3-1a2d4bb81d93" class="">Závěr</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="593b1294-5ffe-480b-b3cf-f5b07cfcb547" class="">BusPirate jsem si pořídil minulý rok k narozeninám a od té doby ho používám. Jedná se o pro mě nedocenitelnou pomůcku, bez které bych byl ztracený podobně jako bez kleští, nebo mikropájky - jde to i bez něj, ale pěkně blbě.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0df760e7-bc87-48e8-8a16-47ff85eaf531" class="">Shrnuto a podtrženo - pokud uvažujete o koupi, můžu vám ho jen doporučit.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="58e88889-9b19-4939-9caf-5280faac565d" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">

@@ -10,10 +10,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Bystroushaak">
   <meta name="twitter:title" content="SendDVD">
-  <meta name="twitter:description" content="Služba, kam člověk pošle email se seznamem odkazů / přiloženým scriptem a zpět dostane DVD s výstupem.">
-  <meta property="og:description" content="Služba, kam člověk pošle email se seznamem odkazů / přiloženým scriptem a zpět dostane DVD s výstupem.">
-  <script src="../scripts.js"></script>
-  <meta name="description" content="Služba, kam člověk pošle email se seznamem odkazů / přiloženým scriptem a zpět dostane DVD s výstupem."><!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="../scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
 
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
   <script>
@@ -32,6 +29,9 @@
     <h3>New posts</h3>
     <div id="last_five_top">
       <ul>
+        <li>
+          <a href="../en/Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../en/3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -58,9 +58,6 @@
         </li>
         <li>
           <a href="../en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../en/Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../Changelog.html" title="Changelog">more</a>
@@ -120,31 +117,64 @@
       <div class="page-header-icon undefined">
         <span class="icon">🗒</span>
       </div>
-      <h1 class="page-title">SendDVD</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">SendDVD</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <p id="58684b01-cb56-48ae-bc28-df6a4cf314b0" class="">Služba, kam člověk pošle email se seznamem odkazů / přiloženým scriptem a zpět dostane DVD s výstupem.</p>
-      <p id="aedad0a6-a6e1-4510-9201-59af639fd11f" class="">Poplatek ala 1 DVD za 100kč + 50kč každé další.</p>
-      <p id="a55274d1-a84e-471c-9e80-27c97a45d695" class="">Dobrý přivýdělek pro studenty a chudé lidi.</p>
-      <ul id="81fe8225-df34-4b6a-8f37-386fecef7a65" class="bulleted-list">
-        <li style="list-style-type:disc">naopak - pošle DVD + script, ten je spuštěn a je mu dána hodina na optice co do uploadu.</li>
-      </ul>
-      <h1 id="5f3ef238-f5fd-40ec-a7d0-3a2f83cf5a80" class="">Proč?</h1>
-      <p id="30dbe149-f03b-4b12-a844-22f4253b4067" class="">Pro lidi co žijí v oblastech velmi pomalého připojení.</p>
-      <p id="3a98a4bc-7aa2-4c19-a1b4-8f65801fa287" class="">Pro cestovatele, kteří se nachází v místech kde není připojení k internetu.</p>
-      <p id="2e5f7ef4-1a45-476c-9068-67bc7d65a1c1" class="">Pro všechny, které nebaví otravovat kamarády se "stáhni mi to prosím".</p>
-      <p id="745e4064-6797-4001-964f-8cac37228b6b" class="">Žít s internetem, ale bez internetu.</p>
-      <h1 id="c4e27fe4-8cb0-4827-8066-a6c4a6565403" class="">Technické řešení</h1>
-      <p id="7fa37f42-ec74-4d3e-9a8e-062c842b59dc" class="">Distribučnímu nodu je doručena krabice, kde je rPI s externí DVD vypalovačkou (nízká cena, velmi kompaktní). Toto zařízení připojí ethernetem na router a dál ho jen krmí DVD / flashdiskama. Zařízení má LED, kterými signalizuje připravenost k akci, či dokončení downloadu z média. Zařízení je připojeno na nějakou anonymizační VPN, aby nebyl ohrožen internet uživatele.</p>
-      <p id="448ae9a8-2b47-4b51-a4fb-0422ce9fd32a" class="">Možné technické řešení spočívá dále v backendu, který by nuloval nutnost VPS a uchovával uživatelská data. Dále by pak mohl směřovat jednotlivé požadavky k vypálení / nahrání pro konkrétní uživatele.</p>
-      <p id="3c613d1c-b1e8-4afb-afcc-9fe8a42e06af" class="">SMS upozornění při doručení DVD k distribučnímu nodu.</p>
-      <h1 id="fd79c099-1cde-4875-a6ef-f49eb1ecd303" class="">Poznámky</h1>
-      <p id="903b23d5-65af-4234-af4b-dd4bb5c60ddc" class="">Nebylo by to lepší s SD kartama? Víc portable, levnější, rychlejší a lépe poslatelné.</p>
-      <p id="ac9f6746-e3d5-49fa-9a1b-79e0bc91de3d" class=""></p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="292c3d12-f98f-49dc-9416-728188f1d68b" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">23:08 &lt;@RemoteFox&gt; zajimavy
+      <div style="display:contents" dir="auto">
+        <p id="58684b01-cb56-48ae-bc28-df6a4cf314b0" class="">Služba, kam člověk pošle email se seznamem odkazů / přiloženým scriptem a zpět dostane DVD s výstupem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aedad0a6-a6e1-4510-9201-59af639fd11f" class="">Poplatek ala 1 DVD za 100kč + 50kč každé další.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a55274d1-a84e-471c-9e80-27c97a45d695" class="">Dobrý přivýdělek pro studenty a chudé lidi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="81fe8225-df34-4b6a-8f37-386fecef7a65" class="bulleted-list">
+          <li style="list-style-type:disc">naopak - pošle DVD + script, ten je spuštěn a je mu dána hodina na optice co do uploadu.</li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="5f3ef238-f5fd-40ec-a7d0-3a2f83cf5a80" class="">Proč?</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="30dbe149-f03b-4b12-a844-22f4253b4067" class="">Pro lidi co žijí v oblastech velmi pomalého připojení.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3a98a4bc-7aa2-4c19-a1b4-8f65801fa287" class="">Pro cestovatele, kteří se nachází v místech kde není připojení k internetu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2e5f7ef4-1a45-476c-9068-67bc7d65a1c1" class="">Pro všechny, které nebaví otravovat kamarády se "stáhni mi to prosím".</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="745e4064-6797-4001-964f-8cac37228b6b" class="">Žít s internetem, ale bez internetu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="c4e27fe4-8cb0-4827-8066-a6c4a6565403" class="">Technické řešení</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7fa37f42-ec74-4d3e-9a8e-062c842b59dc" class="">Distribučnímu nodu je doručena krabice, kde je rPI s externí DVD vypalovačkou (nízká cena, velmi kompaktní). Toto zařízení připojí ethernetem na router a dál ho jen krmí DVD / flashdiskama. Zařízení má LED, kterými signalizuje připravenost k akci, či dokončení downloadu z média. Zařízení je připojeno na nějakou anonymizační VPN, aby nebyl ohrožen internet uživatele.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="448ae9a8-2b47-4b51-a4fb-0422ce9fd32a" class="">Možné technické řešení spočívá dále v backendu, který by nuloval nutnost VPS a uchovával uživatelská data. Dále by pak mohl směřovat jednotlivé požadavky k vypálení / nahrání pro konkrétní uživatele.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3c613d1c-b1e8-4afb-afcc-9fe8a42e06af" class="">SMS upozornění při doručení DVD k distribučnímu nodu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="fd79c099-1cde-4875-a6ef-f49eb1ecd303" class="">Poznámky</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="903b23d5-65af-4234-af4b-dd4bb5c60ddc" class="">Nebylo by to lepší s SD kartama? Víc portable, levnější, rychlejší a lépe poslatelné.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ac9f6746-e3d5-49fa-9a1b-79e0bc91de3d" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="292c3d12-f98f-49dc-9416-728188f1d68b" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">23:08 &lt;@RemoteFox&gt; zajimavy
 23:08 &lt;@RemoteFox&gt; fakt asi neexistuje sluzba, ktera by prijimala a posilala data postou
 23:09 &lt;@RemoteFox&gt; nad tim premyslim, jestli by to mohlo fungovat jako distribuovana spolecnost
 23:09 &lt;@RemoteFox&gt; bys mohl zamestnavat ruzny matky na dovoleny a studenty a tak
@@ -155,7 +185,10 @@
 23:19 &lt;@RemoteFox&gt; by to mohlo fungovat jako metaspolecnost ala uber
 23:19 &lt;@RemoteFox&gt; kde bys spojil dohromady zajemce o nahrani a cloveka co to nahraje
 23:19 &lt;@RemoteFox&gt; a strhl si nejaky poplatek</code></pre>
-      <p id="f874624c-6d75-4ffb-958c-c54b90f52a44" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f874624c-6d75-4ffb-958c-c54b90f52a44" class=""></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -166,6 +199,9 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../en/Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../en/3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -192,9 +228,6 @@
         </li>
         <li>
           <a href="../en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../en/Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

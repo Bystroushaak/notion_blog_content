@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Lessons learned from games</title>
+  <link rel="stylesheet" type="text/css" href="../../../style.css">
+  <link rel="alternate" type="application/atom+xml" href="https://blog.rfox.eu/atom.xml">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Bystroushaak">
+  <meta name="twitter:creator" content="@Bystroushaak">
+  <meta name="twitter:title" content="Lessons learned from games">
+  <meta name="twitter:description" content="Some games make abstract engineering concepts feel physical. Belts and assemblers turn throughput into something you can see. Budgets turn refactoring into a trade-off you can’t ignore. Closed systems make early decisions echo much later. This post collects the few times that feeling survived the game and followed me back into my work.">
+  <meta property="og:description" content="Some games make abstract engineering concepts feel physical. Belts and assemblers turn throughput into something you can see. Budgets turn refactoring into a trade-off you can’t ignore. Closed systems make early decisions echo much later. This post collects the few times that feeling survived the game and followed me back into my work.">
+  <meta name="twitter:image" content="https://blog.rfox.eu/en/Programming/Lessons_learned_from_games/thumb.png">
+  <meta property="og:image" content="https://blog.rfox.eu/en/Programming/Lessons_learned_from_games/thumb.png">
+  <meta property="og:image:width" content="440">
+  <meta property="og:image:height" content="220">
+  <script src="../../../scripts.js"></script>
+  <meta name="description" content="Some games make abstract engineering concepts feel physical. Belts and assemblers turn throughput into something you can see. Budgets turn refactoring into a trade-off you can’t ignore. Closed systems make early decisions echo much later. This post collects the few times that feeling survived the game and followed me back into my work.">
+  <meta name="keywords" content="games,philosophy,m0wFG3PRCoJVTs7JcgBwsOXb3U7yPxBB"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-142545439-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142545439-1');
+  </script>
+</head>
+<body onload="on_body_load();">
+  <div id="sidebar_top">
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 3em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../patreon.png" style="width: 3em;"></a>
+    </div>
+    <h3>New posts</h3>
+    <div id="last_five_top">
+      <ul>
+        <li>
+          <a href="../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
+          <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
+          <a href="../How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../../Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+      </ul>
+    </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/games.html" title="games">games</a>, <a href="../../../Tags/philosophy.html" title="philosophy">philosophy</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+  </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../index.html" class="breadcrumb" title="Programming">Programming</a> / Lessons learned from games
+  <article id="ee57d2c1-b612-49d9-a881-234727f944eb" class="page sans">
+    <header>
+      <h1 class="page-title" dir="auto">Lessons learned from games</h1>
+      <p class="page-description" dir="auto"></p>
+    </header>
+    <div class="page-body">
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="338d380b-d548-805e-a646-d9840070789b" class=""><time>@2026/04/05</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="259e4f7b-3a5d-474d-bac0-4534f0564031" class="">I don’t play games that much. Usually, just something more or less random, typically once or twice a year. I get caught up in interesting mechanics, later learn how to exploit specifics, or see the repetition everywhere, and then I get bored.</p>
+      </div>
+      <div style="display:contents" dir="ltr"></div>
+      <div style="display:contents" dir="auto">
+        <p id="e24b084e-16fb-4be2-956a-f540290170d7" class="">I was always a bit suspicious when people told me that they learned a lot of things from games. But I’ve decided to treat this as an experiment, and see whether there are lessons that can be learned from games. Ideally, lessons applicable to my work as a programmer.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure class="block-color-gray_background callout" style="display:flex" id="1bbd380b-d548-8021-ad89-e60ca6b21b8a">
+          <div style="font-size:1.5em">
+            <span class="icon">💡</span>
+          </div>
+          <div style="width:100%">
+            <div style="display:contents" dir="auto">
+              <p id="1bbd380b-d548-80ee-9af2-e09699a20931" class="">I wrote this by looking back at games I've returned to during the last two years and asking what, if anything, they actually taught me. This will be updated if I play something worth adding.</p>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="a420e4e9-8c99-42cd-b135-0462a76e04d0" class=""><a href="https://store.steampowered.com/app/427520/Factorio/">Factorio</a></h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a3eb61ec-1ca2-42ef-9102-673de43ca6a1" class="">Your ship crashed on an unknown planet. In the vanilla game, your goal is to build the industrial pipeline to get you back into space.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="9289e658-a919-4170-b1da-15a0be855020" class="image">
+          <a href="factorio_start.png" title="factorio_start.png"><img style="width:3840px" src="factorio_start_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="79e940a3-58cf-4eef-ad10-bbeb4d93de10" class="">You need to mine resources, process them, and build factories, pipelines, and <em>factories for building factories</em>. You do this by linking factories with transportation belts and robots that feed them.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="68d76743-18ff-404a-9e52-3256f0e08aa4" class="image">
+          <a href="factorio_factories.png" title="factorio_factories.png"><img style="width:3840px" src="factorio_factories_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f63c8158-69f2-4c80-952f-1524ad257466" class="">There are countless lessons about queues. It will teach you to intuitively understand the differences between latency and throughput. How quickly you can get the product somewhere, versus how much product you can get there. It is really interesting how many programmers I work with get this wrong, even though they understand it when it comes to networks.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0bf3256d-9802-4124-b4ac-314c0a7791d0" class="">But there is so much more to learn from this:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2fed380b-d548-8006-8302-e304fd8f377c" class="">Some of the lessons are on the topic of expansion. You have only 2D space available, and you need to learn how to use it effectively, so you can expand production of resources when needed. That’s hard if you don’t think about it right from the beginning. In the ideal case, you can expand without the need to redo pieces of your factory. So this forces you to think about the factory you are creating as kind of a seed, that needs to grow, which means that you need to plan the growth from the beginning.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure class="block-color-gray_background callout" style="display:flex" id="2fed380b-d548-808d-a38f-c236fccbccad">
+          <div style="font-size:1.5em">
+            <span class="icon">👉</span>
+          </div>
+          <div style="width:100%">
+            <div style="display:contents" dir="auto">
+              <p id="2ffd380b-d548-8013-9470-e7b8bfbeff8c" class="">I love this quote from Joscha Bach:</p>
+            </div>
+            <div style="display:contents" dir="auto">
+              <blockquote id="2fed380b-d548-8008-93b6-de2b0b749bd7" class="">
+                You need to implement something that is growing into the right shape. In the same way that if you want a tree, you cannot just go into nature and build a tree. You need to build something that wants to grow into a tree. You need something like a seedling.
+                <div style="display:contents" dir="auto">
+                  <p id="2ffd380b-d548-807c-9d03-d1e013fa704f" class="">Initially it might be just a single cell that creates a group of cells, which then interact in such a way that they form a seedling that ultimately becomes a tree.</p>
+                </div>
+                <div style="display:contents" dir="auto">
+                  <p id="2ffd380b-d548-8043-919e-ecc5201228b0" class="">Everything in the universe is basically a higher-order design that requires multiple levels of genesis before it turns into the shape that realizes the function you are eventually observing.</p>
+                </div>
+              </blockquote>
+            </div>
+            <div style="display:contents" dir="auto">
+              <ul id="2fed380b-d548-8058-8d6b-fc0b3ada01ce" class="bulleted-list">
+                <li style="list-style-type:disc">
+                  <a href="https://www.youtube.com/watch?v=3MkJEGE9GRY&amp;t=3474s">Joscha Bach - Why Your Thoughts Aren't Yours.</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6db46288-d203-4687-b471-d60780303240" class="">There are architecture lessons. How to build factory blocks. How to build the main bus and what you actually want to put there. Some products are expensive, and it may be better to make them in a central place (i.e., bring ore to giant smelteries); some you can manufacture locally from basic ingredients when you require them (coil from copper).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="13c762c4-9a59-4fd8-9dc1-b157616e5889" class="">If your main bus gets too big, latency grows, resources required to build just the bus itself increase, and it gets harder and harder to expand. Moreover, countless products are constantly piled up just waiting in the bus lines, which is bad for super expensive products.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="32b5a08a-8c1d-42fc-af88-b6fb2bedc6c3" class="image">
+          <a href="factorio.png" title="factorio.png"><img style="width:3840px" src="factorio_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a1be76f3-07e3-43d8-bb16-173ac8e9ac71" class="">I realized how much this game actually improved my thinking about parallel systems when I was working on one specific service that processed data using many queues; there were multiple workers, some of them massively parallel (600+ processes), with inter-process queues. We had design discussions, and at one point, I wanted to just launch Factorio and use it to explain design decisions to my colleagues: <em>“Look, this is why this has to be like that; otherwise, the latency will do this ..”</em> This happens all the time.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2fdd380b-d548-805a-9062-fc61b67e9077" class="">A lot of the stuff you can learn here is unintuitive by default, and even the senior developers I work with had a hard time getting it without extended explanation.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="06291896-736a-4eff-b550-f8c635dea5c4" class="">I keep running into situations where people don't understand fundamental concepts that Factorio teaches intuitively. During COVID, we saw how many people struggled with exponential curves. What I noticed in my own family was that most people didn't understand they should be reading the area under the graph rather than just the current number when looking at daily case increments. This included my sister, who has a degree from LSE (London School of Economics), where I would have expected them to teach graph reading. She would say things like, <em>"But the graph has been showing only a few hundred cases per day for a month now; that's fine."</em></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="94763eaf-54d0-46dd-97ca-f5c0ded9419b" class="">But it goes beyond exponentials. Most people don't understand the difference between throughput and latency and how these relate to concepts like "speed" - and this includes programmers. Factorio helps immensely with teaching this intuition. And now I'm encountering yet another thing people don't grasp that Factorio would teach them: averages and their changes over time.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b960fde8-114f-4a2e-ac71-b219362d3897" class="">For example, I was working with a colleague on a service that uploads files to an S3 bucket with a policy that automatically deletes files after 180 days. We adjusted the settings so fewer files would be uploaded than before. Suddenly, there was a drop in the graph showing the total number of files, and my colleague was completely confused by this drop. What threw him off the most was that he was looking at just a 3-day window where the drop appeared to be about 90%, instead of looking at the full 180-day window where the drop was minimal. This would be so simple to explain using assemblers and belts, where you can directly see the “messages” travel on the belt and see the effects immediately and intuitively.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="333d380b-d548-8047-aa4f-e71feb4f6c9e" class="">There have been many, many such cases where I wanted to launch Factorio and play with my colleagues for a few days instead of explaining stuff again and again with just words.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="333d380b-d548-8069-9e46-e5aea3342fab" class="">People get confused all the time when there is some service producing X things per unit of time, and some other thing consuming from it. They get quickly lost, if there are additional policies, like that the files are deleted in some time unless they are processed. And when you start connecting multiple of these microservices together, almost everyone I know gets lost. You know who doesn’t get lost? People who play factorio.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="0a7a68d7-2b40-4e98-8da3-1a1e56496d90" class="image">
+          <a href="factorio_space.png" title="factorio_space.png"><img style="width:3840px" src="factorio_space_thumb.jpg"></a>
+          <figcaption>
+            Recently, I’ve played it with the <a href="https://mods.factorio.com/mod/space-exploration">Space exploration mod</a>, which adds so much stuff it’s almost unbelievable. For example, getting to the space is just the beginning, and you need to do it for the first space science pack. There is also the rest of the solar system, the universe, spaceships, alien artifacts, and so on.<br>
+            Edit: Okay, and the Space Age expansion is now pretty much this + more.
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="1e24ca7a-7432-42cc-8630-9d34185f5c2e">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/vPdUjLqC15Q" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="f6019f96-7449-4095-bb2a-3af8ae50b1dc" class="">Production line</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="132065f7-2df1-43c7-850e-9957b29f45cf" class="">In <a href="https://store.steampowered.com/app/591370/Production_Line__Car_factory_simulation/">Production line</a>, you make cars. In some ways, it is quite similar to Factorio, but you have more dimensions that you need to optimize, and you also don’t need to manufacture everything.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="10e1b23b-1afc-405c-accc-abd7ab22dedc" class="image">
+          <a href="production_line_small.gif" title="production_line_small.gif"><img style="width:384px" src="production_line_small.gif"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="82c5d41d-ed73-4333-8a31-447c029e1535" class="">There are, of course, similar kinds of problems and lessons you learn from the optimization of pipelines. Queues, throughput, latency, delivery of the subcomponents, stockpiles, and their optimization.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="9a0ee4ea-1e80-4e5d-b9ab-7771f8a25919" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="ed77ec7d-1b38-4e12-88b6-380bafc19f0f" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="01591722-427a-4ba0-b46a-427c1a995182" class="image">
+                  <a href="production_line_overview.jpg" title="production_line_overview.jpg"><img style="width:3840px" src="production_line_overview_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="25364e1a-f1b0-4985-9e0a-cbace15ba31a" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="679d8988-a434-466a-b6b0-86cb0766ba63" class="image">
+                  <a href="production_line_factory.jpg" title="production_line_factory.jpg"><img style="width:3840px" src="production_line_factory_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1289140f-2f45-4cce-8e97-3911bf356ef3" class="">In some ways, it’s much easier than Factorio. In some ways, it’s much harder, especially because it forces you to think about costs. The factory you rent costs money. Everything you use costs money. You don’t just need to manufacture cars but also sell them.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="5b550309-484b-4e48-b4f9-383881770623" class="image">
+          <a href="production_line_car.jpg" title="production_line_car.jpg"><img style="width:708.0000610351562px" src="production_line_car_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0a75e66f-158e-4131-abf8-e21b8a46f849" class="">At the beginning, you need to take a loan to even start building things. And loans have interest, which will eat you alive if you don’t check them.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="3422218b-f044-4918-9b5b-7a5a4626f2e7" class="image">
+          <a href="production_line_expenses.jpg" title="production_line_expenses.jpg"><img style="width:708.0000610351562px" src="production_line_expenses_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="38ec9eee-b0c0-4ef7-8a71-97a712ba383e" class="">And there are other difficulties. To use something, you need to first research it, then buy machines that will manufacture it, and then install it into the products you make. All this while you are trying to balance manufacturing, sales, expenses, profits, and, in some gameplay modes, also time challenges.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="92c89cfc-cc98-40d1-89e0-2fc0fe83563e" class="">What I liked about this is that it forces you to think about money. Not just <em>“how much does this component or machine cost?”</em> but also about how much money you’ll lose during the refactoring of the factory. How much money can you make with the change, or how much can you save? What will the development and debugging process cost you? Can you afford it? What happens if you do it later? Can you replace it with something cheaper, which will have 80% of the functionality? Are you really sure that it will have the expected effect? Can you benchmark it first? How do you actually do this kind of analysis?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a28f84a5-b850-47fe-acd2-97cf3b869bf2" class="">This has direct parallels with real-world engineering, especially if you are a programmer. A lot of what I did in my job during the last year was exactly about this, asking these questions all the time.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="337d380b-d548-805e-bea5-de959e351c90" class="">How much will we save if we implement this change? How much will we lose compared to not implementing something else? What if it fails completely or doesn’t have the desired effect?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="fd33460e-c0f8-41e9-9781-aaa16e4f7466" class="">Oxygen Not Included</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="42753059-ff10-48ac-bb4d-202144ff27fa" class=""><a href="https://store.steampowered.com/app/457140/Oxygen_Not_Included/">Oxygen Not Included</a> is the <em>“colony simulator”</em> kind of game, like Dwarf Fortress or RimWorld. You have a bunch of workers (<em><a href="https://oxygennotincluded.fandom.com/wiki/Duplicant">duplicants</a></em>, or <em>dupes</em>), you see the map from the side, and you express your wishes. <em>Duplicants</em> then go and implement them when they feel like it.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="018ac0ee-425d-4931-8ec8-91bad20f83d8" class="">At the beginning, your <em>dupes</em> are teleported into the heart of the asteroid. Sporadically, there is an option to get more <em>dupes</em> or <em>item</em> from the teleport.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="1dc9b9f9-eba0-4b4d-aef7-8c25240bacee" class="image">
+          <a href="oni_overlays.jpg" title="oni_overlays.jpg"><img style="width:3840px" src="oni_overlays_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="8c36c889-e10b-44d6-b95a-f675b13bcfe8" class="">In my opinion, it has a kind of ugly graphic style, but you quickly get used to it. Like other colony simulators, you have many overlays for all kinds of things, from electricity to gas flow. Like other colony games, it simulates physics, for many different things. Fluids, gasses, gravity, heat and some other things.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="c7b1face-5c2e-468e-a777-d9bb9dde884c" class="image">
+          <a href="oni_overlays.gif" title="oni_overlays.gif"><img style="width:708.0000610351562px" src="oni_overlays.gif"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="179d211a-c679-4fcb-b6c9-0e6055b36c31" class="">Unlike in other games, there is no conflict. You just build your base. It sounds easy, but, as you may have guessed, it isn’t.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ef3546af-019f-4761-9318-b6de8a704f19" class="">You need to provide your <em>dupes</em> with the things they need. Most importantly, air, water, and heat. Since everything is consumable, this forces you to mine the resources and build technology to convert them into useful things. But at the same time, the asteroid is a closed system. Resources generally do not disappear; they transform into different things.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3dbd8654-654d-4abc-a92c-a29c9c78480b" class="">One of the first lessons I’ve learned in this game is that you need to think about the consequences of everything you do. Several times, I have died in cycle 50 for some decision I made in cycle 5.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dbe84506-e0ff-450e-8a65-638ca1dd0e19" class="">What may happen, for example, is that you build enough technology that heat dissipation becomes a problem, and your whole base cooks itself off before you are able to get some kind of heat transfer (closed system, remember). Or you run out of electricity and are unable to make oxygen.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="3e5f2ddc-09e3-40ec-a4df-0bf92d84249a" class="image">
+          <a href="oni_heat_generator.jpg" title="oni_heat_generator.jpg"><img style="width:3840px" src="oni_heat_generator_thumb.jpg"></a>
+          <figcaption>
+            <em>This killed my entire base once. Magma-based, steam-powered generator. Not only did it take an absurd number of resources, but it also killed my dupes during building (you need special enviro-suits for hot environments), and it stopped working as the magma cooled with usage. Later it cooked my base with released heat.</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ef87c516-ca85-465d-beac-e60980fc0db3" class="">Maybe you build beds too low; CO₂, which weighs more than O₂, falls down, your dupes can’t breathe, and are suffocating. They wake up and run upstairs to breathe, which leads to them not being happy and not getting enough sleep. Some of them start vomiting, and some of them start getting crazy and destroy stuff. Some of them get sick because now there are germs from all the vomit (it flows down ..). You start cleaning it and disinfecting everything, which means that they don’t do other jobs, and suddenly, everyone dies because there is no food.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="87e03c24-145f-4002-898e-d924b802fa88" class="">In general, you need to optimize in multiple dimensions all the time. If you have some decision, you need to think about it from the gas flow point of view, fluid, electricity, germs, decoration, and all other points of view in overlays. All 12 overlays represent one dimension, and all of them are important. And on top of this, you are thinking about your <em>dupes’</em> happiness, hunger, all the equipment, whether there are enough toilets for them, and what you do with waste. Only then can you think about the architecture of your base.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="962ff636-7356-4869-8620-d306cca328cc" class="">The game is a chaotic system where small decisions may propagate into stuff that will later kill you.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="ebf8121c-b238-497a-819e-820dca7d9afd" class="">One of the first things I've learned while playing <em>Oxygen Not Included</em> was that iterative development wins over big projects. Basically, optimization in the temporal dimension, on top of all other dimensions.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="05ffc0b6-15ea-44be-b58c-c59a3732bebb" class="">Having something small but functional immediately is far more valuable than waiting many turns for a large project to complete. Not only can you start using it right away and improve it iteratively as new requirements emerge, but big projects tend to tie up significant resources and workers for extended periods. This can quickly bankrupt or destroy your run and prevent you from working on other things you need.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="16af75a3-eacc-4f28-99aa-d386d534222f" class="image">
+          <a href="oni_water_and_sewage.jpg" title="oni_water_and_sewage.jpg"><img style="width:3840px" src="oni_water_and_sewage_thumb.jpg"></a>
+          <figcaption>
+            <em>Beautiful example of a stupid big project for water and sewage storage and recycling (in the middle), which wasn’t needed and tied up a stupid number of resources for a long time. If I had built that iteratively, it would be painless.</em>
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="88bb3a65-d9da-4fbc-8960-edf3ef3c20e6" class="">It may sound obvious, and I've known about these things before. What the game gave me was a better sense of what actually is a big and small project. Only when I really ran into these problems did I learn to appreciate <em>quick iterative development</em> and the value of a <em>minimal viable product</em>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="da635a00-73b1-4eee-a57b-a3a8adb68054" class="">This game directly changed the way I write software, and I used the lessons learned to judge projects at work. For example, to insist that we first do a prototype and grow it into full service later, instead of committing to deliver a big project which will take a lot of time and will need to be perfect right from the beginning.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="9f9217fc-fbe3-43c5-84a8-5e0ceaff90b7" class="">Noita</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a56ff8df-4de9-46a9-a894-7ebd8e4d07f8" class="">Noita. I still don’t really know how to talk about this game.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="176cc54a-5143-4aec-8ef1-ffc661766d43" class="">On the surface, it looks like this charming 2D shooter platform game. You move your mysterious character in the middle of the screen. You have magic wands, which you can use to shoot at enemies, and also various potions. The whole world is interactive, and destructible, with physical simulations on many layers.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="a0cf2da8-078d-446f-9f04-f1aa8b7cb31b" class="image">
+          <a href="noita.png" title="noita.png"><img style="width:707.982177734375px" src="noita_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b7fdaaf9-eb83-4e47-abf0-9be79aa02280" class="">The game is <em>insanely hard</em>. You die, you start again. No respawns, no saves. At the beginning, you appear in front of the Holy mountain and your first dungeon. You go in, kill all the enemies, and get to the harder and harder levels. After each level, you get a health restore and a new perk, and you can buy some spells or wands.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e1358ebd-d596-449a-8605-150da5b0eee8" class="">The first interesting part is when you actually notice that you <a href="https://www.youtube.com/watch?v=gMTO45klw1I">can</a> <a href="https://noita.fandom.com/wiki/Guide_To_Wand_Mechanics">craft</a> your wands. Put different spells into them, combine them, effectively creating small programs. You can get absurdly powerful wands this way. Wands that can literally make you unbeatable or teleport you into parallel worlds. The mechanics are based on axiomatic principles, and the community is still discovering new wands and mechanics you can use.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3f036c33-d4b7-458d-a7a5-15b12997cf27" class="">If you are really, really persistent or learn how to cheat by quitting the game and copying the save folder, you may even get to the end. You beat the alchemist’s creations, complete the Work, and get all the gold in the world.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="12027204-cd3a-45e2-a99b-4c6d2ea7855c">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/-fIYL8qHK50" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d39d574a-179d-4394-85f2-5d32fce0235e" class="">In fact, you’ll see the end credits and may even think you’ve beaten the game. But then you may try again and this time decide not to go in the Holy Mountain right at the start but look around.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5e038a2e-1761-46b6-85af-c781f5803b9f" class="">You’ll find out that the game you’ve just beaten is maybe 10% of the world map (in the middle). That the world is <a href="https://noita.fandom.com/wiki/Biomes">insanely bigger</a>, and in fact, super, super hard, and you can literally do all kinds of stuff you wouldn’t dream of. Like, find the sun and the moon and make a black hole from them.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="e0b42ddc-ae3e-4280-b9a6-31243ed712cd" class="image">
+          <a href="Untitled.png" title="Untitled.png"><img style="width:2215px" src="Untitled_thumb.jpg"></a>
+          <figcaption>
+            (Source: <a href="https://www.reddit.com/r/noita/comments/dln5lr/noita_map_redone/">https://www.reddit.com/r/noita/comments/dln5lr/noita_map_redone/</a>)
+          </figcaption>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f1527f34-a21e-4563-b19b-a794877142f1" class="">The world is full of secrets and interesting mechanics that arise from the axiomatic principles on which the game is built upon.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e37c20e7-67fc-40b7-bfdd-fbbb262b1f19" class="">The reason I spent 176 hours playing it is that I could see some more profound meaning hidden in the game, <a href="https://noita.fandom.com/wiki/Game_Lore">sprinkled</a> in its many secrets. You are tracing the steps of a previous Alchemist, trying to learn the secrets of the world. There are many parallels with <a href="https://en.wikipedia.org/wiki/Autodidacticism">autodidactism</a> and actual alchemists.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="53181473-dde0-4864-97fb-74adeec83d51">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/UhetH7PwVh8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="46aaa51f-494c-4748-a872-7b740403e69e">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/VMx6fPyCbCI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b673ba38-b42c-4260-970f-c1428a63f893" class="">The biggest lesson I took from Noita is that things may be insanely hard, but if you persist and obtain enough knowledge, you may become a master of your craft.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="321d380b-d548-8085-894c-c448eb63b7a8" class="">It may sound stupid, like some HR LinkedIn phrase, but it actually <em>is</em> something I’ve learned by playing.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="ffcd7ef6-aa15-4efb-a9c6-29efe390f198" class="">Darktide</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="74022379-7f8f-49d1-8928-3d3efc1316f5" class="">W40k FPS cooperative multiplayer game. Simple <em>“kill all”</em> missions, where you go with three random strangers and try to survive.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="eb19aa97-64f4-44a5-96e5-18cf20d1fab5" class="">The highest difficulty <em>Auric</em> missions are pure insanity:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="ec4ee977-a10f-450b-93b0-d943e3f89241">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/fdNYKa41rW4" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="81eee698-d024-4e86-bc47-c299bf27fdd3">
+          <div class="source">
+            <iframe width="100%" height="50%" frameborder="0" src="https://www.youtube.com/embed/pUwoMpUlwf4" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="737e8589-8bdf-4ed2-8a27-227eeabba856" class="">The gameplay itself, the story, and the mechanics are not that interesting, and there are a lot of problems with the game, most notably the lack of content.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7501f735-ee46-452a-9566-a901471e788f" class="">What is captivating is that the game is quite hard on the higher difficulties. And you play with three other random strangers. How can four strangers who met for the first time two minutes ago cooperate and survive?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a91dd9ff-7e57-44d0-9514-0148772926e8" class="">There is one very enjoyable winning strategy, which makes me return to the game;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <blockquote id="e1c5204d-31b6-43fc-a1b1-bf9278d376a6" class="">
+          Put others before yourself.
+        </blockquote>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0ede0c20-30bc-453d-a974-ac550acc71a9" class="">Don’t go alone, or everyone will die, usually quickly. Before you take health or ammo or any other resource, think about whether someone else may need it more. Even more, ping it to others. Think about how your specific role (ogryn - tank, veteran - long range, psyker - high damage to groups or specific targets, zealot - high damage in melee weapons) can benefit the others, and play accordingly with that in mind. Look at what others do, and support them. Your psyker is swarmed with enemies? Go and protect him, even at the cost of dying yourself.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36dc680b-9eb1-469d-ab0f-0252d9e94a75" class="">This may seem boring, but it makes all the difference. Because if everyone in the group does this, the whole team is incredibly effective, the mission is a joy, and you feel great. It feels addictive. Not the game itself, but the team cooperation, where everyone supports each other.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2c8b4eaf-fdf5-442f-9e02-8138f3f421df" class="">The lesson is; if you have a team where everyone is trying their best to support others, everyone is productive and usually happy.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="6e6193a2-05a2-4e93-a4be-86f13d1d5a05" class="">In some ways, it reminds me of the <a href="https://en.wikipedia.org/wiki/Law_of_Jante">Law of Jante</a>, although not that harsh.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="1cbd380b-d548-8040-87f5-faa630d1fe7a" class="">Honorable mentions</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="333d380b-d548-80b4-8cea-fecc6dcd9061" class="">While I loved these, they basically are directly about programming, and as such, the lessons learned are obvious:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="333d380b-d548-80cf-a814-d66701efb098" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://store.steampowered.com/app/370360/TIS100/">TIS 1000</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="333d380b-d548-8045-950d-d6df52676f75" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://store.steampowered.com/app/716490/EXAPUNKS/">EXAPUNKS</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="333d380b-d548-80e4-8063-c6dbc977bcdf" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://store.steampowered.com/app/558990/Opus_Magnum/">Opus Magnum</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ul id="333d380b-d548-80b9-af24-e537489b04c8" class="bulleted-list">
+          <li style="list-style-type:disc">
+            <a href="https://untrustedgame.com/">Untrusted</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <div class="corner-ribbon top-right red">
+    <a href="https://www.patreon.com/bePatron?u=2618881">Become a Patron</a>
+  </div><a class="twitter-share-button" id="twitter_button" href="#"><img src="../../../tweet_button.svg"></a>
+  <div id="sidebar_bottom">
+    <hr>
+    <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
+    <div id="last_five_bottom">
+      <ul>
+        <li>
+          <a href="../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
+          <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
+        </li>
+        <li>
+          <a href="../../Concepts/HobbyCell.html" title="HobbyCell">HobbyCell</a>
+        </li>
+        <li>
+          <a href="../../Concepts/CaptchaCoin.html" title="CaptchaCoin">CaptchaCoin</a>
+        </li>
+        <li>
+          <a href="../../Hardware/SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>
+        </li>
+        <li>
+          <a href="../How_to_run_your_own_LLM_GPT.html" title="How to run your own LLM (GPT)">How to run your own LLM (GPT)</a>
+        </li>
+        <li>
+          <a href="../../Hardware/SolarPi_experiment_1_The_PiJuice_Fiasco.html" title="SolarPi experiment 1: The PiJuice Fiasco">SolarPi experiment 1: The PiJuice Fiasco</a>
+        </li>
+        <li>
+          <a href="../objWiki/Inspiration_for_objWiki.html" title="Inspiration for objWiki">Inspiration for objWiki</a>
+        </li>
+        <li>
+          <a href="../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
+        </li>
+        <li>
+          <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
+        </li>
+      </ul>
+    </div>
+    <p>You can find <a href="../../../Changelog.html" title="Changelog">many more in changelog</a>..</p>
+    <div>
+      <h3>Tags</h3>
+      <p><a href="../../../Tags/games.html" title="games">games</a>, <a href="../../../Tags/philosophy.html" title="philosophy">philosophy</a></p>
+    </div>
+    <div>
+      <h3>Blog categories</h3>
+      <ul class="no_icon">
+        <li>
+          <a href="../../3D_modeling.html" title="3D modeling">📂 3D modeling</a>
+        </li>
+        <li>
+          <a href="../../3D_printing.html" title="3D printing">📂 3D printing</a>
+        </li>
+        <li>
+          <a href="../../About_this_blog.html" title="About this blog">📂 About this blog</a>
+        </li>
+        <li>
+          <a href="../../Books.html" title="Books">📂 Books</a>
+        </li>
+        <li>
+          <a href="../../Concepts.html" title="Concepts">📂 Concepts</a>
+        </li>
+        <li>
+          <a href="../../Explorations.html" title="Explorations">📂 Explorations</a>
+        </li>
+        <li>
+          <a href="../../Hardware.html" title="Hardware">📂 Hardware</a>
+        </li>
+        <li>
+          <a href="../../Improvements.html" title="Improvements">📂 Improvements</a>
+        </li>
+        <li>
+          <a href="../../Organization_of_information.html" title="Organization of information">📂 Organization of information</a>
+        </li>
+        <li>
+          <a href="../../Philosophy.html" title="Philosophy">📂 Philosophy</a>
+        </li>
+        <li>
+          <a href="../../Programming.html" title="Programming">📂 Programming</a>
+        </li>
+        <li>
+          <a href="../../Stories.html" title="Stories">📂 Stories</a>
+        </li>
+        <li>
+          <a href="../../Technological_marvels.html" title="Technological marvels">📂 Technological marvels</a>
+        </li>
+        <li>
+          <a href="../../Weekly_updates.html" title="Weekly updates">📂 Weekly updates</a>
+        </li>
+        <li>
+          <a href="../../index.html" title="English section">📂 English section</a>
+        </li>
+      </ul>
+    </div>
+    <h3>Follow this blog</h3>
+    <div>
+      <a href="https://blog.rfox.eu/atom.xml"><img src="../../../rss_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://twitter.com/Bystroushaak"><img src="../../../twitter_icon.png" style="width: 5em;"></a>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/bePatron?u=2618881"><img src="../../../patreon.png" style="width: 5em;"></a>
+    </div>
+  </div>
+</body>
+</html>

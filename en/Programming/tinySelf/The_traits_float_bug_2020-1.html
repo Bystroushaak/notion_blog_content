@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
+        <li>
           <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -135,31 +135,54 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="English section">English section</a> / <a href="../index.html" class="breadcrumb" title="Programming">Programming</a> / <a href="index.html" class="breadcrumb" title="tinySelf">tinySelf</a> / The "traits float" bug 2020/1
   <article id="baee4985-ca94-4afc-9241-0fa00939e7de" class="page sans">
     <header>
-      <h1 class="page-title">The "traits float" bug 2020/1</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">The "traits float" bug 2020/1</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="3c9a6d8f-c9f2-4849-8ea6-fa0e9249611e" class=""><time>@2020/01/19</time></p>
-      <p id="9e990555-5039-4ef7-97cb-b1e6d17bc168" class="">Here is update from the development of tinySelf, my pet programming language inspired by Smalltalk and <a href="http://www.selflanguage.org/">Self</a>.</p>
-      <p id="236c6a79-ca9b-4a5c-8bca-1edb33bd2e67" class="">When I was adding new methods to primitive types, I've encountered a nasty bug. The bug was caused by sharing primitive method objects for all instances of <code>float</code> (and <code>int</code>, <code>bool</code> and other primitive data types). By default, when <code>float</code> object is created, it has a bunch of primitive slots that are pre-filled with <em>primitive code objects</em>. This is quite costly, both in terms of memory and time.</p>
-      <figure id="965c819f-428d-4ce1-b2b2-e37c805ec2ad" class="image">
-        <a href="The_traits_float_bug_2020-1/floats_explanation.png" title="floats_explanation.png"><img style="width:528px" src="The_traits_float_bug_2020-1/floats_explanation.png"></a>
-      </figure>
-      <p id="e51abe22-3f2d-4105-99a6-1523f976d15e" class="">If you had multiple instances, whole structure would look like this:</p>
-      <figure id="1bc32327-3b99-446c-aa2a-87a545f19466" class="image">
-        <a href="The_traits_float_bug_2020-1/default_floats.png" title="default_floats.png"><img style="width:288px" src="The_traits_float_bug_2020-1/default_floats.png"></a>
-      </figure>
-      <p id="38c46047-c424-40b3-9c58-e01371d16e6c" class="">Naturally, I've tried to add caching mechanism, that already works with other primitive objects, like <code>true</code>, <code>false</code> and <code>nil</code>:</p>
-      <p id="1de51009-9014-42b7-b123-a66d9e238928" class=""></p>
-      <figure id="550b8ea7-2a0f-4e0c-8587-6d1910b829a7" class="image">
-        <a href="The_traits_float_bug_2020-1/shared_primitive_method_objects.png" title="shared_primitive_method_objects.png"><img style="width:240px" src="The_traits_float_bug_2020-1/shared_primitive_method_objects.png"></a>
-      </figure>
-      <p id="7fded033-ba2d-48a6-9383-f0b2a5362a4f" class="">To my surprise, what happened is that when used for the first time, it worked as expected. But when you used the primitive method in another float object, the <code>self</code> for primitive methods got redirected to the object used before. Interpreter uses this branch for handling primitive code:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="a8ea5591-114e-4059-b71c-f828d2671c8d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">elif slot.has_primitive_code:
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3c9a6d8f-c9f2-4849-8ea6-fa0e9249611e" class=""><time>@2020/01/19</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9e990555-5039-4ef7-97cb-b1e6d17bc168" class="">Here is update from the development of tinySelf, my pet programming language inspired by Smalltalk and <a href="http://www.selflanguage.org/">Self</a>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="236c6a79-ca9b-4a5c-8bca-1edb33bd2e67" class="">When I was adding new methods to primitive types, I've encountered a nasty bug. The bug was caused by sharing primitive method objects for all instances of <code>float</code> (and <code>int</code>, <code>bool</code> and other primitive data types). By default, when <code>float</code> object is created, it has a bunch of primitive slots that are pre-filled with <em>primitive code objects</em>. This is quite costly, both in terms of memory and time.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="965c819f-428d-4ce1-b2b2-e37c805ec2ad" class="image">
+          <a href="The_traits_float_bug_2020-1/floats_explanation.png" title="floats_explanation.png"><img style="width:528px" src="The_traits_float_bug_2020-1/floats_explanation.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e51abe22-3f2d-4105-99a6-1523f976d15e" class="">If you had multiple instances, whole structure would look like this:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="1bc32327-3b99-446c-aa2a-87a545f19466" class="image">
+          <a href="The_traits_float_bug_2020-1/default_floats.png" title="default_floats.png"><img style="width:288px" src="The_traits_float_bug_2020-1/default_floats.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="38c46047-c424-40b3-9c58-e01371d16e6c" class="">Naturally, I've tried to add caching mechanism, that already works with other primitive objects, like <code>true</code>, <code>false</code> and <code>nil</code>:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1de51009-9014-42b7-b123-a66d9e238928" class=""></p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="550b8ea7-2a0f-4e0c-8587-6d1910b829a7" class="image">
+          <a href="The_traits_float_bug_2020-1/shared_primitive_method_objects.png" title="shared_primitive_method_objects.png"><img style="width:240px" src="The_traits_float_bug_2020-1/shared_primitive_method_objects.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7fded033-ba2d-48a6-9383-f0b2a5362a4f" class="">To my surprise, what happened is that when used for the first time, it worked as expected. But when you used the primitive method in another float object, the <code>self</code> for primitive methods got redirected to the object used before. Interpreter uses this branch for handling primitive code:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="a8ea5591-114e-4059-b71c-f828d2671c8d" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">elif slot.has_primitive_code:
     # primitives need "self" to be actually the object they are expecting,
     # for example for dicts it have to be dict, not some descendant
     # in the parent chain
@@ -174,12 +197,20 @@
 
     if return_value is not None and self.process is not None:
         self.process.frame.push(return_value)</code></pre>
-      <p id="4829747e-bda7-41c0-8c48-23e652b5c3e2" class=""><code>.primitive_code()</code> method is a primitive (in rpython implemented) function expecting three parameters: <code>interpreter</code>, <code>self</code> and <code>parameters</code>.</p>
-      <p id="56df5432-c4b6-4cf1-a018-798b1039deec" class="">The second parameter <code>obj</code> which is mapped to <code>self</code> in the primitive function was in this case wrong, because it was resolved from <code>traits float</code>. <code>slot_found_directly_in_obj</code> was <code>False</code>, and <code>slot</code> had <code>.scope_parent</code> property set to last object in which context it was used. This happened to be primitive from previous call.</p>
-      <p id="97c61eca-cc62-4faf-a633-ce75c6759963" class="">Fixing this was easy, but figuring where to find correct object which should be used as <code>self</code> parameter for the primitive was hard. I've thought (and tried) about storing last primitive in call frame. I've explored a path to store <code>(obj, primitive)</code> pairs on the stack, or creating linked primitive stacks in each frame, and several other ways. At the end, I've solved this by looking into the <code>.scope_parent</code> of the <code>obj</code> (which is at that time currently executed method). As the parameters are mapped into the <code>.scope_parent</code> properties, this can be used as history. Code now looks like this:</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="8f06bdbf-a5c2-4a82-94de-de22da8f8677" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">elif slot.has_primitive_code:
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4829747e-bda7-41c0-8c48-23e652b5c3e2" class=""><code>.primitive_code()</code> method is a primitive (in rpython implemented) function expecting three parameters: <code>interpreter</code>, <code>self</code> and <code>parameters</code>.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="56df5432-c4b6-4cf1-a018-798b1039deec" class="">The second parameter <code>obj</code> which is mapped to <code>self</code> in the primitive function was in this case wrong, because it was resolved from <code>traits float</code>. <code>slot_found_directly_in_obj</code> was <code>False</code>, and <code>slot</code> had <code>.scope_parent</code> property set to last object in which context it was used. This happened to be primitive from previous call.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="97c61eca-cc62-4faf-a633-ce75c6759963" class="">Fixing this was easy, but figuring where to find correct object which should be used as <code>self</code> parameter for the primitive was hard. I've thought (and tried) about storing last primitive in call frame. I've explored a path to store <code>(obj, primitive)</code> pairs on the stack, or creating linked primitive stacks in each frame, and several other ways. At the end, I've solved this by looking into the <code>.scope_parent</code> of the <code>obj</code> (which is at that time currently executed method). As the parameters are mapped into the <code>.scope_parent</code> properties, this can be used as history. Code now looks like this:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="8f06bdbf-a5c2-4a82-94de-de22da8f8677" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">elif slot.has_primitive_code:
     # primitives need "self" to be actually the object they are expecting,
     # for example for dicts it have to be dict, not some descendant
     # in the parent chain
@@ -195,10 +226,14 @@
 
     if return_value is not None and self.process is not None:
         self.process.frame.push(return_value)</code></pre>
-      <p id="adc52944-4adc-47c9-8cd7-ec7cc02acb10" class="">...</p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <pre id="fec5d9c0-c46a-4ee9-90ca-9fcdf84f6df0" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def _find_primitives_self(self, primitive_self, slot):
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="adc52944-4adc-47c9-8cd7-ec7cc02acb10" class="">...</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <pre id="fec5d9c0-c46a-4ee9-90ca-9fcdf84f6df0" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def _find_primitives_self(self, primitive_self, slot):
     """
     In case of primitives that were resolved from traits, it is more
     complicated to find `self` parameter for the primitive function.
@@ -225,14 +260,27 @@
             return None
 
     return primitive_self</code></pre>
-      <p id="4bc15ab8-03e7-491a-af48-fc283de4aa26" class="">It's not the cleanest solution, but it is simple and it works.</p>
-      <h2 id="89626af1-0211-4864-9510-fb0cc8dc1b45" class="">On the difficulty</h2>
-      <p id="2e00aac1-c7a3-4c49-aab5-52e94889d8dd" class="">Although that written like this it may look simple, this wasn't easy debugging at all. It took a lot of tracing and prints and breakpoints and logging breakpoints and mental modeling to figure what is happening.</p>
-      <p id="acfc735b-f00b-4113-a7b8-c99a53c64620" class="">I've had really hard time when I tried to hold all the variables, different places, stack frames, contexts, objects and their copies and instances in my head. In the end, I was saved by outsourcing to the paper and resorting to visual memory. This sketch really helped me a lot:</p>
-      <figure id="c129763b-4073-4040-b8be-9973a5acb2fe" class="image">
-        <a href="The_traits_float_bug_2020-1/tinySelf_debugging.jpg" title="tinySelf_debugging.jpg"><img style="width:1600px" src="The_traits_float_bug_2020-1/tinySelf_debugging_thumb.jpg"></a>
-      </figure>
-      <p id="0cbe7cab-f347-4bd8-b477-e67b88010c5a" class="">What do you use for debugging? Do you have any killer technique?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4bc15ab8-03e7-491a-af48-fc283de4aa26" class="">It's not the cleanest solution, but it is simple and it works.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="89626af1-0211-4864-9510-fb0cc8dc1b45" class="">On the difficulty</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="2e00aac1-c7a3-4c49-aab5-52e94889d8dd" class="">Although that written like this it may look simple, this wasn't easy debugging at all. It took a lot of tracing and prints and breakpoints and logging breakpoints and mental modeling to figure what is happening.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="acfc735b-f00b-4113-a7b8-c99a53c64620" class="">I've had really hard time when I tried to hold all the variables, different places, stack frames, contexts, objects and their copies and instances in my head. In the end, I was saved by outsourcing to the paper and resorting to visual memory. This sketch really helped me a lot:</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="c129763b-4073-4040-b8be-9973a5acb2fe" class="image">
+          <a href="The_traits_float_bug_2020-1/tinySelf_debugging.jpg" title="tinySelf_debugging.jpg"><img style="width:1600px" src="The_traits_float_bug_2020-1/tinySelf_debugging_thumb.jpg"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0cbe7cab-f347-4bd8-b477-e67b88010c5a" class="">What do you use for debugging? Do you have any killer technique?</p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
@@ -243,6 +291,9 @@
     <p>Did you enjoy the blogpost? Here are other posts from this blog:</p>
     <div id="last_five_bottom">
       <ul>
+        <li>
+          <a href="../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
+        </li>
         <li>
           <a href="../../3D_printing/Prusa_MK4_upgrade.html" title="Prusa MK4 upgrade">Prusa MK4 upgrade</a>
         </li>
@@ -269,9 +320,6 @@
         </li>
         <li>
           <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
-        </li>
-        <li>
-          <a href="../../Technological_marvels/SLAM.html" title="SLAM">SLAM</a>
         </li>
       </ul>
     </div>

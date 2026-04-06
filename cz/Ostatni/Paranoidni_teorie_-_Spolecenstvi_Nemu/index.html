@@ -121,221 +121,460 @@
   </div><a href="../../../index.html" class="breadcrumb" title="Bystroushaak's blog">Bystroushaak's blog</a> / <a href="../../index.html" class="breadcrumb" title="Czech section">Czech section</a> / <a href="../index.html" class="breadcrumb" title="Ostatní">Ostatní</a> / Paranoidní teorie - Společenství Nemů
   <article id="49988062-7477-4821-8a67-07382ec5e201" class="page sans">
     <header>
-      <h1 class="page-title">Paranoidní teorie - Společenství Nemů</h1>
-      <p class="page-description"></p>
+      <h1 class="page-title" dir="auto">Paranoidní teorie - Společenství Nemů</h1>
+      <p class="page-description" dir="auto"></p>
     </header>
     <div class="page-body">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <p id="a21e64cb-64ab-47c8-97c3-69dd0d91c03b" class=""><time>@2013/07/14</time></p>
-      <p id="019845ea-8593-4bae-b373-0e3eaf626e21" class="">Dnes se podíváme na poměrně zajímavě designovanou paranoidní teorii se spoustou obrázků, jejíž sepsání mi dalo zabrat podstatně déle, než by mi bylo milé :)</p>
-      <p id="07fc6eed-a72b-4cbd-b881-a1eb1e59e44d" class="">Tento článek je koncipován jako seznam několika termínů, které jsou následovány hypotézou, kde jsou termíny použity. Trochu se to podobá psaní programu, kde prvně nadefinujete funkce a pak s nimi provedete algoritmus. Vím že to může působit nudně, ale když se mnou zůstanete, tak to dříve nebo později skončí :)</p>
-      <h1 id="3f062d53-38a2-40cd-8ee1-529bedcff68b" class="">Vědcovo dilema</h1>
-      <p id="097daa76-78c3-4ece-a533-18d9b76dcd82" class="">Ve starší sci-fi literatuře se dá často narazit na něco, co jsem provizorně nazval <em>Vědcovo dilematem</em>. Zjednodušeně řečeno se jedná o obavy vědce, který vynalezne geniální vynález a bojí se ho zveřejnit, protože by dříve nebo později došlo k jeho zneužití lidmi mimo vědeckou komunitu.</p>
-      <p id="a79cf48e-91cf-4f0e-8cdd-2b0a7efd8a60" class="">Podobné dilema není jen doménou sci-fi, podle mnohých pramenů jím trpěli třeba lidé, kteří se podíleli na výzkumu štěpení atomu.</p>
-      <h2 id="5b8bab04-00d2-4c05-850f-9179dfd9b395" class="">Vědcovo dilema v IT security</h2>
-      <p id="856b1a32-a23f-4175-a5ea-a8df0c2d1104" class="">V současnosti je dle mého názoru vědcovo dilema častější, než kdy dříve. Není to jen proto, že je na světě více vědců, ale hlavně proto, že ve světě IT security se s ním člověk setkává prakticky pokaždé, když objeví nějakou chybu v softwaru.</p>
-      <p id="aeb91b29-0811-4543-9067-44685e41d08b" class="">Představte si, že objevíte kritickou zranitelnost, kterou všichni před vámi přehlédli. Nemyslím tím teď konkrétní exploit na aplikaci, ale <strong>obecný princip</strong> podobný <a href="http://computerworld.cz/securityworld/historie-hackingu-fenomen-jmenem-buffer-overflow-48495">buffer overflow</a>. Představte si, že ho objevíte o 20 let dříve, než všichni ostatní, což vám efektivně umožní dostat se prakticky kamkoliv chcete.</p>
-      <p id="9e37f853-8483-4538-aa1b-a243f55d1e26" class="">Co byste s takovou mocí dělali? Pokud na princip zneužití <strong>ne</strong>veřejně upozorníte, opravíte jeden systém a miliardy dalších budou stále v nebezpečí. Prakticky nic jste tedy nezměnili.</p>
-      <p id="b1599ba1-2307-42b2-bf10-c6deb6ff3816" class="">Pokud princip zveřejníte v nějaké security konferenci, v podstatě okamžitě dojde k masivnímu zneužití v podobě virů a útoků na nezabezpečené systémy. Jestliže ho prodáte, nebo sami zneužijete ve velkém, je jen otázkou času, než někdo vaší binárku zreverzuje a použije pro vlastní potřeby.</p>
-      <p id="3884c66b-2af2-4375-979d-9157a2e0756a" class="">V obou z výše uvedených možností zákonitě nastanou dvě reakce;</p>
-      <p id="795a3982-16b5-4ee7-b258-373e7e7b9baf" class="">1. Princip bude masivně zneužit.<br>
-      2. Princip dříve nebo později nebudete moci využít, protože díky všeobecnému povědomí bude většina zajímavých systémů opravena.<br></p>
-      <p id="a0417cba-39d3-4039-8f35-b422b1b6c68d" class="">Z toho plyne, že pro vás je nejvýhodnější nechat si postup pro sebe a používat ho tak, abyste na něj neupozornili ostatní, nikoliv se zachovat jako Prometheus, který dá tlupě opic atomový oheň.</p>
-      <h1 id="d63da431-20a0-46db-904c-ee14debbef6e" class="">Nemův syndrom</h1>
-      <p id="18a949a0-3ae0-4f49-bfa6-420ca7242b8f" class="">Vzpomínáte si na <a href="http://cs.wikipedia.org/wiki/Kapit%C3%A1n_Nemo">Kapitána Nema</a> z <a href="http://cs.wikipedia.org/wiki/Dvacet_tis%C3%ADc_mil_pod_mo%C5%99em">20 000 mil pod mořem</a>? Díky nemalé zahořklosti se rozhodl, že odejde z civilizace, postaví si vlastní ponorku a bude žít pod mořem bez kontaktu s lidmi na povrchu, kteří mu byli ukradení.</p>
-      <p id="e8c0279d-a101-490d-b14a-8219827ae33d" class="">Sci-fi literatura je podobných případů plná, dokonce se nebojím označit tento koncept populárním tématem.</p>
-      <p id="201aaed2-1f99-4042-ab4c-4c6010898df5" class="">Těžko říct, jestli je Nemův syndrom doménou čistě mužů, rozhodně je však mezi nimi <a href="http://meta.stackoverflow.com/questions/14470/what-is-the-boat-programming-meme-about">populární</a>. Nejspíš každý chtěl někdy vypadnout úplně do pryč a vykašlat se na celou naší civilizaci. Málokdo k tomu ovšem měl dostatečně silný podnět.</p>
-      <p id="5134858a-390c-41df-b316-dfd8ac24f0f9" class="">Slyšel jsem o lidech, kterým se něco podobného povedlo. Samozřejmě, že ne tak dokonale jako Nemovi, protože se stále čas od času musí vynořit a sehnat peníze či doplnit zásoby. Troufám si však tvrdit, že syndrom kapitána Nema se na ně vztahuje velmi silně. Odprostili se od civilizace a žijí si jak se jim zachce, což jim trochu závidím.</p>
-      <h1 id="735c8c5c-6055-486e-85e5-41827c915904" class="">Deep web</h1>
-      <p id="230a81e4-2665-4419-98b6-1c8c10c149b9" class="">Termínem <em>deep web</em> jsou běžně označovány ty části internetu, které jsou mimo dosah vyhledávačů. Různé staré BBS, databáze, kam máte přístup až po registraci, stránky na které nevedou odkazy. Síť packet radia. TOR.</p>
-      <p id="0625092a-bafe-40c6-af60-9813a9c6475d" class="">Tak jako každé odvětví lidského působení, i internet má své <a href="http://en.wikipedia.org/wiki/Internet_urban_legends">urban legends</a>. Snad každý někdy narazil na hoaxy, různé příběhy ala <em>"pokud tohle nepřepošlete deseti lidem do půl hodiny, zítra vás zabije šílený křeček"</em>. Existují legendy o <a href="http://creepypasta.wikia.com/wiki/Category:Video_Games">zlých počítačových hrách</a>, které se chovají divně. Jsou tu legendy o Polybiu, hracím automatu, ze kterého lidem hrabe (o tom a o MKUltra někdy příště), nebo o <a href="http://www.reddit.com/r/todayilearned/comments/1ago89/til_that_the_pirate_bays_largest_active_torrent/c8xavr5?context=2">6 ukrytých částech</a> prehistorického botnetu.</p>
-      <p id="00525972-998c-4e55-92d3-ef9906ac5045" class="">Z podobné kategorie jsou i legendy o deep (dark) webu:</p>
-      <div id="a5ead688-9ff3-4e53-939d-afc3a9416813" class="column-list">
-        <div id="5e43a43b-b02f-4fd6-91be-1da82068b570" style="width:50%" class="column">
-          <figure id="d803d844-63b0-457a-9985-aba3bf9c6e5e" class="image">
-            <a href="Untitled.png" title="Untitled.png"><img style="width:1387px" src="Untitled_thumb.jpg"></a>
-          </figure>
-        </div>
-        <div id="eb77b959-1e9b-407f-8085-4944859396f0" style="width:50%" class="column">
-          <figure id="3580e8d8-1c9f-4f53-b002-fcef47c5614e" class="image">
-            <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:552px" src="Untitled_1.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a21e64cb-64ab-47c8-97c3-69dd0d91c03b" class=""><time>@2013/07/14</time></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="019845ea-8593-4bae-b373-0e3eaf626e21" class="">Dnes se podíváme na poměrně zajímavě designovanou paranoidní teorii se spoustou obrázků, jejíž sepsání mi dalo zabrat podstatně déle, než by mi bylo milé :)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="07fc6eed-a72b-4cbd-b881-a1eb1e59e44d" class="">Tento článek je koncipován jako seznam několika termínů, které jsou následovány hypotézou, kde jsou termíny použity. Trochu se to podobá psaní programu, kde prvně nadefinujete funkce a pak s nimi provedete algoritmus. Vím že to může působit nudně, ale když se mnou zůstanete, tak to dříve nebo později skončí :)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="3f062d53-38a2-40cd-8ee1-529bedcff68b" class="">Vědcovo dilema</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="097daa76-78c3-4ece-a533-18d9b76dcd82" class="">Ve starší sci-fi literatuře se dá často narazit na něco, co jsem provizorně nazval <em>Vědcovo dilematem</em>. Zjednodušeně řečeno se jedná o obavy vědce, který vynalezne geniální vynález a bojí se ho zveřejnit, protože by dříve nebo později došlo k jeho zneužití lidmi mimo vědeckou komunitu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a79cf48e-91cf-4f0e-8cdd-2b0a7efd8a60" class="">Podobné dilema není jen doménou sci-fi, podle mnohých pramenů jím trpěli třeba lidé, kteří se podíleli na výzkumu štěpení atomu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="5b8bab04-00d2-4c05-850f-9179dfd9b395" class="">Vědcovo dilema v IT security</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="856b1a32-a23f-4175-a5ea-a8df0c2d1104" class="">V současnosti je dle mého názoru vědcovo dilema častější, než kdy dříve. Není to jen proto, že je na světě více vědců, ale hlavně proto, že ve světě IT security se s ním člověk setkává prakticky pokaždé, když objeví nějakou chybu v softwaru.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="aeb91b29-0811-4543-9067-44685e41d08b" class="">Představte si, že objevíte kritickou zranitelnost, kterou všichni před vámi přehlédli. Nemyslím tím teď konkrétní exploit na aplikaci, ale <strong>obecný princip</strong> podobný <a href="http://computerworld.cz/securityworld/historie-hackingu-fenomen-jmenem-buffer-overflow-48495">buffer overflow</a>. Představte si, že ho objevíte o 20 let dříve, než všichni ostatní, což vám efektivně umožní dostat se prakticky kamkoliv chcete.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9e37f853-8483-4538-aa1b-a243f55d1e26" class="">Co byste s takovou mocí dělali? Pokud na princip zneužití <strong>ne</strong>veřejně upozorníte, opravíte jeden systém a miliardy dalších budou stále v nebezpečí. Prakticky nic jste tedy nezměnili.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b1599ba1-2307-42b2-bf10-c6deb6ff3816" class="">Pokud princip zveřejníte v nějaké security konferenci, v podstatě okamžitě dojde k masivnímu zneužití v podobě virů a útoků na nezabezpečené systémy. Jestliže ho prodáte, nebo sami zneužijete ve velkém, je jen otázkou času, než někdo vaší binárku zreverzuje a použije pro vlastní potřeby.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3884c66b-2af2-4375-979d-9157a2e0756a" class="">V obou z výše uvedených možností zákonitě nastanou dvě reakce;</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="795a3982-16b5-4ee7-b258-373e7e7b9baf" class="">1. Princip bude masivně zneužit.<br>
+        2. Princip dříve nebo později nebudete moci využít, protože díky všeobecnému povědomí bude většina zajímavých systémů opravena.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="a0417cba-39d3-4039-8f35-b422b1b6c68d" class="">Z toho plyne, že pro vás je nejvýhodnější nechat si postup pro sebe a používat ho tak, abyste na něj neupozornili ostatní, nikoliv se zachovat jako Prometheus, který dá tlupě opic atomový oheň.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="d63da431-20a0-46db-904c-ee14debbef6e" class="">Nemův syndrom</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="18a949a0-3ae0-4f49-bfa6-420ca7242b8f" class="">Vzpomínáte si na <a href="http://cs.wikipedia.org/wiki/Kapit%C3%A1n_Nemo">Kapitána Nema</a> z <a href="http://cs.wikipedia.org/wiki/Dvacet_tis%C3%ADc_mil_pod_mo%C5%99em">20 000 mil pod mořem</a>? Díky nemalé zahořklosti se rozhodl, že odejde z civilizace, postaví si vlastní ponorku a bude žít pod mořem bez kontaktu s lidmi na povrchu, kteří mu byli ukradení.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e8c0279d-a101-490d-b14a-8219827ae33d" class="">Sci-fi literatura je podobných případů plná, dokonce se nebojím označit tento koncept populárním tématem.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="201aaed2-1f99-4042-ab4c-4c6010898df5" class="">Těžko říct, jestli je Nemův syndrom doménou čistě mužů, rozhodně je však mezi nimi <a href="http://meta.stackoverflow.com/questions/14470/what-is-the-boat-programming-meme-about">populární</a>. Nejspíš každý chtěl někdy vypadnout úplně do pryč a vykašlat se na celou naší civilizaci. Málokdo k tomu ovšem měl dostatečně silný podnět.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="5134858a-390c-41df-b316-dfd8ac24f0f9" class="">Slyšel jsem o lidech, kterým se něco podobného povedlo. Samozřejmě, že ne tak dokonale jako Nemovi, protože se stále čas od času musí vynořit a sehnat peníze či doplnit zásoby. Troufám si však tvrdit, že syndrom kapitána Nema se na ně vztahuje velmi silně. Odprostili se od civilizace a žijí si jak se jim zachce, což jim trochu závidím.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="735c8c5c-6055-486e-85e5-41827c915904" class="">Deep web</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="230a81e4-2665-4419-98b6-1c8c10c149b9" class="">Termínem <em>deep web</em> jsou běžně označovány ty části internetu, které jsou mimo dosah vyhledávačů. Různé staré BBS, databáze, kam máte přístup až po registraci, stránky na které nevedou odkazy. Síť packet radia. TOR.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0625092a-bafe-40c6-af60-9813a9c6475d" class="">Tak jako každé odvětví lidského působení, i internet má své <a href="http://en.wikipedia.org/wiki/Internet_urban_legends">urban legends</a>. Snad každý někdy narazil na hoaxy, různé příběhy ala <em>"pokud tohle nepřepošlete deseti lidem do půl hodiny, zítra vás zabije šílený křeček"</em>. Existují legendy o <a href="http://creepypasta.wikia.com/wiki/Category:Video_Games">zlých počítačových hrách</a>, které se chovají divně. Jsou tu legendy o Polybiu, hracím automatu, ze kterého lidem hrabe (o tom a o MKUltra někdy příště), nebo o <a href="http://www.reddit.com/r/todayilearned/comments/1ago89/til_that_the_pirate_bays_largest_active_torrent/c8xavr5?context=2">6 ukrytých částech</a> prehistorického botnetu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="00525972-998c-4e55-92d3-ef9906ac5045" class="">Z podobné kategorie jsou i legendy o deep (dark) webu:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="a5ead688-9ff3-4e53-939d-afc3a9416813" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="5e43a43b-b02f-4fd6-91be-1da82068b570" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="d803d844-63b0-457a-9985-aba3bf9c6e5e" class="image">
+                  <a href="Untitled.png" title="Untitled.png"><img style="width:1387px" src="Untitled_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="eb77b959-1e9b-407f-8085-4944859396f0" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="3580e8d8-1c9f-4f53-b002-fcef47c5614e" class="image">
+                  <a href="Untitled_1.png" title="Untitled_1.png"><img style="width:552px" src="Untitled_1.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="5ae442e9-8465-434d-af8a-61d5a7caced7" class="column-list">
-        <div id="84d3007e-7437-476e-9def-17ac7a1e0858" style="width:50%" class="column">
-          <figure id="efeb2b28-07cf-400c-8d22-6dd994a54e11" class="image">
-            <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:533px" src="Untitled_2.png"></a>
-          </figure>
-        </div>
-        <div id="af069bbe-e4e4-4bcc-a516-f60b5eb52d99" style="width:50%" class="column">
-          <figure id="0a4c2e6d-2c08-4e5e-98e1-65925cf71514" class="image">
-            <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:500px" src="Untitled_3.png"></a>
-          </figure>
-          <figure id="31aaec79-1d52-44a5-a2d9-f031a98d435c" class="image">
-            <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:850px" src="Untitled_4.png"></a>
-          </figure>
-          <figure id="cb995e0b-ba0b-4809-a173-543685f919eb" class="image">
-            <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:500px" src="Untitled_5.png"></a>
-          </figure>
-        </div>
-      </div>
-      <div id="2044d74e-abba-45d5-b064-26b480350f9d" class="column-list">
-        <div id="72c02d2e-f362-483a-8416-10474d0b6be0" style="width:50%" class="column">
-          <figure id="8d5b0e0b-9ea1-4852-8efb-707a6a389eba" class="image">
-            <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:675px" src="Untitled_6.png"></a>
-          </figure>
-        </div>
-        <div id="7e141f01-a576-4060-94dc-313bd74bd6a8" style="width:50%" class="column">
-          <figure id="0fc61a76-a838-4093-8847-1d82eda9fc8d" class="image">
-            <a href="Untitled_7.png" title="Untitled_7.png"><img style="width:1969px" src="Untitled_7_thumb.jpg"></a>
-          </figure>
-        </div>
-      </div>
-      <figure id="3a529073-e45a-4b9b-aa3f-d97f254a4667" class="image">
-        <a href="Untitled_8.png" title="Untitled_8.png"><img style="width:900px" src="Untitled_8.png"></a>
-      </figure>
-      <figure id="8b22e85e-46e8-4f0e-92da-2f228b62b15c" class="image">
-        <a href="Untitled_9.png" title="Untitled_9.png"><img style="width:640px" src="Untitled_9.png"></a>
-      </figure>
-      <div id="56cda94d-10c0-48be-b449-a5b18e5c6c2d" class="column-list">
-        <div id="073fbc3d-b90b-4ee3-babe-4b036fb5eebc" style="width:50%" class="column">
-          <figure id="3f835f72-58be-46ed-b831-fc0df8601e65" class="image">
-            <a href="Untitled_10.png" title="Untitled_10.png"><img style="width:414px" src="Untitled_10.png"></a>
-          </figure>
-        </div>
-        <div id="5fa2bd71-39c7-440d-9148-0666c2e73cfc" style="width:50%" class="column">
-          <figure id="beafacfb-82b8-49b2-a6d0-e3b3b677296f" class="image">
-            <a href="Untitled_11.png" title="Untitled_11.png"><img style="width:566px" src="Untitled_11.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <div id="5ae442e9-8465-434d-af8a-61d5a7caced7" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="84d3007e-7437-476e-9def-17ac7a1e0858" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="efeb2b28-07cf-400c-8d22-6dd994a54e11" class="image">
+                  <a href="Untitled_2.png" title="Untitled_2.png"><img style="width:533px" src="Untitled_2.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="af069bbe-e4e4-4bcc-a516-f60b5eb52d99" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="0a4c2e6d-2c08-4e5e-98e1-65925cf71514" class="image">
+                  <a href="Untitled_3.png" title="Untitled_3.png"><img style="width:500px" src="Untitled_3.png"></a>
+                </figure>
+              </div>
+              <div style="display:contents" dir="ltr">
+                <figure id="31aaec79-1d52-44a5-a2d9-f031a98d435c" class="image">
+                  <a href="Untitled_4.png" title="Untitled_4.png"><img style="width:850px" src="Untitled_4.png"></a>
+                </figure>
+              </div>
+              <div style="display:contents" dir="ltr">
+                <figure id="cb995e0b-ba0b-4809-a173-543685f919eb" class="image">
+                  <a href="Untitled_5.png" title="Untitled_5.png"><img style="width:500px" src="Untitled_5.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="ed3e88bc-b571-4205-8d57-e11f4a53a90f" class="column-list">
-        <div id="d6d220d1-b1b9-4ef8-beae-da2b0b6cccc1" style="width:56.25%" class="column">
-          <figure id="0ee766e2-d611-4172-a720-ed75a1825ffd" class="image">
-            <a href="Untitled_12.png" title="Untitled_12.png"><img style="width:211px" src="Untitled_12.png"></a>
-          </figure>
-        </div>
-        <div id="390bca84-c4ab-426e-b6bf-15c69abf8bbe" style="width:43.75%" class="column">
-          <figure id="3f5f3862-18b5-4853-852f-61052e40d2d5" class="image">
-            <a href="Untitled_13.png" title="Untitled_13.png"><img style="width:300px" src="Untitled_13.png"></a>
-          </figure>
-        </div>
-      </div>
-      <div id="58aa823d-2cad-427f-85cd-1ad512a7e895" class="column-list">
-        <div id="93c42f3c-32cd-4353-98d8-054d7ef46e4c" style="width:50%" class="column">
-          <figure id="fc588d3d-0ad5-4d77-96d9-f4c31083b8d4" class="image">
-            <a href="Untitled_14.png" title="Untitled_14.png"><img style="width:656px" src="Untitled_14.png"></a>
-          </figure>
-        </div>
-        <div id="e21ee1db-4ca5-43fc-8161-7c49b60ab1ec" style="width:50%" class="column">
-          <figure id="fa0f69ab-684f-4ac4-804d-254adba08a35" class="image">
-            <a href="Untitled_15.png" title="Untitled_15.png"><img style="width:600px" src="Untitled_15.png"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <div id="2044d74e-abba-45d5-b064-26b480350f9d" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="72c02d2e-f362-483a-8416-10474d0b6be0" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="8d5b0e0b-9ea1-4852-8efb-707a6a389eba" class="image">
+                  <a href="Untitled_6.png" title="Untitled_6.png"><img style="width:675px" src="Untitled_6.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="7e141f01-a576-4060-94dc-313bd74bd6a8" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="0fc61a76-a838-4093-8847-1d82eda9fc8d" class="image">
+                  <a href="Untitled_7.png" title="Untitled_7.png"><img style="width:1969px" src="Untitled_7_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="ad15a6d9-8b16-407f-83d5-93c0a13f09c3" class="column-list">
-        <div id="f224be7a-d80b-4226-b57d-f1323da581a4" style="width:50%" class="column">
-          <figure id="2d7e8f20-d7ed-4177-9cdf-1a5edd3699e6" class="image">
-            <a href="Untitled_16.png" title="Untitled_16.png"><img style="width:503px" src="Untitled_16.png"></a>
-          </figure>
-        </div>
-        <div id="83d31c02-12b0-40ac-8759-1c3ce7c11780" style="width:50%" class="column">
-          <figure id="3e30c06e-0027-4f0b-b17a-6c41e74852c2" class="image">
-            <a href="Untitled_17.png" title="Untitled_17.png"><img style="width:640px" src="Untitled_17.png"></a>
-          </figure>
+      <div style="display:contents" dir="ltr">
+        <figure id="3a529073-e45a-4b9b-aa3f-d97f254a4667" class="image">
+          <a href="Untitled_8.png" title="Untitled_8.png"><img style="width:900px" src="Untitled_8.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="8b22e85e-46e8-4f0e-92da-2f228b62b15c" class="image">
+          <a href="Untitled_9.png" title="Untitled_9.png"><img style="width:640px" src="Untitled_9.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="56cda94d-10c0-48be-b449-a5b18e5c6c2d" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="073fbc3d-b90b-4ee3-babe-4b036fb5eebc" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="3f835f72-58be-46ed-b831-fc0df8601e65" class="image">
+                  <a href="Untitled_10.png" title="Untitled_10.png"><img style="width:414px" src="Untitled_10.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="5fa2bd71-39c7-440d-9148-0666c2e73cfc" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="beafacfb-82b8-49b2-a6d0-e3b3b677296f" class="image">
+                  <a href="Untitled_11.png" title="Untitled_11.png"><img style="width:566px" src="Untitled_11.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="2129426a-3958-4229-8fab-86e1d803f45f" class="column-list">
-        <div id="dac1612d-b157-4ee0-88ac-cf56f2165987" style="width:50%" class="column">
-          <figure id="9dc671d6-2928-4195-a3bc-9da35eac09e4" class="image">
-            <a href="Untitled_18.png" title="Untitled_18.png"><img style="width:526px" src="Untitled_18.png"></a>
-          </figure>
-        </div>
-        <div id="3b89c842-78e3-4493-8889-01cbe333a28d" style="width:50%" class="column">
-          <figure id="39ed0103-7357-4158-ae8f-3daed147967c" class="image">
-            <a href="Untitled_19.png" title="Untitled_19.png"><img style="width:1280px" src="Untitled_19_thumb.jpg"></a>
-          </figure>
+      <div style="display:contents" dir="auto">
+        <div id="ed3e88bc-b571-4205-8d57-e11f4a53a90f" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="d6d220d1-b1b9-4ef8-beae-da2b0b6cccc1" style="width:56.25%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="0ee766e2-d611-4172-a720-ed75a1825ffd" class="image">
+                  <a href="Untitled_12.png" title="Untitled_12.png"><img style="width:211px" src="Untitled_12.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="390bca84-c4ab-426e-b6bf-15c69abf8bbe" style="width:43.75%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="3f5f3862-18b5-4853-852f-61052e40d2d5" class="image">
+                  <a href="Untitled_13.png" title="Untitled_13.png"><img style="width:300px" src="Untitled_13.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <figure id="63ee9f1e-b3a4-423f-837a-28bb5c560219" class="image">
-        <a href="Untitled_20.png" title="Untitled_20.png"><img style="width:533px" src="Untitled_20.png"></a>
-      </figure>
-      <p id="f61c8a59-f293-433c-88f0-8bb0ab62b767" class=""></p>
-      <p id="c1388b2b-b7b1-4e9a-b345-2f613b065570" class="">Spousta z toho co se dá na obrázcích vidět je určeno pro newfagy a ve skutečnosti se dá nalézt velice lehce. Na internetu se dá narazit ale i na poněkud znepokojivější informace o hlubinách deep webu.</p>
-      <figure id="250cdad9-1929-4056-986a-c3f5f81514f7" class="image">
-        <a href="Untitled_21.png" title="Untitled_21.png"><img style="width:533px" src="Untitled_21.png"></a>
-      </figure>
-      <h2 id="04357ab6-a7bd-4544-a1e3-8001df854a59" class="">.clos</h2>
-      <p id="9906b387-4d77-4912-8cc6-e3857452dc17" class=""><code>.clos</code>, ClosNet, ClosedNet je součástí legendy o deep webu, nebo lépe řečeno pokračování.</p>
-      <p id="db5a7366-af56-4461-9e2f-302775cf901d" class="">Má se jednat o kompletně oddělenou síť, do které nevedou žádné proxy. Nemůžete se do ní dostat z internetu, tak jako se dá dostat třeba do TORu. Jediná možnost jak se přidat, je pořídit si určitý velmi drahý hardware, o kterém jen vyvolení ví, kde ho sehnat, nebo se připojovat od někoho, kdo již v síti je. Nikde není přesně specifikováno, o jaký hardware by mělo jít, jestli se jedná o modem pro packet radio, nebo jde o zařízení pro kvantovou kryptografii.</p>
-      <p id="37f27638-63e2-4fc5-b03f-bbf59c4fc3f6" class="">Uvnitř sítě se používá tld <code>.clos</code> spolu s náhodně vypadající doménou, podobně jako je tomu v TORu.</p>
-      <h3 id="9fa00cae-1655-4573-8275-0608dd2a82fa" class="">Původ</h3>
-      <p id="cc2cbd7f-dd5e-4f69-8f11-44ee91e709c1" class="">Podle toho co se dá najít se jedná o úspěšný trolling, který vznikl na základě výše uvedeného obrázku. Někdo si nejspíš řekl, že by byla docela sranda o tom založit stránky <a href="http://wznf5ffcbr3x62gj.onion/">http://wznf5ffcbr3x62gj.onion</a> (<a href="http://wznf5ffcbr3x62gj.onion.to/index.php/Main_Page">proxy link</a>) a začít předstírat, že existuje od internetu odříznutý systém používající domény .clos, kde se dají najít informace, které spadají spíš do kategorie sci-fi.</p>
-      <figure id="69aeeee0-f209-408d-8172-9570e65497a1" class="image">
-        <a href="Untitled_22.png" title="Untitled_22.png"><img style="width:981px" src="Untitled_22.png"></a>
-      </figure>
-      <p id="0fcf6291-8e02-42ec-8bea-5f0ec54d8cbb" class="">Uvedená stránka má několik vad:</p>
-      <ol type="a" id="a888470d-3bf3-4a4e-9352-82300d9ea819" class="numbered-list" start="1">
-        <li>Polovina avizovaného obsahu jsou věci, které běžně najdete na TORu, nevidím tedy důvod, proč by měly být v takto super utajované síti. Naopak, třeba v případě aukce otroků by to bylo vyloženě škodlivé, protože nepředpokládám, že existuje moc platby schopných zákazníků, kteří se tam dokáží dostat. Zbytek jsou často dobře znějící blbosti na pomezí sci-fi, které se nedají ani vygooglit a nikde kromě stránek diskutujících o ClosNetu o nich není ani zmínka.</li>
-      </ol>
-      <ol type="a" id="8bc76852-e82d-4bd5-b5bb-fb62055f71e4" class="numbered-list" start="2">
-        <li>K čemu zakládat stránku dostupnou z normálního internetu/TORu a pak se tvářit tajmně? Autor tvrdí, že to má být rozcestník pro ostatní účastníky, ale v tom případě by stačilo jen napsat něco ve stylu ".clos rozcestník najdete zde: adresa.clos", tedy umístit rozcestník do samotného <code>.clos</code> systému, podobně jako je hiddenwiki umístěná v samotném TORu a ne v cleannetu.
-          <p id="7f1b3263-d1e2-40ee-911a-c45474bd6eed" class="">Když se nad tím zamyslíte - určitě nechcete zbytečně poutat pozornost na superutajovanou síť informacemi o tom, že existuje. Na druhou stranu, pokud si chcete zatrolit, je to ideální způsob.</p>
-        </li>
-      </ol>
-      <ol type="a" id="dbf5266f-6e00-494e-ac61-d48b69bd29a2" class="numbered-list" start="3">
-        <li>
-          <a href="https://abclinuxu.cz/images/screenshots/9/6/198969-paranoidni-teorie-spolecenstvi-nemu-2138909262712474697.png">Log wiki</a> ukazuje, že celá stránka byla vytvořena hodně rychle a od té doby na ní admin nic nezměnil. To u proklamované funkce rozcestníku do <code>.clos</code> sítě nedává moc smysl.
-        </li>
-      </ol>
-      <ol type="a" id="d7b9e477-7668-4927-ae32-dd6b1cd3198c" class="numbered-list" start="4">
-        <li>Někdo, kdo se vydává za autora uvedeného obrázku, jenž předvádí jednotlivé levely internetu <a href="http://lethemfind.us/community/topic/983-closed-shell-system/page-9#entry26660">tvrdí</a>, že si termíny vymyslel čistě pro inspiraci. Informační .onion stránka a celý koncept <code>.clos</code> vznikl až poté, podle něj se tedy jedná jen o trolling. Pokud vás to zajímá, doporučuji pročíst si <a href="http://lethemfind.us/community/topic/983-closed-shell-system/">celý thread</a> na lethemfind.us.
-        </li>
-      </ol>
-      <h2 id="052bde24-359c-4210-85eb-288e7b431fbf" class="">Closed Shell System (CSS)</h2>
-      <p id="443071aa-23c3-4fac-96bc-fd8bf9fbace5" class=""><em>Closed Shell System</em> je termín, kterým někteří autoři označují izolované sítě, do kterých se z internetu nedostanete. Pokud by exsitoval, <code>.clos</code> by byl zářnou ukázkou CSS.</p>
-      <figure id="4264fd22-86d3-440f-b76f-54a82c201bcf" class="image">
-        <a href="Untitled_23.png" title="Untitled_23.png"><img style="width:565px" src="Untitled_23.png"></a>
-      </figure>
-      <p id="65d1451e-6049-4527-87e5-2cf06bc84d11" class="">CSS sítě na rozdíl od ostatních zde uvedených konceptů skutečně existují a jediný rozdíl oproti intranetům je podle mého názoru v tom, že síť není a z definice ani nesmí být přístupná zvenčí. Takříkajíc do ní nevedou žádné brány.</p>
-      <p id="e0466ae2-3b7e-4052-9af0-b47a325318bf" class="">Co víc, síť se může proti přístupům z venčí aktivně či pasivně bránit:</p>
-      <h2 id="3c2fd7e2-b892-47e9-90cc-f73d12b31261" class="">Pasivní obrana</h2>
-      <h3 id="2ba8d984-bbed-4174-968b-86306dbb969a" class="">Rozdíný protokol</h3>
-      <p id="d6e2ccb5-373d-4804-9fb9-942332655908" class="">Síť může využívat rozdílný protokol a tak se do ní prostě nedostanete z internetu, protože si záměrně nerozumí s TCP/IP.</p>
-      <h3 id="17a2fee0-ed31-49f6-b786-f27fe6282bd6" class="">Lidské šifrování</h3>
-      <p id="d03721e6-2a8c-4a33-a717-7eeba15c7874" class="">Síť může používat způsob šifrování, které není možné strojově dekódovat, protože je založeno na věcech, jenž mohou pochopit pouze lidé. Pro sdělení mohou být použity přirovnání a metafory, podobně jako je to třeba v <a href="http://cs.wikipedia.org/wiki/Kabala">Kabale</a>. Nezasvěceným lidem tak může připadat jako kopa nesmyslů.</p>
-      <h2 id="393bbb64-cbe6-47e8-bc48-5d87eb742ee1" class="">Aktivní obrana</h2>
-      <h3 id="195b5e0c-a3c5-43a1-a519-229472b6b2cc" class="">Automatický ban</h3>
-      <p id="4658001a-1b60-4cda-a13c-b0b7f07d9db0" class="">Nad sítí může dohlížet démon (software, ne metafyzika), který sleduje nestandardní chování a automaticky od sítě odřízne ty uzly, které se mu jeví jako podezřelé.</p>
-      <h3 id="208bc0c6-0224-4180-9af7-fc0e8b056b9b" class="">Endgame na vetřelce</h3>
-      <p id="0531d083-90ef-4edd-90d3-3565c328ca47" class="">Výše uvedený démon nemusí jen banovat, může navíc používat i podstatně drsnější prostředky, hromadně nazvané jako Endgame. Může se jednat o cokoliv, od <a href="http://cs.wikipedia.org/wiki/BGM-109_Tomahawk">řízené střely</a> po SWAT team, který vám vtrhne do domu (na TORu jeden čas bylo možné tuto službu za pár dolarů objednat - vlastník stránky se pak postaral o legitimně vypadající udání policii, která na místo <a href="http://en.wikipedia.org/wiki/Swatting">poslala</a> SWAT team).</p>
-      <h3 id="c1daabae-868a-4970-ade7-bef3dd15336c" class="">Směnný obchod</h3>
-      <p id="f000ed49-1326-4019-b5aa-c5d1d4976847" class="">Aby vám bylo umožněno ze sítě brát informace, musíte prvně síti nějaké dodat. Dodané informace jsou hodnoceny aktivními učastníky, kteří vám na základě vaší práce přidělí body, které pak můžete využít na získávání obsahu.</p>
-      <h1 id="df255d7b-ab40-42d8-9041-e66ef522e093" class="">Neviditelný test</h1>
-      <p id="61ba493a-699f-459c-a43d-06822224f528" class="">Měl jsem se ženit. Pár dní před svatbou jsem přijel k domu své nevěsty. Když jsem vešel dovnitř, nebyl tam nikdo, jen matka mé nastávající. Byla to velmi atraktivní žena. Chvíli jsme si povídali a pak mi řekla, že jsem se jí vždycky líbil. Bez dlouhých okolků mi navrhla, že se spolu pomilujeme.</p>
-      <p id="dd980ea0-6438-4159-8f43-fcab9777ac44" class="">Byl jsem neschopný cokoli říci. Řekla, že teď půjde nahoru do své ložnice a je na mně, jestli půjdu za ní nebo odejdu.<br>
-      Pomalu stoupala po schodech a já se díval na její krásné pozadí.<br></p>
-      <p id="1ec26b01-d492-489c-b16e-6774cc833998" class="">Pak jsem se otočil a vyšel z domu ke svému autu. Za dveřmi čekal její manžel, objal mne a řekl, že jsem obstál v jejich zkoušce.<br>
-      Nyní vědí, že je na mne spoleh a že mi svou dceru mohou s klidem v duši svěřit. A poučení z tohoto příběhu?<br></p>
-      <p id="65a9ab96-45d9-432f-b5c2-8cc087b62914" class="">Vždycky nechávej kondomy v autě!</p>
-      <p id="34c3f078-64f9-4c7a-958c-8a537a2faf5a" class="">Představte si, že chcete ověřit skutečnou povahu testované osoby. Nejjednodušší způsob, který mě napadá je postavit jí před neviditelný test, tedy takový o kterém neví, že ho podstupuje.</p>
-      <p id="9419a1a7-106a-4ab5-b553-db82c23ca1c5" class="">Výše uvedený vtip ilustruje jak na to - i když sám o sobě je spíš ukázka, jak by se to dělat nemělo:</p>
-      <p id="3592e340-aa97-4b66-a3dc-ec387d27afe1" class="">1. Test příliš očividný a testovanému subjektu s větší inteligencí může dojít, že je testován. Správný neviditelný test není rozlišitelný od běžné každodenní situace.<br>
-      2. Druhá chyba spočívá v tom, že výsledky testu jsou účastníkovi sděleny, čímž je narušen celý předpoklad neviditelného testu, tedy že subjekt o něm neví a ani se nikdy nedozví.<br>
-      <br>
-      3. Poslední chyba je v tom, že test je jen jeden. V ideálním případě proběhne testů celá hromada a jejich výsledky jsou pečlivě zváženy. Můžou to být jednoduché věci, od toho jak mluvíte s cizincem, nebo jestli si vezmete stokorunu, kterou někdo nechal ležet na stole.<br></p>
-      <p id="09e0617a-205a-4304-8abd-798a8b7e24bc" class="">Myšlenka neviditelného testu není nová. Setkat se s ní lze například v knize Parsifal, kde je hlavní hrdina pozván na večeři, během které vidí zázraky, na které se ovšem odmítne zeptat, nebo pokud se nepletu v Noci na Karlštejně, kde král nabídne nějaké šlechtičně že si jí vezme za ženu aby otestoval její lásku k ženichovi.</p>
-      <h1 id="4ce059a8-df80-4bd8-a317-1986167f32fa" class="">Hypotéza</h1>
-      <p id="058b6272-4820-44cd-a4db-280790ac1245" class="">Co když existuje společenství <em>Nemů</em>, jedinců, kteří si uvědomili <em>Vědcovo dilema</em> a rozhodli se obejít nemožnost efektivně sdílet účinné informace pomocí Closed Shell Systémů - privátních komunikačních kanálů, kam se můžou dostat jen stejně naladění <em>"vědci"</em>, nikoliv diktátoři a paraziti toužící informace zneužít ve svůj prospěch.</p>
-      <p id="b4a1d02c-e221-4c2f-ad14-4539fdadb7d7" class="">Nenechte se zmýlit, nejde mi o <em>"tajné"</em> organizace typu bildenberg a židovskobolševická spiknutí. Jde mi o bezejmenné skupiny lidí, o kterých se nikdy nedovíte, protože jejich podstatou je, že o nich neví nikdo, kdo nemá.</p>
-      <p id="36a93788-62c9-4496-9683-d7dfdd53c96d" class="">Vtip spočívá v tom, že nelze požádat o vstup. Neexistuje pobočka, nebo člen, u kterého byste mohli chtít přijetí. Naopak, skupina sama aktivně vytipovává jedince podle toho, jaký informační otisk po sobě zanechává. Pokud splníte parametry, které jsou ve skupině žádané, jste postaveni před neviditelný test.</p>
-      <p id="7453af26-fe80-4d9c-967b-1145a975b224" class="">Ten je pokládaný těm kdo přijdou, protože si odvodí existenci společnosti, či těm, kteří v informační sféře září dost jasně, aby mohli dostat pozvánku.</p>
-      <p id="76953ec0-ec2d-4b46-a6a5-ddec96cb4314" class="">Ti kdo uspějí se stanou členy nedestruktivního společenství sdílejícího destruktivní informace za účelem osobního rozvoje. Kdo ví, třeba tam jsou i informace o <em>"CAIMEU"</em>, "<em>AI in the box</em>" či kvantových "<em>GGGQEP"</em> procesorech.</p>
-      <p id="958fbe68-a21e-4974-8ac8-99f121b286e9" class="">To je vše co jsem chtěl, jen mě tak napadlo, že by z toho mohla být zajímavá diskuze :)</p>
-      <h1 id="07a80faf-248f-4780-97c6-586051cba1b9" class="">Dodatky</h1>
-      <p id="78e2c165-69f2-4688-9baf-3e82fb47d8bf" class="">01.12.2013 <a href="http://www.telegraph.co.uk/technology/internet/10468112/The-internet-mystery-that-has-the-world-baffled.html">The internet mystery that has the world baffled</a></p>
+      <div style="display:contents" dir="auto">
+        <div id="58aa823d-2cad-427f-85cd-1ad512a7e895" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="93c42f3c-32cd-4353-98d8-054d7ef46e4c" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="fc588d3d-0ad5-4d77-96d9-f4c31083b8d4" class="image">
+                  <a href="Untitled_14.png" title="Untitled_14.png"><img style="width:656px" src="Untitled_14.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="e21ee1db-4ca5-43fc-8161-7c49b60ab1ec" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="fa0f69ab-684f-4ac4-804d-254adba08a35" class="image">
+                  <a href="Untitled_15.png" title="Untitled_15.png"><img style="width:600px" src="Untitled_15.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="ad15a6d9-8b16-407f-83d5-93c0a13f09c3" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="f224be7a-d80b-4226-b57d-f1323da581a4" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="2d7e8f20-d7ed-4177-9cdf-1a5edd3699e6" class="image">
+                  <a href="Untitled_16.png" title="Untitled_16.png"><img style="width:503px" src="Untitled_16.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="83d31c02-12b0-40ac-8759-1c3ce7c11780" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="3e30c06e-0027-4f0b-b17a-6c41e74852c2" class="image">
+                  <a href="Untitled_17.png" title="Untitled_17.png"><img style="width:640px" src="Untitled_17.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:contents" dir="auto">
+        <div id="2129426a-3958-4229-8fab-86e1d803f45f" class="column-list">
+          <div style="display:contents" dir="auto">
+            <div id="dac1612d-b157-4ee0-88ac-cf56f2165987" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="9dc671d6-2928-4195-a3bc-9da35eac09e4" class="image">
+                  <a href="Untitled_18.png" title="Untitled_18.png"><img style="width:526px" src="Untitled_18.png"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div style="display:contents" dir="auto">
+            <div id="3b89c842-78e3-4493-8889-01cbe333a28d" style="width:50%" class="column">
+              <div style="display:contents" dir="ltr">
+                <figure id="39ed0103-7357-4158-ae8f-3daed147967c" class="image">
+                  <a href="Untitled_19.png" title="Untitled_19.png"><img style="width:1280px" src="Untitled_19_thumb.jpg"></a>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="63ee9f1e-b3a4-423f-837a-28bb5c560219" class="image">
+          <a href="Untitled_20.png" title="Untitled_20.png"><img style="width:533px" src="Untitled_20.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f61c8a59-f293-433c-88f0-8bb0ab62b767" class=""></p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="c1388b2b-b7b1-4e9a-b345-2f613b065570" class="">Spousta z toho co se dá na obrázcích vidět je určeno pro newfagy a ve skutečnosti se dá nalézt velice lehce. Na internetu se dá narazit ale i na poněkud znepokojivější informace o hlubinách deep webu.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="250cdad9-1929-4056-986a-c3f5f81514f7" class="image">
+          <a href="Untitled_21.png" title="Untitled_21.png"><img style="width:533px" src="Untitled_21.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="04357ab6-a7bd-4544-a1e3-8001df854a59" class="">.clos</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9906b387-4d77-4912-8cc6-e3857452dc17" class=""><code>.clos</code>, ClosNet, ClosedNet je součástí legendy o deep webu, nebo lépe řečeno pokračování.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="db5a7366-af56-4461-9e2f-302775cf901d" class="">Má se jednat o kompletně oddělenou síť, do které nevedou žádné proxy. Nemůžete se do ní dostat z internetu, tak jako se dá dostat třeba do TORu. Jediná možnost jak se přidat, je pořídit si určitý velmi drahý hardware, o kterém jen vyvolení ví, kde ho sehnat, nebo se připojovat od někoho, kdo již v síti je. Nikde není přesně specifikováno, o jaký hardware by mělo jít, jestli se jedná o modem pro packet radio, nebo jde o zařízení pro kvantovou kryptografii.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="37f27638-63e2-4fc5-b03f-bbf59c4fc3f6" class="">Uvnitř sítě se používá tld <code>.clos</code> spolu s náhodně vypadající doménou, podobně jako je tomu v TORu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="9fa00cae-1655-4573-8275-0608dd2a82fa" class="">Původ</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="cc2cbd7f-dd5e-4f69-8f11-44ee91e709c1" class="">Podle toho co se dá najít se jedná o úspěšný trolling, který vznikl na základě výše uvedeného obrázku. Někdo si nejspíš řekl, že by byla docela sranda o tom založit stránky <a href="http://wznf5ffcbr3x62gj.onion/">http://wznf5ffcbr3x62gj.onion</a> (<a href="http://wznf5ffcbr3x62gj.onion.to/index.php/Main_Page">proxy link</a>) a začít předstírat, že existuje od internetu odříznutý systém používající domény .clos, kde se dají najít informace, které spadají spíš do kategorie sci-fi.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="69aeeee0-f209-408d-8172-9570e65497a1" class="image">
+          <a href="Untitled_22.png" title="Untitled_22.png"><img style="width:981px" src="Untitled_22.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0fcf6291-8e02-42ec-8bea-5f0ec54d8cbb" class="">Uvedená stránka má několik vad:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="a" id="a888470d-3bf3-4a4e-9352-82300d9ea819" class="numbered-list" start="1">
+          <li>Polovina avizovaného obsahu jsou věci, které běžně najdete na TORu, nevidím tedy důvod, proč by měly být v takto super utajované síti. Naopak, třeba v případě aukce otroků by to bylo vyloženě škodlivé, protože nepředpokládám, že existuje moc platby schopných zákazníků, kteří se tam dokáží dostat. Zbytek jsou často dobře znějící blbosti na pomezí sci-fi, které se nedají ani vygooglit a nikde kromě stránek diskutujících o ClosNetu o nich není ani zmínka.</li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="a" id="8bc76852-e82d-4bd5-b5bb-fb62055f71e4" class="numbered-list" start="2">
+          <li>K čemu zakládat stránku dostupnou z normálního internetu/TORu a pak se tvářit tajmně? Autor tvrdí, že to má být rozcestník pro ostatní účastníky, ale v tom případě by stačilo jen napsat něco ve stylu ".clos rozcestník najdete zde: adresa.clos", tedy umístit rozcestník do samotného <code>.clos</code> systému, podobně jako je hiddenwiki umístěná v samotném TORu a ne v cleannetu.
+            <div style="display:contents" dir="auto">
+              <p id="7f1b3263-d1e2-40ee-911a-c45474bd6eed" class="">Když se nad tím zamyslíte - určitě nechcete zbytečně poutat pozornost na superutajovanou síť informacemi o tom, že existuje. Na druhou stranu, pokud si chcete zatrolit, je to ideální způsob.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="a" id="dbf5266f-6e00-494e-ac61-d48b69bd29a2" class="numbered-list" start="3">
+          <li>
+            <a href="https://abclinuxu.cz/images/screenshots/9/6/198969-paranoidni-teorie-spolecenstvi-nemu-2138909262712474697.png">Log wiki</a> ukazuje, že celá stránka byla vytvořena hodně rychle a od té doby na ní admin nic nezměnil. To u proklamované funkce rozcestníku do <code>.clos</code> sítě nedává moc smysl.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <ol type="a" id="d7b9e477-7668-4927-ae32-dd6b1cd3198c" class="numbered-list" start="4">
+          <li>Někdo, kdo se vydává za autora uvedeného obrázku, jenž předvádí jednotlivé levely internetu <a href="http://lethemfind.us/community/topic/983-closed-shell-system/page-9#entry26660">tvrdí</a>, že si termíny vymyslel čistě pro inspiraci. Informační .onion stránka a celý koncept <code>.clos</code> vznikl až poté, podle něj se tedy jedná jen o trolling. Pokud vás to zajímá, doporučuji pročíst si <a href="http://lethemfind.us/community/topic/983-closed-shell-system/">celý thread</a> na lethemfind.us.
+          </li>
+        </ol>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="052bde24-359c-4210-85eb-288e7b431fbf" class="">Closed Shell System (CSS)</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="443071aa-23c3-4fac-96bc-fd8bf9fbace5" class=""><em>Closed Shell System</em> je termín, kterým někteří autoři označují izolované sítě, do kterých se z internetu nedostanete. Pokud by exsitoval, <code>.clos</code> by byl zářnou ukázkou CSS.</p>
+      </div>
+      <div style="display:contents" dir="ltr">
+        <figure id="4264fd22-86d3-440f-b76f-54a82c201bcf" class="image">
+          <a href="Untitled_23.png" title="Untitled_23.png"><img style="width:565px" src="Untitled_23.png"></a>
+        </figure>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="65d1451e-6049-4527-87e5-2cf06bc84d11" class="">CSS sítě na rozdíl od ostatních zde uvedených konceptů skutečně existují a jediný rozdíl oproti intranetům je podle mého názoru v tom, že síť není a z definice ani nesmí být přístupná zvenčí. Takříkajíc do ní nevedou žádné brány.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="e0466ae2-3b7e-4052-9af0-b47a325318bf" class="">Co víc, síť se může proti přístupům z venčí aktivně či pasivně bránit:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="3c2fd7e2-b892-47e9-90cc-f73d12b31261" class="">Pasivní obrana</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="2ba8d984-bbed-4174-968b-86306dbb969a" class="">Rozdíný protokol</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d6e2ccb5-373d-4804-9fb9-942332655908" class="">Síť může využívat rozdílný protokol a tak se do ní prostě nedostanete z internetu, protože si záměrně nerozumí s TCP/IP.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="17a2fee0-ed31-49f6-b786-f27fe6282bd6" class="">Lidské šifrování</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="d03721e6-2a8c-4a33-a717-7eeba15c7874" class="">Síť může používat způsob šifrování, které není možné strojově dekódovat, protože je založeno na věcech, jenž mohou pochopit pouze lidé. Pro sdělení mohou být použity přirovnání a metafory, podobně jako je to třeba v <a href="http://cs.wikipedia.org/wiki/Kabala">Kabale</a>. Nezasvěceným lidem tak může připadat jako kopa nesmyslů.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h2 id="393bbb64-cbe6-47e8-bc48-5d87eb742ee1" class="">Aktivní obrana</h2>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="195b5e0c-a3c5-43a1-a519-229472b6b2cc" class="">Automatický ban</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="4658001a-1b60-4cda-a13c-b0b7f07d9db0" class="">Nad sítí může dohlížet démon (software, ne metafyzika), který sleduje nestandardní chování a automaticky od sítě odřízne ty uzly, které se mu jeví jako podezřelé.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="208bc0c6-0224-4180-9af7-fc0e8b056b9b" class="">Endgame na vetřelce</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="0531d083-90ef-4edd-90d3-3565c328ca47" class="">Výše uvedený démon nemusí jen banovat, může navíc používat i podstatně drsnější prostředky, hromadně nazvané jako Endgame. Může se jednat o cokoliv, od <a href="http://cs.wikipedia.org/wiki/BGM-109_Tomahawk">řízené střely</a> po SWAT team, který vám vtrhne do domu (na TORu jeden čas bylo možné tuto službu za pár dolarů objednat - vlastník stránky se pak postaral o legitimně vypadající udání policii, která na místo <a href="http://en.wikipedia.org/wiki/Swatting">poslala</a> SWAT team).</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h3 id="c1daabae-868a-4970-ade7-bef3dd15336c" class="">Směnný obchod</h3>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="f000ed49-1326-4019-b5aa-c5d1d4976847" class="">Aby vám bylo umožněno ze sítě brát informace, musíte prvně síti nějaké dodat. Dodané informace jsou hodnoceny aktivními učastníky, kteří vám na základě vaší práce přidělí body, které pak můžete využít na získávání obsahu.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="df255d7b-ab40-42d8-9041-e66ef522e093" class="">Neviditelný test</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="61ba493a-699f-459c-a43d-06822224f528" class="">Měl jsem se ženit. Pár dní před svatbou jsem přijel k domu své nevěsty. Když jsem vešel dovnitř, nebyl tam nikdo, jen matka mé nastávající. Byla to velmi atraktivní žena. Chvíli jsme si povídali a pak mi řekla, že jsem se jí vždycky líbil. Bez dlouhých okolků mi navrhla, že se spolu pomilujeme.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="dd980ea0-6438-4159-8f43-fcab9777ac44" class="">Byl jsem neschopný cokoli říci. Řekla, že teď půjde nahoru do své ložnice a je na mně, jestli půjdu za ní nebo odejdu.<br>
+        Pomalu stoupala po schodech a já se díval na její krásné pozadí.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="1ec26b01-d492-489c-b16e-6774cc833998" class="">Pak jsem se otočil a vyšel z domu ke svému autu. Za dveřmi čekal její manžel, objal mne a řekl, že jsem obstál v jejich zkoušce.<br>
+        Nyní vědí, že je na mne spoleh a že mi svou dceru mohou s klidem v duši svěřit. A poučení z tohoto příběhu?</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="65a9ab96-45d9-432f-b5c2-8cc087b62914" class="">Vždycky nechávej kondomy v autě!</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="34c3f078-64f9-4c7a-958c-8a537a2faf5a" class="">Představte si, že chcete ověřit skutečnou povahu testované osoby. Nejjednodušší způsob, který mě napadá je postavit jí před neviditelný test, tedy takový o kterém neví, že ho podstupuje.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="9419a1a7-106a-4ab5-b553-db82c23ca1c5" class="">Výše uvedený vtip ilustruje jak na to - i když sám o sobě je spíš ukázka, jak by se to dělat nemělo:</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="3592e340-aa97-4b66-a3dc-ec387d27afe1" class="">1. Test příliš očividný a testovanému subjektu s větší inteligencí může dojít, že je testován. Správný neviditelný test není rozlišitelný od běžné každodenní situace.<br>
+        2. Druhá chyba spočívá v tom, že výsledky testu jsou účastníkovi sděleny, čímž je narušen celý předpoklad neviditelného testu, tedy že subjekt o něm neví a ani se nikdy nedozví.<br>
+        3. Poslední chyba je v tom, že test je jen jeden. V ideálním případě proběhne testů celá hromada a jejich výsledky jsou pečlivě zváženy. Můžou to být jednoduché věci, od toho jak mluvíte s cizincem, nebo jestli si vezmete stokorunu, kterou někdo nechal ležet na stole.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="09e0617a-205a-4304-8abd-798a8b7e24bc" class="">Myšlenka neviditelného testu není nová. Setkat se s ní lze například v knize Parsifal, kde je hlavní hrdina pozván na večeři, během které vidí zázraky, na které se ovšem odmítne zeptat, nebo pokud se nepletu v Noci na Karlštejně, kde král nabídne nějaké šlechtičně že si jí vezme za ženu aby otestoval její lásku k ženichovi.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="4ce059a8-df80-4bd8-a317-1986167f32fa" class="">Hypotéza</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="058b6272-4820-44cd-a4db-280790ac1245" class="">Co když existuje společenství <em>Nemů</em>, jedinců, kteří si uvědomili <em>Vědcovo dilema</em> a rozhodli se obejít nemožnost efektivně sdílet účinné informace pomocí Closed Shell Systémů - privátních komunikačních kanálů, kam se můžou dostat jen stejně naladění <em>"vědci"</em>, nikoliv diktátoři a paraziti toužící informace zneužít ve svůj prospěch.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="b4a1d02c-e221-4c2f-ad14-4539fdadb7d7" class="">Nenechte se zmýlit, nejde mi o <em>"tajné"</em> organizace typu bildenberg a židovskobolševická spiknutí. Jde mi o bezejmenné skupiny lidí, o kterých se nikdy nedovíte, protože jejich podstatou je, že o nich neví nikdo, kdo nemá.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="36a93788-62c9-4496-9683-d7dfdd53c96d" class="">Vtip spočívá v tom, že nelze požádat o vstup. Neexistuje pobočka, nebo člen, u kterého byste mohli chtít přijetí. Naopak, skupina sama aktivně vytipovává jedince podle toho, jaký informační otisk po sobě zanechává. Pokud splníte parametry, které jsou ve skupině žádané, jste postaveni před neviditelný test.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="7453af26-fe80-4d9c-967b-1145a975b224" class="">Ten je pokládaný těm kdo přijdou, protože si odvodí existenci společnosti, či těm, kteří v informační sféře září dost jasně, aby mohli dostat pozvánku.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="76953ec0-ec2d-4b46-a6a5-ddec96cb4314" class="">Ti kdo uspějí se stanou členy nedestruktivního společenství sdílejícího destruktivní informace za účelem osobního rozvoje. Kdo ví, třeba tam jsou i informace o <em>"CAIMEU"</em>, "<em>AI in the box</em>" či kvantových "<em>GGGQEP"</em> procesorech.</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="958fbe68-a21e-4974-8ac8-99f121b286e9" class="">To je vše co jsem chtěl, jen mě tak napadlo, že by z toho mohla být zajímavá diskuze :)</p>
+      </div>
+      <div style="display:contents" dir="auto">
+        <h1 id="07a80faf-248f-4780-97c6-586051cba1b9" class="">Dodatky</h1>
+      </div>
+      <div style="display:contents" dir="auto">
+        <p id="78e2c165-69f2-4688-9baf-3e82fb47d8bf" class="">01.12.2013 <a href="http://www.telegraph.co.uk/technology/internet/10468112/The-internet-mystery-that-has-the-world-baffled.html">The internet mystery that has the world baffled</a></p>
+      </div>
     </div>
   </article>
   <div class="corner-ribbon top-right red">
