@@ -38,6 +38,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../Ostatni/Neomezena_bitva_napric_dimenzemi.html" title="Neomezená bitva napříč dimenzemi">Neomezená bitva napříč dimenzemi</a>
+        </li>
+        <li>
           <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
         </li>
         <li>
@@ -63,9 +66,6 @@
         </li>
         <li>
           <a href="../../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
-        </li>
-        <li>
-          <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
@@ -131,6 +131,7 @@
       <div style="display:contents" dir="auto">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" integrity="sha512-6O/PZimM3TD1NN3yrazePA4AbZrPcwt1QCGJrVY7WoHDJROZFc9TlBvIKMe+QfqgcslW4lQeBzNJEJvIMC8WhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       </div>
       <div style="display:contents" dir="auto">
         <div id="7b47a3e3-89a8-4e56-a9b8-525a23967117" class="column-list">
@@ -436,9 +437,8 @@
         <p id="b8630633-ccaa-456a-991c-6a9c29919b25" class="">Zde je kód pro blikání diodou na raspberry pi:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="a5ef88b7-602b-4cf5-95b8-a2f269467470" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">echo 27 &gt; /sys/class/gpio/export
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" integrity="sha512-whYhDwtTmlC/NpZlCr6PSsAaLOrfjVg/iXAnC4H/dtiHawpShhT2SlIMbpIhT/IL/NrpdMm+Hq2C13+VKpHTYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre id="a5ef88b7-602b-4cf5-95b8-a2f269467470" class="code code-wrap" dir="ltr"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">echo 27 &gt; /sys/class/gpio/export
 echo out &gt; /sys/class/gpio/export/gpio27/direction
 echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
       </div>
@@ -491,9 +491,8 @@ echo 1 &gt; /sys/class/gpio/export/gpio27/value</code></pre>
         <p id="ccab9253-900f-4bf6-a672-b53af4eab8d3" class="">A co volání ostatních programů z <em>jiných programů</em>? Ani nechci vzpomínat, kolikrát jsem viděl, či psal kód ve stylu:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="056d636d-391c-4bba-801f-110b77b863a5" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import subprocess
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-AKaNmg8COK0zEbjTdMHJAPJ0z6VeNqvRvH4/d5M4sHJbQQUToMBtodq4HaV4fa+WV2UTfoperElm66c9/8cKmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre id="056d636d-391c-4bba-801f-110b77b863a5" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">import subprocess
 
 sp = subprocess.Popen(
   ['7z', 'a', 'Test.7z', 'Test', '-mx9'],
@@ -619,17 +618,13 @@ stdout, stderr = sp.communicate()</code></pre>
         <p id="36f24185-65d9-449b-806c-5e5b93a683ab" class="">K naprosté dokonalosti to bylo dovedeno <a href="https://docs.docker.com/storage/volumes">novým</a> parametrem <code>--mount</code>, který dělá to samé, ale zavádí pro to úplně novou syntaxi, jenž přináší úplně jiná pravidla parsování:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="f9414646-6932-412a-bf69-68b9761536b7" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">--mount source=local_path,target=/docs</code></pre>
+        <pre id="f9414646-6932-412a-bf69-68b9761536b7" class="code code-wrap" dir="ltr"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">--mount source=local_path,target=/docs</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7e4ad365-23bd-4b37-ad08-3f02415695d1" class="">Komplexnější ukázka může vypadat například takto:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="ef2b3cea-bc5f-4c70-ba0d-0bb91c95f3f7" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
+        <pre id="ef2b3cea-bc5f-4c70-ba0d-0bb91c95f3f7" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">--mount 'type=volume,src=&lt;VOLUME-NAME&gt;,dst=&lt;CONTAINER-PATH&gt;,volume-driver=local,volume-opt=type=nfs,volume-opt=device=&lt;nfs-server&gt;:&lt;nfs-path&gt;,"volume-opt=o=addr=&lt;nfs-address&gt;,vers=4,soft,timeo=180,bg,tcp,rw"'</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f28a5e6a-ca04-4465-aab6-48030692e9b9" class="">a zahrnuje ukázky escapování CSV parseru (!).</p>
@@ -656,9 +651,7 @@ stdout, stderr = sp.communicate()</code></pre>
         <p id="aff4d917-c9a7-41cd-bc41-047409be979f" class="">Původní idea byla jednoduchá - prostě soubor <code>KEY value</code> definic, které se budou postupně vykonávat. Může to vypadat například takto:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="d0b63989-482f-4272-bd7d-d20e2465c1f1" class="code code-wrap"><code class="language-Docker" style="white-space:pre-wrap;word-break:break-all">FROM microsoft/nanoserver
+        <pre id="d0b63989-482f-4272-bd7d-d20e2465c1f1" class="code code-wrap" dir="ltr"><code class="language-docker" style="white-space:pre-wrap;word-break:break-all">FROM microsoft/nanoserver
 COPY testfile.txt c:\\
 RUN dir c:\</code></pre>
       </div>
@@ -699,9 +692,7 @@ RUN dir c:\</code></pre>
         <p id="9395618a-83f6-45f7-a029-031fa6740ff6" class="">Tohle všechno je postavené nad YAMLem, což je poněkud méně ukecaný bratr JSONu. Ukázka template může vypadat například takto:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="5a49bc94-1e36-417c-97e8-b8fbadb1eca2" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">apiVersion: v1
+        <pre id="5a49bc94-1e36-417c-97e8-b8fbadb1eca2" class="code code-wrap" dir="ltr"><code class="language-yaml" style="white-space:pre-wrap;word-break:break-all">apiVersion: v1
 kind: Template
 metadata:
   name: redis-template
@@ -766,9 +757,7 @@ labels:
         <p id="6f6881f4-8b23-4a9a-8576-ba66bdddb7a5" class="">Původně začal jako na YAMLu založený deklarační konfigurační jazyk popisující co se má jak dělat. Zde je například ukázka deklarace instalace nginxu:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="1ca3fb5c-43d9-4943-8fb0-ec1509f0b105" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">- name: Install nginx
+        <pre id="1ca3fb5c-43d9-4943-8fb0-ec1509f0b105" class="code code-wrap" dir="ltr"><code class="language-yaml" style="white-space:pre-wrap;word-break:break-all">- name: Install nginx
   hosts: host.name.ip
   become: true
   tasks:
@@ -807,9 +796,7 @@ labels:
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="f6ed94b8-9e34-4f11-b40c-0f3fff28782a" class="code code-wrap"><code class="language-YAML" style="white-space:pre-wrap;word-break:break-all">tasks:
+        <pre id="f6ed94b8-9e34-4f11-b40c-0f3fff28782a" class="code code-wrap" dir="ltr"><code class="language-yaml" style="white-space:pre-wrap;word-break:break-all">tasks:
     - command: echo {{ item }}
       loop: [ 0, 2, 4, 6, 8, 10 ]
       when: item &gt; 5</code></pre>
@@ -1156,6 +1143,9 @@ labels:
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../Ostatni/Neomezena_bitva_napric_dimenzemi.html" title="Neomezená bitva napříč dimenzemi">Neomezená bitva napříč dimenzemi</a>
+        </li>
+        <li>
           <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
         </li>
         <li>
@@ -1181,9 +1171,6 @@ labels:
         </li>
         <li>
           <a href="../../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
-        </li>
-        <li>
-          <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
         </li>
       </ul>
     </div>

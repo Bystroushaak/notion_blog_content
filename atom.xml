@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2026-04-06T00:55:40.769909+00:00</updated>
+  <updated>2026-04-24T21:57:53.501301+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html</id>
-    <title>War stories: Romanian Infocenter aka the pontaj story</title>
-    <updated>2023-01-16T08:50:00+01:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/en/Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" rel="alternate"/>
-    <summary type="text">Story about one deployment into the production, and also musing on the devops trends.</summary>
-    <published>2023-01-16T08:50:00+01:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/Paperclips/Control_panels_-_alt_interface.html</id>
     <title>Control panels / alt interface</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/en/Programming/Lessons_learned_from_games.html" rel="alternate"/>
     <summary type="text">Some games make abstract engineering concepts feel physical. Belts and assemblers turn throughput into something you can see. Budgets turn refactoring into a trade-off you can’t ignore. Closed systems make early decisions echo much later. This post collects the few times that feeling survived the game and followed me back into my work.</summary>
     <published>2026-04-05T00:20:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/en/Philosophy/Unbounded_battle_in_multiple_dimensions.html</id>
+    <title>Unbounded battle in multiple dimensions</title>
+    <updated>2026-04-24T18:00:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/en/Philosophy/Unbounded_battle_in_multiple_dimensions.html" rel="alternate"/>
+    <summary type="text">Creativity — the kind this essay is about — doesn't live inside one head. It emerges between minds as a response to a provocation: a move in a game no single player controls.</summary>
+    <published>2026-04-24T18:00:00+02:00</published>
   </entry>
 </feed>

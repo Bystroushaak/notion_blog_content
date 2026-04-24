@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>& <a href="../../../Changelog.html" title="Changelog">more</a>
@@ -151,6 +151,7 @@
       <div style="display:contents" dir="auto">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" integrity="sha512-6O/PZimM3TD1NN3yrazePA4AbZrPcwt1QCGJrVY7WoHDJROZFc9TlBvIKMe+QfqgcslW4lQeBzNJEJvIMC8WhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       </div>
       <div style="display:contents" dir="auto">
         <p id="beae1dc3-d1b9-4930-bd92-af8ab1020c70" class=""><time>@2019/05/19</time></p>
@@ -293,9 +294,7 @@
         <p id="18273323-9f19-482a-bf04-2e5a3fa740c0" class="">You can start the interpreter with <code>-h</code> parameter to show help:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="7c49e318-1f8c-4d0b-8597-461762feb2d2" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ ./Self -h
+        <pre id="7c49e318-1f8c-4d0b-8597-461762feb2d2" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">$ ./Self -h
 ./Self: usage: ./Self [-f filename] [-h] [-s snapshot] ...
 Options:
   -f filenameReads filename (Self source) immediately after startup
@@ -320,17 +319,13 @@ Other command line switches may be interpreted by the Self world</code></pre>
         <p id="6e2bb253-6c30-4fc5-a802-467e3e66c099" class="">If instead of the help you see something like this</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="d34f8915-775b-4553-b2d1-122a5bd4c3b6" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">./Self: error while loading shared libraries: libX11.so.6: cannot open shared object file: No such file or directory</code></pre>
+        <pre id="d34f8915-775b-4553-b2d1-122a5bd4c3b6" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">./Self: error while loading shared libraries: libX11.so.6: cannot open shared object file: No such file or directory</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a7c76c6f-47b6-455e-bf24-1dc04c2259ca" class="">then you are using a 64-bit system, that does not have 32-bit support installed. You can install the necessary support on Debian based systems with following command:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="922ab694-c6f4-400e-81ba-9da7fd6dc00f" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo dpkg --add-architecture i386
+        <pre id="922ab694-c6f4-400e-81ba-9da7fd6dc00f" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get install libx11-6:i386 libxext6:i386 libtinfo5:i386</code></pre>
       </div>
@@ -344,9 +339,7 @@ sudo apt-get install libx11-6:i386 libxext6:i386 libtinfo5:i386</code></pre>
         <p id="5013be5a-47da-4ac7-93c3-86836f2304db" class="">If you run the Self binary alone, REPL (interactive mode) appears in front of you, where you can type commands:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="9a5fde05-7193-449e-b0bf-c3e63fef28f1" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ ./Self 
+        <pre id="9a5fde05-7193-449e-b0bf-c3e63fef28f1" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">$ ./Self 
 Self Virtual Machine Version 2017.1/13, Tue 16 May 17 00:45:42 Linux i386 (4.5.0-205-gd942ba2-dirty)
 Copyright 1989-2016 AUTHORS (type _Credits for credits)
 
@@ -365,9 +358,7 @@ VM#</code></pre>
         <p id="960512d7-0ce7-49f5-b37b-547f8d2876c0" class="">Basic help is available by sending a message (details below) <code>help</code>:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="bf83bffc-4823-476e-ae40-facd6b3faea4" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">VM# help
+        <pre id="bf83bffc-4823-476e-ae40-facd6b3faea4" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">VM# help
 '
 To begin using Self, you must read in the world of Self objects.
 To read in the world, type:
@@ -785,9 +776,7 @@ VM#</code></pre>
         <p id="f0dd9fb4-7713-445e-91ed-5fef01405c3d" class="">Morph can also be opened from shell:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="0069a933-626d-4730-90f5-6870ed06eab2" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">desktop w addMorph: radarView
+        <pre id="0069a933-626d-4730-90f5-6870ed06eab2" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">desktop w addMorph: radarView
 desktop w hands first addMorph: radarView</code></pre>
       </div>
       <div style="display:contents" dir="auto">
@@ -1061,6 +1050,9 @@ desktop w hands first addMorph: radarView</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -1086,9 +1078,6 @@ desktop w hands first addMorph: radarView</code></pre>
         </li>
         <li>
           <a href="../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>

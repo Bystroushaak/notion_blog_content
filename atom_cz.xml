@@ -2,24 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://blog.rfox.eu/atom_cz.xml</id>
   <title>Bystroushaak's blog</title>
-  <updated>2026-04-06T00:55:40.817373+00:00</updated>
+  <updated>2026-04-24T21:57:53.548317+00:00</updated>
   <author>
     <name>Bystroushaak</name>
   </author>
   <link href="https://blog.rfox.eu" rel="alternate"/>
   <link href="https://blog.rfox.eu/atom_cz.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>https://blog.rfox.eu/Utrzky/Posta_poezie.html</id>
-    <title>Pošta (poezie)</title>
-    <updated>2021-06-18T12:02:00+02:00</updated>
-    <author>
-      <name>Bystroushaak</name>
-    </author>
-    <link href="https://blog.rfox.eu/Utrzky/Posta_poezie.html" rel="alternate"/>
-    <summary type="text">Fekální poezie složená při čekání ve frontě na poště.</summary>
-    <published>2021-06-18T12:02:00+02:00</published>
-  </entry>
   <entry>
     <id>https://blog.rfox.eu/cz/3D_modelovani/Geometricky_stred_Prahy.html</id>
     <title>Geometrický střed Prahy</title>
@@ -118,5 +107,16 @@
     <link href="https://blog.rfox.eu/cz/3D_tisk/Upgrade_na_MK4.html" rel="alternate"/>
     <summary type="text">Upgradoval jsem 3D tiskárnu Pruša MK3S+ na MK4. V textu se dozvíte jak to šlo a pár pozorování nové verze.</summary>
     <published>2024-08-17T02:31:00+02:00</published>
+  </entry>
+  <entry>
+    <id>https://blog.rfox.eu/cz/Ostatni/Neomezena_bitva_napric_dimenzemi.html</id>
+    <title>Neomezená bitva napříč dimenzemi</title>
+    <updated>2026-04-24T18:00:00+02:00</updated>
+    <author>
+      <name>Bystroushaak</name>
+    </author>
+    <link href="https://blog.rfox.eu/cz/Ostatni/Neomezena_bitva_napric_dimenzemi.html" rel="alternate"/>
+    <summary type="text">Kreativita — ta, o které je tahle esej — nežije uvnitř jedné hlavy. Vzniká mezi myslemi jako odpověď na provokaci: tah ve hře, kterou nekontroluje žádný jednotlivý hráč.</summary>
+    <published>2026-04-24T18:00:00+02:00</published>
   </entry>
 </feed>

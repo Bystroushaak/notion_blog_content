@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../Ostatni/Neomezena_bitva_napric_dimenzemi.html" title="Neomezená bitva napříč dimenzemi">Neomezená bitva napříč dimenzemi</a>
+        </li>
+        <li>
           <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
-        </li>
-        <li>
-          <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
         </li>
       </ul>
     </div>& <a href="../../../Zmeny.html" title="Změny">more</a>
@@ -128,6 +128,7 @@
       <div style="display:contents" dir="auto">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" integrity="sha512-6O/PZimM3TD1NN3yrazePA4AbZrPcwt1QCGJrVY7WoHDJROZFc9TlBvIKMe+QfqgcslW4lQeBzNJEJvIMC8WhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       </div>
       <div style="display:contents" dir="auto">
         <p id="730e45be-3400-4b95-9d23-487906a8f300" class=""><time>@2011/05/14</time></p>
@@ -171,9 +172,7 @@
         <p id="412bfa94-33f7-43fc-b42d-37c6e24dc944" class="">Protože <a href="http://arduino.cc/en/Main/Software">Arduino IDE</a> normálně používá jiné čipy, je zapotřebí mu sdělit že chceme kompilovat pro <em>náš</em> mikroprocesor. Ve složce <strong>arduino-00{V}/hardware/arduino</strong> (kde {V} je současná verze, v době psaní článku 22) najdete soubor <strong>boards.txt</strong>. Otevřete ho a přidejte na konec cosi jako:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="4bd73bb6-434e-49a3-b1e9-b9719b8f926a" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">atmega8noxtal.name=ATmega8-noxtal @8MHz
+        <pre id="4bd73bb6-434e-49a3-b1e9-b9719b8f926a" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">atmega8noxtal.name=ATmega8-noxtal @8MHz
 
 atmega8noxtal.upload.protocol=stk500
 atmega8noxtal.upload.maximum_size=7168
@@ -203,9 +202,8 @@ atmega8noxtal.build.core=arduino</code></pre>
         <p id="2b4d5e3c-29ef-4c54-a1b8-39019b5ab0c0" class="">Nyní si něco naprogramujte, můžete použít třeba základní sketch z File/Examples/Basics/Blink, nezapomeňte však na potřebný výstup připojit diodu. Já jsem použil toto:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="cecd94f8-58bc-4883-8429-67bb58860947" class="code code-wrap"><code class="language-C" style="white-space:pre-wrap;word-break:break-all">#define LEDPIN 8
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js" integrity="sha512-8VrjxGFLIkS0mgEmO3p46A5OkqATHhrNVwyv2V7yUeZrk1jmSDuI3SOEpC9XHEHUWEOsfzzcJeBlUkee9lKGrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre id="cecd94f8-58bc-4883-8429-67bb58860947" class="code code-wrap" dir="ltr"><code class="language-c" style="white-space:pre-wrap;word-break:break-all">#define LEDPIN 8
  
 void setup(){
   pinMode(LEDPIN, OUTPUT);
@@ -231,17 +229,14 @@ void loop(){
         <p id="19457324-bbbc-4b16-ac32-e63b197b6384" class="">Další část je poněkud .. nečistá. Otevřete si /tmp a najděte složku se jménem začínajícím na <strong>build</strong>. Nezavírejte během toho IDE, jinak se smaže. Otevřete si v ní konzoli a zadejte příkaz</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="454cd4b0-28bb-4d0f-a79c-0f83c47f7905" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`</code></pre>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" integrity="sha512-whYhDwtTmlC/NpZlCr6PSsAaLOrfjVg/iXAnC4H/dtiHawpShhT2SlIMbpIhT/IL/NrpdMm+Hq2C13+VKpHTYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre id="454cd4b0-28bb-4d0f-a79c-0f83c47f7905" class="code code-wrap" dir="ltr"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ec469a1c-a595-4698-a490-fb4d249ea9fd" class="">Za <strong>m8</strong> dosaďte váš čip dle <a href="http://linux.die.net/man/1/avrdude">manuálu</a> avrdude.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="41caa603-eb41-4854-b488-14824cbbccd9" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$ avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`
+        <pre id="41caa603-eb41-4854-b488-14824cbbccd9" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$ avrdude -C /etc/avrdude.conf -p m8 -c avrisp -b 19200 -P /dev/ttyUSB0 -U flash:w:`ls *.hex`
 
 avrdude: AVR device initialized and ready to accept instructions
 
@@ -282,9 +277,7 @@ bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$</code></pre>
         <p id="cbde740d-9fd1-4853-a48a-f73037a49e25" class="">Pokud se vám stane, že avrdude vypisuje cosi jako</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="94fe5224-4674-4412-ba45-750804697eb9" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">avrdude: AVR device initialized and ready to accept instructions
+        <pre id="94fe5224-4674-4412-ba45-750804697eb9" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">avrdude: AVR device initialized and ready to accept instructions
 
 Reading | ################################################## | 100% 0.12s
 
@@ -360,6 +353,9 @@ avrdude done.  Thank you.</code></pre>
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../Ostatni/Neomezena_bitva_napric_dimenzemi.html" title="Neomezená bitva napříč dimenzemi">Neomezená bitva napříč dimenzemi</a>
+        </li>
+        <li>
           <a href="../../3D_tisk/Upgrade_na_MK4.html" title="Upgrade na MK4">Upgrade na MK4</a>
         </li>
         <li>
@@ -385,9 +381,6 @@ avrdude done.  Thank you.</code></pre>
         </li>
         <li>
           <a href="../../3D_modelovani/Geometricky_stred_Prahy.html" title="Geometrický střed Prahy">Geometrický střed Prahy</a>
-        </li>
-        <li>
-          <a href="../../../Utrzky/Posta_poezie.html" title="Pošta (poezie)">Pošta (poezie)</a>
         </li>
       </ul>
     </div>

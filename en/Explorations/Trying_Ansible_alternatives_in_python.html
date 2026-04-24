@@ -115,6 +115,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -140,9 +143,6 @@
         </li>
         <li>
           <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -224,6 +224,7 @@
       <div style="display:contents" dir="auto">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" integrity="sha512-6O/PZimM3TD1NN3yrazePA4AbZrPcwt1QCGJrVY7WoHDJROZFc9TlBvIKMe+QfqgcslW4lQeBzNJEJvIMC8WhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c435940b-04bf-454d-9214-ba6a01e0b455" class=""><time>@2020/06/12</time></p>
@@ -299,9 +300,8 @@
         <p id="1d69d6ba-8383-4bc8-a724-4b2de1c14a07" class="">Almost every article on the topic of "<em>python ansible alternative</em>" mentions <em>fabric</em>. It looks great, but like something slightly different. It is a system for running commands on remote hosts. Which is definitely part of what Ansible does, but I would also like some kind of abstraction layer.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">disk_free</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-AKaNmg8COK0zEbjTdMHJAPJ0z6VeNqvRvH4/d5M4sHJbQQUToMBtodq4HaV4fa+WV2UTfoperElm66c9/8cKmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre class="code" dir="ltr"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">disk_free</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
 <span class="o">...</span>     <span class="n">uname</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'uname -s'</span><span class="p">,</span> <span class="n">hide</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="o">...</span>     <span class="k">if</span> <span class="s1">'Linux'</span> <span class="ow">in</span> <span class="n">uname</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
 <span class="o">...</span>         <span class="n">command</span> <span class="o">=</span> <span class="s2">"df -h / | tail -n1 | awk '{print $5}'"</span>
@@ -330,9 +330,7 @@
         <p id="1bd215e2-30b4-4120-8c23-b2a9e9694947" class=""><em>Fabtools</em> looks almost exactly like what I want:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">fabric.api</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">fabric.api</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fabtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">require</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">fabtools</span>
 
@@ -415,9 +413,7 @@
         <p id="cde3de7c-dbb9-4b02-bd8b-c3c38b4436e5" class="">Then there is <em>Fabrix</em>, which looks like something between <em>Fabric</em> and <em>Fabtools</em>:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">fabrix.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_file_not_exists</span><span class="p">,</span> <span class="n">yum_install</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">fabrix.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_file_not_exists</span><span class="p">,</span> <span class="n">yum_install</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fabrix.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">edit_file</span><span class="p">,</span> <span class="n">edit_ini_section</span><span class="p">,</span> <span class="n">replace_line</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">install_php</span><span class="p">():</span>
@@ -472,9 +468,7 @@
         <p id="207d32d5-62f7-49cc-9d96-45d218d8a51e" class=""><em>pyinfra</em> looks promising and very <strong>not</strong> dead: 2233 commits, 14 contributors, last commit <em>yesterday</em>. That's what I am talking about!</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.operations</span><span class="w"> </span><span class="kn">import</span> <span class="n">apt</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.operations</span><span class="w"> </span><span class="kn">import</span> <span class="n">apt</span>
 
 <span class="n">apt</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span>
     <span class="p">{</span><span class="s1">'Install iftop'</span><span class="p">},</span>
@@ -507,17 +501,13 @@
         <p id="c4889cbe-6f3c-4bac-87b4-7ff1d42b2e59" class="">As the <em>pyinfra</em> is the only thing that looks like it is not dead and it can do what I want, the decision is not that hard. So, lets try it:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="ed740767-ffa7-4629-b397-a8a1500a3603" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ pip install --user pyinfra</code></pre>
+        <pre id="ed740767-ffa7-4629-b397-a8a1500a3603" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">$ pip install --user pyinfra</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="bd8d2303-3ed9-42f4-9b95-900c724789d8" class="">Now lets try hello world. I struggle with the port for a moment, because I use nonstandard port for tunneling through hotel and airport wifi, quick peek to help show that I should use <code>--port</code> parameter:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="70d570c8-d358-4b0b-a015-1a4a0982d38c" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">$ pyinfra kitakitsune.org --port 443 exec -- echo "hello world"
+        <pre id="70d570c8-d358-4b0b-a015-1a4a0982d38c" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">$ pyinfra kitakitsune.org --port 443 exec -- echo "hello world"
 --&gt; Loading config...
 --&gt; Loading inventory...
 
@@ -541,9 +531,7 @@
         <p id="b0ce0e5c-b8d3-48ec-8c31-a5a29a0c81e2" class="">Looks good. Let's try to create a more complicated deployment for a virtual Ubuntu server, that I've created some time ago in VirtualBox. I slightly struggle with the <code>inventory.py</code> file, but then I find in the documentation correct parameters:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="n">my_hosts</span> <span class="o">=</span> <span class="p">[</span>
+        <pre class="code" dir="ltr"><code><span class="n">my_hosts</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">'192.168.0.106'</span><span class="p">,</span> <span class="p">{</span><span class="s2">"ssh_port"</span><span class="p">:</span> <span class="s2">"4433"</span><span class="p">,</span> <span class="s2">"ssh_user"</span><span class="p">:</span> <span class="s2">"b"</span><span class="p">}),</span>
 <span class="p">]</span>
 </code></pre>
@@ -552,9 +540,7 @@
         <p id="bb5cc72a-13e1-4bdf-aaf2-e11f59b015eb" class="">I quickly check whether it works with following <code>deployment.py</code> file:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">server</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">server</span>
 
 <span class="n">server</span><span class="o">.</span><span class="n">shell</span><span class="p">(</span><span class="s1">'echo "hello world"'</span><span class="p">)</span>
 </code></pre>
@@ -563,14 +549,10 @@
         <p id="0042e0f3-7d1a-4f3f-9bc4-62f350514071" class="">Which I run using following command:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="61ab5a55-bb0c-4f06-bee1-b8d99f1976b0" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pyinfra -v inventory.py deployment.py</code></pre>
+        <pre id="61ab5a55-bb0c-4f06-bee1-b8d99f1976b0" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">pyinfra -v inventory.py deployment.py</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="ad148ebb-f0a0-4d62-b907-8be7537b624f" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">--&gt; Loading config...
+        <pre id="ad148ebb-f0a0-4d62-b907-8be7537b624f" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">--&gt; Loading config...
 --&gt; Loading inventory...
 
 --&gt; Connecting to hosts...
@@ -604,9 +586,7 @@
         <p id="c08372c9-a05c-49cd-a61b-f729d7b1dd2d" class="">To use <em>sudo</em>, set global variable <code>USE_SUDO_PASSWORD</code> to <code>True</code>, so the <em>pyinfra</em> will ask for it interactively, or you can set it to password and it will be used automatically. You can also use <code>--use_sudo_password</code> parameter on commandline or in <code>inventory.py</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">server</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">server</span>
 
 <span class="n">USE_SUDO_PASSWORD</span><span class="o">=</span><span class="kc">True</span>
 
@@ -617,14 +597,10 @@
         <p id="55adefd5-82fa-496d-aa4f-2599d98370bc" class=""><code>sudo=True</code> parameter says, that this command should be run with <em>sudo</em>. <code>USE_SUDO_PASSWORD</code> says that sudo uses password, as you can also have <em>sudo</em> without password by setting <code>%sudo ALL=(ALL:ALL) NOPASSWD:ALL</code> in <code>/etc/sudoers</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pyinfra -v inventory.py deployment.py</code></pre>
+        <pre id="faefe2e3-526e-4c99-843b-eab8a896a26e" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">pyinfra -v inventory.py deployment.py</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="00596c62-7047-4c73-a3a2-786e7b26f497" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">--&gt; Loading config...
+        <pre id="00596c62-7047-4c73-a3a2-786e7b26f497" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">--&gt; Loading config...
 --&gt; Loading inventory...
 
 --&gt; Connecting to hosts...
@@ -655,9 +631,7 @@
         <p id="d1209e95-9e03-4fa9-a097-6b1c977bf9a1" class="">Let's try something more complicated - to set up a nginx server and upload a correct config file for it:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">apt</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">apt</span>
 
 
 <span class="n">SUDO</span><span class="o">=</span><span class="kc">True</span>
@@ -669,9 +643,7 @@
         <p id="4d9e24e9-0aea-421e-a406-acba5f2b14e7" class="">And it worked, with one exception, which is parsing of the output (yes, that's why parsing sucks):</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="e0988895-2f38-4535-8abe-7b54cf43e3e0" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Traceback (most recent call last):
+        <pre id="e0988895-2f38-4535-8abe-7b54cf43e3e0" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">Traceback (most recent call last):
   File "src/gevent/greenlet.py", line 854, in gevent._gevent_cgreenlet.Greenlet.run
   File "/home/bystrousak/.local/lib/python2.7/site-packages/pyinfra/api/util.py", line 471, in read_buffer
     _print(line)
@@ -695,9 +667,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
         <p id="9c964837-fec6-4423-989e-93ded0e39b23" class="">Running it again shows that the operation was executed successfully:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="05cc2c1a-18a2-4003-8c1a-1471022506fc" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">--&gt; Loading config...
+        <pre id="05cc2c1a-18a2-4003-8c1a-1471022506fc" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">--&gt; Loading config...
 --&gt; Loading inventory...
 
 --&gt; Connecting to hosts...
@@ -733,9 +703,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
         <p id="f2bb621d-03db-4bb2-8eff-eaceb5e5e6ff" class="">So, how do I upload a config file for the nginx?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
 
 <span class="n">files</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
     <span class="s1">'configs/nginx.conf'</span><span class="p">,</span>
@@ -753,9 +721,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
         <h2 id="1b4403ab-97e6-4cd2-998c-3a0ab9f2ad64" class="">Start nginx</h2>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">server</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">server</span>
 
 <span class="n">init</span><span class="o">.</span><span class="n">systemd</span><span class="p">(</span><span class="s1">'nginx'</span><span class="p">,</span> <span class="n">running</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">restarted</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre>
@@ -773,9 +739,7 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
         <p id="046f87c0-9654-461f-961a-4c8d1297bd89" class="">Here is a whole config for the nginx deployment:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre class="code"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">apt</span>
+        <pre class="code" dir="ltr"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">apt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">init</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyinfra.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
 
@@ -893,6 +857,9 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -918,9 +885,6 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u2192' in position 7
         </li>
         <li>
           <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>

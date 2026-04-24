@@ -39,6 +39,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../../../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -64,9 +67,6 @@
         </li>
         <li>
           <a href="../../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>& <a href="../../../../Changelog.html" title="Changelog">more</a>
@@ -142,6 +142,7 @@
       <div style="display:contents" dir="auto">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" integrity="sha512-6O/PZimM3TD1NN3yrazePA4AbZrPcwt1QCGJrVY7WoHDJROZFc9TlBvIKMe+QfqgcslW4lQeBzNJEJvIMC8WhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cd88bf70-0773-4cda-aafb-f3f2ad917681" class=""><time>@2019/01/29</time></p>
@@ -165,9 +166,8 @@
         <p id="d64c7797-c875-4044-ae48-243605449395" class="">So far, I have been using boxed integer values represented as</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="520b59d0-81f2-4b90-bf10-12ca07bcb94b" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def add(_, self, parameters):
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-AKaNmg8COK0zEbjTdMHJAPJ0z6VeNqvRvH4/d5M4sHJbQQUToMBtodq4HaV4fa+WV2UTfoperElm66c9/8cKmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre id="520b59d0-81f2-4b90-bf10-12ca07bcb94b" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">def add(_, self, parameters):
     obj = parameters[0]
     # yeah, this can't be factored out, I've tried..
     assert isinstance(self, PrimitiveIntObject)
@@ -234,9 +234,8 @@ class PrimitiveIntObject(_NumberObject):
         <p id="0fec2019-91ca-40a3-95f9-3cb4b35c22c9" class="">Instead of guessing, I've decided to profile the code. I've only profiled the code with profiler once before using <code>valgrind</code>, so I've just used google and found out <a href="http://www.pixelbeat.org/programming/profiling/">Linux Profiling tools and techniques</a>, which gave me two commands to run:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" integrity="sha512-whYhDwtTmlC/NpZlCr6PSsAaLOrfjVg/iXAnC4H/dtiHawpShhT2SlIMbpIhT/IL/NrpdMm+Hq2C13+VKpHTYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <pre id="7dbac1a9-e6a4-4932-a5e0-87b7f1f996d1" class="code code-wrap" dir="ltr"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">valgrind --tool=callgrind ./tSelf tests/scripts/simple_while_benchmark.self</code></pre>
       </div>
       <div style="display:contents" dir="ltr">
         <figure id="bb40f15d-1907-443b-95e0-234b37a1f084">
@@ -249,9 +248,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="f02f86f9-d87a-4692-a6b2-b34facc63bec" class="">and then</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">kcachegrind callgrind.out.*</code></pre>
+        <pre id="ede5d25d-23a2-4d99-8d32-06dc224a88e3" class="code code-wrap" dir="ltr"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">kcachegrind callgrind.out.*</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ed0c4f9d-353b-4baa-aa11-025c72bb1080" class="">to visualize the code:</p>
@@ -300,9 +297,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="5311680c-29e6-4f6d-ba0b-ab356cf21913" class="">Quick look into the code confirmed that <em>ints</em>, <em>floats</em> and <em>strings</em> create maps again and again:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="be2fe417-3154-4c65-9d2a-f46acf66cba7" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">class PrimitiveIntObject(_NumberObject):
+        <pre id="be2fe417-3154-4c65-9d2a-f46acf66cba7" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">class PrimitiveIntObject(_NumberObject):
     _immutable_fields_ = ["value"]
     def __init__(self, value, obj_map=None):
         _NumberObject.__init__(self, obj_map)
@@ -322,9 +317,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="4139de6a-3eea-4dc5-8d86-bf67118d5576" class="">Constructor of the primitive int now looks like this:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="8b00616c-7755-403c-a38e-38d1621b6cc3" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">class PrimitiveIntObject(_NumberObject):
+        <pre id="8b00616c-7755-403c-a38e-38d1621b6cc3" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">class PrimitiveIntObject(_NumberObject):
     _OBJ_CACHE = ObjCache()
     _immutable_fields_ = ["value"]
     def __init__(self, value, obj_map=None):
@@ -374,9 +367,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="95e5dc5f-02e9-4794-adaf-287c248d6bd9" class="">It turned out, that this also have massive impact on performance as it got simple while benchmark execution time down to 4.2 seconds. And only change it required is to add new method and bool property to check when doing structural changes:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="239d926c-329f-45a2-a6a2-bbd7d011442a" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def _clone_map_if_used_by_multiple_objects(self):
+        <pre id="239d926c-329f-45a2-a6a2-bbd7d011442a" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">def _clone_map_if_used_by_multiple_objects(self):
         if self.map.used_in_multiple_objects:
             self.map = self.map.clone()</code></pre>
       </div>
@@ -393,9 +384,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="84663859-6bab-4212-a9de-c42c78e8369c" class="">Instead of</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="6db855d7-750c-4b93-abc1-ed6d0a1a037b" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def add_block_trait(block):
+        <pre id="6db855d7-750c-4b93-abc1-ed6d0a1a037b" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">def add_block_trait(block):
     obj = Object()
     obj.meta_add_slot("value", block)
     obj.meta_add_slot("with:", block)
@@ -414,9 +403,7 @@ return obj</code></pre>
         <p id="76180af9-4268-4fc1-8f42-3cf8c5e8af08" class="">there is now cached version:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="5d3ce8de-30bc-42e6-b498-bd18cb3754c8" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def _create_block_trait_prototype():
+        <pre id="5d3ce8de-30bc-42e6-b498-bd18cb3754c8" class="code code-wrap" dir="ltr"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">def _create_block_trait_prototype():
     obj = Object()
 
     placer = PrimitiveNilObject()
@@ -525,6 +512,9 @@ def add_block_trait(block):
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../../../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../../Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -550,9 +540,6 @@ def add_block_trait(block):
         </li>
         <li>
           <a href="../../../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../../../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>

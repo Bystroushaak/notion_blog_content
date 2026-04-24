@@ -35,6 +35,9 @@
     <div id="last_five_top">
       <ul>
         <li>
+          <a href="../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -60,9 +63,6 @@
         </li>
         <li>
           <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>& <a href="../../Changelog.html" title="Changelog">more</a>
@@ -324,7 +324,7 @@
       <div style="display:contents" dir="auto">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="f94cb805-7fe8-4bb2-828d-f17ac123e1da" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all"># Just simple benchmark file to quickly measure, whether the optimization had
+        <pre id="f94cb805-7fe8-4bb2-828d-f17ac123e1da" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all"># Just simple benchmark file to quickly measure, whether the optimization had
 # any effect or not.
 
 (|
@@ -347,17 +347,13 @@
         <p id="b96d23d9-5f84-4c38-a1b0-7045960d37fa" class="">Benchmark is then measured under the compiled version by running:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="50c647f7-6484-461b-9dbb-67519a251b08" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">./compile.py -q; sudo perf stat ./tSelf tests/scripts/count_to_1000000.self</code></pre>
+        <pre id="50c647f7-6484-461b-9dbb-67519a251b08" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">./compile.py -q; sudo perf stat ./tSelf tests/scripts/count_to_1000000.self</code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5e1ad4e6-6d6c-43b1-a37a-77b5af59a020" class="">Which outputs something like:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="52f24304-8e42-41fb-85d9-db808f626ff2" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">3.211040
+        <pre id="52f24304-8e42-41fb-85d9-db808f626ff2" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">3.211040
 
  Performance counter stats for './tSelf tests/scripts/count_to_1000000.self':
 
@@ -376,9 +372,7 @@
         <p id="d432684a-e786-4dc0-b05f-7f1d08820674" class="">Most important measurement is this line:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <pre id="554b0890-4d68-4a65-af7f-e4a946534fef" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">    26 732 327 756      instructions              #    2,31  insn per cycle         </code></pre>
+        <pre id="554b0890-4d68-4a65-af7f-e4a946534fef" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">    26 732 327 756      instructions              #    2,31  insn per cycle         </code></pre>
       </div>
       <div style="display:contents" dir="auto">
         <p id="52abac20-374d-4c0f-b957-32863ed29a76" class="">This says how many instructions were executed by the process. I shorten this using <a href="https://en.wikipedia.org/wiki/Giga-">SI notation</a> prefixes. 26 billions, 732 millions is shortened to 26G7.</p>
@@ -452,6 +446,9 @@
     <div id="last_five_bottom">
       <ul>
         <li>
+          <a href="../Philosophy/Unbounded_battle_in_multiple_dimensions.html" title="Unbounded battle in multiple dimensions">Unbounded battle in multiple dimensions</a>
+        </li>
+        <li>
           <a href="../Programming/Lessons_learned_from_games.html" title="Lessons learned from games">Lessons learned from games</a>
         </li>
         <li>
@@ -477,9 +474,6 @@
         </li>
         <li>
           <a href="../../Paperclips/Control_panels_-_alt_interface.html" title="Control panels / alt interface">Control panels / alt interface</a>
-        </li>
-        <li>
-          <a href="../Stories/War_stories_Romanian_Infocenter_aka_the_pontaj_story.html" title="War stories: Romanian Infocenter aka the pontaj story">War stories: Romanian Infocenter aka the pontaj story</a>
         </li>
       </ul>
     </div>
