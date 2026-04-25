@@ -133,7 +133,7 @@
         <p id="e7af3279-b9f9-450f-a83f-caadb70b2ee2" class="">Dnes se podíváme na to jak nainstalovat linux na stroj, ke kterému není k dispozici ani klávesnice, ani monitor. Aby to nebylo tak jednoduché, tak to všechno bude nainstalováno do šifrovaného kontejneru, ke kterému se po rebootu zadává heslo přes SSH.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d755c0a0-f555-458d-9498-4a7cde5fb0f2" class="">Motivace</h1>
+        <h1 id="d755" class="">Motivace <a class="heading-anchor" href="#d755" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b62bbf41-9ec7-42bd-b52a-5fbea6bf2841" class="">Jak říkával můj oblíbený učitel na střední škole: <em>„Doba je zlá, ne-li kritická“</em>. NSA šmíruje kde se dá, ale i ostatní orgány se už pomalu začínají orientovat ve světě informačních technologií. Podniková špionáž, všeobecná paranoia. Přesto skoro kamkoliv přijdu, tak stačí nabootovat <em>live</em> distribuci Linuxu a během pár minut si můžu dělat s nainstalovaným systémem <a href="https://github.com/secretsquirrel/the-backdoor-factory">co chci</a> - přidávat tam soubory, mazat a upravovat stávající, či si kopírovat citlivá data. Proto tedy šifrovaný disk.</p>
@@ -147,7 +147,7 @@
         <p id="71d58a74-59ef-4d8f-b554-266bbcfbc63d" class="">Nevím kde máte server vy, já mám jeden pod dřezem a druhý kdesi v cloudu u poskytovatele. Oboje dvoje je relativně špatně dostupné - pod dřezem je nedostatek zásuvek a přenášet server či monitory se mi nechtělo. Do cloudu mě pro změnu nikdo fyzicky nepustí. Proto tedy <em>headless</em> instalace.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="32004bd5-7440-48da-b005-2f1f0b21a6be" class="">early-ssh</h1>
+        <h1 id="3200" class="">early-ssh <a class="heading-anchor" href="#3200" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ffe683f0-a1d2-4be5-89be-21bd9c7ed7f8" class="">Na internetu se dá najít odkaz na balíček <code>early-ssh</code>, který údajně dělá více/méně všechno zde popsané, co se <code>dropbear</code>u týče (<em>headless</em> instalaci vám nevyrobí).</p>
@@ -156,7 +156,7 @@
         <p id="52d9c45a-4729-43e1-8ddb-d0fdc48013ae" class="">Pokud na něj narazíte, rozhodně ho <strong>nepoužívejte</strong>! Jedná se o neudržovaný a velmi rozbitý script, který nejenže nefunguje, ale má tendence navíc rozbít i některé potenciálně obtížně opravitelné věci (<code>initramfs</code>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="511f6714-de80-4ec8-a070-0431f78044fc" class="">Shrnutí postupu</h1>
+        <h1 id="511f" class="">Shrnutí postupu <a class="heading-anchor" href="#511f" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="fe228ca9-187e-4acd-afd9-3346596ff0cd" class="">Vše níže popsáno bylo odzkoušeno v systému <a href="http://www.linux-mint-czech.cz/">Linux Mint</a> založeném na <a href="http://www.ubuntu.cz/">Ubuntu</a>, se standardní softwarovou výbavou.</p>
@@ -177,7 +177,7 @@
         <p id="3849c406-8c8f-42c1-a595-ec28bee39a65" class="">5. Zadání hesla pro šifrovaný disk. Celá procedura není tak jednoduchá a uživatelsky přívětivá, jak by mohla, proto je jí věnován větší prostor.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="c60b43b7-d2a1-49e7-941e-1cbc6bdefb7c" class="">Upozornění</h2>
+        <h2 id="c60b" class="">Upozornění <a class="heading-anchor" href="#c60b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c64199ab-1298-40a3-883d-58dd469f7dea" class="">V průběhu článku budeme konfigurovat tři různé SSH servery/sessiony:</p>
@@ -198,10 +198,10 @@
         </ol>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="6fb7ef43-9ace-4ac3-8b5c-648134ac1563" class="">Postup úprav</h1>
+        <h1 id="6fb7" class="">Postup úprav <a class="heading-anchor" href="#6fb7" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="c1ae3113-b925-4eb8-ad91-4ef222e25f7b" class="">Instalační médium</h2>
+        <h2 id="c1ae" class="">Instalační médium <a class="heading-anchor" href="#c1ae" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a2c4635b-8879-4357-9aad-985ad51e3967" class="">Začněme stažením instalačního média. Celý postup mám odzkoušený na 64b verzi a je možné, že některé detaily, hlavně co se týče <em>preseed</em> souboru a cest, které jsou v něm specifikované, mohou být odlišné.</p>
@@ -216,7 +216,7 @@
         <pre id="85da1d1c-31b4-41e7-8a64-764074b9fb25" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">sudo aptitude install mkisofs</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ae13d9ad-133e-44d6-862f-0d67d891513f" class="">Upravení instalace</h2>
+        <h2 id="ae13" class="">Upravení instalace <a class="heading-anchor" href="#ae13" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f784b37d-4d1c-4bfa-90f7-d0c3e4848b69" class="">Ze všeho nejdříve si vytvořím dva adresáře a přepnu se na <code>root</code>a, abych nemusel neustále opisovat <code>sudo</code>:</p>
@@ -238,7 +238,7 @@ rm -r ubuntu_iso
 cd headless_ubuntu/</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="97a1ea15-7a8a-431d-a1dc-ea1fcbbabdb7" class="">authorized_keys</h3>
+        <h3 id="97a1" class="">authorized_keys <a class="heading-anchor" href="#97a1" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b95aca80-366d-41fb-980d-665a15523f39" class="">Naprostou nutností je přidat soubor <code>preseed/authorized_keys</code>, který je použit <code>dropbear</code>em pro zpřístupnění konzole, kam zadáváte heslo k disku. Do tohoto souboru nakopírujte váš veřejný klíč, který většinou najdete v <code>~/.ssh/id_dsa.pub</code>.</p>
@@ -256,7 +256,7 @@ cd headless_ubuntu/</code></pre>
         <p id="3819adfb-78ff-471a-a997-b1ef2d192586" class="">Poznámka: Pokud nemáte soubor <code>~/.ssh/id_dsa.pub</code>, je možné, že je uložen jinde, nebo že ještě nebyl vygenerován. Jak na to zjistíte například zde: <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">Jak se přihlašovat na</a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/"><code>SSH</code></a> <a href="http://www.root.cz/clanky/jak-se-prihlasovat-na-ssh-bez-zadavani-hesla/">bez zadávání hesla</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="2737502d-e6c0-47d2-a890-1a1cf5a01048" class="">isolinux.cfg</h3>
+        <h3 id="2737" class="">isolinux.cfg <a class="heading-anchor" href="#2737" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0ef5c6e5-134a-4235-8731-5160320517a3" class="">Dále je zapotřebí upravit jeden soubor a vytvořit další dva. Začněme úpravou souboru <code>isolinux/isolinux.cfg</code>, který je možné celý přepsat, proto jsem vše shrnul do jednoho příkazu, jenž stačí zkopírovat do konzole:</p>
@@ -277,7 +277,7 @@ LABEL netconsole
 EOF</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="61fe448d-d4b4-4714-abf8-5f0af549f921" class="">unlock.sh</h3>
+        <h3 id="61fe" class="">unlock.sh <a class="heading-anchor" href="#61fe" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="84a70d29-fb10-447b-b6e7-3c6a3d321c15" class="">Hodit se nám bude také soubor <code>preseed/unlock.sh</code>, který slouží k odemčení šifrovaného disku. Není toho zde moc k vidění a tak jsem opět soubor upravil do tvaru, který je možné jednoduše vložit do terminálu a vytvořit ho tak automaticky:</p>
@@ -295,7 +295,7 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`
 EOF</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="965bcfb4-1fe6-494f-928f-6c72b9436087" class="">preseed.seed</h3>
+        <h3 id="965b" class="">preseed.seed <a class="heading-anchor" href="#965b" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="fec3a582-69eb-4228-bc02-dc5080916280" class="">Nyní přichází na řadu první část instalace, kde je zapotřebí dávat důkladný pozor na to co děláte. Vytvořte soubor <code>preseed/preseed.seed</code> (doporučuji použít editor, protože pravděpodobně budete chtít změnit některé detaily) s následujícím obsahem:</p>
@@ -351,31 +351,31 @@ in-target update-grub</code></pre>
         <p id="bfdbec6f-3796-42ac-8fe2-a378d339503c" class="">Předpokládám, že budete chtít provést některé úpravy, proto jsem zvýraznil několik řádků:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="9f7ec774-76a4-438a-a531-271126a7bcda" class="">Řádek 7</h3>
+        <h3 id="9f7e" class="">Řádek 7 <a class="heading-anchor" href="#9f7e" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="76aa34e1-6db8-4dd2-ba9c-971d3c98b9b7" class="">Zde je možné změnit <em>hostname</em> počítače. Instalátor si ho pamatuje a automaticky ho nastaví pro nainstalovaný systém. Dá se to změnit i později, ale je to otrava.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="1f57dda8-278b-4221-8dbd-557de86558ff" class="">Řádek 9</h3>
+        <h3 id="1f57" class="">Řádek 9 <a class="heading-anchor" href="#1f57" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a5416ee4-5e1c-42ef-9d2e-fb94b4b635a1" class="">Heslo, pod kterým se připojíte <strong>do instalátoru</strong>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="c6948d5c-ca8a-4791-8fe0-b39bfa16b2cf" class="">Řádek 10</h3>
+        <h3 id="c694" class="">Řádek 10 <a class="heading-anchor" href="#c694" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="263de559-a266-4b7c-8dd7-129481b58082" class="">Heslo ještě jednou.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="8185737e-c292-4bcc-beb9-dfd607e351e9" class="">Řádky 23 až 29</h3>
+        <h3 id="8185" class="">Řádky 23 až 29 <a class="heading-anchor" href="#8185" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="fbac97e5-6f5a-46fe-8d8d-b54cfbb54af6" class="">Statické nastavení sítě. Tyto řádky je odkomentujte pokud chcete aby instalátor použil uvedené IP adresy a konfiguraci sítě. Pokud zůstanou tyto řádky zakomentované, tak je použito <code>dhcp</code> a může být složité zjistit adresu instalátoru (hlavně v případě VPS).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="65b5b27d-3364-4311-ae5e-32d632a30cb1" class="">Řádek 35</h3>
+        <h3 id="65b5" class="">Řádek 35 <a class="heading-anchor" href="#65b5" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="97896b50-b8ec-4def-8c5d-ffe74980604d" class="">Tento řádek obsahuje příkaz, který poněkud barbarským způsobem donutí <code>SSH</code> server <code>dropbear</code> startovat na portu <code>80</code>, místo standardního <code>22</code>.</p>
@@ -393,7 +393,7 @@ in-target update-grub</code></pre>
         <p id="4a6e7fbe-b767-41d4-b24f-eb66da522010" class=""><strong>Pozor: jedná pouze o port pro zadání hesla k šifrovanému disku, ne o port, kde bude naslouchat</strong> <code><strong>OpenSSH</strong></code><strong>, jakmile je heslo úspěšně zadáno a systém nabootuje!</strong></p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="d2e9f394-c23f-4848-b06b-309bda155ead" class="">Bonus</h3>
+        <h3 id="d2e9" class="">Bonus <a class="heading-anchor" href="#d2e9" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="30d59cd2-c52c-4238-b4d0-4f8874c2ea4b" class="">Jak je možné pochopit z komentáře na řádku 31, veškeré následující příkazy se provedou, jakmile bude instalace dokončena. Řádky začínající na <code>in-target</code> jsou provedeny v <a href="https://cs.wikipedia.org/wiki/Chroot">chrootu</a>, ostatní z cesty instalátoru. Pokud si vyberete druhou možnost, obsah ISO souboru je dostupný v adresáři <code>cdrom/</code>, nainstalovaný systém pak v <code>target/</code>.</p>
@@ -417,7 +417,7 @@ in-target update-grub</code></pre>
         <p id="0893734f-5dbc-4b37-9643-60c7cf26bb30" class="">Příkazy můžete zamíchat někam mezi ostatní, či přidat na konec. V takovém případě si ale musíte dát pozor, aby všechny mezi prvním a posledním končily sekvencí <code>; \</code> a poslední řádek byl bez nich.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="12a10958-b002-4fc7-b6ca-efe812ee9f21" class="">IP adresa dropbearu</h3>
+        <h3 id="12a1" class="">IP adresa dropbearu <a class="heading-anchor" href="#12a1" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a16f9c09-b936-4826-907b-31b56013c8d4" class="">Poměrně užitečnou možností je například úprava IP adresy, na které se startuje <code>dropbear</code>. Ta je v defaultu vybrána automaticky a ovlivnit jí je možné úpravou souboru <code>/etc/initramfs-tools/conf.d/network_config</code>, kam lze přidat řádek ve formátu:</p>
@@ -444,7 +444,7 @@ in-target update-grub</code></pre>
         <p id="7debe3da-972a-4094-b352-3215004dc4e6" class="">Poznámka: Styl <code>'bash -c "echo ..'</code> je použit záměrně. Nemám dobrou zkušenost s přesměrováním pomocí <code>&gt;&gt;</code> použitými v <em>preseed</em> souboru. Možná by se to dalo nějak vyescapovat, ale případné testování je docela pomalé, protože jestli to fungovalo se dozvíte vždy až na konci instalace a po dvanácti pokusech už nemám moc náladu na experimentování.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="585e356d-bf70-400e-80e1-94783b4728ff" class="">Vytvoření ISO souboru</h2>
+        <h2 id="585e" class="">Vytvoření ISO souboru <a class="heading-anchor" href="#585e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6146df93-ba97-4fdd-a7de-20094bd654a1" class="">Jakmile máme všechny úpravy hotové, o vytvoření nového instalačního média se postará tento dlouhý příkaz:</p>
@@ -457,7 +457,7 @@ mkisofs -r -V "Ubuntu headless" -cache-inodes -J -l -b isolinux/isolinux.bin -c 
         <p id="cc6e6cba-8b2f-48d9-885a-17278f99bfcd" class="">Výsledkem by měl být přibližně 600MB velký soubor soubor <code>headless_ubuntu-14.04.1-server-amd64.iso</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="9d779f16-1666-43c3-8df3-5c6a34e2e627" class="">Instalace</h1>
+        <h1 id="9d77" class="">Instalace <a class="heading-anchor" href="#9d77" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d270a24d-750b-4d14-838c-efa8ac06ff40" class="">Instalace serveru probíhá poměrně standardním způsobem a každý kdo někdy instaloval ubuntu na server by to měl zvládnout.</p>
@@ -476,7 +476,7 @@ mkisofs -r -V "Ubuntu headless" -cache-inodes -J -l -b isolinux/isolinux.bin -c 
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="287bdb44-64b5-46a8-b1d2-b3c0ee6608f7" class="">Odemčení disku přes SSH</h1>
+        <h1 id="287b" class="">Odemčení disku přes SSH <a class="heading-anchor" href="#287b" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5b660240-1871-414b-8cdb-c8aa5b549f2f" class="">Odemčení provedete tak, že se připojíte přes <code>SSH</code> jako <code>root</code> na port zadaný při instalaci. Pokud jste nedělali změny v <em>preseed</em> souboru, tak by to měl být port <code>80</code>. Automaticky by se vám měl načíst busybox shell, neboť při vytváření instalačního média byl přidán váš veřejný klíč. Zde stačí spustit script <code>unlock.sh</code>, chvíli počkat, zadat heslo a to je vše. Tedy skoro.</p>
@@ -531,7 +531,7 @@ kill -9 `ps | grep "/bin/sh" | grep -v grep | cut -d " " -f 3`</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="4447bf61-8b19-4cd9-b35c-ef9772f13743" class="">Zdroje</h1>
+        <h1 id="4447" class="">Zdroje <a class="heading-anchor" href="#4447" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="add9031f-722c-4613-942a-1dee53d0b3dd" class="">Přijít na celý postup a hlavně ho otestovat mi zabralo cca třináct hodin čistého času na dva zátahy. Během té doby jsem prošel nemalé množství zdrojů na tohle téma. Většina z nich je buď neaktuální, nekompletní, nebo blbě, ale přesto si myslím, že stojí za zmínku:</p>

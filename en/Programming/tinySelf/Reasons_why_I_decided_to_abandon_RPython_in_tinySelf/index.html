@@ -154,13 +154,13 @@
         <p id="f8b870e1-55df-4483-8e1c-97c0616e6e12" class="">So, what are my reasons to abandon it?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="1c4ac9f5-5ed4-4512-bfb3-210f1e6d6479" class="">RPython</h1>
+        <h1 id="1c4a" class="">RPython <a class="heading-anchor" href="#1c4a" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="625bbfa7-6240-45e9-a484-d2549c8b574c" class="">Long story short, the biggest reason why I decided to abandon it is definitely RPython. I've written about some of my unhappiness with it before (<a href="../../../Weekly_updates/Newsletter_2020-09-12_Waves_of_productivity.html" title="Newsletter 2020-09-12; Waves of productivity">Newsletter 2020-09-12; Waves of productivity</a> and <a href="../../../Weekly_updates/Lifelog_2020-05-25_Work_in_progress_everywhere.html" title="Lifelog 2020-05-25; Work in progress everywhere">Lifelog 2020-05-25; Work in progress everywhere</a>), but here is a recapitulation:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="e7bb1aed-af3e-4032-bb0c-445af1c03a48" class="">Long compilation times</h2>
+        <h2 id="e7bb" class="">Long compilation times <a class="heading-anchor" href="#e7bb" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5443c0e6-1582-4e49-8c84-411f8cacf1ff" class="">Average compilation time of the tinySelf on my system (Intel Core i5-4590 with 32G RAM) is something like one minute. And the version with JIT takes five or more minutes.</p>
@@ -169,7 +169,7 @@
         <p id="d04d6055-4820-44d8-a72a-46c008e6c37d" class="">It's not that my project is that big because frankly, it is <strong>tiny</strong>Self, it has only ~6300 source lines of code (via <code>cloc</code>). It's because rpython is horribly slow.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="95ae6070-3d47-4da9-890b-1332907e4104" class="">Non-existent documentation</h2>
+        <h2 id="95ae" class="">Non-existent documentation <a class="heading-anchor" href="#95ae" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="12d70ef9-9d7b-45fc-a585-da19626f3546" class="">There is <a href="https://rpython.readthedocs.io/en/latest/">official documentation</a> on the read the docs, and that's pretty much it. There are some articles, mostly about user experience with it. The official documentation is everything, but comprehensive. It touches pretty much everything, but most of the parts are only mentioned once, and in one context, and not really explained.</p>
@@ -181,7 +181,7 @@
         <p id="1297dac5-48b2-485d-87ec-40f0ce39c1b7" class="">I've read some topics many times, and I still have no idea what to think about them. For example, the part about JIT and JIT debugging was so incomprehensible, that I just copied piece of code from other projects, and to this day, I have no idea why are there some things that are there.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7d05ca57-459e-470c-9829-dcb2e79d7e33" class="">Horrible debugging experience</h2>
+        <h2 id="7d05" class="">Horrible debugging experience <a class="heading-anchor" href="#7d05" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2acb34e3-70bc-452d-804f-224377dfb9a5" class="">Let me tell you, I've never seen anything with such weird and cryptic error messages like rpython's compiler. There is a great article <a href="https://refi64.com/posts/the-magic-of-rpython.html">The Magic of RPython</a> about it. I've worked for telco company and in National library which used a system that was part COBOL, part Java. I've seen some shit you wouldn't believe. But not this.</p>
@@ -352,7 +352,7 @@ Processing block:
         <p id="514bb8fd-476e-493f-b8de-e2e2dfee5676" class="">The best way how to not get crazy is to run compilation often, so you know you've made a mistake right when you've made it. Did I mention that one compilation run takes something like a minute?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d03d54eb-54ac-4739-b17b-ccfac761e422" class="">Magical blackboxes everywhere</h2>
+        <h2 id="d03d" class="">Magical blackboxes everywhere <a class="heading-anchor" href="#d03d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e3609992-1295-421c-99f1-bf92a146fd66" class="">Python is a dynamic high-level language, with garbage collection and stuff. RPython compiles it into C. And your interpreter / the code you are writing is somewhere in the middle.</p>
@@ -367,7 +367,7 @@ Processing block:
         <p id="223349a2-11f4-4946-a5bc-d0fd1b93308e" class="">I've got to the point, where my interpreter worked as expected, and I wanted to optimize for speed, but I was constantly running into not knowing what is really happening. When I create a class which has the last item declared as a list, and then put instances of this class into another list, how it will actually look like in the memory? What will it do? Documentation mentions that there is a way how to allocate a continuous block of memory in this way, but I couldn't really make sense of it.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3bc5537e-4a63-4f17-9483-540b32239fec" class="">JIT is not the magic I thought it would be</h2>
+        <h2 id="3bc5" class="">JIT is not the magic I thought it would be <a class="heading-anchor" href="#3bc5" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ace9f4b5-37e2-44f2-a47e-deb0daa35fbd" class="">I mean, the fact that you <a href="https://morepypy.blogspot.com/2011/04/tutorial-part-2-adding-jit.html">get JIT</a> basically for free is great, but not so great as I thought. To make it effective, you still have to do a lot of fine-tuning, and that's where I've hit the wall.</p>
@@ -418,13 +418,13 @@ Processing block:
         <p id="dd796d6a-09b0-4901-8d71-206cb4a2d686" class="">I don't want to say that there is something wrong with the RPython's JIT. It is definitely powerful, if you know what are you doing. But I don't, and not because I didn't read the docs. I've read them multiple times.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="5e9040a8-c905-4d0b-9e23-1f83f7618e5f" class="">Python 2.7</h2>
+        <h2 id="5e90" class="">Python 2.7 <a class="heading-anchor" href="#5e90" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c61ea633-5be4-4896-a7b3-a5e1e8f112e5" class="">What seems like a minor annoyance is that RPython only supports Python2.7. This version is deprecated since 2020, and also misses some of my favorite features, like ordered dicts by default. And also..</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="cdaa8b5d-c138-4f11-9ed9-384bdd63c74d" class="">Typed Python is annoying without type hints</h2>
+        <h2 id="cdaa" class="">Typed Python is annoying without type hints <a class="heading-anchor" href="#cdaa" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0cbc9a4d-748b-4dd8-96e6-ece3a14c1a44" class="">And there are no type hints in Python 2.7. RPython uses type hints in the form of <code>assert isinstance()</code> calls, which are actually not asserts, but expressions parsed by RPython's annotator. Sad is, that even pretty good IDE's like PyCharm don't really get this.</p>
@@ -433,7 +433,7 @@ Processing block:
         <p id="842cbcd4-c0a7-4d05-b69d-3411c9cc962f" class="">I've tried to supply most of the types in the docstrings, but this is really annoying, and it doesn't really work well for nested types, like list of some objects.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="714ad55d-05f1-4c48-a05c-479652d26af1" class="">So.. why stick with RPython?</h1>
+        <h1 id="714a" class="">So.. why stick with RPython? <a class="heading-anchor" href="#714a" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6c7c55e5-73d3-478d-a689-b56c71f1b6ad" class="">When you think about it, you don't really write Python, you write some strongly typed class-based language in Python's syntax. Everything even slightly dynamic, like accessing the range in a list is a pain in the ass, and you have to use all kinds of patterns known from statically typed OOP languages, like Java and C++. I had to create container, or "box" classes many times, where I would never need them in Python.</p>
@@ -482,7 +482,7 @@ Processing block:
         <p id="dbe4609f-10c9-4b93-a4d6-8a808cc78d21" class="">This is not some newbie feeling, I've arrived at this after three years of occasional hobby programming, and after several hundreds of commits (<a href="https://github.com/Bystroushaak/tinySelf">704 at the moment</a>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="80bb421f-0631-49db-ace4-fbd7a7d7569d" class="">GraalVM</h1>
+        <h1 id="80bb" class="">GraalVM <a class="heading-anchor" href="#80bb" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9d2b1409-1243-4615-9b39-1b1c30977f33" class="">I went to talks about GraalVM in local university here in Prague, and I must say that I've been really impressed by it. More specifically, by the speed and by the language <em>interop</em>. This allows you to transparently interface with other languages, and for example call JavaScript generators from C and so on.</p>
@@ -491,7 +491,7 @@ Processing block:
         <p id="d00b4636-6897-4328-9d77-6472d0f62935" class="">If I implemented that, I could call other languages, like if it was a code in my interpreted language and vice versa.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="fc1a4eb7-2d19-4be3-bc3e-26d40cabab0b" class="">Java</h1>
+        <h1 id="fc1a" class="">Java <a class="heading-anchor" href="#fc1a" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="62f13dfa-af41-4682-934a-ca8e5091ce8f" class="">The last draw came when I was reading <a href="https://craftinginterpreters.com/">Crafting interpreters</a> book (finally also available as a book!), which has examples in Java. I've tried to do some of the examples myself, and even though I don't like Java, and I didn't touch it for almost ten years, I could do it easily.</p>
@@ -506,7 +506,7 @@ Processing block:
         <p id="98572688-44d4-4010-bdde-a66b2e0f453d" class="">I think you can see where I am going with this. RPython is an extremely cool project, and I have huge respect for the people involved with it. But I don't have a beard long enough to shield me from all the frustrations from it. So, the decision is simple.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="978dc087-a035-4a6e-a8b8-a272b7a6af3d" class="">Future of the tinySelf's development</h1>
+        <h1 id="978d" class="">Future of the tinySelf's development <a class="heading-anchor" href="#978d" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3faf8db9-7898-44f8-931e-d9c330ddd011" class="">At the moment, I am recreating tinySelf in Java. And it is really fun for me, after a long time when it wasn't.</p>

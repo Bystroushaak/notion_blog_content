@@ -176,7 +176,7 @@
         <p id="5616ac9d-946a-45db-9364-c78e7610d171" class="">Oba dva sloužily jako lehká technická inpisrace při tvorbě interpretru.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="1a24d315-c343-4abb-b2df-e0272344b779" class="">Souslednost</h2>
+        <h2 id="1a24" class="">Souslednost <a class="heading-anchor" href="#1a24" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="889ab8f9-f4ac-4f7d-88ad-ba40f16c4312" class="">Za zmínku pravděpodobně stojí, že tato a následující dvě kapitoly byly psány až po dokončení většiny práce na bajtkódech, interpreteru a kompilátoru. Práce na těchto komponentách však probíhala zároveň a jednalo se do jisté míry o iterativní proces. Člověk přidá jeden parametr bajtkódu, upraví kompilátor a interpreter a hned vidí, že to ovlivnilo celkový obraz tak, že nyní není třeba kousek tady a je třeba přidat kousek támhle, což vede ke změnám v kompilátoru tady a támhle, díky čemuž není třeba v interpretru tohle a támhleto může fungovat jinak..</p>
@@ -188,7 +188,7 @@
         <p id="a722a6ab-a24f-4e31-807b-351d4a3dad84" class="">Vývoj, a zde a v následujících kapitolách popsaná podoba, byla ovšem diktována snahou o co nejrychlejší bootstrapping, s tím že na optimalizace a úpravy bude dost času později, pokud projekt vyhodnotím jako hodný dalšího pokračování.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="2c49cd4a-eb8d-4bbe-b0cb-adf314b4e3ac" class="">Literály</h2>
+        <h2 id="2c49" class="">Literály <a class="heading-anchor" href="#2c49" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f88784d2-5b5d-46b4-9ab7-6ed96d1f6750" class="">Bajtkód se neskládá pouze z jednotlivých instrukcí, skládá se také z tabulky literálů. V té jsou uloženy všechny konstantní hodnoty známé v době kompilace.</p>
@@ -230,7 +230,7 @@
         <p id="eb6d7f2c-8cd4-47f5-9341-25d95095ce99" class="">Když pak interpreter dojde na část kde je nutné použít nějaký literál, nemusí ho v tu chvíli rekonstruovat z bajtkódu, místo toho se jednoduše podívá do tabulky literálů na patřičný index a vytvoří podle něj objekt.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="aba5b2e7-deb0-43ff-a7a2-bc32f225a48e" class="">Bytecodes</h2>
+        <h2 id="aba5" class="">Bytecodes <a class="heading-anchor" href="#aba5" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="911f2b21-9ec9-4578-b72b-61015b965de0" class="">Pavel Křivánek navrhoval pro Marvina následující bajtkódy:</p>
@@ -318,7 +318,7 @@
         <p id="f80bd24c-d708-449d-b07f-285e6cf64919" class="">Musím říct, že mě docela překvapilo, jak málo instrukcí mi stačilo. Intuitivně jsem čekal, že jich bude minimálně dvacet. Že by mi jich stačilo šest, respektive pět bez <code>ADD_SLOT</code>, která je tam jen protože je to častá operace, to mě ani ve snu nenapadlo.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="cb224893-4199-4c92-9857-fef52822d56e" class="">PUSH_LITERAL</h3>
+        <h3 id="cb22" class="">PUSH_LITERAL <a class="heading-anchor" href="#cb22" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f2a501ec-89e5-4b44-b7f3-ac6db2dbec4f" class="">Instrukce, kterou začíná prakticky každý set bajtkódů. Jako první vezmeme něco z tabulky literálů a vložíme to na stack.</p>
@@ -376,7 +376,7 @@
         <p id="3b6c9efa-56a0-474e-9a8d-3c3ecedb97a5" class="">Délka instrukce: 3 bajtkódy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="fecdd51c-6a61-477c-a7e1-f4367739f6f0" class="">PUSH_SELF</h3>
+        <h3 id="fecd" class="">PUSH_SELF <a class="heading-anchor" href="#fecd" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c3d85b40-3d5f-46ae-914b-39bb8ec2c024" class="">Na vrchol zásobníku vlož <em>self</em>, tedy objekt v jehož kontextu aktuálně probíhá kód.</p>
@@ -385,7 +385,7 @@
         <p id="d01f0f4f-d171-46b1-9ec1-d3c73806ae86" class="">Délka instrukce: 1 bajtkód.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="db481803-3924-4d4f-9a53-ea4cd6395efe" class="">ADD_SLOT</h3>
+        <h3 id="db48" class="">ADD_SLOT <a class="heading-anchor" href="#db48" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c9588a30-e0e8-4c50-8fa8-17fd6cd32c67" class="">Z vrcholu zásobníku seber jeden objekt jako <em>hodnotu</em>, druhý objekt jako <em>jméno</em> a třetí objekt jako <em>příjemce</em>. Do <em>příjemce</em> potom ulož <em>hodnotu</em> na dané <em>jméno</em>. Výsledný objekt vlož na vrchol zásobníku.</p>
@@ -397,7 +397,7 @@
         <p id="ca9e3e77-9c1c-4090-918a-699836ea3c3d" class="">Délka instrukce: 1 bajtkód.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="11c286f6-775f-4319-a51f-539b5b45e874" class="">RETURN_TOP</h3>
+        <h3 id="11c2" class="">RETURN_TOP <a class="heading-anchor" href="#11c2" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1b20df5e-7fc3-46b0-921a-a04c58b5fb5d" class="">Z vrcholu zásobníku vyber hodnotu a vrať jí.</p>
@@ -409,7 +409,7 @@
         <p id="b4213605-e455-4295-8fe4-7ff496760a9f" class="">Délka instrukce: 1 bajtkód.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="e3dfe0d6-82e9-4ed5-9705-223ca5e27572" class="">RETURN_IMPLICIT</h3>
+        <h3 id="e3df" class="">RETURN_IMPLICIT <a class="heading-anchor" href="#e3df" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a0bef694-c7c6-4ab6-be34-987f497647cc" class="">Docela dlouho jsem přemýšlel k čemu byla Pavlovi <code>returnImplicit</code>, a došlo mi to až když jsem implementoval bloky.</p>
@@ -433,7 +433,7 @@
         <p id="743b39b5-0d7d-4dfa-9e99-a37db6bdffc9" class="">Délka instrukce 1 bajtkód.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="5f50dff6-8ded-486a-abc0-e74582ba7f4d" class="">SEND</h3>
+        <h3 id="5f50" class="">SEND <a class="heading-anchor" href="#5f50" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="56fb03c5-ead7-4bc8-92cd-28ee474d64cb" class="">Nejkomplexnější instrukce, která objektu na zásobníku pošle zprávu.</p>
@@ -473,7 +473,7 @@
         <p id="0ce63e96-91fe-4078-a9dd-9e83401fd0c0" class="">Délka instrukce: 3 bajtkódy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="85e77a44-9014-4da9-ae4c-a2571964ddd5" class="">Budoucí rozvoj</h3>
+        <h3 id="85e7" class="">Budoucí rozvoj <a class="heading-anchor" href="#85e7" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0b4b56b9-15cb-40e2-b585-cc46c6f6d423" class="">Bajtkód, anglicky <em>bytecode</em>, je od slova <em>byte</em>. Samozřejmě nemusí mít přesně jeden bajt, ostatně moje instrukční sada by se mohla vejít do čtyř bitů. Do budoucna by ale mohlo interpreter zrychlit, kdybych provedl rozvoj všech často používaných instrukcí a převedl je z několika-bajtových parametrizovaných na jedno-bajtovové. Například bych mohl zavést bajtkód pro <code>SELF_SEND</code>, který by zkombinoval funkcionalitu <code>PUSH_SELF</code> a <code>SEND</code>. Nebo <code>SENDKW1</code>, který automaticky vybere jeden parametr ze zásobníku a bere ho jako <em>keyword message</em>. Některé instrukce by mohly obcházet <code>PUSH_LITERAL</code> bajtkód a rovnou si sahat na index do tabulky literálů. A tak podobně.</p>
@@ -485,7 +485,7 @@
         <p id="ea92bdf0-030f-4abc-936f-d6e183debd02" class="">Zatím se však budu držet současné podoby, jelikož mám větší problémy k vyřešení a jak pravil klasik, předčasná optimalizace je kořenem všeho zla.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="45861fe8-3040-4c76-a160-68451dc5e08b" class="">CodeContext</h2>
+        <h2 id="4586" class="">CodeContext <a class="heading-anchor" href="#4586" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a2e8f760-4642-44d0-8319-e00e97d536eb" class="">Stojí za zmínku se podívat, v čem a jak jsou vlastně bajtkódy i literály ukládány. Jedná se o třídu <code>CodeContext</code>, která obsahuje string s bajtkódy. Řešil jsem na <code>#pypy</code> v čem je nejlepší uchovávat bajtkódy, protože sám bych měl asi tendence použít <code>bytearray</code>, ale ten jednak po RPythonem funguje divně (měl jsem s tím nějaké problémy, už nevím přesně jaké), ale hlavně je pomalejší než zpracování stringů.</p>
@@ -502,7 +502,7 @@
         <p id="fbcf2328-ead6-45d0-814b-ba232756e3ec" class="">Pak jsou zde ještě dočasně uloženy různé speciální hodnoty, například se tu kešují dočasné mezi-objekty, které uchovávají parametry.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3c2092a7-db20-4121-a54b-269e934ef566" class="">Zásobníky</h2>
+        <h2 id="3c20" class="">Zásobníky <a class="heading-anchor" href="#3c20" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="af2abb54-1d86-4fcd-940e-cfa7a9757d09" class="">Zasobníky jsem implementoval jako hierarchickou strukturu tří tříd;</p>
@@ -513,7 +513,7 @@
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="753ea828-bbfa-4567-8272-3584596925bc" class="">MethodStack</h3>
+        <h3 id="753e" class="">MethodStack <a class="heading-anchor" href="#753e" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="27102a6b-4b17-4871-9414-1527a929f4d8" class="">Třída <code>MethodStack</code> tvoří prostý zásobník, na jehož vrchol je možné vložit instanci <code>Objekt</code>u metodou <code>.push()</code>, sundat z vrcholu <code>Objekt</code> metodou <code>.pop()</code> a jako bonus implementuje <code>.pop_or_nil()</code>, která v případě že je zásobník prázdný vrátí singleton <code>Objekt</code>u <code>nil</code>.</p>
@@ -528,7 +528,7 @@
         <p id="72bf6868-e672-4aab-8c31-befcd8396ed1" class="">Momentálně jsou k dispozici dvě implementace, jedna jako před-alokované pole, která je trochu rychlejší v kódu bez JITu a druhá jako linked-list, která je trochu rychlejší s JITem.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="dbb6a3f8-a4e5-4db2-9790-9e18509f6984" class="">ProcessStack</h3>
+        <h3 id="dbb6" class="">ProcessStack <a class="heading-anchor" href="#dbb6" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b169d068-4ea8-4ac5-8058-934a19a31fb6" class="">Na tuto třídu navazuje <code>ProcessStack</code>, který je zásobníkem zásobníků a v podstatě reprezentuje jeden běžící proces. Pokaždé, když je vykonáván nějaký <code>Object</code> s kódem, je v ní vytvořen nový zásobník. Když kód doběhne, tak vezme poslední hodnotu z posledního zásobníku a vloží jí na vrchol zásobníku předtím. Ten co je na vrchu pak zahodí (proto nejsou potřeba samostatné <code>POP</code> bajtkódy).</p>
@@ -540,19 +540,19 @@
         <p id="4ead4811-527b-440e-a4db-1d4f97e30f11" class="">Za zmínku stojí, že aktuální frame navrchu je vždy uchováván v proměnné <code>.frame</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="81dc8e65-3489-4eb1-9984-ae2867cb962c" class="">ProcessCycler</h3>
+        <h3 id="81dc" class="">ProcessCycler <a class="heading-anchor" href="#81dc" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="093c2cde-7d5c-40db-a536-a229c44c51d9" class="">Poslední třídou je <code>ProcessCycler</code>, který přepíná aktuálně prováděný proces tím, že ho vždy uloží do proměnné <code>.process</code>. Vzhledem k tomu, že smyčka interpreteru vždy načte tuto hodnotu, provede jeden bajtkód a zavolá cyklování procesu, je tím docíleno jednoduché paralelizace.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d256e27a-0c70-4bba-98be-e153730fb1ef" class="">Pokračování</h2>
+        <h2 id="d256" class="">Pokračování <a class="heading-anchor" href="#d256" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="616977c8-4cf7-4fb2-8fe6-ce889940f7ed" class="">V dalším díle se podíváme na implementace kompilátoru do výše uvedeného bajtkódu. Ačkoliv jsem intuitivně čekal, že půjde o něco složitého, nakonec se to ukázalo jako jedna z nejjednodušších věcí na celém projektu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7591ff77-2b88-4a4d-ac8d-e8c1f4b8c73d" class="">Relevantní diskuze</h2>
+        <h2 id="7591" class="">Relevantní diskuze <a class="heading-anchor" href="#7591" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="383f49a2-8e01-435f-982c-cf89f0c6ea5d" class="bulleted-list">

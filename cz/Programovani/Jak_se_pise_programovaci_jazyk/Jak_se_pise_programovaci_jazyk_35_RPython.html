@@ -160,7 +160,7 @@ python2 -m py.test tests $@</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="f8a46fe1-393f-4df1-8a39-5f828968ec6b" class="">RPython testy</h2>
+        <h2 id="f8a4" class="">RPython testy <a class="heading-anchor" href="#f8a4" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e4902ad1-02a4-437f-897d-524b32399029" class="">RPython takto pouštět nemůžu, neboť se nejedná o unittesty, ale spíš test kompilace trvající na mém domácím počítači klidně minutu.</p>
@@ -173,7 +173,7 @@ python2 -m py.test tests $@</code></pre>
 $HOME/Plocha/tests/pypy/rpython/bin/rpython src/tinySelf/target.py</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="26f6065c-413a-45b5-b4c6-403839a5d1eb" class="">Pypy</h3>
+        <h3 id="26f6" class="">Pypy <a class="heading-anchor" href="#26f6" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="59551d7b-57cf-4390-817f-5d9dd6aa50bf" class="">Jak je možné vidět, ten předpokládá, že v adresáři <code>$HOME/Plocha/tests</code> je naklonovaný repozitář projektu <a href="https://bitbucket.org/pypy/pypy">pypy</a>. To je možné udělat například příkazem:</p>
@@ -203,7 +203,7 @@ $HOME/Plocha/tests/pypy/rpython/bin/rpython src/tinySelf/target.py</code></pre>
         <p id="935d4a2c-4387-44f2-a2f5-4f19f5539da0" class="">V repozitáři debian based systémů se nachází balík pypy-rply, který ale nedoporučuji používat, protože může být zastaralý vůči PIPu (v době psaní článku je v debian repozitáři verze 0.7.4-3 a v pipu 0.7.5).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="6f10e555-8c51-40cd-a90a-07bd77dff1d9" class="">target.py</h1>
+        <h1 id="6f10" class="">target.py <a class="heading-anchor" href="#6f10" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="11a1eba8-07b3-467d-848d-f27ee95c4728" class="">Pouštěný script <a href="http://target.py"><code>target.py</code></a> definuje vstupní kompilační bod. V něm musí být minimálně dvě funkce - <code>target()</code> a poté funkce která slouží jako vstupní bod spuštěného programu. V podstatě se jedná o takové <code>meta-main()</code> známé z C jazyků, tedy funkci určující funkci main. Mám pocit, že na linuxu se k tomu pod libc <a href="https://stackoverflow.com/questions/15919356/c-program-start">běžně používá</a> __start.</p>
@@ -281,7 +281,7 @@ if __name__ == '__main__':
         <p id="efe35440-7761-463b-92d1-99186d2a906f" class="">Prakticky to znamená, že pokud máte v objektu metodu, kterou nejde přeložit, tak na to nepřijdete, dokud v kódu nebude někde místo, odkud se volá. Do té doby vůbec není součástí <em>flow grafu</em>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="ea604512-a828-4918-ae67-a6bc8a112954" class="">První puštění testů</h1>
+        <h1 id="ea60" class="">První puštění testů <a class="heading-anchor" href="#ea60" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="303f23f5-b9c1-4d41-bb15-00b1f80f96ac" class="">První puštění testů mi samozřejmě neprošlo:</p>
@@ -298,7 +298,7 @@ if __name__ == '__main__':
         <p id="0d03be9d-25b0-4f55-8808-62c3c5e1cc7d" class="">Kód je nyní zapotřebí <em>„zhloupit“</em> a přidat typové hinty, které RPythonu pomohou anotovat <em>flow graph</em> v místech, kde si je nedokáže odvodit sám.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ec75f321-da4b-4abf-b46b-1babf9215362" class="">Redukce na RPython</h2>
+        <h2 id="ec75" class="">Redukce na RPython <a class="heading-anchor" href="#ec75" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4cec8392-13ac-44e2-80f9-c581ae4cd3de" class="">Nyní musím vzít dynamický a relativně vyskoúrovňový python a převést ho na staticky typovaný kód, který by se psal podobně jako třeba v Javě. To vše čistě v syntaxi pythonu.</p>
@@ -409,7 +409,7 @@ Happened at file src/tinySelf/parser.py line 461
         <p id="7238ea02-8f98-405a-a238-bd39742dde4b" class="">Zajímavé jsou chyby <code>Blocked block -- operation cannot succeed</code>, které mi jeden večer docela zamotaly hlavu. Nakonec jsem však prohledáním konference zjistil, že se jedná o chybu když RPython type annotator prvně vleze do metody objektu a ještě neprošel <code>.__init__()</code> metodu. Pokud je v metodě přistoupeno k členským proměnným, tak dojde chybě, jelikož anotátor neví o tom že byly definovány. Řešení je docela prosté, stačí objekt prostě předtím někde použít, aby byla o-anotována <code>.__init__()</code> metoda.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9a496d5f-10b9-4da6-8548-ab9f084c167c" class="">Překlad</h2>
+        <h2 id="9a49" class="">Překlad <a class="heading-anchor" href="#9a49" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2fae3c5e-830a-43f3-b387-52b44fec2f00" class="">Výše uvedené potíže jsou jen malá část toho, s čím se člověk setká. Osobně jsem postupoval tak, že jsem celý parser až na první pravidlo a poslední parsovací funkci <code>parse_and_lex()</code> zakomentoval a postupně převáděl jednotlivá pravidla. Tímhle postupem mi to trvalo poměrně dlouho, ale nakonec se dostavil výsledek:</p>
@@ -423,13 +423,13 @@ Happened at file src/tinySelf/parser.py line 461
         <p id="6b05db44-5d5b-4a62-98a3-9b29fe5f70cd" class=""><em>(Kompilační fraktály v původní kvalitě:</em> <em><a href="https://youtu.be/A_OhtmUH830">https://youtu.be/A_OhtmUH830</a></em><em>)</em></p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="ea87c7ac-48fb-4ba0-af65-7c044bf42bb0" class="">Pokračování</h1>
+        <h1 id="ea87" class="">Pokračování <a class="heading-anchor" href="#ea87" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="090d3364-ee9f-48d2-a3bf-497ee5bf0195" class="">Příště se podíváme na návrh rozložení a reprezentace objektů v paměti před tím, než přijde na řadu psaní virtuálního stroje a kompilátoru do bytecode.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="b1e1c147-14bb-4424-82bb-bdf222a7c238" class="">Relevantní diskuze</h1>
+        <h1 id="b1e1" class="">Relevantní diskuze <a class="heading-anchor" href="#b1e1" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="46b4620c-c297-4e75-926b-094e212b43ab" class="bulleted-list">

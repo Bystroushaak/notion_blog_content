@@ -178,7 +178,7 @@
         <p id="664826e6-084f-45e2-b3ba-00dd32b85eb7" class="">Last episode <a href="../Environment_and_the_programming_language_Self_part_one_environment.html" title="Environment and the programming language Self (part one; environment)">Environment and the programming language Self (part one; environment)</a> introduced Self as a project, showed where to download it and you could also find some basic orientation about the usage of the morphic interface environment there. In this episode, we'll look into the language itself and also into more interesting parts of the standard library.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="c490b377-8b3a-4621-b8ad-78f2dec31b9b" class="">From the language point of view</h1>
+        <h1 id="c490" class="">From the language point of view <a class="heading-anchor" href="#c490" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f68c486f-78a2-49a2-b913-34d8cac1cbcf" class="">On the syntactic level, Self is inspired by Smalltalk. It was born in the same place, in Xerox PARC, although a decade later. In Self, like in Smalltalk, everything revolves around sending messages. Unlike Smalltalk, Self introduces a literal for objects, which means that objects are as natural as strings and numbers in other languages.</p>
@@ -202,7 +202,7 @@
         <pre id="24af4372-dbdf-42b1-a4e8-3ced8ba58504" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">obj.message()</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="5545e9d9-96e4-4b32-af45-c23566db9d32" class="">Syntax of the object</h2>
+        <h2 id="5545" class="">Syntax of the object <a class="heading-anchor" href="#5545" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5c9f78fb-9761-499b-8705-5b4566f0791d" class=""><code>()</code> creates an empty object. That is an object without slots, which can't react to messages.</p>
@@ -235,7 +235,7 @@
         <p id="e4a9eae8-d879-41a9-aaf1-a8cd2cbc802e" class="">The above example defines an unnamed object with a single <code>a</code> slot set to an object of the number <code>1</code>. It also contains a code to send a <code>printLine</code> message to the slot <code>a</code>, that is, to the value in that slot.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3057d244-787a-4dfa-b067-e41c67299304" class="">Parent slots</h2>
+        <h2 id="3057" class="">Parent slots <a class="heading-anchor" href="#3057" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e6c145f6-4f2a-45bb-829a-801a3f816241" class="">Special type of slots in Self are the so-called <em>parent slots</em>, which cause, that messages, which are not found in the object, are delegated to objects that these slots point to.</p>
@@ -253,7 +253,7 @@
         <p id="876d6cd1-4295-4add-9b9a-e4137e544495" class="">This mechanism effectively implements inheritance. If you think about it, this behavior resembles a situation where we call the ancestor's method of an object, that is inherited from <code>traits clonable</code>, for example in Python. Main difference is that a <em>parent slot</em> is just a slot, and that means it can be dynamically changed.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7af57c6d-0217-4bd4-a3ad-da8d73eb706e" class="">Parameters</h2>
+        <h2 id="7af5" class="">Parameters <a class="heading-anchor" href="#7af5" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1158c8a7-0857-4b9e-995d-54ed1b87a327" class=""><code>| slot |</code> definition can also contain parameters of the method. These are preceded by a colon at the beginning of the name. For example, an object:</p>
@@ -275,7 +275,7 @@
 |)</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="575c6a99-b1dc-4bb8-bd85-75952c3e1d40" class="">Messages</h2>
+        <h2 id="575c" class="">Messages <a class="heading-anchor" href="#575c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a8202779-6ad4-435c-81f4-f8448b7f0d7f" class="">There are three standard types of messages:</p>
@@ -308,7 +308,7 @@
         <p id="47a19814-a1ce-4a3b-a0f8-a88719ea0347" class="">Message <code>x set: a And: b</code> causes lookup of the slot <code>set:And:</code> in the object <code>x</code>. Resolved code object is given parameters <code>a</code> and <code>b</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="0625571f-2406-4ab2-921a-b1148f898b68" class="">Primitive messages</h3>
+        <h3 id="0625" class="">Primitive messages <a class="heading-anchor" href="#0625" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b575e8e6-ac79-4a7e-90e8-3b433de934fb" class="">Fourth type of messages is <em>primitive calls</em>, distinguished from the other types by the <code>_</code> at the beginning of the message name:</p>
@@ -326,7 +326,7 @@
         <p id="ff838ef8-a49a-4a46-97dd-d61686b6117d" class="">The whole Self as a programming environment can be understood as a language built on axioms defined by primitives.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="c73825d7-36c2-4f28-bd48-8491721ff28a" class="">Self</h2>
+        <h2 id="c738" class="">Self <a class="heading-anchor" href="#c738" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0e92a53d-c0f7-4223-8863-ccaf3577349d" class="">Self as a language is called "Self" because unlike in Smalltalk, you don't have to use this keyword in front of every message sent to the object itself.</p>
@@ -350,7 +350,7 @@
         <p id="c3194d37-7c19-41a1-bd00-0eeb65ef2fe4" class="">Message <code>a first</code> from the previous chapter can be actually rewritten as a <code>self a first</code> message, or as a <code>(self a) first</code> message.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0d9ad4b2-32c5-4955-bca3-6ebf54cc4288" class="">Blocks</h2>
+        <h2 id="0d9a" class="">Blocks <a class="heading-anchor" href="#0d9a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f7f84031-fe0c-438e-a4ce-7eea819db5f8" class="">Blocks are similar to objects, except for three differences:</p>
@@ -421,7 +421,7 @@
         <p id="ce397d6e-8b6e-4220-92c5-08c5fa3ad51d" class="">Result of the <code>a</code> message is thus the object <code>1</code>, even though the return is not used.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="41d63576-5ab2-42b7-ace5-96d96ea0c9eb" class="">Delegation</h2>
+        <h2 id="41d6" class="">Delegation <a class="heading-anchor" href="#41d6" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3a86efc3-2525-48a1-a112-f1e56d47387e" class="">As I already mentioned, Self uses something that works as an inheritance, but it is not the typical inheritance as we know it from other mainstream languages. Better description would be <em>"a delegation of messages, which the object can't resolve itself, to objects defined in parent slots."</em></p>
@@ -451,7 +451,7 @@
         <p id="ff0d4af4-1f47-46f8-86f9-bccee6948cd1" class="">This, at first glance somewhat wild design feature, has quite interesting usage cases, for example parsers, where it allows you to easily change the context.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="16a9d22d-6ce2-4c23-8903-e823515405c8" class="">Comments</h2>
+        <h2 id="16a9" class="">Comments <a class="heading-anchor" href="#16a9" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6182be46-d199-47dc-9231-887d5c83a8df" class="">Comments are written in quotes:</p>
@@ -460,7 +460,7 @@
         <pre id="200d4bcf-96f0-43c5-9c01-9a388cf60f25" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">"this is a comment"</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3e6e3fca-7cb7-491c-8052-74d22505ca31" class="">Annotations</h2>
+        <h2 id="3e6e" class="">Annotations <a class="heading-anchor" href="#3e6e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2ad55af9-deaa-45f7-aa2a-d113a2937e39" class="">Annotations provide a way of adding metadata to objects, but there is surprisingly little documentation on how they work and can be used, even though they are used across the entire standard image.</p>
@@ -499,13 +499,13 @@
         <p id="6f903a72-7199-4f6a-bebd-3efd5ce28618" class="">Annotations are not visible in the object itself when viewed in the Outliner. You need to use a mirror (see the next chapter).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="69048156-750c-42a3-a380-c9395677e187" class="">In terms of Stdlib's point of view</h1>
+        <h1 id="6904" class="">In terms of Stdlib's point of view <a class="heading-anchor" href="#6904" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="025474dd-5e57-4136-9146-7fd019773081" class="">The trap of the simple languages, which syntax fits on a post card, lays in the complexity of the stdlib. Self is not an exception. I won't show you the whole stdlib, just the most important parts. Curious readers can see specific details in the Self itself.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="5f1e52ed-fda5-4d2d-986c-b9c1e395e0cd" class="">Conditions</h2>
+        <h2 id="5f1e" class="">Conditions <a class="heading-anchor" href="#5f1e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="229d5022-2a06-4242-bf56-4443b5540f94" class="">As is customary in the Smalltalk-ish languages, if conditions are implemented as messages sent to a bool object. Following messages are available:</p>
@@ -534,7 +534,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="2870d5fb-ccea-4765-8b67-d126352cdfac" class="">Loops</h2>
+        <h2 id="2870" class="">Loops <a class="heading-anchor" href="#2870" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="06d29776-fdd9-4159-8d50-656a63620732" class="">Like conditions, cycles are implemented as messages sent to either <em>collections</em> or to <em>block</em> objects.</p>
@@ -585,7 +585,7 @@ max: x
 min: x</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0986d899-6c98-44f6-9c49-93910f93db65" class="">Accessing</h2>
+        <h2 id="0986" class="">Accessing <a class="heading-anchor" href="#0986" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="c5fad132-a856-4382-ad66-0d84b06d78c4" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">at: k
@@ -604,7 +604,7 @@ last: v
 soleElement</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ea920a96-1fd2-496e-8384-7027c33cddc6" class="">Adding</h2>
+        <h2 id="ea92" class="">Adding <a class="heading-anchor" href="#ea92" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="d1fc720a-9d70-4b03-b7f2-fb85e44de78e" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">add: elem
@@ -615,13 +615,13 @@ addFirst: elem
 addLast: elem</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="49de49da-3c80-47a8-8c80-ebfe7ab2d3bd" class="">Coercing</h2>
+        <h2 id="49de" class="">Coercing <a class="heading-anchor" href="#49de" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="714b8898-c493-4c56-bea3-bdad522ac726" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">asList</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="bb7658ea-7f36-424a-ba7a-4924d4d5f836" class="">Comparing</h2>
+        <h2 id="bb76" class="">Comparing <a class="heading-anchor" href="#bb76" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="c6e1d7d7-dab9-44a9-9354-71e59fa2936a" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">&lt; c
@@ -633,13 +633,13 @@ isSuffixOf: c
 equalsCollection: c</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4c286d38-1d30-434c-8009-dda48ac7a3ca" class="">Concatenating</h2>
+        <h2 id="4c28" class="">Concatenating <a class="heading-anchor" href="#4c28" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="2305d591-53f4-4175-9f40-eca0a9f46dd1" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">, c</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9852075e-d180-41a4-824a-4812a75c53e8" class="">Copying</h2>
+        <h2 id="9852" class="">Copying <a class="heading-anchor" href="#9852" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="fc6b87ac-429e-4532-8ad4-79e2dd919c31" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">copy
@@ -647,13 +647,13 @@ copyContaining: c
 copyRemoveAll</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="1b0f21af-c903-4de3-97d5-e66c384724e9" class="">Double dispatch from universalSetOrDictionary</h2>
+        <h2 id="1b0f" class="">Double dispatch from universalSetOrDictionary <a class="heading-anchor" href="#1b0f" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="d77517c8-23b5-4d36-8f73-14da989a107d" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">unsafe_with: c1 Do: b FirstKey: firstK1 FirstValue: firstV1</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3339fa7c-ab44-4788-a11d-efcb8f024915" class="">Inserting</h2>
+        <h2 id="3339" class="">Inserting <a class="heading-anchor" href="#3339" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="5404c283-d689-4579-8d07-652c5fcf21a8" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">insert: x AfterElementSatisfying: blk IfAbsent: aBlk
@@ -662,7 +662,7 @@ insertAll: x AfterElementSatisfying: blk IfAbsent: aBlk
 insertAll: x BeforeElementSatisfying: blk IfAbsent: aBlk</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="825ccc7c-ab97-463d-939d-65f3c1975414" class="">Iterating</h2>
+        <h2 id="825c" class="">Iterating <a class="heading-anchor" href="#825c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="7a390e02-314b-4d8e-9418-d11d06b9eb97" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">do: b
@@ -673,7 +673,7 @@ with: x ReverseDo: b
 withNonindexable: c Do: b</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="389fb5e9-0571-4283-9c60-28429ccada06" class="">InteratingWithEnds</h2>
+        <h2 id="389f" class="">InteratingWithEnds <a class="heading-anchor" href="#389f" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="cc6bd773-abce-465c-b8a6-b49e16204aef" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">do: elementBlk SeparatedBy: inBetweenBlk
@@ -687,7 +687,7 @@ doFirstMiddle: fm Last: lst
 doFirstMiddle: fm Last: lst IfEmpty: e</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="55684061-16bb-446d-a223-988059f40247" class="">Printing</h2>
+        <h2 id="5568" class="">Printing <a class="heading-anchor" href="#5568" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="9e838955-4aa3-473d-8958-dd804a128081" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">collectionName
@@ -711,7 +711,7 @@ statePrintStringOfElements
 statePrintStringOfSize</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9abbd5a0-016e-4299-8f38-1acfde31fc9e" class="">Reducing</h2>
+        <h2 id="9abb" class="">Reducing <a class="heading-anchor" href="#9abb" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="2a8806d9-cbcb-4bd4-8195-5443c0738c7c" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">countHowMany: testBlock
@@ -731,7 +731,7 @@ standardDeviation
 sum</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="738bf7f4-78d0-4e02-81b9-1c722159024c" class="">Removing</h2>
+        <h2 id="738b" class="">Removing <a class="heading-anchor" href="#738b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="4b79959a-4235-4a68-a12e-d21c228bcef8" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">remove: x
@@ -743,7 +743,7 @@ removeLast
 removeLastIfAbsent: ab</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="585d7c97-3922-405b-a245-a952e453bacd" class="">Searching</h2>
+        <h2 id="585d" class="">Searching <a class="heading-anchor" href="#585d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="eb6b6bd0-8162-46dc-bde2-5eb75d063f52" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">allSatisfy: b
@@ -758,7 +758,7 @@ occurrencesOf: v
 occurrencesOfEachElement</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="e3fe24ed-d7c1-4205-a249-8481e7d85377" class="">setLikeOperations</h2>
+        <h2 id="e3fe" class="">setLikeOperations <a class="heading-anchor" href="#e3fe" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="2cfbfb48-2191-4783-ac00-1d3f6553ff98" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">includesAll: c
@@ -766,7 +766,7 @@ intersect: c
 difference: c</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="326ce31a-b014-4fcd-94fc-7c87e46d0c53" class="">Sizing</h2>
+        <h2 id="326c" class="">Sizing <a class="heading-anchor" href="#326c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="f070a64d-9b4b-4e43-8718-3cf498008613" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">isEmpty
@@ -774,7 +774,7 @@ nonEmpty
 size</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="41864642-2e39-4fb3-a78e-1cf2d2630902" class="">Sorting</h2>
+        <h2 id="4186" class="">Sorting <a class="heading-anchor" href="#4186" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="409bd5b7-7e0d-4f96-8c60-138045b102ea" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">ascendingOrder
@@ -787,13 +787,13 @@ sortedBy: cmp Do: b
 sortedDo: b</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4cd74451-35b2-4e5c-91ee-443ce2bf5ad6" class="">Testing</h2>
+        <h2 id="4cd7" class="">Testing <a class="heading-anchor" href="#4cd7" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="2b24d325-83d6-466d-be22-69edd43218bb" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">isOrdered</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a9af3b41-6b6e-47e1-8fb0-1115d663631b" class="">Transforming</h2>
+        <h2 id="a9af" class="">Transforming <a class="heading-anchor" href="#a9af" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="36a2e549-b5e6-41d5-aa76-b62fc6f61f07" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">asByteVector
@@ -820,7 +820,7 @@ mapBy: eb Into: c</code></pre>
         <p id="534fe10a-de04-4847-96f7-17f035c1b29e" class="">That's quite rich, isn't it?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6154aee6-71d3-4f1a-905e-fe6e48ac29be" class="">Data structures</h2>
+        <h2 id="6154" class="">Data structures <a class="heading-anchor" href="#6154" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d6477823-a682-4438-bb03-f5962d963d68" class="">Data structures are made of layers of <em>traits</em> hierarchy.</p>
@@ -889,7 +889,7 @@ mapBy: eb Into: c</code></pre>
         </table>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="4f016cbb-f351-4fda-b52e-b7f0630a3f36" class="">Example</h3>
+        <h3 id="4f01" class="">Example <a class="heading-anchor" href="#4f01" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="00c6d330-14e7-4d5d-bed2-6e63d812b1ab" class="">If you want to use the collection, just type the name in the shell/source code editor and clone it. This can be done with the <code>clone</code> or <code>copy</code> message (same thing for most of the objects).</p>
@@ -979,7 +979,7 @@ mapBy: eb Into: c</code></pre>
         <p id="228abc27-a663-43bb-bfbc-5ec0686d46aa" class=""><code>do:</code> (as all iterators in Self) expects a block, that can have two optional parameters, a value, and a key, named in the example as <code>v</code> and<code>k</code>. Note the somewhat strange order, one would logically expect the opposite (the key and then the value).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="36f8c928-d921-4166-bb99-4d1232f4416e" class="">Collector</h3>
+        <h3 id="36f8" class="">Collector <a class="heading-anchor" href="#36f8" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7f8a50d9-da27-4fec-a207-fc33331a2ff4" class="">Collector is a special data structure that responds to the binary message <code>&</code>. Basically, it exists because Self does not have a literal for creating lists. To create a list, the easiest way is to use a collector:</p>
@@ -991,7 +991,7 @@ mapBy: eb Into: c</code></pre>
         <p id="bd40e029-3e65-45b1-8fa1-725273151dc0" class=""><em>Collector</em> is neither a list nor a dictionary. It can be converted to all possible data structures by a message called as<em>&lt;Something&gt;</em>, for example <code>asList</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="836bf0e2-ca69-4b59-b90a-f560d6712049" class="">Exceptions</h2>
+        <h2 id="836b" class="">Exceptions <a class="heading-anchor" href="#836b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3282b53e-e630-4122-963b-848e05b7c35e" class="">Exceptions are not supported. Messages that might end up with an error usually offer an alternative in the form of a keyword message with the parameter <code>IfFail:</code>. You can see the example here with an object for accessing the operating system:</p>
@@ -1011,7 +1011,7 @@ mapBy: eb Into: c</code></pre>
         <p id="8ee71d6a-e3f2-4eac-a2b2-c7ca4cd69071" class="">In my opinion, it doesn't seem to be the best solution, unfortunately that's how it works.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4828aa8d-f85e-49ec-91c6-775e9a09b23e" class="">Object model</h2>
+        <h2 id="4828" class="">Object model <a class="heading-anchor" href="#4828" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1f94675a-fb25-4659-8028-997a10e96467" class="">Note: A rather interesting discussion on the topic of Self's object model can be found here: <a href="https://news.ycombinator.com/item?id=14409088">https://news.ycombinator.com/item?id=14409088</a></p>
@@ -1023,7 +1023,7 @@ mapBy: eb Into: c</code></pre>
         <p id="7149f4dc-f6a1-4820-adff-4be49263e9a3" class="">As for the hierarchy of different objects, they are divided between <em>traits</em> and <em>mixins</em>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="1c159523-dc3d-4b4e-a334-94a3a39f4e8b" class="">Traits</h2>
+        <h2 id="1c15" class="">Traits <a class="heading-anchor" href="#1c15" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ac75c33a-778c-403f-8e20-5339688fbdee" class="">These are <em>"ancestors"</em>, that is, objects containing shared functionality, that are often fully functional by themselves. These objects are created in order to be shared by other objects via the <code>parent*</code> slots.</p>
@@ -1032,13 +1032,13 @@ mapBy: eb Into: c</code></pre>
         <p id="27734961-6426-4747-b7af-cfb0d1233c68" class="">Self has a relatively rich <em>trait hierarchy</em>, as can be seen in the previous chapters.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6da6b9fb-b6e7-4b02-a4f5-11a05545609b" class="">Mixins</h2>
+        <h2 id="6da6" class="">Mixins <a class="heading-anchor" href="#6da6" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="50631d78-fad2-4847-9132-7af044d6dff9" class=""><em>Mixins</em> are small clusters of shared functionality, typically without a <code>parent*</code> slot, and shared only at some specific level of the object hierarchy. The purpose is to provide a <em>functionality</em> that is <em>mixed</em> into an object. Their equivalent is something like an interface with partial implementation.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="23feea88-8827-4124-8372-ef2fbff30828" class="">Reflection with Mirrors</h1>
+        <h1 id="23fe" class="">Reflection with Mirrors <a class="heading-anchor" href="#23fe" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3040c3be-b51d-4392-aa7f-c19f9d1ca754" class="">Mirrors are a specialty of Self, which I haven't seen in any other programming language.</p>
@@ -1149,19 +1149,19 @@ mapBy: eb Into: c</code></pre>
         <p id="d48cbb21-ef93-472b-8bf8-dee1701fcdc7" class="">The beauty of mirrors lies in the ability to disable them. To do that, you just have to remove the proper parent from the code where you want to disable the <code>reflect:</code> message, for example, by overwriting it with an object returning <code>nil</code>. This makes it possible to execute the code relatively safely by using functions like eval (of course you have to also remove the access to syscals and filesystem).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="16b68c2e-5d6f-4e1b-86c5-4c207b76e3ed" class="">Tips & tricks</h1>
+        <h1 id="16b6" class="">Tips & tricks <a class="heading-anchor" href="#16b6" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="19a8fa2d-d0d4-42e8-91cf-49816d083585" class="">Over time, I collected useful notes, tips and tricks in my personal wiki, that can make programming in Self more pleasant.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="71ec5340-344f-4d79-b20a-c263554b5d14" class=""><code>copy</code> message support</h2>
+        <h2 id="71ec" class=""><code>copy</code> message support <a class="heading-anchor" href="#71ec" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8dc2d97a-f162-45b4-9518-db59ab1953dd" class="">To support the <code>copy</code> message, an object must inherit some basic functionality, which you can find in the <code>traits clonable</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="698a001f-6ab7-451b-b99c-13cf4a44fd3e" class="">Display parent slots in outliner</h2>
+        <h2 id="698a" class="">Display parent slots in outliner <a class="heading-anchor" href="#698a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6316893e-6ca4-4114-82c0-3a4b32b6d33d" class="">It's somewhat unfortunate to open up <code>parents*</code> in the outliner all the time just to see what's available for inherited slots.</p>
@@ -1183,13 +1183,13 @@ mapBy: eb Into: c</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d95a80b1-1d14-4a79-8273-5f535f4c4287" class="">Open all subcategories</h2>
+        <h2 id="d95a" class="">Open all subcategories <a class="heading-anchor" href="#d95a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f58019bf-3cd5-4396-a050-99275f5c5c40" class="">Sometimes it is very annoying to click on the black arrows when you have multiple nested categories. Double-clicking on the arrow opens all its subcategories.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a65b3b5f-c1a5-43c8-99a8-7fe2e334dfc9" class="">Quit by sending a message</h2>
+        <h2 id="a65b" class="">Quit by sending a message <a class="heading-anchor" href="#a65b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="18b76eeb-9746-42d9-a067-47606a136b98" class="">The environment can be terminated by the <code>saveThenQuit</code> or <code>quitNoSave</code> messages. Personally, I like to put a button on the desktop that calls one of these messages when pressed.</p>
@@ -1200,7 +1200,7 @@ mapBy: eb Into: c</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="285e5427-9ffe-42cc-bd32-4bd272c8818a" class="">Build new image</h2>
+        <h2 id="285e" class="">Build new image <a class="heading-anchor" href="#285e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="eb16fd70-f217-44e5-8171-055cc0ba4b4d" class="">If you don't want to use the default image provided with the Self distribution, and for some reason you want to build your own, you can do this from the <code>objects/</code> directory in the project's source code repository (!it is really required to do it from this directory!) by using following command:</p>
@@ -1221,7 +1221,7 @@ mapBy: eb Into: c</code></pre>
         <p id="2614ea2f-a6fc-4dde-a2ff-89887603b6ae" class="">This will open the graphical interface and you can then save the image by using context menu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a74beac1-82b1-498e-97dd-60e13102df53" class="">Find slot</h2>
+        <h2 id="a74b" class="">Find slot <a class="heading-anchor" href="#a74b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ca88e75f-903e-43b7-aa93-9a773f17cc6e" class="">From any outliner:</p>
@@ -1272,7 +1272,7 @@ mapBy: eb Into: c</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="dd2d888c-0ded-4ccb-92dd-ce532e0b0b6f" class="">Read serialized objects from script</h2>
+        <h2 id="dd2d" class="">Read serialized objects from script <a class="heading-anchor" href="#dd2d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d312ad7e-9432-4d90-a129-5428c4cc47ff" class="">If you want to run one of the scripts or load your saved module, you can use the following approaches:</p>
@@ -1290,7 +1290,7 @@ mapBy: eb Into: c</code></pre>
         <p id="2b995def-b836-49e7-ac5f-9d4a6e4eaa86" class="">You can find more details here: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="1fa25c40-9467-412e-903d-0cdd703bdb05" class="">radarView</h2>
+        <h2 id="1fa2" class="">radarView <a class="heading-anchor" href="#1fa2" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7388d52f-22a1-46b3-b118-807a9bc48125" class="">As I already mentioned in the previous episode, you can get the radarview by using following messages:</p>
@@ -1305,7 +1305,7 @@ mapBy: eb Into: c</code></pre>
         <pre id="c468b681-9107-43aa-bd85-5ca03f374804" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">desktop w hands first addMorph: radarView</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b4567d55-5369-4d10-8789-00fcbef85e85" class="">Better fonts</h2>
+        <h2 id="b456" class="">Better fonts <a class="heading-anchor" href="#b456" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="29134f47-9746-4911-ba0c-efb33a711fed" class="">Maybe you did notice that Self's basic font looks really awful. It is originally looking for <em>verdana</em>, which is not installed on Linux by default, so it uses fallback. The solution is described here:</p>
@@ -1318,7 +1318,7 @@ mapBy: eb Into: c</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="e8a113a1-5726-4631-b338-79d346fee69c" class="">Editor morph</h2>
+        <h2 id="e8a1" class="">Editor morph <a class="heading-anchor" href="#e8a1" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="39883a18-97c2-4cab-a61b-38e0c39830a9" class="">Experimentally I found out, that if you want to use the editor, you need <code>editorRowMorph</code> containing <code>editorMorph</code>. This then responds to <code>contentsString</code> message.</p>
@@ -1327,13 +1327,13 @@ mapBy: eb Into: c</code></pre>
         <p id="ccf79587-94b2-49a4-bde5-2c7a552fca30" class="">I didn't find out how to use <code>ui2_textField</code>, <code>ui2_textBuffer</code>, <code>textViewerMorph</code> and <code>uglyTextEditorMorph</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="e58de3c5-fbc4-4db5-b8bf-07f19cdc12fe" class="">Next episode</h1>
+        <h1 id="e58d" class="">Next episode <a class="heading-anchor" href="#e58d" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="52fb7fd5-57a4-4ea8-8698-3c1bb6369712" class="">Next episode <a href="../Environment_and_the_programming_language_Self_part_three_debugger.html" title="Environment and the programming language Self (part three; debugger, transporter and problems)">Environment and the programming language Self (part three; debugger, transporter and problems)</a> is about debugger, transporter and it also goes into details some of the problems with Self as a language and the environment.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="551e6fa1-10a6-4f36-b48b-c419d8b8a0d9" class="">Relevant discussions</h1>
+        <h1 id="551e" class="">Relevant discussions <a class="heading-anchor" href="#551e" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="9cbee625-5ff4-4b26-8d30-d5e1d5873c82" class="bulleted-list">

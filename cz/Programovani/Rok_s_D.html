@@ -138,7 +138,7 @@
         <p id="f42ed260-c8ee-430c-8d07-f74157616672" class="">Programovat v D jsem skutečně začal až s novým rokem. Do té doby jsem soustředil hlavně na teorii (ehm, příležitostně četl knihu, občal napsal nějaký test k odhalení vlastností které mi nebyly jasné). Od nového roku jsem napsal v D několik projektů o velikosti okolo přibližně tisíc řádek. Na nich jsem poznal některé (zdaleka ne všechny) klady a zápory D.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="37355846-b355-43c4-b2aa-7581d6a393d6" class="">HTTP client</h2>
+        <h2 id="3735" class="">HTTP client <a class="heading-anchor" href="#3735" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="eca369c2-dde6-4335-9b3d-7fdb24ab7dcc" class="">Všechno to začalo, když jsem potřeboval napsat program který pracuje s webem a zjistil jsem, že D v tomto ohledu bylo žalostně nevybavené. Nějakou dobu jsem googlil a hledal, ale jediné co se mi podařilo najít bylo tango, což je neoficiální stdlib, která navíc funguje pouze na D1 (stará, i když stabilní verze, aktuální je D2, která se ale stále vyvíjí). Jelikož jsem D1 používat nechtěl, začal jsem pracovat na vlastním HTTP clientovi. Původně to měla být jen jednoduchá třída na pár řádek co stáhne stránku a šmytec, ale s čtením anglické wiki a studováním RFC se to nějak rozrostlo, až z toho vznikla knihovna trochu podobná urllib v pythonu (funkčností, ne API).</p>
@@ -153,7 +153,7 @@
         <p id="62abb14c-a2b1-49c5-9ed3-687f3a7327ec" class="">Krátce poté co jsem ho vyladil byly do phobosu (oficiální D stdlib - API) paradoxně přidány bindingy na libcurl, která svým C API ale docela saje. S DHTTPClientem je práce o hodně pohodlnější, i když uznávám že také primitivnější a jsou věci které s ním jednoduše neuděláte.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3731b7f6-91e9-4399-a152-4e33c9ab6909" class="">HTML parser</h2>
+        <h2 id="3731" class="">HTML parser <a class="heading-anchor" href="#3731" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d95bd602-af8f-43c5-832f-2d4fc7889659" class="">Když už jsem měl HTTP clienta, začal jsem hledat nějaký HTML parser. V pythonu jsem celá léta používal <a href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, pro jeho schopnost selektivního vytahování jednotlivých tagů a nod, které potřebuji. Na rozdíl od ostatních, pro mne podivných a nepochopitelných přístupů je práce s BeautifulSoup dost intutivní. Chcete všechny odkazy na stránce? Proč ne?</p>
@@ -180,7 +180,7 @@ soup("a") # vrátí pole odkazů</code></pre>
         <p id="3323b884-5d54-4f9a-b1a0-a0395b74fe3c" class="">Co mě nedávno skutečně potěšilo je, že mi napsal nějaký ital s tím že ho používá ve svém projektu (kontrola aktualizace webových reklam pro síť hotelů).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9dbcb77e-1f1e-416a-bb6a-a7bc1d15a8c0" class="">Méně &gt; více?</h2>
+        <h2 id="9dbc" class="">Méně &gt; více? <a class="heading-anchor" href="#9dbc" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="bd4f4496-ebce-422a-a2c3-b62749beb520" class="">Trochu paradoxní je, že díky tomu že D zatím není moc používaný a neexistuje pro něj tedy tolik knihoven jsem překonal lenost a naprogramoval užitečné moduly, na nichž jsem se toho i dost naučil. Nikdy předtím v životě jsem nesedl k RFC a nezačal něco (třeba <a href="https://github.com/Bystroushaak/DSNTPClient">SNTP client</a>) jen tak implementovat - proč taky, vždyť by to byla zbytečná práce, ne?</p>
@@ -192,7 +192,7 @@ soup("a") # vrátí pole odkazů</code></pre>
         <p id="c27a8045-096c-4707-ad0e-5d3d6b7970f9" class="">Díky těmto zkušenostem vím, že pro mě není problém většina věcí které se mi dříve zdály jako vyšší level. Chce se to prostě do daného problému zakousnout, chvíli se mu věnovat, začít psát kód a dříve nebo později z toho vyleze funkční řešení (takhle jsem třeba psal binding k libpolarssl, konkrétně RSA funkcím, takže teď už jen stěží zapomenu jak RSA funguje).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="bd60ea05-978b-4e93-ac4b-613da9bcb3ee" class="">Vývoj D</h2>
+        <h2 id="bd60" class="">Vývoj D <a class="heading-anchor" href="#bd60" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="97f7d54b-6ae3-4667-a95d-f5f0b2b7f1c9" class="">Abych se vrátil od sebestředných řečí zpět k D - co na něm mě těší a zároveň dost ostatních lidí odrazuje je to, že vývoj se stále ještě neustálil a navíc probíhá na úrovni komunity.</p>
@@ -207,7 +207,7 @@ soup("a") # vrátí pole odkazů</code></pre>
         <p id="dfed9cf5-06eb-4ddb-bc6a-06e64fa7f254" class="">Když to porovnám s takovým C++, vlastně ani nevím, jak bych se na nějaké vývojové feedy napojil. Možná je to jen blbá představa, ale jeho vývoj si představuju jako srocení ISO nazzi s vysokými klobouky a monokly v oku, jenž 10 let diskutují co za vlastnosti by šlo přidat a hlavně neporušit zpětnou kompatibilitu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b207fa17-a8a2-4268-9aad-4cffac0b58a1" class="">Co mi vadí</h2>
+        <h2 id="b207" class="">Co mi vadí <a class="heading-anchor" href="#b207" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="afe3aef7-d82d-413a-81f4-a152519c8dfc" class="">Na samotném jazyku prakticky nic (kromě podivnosti s $, které je v rozsahu pole občas .length a jindy .length - 1, podle toho jestli se uvede jako array[0 .. $] (pro výběr celého pole, nesmyslný příklad), nebo array[$-1] (pro výběr posledního prvku, kde samotné $ vyhodí vyjímku překročení rozsahu pole)).</p>
@@ -240,7 +240,7 @@ soup("a") # vrátí pole odkazů</code></pre>
         <p id="6d7659b2-4123-4df9-8e54-35351ef5138c" class="">Abych to tedy shrnul - jazyk sám o sobě je v pohodě, podpora toolů (kompilátory, editory atp..) už moc ne.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="f69c68e8-e4dc-4c88-8f50-4e4524615ac4" class="">Závěr</h2>
+        <h2 id="f69c" class="">Závěr <a class="heading-anchor" href="#f69c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="12088254-2e80-4f1f-8d99-5a052bd8a209" class="">Můj rok s D byl docela fajn. Ani jednou jsem se na něj nenaštval, nikdy mi nepřišel dementní. Naprogramoval jsem v něm několik knihoven, naučil se s ním používat git a github. Až na pár detailů mi v ničem nevadí a tak budu pokračovat ve své snaze z něj udělat primární programovací jazyk.</p>

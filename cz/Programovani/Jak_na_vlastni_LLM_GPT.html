@@ -196,7 +196,7 @@
         <p id="289607a1-b12e-4a56-8921-a3c1b174b727" class="">Jako správní chaotičtí neutrálové si tedy rozjedem vlastní AI doma. Ale s předmluvou a nějakým tím kontextem, ať vlastně víme co děláme.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="fb718140-ca18-41d9-b398-2b71e3bfe179" class="">Jak chápat GPT / LLM</h1>
+        <h1 id="fb71" class="">Jak chápat GPT / LLM <a class="heading-anchor" href="#fb71" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1eb46c8a-c6e9-4a40-994f-556f5405ab2c" class="">Setkávám se s jedním zásadním nepochopením, které často mají lidi co trochu tuší jak to funguje;</p>
@@ -254,7 +254,7 @@
         <p id="b40ea546-992e-4b24-b18a-892fc7d427b8" class="">Jak <a href="https://www.youtube.com/watch?v=goOa0biX6Tc">říká</a> Ilya Sutskever, představte si, že při trénování doplňuje třeba text detektivky, kde vrah je oznámen až na poslední stránce knihy plné různého vyšetřování. Aby byla síť schopna korektně doplnit jméno vraha když ho v textu detektiv vysloví, musí <em>chápat</em> všechny možné souvislosti, celé vyšetřování, různé důkazy a tak podobně.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9c007c0a-d969-4884-8303-894c58e2eb2e" class="">Simulátory</h2>
+        <h2 id="9c00" class="">Simulátory <a class="heading-anchor" href="#9c00" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ae7dc46c-480d-4e47-bc69-73f813ff186b" class="">Předtím než přišel chat mode byly výsledky, například u GPT3, poměrně nevalné. Jasně, něco to dělalo, ale člověk se z toho po počátečním překvapení úplně neposadil na zadek, a dost často se to vydalo úplně jiným směrem, než bych chtěl. Celkově to působilo dost omezeně.</p>
@@ -269,7 +269,7 @@
         <p id="398af488-86d8-4cfd-868c-2ccbc92c5475" class=""><a href="https://astralcodexten.substack.com/p/janus-simulators">Janus' Simulators</a> je krásný blog na tohle téma, se spoustou ukázek.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="041419ec-2e94-4aa6-9ad7-35f5115bb597" class="">Chat</h2>
+        <h2 id="0414" class="">Chat <a class="heading-anchor" href="#0414" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a9747b0e-7418-4aea-9d06-8c6ead040382" class="">S tím přichází překvapivě vysoká užitečnost chatu. Chat není nějaká radikálně nová funkcionalita, ale jen způsob jakým je používáno auto-doplňování. Například v <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> najdeme v podsložce <code>prompts/</code> soubor <code>chat-with-bob.txt</code>. Ten má následující obsah:</p>
@@ -340,7 +340,7 @@ Question:</code></pre>
         <p id="0cc27aab-fe86-48d6-8606-1452cda2d024" class="">Tedy model se jen nesnaží dát odpověď, ale prvně se <em>Zamyslí</em>, potom naplánuje <em>Akci,</em> následovanou <em>Pozorováním</em>, po kterém se znovu <em>Zamyslí</em> a nakonec poskytne <em>Odpověď</em>. Tímhle je možné obejít některé nedostatky modelu, jako například krátkodobou paměť, nebo problémy s dlouhodobým plánováním.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d45ce5de-1697-47de-b9a0-a957dc050f43" class="">Human alignment & shoggoth</h2>
+        <h2 id="d45c" class="">Human alignment & shoggoth <a class="heading-anchor" href="#d45c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="fdeb9e40-7eac-4f20-abc6-97ab2d59f78a" class="">S <em>chat modem</em> se ukázalo, že existující LLM můžou fungovat jako užitečná AI, akorát jsou úplně cizí našemu očekávání a často nedělají co po nich chceme.</p>
@@ -453,7 +453,7 @@ Question:</code></pre>
         <p id="72e03c31-fe35-476b-ba1e-39d578bb4c8b" class="">To nemyslím tak jako <em>“berte informace s rezervou”</em>, nebo <em>“nespoléhejte na ně”</em>, ale spíš jako že nátura Shoggotha je Shoggoth. Shoggoth musí simulovat, aby doplňoval text. Když nechápe, tak ve většině případů vypadl z role a neví co má předstírat. Musíte mu ten kontext uvést. Ne kontext rozhovoru, ale toho co má být, jako co má vést rozhovor. Meh.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0aa82e8d-bc4a-42e0-a808-8ab11da6b9fb" class="">Malé modely, proč a jak fungují</h2>
+        <h2 id="0aa8" class="">Malé modely, proč a jak fungují <a class="heading-anchor" href="#0aa8" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a52d3161-cf73-4844-bd4d-4a3dff0a1fa4" class="">Článek <a href="https://www.lesswrong.com/posts/6Fpvch8RR29qLEWNH/chinchilla-s-wild-implications">chinchilla's wild implications</a> ukazuje na proč není počet vah (parametrů) úplně směrodatná metrika, která by měla být cílem, a že víc dat vyhrává nad větším množstvím <em>parametrů</em> modelu.</p>
@@ -583,7 +583,7 @@ Question:</code></pre>
         <p id="20e20e9a-5d71-457a-aa56-2c7b5fb29bc3" class="">Mimochodem, tohle je jeden z těch úžasných momentů <em>na rozhraní</em>. Když se něco mění. Taková ta chvíle co se zdá divoká, ale člověk na to zpětně vzpomíná. Něco jako nostalgické devadesátky, nebo začátek bitcoinu. Ta doba co srší potenciálem, věci nejsou jasně dané a všechno je zdánlivě možné. Chce se to chvíli zastavit a ocenit tenhle okamžik, protože typicky vám to dojde až zpětně. Otevírají se nové dimenze (<a href="../Ostatni/Vytvareni_prostoru_oteviranim_dimenzi.html" title="Vytváření prostorů otevíráním dimenzí">Vytváření prostorů otevíráním dimenzí</a>), kolabují a tak. Fakt cool.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="840fdbed-348f-4a00-a8fa-d62b289726a5" class="">Jak rozjet lokální model</h2>
+        <h2 id="840f" class="">Jak rozjet lokální model <a class="heading-anchor" href="#840f" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2b36e123-1c6d-4530-a522-4ff983b986ba" class="">Tenhle článek jsem původně začal psát, protože jsem to doma zkoušel a bylo to docela složité. Během doby co jsem ho psal se všechno natolik zjednodušilo, že původní text totálně ztratil smysl.</p>
@@ -668,7 +668,7 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
         <p id="1ea5c46d-0a1f-4c4f-a30b-bdb321828ebe" class="">Slova se u mě objevují velmi pomalu, asi tak jedno za pět vteřin. Postupně se načítá po znacích, jak ho model generuje. Chtělo by to grafickou kartu s větší pamětí, do mojí 3070Ti se model nevleze.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="e5fe1d77-42d1-484e-8083-13ee9198c03b" class="">llama.cpp</h3>
+        <h3 id="e5fe" class="">llama.cpp <a class="heading-anchor" href="#e5fe" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ab949baa-b40a-44df-ae42-324d6d39b35a" class="">Naštěstí je tu ještě <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a>, C++ přepis python kódu:</p>
@@ -723,7 +723,7 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
         <p id="ddf0cfc5-42ff-4faf-88be-b712d46458a7" class="">U mě na počítači se text objevuje rychlostí asi jednoho slova za vteřinu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="5e105158-a978-49c6-8087-7741b4eb50a1" class="">Nutno dodat</h3>
+        <h3 id="5e10" class="">Nutno dodat <a class="heading-anchor" href="#5e10" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="46c4a241-3bd7-4d56-aefb-38a874ef2729" class="">Menší modely jsou samozřejmě méně schopné, ale nejsou úplně neschopné. Pokud pozorujete divné chování, je možné:</p>
@@ -827,7 +827,7 @@ kód
 User:</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d86676b9-fc73-4268-b92c-4b17fcd92bab" class="">Dva malé modely</h2>
+        <h2 id="d866" class="">Dva malé modely <a class="heading-anchor" href="#d866" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5727b4b4-9b88-4c2d-910e-445f383ce347" class="">Zajímavé use-cases z poslední doby:</p>
@@ -853,7 +853,7 @@ User:</code></pre>
         <p id="1dc62743-43a1-4948-a40c-6bb7970d9279" class="">K trénování jsem zatím ještě nedoiteroval, takže snad v blogu někdy příště.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="93e87ffe-b903-4491-a35e-777205e8e78d" class="">GPT4</h1>
+        <h1 id="93e8" class="">GPT4 <a class="heading-anchor" href="#93e8" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="935136af-8ebb-4139-acfd-cd9acf5f3a2c" class="">Malé modely jsou cool a mají svoje použití, ale srovnávat s GPT4 se tenhle pár týdnů starý vývoj nedá.</p>
@@ -865,7 +865,7 @@ User:</code></pre>
         <p id="5f972e71-2b83-4449-b646-b6c16cb9e5a1" class="">Můj osobní pocit z toho je někde mezi ohromením, bázní, nostalgií ze současnosti pohledem budoucnosti (bylo fajn programovat, škoda že už jsme u konce) a opilostí možnostmi.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8b48cc21-6840-4f11-931e-4fc09d4024cb" class="">Kde vzít přístup k GPT4</h2>
+        <h2 id="8b48" class="">Kde vzít přístup k GPT4 <a class="heading-anchor" href="#8b48" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="073a2c0f-12ed-4080-b19b-863c20efa8d9" class="">Jedna možnost je samozřejmě si zaplatit <em>chat plus</em>, ale to stojí 20$/měsíc a má to momentálně docela přísný rate limiting:</p>
@@ -887,7 +887,7 @@ User:</code></pre>
         <p id="3ef4a2e5-4ec8-4ebe-8753-37cef9e4ec58" class="">Do žádosti o přístup stačí napsat něco jako že jste developer a že si to chcete osahat. Musíte to slinkovat s kreditkou a počítejte s tím že se za použití <a href="https://openai.com/pricing">platí</a>, ale vesměs dost málo (týdně jsem utratil třeba dva dolary).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b74caaf5-64e0-44fe-bc35-2db187a731a1" class="">Sparks of Artificial General Intelligence</h2>
+        <h2 id="b74c" class="">Sparks of Artificial General Intelligence <a class="heading-anchor" href="#b74c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a2da6ce8-48b1-4285-a8fb-3456dab6cf6d" class="">Vyšlo <a href="https://arxiv.org/pdf/2303.12712.pdf">Sparks of Artificial General Intelligence: Early experiments with GPT-4</a>. A to ukázalo, že se změnilo všechno, jen si většina z nás ještě nevšimla.</p>
@@ -916,7 +916,7 @@ User:</code></pre>
         <p id="2bb2c6bb-fdef-40a1-b09d-be4757d4fbe2" class="">Ale obecně doporučuji si přečíst to PDF, čte se to jak sci-fi. Mohl bych se snažit to asi nějak víc vychválit a vnutit, ale meh. Stojí to za to.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="c6af8207-eb37-44ab-ba6a-91775856eb01" class="">Use cases pro inspiraci (lidi se ptali)</h2>
+        <h2 id="c6af" class="">Use cases pro inspiraci (lidi se ptali) <a class="heading-anchor" href="#c6af" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="266189ba-45bf-40db-878a-89461f025e06" class="">Tak nějak všechno. Beru to prostě jako <em>“intelektuální motor”</em>, do kterého se dá naházet co chcete a ono to většinou nějak udělá, typicky líp než random kontraktor na mikro tržištích. Ale kdybych měl něco vybrat:</p>
@@ -985,7 +985,7 @@ User:</code></pre>
         </ol>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="7c1c9116-9584-4179-853e-29a781ebf56f" class="">Nějaké plány do budoucna</h3>
+        <h3 id="7c1c" class="">Nějaké plány do budoucna <a class="heading-anchor" href="#7c1c" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0dd6d63b-d5b5-4f85-9939-d7a17c3b02bb" class="">Vyzkoušet tréning menších modelů na vlastních datasetech. Asi formou EC2 v AWS, než kupováním nové grafiky za 50k, ale uvidíme. Vesměs všechny konzumní grafiky mají pořád málo VRAM.</p>
@@ -997,7 +997,7 @@ User:</code></pre>
         <p id="9af91f20-ca22-445e-829f-8ab662292b50" class="">Zkusit nějak vecpat GPT4 různé nástroje, integrovat do různých věcí API a tím zlepšit jeho užitečnost. Nejde mi o užitečnost modelu - ta je fantastická už teď, jen mě nebaví pořád dokola psát ty samé prompty, nebo tam/zpět nějak kostrbatě kopírovat různé kusy kódu. Ideálně to nějak líp integrovat do systému (kliknu pravým, vyberu konverzace s GPT, otevře se mi moje custom gui kde řeším ty data s chatbotem).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="e0bd251d-faca-4bfc-9471-75287885d946" class="">Trendy a budoucnost</h2>
+        <h2 id="e0bd" class="">Trendy a budoucnost <a class="heading-anchor" href="#e0bd" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ad535e6a-9647-48d1-9174-bdc30e7d24d9" class="">Očividné jsou samozřejmě větší modely, ale spíš taky modely s větším kontextovým oknem. Osobně jsem si zatím ještě nenačetl co to vlastně limituje, ale těch 8k kontextu (jak moc tokenů je ten model schopný vnímat) v GPT4 dělá brutální rozdíl oproti 1/2k GPT3. A to mají i 32k verzi, jen má pomalejší uvedení mezi lidi.</p>
@@ -1036,7 +1036,7 @@ User:</code></pre>
         <p id="882cfca8-da6a-40db-8f4b-501397c6a57e" class="">Postupně budou schopny dělat úplně všechno. To už jsou vesměs teď, akorát je to v plenkách, alignment občas nefunguje a sem tam stojí víc námahy to modelu vysvětlit, než to udělat ručně. Ale zlepšuje se to skokama na úroveň, která mě stále překvapuje, přestože jsem docela informovaný.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6ee05db9-ff9b-43e0-a59f-24bf64683e43" class="">AGI</h2>
+        <h2 id="6ee0" class="">AGI <a class="heading-anchor" href="#6ee0" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="507303b8-4ab4-410a-b10d-3f42c31001ca" class="">A blíží se konec. Ne lidstva, ale blogu. Takže k AGI:</p>
@@ -1057,7 +1057,7 @@ User:</code></pre>
         <p id="12d64658-d414-4e8d-a5e6-2a787c5ea928" class="">Momentálně je to tedy dost nepoužitelné, ale celkově to začíná docela dobře simulovat složitější myšlenkové procesy. Dost mi to připomělo můj starý blogpost <a href="../Crypto/Entity.html" title="Entity">Entity</a>, kde jsem popisoval systém, co není inteligentní, ale pronajímá si na vylepšování sebe sama inteligenci od lidí. A tohle v podstatě dokáže podobně delegovat inteligenci, akorát samo na sebe.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="6f65d856-a508-4cb1-884b-20a88506b318" class="">Odkazovník</h1>
+        <h1 id="6f65" class="">Odkazovník <a class="heading-anchor" href="#6f65" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="98f95bf5-2f13-4c3f-a025-155de42ab388" class="bulleted-list">
@@ -1130,7 +1130,7 @@ User:</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="76e1bffc-0708-453f-9115-be8490782e41" class="">Random poznámky</h3>
+        <h3 id="76e1" class="">Random poznámky <a class="heading-anchor" href="#76e1" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="86edcfb9-127f-4060-96bb-ff11cd4537a4" class="">V twitter infosféře chcete sledovat <a href="https://twitter.com/Plinz">Joshu Bacha</a>. A <a href="https://twitter.com/JCorvinusVR">JCorvinus</a> taky docela jede.</p>
@@ -1159,7 +1159,7 @@ User:</code></pre>
         <p id="3cad6498-a8e6-4e30-92bb-5faa254e271c" class="">Depresi z toho že AI bude umět všechno líp než vy asi netřeba, už teď existuje na světě někdo, kdo asi umí cokoliv z toho co umíte líp než vy. Pokud berete motivaci jen z tohohle, tak si prostě najděte jinou motivaci. Třeba se zamyslete jak vám to umožní zlepšit svůj potenciál dosahovat cílů které fakt chcete.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="e85c478b-0f2f-423b-a326-993777bd49c6" class="">Edit <time>@2023/04/20</time></h3>
+        <h3 id="e85c" class="">Edit <time>@2023/04/20</time> <a class="heading-anchor" href="#e85c" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d63dcbd9-3c05-496b-b9b1-da8136f5eaa1" class="">Pár dalších zajímavých odkazů</p>
@@ -1280,7 +1280,7 @@ User:</code></pre>
         <p id="522baa72-933d-41e8-86d4-af8362583852" class="">Taky <a href="https://www.reddit.com/user/lostlifon/">Nofil z redditu</a> posílá dobré shrnutí novinek každý týden: <a href="https://www.reddit.com/r/ChatGPT/comments/12o29gl/gpt4_week_4_the_rise_of_agents_and_the_beginning/">GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="a18d9467-0175-4d60-b451-c4826457fcfd" class="">Diskuze</h1>
+        <h1 id="a18d" class="">Diskuze <a class="heading-anchor" href="#a18d" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="c14d1584-b316-4767-bf41-f112701fb65a" class="bulleted-list">

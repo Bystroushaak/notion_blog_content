@@ -175,7 +175,7 @@
         <p id="44bc2f22-9c3c-4301-8534-58cd92a89269" class="">This episode is mostly about things that did not fit into other episodes (<a href="../Environment_and_the_programming_language_Self_part_one_environment.html" title="Environment and the programming language Self (part one; environment)">Environment and the programming language Self (part one; environment)</a>, <a href="../Environment_and_the_programming_language_Self_part_two_language.html" title="Environment and the programming language Self (part two; language)">Environment and the programming language Self (part two; language)</a>). We'll have a more detailed look at the debugger, the transporter and some disadvantages of Self as a language, the environment but also of the principles of using prototype programming.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="b5d195b0-3ddf-4e3d-9719-17ca31148db4" class="">The user usage of transporter</h1>
+        <h1 id="b5d1" class="">The user usage of transporter <a class="heading-anchor" href="#b5d1" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="04fc92bb-4e54-447f-a748-152e02ee01e6" class="">I won't talk about how the transporter internally works, because you can read that in the paper <a href="http://bibliography.selflanguage.org/gold.html">Sifting Out the Gold: Delivering Compact Applications From an Exploratory Object-Oriented Environment</a>. I will focus mostly on the user's point of view, as you can see it in the video here:</p>
@@ -538,7 +538,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="7e30ae7a-b375-4f4b-a2e0-470be5c5a634" class="">The Debugger</h1>
+        <h1 id="7e30" class="">The Debugger <a class="heading-anchor" href="#7e30" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="accb3f3b-3be0-45b4-8e0a-7505c263c308" class="">Self has the debugger of the Smalltalk type, from which we can interactively change the code. Short demonstration will say more than a thousand words.</p>
@@ -640,13 +640,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="57e279f0-258c-4e5a-9a0c-04f7c9ee57f3" class="">The Problems</h1>
+        <h1 id="57e2" class="">The Problems <a class="heading-anchor" href="#57e2" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e4ce804f-e475-4d8d-80dc-06d5b06f8ba1" class="">Self is quite a sad heap from the practical point of view. It is usable to a big extent, but not enough for the beginners. If you need to solve something, you won't be able to google the solution. In most cases, you are probably the first one encountering such a problem. When not, there is quite a big chance that the problem hasn't been solved yet.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3f5c0e48-f326-4e3f-af72-07c3cf13f614" class="">32 bit</h2>
+        <h2 id="3f5c" class="">32 bit <a class="heading-anchor" href="#3f5c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c28d160d-3413-48c1-bb2f-76dc9c32993c" class="">Self is a 32 bit program. Porting it to 64 bit is possible but not trivial, so no one wants to do it. I don't think that anything will change with this in the next 10 years or so.</p>
@@ -655,7 +655,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         <p id="4bda8903-6864-4dac-b5f5-55273f24e19e" class="">On one hand it is quite upsetting, because you can only make 4 gigabyte images, but this problem can be solved for example by using more instances, moreover you will probably find problems in something else much sooner. For example saving images is quite slow and the sizes of few tens of megabytes and gigabytes will take a few minutes.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="21d0dd21-0b30-4bdc-a13c-428ea63b97ea" class="">Problems of the prototypes</h2>
+        <h2 id="21d0" class="">Problems of the prototypes <a class="heading-anchor" href="#21d0" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e2ec71cd-b39b-40ab-8fa6-69b9131c2b74" class="">Prototypes are easy to understand and together with the delegation (I am looking at you, JavaScript) offer a strong and effective mechanism of code organization.</p>
@@ -670,7 +670,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         <p id="66bc01df-650a-41f0-ba57-d50478443796" class="">Sadly, Self doesn't offer any way how to prevent this. Personally in my language, I would like to avoid this problem by locking the system objects to read only mode, so the cloning would be forced before you could write into them. Or maybe by rewriting some setters to automatic clone of the used object. It would still be possible to change the underlying prototype object, but you would need to use <em>mirrors</em>. I am sure there is plenty of possible solutions.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="28d473de-5c53-44a8-b608-3946bd16180c" class="">Namelessness of anonymous objects</h2>
+        <h2 id="28d4" class="">Namelessness of anonymous objects <a class="heading-anchor" href="#28d4" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2238689a-5158-4a17-b2c7-ea48ef8abec7" class="">Self treats its object literals similarly as languages supporting only lambda functions. Anonymous objects are great but it is generally easier to work with named things.</p>
@@ -685,37 +685,37 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         <p id="0ddeaaf8-7c1e-4393-8b42-ed6d51409227" class="">What is better and more natural for people? For the object to have its clearly given name or for the object's name to be given by a variable (or a path), in which it's stored?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b5f5cacf-2f71-4662-a645-f64e94e6ae12" class="">No undo</h2>
+        <h2 id="b5f5" class="">No undo <a class="heading-anchor" href="#b5f5" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b9018ce7-cac0-4b1e-90f7-4c971a17e806" class="">Edit morphs do not support undo. Bummer. And all other keyboard shortcuts are some subset of prehistoric emacs keybindings.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b3db9207-36a5-4965-8800-3f8a9f329d3f" class="">Ctrl+C / Ctrl+V</h2>
+        <h2 id="b3db" class="">Ctrl+C / Ctrl+V <a class="heading-anchor" href="#b3db" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e1fdad7a-15ee-4f62-ab2b-45d152724ea5" class="">Unfortunately it doesn't work because Self uses some really antiquated X bindings. The solution is to install the program <a href="https://www.nongnu.org/autocutsel/">autocutsel</a> and run it in the background.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7a876f7c-a4dc-49cb-9c97-402fe1b198cb" class="">Missing documentation</h2>
+        <h2 id="7a87" class="">Missing documentation <a class="heading-anchor" href="#7a87" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9769a1ab-90d2-4a00-bfff-52de15dc395c" class="">There is no other documentation but the one I already mentioned in my articles. Usually you can ask about the problem in the mail conference, but that's not an ideal scenario.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="88d17453-d398-4b29-ac32-f37316b4e9e0" class="">Slots are unordered</h2>
+        <h2 id="88d1" class="">Slots are unordered <a class="heading-anchor" href="#88d1" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c11708dd-6a3c-48d0-9f24-cbd4c85b8128" class="">This situation is quite sad, because when you want to use objects to directly store some information, it makes you use ordered collections instead.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6fff2cb3-7846-4063-ac9f-69f122a054ee" class="">Self doesn't support cascading operator</h2>
+        <h2 id="6fff" class="">Self doesn't support cascading operator <a class="heading-anchor" href="#6fff" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="791fb2d3-b4d6-4a6d-bc23-dca2109e4568" class="">If you don't know what it is, then you won't probably miss it. If you used Smalltalk before, it will hurt.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="44ffe77a-60c1-4e65-9651-ef0977639faa" class="">Unicode input / output doesn't happen</h2>
+        <h2 id="44ff" class="">Unicode input / output doesn't happen <a class="heading-anchor" href="#44ff" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5d8f087c-83ff-4959-b94c-287133c40cdf" class="">Self uses ISO 8859-1 for text encoding, which is 8-bit encoding. That means that it doesn't accept any other characters then used in this character set. Literally, you can't write them, and it doesn't know how to display them.</p>
@@ -739,7 +739,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="f79299a7-66f3-405d-b4c3-845db83c71bf" class="">Long outliners</h2>
+        <h2 id="f792" class="">Long outliners <a class="heading-anchor" href="#f792" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c9c68845-c294-4eea-8f32-f656b1b5c459" class="">Outliners are an interesting concept, which can quite quickly become annoying. You can have a look at an example:</p>
@@ -773,7 +773,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="14c0e4f6-d878-4a97-a9d0-2c1f116a1aa2" class="">Self and pictures</h2>
+        <h2 id="14c0" class="">Self and pictures <a class="heading-anchor" href="#14c0" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5fd19187-f896-4e15-83ce-ead1f0c9f721" class="">Self doesn't know how to show pictures in any of the usual formats. The only format it can show is some <a href="https://en.wikipedia.org/wiki/Sun_Raster">Sun's raster format</a>:</p>
@@ -786,13 +786,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="2368cac7-6b5c-4545-935f-bcf8ace45a21" class="">Last episode</h1>
+        <h1 id="2368" class="">Last episode <a class="heading-anchor" href="#2368" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5ead13d3-c492-42c1-8559-41b5a0da9e30" class=""><a href="../Environment_and_the_programming_language_Self_part_four_community.html" title="Environment and the programming language Self (part four; community, history, future and metaphysics)">Environment and the programming language Self (part four; community, history, future and metaphysics)</a> is about Self's community, history, relevant projects, possible future and there will also be some philosophical thoughts.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="deea07c0-0ac7-43f5-9862-5c4badbcd679" class="">Relevant discussion</h1>
+        <h1 id="deea" class="">Relevant discussion <a class="heading-anchor" href="#deea" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="5f9e835d-b5e2-414a-881c-04fdc7175261" class="bulleted-list">

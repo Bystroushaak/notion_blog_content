@@ -160,7 +160,7 @@
         <p id="a84a9b94-a142-453d-82b1-ccb2cab33764" class="">With those improvements, code run 20% faster than without JIT. Obviously, this wasn't acceptable, so I had to investigate.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="22b061f5-9184-494b-a0b8-ed46a2d9c3f3" class="">Numeric ints</h1>
+        <h1 id="22b0" class="">Numeric ints <a class="heading-anchor" href="#22b0" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d64c7797-c875-4044-ae48-243605449395" class="">So far, I have been using boxed integer values represented as</p>
@@ -228,7 +228,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="03c5f35e-2a3a-45b5-8209-6e284ee69b4b" class="">At least I've added <code>_immutable_fields_ = ["value"]</code> declaration to all constant primitives, but it turned out that this didn't improve the performance either. Ouch^2.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="9d4b7871-9a00-41d4-aeac-b59ec5a5a2ed" class="">Profiling logs</h1>
+        <h1 id="9d4b" class="">Profiling logs <a class="heading-anchor" href="#9d4b" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0fec2019-91ca-40a3-95f9-3cb4b35c22c9" class="">Instead of guessing, I've decided to profile the code. I've only profiled the code with profiler once before using <code>valgrind</code>, so I've just used google and found out <a href="http://www.pixelbeat.org/programming/profiling/">Linux Profiling tools and techniques</a>, which gave me two commands to run:</p>
@@ -272,7 +272,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="135dd53a-dc37-4d6e-88fb-d434365bd3ad" class="">Few moments of clicking around clearly showed, that unholy lot of time was wasted by copying the <em>dicts</em> in the <code>add_primitive_fn</code>. I quickly realized, that each new int, float and string is created as new object and new map for this object.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="e83a4fad-3fb4-43b9-885e-f1484ad5514b" class="">New map for each int</h1>
+        <h1 id="e83a" class="">New map for each int <a class="heading-anchor" href="#e83a" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5536e7dd-1981-48c2-a87f-178d7d05ed68" class="">As you may know, Self is prototype based language. That means it doesn't use classes, which means that functionality is by default in each object. Code reuse is achieved using parent slots.</p>
@@ -352,7 +352,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="0b11ae03-42bb-4dab-b7e3-9491cc5f7227" class="">See the changes in <a href="https://github.com/Bystroushaak/tinySelf/commit/7946fdfecb339139f22947a0cefc871eccafdb1e">7946fdfecb339139f22947a0cefc871eccafdb1e</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="12590cc3-6cba-447c-81da-fbe39fccee7f" class="">Don't create new maps with each change</h1>
+        <h1 id="1259" class="">Don't create new maps with each change <a class="heading-anchor" href="#1259" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7278a499-240a-49d4-9da6-90b6b2be1194" class="">I usually work in pure python and don't think much about the cost of the <em>creation</em> of the dictionary, as python is so slow, that it is nothing compared to cost of other operations. This benchmark of mine reminded me, that dictionaries are costly to create, so naturally, I asked <em>"where else do I create dictionaries?"</em></p>
@@ -375,7 +375,7 @@ class PrimitiveIntObject(_NumberObject):
         <p id="58af517a-c0b5-4037-99a1-3d16cdce05f5" class="">as you can see in <a href="https://github.com/Bystroushaak/tinySelf/commit/f5f0efe4559742bf91973184893a01923fff4e3b">f5f0efe4559742bf91973184893a01923fff4e3b</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="7418f07a-3138-4166-84cc-38787f75054c" class="">Clone block traits</h1>
+        <h1 id="7418" class="">Clone block traits <a class="heading-anchor" href="#7418" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9b93e5f7-d1c4-4bc9-87cc-cb1a32d97822" class="">Another low hanging fruit is block traits, which is an object, that is created and dynamically bound to each block literal moved on stack. Simply by caching this object, cloning it and change the replacement, I've got down another almost second down to 3.47 seconds.</p>
@@ -439,7 +439,7 @@ def add_block_trait(block):
         <p id="de1ef170-1a7a-431d-9260-bdda7b5a78fe" class="">See the full change in <a href="https://github.com/Bystroushaak/tinySelf/commit/b41d8e9c2157e1571c3b3f0fcf401be540a35360">b41d8e9c2157e1571c3b3f0fcf401be540a35360</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="759c9e34-66ee-47aa-bd61-cad92f523394" class="">Additional speedups</h1>
+        <h1 id="759c" class="">Additional speedups <a class="heading-anchor" href="#759c" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="27a65e13-9cfe-4c30-9719-58d6fea856fe" class="">I find it really amazing how much few simple tricks and caches in the right place speed up the benchmark. From 16.26 seconds to 3.47. That's more than 460%!</p>

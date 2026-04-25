@@ -252,16 +252,16 @@
         <p id="4aedd3fa-a77a-4ec9-9154-e64ef047122c" class="">Example: When two clients work on the same node, and then they both call <code>.commit()</code>, second transaction fails, and he second client has to repeat it. First transaction finishes successfully, as it is oldest. After that, first client's changes are now part of the database and second client has to repeat the transaction.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d63b2a04-4b8c-4891-ba55-8cf0745179b5" class="">Approaches</h1>
+        <h1 id="d63b" class="">Approaches <a class="heading-anchor" href="#d63b" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="11307d4c-4499-4b15-a1ec-8f7174703682" class="">Copy on write</h2>
+        <h2 id="1130" class="">Copy on write <a class="heading-anchor" href="#1130" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2beac2f1-8f56-4d04-b79b-06fd26ede07c" class="">Some kind of COW support. Writing creates copy, which is then diffed.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="dd267259-303b-49ed-9255-014a8108f1d3" class="">Pros</h3>
+        <h3 id="dd26" class="">Pros <a class="heading-anchor" href="#dd26" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="f4232a2a-5539-401d-8075-3fc7e91440db" class="bulleted-list">
@@ -269,7 +269,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="c1981dc9-8bff-4d51-9115-c42fa4d4660b" class="">Cons</h3>
+        <h3 id="c198" class="">Cons <a class="heading-anchor" href="#c198" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="203be53a-9a52-47de-80e1-b5b9ae0bd66f" class="bulleted-list">
@@ -293,7 +293,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="03654fdd-3885-4a65-82d1-5021a17e7626" class="">Journal, mark & transaction error</h2>
+        <h2 id="0365" class="">Journal, mark & transaction error <a class="heading-anchor" href="#0365" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5a7f4105-373c-45d7-8f25-db8ca3f61807" class="">Work on the original tree and mark every node that was changed. If you find an already changed element, rollback everything from journal and cancel the transaction. Or depending on the strategy, cancel the other transaction.</p>
@@ -302,7 +302,7 @@
         <p id="3f63a9b3-721d-4401-8137-29f5ad6d7e31" class="">Journal can be a list of closures with inverse operations. Should be simple.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="708401b7-6e34-408d-91cb-1c2dde02539d" class="">Pros</h3>
+        <h3 id="7084" class="">Pros <a class="heading-anchor" href="#7084" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="507d9c5e-0a7f-46e0-9c71-e7b2b3d61c2e" class="bulleted-list">
@@ -315,7 +315,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="8191ad1e-11a5-4af3-802a-a98a8b34867a" class="">Cons</h3>
+        <h3 id="8191" class="">Cons <a class="heading-anchor" href="#8191" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="326b5e76-d98a-4bfd-98e2-1e808d8038d1" class="bulleted-list">
@@ -328,7 +328,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="06d4a7ad-978d-4961-95f8-ddc7c6ebfdff" class="">Deep copy, then diff</h2>
+        <h2 id="06d4" class="">Deep copy, then diff <a class="heading-anchor" href="#06d4" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8327adb5-6bed-41fd-8775-6486d04aa73e" class="">Just deep copy the whole tree, work on it, then diff it and merge it back.</p>
@@ -342,7 +342,7 @@
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="819bba77-c05c-4b43-be0d-1987abe9021a" class="">Pros</h3>
+        <h3 id="819b" class="">Pros <a class="heading-anchor" href="#819b" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="5f834602-36c7-4d54-878c-b1063610c025" class="bulleted-list">
@@ -350,7 +350,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="ad90820a-f9ef-420a-a5b1-19a22e4d5a40" class="">Cons</h3>
+        <h3 id="ad90" class="">Cons <a class="heading-anchor" href="#ad90" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="0dd6fbf3-3a2c-465a-9d3c-6bd205eb6db1" class="bulleted-list">
@@ -368,7 +368,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="c7633c94-85a7-4927-bfae-d359d5866865" class="">Problems</h1>
+        <h1 id="c763" class="">Problems <a class="heading-anchor" href="#c763" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="aa41abd3-af46-4431-addc-7859a4149ca1" class="">True <em>Copy on write</em> is hard to implement in python, because you can't really work with garbage collector and weak references in good enough granularity. It would probably be possible, but quick research proved that I don't see clear path toward this goal.</p>
@@ -380,10 +380,10 @@
         <p id="33ba30eb-2138-4224-9fad-dd589c666d7a" class="">In the end, I've decided to focus on the <em>Deep copy</em> approach. I create a copy of the tree, which automatically notices the changes that were made. Theese changes are stored in the transaction. When client calls <code>.commit()</code> on the transaction, <em>transaction manager</em> checks whether the transaction conflicts with others and if not, copy is merged back into the original tree, with as little changes as possible.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="c0c68f6f-0998-4ae9-b76f-42a05e77f876" class="">Implementation</h1>
+        <h1 id="c0c6" class="">Implementation <a class="heading-anchor" href="#c0c6" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="299d9f09-20da-4271-8789-b9b94087ba41" class="">Transaction</h2>
+        <h2 id="299d" class="">Transaction <a class="heading-anchor" href="#299d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="47343645-39b7-4024-bf41-ed50ea99aa10" class="">Transaction is just simple container for the UUID's of changed stuff:</p>
@@ -454,7 +454,7 @@
         <p id="5c20ee1a-0f01-4322-9d26-be3d8baa4ead" class="">Most important method is <code>.collides_with()</code> , which gets another transaction as parameter and if other transaction written into set of UUIDs that this trasnsaction have read from or written to, it returns <code>True</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="da66e340-2f0d-4809-8b56-702011af61a2" class="">TransactionManager</h2>
+        <h2 id="da66" class="">TransactionManager <a class="heading-anchor" href="#da66" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre class="code" dir="ltr"><code><span class="k">class</span><span class="w"> </span><span class="nc">TransactionManager</span><span class="p">:</span>
@@ -510,7 +510,7 @@
         <p id="b8e4c7a4-689e-41b8-a9ac-81dfddc5f577" class=""><code>TransactionManager</code> provides and tracks transactions. Most interesting method is <code>.validate_and_commit()</code>, which gets a transaction as parameter and checks whether it doesn't conflict with previously finished transactions. Then with actually running transactions, that are older than this one. If there is no conflict, the tree in this transaction is merged to the main tree and transaction is stored in all other transactions, so they would look into it when they are committed.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9889fc56-3fcb-422d-9bc7-f19d24a02258" class="">Read/write tracking</h2>
+        <h2 id="9889" class="">Read/write tracking <a class="heading-anchor" href="#9889" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a684b140-ecca-42f8-9fe3-c69ec237a7f7" class="">For tracking access to the data structures used in my simple in-memory database, I've created two monstrosities:</p>
@@ -609,7 +609,7 @@
         <p id="f9fc368e-2069-407a-b7da-0da0a00b70de" class=""><code>Clonable</code> is not explained here, because it also creates partial copies of the trees, which are dynamically loaded from the original tree on the fly. This is to save memory and CPU time by not creating full copy of the tree for each transaction.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="efaf7afb-b678-4d1c-9c64-8e96f06c1824" class="">Merge</h2>
+        <h2 id="efaf" class="">Merge <a class="heading-anchor" href="#efaf" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8ff3997b-ad41-42aa-b535-b7f0b3b38dc0" class="">Merge could be implemented simply by replacing the original tree with updated one, but I've wanted to keep as much as possible from the original tree. This is because of the references other transactions / parts of the system may use, which would be suddenly invalid.</p>

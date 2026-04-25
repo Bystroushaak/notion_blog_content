@@ -148,7 +148,7 @@
         <p id="3b53c04c-fe94-4c38-a3ca-57c06b7429fd" class="">Minulý díl <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_prvni_prostredi.html" title="Prostředí a programovací jazyk Selfu (díl první; prostředí)">Prostředí a programovací jazyk Selfu (díl první; prostředí)</a> představil Self jako projekt, ukázal kde ho stáhnout a jak se orientovat v prostředí morphic interface. Dnes se podíváme na jazyk samotný a jeho standardní knihovnu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="4067bafb-3439-4879-9960-b4521d72a74b" class="">Z hlediska jazyka</h1>
+        <h1 id="4067" class="">Z hlediska jazyka <a class="heading-anchor" href="#4067" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5a913690-b31e-4c79-a955-8c922a416eb7" class="">Self je syntakticky inspirován Smalltalkem. Však se také zrodil na stejném místě, v Xeroxu PARC, i když o desetiletí později. V Selfu se podobně jako ve Smalltalku vše točí kolem posílání zpráv. Oproti Smalltalku ale zavádí syntaktický konstrukt pro objekty.</p>
@@ -175,7 +175,7 @@
         <pre id="5cea0c0b-c67b-42f2-be04-b04e237fb8a5" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">obj.zpráva()</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0172a46b-6aa0-452d-a730-15ddbef6099e" class="">Syntaxe objektu</h2>
+        <h2 id="0172" class="">Syntaxe objektu <a class="heading-anchor" href="#0172" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4a937de0-1335-4fae-86c6-c8e3da14dc74" class=""><code>()</code> vytvoří prázdný objekt. To je objekt, ve kterém nejsou žádné metody a který neumí reagovat na žádné zprávy.</p>
@@ -208,7 +208,7 @@
         <p id="e5b1ab7d-35ac-4e1b-90bd-ced4bc1bdf06" class="">Výše uvedená ukázka definuje nepojmenovaný objekt, který vytváří jeden slot <code>‚a‘</code> nastavený na objekt čísla <code>1</code>. Dále obsahuje kód spočívající v poslání zprávy <code>printLine</code> slotu <code>‚a‘</code>, tedy hodnotě v tomto slotu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="402eaf51-83ed-4177-a41e-be2e74cce457" class="">Parent sloty</h2>
+        <h2 id="402e" class="">Parent sloty <a class="heading-anchor" href="#402e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="52c39125-7762-419a-8c7a-6fb569b5c548" class="">Speciálním typem slotů v Selfu jsou takzvané <em>parent sloty</em> (<em>rodičovské sloty</em>). Ty způsobí, že zprávy, které nejsou nalezeny v objektu jsou delegovány do objektů, na které ukazují tyto sloty.</p>
@@ -226,7 +226,7 @@
         <p id="9b4fb6f1-f799-43c9-912f-0ec07d62e46a" class="">Tímto mechanismem je efektivně implementována dědičnost. Pokud se nad tím zamyslíte, podobá se chování situaci, kdy voláme metodu předka objektu dědícího z <code>"traits clonable"</code> například v pythonu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="59aa87c1-a5d0-4288-a639-d33104d77681" class="">Parametry</h2>
+        <h2 id="59aa" class="">Parametry <a class="heading-anchor" href="#59aa" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e93709a4-4a41-40f8-aaea-8074abd81dc1" class="">Mezi <code>|sloty|</code> mohou být také parametry. Ty jsou uvozeny dvojtečkou v začátku názvu. Například objekt:</p>
@@ -240,7 +240,7 @@
         <p id="91c29e3e-4691-4b86-aa63-e47657dc76fd" class="">obsahuje jeden slot <code>‚x:Y:‘</code>, který odkazuje na objekt-metodu přijímající parametry <code>‚a‘</code> a <code>‚b‘</code>, který pošle parametru <code>a</code> zprávu <code>printLine</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="dce86965-c323-4e64-9764-98753fdcc7dc" class="">Zprávy</h2>
+        <h2 id="dce8" class="">Zprávy <a class="heading-anchor" href="#dce8" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="76c9a0f6-d55f-4ef5-b6b4-edba833fbcf6" class="">Zprávy mohou být následujících typů:</p>
@@ -273,7 +273,7 @@
         <p id="9ae80f4f-c6c3-42a6-a0da-1655a16634e8" class="">Zpráva <code>x set: a And: b</code> najde v objektu <code>‚x‘</code> slot nazvaný <code>"set:And:"</code> a předá mu parametry <code>a</code> a <code>b</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="cd653951-6420-4f9a-9696-a9f03271092f" class="">Primitiva</h2>
+        <h2 id="cd65" class="">Primitiva <a class="heading-anchor" href="#cd65" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="15365ed3-8067-4c38-8adb-431224282d88" class="">Čtvrtým typem zpráv jsou <em>primitivní zprávy</em>, které poznáme podle toho, že začínají podtržítkem:</p>
@@ -291,7 +291,7 @@
         <p id="a71b1001-811e-44f7-953d-0f74bdbd47b9" class="">Celý Self jako programovací prostředí je možné chápat jako jazyk vystavený na axiomech definovaných primitivy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7118b104-95de-465a-b03c-af7aab6858b7" class="">Self</h2>
+        <h2 id="7118" class="">Self <a class="heading-anchor" href="#7118" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7f2a7cb9-cde6-4924-b6ca-8d519723e8a3" class="">Self se jmenuje „Self“ protože na rozdíl od Smalltalku není třeba toto klíčové slovo uvádět před každou zprávou poslanou sama sobě.</p>
@@ -312,7 +312,7 @@
         <p id="0eee5216-fdee-4c54-b11d-a2c347465e41" class="">Toto je poměrně zajímavá vlastnost, která stojí za zamyšlení. Každý identifikátor, který napíšete a není najit v namespace, je delegován do objektu samotného a dále do všech <em>parent slotů</em>. Co je vlastně lokální namespace, když objekt všechno implicitně pošle sám sobě?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8fc6dc95-664f-43b9-acdd-36beadbee299" class="">Bloky</h2>
+        <h2 id="8fc6" class="">Bloky <a class="heading-anchor" href="#8fc6" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d1c80547-d657-4801-825a-5fdaa9f2216d" class="">Bloky fungují podobně jako objekty, až na tři rozdíly: jsou vyhodnocovány až v době běhu, chovají se, jako by automaticky obsahovaly <em>parent slot</em> ukazující do <em>namespace</em> (jmenného prostoru), ve kterém byly vytvořeny a automaticky mají nastavený <code>parent*</code> na <code>traits block</code>.</p>
@@ -365,7 +365,7 @@
         <p id="72883508-2228-41c8-9898-b41b23ee00f0" class="">Protože je objekt <code>1</code> poslední hodnotou v bloku, dojde k vrácení jeho hodnoty. Výsledek ze zprávy <code>ifTrue:</code> je také vrácen a stává se tak poslední hodnotou v metodě uložené ve slotu <code>‚a‘</code> a je tedy vrácen jako hodnota.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8e9a32d6-f51e-45d3-afe7-81bb13d965ec" class="">Delegace</h2>
+        <h2 id="8e9a" class="">Delegace <a class="heading-anchor" href="#8e9a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d6d2a13b-a772-43aa-9a7a-626a88e1e940" class="">Jak už jsem psal - Self obsahuje cosi, co funguje jako dědičnost, ale dědičností není. Jedná se o delegaci zpráv, kterým objekt nerozumí, na objekt definovaný v <em>parent slotu</em>.</p>
@@ -395,7 +395,7 @@
         <p id="0156f6a5-0b7f-4a2e-9257-4ff90c222016" class="">Na první pohled poněkud divoká konstrukce má docela zajímavé využití například při psaní parserů, kde umožňuje měnit kontext.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9bd7a84c-7c7c-422c-a15a-c05755a7891f" class="">Komentáře</h2>
+        <h2 id="9bd7" class="">Komentáře <a class="heading-anchor" href="#9bd7" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b96df425-ab70-4236-b82b-fdcb01a8c918" class="">Komentáře se píší do uvozovek:</p>
@@ -404,7 +404,7 @@
         <pre id="5c1b05c8-5bbc-44b6-9e1e-3e873c3bea83" class="code code-wrap" dir="ltr"><code class="language-yaml" style="white-space:pre-wrap;word-break:break-all">"toto je komentar"</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="32fb709f-4dea-4216-b6db-87c35634c486" class="">Anotace</h2>
+        <h2 id="32fb" class="">Anotace <a class="heading-anchor" href="#32fb" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9603835d-8055-422c-9880-c44c1aca0bf9" class="">Anotace jsou způsob přidávání metadat k objektům, kterému se dokumentace překvapivě málo věnuje, přestože je použít napříč celou image.</p>
@@ -443,13 +443,13 @@
         <p id="b3ff76b9-20f5-47e8-a303-08c5841360e4" class="">Anotace jako takové nejsou vidět v samotném objektu pomocí například Outlineru, k tomu je zapotřebí použít mirror (viz následující kapitola).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d2f26ecc-4ac3-414a-93c9-7e3ba05dd3f0" class="">Z hlediska Stdlib</h1>
+        <h1 id="d2f2" class="">Z hlediska Stdlib <a class="heading-anchor" href="#d2f2" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="73f65547-157c-4b3c-85c2-b5868c5fec4a" class="">Chyták jednoduchých jazyků, jejichž syntaxe se příslovečně vejde na pohlednici, spočívá především v přehození složitosti na stdlib. Self v tomhle není výjimka, proto nebudu ukazovat úplně celou stdlib, jen některé části. Zvědavý čtenář si může konkrétní detaily zobrazit v samotném Selfu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="23006762-6fc4-4ac9-aab3-63a4dfbca99b" class="">Podmínky</h1>
+        <h1 id="2300" class="">Podmínky <a class="heading-anchor" href="#2300" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5ffa8e50-5e66-408c-bee5-e71e78335e1e" class="">Jak bývá v jazycích smalltakovského typu zvykem, if podmínky jsou implementovány jako zprávy objektu typu bool. K dispozici jsou zprávy:</p>
@@ -478,7 +478,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="02859bf0-5aab-4947-9697-b6ccde529188" class="">Cykly</h1>
+        <h1 id="0285" class="">Cykly <a class="heading-anchor" href="#0285" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c4a21e99-ea6d-45dd-88b0-c690e416241e" class="">Podobně jako podmínky, tak i cykly jsou realizovány jako zprávy posílané buďto kolekcím, nebo objektu bloku.</p>
@@ -529,7 +529,7 @@ max: x
 min: x</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="865ec321-eb17-4bfd-a9f7-a504d96edaa7" class="">Accessing</h2>
+        <h2 id="865e" class="">Accessing <a class="heading-anchor" href="#865e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="4590197e-efed-486b-be9d-b64c3bab7bc6" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">at: k
@@ -548,7 +548,7 @@ last: v
 soleElement</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="53366c34-2d4a-41b0-adfc-31703a572b45" class="">Adding</h2>
+        <h2 id="5336" class="">Adding <a class="heading-anchor" href="#5336" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="65f1ecb8-4b9e-451c-9e41-091d382c8a68" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">add: elem
@@ -559,13 +559,13 @@ addFirst: elem
 addLast: elem</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="fa1e7fcc-2ba4-4734-8c3f-7dc51b61b9cc" class="">Coercing</h2>
+        <h2 id="fa1e" class="">Coercing <a class="heading-anchor" href="#fa1e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="f1243a90-5b1c-4dd1-9811-67b19da70969" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">asList</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="f0e76968-a8e2-408e-9583-d0a900f33069" class="">Comparing</h2>
+        <h2 id="f0e7" class="">Comparing <a class="heading-anchor" href="#f0e7" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="6f4ca081-4679-4005-aba4-d793d5081fb0" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">&lt; c
@@ -577,13 +577,13 @@ isSuffixOf: c
 equalsCollection: c</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="276adcf6-9514-433d-a37f-c66645b2aedc" class="">Concatenating</h2>
+        <h2 id="276a" class="">Concatenating <a class="heading-anchor" href="#276a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="b5e2c0f3-7419-4772-9f0e-4c1f07b2fb06" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">, c</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6db618ae-a413-42ea-9275-dd77914c5fb9" class="">Copying</h2>
+        <h2 id="6db6" class="">Copying <a class="heading-anchor" href="#6db6" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="656b2aa9-a12a-4ad0-a1f7-1435eae98c83" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">copy
@@ -591,13 +591,13 @@ copyContaining: c
 copyRemoveAll</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="52d43918-0492-47e2-a9eb-15ead7702133" class="">Double dispatch from universalSetOrDictionary</h2>
+        <h2 id="52d4" class="">Double dispatch from universalSetOrDictionary <a class="heading-anchor" href="#52d4" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="ed99d6bf-7ffa-4d31-a108-b94e4f5a224f" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">unsafe_with: c1 Do: b FirstKey: firstK1 FirstValue: firstV1</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a1902ca4-6ac2-4b8f-96bc-ca603dc6d9f9" class="">Inserting</h2>
+        <h2 id="a190" class="">Inserting <a class="heading-anchor" href="#a190" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="b420dd8d-81f8-48ec-b983-e486113a6684" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">insert: x AfterElementSatisfying: blk IfAbsent: aBlk
@@ -606,7 +606,7 @@ insertAll: x AfterElementSatisfying: blk IfAbsent: aBlk
 insertAll: x BeforeElementSatisfying: blk IfAbsent: aBlk</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="55779642-bed2-40d4-820d-2fc086c91059" class="">Iterating</h2>
+        <h2 id="5577" class="">Iterating <a class="heading-anchor" href="#5577" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="2d076775-0071-4d1c-b415-6a1cbb4537ec" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">do: b
@@ -617,7 +617,7 @@ with: x ReverseDo: b
 withNonindexable: c Do: b</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4da17818-5f88-40c8-8859-6f249a69050a" class="">InteratingWithEnds</h2>
+        <h2 id="4da1" class="">InteratingWithEnds <a class="heading-anchor" href="#4da1" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="c0a6e8e7-b419-4fba-acf1-1df8737908a0" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">do: elementBlk SeparatedBy: inBetweenBlk
@@ -631,7 +631,7 @@ doFirstMiddle: fm Last: lst
 doFirstMiddle: fm Last: lst IfEmpty: e</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="314e6d09-f56f-4ae3-8eba-9e62d9694d3f" class="">Printing</h2>
+        <h2 id="314e" class="">Printing <a class="heading-anchor" href="#314e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="3d73a2ae-8531-4f10-854e-84f9313a9419" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">collectionName
@@ -655,7 +655,7 @@ statePrintStringOfElements
 statePrintStringOfSize</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8ed3b9da-ec5b-46bd-8bc2-4b0c22af4262" class="">Reducing</h2>
+        <h2 id="8ed3" class="">Reducing <a class="heading-anchor" href="#8ed3" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="b3ae9124-6d02-48a9-95e3-a490d366774a" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">countHowMany: testBlock
@@ -675,7 +675,7 @@ standardDeviation
 sum</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a24dccd8-a54e-4378-b89e-37efa3fce6a2" class="">Removing</h2>
+        <h2 id="a24d" class="">Removing <a class="heading-anchor" href="#a24d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="4c274a56-79a7-4870-b0c5-df5bf6f4cd04" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">remove: x
@@ -687,7 +687,7 @@ removeLast
 removeLastIfAbsent: ab</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="1f5a375b-2dc2-4384-b819-9eea8d02aa2d" class="">Searching</h2>
+        <h2 id="1f5a" class="">Searching <a class="heading-anchor" href="#1f5a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="8ae7a7cb-ba26-479a-b8f0-3eb1ff87114a" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">allSatisfy: b
@@ -702,7 +702,7 @@ occurrencesOf: v
 occurrencesOfEachElement</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8374d20d-4af8-4230-907b-cc670f43accd" class="">setLikeOperations</h2>
+        <h2 id="8374" class="">setLikeOperations <a class="heading-anchor" href="#8374" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="056ac179-08fb-45d6-8fc9-23a5c94c9ec8" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">includesAll: c
@@ -710,7 +710,7 @@ intersect: c
 difference: c</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="96792f18-7dad-4f30-a220-17c73a330f0a" class="">Sizing</h2>
+        <h2 id="9679" class="">Sizing <a class="heading-anchor" href="#9679" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="865610e1-8019-468b-901e-6c48833d1764" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">isEmpty
@@ -718,7 +718,7 @@ nonEmpty
 size</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="653ccb99-58b7-4356-be4f-580832fefa74" class="">Sorting</h2>
+        <h2 id="653c" class="">Sorting <a class="heading-anchor" href="#653c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="9bd71137-9283-470d-b2bf-a84d7cf3df5a" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">ascendingOrder
@@ -731,13 +731,13 @@ sortedBy: cmp Do: b
 sortedDo: b</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="200e3aaf-0a3c-440a-9c29-007026319605" class="">Testing</h2>
+        <h2 id="200e" class="">Testing <a class="heading-anchor" href="#200e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="43512b24-61ae-4650-a09e-e569686f3af3" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">isOrdered</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ab379811-7fdb-4113-b257-7e7b46e073ba" class="">Transforming</h2>
+        <h2 id="ab37" class="">Transforming <a class="heading-anchor" href="#ab37" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <pre id="ca14b549-b3f1-45c5-b65e-0deb8123b9ec" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">asByteVector
@@ -764,7 +764,7 @@ mapBy: eb Into: c</code></pre>
         <p id="369e32a4-39f0-4fee-8e0b-a81580069736" class="">To není zrovna málo, že?</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="5ca26c28-9379-4cd2-9897-14142a86147a" class="">Datové struktury</h1>
+        <h1 id="5ca2" class="">Datové struktury <a class="heading-anchor" href="#5ca2" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cbed563b-de22-457c-b4ae-f89202250a44" class="">Datové struktury jsou složené v hierarchiích traitů, které na sebe postupně vrství jednotlivou funkcionalitu.</p>
@@ -833,7 +833,7 @@ mapBy: eb Into: c</code></pre>
         </table>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a018c5ed-622f-4bb9-9d28-0e8720ed0d95" class="">Ukázka</h2>
+        <h2 id="a018" class="">Ukázka <a class="heading-anchor" href="#a018" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="865f3819-e253-46d1-ac13-3caeefacc62d" class="">Pokud chcete kolekci použít, prostě napíšete do shellu / kódu její jméno a naklonujete jí. To je možné provést příkazem <code>clone</code>, či <code>copy</code> (jedná se o to samé).</p>
@@ -920,7 +920,7 @@ mapBy: eb Into: c</code></pre>
         <p id="66af2734-6a1f-43f4-9d80-cf47fe729679" class=""><code>do:</code> podobně jako všechny iterátory v Selfu očekává blok, který může mít dva volitelné parametry, hodnotu a klíč pojmenované v ukázce pro jednoduchost <code>v</code> a <code>k</code>. Všimněte si poněkud divného pořadí, člověk by to logicky čekal naopak.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="a469eb78-9b0b-4996-b757-b43ef8d4c21d" class="">Collector</h1>
+        <h1 id="a469" class="">Collector <a class="heading-anchor" href="#a469" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2356eb1f-d9a1-4328-8598-bd635c9a4356" class=""><em>Collector</em> je speciální datová struktura, která reaguje na binární zprávy <code>&</code>. V podstatě existuje protože Self nemá literál pro vytváření polí. Pokud chceme vytvořit pole, nejjednodušší způsob je použít <em>collector</em>:</p>
@@ -932,7 +932,7 @@ mapBy: eb Into: c</code></pre>
         <p id="5e6a595a-c7d0-48a2-a86a-9b73b781d728" class=""><em>Collector</em> není ani pole, ani dictionary, ale dá se na všechny možné struktury zkonvertovat posláním zprávy <em>as&lt;Něco&gt;</em>, například <code>asList</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="142e4cda-169e-43d6-a875-9a3d4bde76ee" class="">Výjimky</h1>
+        <h1 id="142e" class="">Výjimky <a class="heading-anchor" href="#142e" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="05f661c3-12db-4691-8acd-e03360568e08" class="">Výjimky v Selfu jednoduše nejsou podporovány. Zprávy, které můžou skončit nějakou chybou nabízají zpravidla alternativu v podobě keyword zprávy s parametrem <code>IfFail:</code>. Hezky to jde vidět třeba na objektu pro přístup k operačnímu systému:</p>
@@ -952,7 +952,7 @@ mapBy: eb Into: c</code></pre>
         <p id="25200813-49cf-4527-bca0-20cc993f6e8a" class="">Osobně mi to nepřijde jako úplně nejšťastnější řešení, ale co se dá dělat.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="0ad096cd-e4fd-4cb7-9bd8-2d24a7cd13c4" class="">Objektový model</h1>
+        <h1 id="0ad0" class="">Objektový model <a class="heading-anchor" href="#0ad0" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6cf08c3c-1ec2-4ad2-9d5a-a3b717097a30" class="">Poznámka: poměrně zajímavá diskuze na téma objektového modelu Selfu se strhla zde: <a href="https://news.ycombinator.com/item?id=14409088">https://news.ycombinator.com/item?id=14409088</a></p>
@@ -964,7 +964,7 @@ mapBy: eb Into: c</code></pre>
         <p id="6f478383-890f-450a-9365-537febcf15ba" class="">Co se týče hierarchie různých objektů, tak ty se dělí mezi <em>traity</em> a <em>mixiny</em>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6fc3dffb-55e3-42c4-86e1-d30acabef964" class="">Traity</h2>
+        <h2 id="6fc3" class="">Traity <a class="heading-anchor" href="#6fc3" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cf775111-c5f7-4435-9304-176100a7e96c" class="">Jedná se o <em>„předky“</em>, tedy objekty obsahující sdílenou funkcionalitu, které často nejsou samy o sobě plně funkční. Tyto objekty jsou vytvářeny za účelem aby na ně ostatní odkazovaly <code>parent*</code> sloty.</p>
@@ -973,13 +973,13 @@ mapBy: eb Into: c</code></pre>
         <p id="33d28732-41c3-409e-b18b-6cbd4b2024c3" class="">Self má poměrně bohatou hierarchii <em>traitů</em>, jak je možné vidět například v předchozích kapitolách na ukázce kolekcí.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="34a38849-cd38-477d-a119-cbc09072afa7" class="">Mixiny</h2>
+        <h2 id="34a3" class="">Mixiny <a class="heading-anchor" href="#34a3" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c44910a0-875d-4499-8828-0345285cb697" class="">Mixiny jsou malá klubíčka sdílené funkcionality, typicky bez <code>parent*</code> slotu, sdílená jen na nějaké úrovni. Smyslem má být funkcionalita, která je <em>zmixována</em> do objektu. Jejich ekvivalentem je něco jako interface s částečnou implementací.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="9e1fad02-2355-4bea-a7e2-3777d6997f07" class="">Reflexe pomocí zrcadel</h1>
+        <h1 id="9e1f" class="">Reflexe pomocí zrcadel <a class="heading-anchor" href="#9e1f" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8713c76c-7f0b-4c16-987c-0392baa61d26" class="">Zrcadla jsou specialitou Selfu, kterou jsem snad v žádném jiném programovacím jazyce neviděl. Široce používané programovací jazyky zpravidla řeší reflexí pomocí různých interních properties. Python například používá <code>.__class__</code>, či <code>.__dict__</code>, nebo <code>.__name__</code> pro přístup k interním informacím o objektu.</p>
@@ -1087,19 +1087,19 @@ mapBy: eb Into: c</code></pre>
         <p id="f33c7408-eca1-4c0b-84da-a4f962d5e2ef" class="">Krása mirrorů je, že se dají zakázat. Prostě vám stačí odstranit z kódu, kde je chcete zakázat zprávu <code>reflect:</code> například jejím přepsáním za objekt vracející <code>nil</code>. Tím je možné relativně bezpečně vykonávat kód pomocí funkcí jako eval (samozřejmě pokud zároveň odstraníte i třeba přístup k syscalům a filesystému).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="2fad3332-38cb-4921-8a73-c55a54dcd733" class="">Z hlediska tipů a triků</h1>
+        <h1 id="2fad" class="">Z hlediska tipů a triků <a class="heading-anchor" href="#2fad" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d3406404-04d6-422c-90dc-ea52aa892cd8" class="">Časem jsem v osobní wiki nasbíral užitečné poznámky, tipy a triky které člověku můžou zpříjemnit programování v Selfu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="62f2b713-fbac-4b87-827c-f0944c10c276" class="">Podpora copy</h2>
+        <h2 id="62f2" class="">Podpora copy <a class="heading-anchor" href="#62f2" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="900d9945-9d89-4a1d-ab02-974bbb32f040" class="">Aby objekt podporoval zprávu <code>copy</code>, musí dědit nějakou základní funkčnost. Tu je možné najít v <code>traits clonable</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4675487a-bb0b-4f84-aaad-98c360f5d4a0" class="">Zobrazení parent slotů v outlineru</h2>
+        <h2 id="4675" class="">Zobrazení parent slotů v outlineru <a class="heading-anchor" href="#4675" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8ed74245-edb8-4fb6-8acd-8f7333400df8" class="">Je poněkud nešťastné otevírat v outlineru neustále <code>parenty*</code>, abych viděl co mám k dispozici za poděděné sloty.</p>
@@ -1124,13 +1124,13 @@ mapBy: eb Into: c</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="34fc65c9-e1c4-44c9-97d8-82924b24639d" class="">Otevření všech podkategorií</h2>
+        <h2 id="34fc" class="">Otevření všech podkategorií <a class="heading-anchor" href="#34fc" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="12f3acf2-ec47-4124-a7cc-0954319ff369" class="">Občas je velmi otravné rozklikávat černé šipky, pokud máte víc vnořených kategorií. Dvojklik na šipku zároveň otevře i všechny podšipky.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="de0b8398-1d0b-4468-a8db-1bff6e84e5bc" class="">Ukončení posláním zprávy</h2>
+        <h2 id="de0b" class="">Ukončení posláním zprávy <a class="heading-anchor" href="#de0b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2651ebdd-bcf0-43d9-b7f2-495c84dd5019" class="">Prostředí je možné ukončit zprávou <code>saveThenQuit</code> či <code>quitNoSave</code> i z kódu. Osobně si rád vytáhnu na plochu tlačítko, které po zmáčknutí volá jednu z těchto zpráv, což mi šetří trochu času.</p>
@@ -1141,7 +1141,7 @@ mapBy: eb Into: c</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="bb19be7c-ad65-4d27-b3fc-f0688c32f705" class="">Zbuildění nového světa</h2>
+        <h2 id="bb19" class="">Zbuildění nového světa <a class="heading-anchor" href="#bb19" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ff0e2f78-8952-45e3-85f7-faa5fa590e15" class="">Pokud nechcete používat image dodávanou s distribucí Selfu a z nějakého důvodu si chcete vybuildit vlastní, lze to provést z adresáře <code>objects/</code> v repozitáři zdrojových kódů projektu (pozor, je skutečně nutné přijít do tohoto adresáře) pustěním příkazu:</p>
@@ -1162,7 +1162,7 @@ mapBy: eb Into: c</code></pre>
         <p id="869d3db3-c180-40b1-af0e-577fb697589e" class="">pro otevření grafického rozhraní, nebo ho můžete uložit příkazy z předchozí podkapitoly.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4a76f8a0-770c-4b38-adde-5e210977d80d" class="">Vyhledávání</h2>
+        <h2 id="4a76" class="">Vyhledávání <a class="heading-anchor" href="#4a76" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3e2292d9-a71b-407a-ab54-76fbddc43f0d" class="">Z libovolného outlineru je možné prostředním tlačítkem vyvolat menu „<em>Find slot</em>“:</p>
@@ -1213,7 +1213,7 @@ mapBy: eb Into: c</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4b729fbf-724e-4f40-8dcb-7251e96d1f97" class="">Načtení uloženého scriptu</h2>
+        <h2 id="4b72" class="">Načtení uloženého scriptu <a class="heading-anchor" href="#4b72" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3a10a7d9-adb9-4d79-bef8-3950ec3ead08" class="">Pokud si chcete spustit nějaký ze scriptů, nebo načíst váš uložený modul, dají se k tomu použít dva přístupy:</p>
@@ -1231,7 +1231,7 @@ mapBy: eb Into: c</code></pre>
         <p id="6ef75131-467f-4128-9885-9fce91e8d0ef" class="">Podrobnosti zde: <a href="http://kitakitsune.org/bhole/self_tutorial/Language/ImportantObjects/ReadingModules.html">Reading a module</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="63819b08-9821-47bc-94ae-2c6290c37e82" class="">Radarview</h2>
+        <h2 id="6381" class="">Radarview <a class="heading-anchor" href="#6381" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d881f75a-16f6-4271-88b3-a4870877a734" class="">Jak už jsem psal, radarView je možné zobrazit takhle:</p>
@@ -1246,7 +1246,7 @@ mapBy: eb Into: c</code></pre>
         <pre id="61a47ccf-454a-4fb7-9638-ce336ee0014b" class="code code-wrap" dir="ltr"><code style="white-space:pre-wrap;word-break:break-all">desktop w hands first addMorph: radarView</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0e16bdf6-fe70-472b-acac-bf72ff58ba3e" class="">Lepší fonty</h2>
+        <h2 id="0e16" class="">Lepší fonty <a class="heading-anchor" href="#0e16" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5290f5a9-f978-4248-9390-8c811eaa93ee" class="">Pokud vám přijde základní font Selfu hrozný, tak skutečně je. Původně hledá verdanu, ale na linuxu se mu jí nepodaří najít, takže použije fallback. Řešení je popsané tady:</p>
@@ -1259,7 +1259,7 @@ mapBy: eb Into: c</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ce88eac5-b60c-40b9-bb49-806016442a30" class="">Editor morph</h2>
+        <h2 id="ce88" class="">Editor morph <a class="heading-anchor" href="#ce88" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b8fb86c0-6cbd-4edd-bb27-1106a1a75fba" class="">Experimentálně jsem zjistil, že to chce <code>editorRowMorph</code>, ve kterém je zastrčený <code>editorMorph</code>. Reaguje na <code>contentsString</code>.</p>
@@ -1268,13 +1268,13 @@ mapBy: eb Into: c</code></pre>
         <p id="8df522cf-e710-446b-9c5e-7f11e0264c72" class="">Jak se používají <code>ui2_textField</code>, <code>ui2_textBuffer</code>, <code>textViewerMorph</code> a <code>uglyTextEditorMorph</code> jsem nezjistil.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="274b506b-557c-432c-b3ad-d78628036f50" class="">Pokračování</h1>
+        <h1 id="274b" class="">Pokračování <a class="heading-anchor" href="#274b" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ab684255-722c-4a90-8d3d-77101f1b8534" class="">V příštím díle <a href="Prostredi_a_programovaci_jazyk_Selfu_dil_treti_debugger_transporter_a.html" title="Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)">Prostředí a programovací jazyk Selfu (díl třetí; debugger, transporter a problémy)</a> se podíváme na historii Selfu, komunitu kolem něj i některé praktické aspekty programování v něm.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="85fe925e-8d7c-469a-8177-8b98a93ca04c" class="">Relevantní diskuze</h1>
+        <h1 id="85fe" class="">Relevantní diskuze <a class="heading-anchor" href="#85fe" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="c66989dd-1e2b-4e29-b4de-93eeb7e81e6b" class="bulleted-list">

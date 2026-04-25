@@ -179,7 +179,7 @@
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="5645b496-f4eb-49c3-a06b-155db1aacdf7" class="">Intermediate parent lookup cache</h1>
+        <h1 id="5645" class="">Intermediate parent lookup cache <a class="heading-anchor" href="#5645" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c21893f9-50cf-430d-8d3d-171430b0f516" class="">This was the first optimization which I've begun to implement. It has to do with mechanism how are parameters mapped to namespace of method calls.</p>
@@ -253,7 +253,7 @@
         <p id="0298bba8-cfdc-4159-a55b-3203c8693fca" class="">So, nope, wrong idea, time for rollback. At least I've found out and fixed one bug. Current status 28G7.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="ccf759c8-4513-4831-a032-cb2d1e29dc9c" class="">Block traits</h1>
+        <h1 id="ccf7" class="">Block traits <a class="heading-anchor" href="#ccf7" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="74cac813-f2b5-4250-8774-6727d760a2c4" class="">This is an idea of the same kind as previous optimization, but for blocks. Block trait parents are created dynamically every time block object is used. So cache them for each code context, as block's code context is called many times during each <code>while</code> cycle.</p>
@@ -274,7 +274,7 @@
         <p id="7840db24-c261-4c4f-a20a-5c39e7861bdb" class="">Such simple optimization reduced number of instruction to 27G1! That's 1 613 944 843 fewer instructions per one million while cycles. Nice.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="f20548cc-a134-42aa-942c-898d9a43c66e" class="">Random optimization</h1>
+        <h1 id="f205" class="">Random optimization <a class="heading-anchor" href="#f205" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="01fbeacf-20db-43c9-8ab4-1c3903cef11a" class="">I was giving another shot to optimization with <em>Intermediate parent lookup cache</em>, and I've rewritten <code>._put_together_parameters()</code> to generator instead of function returning array. Quite surprisingly, it was suddenly slightly faster:</p>
@@ -295,7 +295,7 @@
         <p id="2d953d99-3847-4a97-8f98-caac3777c35e" class="">26G9 out of random.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="4794d1a5-c778-453e-8c81-df6450d5a1e6" class="">Rewrite set / dict to list</h1>
+        <h1 id="4794" class="">Rewrite set / dict to list <a class="heading-anchor" href="#4794" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a8d3c129-c730-41af-a085-649b7824c1d0" class="">When I was attempting yet another attempt to optimize <em>Intermediate parent lookup cache</em>, I've rewritten <code>_visited_objects</code> variable in <code>Object.parent_lookup()</code> from RPython's sets (dicts with <code>None</code> as value) to <code>list</code>, because the set was just old relic. I really just needed container to store objects for later, when I will unvisit them (set all <code>.visited</code> properties back to <code>False</code>).</p>
@@ -317,7 +317,7 @@
         <p id="f2b27b23-cdc3-421f-a9bc-6083df9b3284" class="">25G this simple. Wow.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="086c3371-0c0a-43fe-8a59-16c8901d5282" class="">Intermediate parent lookup cache attempt n. 3</h1>
+        <h1 id="086c" class="">Intermediate parent lookup cache attempt n. 3 <a class="heading-anchor" href="#086c" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9e72a455-ae45-470f-b651-d66d662e7d31" class="">As I said in previous sub-chapter, I was attempting another try at the <em>Intermediate parent lookup cache</em> optimization.</p>
@@ -336,7 +336,7 @@
         <p id="c5bba284-234c-4fde-9769-a30665bf75ba" class="">And this time, it looks like I've done it; 23G9 instructions!</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="582e03cc-7ba5-4ac5-b793-b0612c890f1a" class="">Dynamic recompilation</h1>
+        <h1 id="582e" class="">Dynamic recompilation <a class="heading-anchor" href="#582e" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="864ead2a-0d4d-4173-9e41-8025cdacbe2a" class="">Okay, so I've created new branch to implement dynamic recompilation of the bytecode, where the idea is following:</p>
@@ -392,7 +392,7 @@
         <p id="70d0eaf7-7192-4870-b941-6cc882983f40" class="">You can see the code in the <a href="https://github.com/Bystroushaak/tinySelf/blob/1a1f6d2a76c4e42fee4287b6d80e0ba2b49291f9/src/tinySelf/vm/dynamic_recompiler.py">dynamic_recompiler.py</a> in <a href="https://github.com/Bystroushaak/tinySelf/tree/local_send_cache">local_send_cache</a> branch.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="46946e4e-26f8-4254-bfea-0d741f1aa5fe" class="">LightWeightDict</h1>
+        <h1 id="4694" class="">LightWeightDict <a class="heading-anchor" href="#4694" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="10cbe67c-244d-4878-915e-9004c4604da1" class="">In the process of writing dynamic recompiler, I had a revelation, that dict lookup is not that costly, it is just dict creation which is slow. So I've decided to implement my own wrapper class, which implements dict-like interface and uses three properties to store values. Only when there are more than three values stored in the dict, it uses list for 8 values and only when there is more than that, it switches back to regular dict.</p>
@@ -404,7 +404,7 @@
         <p id="a89645fd-f0f4-4766-9fd6-93db49d47a8e" class="">Sadly, I don't have exact numbers, but it was slightly (something around 300M instructions) faster. And then I created version with preallocated lists and that was also faster.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="73bc718a-4a23-4000-9653-7da8e75d6d61" class="">Preallocated lists</h1>
+        <h1 id="73bc" class="">Preallocated lists <a class="heading-anchor" href="#73bc" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1fd8a227-21b3-4b39-a4a0-d2aadfc9abb2" class="">Parent lookup algorithm uses lists to iterate, and to append to one list called <code>objects</code>, from which it pops in each iteration. Then there is second list <code>visited_objects</code>, where all visited objects are stored so algorithm can `unvisit` them after it finishes the graph lookup.</p>
@@ -477,7 +477,7 @@
         <p id="d9c50999-0df4-426d-bd10-0425530f636f" class="">20G4, that's 4G3 instructions less just with this simple optimization.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d6403df0-68d5-4f45-bb80-509a055c2ee5" class="">Parent lookup cache</h1>
+        <h1 id="d640" class="">Parent lookup cache <a class="heading-anchor" href="#d640" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cc1731b5-3560-46de-823b-2abdc0baefa5" class="">I've decided to give another try to parent cache, that is the dict based cache for parent lookups.</p>
@@ -505,7 +505,7 @@
          7 969 234      branch-misses             #    0,22% of all branches</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="45f4ee75-4bc7-49a3-b345-0735fa5bf368" class="">Rewrite stack / frames to linked lists</h1>
+        <h1 id="45f4" class="">Rewrite stack / frames to linked lists <a class="heading-anchor" href="#45f4" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="987bd0c2-dc02-4ab2-9bc2-172295651e76" class="">All kind of stacks were implemented as lists, which were <code>.append()</code>-ed and <code>.pop()</code>-ed. Simple rewrite to linked list provided significant performance boost:</p>
@@ -524,7 +524,7 @@
         <p id="2342ecdc-847c-4f9f-b767-fdb515957195" class="">16G5, that is 2G1 fewer instructions per benchmark.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="3fc70fd2-c69b-4929-9a53-6908d163233e" class="">#pypy help</h1>
+        <h1 id="3fc7" class="">#pypy help <a class="heading-anchor" href="#3fc7" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cf285664-179b-4cee-b35f-1ef4bd11d9a6" class="">I've asked what are people using for profiling on <code>#pypy</code> IRC channel and <a href="https://github.com/cfbolz">cfbolz</a> took interest in my interpreter and <a href="https://github.com/Bystroushaak/tinySelf/pull/95">pushed</a> some JIT hints. JIT wasn't until this point much useful for me, but with his changes, wow:</p>
@@ -543,7 +543,7 @@
         <p id="0ce4f934-a8c6-4681-9a0c-e44496b26cd1" class="">Whole benchmark now runs under one second with JIT.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="7e0096e8-50f9-4658-9b95-39fb0d2999cf" class="">Rewrite method stack to preallocated list</h1>
+        <h1 id="7e00" class="">Rewrite method stack to preallocated list <a class="heading-anchor" href="#7e00" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5a70a4e4-bb66-41e5-92d9-c279ae044d40" class="">I've also added version of <code>MethodStack</code> with preallocated list, as I know how many items will be on each method stack from the number of literals in that object. This indeed resulted in slightly faster code, but performance under JIT was slightly slower (around 7G3 instructions compared to 6G7 with linked lists).</p>
@@ -561,7 +561,7 @@
        1,907438730 seconds time elapsed</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="393107ba-af9c-4cc9-b254-42480f8e7103" class="">Remove pre-initialization of slots and parents</h1>
+        <h1 id="3931" class="">Remove pre-initialization of slots and parents <a class="heading-anchor" href="#3931" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c9910934-8ef6-46ba-b89e-417ca611bed5" class="">As it was implemented, <code>__init__()</code> method of <code>Object</code> looked like this:</p>
@@ -589,7 +589,7 @@
        2,194327578 seconds time elapsed</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="092e1079-a1d9-4417-bfbc-c89773a9f775" class="">Different kinds of LightWeightDict</h1>
+        <h1 id="092e" class="">Different kinds of LightWeightDict <a class="heading-anchor" href="#092e" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c88d76a0-4e79-4e7c-b0c3-065649bcb53b" class="">I've decided it is time to measure different kinds of LightWeightDict:</p>
@@ -638,7 +638,7 @@
         <p id="61b3fe07-deab-44ac-9450-d02bdbe198e5" class="">So final numbers are 14G6 without JIT and 6G with JIT.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="ab9f6fb0-91b8-400e-a3e0-01c5b7517055" class="">Additional speedups</h1>
+        <h1 id="ab9f" class="">Additional speedups <a class="heading-anchor" href="#ab9f" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1aee3edc-7b59-47fa-92af-ce47e3615783" class="">I am quite happy with the speed now, as it is finally usable, so I won't pursue another speedups for some time, and instead I will focus on features. <em>cfbolz</em> mentioned, that there are still possibilities of at least 10x performance speedup from just JIT itself.</p>
@@ -671,7 +671,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d5849ef5-c40f-487e-8ca1-105403c925fb" class="">Relevant discussions</h1>
+        <h1 id="d584" class="">Relevant discussions <a class="heading-anchor" href="#d584" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="d33f41b0-c234-4d7b-ad5b-16be80bd3b5d" class="bulleted-list">

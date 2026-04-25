@@ -223,7 +223,7 @@
         <p id="6c0bd14e-8558-4f3c-a690-52b0b7efcfc3" class="">Self is many things, so we will look at it from many different points of views.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="33fff9b6-5cbb-4c82-acfc-d358aec7b9a8" class="">From a technical point of view</h1>
+        <h1 id="33ff" class="">From a technical point of view <a class="heading-anchor" href="#33ff" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3fab433a-c191-4b30-b88e-5fe6b1b7507f" class="">Self is a programming language, bytecode interpreter and system of memory "images", which are executed by an interpreter.</p>
@@ -243,7 +243,7 @@
         <p id="023f5565-4c53-4db0-97e5-06d2e28f069a" class="">There are also compilers for the programming language, the entire standard library, and so on.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="f2cdc5ea-1a26-4a7c-80df-478b833e64c4" class="">Programming language</h2>
+        <h2 id="f2cd" class="">Programming language <a class="heading-anchor" href="#f2cd" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4955ba93-843e-4394-9734-ecf9f4678057" class="">The Self programming language is a prototype-based, object-oriented Smalltalk-like language.</p>
@@ -266,7 +266,7 @@
         <p id="92b08bd4-4ef7-40ee-a4d5-edfd1c4b0efe" class="">That will be all for a brief overview. Further details will be given in the following chapters.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0033aea0-dc6d-47e0-9a4c-e58cf717b11a" class="">Interpreter</h2>
+        <h2 id="0033" class="">Interpreter <a class="heading-anchor" href="#0033" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="91750c1f-9f40-49d4-ac5d-387483572990" class="">You can download the Interpreter and the basic image from the official website <a href="http://www.selflanguage.org/">http://www.selflanguage.org/</a>. There are binary distributions available for GNU / Linux and Mac OS X. There are also <a href="https://github.com/russellallen/self">source codes</a> released under OpenSource license, that you can theoretically compile on any Unix system.</p>
@@ -313,7 +313,7 @@ For debugging use only:
 Other command line switches may be interpreted by the Self world</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d232c368-9ac1-4aa7-b85d-4b5145296bac" class="">32-bit system</h2>
+        <h2 id="d232" class="">32-bit system <a class="heading-anchor" href="#d232" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6e2bb253-6c30-4fc5-a802-467e3e66c099" class="">If instead of the help you see something like this</p>
@@ -330,7 +330,7 @@ sudo apt-get update
 sudo apt-get install libx11-6:i386 libxext6:i386 libtinfo5:i386</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7942687d-ef68-48b1-8e37-03ae267ed9a1" class="">Back to the Help</h2>
+        <h2 id="7942" class="">Back to the Help <a class="heading-anchor" href="#7942" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1994cb72-ead7-4d89-a664-3926e881d25a" class="">Only two switches are in fact interesting; <code>-f</code>, to load a <code>.self</code> file (which you probably will not use) and <code>-s</code>, which loads the stored memory image. The rest are mostly technical details suitable only for very advanced users.</p>
@@ -381,7 +381,7 @@ VM#</code></pre>
         <p id="983a0a79-acd9-4cdc-91a7-ef44dab33bba" class="">This is useful when we want to produce a new, "clean" image from serialized source codes. This is achieved by the gradual creation of thousands of objects forming a standard library by using several built-in primitives. It can also be seen as building a system from several axioms.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="67e4de02-32b7-41a0-bfc4-958b3d2dd2fe" class="">Image</h2>
+        <h2 id="67e4" class="">Image <a class="heading-anchor" href="#67e4" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4d195bb1-4ca8-4673-9b3a-8496cd5e3d22" class="">The <code>morphic.snap</code> file contains already assembled "world" made of linked objects, which together make a standard library and other useful applications. It also includes its own user interface, which is implemented completely in the Self, with several backends per graphics server (<a href="https://en.wikipedia.org/wiki/Xlib">Xlib</a> for Unix / Linux, <a href="https://en.wikipedia.org/wiki/Quartz_(graphics_layer)">Quartz</a> for OS X).</p>
@@ -390,7 +390,7 @@ VM#</code></pre>
         <p id="7a71b24d-2f53-4dd8-b41a-4d1e793553e8" class="">However, Self does not force you to use this image. You can have an image where there is no graphical interface, where the numbers are not loaded, or where only the webserver is needed. Although it is possible to run a large number of applications in one image, I use several separate images myself for practical reasons.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="0a229472-cf88-4baa-a044-8b8cc8ab0155" class="">Overview of the basics of the environment</h1>
+        <h1 id="0a22" class="">Overview of the basics of the environment <a class="heading-anchor" href="#0a22" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3307a57d-2660-49af-b3f7-01a46ec17a42" class="">Before going into the description of the language, I would like to first explain the basics of the user interface and the Self development environment.</p>
@@ -407,7 +407,7 @@ VM#</code></pre>
         <p id="4d29a3b7-806a-4637-9a28-eb8009a0b266" class="">The terse empty white space just doesn't encourage you to explore what you've come across.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="124ad547-a075-4dba-8de9-e73b6dc89a04" class="">First Shock: Mouse Oriented Environment</h2>
+        <h2 id="124a" class="">First Shock: Mouse Oriented Environment <a class="heading-anchor" href="#124a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f55ae8a8-6089-4344-930e-9b859f9fb17b" class="">The thing that is hard to accept from today's point of view is that, just as the graphical interface of the Plan9 operating system, the Self arose at a time of great enthusiasm for the new periphery: the mouse. The creators promised great intuitive controls, so they decided to make the whole environment manageable primarily by the mouse.</p>
@@ -427,7 +427,7 @@ VM#</code></pre>
         <p id="964125c4-11f0-4369-a3c3-2cf065664334" class="">From this menu, you can (of course using the mouse), select the basic tools and you can also save the memory image, or stop the interpreter.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="526b6fb7-905a-494c-bf24-35b31a740fdb" class="">Second Shock: Programming Language</h2>
+        <h2 id="526b" class="">Second Shock: Programming Language <a class="heading-anchor" href="#526b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9b44921b-8cb4-435e-b052-1cf7aaaad02f" class="">I was wondering how to explain this for a long time. The entire graphical interface IS the programming language. The programming language is controllable from a graphical interface, and things that happen in the programming language are often displayed graphically.</p>
@@ -512,7 +512,7 @@ VM#</code></pre>
         <p id="103099b3-d58f-4e72-a435-6dbd3fc17cc4" class="">It is worth noting that the whole environment behaves like a gigantic 2D surface, where it is possible to scroll and jump using <code>WIN+arrow</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ec9288d2-a74e-46f9-8477-0c17b803d600" class="">Third Shock: User Interface Paradigm</h2>
+        <h2 id="ec92" class="">Third Shock: User Interface Paradigm <a class="heading-anchor" href="#ec92" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d3732ad2-6af7-417b-ab96-0a3221b56a3f" class="">The user interface may seem ugly and strange from today's perspective. It is, however, necessary to add in that it was created in the last century and that virtually no one has ever touched it since.</p>
@@ -541,7 +541,7 @@ VM#</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="e3974104-7880-467e-bab7-f369df355c73" class="">Concreteness</h3>
+        <h3 id="e397" class="">Concreteness <a class="heading-anchor" href="#e397" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="31e142bc-0458-453e-86e4-6ec45b6ffb02" class="">If an <em>outliner</em> is displayed on the screen for a particular object, other objects also use it.</p>
@@ -558,7 +558,7 @@ VM#</code></pre>
         <p id="cd2abfdb-e757-40c3-9223-10cbc54c639e" class="">In the example, you can nicely see how two slots point to one particular object. The <em>outliner</em> for a particular object should not be on the screen more than once.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="2a61ed27-8338-4075-add0-0afe87d5d744" class="">Uniformity</h3>
+        <h3 id="2a61" class="">Uniformity <a class="heading-anchor" href="#2a61" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c725061b-a4d1-4c5f-a43e-bc6ef393dcd9" class="">Once you understand the basics of Morphic (the framework in which the interface is made), everything else can be intuitively derived.</p>
@@ -567,7 +567,7 @@ VM#</code></pre>
         <p id="2297b516-fe7f-4452-9cf1-227547e6cdd2" class="">For example, a letter is an object. A line of letters is composed of a string of objects in a layout. The line itself is in the layout that is in the window layout. Everything can be dynamically changed and modified.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="d01bfa48-2261-4458-b4dc-caaf94e3b3e7" class="">Directness</h3>
+        <h3 id="d01b" class="">Directness <a class="heading-anchor" href="#d01b" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d0461a8f-004e-4741-b40a-35d9d4b60614" class="">Objects behave as if they were real physical objects existing in reality. For example, it is possible to remove a title from the window and place the copy in an empty space. It is not a nonsensical tweak - like the physical objects, the graphical interface in the Self is explorable and disassemblable. And, like physical objects, it can be used to construct new interfaces.</p>
@@ -581,7 +581,7 @@ VM#</code></pre>
         <p id="f468fa7b-f53d-4eb7-b7a4-6213a3bcbdc4" class="">Because the language is based around the concept of prototypes and memory image, it is possible to continue using composited graphical interfaces and perhaps use it to build an application.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="dbf9a3c3-ff5b-4e07-b923-6b2bcc354d7c" class="">Liveness</h3>
+        <h3 id="dbf9" class="">Liveness <a class="heading-anchor" href="#dbf9" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="492dc67e-707a-4863-94e0-0d0d08c4d70c" class="">Liveness is given by the fact that all objects are redrawn when modified, but also by using all sorts of animations across the entire user interface.</p>
@@ -598,7 +598,7 @@ VM#</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="b837c3c1-c498-4806-9c43-c171e5bfa8dd" class="">Philosophy</h3>
+        <h3 id="b837" class="">Philosophy <a class="heading-anchor" href="#b837" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9d7b8508-5984-4edc-8ab5-3e8574dd0b61" class="">Personally, I find interesting the emphasis on the ability of the user to completely explore and modify the graphical environment. The authors have been relatively successful in offering users the ability to create their own graphical interfaces in a relatively simple way, which is otherwise a thing that is virtually impossible for ordinary people with non-existent knowledge beyond Powerpoint.</p>
@@ -663,13 +663,13 @@ VM#</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="fb777155-b29a-4b7f-bed5-3ec4e94a5d70" class="">Tools</h2>
+        <h2 id="fb77" class="">Tools <a class="heading-anchor" href="#fb77" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3a56fc35-815e-4992-a340-7ef944cb3134" class="">Another noteworthy thing are the commonly used tools available in the Self Image and in the project repository.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="acc43188-7663-4b49-915a-a4f659486852" class="">Outliner</h3>
+        <h3 id="acc4" class="">Outliner <a class="heading-anchor" href="#acc4" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="90769283-9ea0-4975-b39e-da6c3bf091f4" class="">Outliner is that thing which let edit objects. It is basically a table view of individual methods and properties of the object, which, however, allows a few extra things:</p>
@@ -704,7 +704,7 @@ VM#</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="62e635ad-adc8-4dcf-8e84-8b7c3fbbe999" class="">Shell</h3>
+        <h3 id="62e6" class="">Shell <a class="heading-anchor" href="#62e6" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="64ecb279-4294-434b-a459-28c543d75d39" class="">The shell is just an <em>outliner</em> with pre-set <em>parent slots</em>. If you open a shell using <code>E</code> in a standard object, all messages are executed in the context of the object that the <em>outliner</em> represents. If it is an object without any <em>parent slots</em>, you do not have even the common messages, such as <code>true</code> and <code>false</code>. Shell offers you much more convenience in the form of an extended namespace.</p>
@@ -723,7 +723,7 @@ VM#</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="90cafabe-2b10-4654-a1ed-98925fd7109f" class="">Core sampler</h3>
+        <h3 id="90ca" class="">Core sampler <a class="heading-anchor" href="#90ca" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="bb500a7f-5121-4bac-b097-06f3eb1a22c7" class="">The Core sampler is a weirdly looking thing, which can be called up from the context menu (right-click) of almost any <em>morph</em>.</p>
@@ -745,7 +745,7 @@ VM#</code></pre>
         <p id="d4b7c03e-abbf-483e-a688-db678d6394a5" class="">From this menu, it is possible to immediately change the properties of the individual layers of morphs, modify their layout, make copies, and so on.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="b740b8bf-461c-4873-a647-20a6bd9dbe6f" class="">Factory window</h3>
+        <h3 id="b740" class="">Factory window <a class="heading-anchor" href="#b740" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="949631a7-cf71-4ecd-88dd-b9f54b4eea99" class="">You can select the <em>factory window</em> tool from the menu by clicking the mouse wheel on a blank area.</p>
@@ -759,7 +759,7 @@ VM#</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="1500cd01-4854-4027-b09c-3cf165f554fd" class="">Radar</h3>
+        <h3 id="1500" class="">Radar <a class="heading-anchor" href="#1500" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c7e9ae10-922d-4925-afad-77aa85c4c73a" class="">It is worth mentioning a screen around the middle left of the <em>factory window</em>. This is a <code>radarView</code> prototype, that you can simply take and drag to the desktop.</p>
@@ -791,7 +791,7 @@ desktop w hands first addMorph: radarView</code></pre>
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="212b2ed9-29c2-4796-8b21-f0964c15d329" class="">Transporter</h3>
+        <h3 id="212b" class="">Transporter <a class="heading-anchor" href="#212b" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ba643724-3a4f-4fef-81a2-7f0649422298" class="">A transporter is a Self's way of recovering source code from objects in memory, that can then be versioned in standard VCS, for example with Git.</p>
@@ -809,7 +809,7 @@ desktop w hands first addMorph: radarView</code></pre>
         <p id="4ccfdb97-d0a5-47f0-8be9-27ebb6bae91c" class="">However, it is necessary to add, that it is serialization format, where editing by a programmer is not intended, the purpose is primarily distribution and versioning. Editing should always take place inside the Self itself by direct manipulation of objects.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="ee018450-4164-4828-9b02-d7c33f769c3c" class="">Other tools</h3>
+        <h3 id="ee01" class="">Other tools <a class="heading-anchor" href="#ee01" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="9fa4d0f9-9332-4924-ada0-5b634239e927" class="">In addition to these tools, you can also find other tools in the <code>objects/applications</code> directory inside Self repository, including:</p>
@@ -848,7 +848,7 @@ desktop w hands first addMorph: radarView</code></pre>
         <p id="7e54d69c-736e-45ff-9523-0b38584d9b6f" class="">and so on. The projects are usually dead and at different stages of work in progress. Some work, others look like they have been dead for a long time.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="19e52648-a1c1-4da6-b7fe-b912c9bc4594" class="">From the documentation point of view</h1>
+        <h1 id="19e5" class="">From the documentation point of view <a class="heading-anchor" href="#19e5" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5dafd414-8c17-4167-815c-7bcf8543e73e" class="">On one hand, there is a Wikipedia, English one contains a relatively comprehensive introduction including a mini-tutorial of the language:</p>
@@ -934,7 +934,7 @@ desktop w hands first addMorph: radarView</code></pre>
         <p id="59bd7af9-a04a-4627-a528-48b202fcc7ac" class="">And that's mostly all. Everything else you can find is mostly outdated, not updated and irrelevant in this day and age.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="63cdef7a-fffa-4b0c-91f6-bce5dcf9b092" class="">Interesting papers</h2>
+        <h2 id="63cd" class="">Interesting papers <a class="heading-anchor" href="#63cd" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1f6b3793-6be1-452e-9f0c-9a45b85723f3" class="">Among the more interesting papers, you can find:</p>
@@ -1031,7 +1031,7 @@ desktop w hands first addMorph: radarView</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="bc695baa-bc54-48ce-8dc8-6eae70d404bc" class="">Next episodes</h1>
+        <h1 id="bc69" class="">Next episodes <a class="heading-anchor" href="#bc69" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="2cec5daf-eb20-45f7-9653-ca1be46b3991" class="">This will be all for part one. In the next three episodes, we will look at the programming language itself, a standard library, philosophical and metaphysical overlaps and much more.</p>

@@ -137,7 +137,7 @@
         <p id="5f2c0a54-ca38-440b-a5d9-69db0750c99a" class="">V předchozí části (<a href="Jak_se_pise_programovaci_jazyk_1_Motivace.html" title="Jak se píše programovací jazyk 1: Motivace">Jak se píše programovací jazyk 1: Motivace</a>) jsem popsal motivaci, jenž mě zavedla na trnitou cestu vývojářů vlastního jazyka. V dnešní části se podíváme na to jak vlastně má můj jazyk vypadat a taky se na první a pravděpodobně nejjednodušší komponentu: <em>lexer</em>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="8b20632d-d3a1-4428-9fba-071aee8b6a86" class="">Self</h1>
+        <h1 id="8b20" class="">Self <a class="heading-anchor" href="#8b20" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="35bfa657-671b-4658-b31f-e45f2fbdfe8c" class="">Základní syntaxi Selfu dobře popisuje následující obrázek:</p>
@@ -151,7 +151,7 @@
         <p id="53b667d9-a548-42fd-a028-cef2344665c1" class="">Pokud by vás zajímaly podrobnosti, doporučuji <a href="https://en.wikipedia.org/wiki/Self_(programming_language)#Description">anglickou wikipedii</a>, <a href="http://handbook.selflanguage.org/">Self handbook</a>, či můj paralelně vycházející <a href="../Serial_o_Selfu.html" title="Seriál o Selfu"><span class="icon">📂</span>Seriál o Selfu</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="0a6fd39f-fc58-4c70-9004-c0f8b81b7385" class="">tinySelf</h1>
+        <h1 id="0a6f" class="">tinySelf <a class="heading-anchor" href="#0a6f" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="85b76b84-dddf-405a-9136-ff09dc65637e" class="">tinySelf, jak jsem se kdysi nerozvážně (ukázalo se, že stejně pojmenovaný projekt už kdysi existoval) rozhodl můj jazyk nazvat, je v podstatě Self, i když trochu „vylepšený“ po stránce syntaxe.</p>
@@ -166,7 +166,7 @@
         <p id="a70d23a9-f928-4c45-bb4b-7c44100ac5cf" class="">Oproti Selfu také není podtržítko na začátku zprávy rezervované pro volání primitivních zpráv. <code>_s</code> je normálně použitelná unární zpráva. Primitivní zprávy (volání kódu interpretru) jsou implementované jako zprávy poslané objektu <code>primitive</code>. Primitivních zpráv je stejně v běžném kódu minimum, tak mi nikdy nebylo jasné, proč by pro ně měla být vyhrazená syntaxe.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="b5088aa4-3756-46a4-a4fe-dba95d964e61" class="">Lexer</h1>
+        <h1 id="b508" class="">Lexer <a class="heading-anchor" href="#b508" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b967d2f3-3fc8-491b-ba3a-c8198a728852" class="">Psaní jazyka začíná lexerem. Ten definuje, z jakých komponent se jazyk skládá rozřezáním zdrojového kódu na <em>tokeny</em>. Ve standardním imperativním jazyce to můžou být různé příkazy, definice funkce, if podmínky, klíčová slova a tak podobně. V tinySelfu je to vesměs definice objektů, slotů, bloků, nebo posílání zpráv mezi nimi.</p>
@@ -207,55 +207,55 @@
         <p id="205b13b8-66bb-4fc4-aa0d-d8db05e899b6" class="">V mém případě se jedná o knihovnu <a href="https://rply.readthedocs.io/">rply</a> (podrobnosti přinese příští díl), konkrétně část <a href="https://rply.readthedocs.io/en/latest/users-guide/lexers.html">rply.LexerGenerator</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7a092455-a136-4588-b1bc-a710628ebeeb" class="">tinySelfové tokeny</h2>
+        <h2 id="7a09" class="">tinySelfové tokeny <a class="heading-anchor" href="#7a09" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="be067035-9c53-4d35-918c-929c2c214ad8" class="">tinySelf je tvořen následujícími tokeny:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="753ec819-5d46-4d5f-9826-cb51795b679e" class="">SELF</h2>
+        <h2 id="753e" class="">SELF <a class="heading-anchor" href="#753e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="95bf47e9-46db-4f62-8dbf-0f6129aa5e80" class="">Klíčové slovo <code>self</code> tvoří token Self. Použití je podobné jako třeba v pythonu, či <code>this</code> v javě.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="6da31ed7-77cc-4825-a6a4-7f633529b25a" class="">NUMBER</h2>
+        <h2 id="6da3" class="">NUMBER <a class="heading-anchor" href="#6da3" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e712e7b6-a317-499b-9bd7-bd5244b77956" class="">Čísla. <code>5</code> je číslo. <code>-5</code> je číslo. <code>4.32</code> je taky číslo, stejně jako <code>\xFF</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="9c4ae08a-e2ab-49c4-a874-81427d1d398f" class="">OBJ_START</h2>
+        <h2 id="9c4a" class="">OBJ_START <a class="heading-anchor" href="#9c4a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f7519207-a16c-4a33-8597-f2654a468bca" class="">Začátek definice objektu. Jedná se jednoduše o závorku <code>(</code> za níž následuje zbytek objektu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0d973a4b-623f-4228-8d84-8c636e52f04b" class="">OBJ_END</h2>
+        <h2 id="0d97" class="">OBJ_END <a class="heading-anchor" href="#0d97" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="09b83185-30d7-4478-b7d5-67c5dfaf09a7" class="">Ukončovací závorka <code>)</code> značící konec objektu. Nejkratší (prázdný) objekt v Selfu je <code>()</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="5d3b1b67-1097-4ec5-8f4d-33c3e9a0d1ba" class="">BLOCK_START</h2>
+        <h2 id="5d3b" class="">BLOCK_START <a class="heading-anchor" href="#5d3b" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="293fdb5d-e7b4-40a5-a179-afbf36468b63" class="">Začátek bloku <code>[</code>. Bloky jsou objekty, které mají <em>parenta</em> nadefinovaného na <em>lokální scope</em>, takže se chovají podobně jako lambda funkce.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="bbcac4bb-6d47-469e-8c34-65ffeb33bb53" class="">BLOCK_END</h2>
+        <h2 id="bbca" class="">BLOCK_END <a class="heading-anchor" href="#bbca" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="79712cf1-cf03-4d20-a316-35d1dc96d500" class="">Konec bloku <code>]</code>. Nejkratší blok vypadá takhle; <code>[]</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="798e3a20-2ac9-4d61-b78c-e8389ba78cce" class="">SINGLE_Q_STRING a DOUBLE_Q_STRING</h2>
+        <h2 id="798e" class="">SINGLE_Q_STRING a DOUBLE_Q_STRING <a class="heading-anchor" href="#798e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="22934ff7-b6b2-47f3-9648-399ec4069c1a" class="">Definice stringů. Jak jsem zmiňoval, bere se ‘string’ a “string” se standardníma escape sekvencema.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="037650cd-5a6b-4006-bf34-25b1ea6de368" class="">FIRST_KW</h2>
+        <h2 id="0376" class="">FIRST_KW <a class="heading-anchor" href="#0376" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="956ffdc7-49a4-4107-907a-4745f844cf41" class="">V Selfu existují tři druhy zpráv objektům; unární, binární a <em>keyword</em>. Unární nepřijímá žádný parametr. Binární jeden, <em>keyword</em> pak libovolný počet.</p>
@@ -267,19 +267,19 @@
         <p id="8db8ad88-5df2-4337-a78c-609b3da1b28c" class="">Ve Smalltalku může zpráva <code>at: 1 put: 2</code> znamenat buď <code>(at: 1) put: 2</code>, tedy poslání zprávy <code>at:</code> a následné poslání zprávy <code>put:</code> výsledku z prvního volání, nebo poslání zprávy <code>at:put:</code> se dvěma parametry <code>1</code> a <code>2</code>. V Selfu je nutné druhý popsaný případ zapsat jako <code>at: 1 Put: 2</code>, což jednoznačně identifikuje kde <em>keyword</em> zpráva začíná a končí. Proto taky lexer rozlišuje začátek <em>keyword</em> zprávy (string začínající malým písmenem s dvojtečkou na konci) a pokračování.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="47b4fb3b-7701-46f4-9cf6-8ac15bd3e90f" class="">KEYWORD</h2>
+        <h2 id="47b4" class="">KEYWORD <a class="heading-anchor" href="#47b4" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4afa751c-fc37-49fa-b2fb-645baf5381d4" class="">Zmiňované pokračování zprávy. String začínající velkým písmenem, s dvojtečkou na konci.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="52d75364-61cf-4bde-8dee-50775b16516e" class="">IDENTIFIER</h2>
+        <h2 id="52d7" class="">IDENTIFIER <a class="heading-anchor" href="#52d7" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="619b51c3-dd6e-4e89-acae-64dd5edb2cd1" class="">String začínající malým či velkým písmenem, či podtržítkem následující tím samým, či číslicí. <code>asd</code>, <code>BSD</code>, <code>_A</code> či <code>_35</code> jsou validní identifikátory, respektive unární zprávy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="16353b7e-bb0a-4845-a314-c6d7c81b78cc" class="">OPERATOR</h2>
+        <h2 id="1635" class="">OPERATOR <a class="heading-anchor" href="#1635" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="944f2249-c94b-424b-ae5c-6a7b0267378e" class="">Jako operátor (binární zprávu) je možné použít znaky z množiny: <code>!@$%&amp;*-+~/?&lt;&gt;,</code> v libovolném počtu opakování. <code>@</code> je operátor, stejně jako <code>@@</code>.</p>
@@ -288,7 +288,7 @@
         <p id="4a7f7a05-ec7c-4d41-9163-3314650a815d" class="">Operátory vždy očekávají jeden parametr. <code>a + b</code> je binární zpráva oprerátoru <code>+</code> s parametrem <code>b</code> zaslaná objektu <code>a</code>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="83da27ec-5146-4ae7-b966-7a5f058d56d2" class="">ARGUMENT</h2>
+        <h2 id="83da" class="">ARGUMENT <a class="heading-anchor" href="#83da" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="af5e9b81-888b-4968-9726-11e51edd655f" class="">Hlavně u bloků je potřeba napsat co za argumenty přijímají. Argumenty se zapisují jako identifikátory začínající dvojtečkou.</p>
@@ -309,13 +309,13 @@
         <p id="dee373ce-6fdf-440f-b6dc-af457a9b457d" class=""><code>:_5OK</code></p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="230107dd-1f0c-42d8-9619-de7d4f3d426a" class="">ASSIGNMENT</h2>
+        <h2 id="2301" class="">ASSIGNMENT <a class="heading-anchor" href="#2301" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="714a6f95-b883-4470-927b-5b28d387b80c" class="">Speciální operátor přiřazení. Má význam v definici slotů, kde definuje sloty pouze ke čtení. Také je ho možné použít jako běžný operátor (binární zprávu). Zapisuje se jako znak pro rovná se (<code>=</code>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a391da66-4ccf-417d-a1b9-ab4a28815dfb" class="">RW_ASSIGNMENT</h2>
+        <h2 id="a391" class="">RW_ASSIGNMENT <a class="heading-anchor" href="#a391" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b6874338-b77d-45fd-8843-9d399c3ba91b" class="">Přiřazení do slotu ke čtení i zápisu. Takto jde přiřazovat pouze konstanty, nebo reference na jiné objekty, nikoliv metody.</p>
@@ -324,37 +324,37 @@
         <p id="d6c99af6-1725-49a5-b148-f3fea8dd7b1c" class="">Zapisuje se jako šipka do leva (<code>&lt;-</code>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="078a79d8-8ac5-4b80-b775-eba8a111d1c8" class="">RETURN</h2>
+        <h2 id="078a" class="">RETURN <a class="heading-anchor" href="#078a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c8cdc9dc-6a85-482b-a70b-03954b4ff9be" class="">Vrácení hodnoty z objektu / bloku. Zapisuje se jako stříška (<code>^</code>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="0b8a4c07-48a4-489e-973e-d303d0e43288" class="">END_OF_EXPR</h2>
+        <h2 id="0b8a" class="">END_OF_EXPR <a class="heading-anchor" href="#0b8a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="fba1e9ba-e31b-407f-9082-8b922d444534" class="">Konec výrazu. Odděluje řetězce zpráv. Zapisuje se stejně jako ve Smalltalku tečkou (<code>.</code>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d77d9cfc-80f0-495f-a861-fd2c4eaeae8f" class="">SEPARATOR</h2>
+        <h2 id="d77d" class="">SEPARATOR <a class="heading-anchor" href="#d77d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f2074862-865a-4470-953e-0bdd7810ad80" class="">Oddělovač slotů od kódu. Zapisuje se jako svislá čárka (<code>|</code>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b616fedf-4097-4b20-9c07-d26fcacd17de" class="">CASCADE</h2>
+        <h2 id="b616" class="">CASCADE <a class="heading-anchor" href="#b616" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d67732f0-d366-4dec-a741-e363fc388d4b" class="">Vyhrazený operátor kaskády. Zapisuje se jako středník (<code>;</code>). Sděluje interpretru, že následující zpráva se posílá stejnému objektu jako předchozí.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="451df77c-70c1-457d-af0d-856221443d37" class="">COMMENT</h2>
+        <h2 id="451d" class="">COMMENT <a class="heading-anchor" href="#451d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ca8fb076-fc00-42d4-a340-2886f55334c6" class="">Komentář začínající <code>#</code>, končící koncem řádku.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="043f5e92-cbb7-4fa1-9e88-c1140e50ee46" class="">Ještě k lexeru</h2>
+        <h2 id="043f" class="">Ještě k lexeru <a class="heading-anchor" href="#043f" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c6cf9848-af5d-440a-8396-0269c5afd865" class="">Může se zdát, že v lexeru je toho spousta, ale ve skutečnosti je celý jazyk dost jednoduchý a ukázka všeho co je v něm možné se vejde tak nějak na pohlednici:</p>
@@ -434,13 +434,13 @@ lg.add('COMMENT', r'#.*[\n|$]?')
 lexer = lg.build()</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="1583ad73-574e-45ec-abb1-961d09c57101" class="">Pokračování</h1>
+        <h1 id="1583" class="">Pokračování <a class="heading-anchor" href="#1583" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="68d98e0a-9d17-47fc-8427-86b8e9a270d7" class="">V příštím díle se podíváme na parser, který tokeny bere a sestavuje z nich AST - <a href="https://cs.wikipedia.org/wiki/Syntaktick%C3%BD_strom">abstraktní syntaktický strom</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="18653535-6f1e-4db5-924a-13246757a5a2" class="">Relevantní diskuze</h1>
+        <h1 id="1865" class="">Relevantní diskuze <a class="heading-anchor" href="#1865" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="8e9b3cbf-e1b8-4784-a1d8-c42b17cd866c" class="bulleted-list">

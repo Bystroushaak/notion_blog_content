@@ -143,13 +143,13 @@
         <p id="0955c08b-432f-4fcf-9a54-79dfb3f18db4" class="">Naštěstí existuje způsob, jak tento problém odstranit - nepoužívat celé Arduino, ale jen samotný čip s regulátorem napětí. Je jasné že přijdete o možnost komunikace s počítačem, ale to se mi nezdá jako nevýhoda - předpokládám že na Arduinu program ozkoušíte a pak ho již funkční vpálíte do standalone ATmegy. Doma se mi už delší dobu válí pár ATmega8-16PU ještě z doby kdy stály cca 70kč, takže to budu demonstrovat na nich. Pokud je nemáte, můžete klidně použít jejich novější verzi - <a href="http://www.gme.cz/cz/atmega88-20pu-p432-191.html">ATmega88</a>, nebo něco výkonnějšího.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="ed63f3b3-7d83-45b9-b1f9-fc0a98b09c65" class="">Jak na to?</h1>
+        <h1 id="ed63" class="">Jak na to? <a class="heading-anchor" href="#ed63" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6997b545-91c1-4e45-bc70-af4c3cb0d672" class="">Celý postup se dá rozdělit do těchto kroků:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d8c1fdf3-642a-4e72-978e-83d67afc58fc" class="">I. Zapojení podle schématu</h2>
+        <h2 id="d8c1" class="">I. Zapojení podle schématu <a class="heading-anchor" href="#d8c1" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a94c3482-281d-4e7d-b273-ad704351eea2" class="">Na začátku je zapotřebí zapojit obvod podle následujícího schématu:</p>
@@ -160,13 +160,13 @@
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d54a72f6-7d56-4f99-8c8d-3db8ba907a3d" class="">II. Upload programátoru do Arduina</h2>
+        <h2 id="d54a" class="">II. Upload programátoru do Arduina <a class="heading-anchor" href="#d54a" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d63b59b4-df51-4ada-ba80-7307b64235e7" class="">Dál následuje přeměna Arduina na programátor. Jedná se o velice jednoduchý krok - stačí si stáhnout <a href="http://code.google.com/p/mega-isp/">mega-isp</a> sketch. Poté co jej flashnete do Arduina se z něj stane primitivní, ale pro naše účely postačující programátor.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="cc481e55-2317-4249-ba89-54d233f84991" class="">III. Změna konfiguračního souboru</h2>
+        <h2 id="cc48" class="">III. Změna konfiguračního souboru <a class="heading-anchor" href="#cc48" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="412bfa94-33f7-43fc-b42d-37c6e24dc944" class="">Protože <a href="http://arduino.cc/en/Main/Software">Arduino IDE</a> normálně používá jiné čipy, je zapotřebí mu sdělit že chceme kompilovat pro <em>náš</em> mikroprocesor. Ve složce <strong>arduino-00{V}/hardware/arduino</strong> (kde {V} je současná verze, v době psaní článku 22) najdete soubor <strong>boards.txt</strong>. Otevřete ho a přidejte na konec cosi jako:</p>
@@ -193,7 +193,7 @@ atmega8noxtal.build.core=arduino</code></pre>
         <p id="149badc0-07a6-408e-865a-bcf0a39eddd7" class="">Povšiměte si hlavně řádek s parametry <strong>build.f_cpu</strong> a <strong>build.mcu</strong>, kam dosaďte frekvenci na které váš čip poběží (8000000L je vhodné pro interní oscilátor) a vámi používaný čip (parametr je pro avr-gcc, najdete ho v <a href="http://linux.die.net/man/1/avr-gcc">manu</a>). Upravený soubor uložte.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3366e22e-0c06-40fe-9610-55a541848789" class="">IV. Kompilace programu</h2>
+        <h2 id="3366" class="">IV. Kompilace programu <a class="heading-anchor" href="#3366" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="10927668-411e-4497-8a01-bc8ef67e583f" class="">Spusťte IDE. V záložce <strong>Tools/Boards</strong> se vám objevila nová deska (<strong>ATmega8-noxtal @8MHz</strong>) - vyberte jí.</p>
@@ -220,7 +220,7 @@ void loop(){
         <p id="c1713f7f-4547-4074-96e3-adc460f4e7c8" class="">Nyní program <span style="border-bottom:0.05em solid">zkompilujte</span> kliknutím na ikonu šipky v levo nahoře. <strong>Nepokoušejte se program uploadnout, nevložil by se do čipu, ale do Arduina!</strong></p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="53046b6c-fa02-40de-a389-6a8c4430edab" class="">V. Upload</h2>
+        <h2 id="5304" class="">V. Upload <a class="heading-anchor" href="#5304" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e22dc411-f24e-4e5e-af5e-7326d103b08b" class="">Doufám že máte nainstalované <a href="http://www.nongnu.org/avrdude/">avrdude</a>, pokud ne, nainstalujte si ho.</p>
@@ -271,7 +271,7 @@ avrdude done.  Thank you.
 bystrousak@kitakitsune:/tmp/build5859820408225631991.tmp$</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="19b5af92-094f-4252-878c-8842a927ce99" class="">Co dělat když to nejde</h2>
+        <h2 id="19b5" class="">Co dělat když to nejde <a class="heading-anchor" href="#19b5" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cbde740d-9fd1-4853-a48a-f73037a49e25" class="">Pokud se vám stane, že avrdude vypisuje cosi jako</p>
@@ -293,7 +293,7 @@ avrdude done.  Thank you.</code></pre>
         <p id="901bcf30-4802-493a-8ab2-2651db8df71f" class="">neklesejte na mysli a zkontrolujte zapojení drátů - tahle chyba typicky nastává pokud dráty nemají kontakt, čip je zablokovaný (teba jste v minulosti použili špatné fuse), nebo vypálený.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="f0a8021b-a22c-4c55-9189-902577773e34" class="">Odkazy</h1>
+        <h1 id="f0a8" class="">Odkazy <a class="heading-anchor" href="#f0a8" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="65629308-f2b4-42f1-bca1-32a85db10288" class="bulleted-list">
@@ -331,7 +331,7 @@ avrdude done.  Thank you.</code></pre>
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="fbd18e34-4cbd-4ca5-aa6a-303368f4e48a" class="">Závěr</h1>
+        <h1 id="fbd1" class="">Závěr <a class="heading-anchor" href="#fbd1" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="27859119-905b-45f1-95fa-a6ce411a3e1f" class="">Jedná se o poměrně užitečnou schopnost IDE, protože kdo někdy zkusil programovat AVR v čistém C, určitě mi dá za pravdu že programovat Arduino je mnohokrát jednodušší a komfortnější. Doufám že tento blogpost pomůže těm kteří by to sami nezvládli a ukáže možnost těm, které to nenapadlo.</p>

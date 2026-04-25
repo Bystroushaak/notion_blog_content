@@ -147,7 +147,7 @@
         </ol>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4b4efd67-d705-4425-a5bb-519ad6ae7738" class="">Selfové objekty</h2>
+        <h2 id="4b4e" class="">Selfové objekty <a class="heading-anchor" href="#4b4e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ec0483e5-557d-4c16-9ab9-f2a2c1a5d30e" class="">Přestože tento seriál je určen především pro pokročilé čtenáře, od kterých očekávám alespoň základní obeznámení se Selfem, pro jistotu zde rekapituluji na prototypech založený objektový model Selfu.</p>
@@ -216,7 +216,7 @@ obj.keyword:Message:(anotherObj, evenMoreObjs)</code></pre>
         <p id="00fd8bd5-e66a-4d14-b5a5-ffe0231bc73d" class="">Od začátku jsem chtěl, aby sloty byly uloženy se zachováním pořadí v <code>OrderedDictu</code>, místo v klasické hashmapě. To není tak moc podstatné, pro samotný programovací jazyk, jako pro jeho využití k ukládání strukturovaných informací. Díky tomu je možné do stromové struktury například 1:1 konvertovat XML s poměrně malým <em>overheadem</em>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="a31d5c15-6c70-4d0f-b50b-06fcb0a2f1bf" class="">Reprezentace objektů</h2>
+        <h2 id="a31d" class="">Reprezentace objektů <a class="heading-anchor" href="#a31d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1f44eda6-641d-48de-bbb1-539867442b28" class="">V na třídách založených jazycích jsou objekty reprezentovány přibližně nějak jako pointer na třídu následovaný polem s datovými sloty udržujícími členské proměnné. Ve třídě samotné je uložen popis toho, co se dělá s datovými sloty. Tím je šetřena paměť, neboť samotná funkcionalita objektu je v ní uložena jen jednou pro všechny instance.</p>
@@ -298,13 +298,13 @@ class Map:
         <p id="8bed57e4-77ca-41d7-a68f-35c82764fd05" class="">Uložení nové hodnoty probíhá podobně.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="b176c208-7dac-4574-8f70-bf6b24bac446" class="">Meta operace</h3>
+        <h3 id="b176" class="">Meta operace <a class="heading-anchor" href="#b176" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="85acb3ad-4334-43fd-985f-838aede0158d" class="">Meta-operacemi nazývám takové operace, které nějak mění strukturu objektu. Například přidání či odebrání nového slotu. Vzhledem k tomu že jsou sloty uloženy v <code>OrderedDict</code>u, je touto operací i prohození pozice slotu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="aa82b5b2-311c-4c7b-a5b4-2ab247cb12e9" class="">Kompozice</h3>
+        <h3 id="aa82" class="">Kompozice <a class="heading-anchor" href="#aa82" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="849d0ac1-3597-40a4-9bc2-57beb4446ce2" class="">Vzhledem k tomu, že počet řádků narostl z původní několikařádkové myšlenky na pěkných pár stovek, rozhodl jsem se Objekt pro lepší čitelnost dekomponovat do několika tříd. Tato dekompozice nemá vliv na běh programu (stejně je z toho nakonec masivně <em>inlinované</em> C, které objekty nezná), je čistě jen pro lepší strukturovanost zdrojového kódu.</p>
@@ -331,7 +331,7 @@ class Map:
         <p id="e51947a8-c75a-47e0-88bf-deff0def1c1c" class="">Oproti tomu co jsem zatím popsal je možné vidět ještě mezi-třídu <code>_ObjectWithMapEncapsulation</code>, což je abstrakce nad většinou properties v mapě, abych nepřistupoval v kódu interpretru k interním záležitostem <em>mapy</em> přímo. Pro kód je mnohem výhodnější a čitelnější, když <em>mapa</em> zůstane čímsi na pozadí, optimalizací, která je pro vnější svět neviditelnou.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="593c6350-b2f6-4ef8-994d-bba228725465" class="">Parent lookup</h2>
+        <h2 id="593c" class="">Parent lookup <a class="heading-anchor" href="#593c" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1008a195-fa66-45ba-b2a5-ee832710b5b7" class="">Jednou z naprosto klíčových funkcionalit Selfu, která mu dodává mnoho elegance, jenž například postrádá javascript, je delegace na rodičovské sloty.</p>
@@ -349,13 +349,13 @@ class Map:
         <p id="f407e2c8-db30-490b-b29d-3d13ed0ae4ff" class="">Druhá jmenovaná metoda <code>.slot_lookup()</code> se prvně podívá do vlastního seznamu slotů pomocí <code>.get_slot()</code> a pokud tam nic nenajde, pokračuje metodou <code>.parent_lookup()</code>. Tím je implementovaná dědičnost.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="f7036f96-f008-440b-af54-2b457c482db5" class="">Pokračování</h1>
+        <h1 id="f703" class="">Pokračování <a class="heading-anchor" href="#f703" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="129c5c3a-fda8-42ed-b823-39752e2ee7cc" class="">Příště se podíváme na bajtkód a literály a v jaké je to celé uložené datové struktuře.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="f5e79f19-5c60-4d03-a200-06785c1f0ae2" class="">Relevantní diskuze</h1>
+        <h1 id="f5e7" class="">Relevantní diskuze <a class="heading-anchor" href="#f5e7" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="b56a086b-0194-4c2e-9d11-726e78344e1a" class="bulleted-list">

@@ -145,7 +145,7 @@
         <p id="f5e91a52-2393-4fca-941c-3abcf929c38b" class="">Občas se stane, že potřebujete přistupovat k nějakému zdroji na internetu nepřímo. Pokud se jedná o desítky až stovky requestů, a neplánujete dělat nic <em>ošklivého</em>, dá se použít třeba VPS, nebo VPN. Pokud však potřebujete například postahovat nějakou větší databázi, která vám zabere tisíce a statisíce requestů, je většinou dobré, či přímo nutné, použít proxy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="c0bfbbb5-d7fd-4813-9d4d-0463d7a6c0ba" class="">Kdy použít proxy</h2>
+        <h2 id="c0bf" class="">Kdy použít proxy <a class="heading-anchor" href="#c0bf" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="62ca7a77-846a-461b-b1ff-285e266d2ab4" class="">Obecně platí, že proxy server(y) je vhodné použít pouze tehdy, pokud chcete <em><strong>zmást</strong></em> cílový systém, aby si myslel, že jste někdo jiný.</p>
@@ -169,13 +169,13 @@
         <p id="361cdc8f-195c-4c3f-b6ad-08f49823f822" class="">Při použití proxy je také nutno brát v úvahu, že provozovatel může číst veškerá přenášená data, pokud přes to netaháte ještě nějaký vlastní šifrovaný tunel. Nevyplatí se tedy přenášet loginy k systémům, na kterých vám záleží.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ad6e9d92-707a-4e50-8736-8d47f051b32b" class="">Druhy proxy</h2>
+        <h2 id="ad6e" class="">Druhy proxy <a class="heading-anchor" href="#ad6e" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c7231c98-ef61-46b8-9f7a-bc959fa57641" class="">Pro ty kdo se s proxy servery nikdy nesetkali zde v krátkosti uvedu jednotlivé parametry, které běžně proxy listy zobrazují:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="9d512697-f8ec-4f61-8111-d1400764c631" class="">Typ</h3>
+        <h3 id="9d51" class="">Typ <a class="heading-anchor" href="#9d51" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d9b678c1-6bb4-4c3f-b438-a3d061547e2b" class="">HTTP - proxy přes kterou je možné směřovat HTTP požadavky. Vhodné k procházení webu. Port většinou 80 či 8080, ale může být i jiný.</p>
@@ -193,7 +193,7 @@
         <p id="7a65a8fe-e091-4763-aaa7-b5ca99a4c321" class="">Většinu času vám nejspíš vystačí HTTP proxy, neboť je nejjednodušší na použití a zcela dostatečná pro spoustu případů. V pythonu jsem napsal klienta <a href="https://github.com/Bystroushaak/httpkie">httpkie</a>, který umožňuje pro každou instanci použít jinou proxy. Tohle může být trochu problém u SOCKS, kde je v pythonu většinou <a href="https://github.com/Anorov/PySocks">nahrazován celý socket</a>, což může znesnadňovat paraelizaci.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="c49731f9-c38f-4908-b6b0-7e3c62e53e41" class="">Míra anonymity</h3>
+        <h3 id="c497" class="">Míra anonymity <a class="heading-anchor" href="#c497" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5c897883-4ed3-4d2b-9017-ac6e5e0cd96e" class=""><em>Transparent</em> - pro běžné účely k ničemu, neboť tato proxy vyzrazuje vaší IP adresu přes hlavičku <code>HTTP_X_FORWARDED_FOR</code>. Občas se dá použít k obejití hloupějších firewallů.</p>
@@ -208,13 +208,13 @@
         <p id="2ae041c4-78e0-4d8f-9d70-08cf6597d454" class="">Pro většinu potřeb postačuje <em>Anonymous</em> proxy, neboť jsou dostatečně rychlé a když se nikdo nedívá, tak ani nezjistí, že se jedná o proxy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="253955ce-7f91-47ac-a674-a32872b11593" class="">Port</h3>
+        <h3 id="2539" class="">Port <a class="heading-anchor" href="#2539" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="cbfecc36-2345-464c-a071-1d825cd1bb9d" class="">Port, na kterém proxy naslouchá. Najít se dají v podstatě všechny možné, imho je nejžádoucnější chtít co nejvyšší, od deseti tisíc začínaje, protože ten většinou nenajdou ti, kdo se dívají zda se jedná o proxy zpětným scannem. Pro většinu použití však stačí ty běžné - 80, 443, 8000, 8080 atd..</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="829929c9-f36d-4746-a796-17cb3188e32f" class="">Ping</h3>
+        <h3 id="8299" class="">Ping <a class="heading-anchor" href="#8299" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3f2eaf38-b1f3-4cba-8539-73726b8cde2a" class="">Dalším často uváděným parametrem je <a href="http://cs.wikipedia.org/wiki/Ping">ping</a>. Někde se jedná o pouhé pingnutí proxy serveru, jinde je měřeno jak dlouho trvá jeden request.</p>
@@ -223,7 +223,7 @@
         <p id="36eed3b6-630c-485f-a51f-4c3f3b8afe0e" class="">Tahle hodnota se v čase pořád mění podle zátěže, ale vždy chcete co nejnižší.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="ac2bbc1f-83fc-4d7a-aab8-87c12f181e98" class="">Země</h3>
+        <h3 id="ac2b" class="">Země <a class="heading-anchor" href="#ac2b" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5aa3fe47-38ad-4548-acc6-e58b3944e9f8" class="">Poslední často uváděnou hodnotou je země, kde se proxy server nachází. Většinou je dobré volit jinou zemi, než kde se zrovna nacházíte a vyhnout se zemím jako Čína, kde je vše monitorované. V některých případech také cílíte na službu, která bere pouze přístupy z čech (registrace na wz.cz například).</p>
@@ -232,7 +232,7 @@
         <p id="4561863a-c184-4868-9cf2-2e536e7c77c6" class="">V praxi tohle pole moc neznamená, protože je detekováno na základě <a href="http://jecas.cz/geoip">geoip</a> a <a href="http://cs.wikipedia.org/wiki/Whois">whois</a> a vše může být úplně jinak, jen proto že poskytovatel byl moc líný měnit záznamy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="3282a4a5-6c32-496e-813c-b789c0d302e9" class="">Kde vzít proxy</h2>
+        <h2 id="3282" class="">Kde vzít proxy <a class="heading-anchor" href="#3282" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ea3a5e27-e53a-4acd-b0e3-e640ecff4784" class="">Máte tedy několik možností - proxy si zaplatit, což stojí peníze a také to klade větší nároky na zachování alespoň zdání anonymity, nebo se naučit pracovat s různými nestandardními chováními, které se dají nalézt u proxy zdarma.</p>
@@ -241,7 +241,7 @@
         <p id="fbd96003-660a-41ca-add8-80b3556a975b" class="">Třetí možnost, která vyžaduje vytvoření vlastního botnetu zde nebudu uvažovat, protože jestli zvládnete tohle, tak tenhle problém vůbec nemusíte řešit a rovnou můžete použít cílové počítače pro běh vašeho programu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="b9e64c80-97f3-44b6-bf8d-31501ff25d3c" class="">Placené proxy</h3>
+        <h3 id="b9e6" class="">Placené proxy <a class="heading-anchor" href="#b9e6" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d0c7dce1-fba5-45de-8c61-40d48d8b0832" class="">Co se týče placených proxy serverů, nekupujete si konkrétní údaje pro proxy, ale v drtivé většině případů přístup k neustále updatovanému proxy listu, kde by se teoreticky měly nacházet jen kvalitnější servery, které alespoň pár hodin budou vykazovat konzistentní chování.</p>
@@ -253,7 +253,7 @@
         <p id="28d44fd1-388e-440c-a876-d412333926a3" class="">Někdy se platí za čas (<a href="http://incloak.com/proxy-list/">incloak</a>), jindy je přístup doživotní (<a href="http://proxylist.hidemyass.com/">hidemyass</a>).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="ad676674-75d7-488a-ac66-0526ca1d096b" class="">Neplacené proxy</h3>
+        <h3 id="ad67" class="">Neplacené proxy <a class="heading-anchor" href="#ad67" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f6798dc1-5bf7-40d4-9697-7db4b9bc09b7" class="">Neplacených proxy listů není tak moc - většinou se jedná jen o živé ukázky pro placené servery. To nám ovšem nijak nebrání napsat parser a strojově je zpracovávat.</p>
@@ -344,7 +344,7 @@ if __name__ == '__main__':
         <p id="b1bab2a4-b744-4383-852e-a610ab1471a0" class="">Jak vidíte, nejedná se o nic sofistikovaného a napsat celý script mi zabralo tak 30 minut.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8fd867c7-0166-4fc0-adcb-e12380dce3a8" class="">Bolest</h2>
+        <h2 id="8fd8" class="">Bolest <a class="heading-anchor" href="#8fd8" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7c38bd03-54be-4e39-8707-033061ebb866" class="">Takže co existuje za proxy víte. Kde je vzít víte. Script, který stáhne šedesát čtyři nově publikovaných máte. Teď už vám nic nebrání v jejich použití. Celé to zakomponujete do existujícího programu a spustíte váš ďábelský plán. Teď už jen hromy, blesky a váš šílený chechot, který se line nocí..</p>
@@ -353,13 +353,13 @@ if __name__ == '__main__':
         <p id="9b366dfe-c518-4ead-b338-1e23ad87565e" class="">Jenže ouha, celé to po chvíli vymrzlo. Chechot se mění do bolestného vytí a vás čekají dlouhé hodiny debugování a zjišťování, co je vlastně špatně.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d7ab4b50-7297-4bd5-b587-f4b31ef6941c" class="">Co je vlastně špatně</h2>
+        <h2 id="d7ab" class="">Co je vlastně špatně <a class="heading-anchor" href="#d7ab" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3cd63740-d318-4114-baad-42898036001f" class="">Všechno to, co jste si mohli přečíst až sem jsou obecně známé informace, které jde poměrně lehce najít všude možně po internetu. To co bude následovat dál jsou zkušenosti, které většinou musíte získat tou horší, bolestivější cestou, protože o nich nikdo moc nepíše.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="f9030544-3bc5-447e-a911-5f49dba4cead" class="">Časová osa</h3>
+        <h3 id="f903" class="">Časová osa <a class="heading-anchor" href="#f903" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="e40453a1-5d8c-4b7b-a444-f965ef719469" class="">V ideálním světě by vznikla proxy, někdo by jí zaindexoval do proxy listu a vy by jste jí mohli používat. Proxy by byla neomezeně rychlá, plně anonymní a hlavně stále stejná, tedy konzistentní, až do konce světa.</p>
@@ -374,7 +374,7 @@ if __name__ == '__main__':
         <p id="88480c5b-0ae7-4f50-87bc-c78d5355317e" class="">Dál je také nutné poznamenat, že žádná proxy nebude fungovat do nekonečna. Život většiny z nich je docela jepičí a měří se na dny, přičemž nikdy nevíte, jak dlouho se ta vámi používaná povaluje na proxylistu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="be733200-6f82-45ab-9ee3-e79ceca648ce" class="">Lidi jsou svině</h3>
+        <h3 id="be73" class="">Lidi jsou svině <a class="heading-anchor" href="#be73" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0d609381-2118-4977-8333-9c4d4fd88f6e" class="">Najdete servery, které vám na prvních 5 požadavků odpoví bleskově a potom začnou odpovídat už jen reklamní stránkou.</p>
@@ -389,7 +389,7 @@ if __name__ == '__main__':
         <p id="0293204e-51e0-42ff-af91-53da94abe161" class="">Už jsem psal, že život proxy je jepičí, ale nutno taky zdůraznit, že jejich umírání je skokové. Jak je jednou odhalí, tak budou vypnuty z milisekundy na milisekundu, dle zákona schválnosti nejčastěji právě uprostřed vašeho datového přenosu.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="dc8f41f4-dd0b-4238-88e4-f2affe171f04" class="">Na seznamy se nedá spolehnout</h3>
+        <h3 id="dc8f" class="">Na seznamy se nedá spolehnout <a class="heading-anchor" href="#dc8f" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="552d6554-b3cc-4e44-ad04-14c2a49ec542" class="">Dostali jste ze seznamu krásnou Elite proxy s malým pingem? Jak to víte?</p>
@@ -398,7 +398,7 @@ if __name__ == '__main__':
         <p id="9ad4c669-7b3a-4edd-a9f1-78417082a8f6" class="">Nemá smysl věřit údajům, které si stáhnete ze seznamu, jsou spíš jen takové orientační, sloužící k filtrování ostatních záznamů co vás nezajímají.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="ef9c9817-ae6d-4b50-b881-18d84804a29e" class="">Seznamy se mění</h3>
+        <h3 id="ef9c" class="">Seznamy se mění <a class="heading-anchor" href="#ef9c" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="33406986-8f5e-47a8-bc6f-1ec1ad843de7" class="">Pište si unittesty na vaše parsery proxy serverů. Ochrany na jednotlivých serverech se čas od času mění, stejně jako se mění design a layout stránky. To že nějaký grabber funguje teď neznamená, že bude fungovat i zítra, proto testujte, co vlastně vrací a jestli náhodou nepadl na tom, že server vás zabanoval, změnil adresu, nebo úplně přestal existovat.</p>
@@ -407,13 +407,13 @@ if __name__ == '__main__':
         <p id="8ce0acd8-272b-421f-aa87-81eaf987b2d7" class="">Není nic víc otravného, než když se po měsíci přihlásíte na VPS, aby jste zkopírovali výsledky dlouhé sklizně a zjistíte, že celý script stál na tom, že mu vyschl proxy pool, protože nebylo odkud brát. Na tohle by vás měl program proaktivně upozornit mnohem dřív!</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="921758fe-a955-4f35-af0b-d441e519ba32" class="">Jak s tím bojovat</h2>
+        <h2 id="9217" class="">Jak s tím bojovat <a class="heading-anchor" href="#9217" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="96353b4a-40fa-4bf9-888f-75fff5829050" class="">Řešení je na dvou úrovních - na úrovni kódu a na úrovni filtrování proxy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="b7caa224-276b-49fb-a18d-38a034b2d5b5" class="">Filtrování získaných proxy</h3>
+        <h3 id="b7ca" class="">Filtrování získaných proxy <a class="heading-anchor" href="#b7ca" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c19bef9d-ec73-4122-8c08-36f11295c9ca" class="">Všechny proxy servery, které ze seznamu získáte si musíte prověřit na zde popsané jevy, před tím než je můžete použít. V krátkosti:</p>
@@ -445,7 +445,7 @@ if __name__ == '__main__':
         </ol>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="13c3f48c-a4a7-4612-8d75-cfab15210c3f" class="">Na úrovni kódu</h3>
+        <h3 id="13c3" class="">Na úrovni kódu <a class="heading-anchor" href="#13c3" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="1d023e5a-75a9-405a-9637-c8deed591377" class="">Pokud sklízíte nějaké větší objemy dat a program poběží déle, než jen pár hodin, je nutné počítat s tím, že nebudete zadávat jen jednu proxy při spuštění a musí být přítomna nějaká cesta, jak z filtru nových proxy serverů načítat další a případně dát zpět vědět, že by měl filtr přesunout nefunkční proxy na banlist.</p>
@@ -474,7 +474,7 @@ if __name__ == '__main__':
         </ol>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="4ef9f0a7-b86c-4f52-a123-5c54bb4d8c7d" class="">Ideální architektura</h2>
+        <h2 id="4ef9" class="">Ideální architektura <a class="heading-anchor" href="#4ef9" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="b848b0e4-a1ad-4234-8182-e2535ecb9059" class="">Ideální architektura by vypadala nějak takhle:</p>
@@ -497,7 +497,7 @@ if __name__ == '__main__':
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="8903e552-6936-41ed-961c-dfeb449d75df" class="">Neideální architektura</h2>
+        <h2 id="8903" class="">Neideální architektura <a class="heading-anchor" href="#8903" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="d04bcd28-ac52-43b7-a135-e80d9242925f" class="">Pokud nejste zas tak moc zruční programátoři, nebo prostě a jednoduše nemáte moc času, celé se to dá udělat <em>špinavě</em> a <em>ošklivě</em>, podmínkou však je, že váš program umí pokračovat tam, kde přestal.</p>
@@ -506,7 +506,7 @@ if __name__ == '__main__':
         <p id="e75f94b4-f14d-4d6b-a5c0-858fe7240867" class="">K tomu jsou zapotřebí dvě věci:</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="7fd8b1dd-7ddc-4afa-aee7-fc55057672c1" class="">doitfaggot</h3>
+        <h3 id="7fd8" class="">doitfaggot <a class="heading-anchor" href="#7fd8" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="fe926a16-bb3a-4b35-9c3d-aedab3196988" class="">Již dlouhá léta používám tento maximálně triviální scriptík, který jsem nazval <code>doitfaggot</code>:</p>
@@ -523,13 +523,13 @@ done</code></pre>
         <p id="a7ef5a44-47d5-4083-a5cc-a058e32ad967" class="">Jediné co tento script dělá je, že spouští parametr do té doby, dokud se neukončí s nulovým výstupním kódem.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="3431c813-cce4-435c-aeb8-a58cac983df9" class="">timeout</h3>
+        <h3 id="3431" class="">timeout <a class="heading-anchor" href="#3431" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="5cab2bd9-5235-41ca-8499-4c99c2a74fa3" class=""><a href="http://linux.die.net/man/1/timeout">timeout</a> je linuxový program, který spustí parametr a čeká na ukončení maximálně nějakou stanovenou dobu. Pokud program běží déle, je násilně ukončen.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h3 id="19df1c3c-2920-4975-91aa-937c138f4fc8" class="">quick n' dirty</h3>
+        <h3 id="19df" class="">quick n' dirty <a class="heading-anchor" href="#19df" aria-label="Link to this heading">🔗</a></h3>
       </div>
       <div style="display:contents" dir="auto">
         <p id="dadfdfa8-0ad3-4794-ad08-b34e6645f8de" class="">Asi už vám došlo, jak to celé bude fungovat:</p>

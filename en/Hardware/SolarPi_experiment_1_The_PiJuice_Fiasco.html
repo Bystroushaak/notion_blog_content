@@ -179,7 +179,7 @@
         <p id="16851fd1-78e9-4dc8-9141-58310bd3a74e" class="">I’ve bought my <a href="https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c03793258">old server</a> <time>@April 14, 2017</time>, when the 1&nbsp;MWh cost something like 29.5 CZK. Since then, it costs 1433% more. Our government is now passing laws which will restrict the temperature people can use to warm their houses during the winter, and they are asking us, citizens, to lower our consumption of electricity. In expectation of shortages (both electricity and components), I’ve decided to be proactive, and revisit the idea of the solar-powered Raspberry Pi now, while I can still get the components. And so, this journey started sometime in July 2022.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="e9c93b20-2445-4658-a7ba-7eaf9a32a22a" class="">Requirements for new server</h1>
+        <h1 id="e9c9" class="">Requirements for new server</h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="3aebe0f1-82bb-4786-b6ac-306827ae13e2" class="">Replacing my old server with a Raspberry Pi is good even without the solar power because it consumes roughly 1/8 of electricity, while providing similar compute power. It is also much smaller, and it doesn’t make noise (which my old server does).</p>
@@ -214,7 +214,7 @@
         <p id="3169afa3-6263-4fb3-8dc5-639e114eddc5" class="">With that in mind, I wasn’t expecting that I could power the server from the solar panel for the whole day and night. Just some kind of offset, something like 6–10 hours from solar, will be good enough.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="95fb3098-bcfe-4f3c-a4c1-a9ff31955b66" class="">Components</h1>
+        <h1 id="95fb" class="">Components</h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="059c0ada-9a29-4540-a46b-4210eadaaf56" class="">After some exploration, I’ve decided to use <a href="https://github.com/PiSupply/PiJuice">PiJuice Hat</a> as the main driver for battery & solar power. This is a circuit board which you put on top of the Raspberry, and it handles stuff like charging of your battery, powering the Raspberry, switching between power supplies and so on.</p>
@@ -351,7 +351,7 @@
         <p id="23e080f5-6a7d-430e-8f1a-daa9027076ce" class="">PiJuice comes with a tiny 1820mAh battery, and since the beginning, it was clear that this is not good enough, so I’ve bought the biggest battery I could find (12000mAh). The default battery could theoretically provide roughly 6.7Wh (~1.3 hour of runtime), the one I bought could in theory provide 44.4Wh (~8 hours of runtime).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="8a60bebe-d1e3-44af-a8fa-90f3729f3657" class="">Assembly</h1>
+        <h1 id="8a60" class="">Assembly</h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="777c5731-007d-4dd9-852d-f2736c39d660" class="">Nothing really complicated, just put things into things until you have one big thing.</p>
@@ -637,7 +637,7 @@
         <p id="c4f3f5c1-294f-4117-9c9f-41d56a2a8089" class="">What. Average 5.09 W with solar cells and 5.1 without them? Something is not right here.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="7a876875-5f26-4000-8a4d-0788b9009dc7" class="">Investigation</h1>
+        <h1 id="7a87" class="">Investigation</h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ab2d66ca-8f64-4e46-befd-36f8e9872aa4" class="">I had a few theories:</p>
@@ -663,7 +663,7 @@
         </ol>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="b1b3e469-5fd3-4ced-8522-021896bce9a7" class="">Investigation: Solar panels and the sunlight</h2>
+        <h2 id="b1b3" class="">Investigation: Solar panels and the sunlight</h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c2b0b3c1-67cb-4206-ade8-d068f4017853" class="">Since all I could see in the <code>pijuice_cli</code> was “<code>BAD</code>” and “<code>WEAK</code>” status, I’ve decided that the simplest part of debugging will be just to bring the solar panels outside. Perhaps there is a massive loss because they are inside, and the window glass is blocking most of the power of the sun? Or maybe the angle is wrong and there is some kind of shadow on the panel?</p>
@@ -828,7 +828,7 @@
         <p id="c5ba9191-2a76-466d-9d67-4406efa1e390" class="">When I saw the randomness of it all, I started to play with other settings in the PiJuice, but it still felt like the solar panels were not working properly.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="d3ca3aa1-c452-4d55-8b99-da1bd86b664d" class="">Investigation 2: Two USB ports on the panel</h2>
+        <h2 id="d3ca" class="">Investigation 2: Two USB ports on the panel</h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="322c3296-e80a-4d04-9102-7ce5b010a0e3" class="">Meanwhile, I also built a Y cable with two USB male sockets joining the power from the solar panel to one micro USB output:</p>
@@ -842,7 +842,7 @@
         <p id="3affe6ac-6d37-4734-9924-63a4ebdc9acd" class="">This works, but since the autumn began here, I didn’t really have the use case. The solar panel is not going above 2A most of the time, and the PiJuice is limiting the power draw to 2.5A anyway.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="81784f7a-1954-4f0c-81e0-d2c97b4eecc4" class="">Investigation 3: PiJuice and power source</h2>
+        <h2 id="8178" class="">Investigation 3: PiJuice and power source</h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="46602805-13e1-4113-aca8-d9f5190575b5" class="">Maybe the PiJuice is always using the stronger power source? Even though I’ve manually selected that <code>GPIO input</code> should be disabled, and set <code>Inputs precedence</code> to <code>USB_MICRO</code>.</p>
@@ -932,7 +932,7 @@
         <p id="24c039cd-ba3d-465b-bc40-49b6fa14a821" class="">This means that the theory that the PiJuice is using the power only when the GPIO (USB-C power in) is disconnected is not true because the numbers are on average more or less the same.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7b91a60d-e938-4c9b-9716-bbccbd97fc50" class="">Investigation 4: PiJuice</h2>
+        <h2 id="7b91" class="">Investigation 4: PiJuice</h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8616d557-bf2b-4325-a16d-22f38edac4b9" class="">At this point, I was quite convinced that the problem was most probably in the PiJuice itself. So, I’ve decided to dig into the issues on GitHub:</p>
@@ -1006,7 +1006,7 @@
         </ul>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="051b5f02-4f72-4f49-9f5f-2ee4943d0674" class="">Investigation 5: Solar panel controller</h2>
+        <h2 id="051b" class="">Investigation 5: Solar panel controller</h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="f6ca8653-ab0a-4403-975f-dd64bfaa38ce" class="">As the <a href="https://github.com/PiSupply/PiJuice/issues/863">#863</a> hints, there may be a problem with the solar panel controller. It is trying to be smart, and maybe it is deadlocking and not letting the power flow properly when it should.</p>
@@ -1039,7 +1039,7 @@
         <p id="385f82a9-447e-4e51-8cac-8f60dbb80362" class="">Which shows that the solar was providing enough power for half an hour without any other change than just unplugging and plugging in the cables back.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="6e8234c9-d58d-4e20-9ec5-d9b24d423afb" class="">Conclusion</h1>
+        <h1 id="6e82" class="">Conclusion</h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7567b7a1-99ba-4238-8d7f-826d0e593e77" class="">After all this, I’ve let it run for a few months. Most if not all days looked like this:</p>
@@ -1093,7 +1093,7 @@
         <p id="8f4d7a7c-8830-4198-9959-daaef695a8a4" class="">You can read about it in the next blogpost: <a href="SolarPi_experiment_2_Finally_something_that_works.html" title="SolarPi experiment 2: Finally something that works">SolarPi experiment 2: Finally something that works</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="7ee11709-21d1-4e03-9bcb-c654cbc9f011" class="">Relevant discussions</h2>
+        <h2 id="7ee1" class="">Relevant discussions</h2>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="789ce7cd-c9f4-4d9e-9dd2-dc6d31fdd562" class="bulleted-list">

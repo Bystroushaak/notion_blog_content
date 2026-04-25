@@ -129,7 +129,7 @@
         <p id="7972e399-39dc-4cc4-9fac-14c6d44dc154" class="">Ve třetím dílu seriálu <em>Jak se píše programovací jazyk</em> se podíváme na způsob, kterým se z jednorozměrného pole <code>Token</code> objektů udělá syntaktický strom, který pak následně můžeme dále zpracovávat a vyhodnocovat.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="3d9a6798-79b3-47f1-82bc-8d407702a16a" class="">Parser</h1>
+        <h1 id="3d9a" class="">Parser <a class="heading-anchor" href="#3d9a" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="69f234e5-edcc-44bd-bac0-fcd319e19d42" class="">Jak bylo popsáno v minulém dílu, Lexer vám kód rozřeže na pole jednotlivých elementů. V mém případě z kódu jako:</p>
@@ -219,7 +219,7 @@ DOUBLE_QUOTED_STRING: "\\"[^\\\\"]*\\"";</code></pre>
         <p id="6dc80472-9047-4907-a95a-575736074d5d" class="">Bystřejší čtenáři si jistě všimli, že v kódu jsou použity jiné tokeny, než v předchozím díle. Je tomu tak proto, že <code>ebnfparse</code> umožňuje definovat tokeny zároveň s parserem, což <a href="https://rply.readthedocs.io/">rply</a> neumožňuje a to co bylo uvedeno v minulém díle je má pozdější snaha.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="5b183968-a7db-4ca4-90dd-9c087af6e2fb" class="">RPLY</h1>
+        <h1 id="5b18" class="">RPLY <a class="heading-anchor" href="#5b18" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="66f9efe0-7194-43a5-8461-e7b99a089d2a" class="">Chybějící dokumentace mě časem donutila od RPythonního <code>ebnfparse</code> odejít, speciálně když jsem si procházel ostatní projekty, které používaly jiné parsery. Časem jsem narazil na <a href="https://rply.readthedocs.io/en/latest/">rply</a>, což je port parseru <a href="https://github.com/dabeaz/ply">ply</a> přímo pro RPython. Funguje tak, že píšete dekorátory funkcím ve stylu:</p>
@@ -247,7 +247,7 @@ def expression_number(p):
         <p id="4292bd03-b4a0-4e27-83f3-f6761e59e97e" class="">Jak je vidět, v tinySelfu existují pouze objekty, bloky, akt poslání zprávy, přeposlání zprávy, kaskáda zpráv (akt poslání několika zpráv jednomu objektu), návrat hodnoty, tři typy zpráv (unární, binární, <em>keyword</em>) a poté čtyři zkratky pro často používané objekty: čísla, stringy, Self a Nil. Self by existovat teoreticky nemusel, mohla by to být jen <code>Message("self")</code> poslaná nikomu, ale zpřehledňuje to kód i výsledný strom. Nil je jen zkratka pro singleton, který by mohl být uložený v globálním namespace.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="56745c3a-7c85-4b59-b961-b642b26b0bb7" class="">Složitější rekurzivní pravidla</h2>
+        <h2 id="5674" class="">Složitější rekurzivní pravidla <a class="heading-anchor" href="#5674" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="8ae1b03b-3492-4bb2-863a-3d287d777fdf" class="">Zde je ukázka složitějšího transformačního pravidla:</p>
@@ -292,13 +292,13 @@ def unary_message_to_expression(p):
         <p id="7825c40c-7620-4ffd-9ff1-c1b3595113b6" class="">Nakonec se však povedlo a kód prošel všemi testy, které jsem pro něj napsal. Myslel jsem si, že tím to pro mě končí, ale jak se ukázalo, byl to jen začátek další parsovací bolesti, tentokrát spočívající ve snaze kód upravit pro překlad RPythonem.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="76735348-6d36-43bf-9c29-9709bf25382c" class="">Pokračování</h1>
+        <h1 id="7673" class="">Pokračování <a class="heading-anchor" href="#7673" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4c34c5cf-c9ee-41e9-9f37-d2c77dea713f" class="">Příští díl bude takovým mezidílem na téma RPythonu a některých praktických problémů, které jsem musel vyřešit, abych mohl parser a lexer pod ním zkompilovat.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="035572b4-371d-4d89-8cd2-3c89557492b1" class="">Relevantní diskuze</h1>
+        <h1 id="0355" class="">Relevantní diskuze <a class="heading-anchor" href="#0355" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="252d60a9-acd8-4e03-97ff-967994b7d34a" class="bulleted-list">

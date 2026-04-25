@@ -134,7 +134,7 @@
         <p id="f148a77e-5724-4217-9b0a-f180f80901a4" class=""><time>@2011/02/15</time></p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="75909d7b-d531-4799-9228-6f86574dcee9" class="">Před půl rokem</h1>
+        <h1 id="7590" class="">Před půl rokem <a class="heading-anchor" href="#7590" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="510d989d-5643-4e79-89c6-56c6b4422fe8" class="">O velkých prázdninách jsem při čtení webu o robotice narazil na&nbsp;<a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">článek</a>&nbsp;o routeru&nbsp;<a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">BR6104KP</a>&nbsp;(verzi bez P na konci nebrat, chybí jí dva USB porty které je nutné připájet!), což je v podstatě zakuklený počítač. Připadalo mi to zajímavé, ba přímo skvělé, tak jsem si z aukra přidal do readeru&nbsp;<a href="http://aukro.cz/rss.php?feed=search&amp;category=0&amp;sg=0&amp;description=1&amp;string=br6104kp">RSS feed vyhledávání</a>&nbsp;a čekal kdy se objeví nějaký router za přijatelnou cenu. Netrvalo to dlouho a podařilo se mi jeden nový a nikdy nepoužívaný koupit za 300kč i s poštovným.</p>
@@ -151,7 +151,7 @@
         <p id="7297e0f7-4277-4629-8d03-a20bbf275ea6" class="">Po chvíli kdy jsem hledal ethernet kabel jsem se na router napojil a prohlédl si webové rozhraní. Jedná se o standard který je možné v různém grafickém provedení nalézt na téměř každém levném domácím routeru, takže mě to rychle znudilo a začal jsem hledat jak že to mám vlastně router upravit na linuxovou mašinu. Během chvilky googlení jsem narazil na původní článek, který mě tenkrát tak nadchl.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d203c99b-67d5-4b8d-b6cf-743f048f7c05" class="">Úprava hardware</h1>
+        <h1 id="d203" class="">Úprava hardware <a class="heading-anchor" href="#d203" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="645a22da-caac-4919-a85d-fe1d83e061ea" class=""><a href="http://jakub.serych.cz/zakladni-hardwarova-uprava-routeru">Hardwarová modifikace</a>&nbsp;je jednoduchá - stačí jen připájet neosazený konektor do portu kde je vyvedený JTAG (JP2). Jedná se o osm děr, které je nutné provrtat (jsou ucpané pájecím materiálem) a z obou stran desky do nich připájet konektor. Později jsem přišel na to, že není nutné osazovat všechny piny, ale stačí vždy dva krajní, dohromady tedy čtyři.</p>
@@ -165,7 +165,7 @@
         <p id="9bc301c4-1a89-4d9b-b607-aee8e5c3c3d8" class="">Jelikož je možné že čipy na desce jsou citlivé vůči magnetickým polím, není možné použít mojí milovanou, 30 let starou trafopájku, ale je nutné pájet něčím co nevytváří takové EMP, tedy například mikropájku. Díky tomu že mám nějakej 40W šmejd za stopade z&nbsp;<a href="http://www.gme.cz/cz/">GME</a>&nbsp;se jednalo doslova o utrpení. Cín (je mi jasné že to není čistý cín, ale stejně tomu tak říkám) se nechtěl tavit, celé mi to trvalo strašně dlouho a na konci jsem byl už tak nasraný že jsem to vzal trafopájkou kterou jsem zapnul nataženou rukou co nejdále od desky. To co jsem neudělal za půl hodiny mikropájkou bylo trafopájkou hotové během půl minuty, obvody to naštěstí přežily bez újmy.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="278ee73f-1377-4395-a2d5-68c67416e8bc" class="">Připojení k počítači</h1>
+        <h1 id="278e" class="">Připojení k počítači <a class="heading-anchor" href="#278e" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="66da1223-3b8e-42e7-a6b3-ca6fcd583837" class="">Poté co jsem připájel konektor přišlo na řadu zjišťování jak že to mám vlastně s routerem komunikovat. Pro přenos dat se používá&nbsp;<a href="http://en.wikipedia.org/wiki/UART">UART</a>, což je vlastně zjednodušený&nbsp;<a href="http://cs.wikipedia.org/wiki/RS232">RS232C</a>&nbsp;pracující v nižších napěťových úrovních. V praxi to znamená, že běžný osobní počítač se na sériovou konzoli nemůže nijak jednoduše připojit. Pokud má ještě dnes již nemoderní sériový port (tedy podporu RS232), tak je pořád nutný převodník napěťových úrovní, pokud ho nemá tak je nutné si sehnat něco sofistikovanějšího.</p>
@@ -196,7 +196,7 @@
         <p id="1caa1e07-74cc-4f42-9e14-8ce706e6d1b8" class="">Jakmile jsem desku resetoval, objevila se bootovací hláška (pokud chcete přejít do nastavení, je nutné třikrát rychle zmáčknout mezerník), po které následovala záplava informací od linuxového jádra a něco co požadovalo heslo, ale nešlo do toho psát, protože se přepisoval pořád ten samý znak. Moc jsem to nezkoumal a desku jsem zase vypnul.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="80635862-bcdf-448d-a09e-fe14d8337e69" class="">Nahrávání software</h1>
+        <h1 id="8063" class="">Nahrávání software <a class="heading-anchor" href="#8063" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="ee55ab00-0d89-4656-9eb2-38c2ee65572a" class="">Když jsem teď měl vyřešené propojení s počítačem, nastalo shánění software. Jako první jsem našel distribuci&nbsp;<a href="http://midge.vlad.org.ua/wiki/">Midge.</a>&nbsp;Chvíli mi trvalo než jsem na jejich stránce nalezl binárku ke stažení, přičemž mě zarazilo především to, že je to poněkud stará distribuce. Poslední buildy jsou staré cca čtyři roky a jedou ještě na jádru 2.4.</p>
@@ -213,7 +213,7 @@
         </figure>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="c2ff145f-464d-4097-bee0-c37cb8810d32" class="">Squidge vs OpenWRT</h1>
+        <h1 id="c2ff" class="">Squidge vs OpenWRT <a class="heading-anchor" href="#c2ff" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="7a521117-e98d-46ef-a1b6-77150f562bb3" class="">Squidge je lehce upravené <a href="http://openwrt.org/">OpenWRT</a>, což je linuxová distribuce určená pro routery. V případě Squidge se jedná o model <a href="http://jakub.serych.cz/hratky-routerem-edimax-br-6104kp">Edimax BR6104KP</a> a většina úprav spočívá v automatickém nastavení distribuce a patche pro podporu <em>usbrootu</em>, což znamená že kořenový adresář není v routeru, ale na externím flashdisku. Má to své nevýhody - router tak ke svému běhu potřebuje neustále připojený flashdisk, který se navíc časem opotřebovává, také je třeba počítat s jistým zpomalením. Na druhou stranu to má i své výhody - místo 2MB získáváte prakticky neomezený prostor, pokud si vytvoříte <em>swap</em>, tak navíc i rozšíření na dnešní dobu nepěkně malých 16MB SD-RAM.</p>
@@ -225,7 +225,7 @@
         <p id="d7c8f231-ef62-4893-b6b0-dd7a59963401" class="">Samotné sestavení je relativně jednoduché - v textové grafice je nutné zaškrtat všechny potřebné moduly a nastavení. Při jejich výběru jsem vycházel z anglického OpenWRT fóra, konkrétně <a href="https://forum.openwrt.org/viewtopic.php?id=18570">USB-rootfs on boot on Edimax BR-6104KP (ADM5120) [WORKS].</a> Považuji za nutné dodat, že v prvním příspěvku není popsané úplně všechno a stálo mě několik hodin života než jsem na to přišel. Celé sestavování probíhalo na Ubuntu 10.10.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="53e2c4e2-cf1a-4dfd-9306-e92ec5d8ca82" class="">Získání zdrojových kódů</h2>
+        <h2 id="53e2" class="">Získání zdrojových kódů <a class="heading-anchor" href="#53e2" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="52c2037c-ad5b-4150-9a86-6fc79d83bda4" class="">Prvním krokem je stažení aktuální kopie zdrojových kódů. I když samotné zdrojové soubory zabírají poměrně málo místa (38.5MB), připravte si cca 3GB volného místa na vše ostatní co se bude stahovat v průběhu kompilace. Zdrojové kódy je možné získat přez <strong>svn</strong>, adresu najdete na stránce <a href="https://dev.openwrt.org/wiki/GetSource">https://dev.openwrt.org/wiki/GetSource</a>. <del>Osobně jsem si vybral</del> <del><strong>kamikaze</strong></del><del>, protože ho používal Squidge.</del> <strong>Kamikaze</strong> nebrat, má porouchaný opkg. <strong>Backfire</strong> funguje k plné spokojenosti.</p>
@@ -241,7 +241,7 @@
         <p id="6a86a3e6-aa5d-4681-9501-3fa851dcae81" class="">Ten stáhne vše potřebné do aktuální složky, takže si nazapomeňte před provedením vytvořit nějakou prázdnou složku a vstoupit do ní.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="2fcbdecb-9de7-40e9-9588-fb667468548f" class="">make menuconfig</h2>
+        <h2 id="2fcb" class="">make menuconfig <a class="heading-anchor" href="#2fcb" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="a1937cf8-a0d0-4776-913e-cbe189731c5c" class="">Jakmile máte staženo, zadejte:</p>
@@ -277,7 +277,7 @@ Target Images
         <p id="04a15008-6a31-4af5-90ff-764230a657f1" class="">Šipkou doprava vyberte Exit a potvrďte uložení konfigurace.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="73f1123b-a637-47c9-b5f8-1ba33ea70171" class="">make kernel_menuconfig</h2>
+        <h2 id="73f1" class="">make kernel_menuconfig <a class="heading-anchor" href="#73f1" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="c6f09394-3877-426a-87d9-e5850ec01a4d" class="">Poté co jste nastavili obecné informace přichází na řadu to důležitější - nastavení konfigurace jádra. Spustíte jí příkazem</p>
@@ -340,7 +340,7 @@ Kernel hacking
         <p id="385647e6-bb0f-4798-b7ad-bf74b5dfa36b" class="">Poté opět vyberte Exit a potvrďte změnu konfigurace.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="63dded09-310e-4079-8bcd-b69c4b86d626" class="">make</h2>
+        <h2 id="63dd" class="">make <a class="heading-anchor" href="#63dd" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="24707ad9-8e97-458c-a4d3-a3a7feaa2bff" class="">Nyní je na čase zkompilovat jádro. Provedete to zadáním příkazu <code>make</code>, ale osobně doporučuji spíš:</p>
@@ -352,7 +352,7 @@ Kernel hacking
         <p id="cbc1bf81-ba61-4095-ae52-50cfec91fdb8" class="">Což zvýší jeho ukecanost a navíc automaticky na vše odpovídá že ne. To se docela hodí, protože script se z nějakého důvodu s odstupem cca 10m dvakrát za sebou ptá na podporu Olympus foťáků, což je docela nepříjemné jelikož to přeruší kompilaci dokud mu neodpovíme.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="35df809d-d294-4e9d-8905-9c308f502be5" class="">Příprava flashdisku</h2>
+        <h2 id="35df" class="">Příprava flashdisku <a class="heading-anchor" href="#35df" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="779d0fc9-9a0a-4900-b1be-d67b85e3e153" class="">Nyní je dobré si připravit flashdisk. Rozdělte ho (například v <a href="http://gparted.sourceforge.net/">Gparted</a>) tak, aby první partišna byla typu <em>ext3</em> a druhá <em>swap</em>. Je důležité dodržet pořadí a obě dvě nechat jako primární. Velikost <em>swapu</em> nechám na vás, já jsem si udělal 64MB, ale klidně to může být dvojnásobek. Pamatujte že čím větší bude <em>swap</em>, tím více paměti budete mít k dispozici a tím rychleji odejde příslušná část flashdisku do křemíkového nebe.</p>
@@ -375,13 +375,13 @@ wget -nd -r -l 1 http://downloads.openwrt.org/kamikaze/8.9.2/adm5120/packages/</
         <p id="fe0bdb93-531c-4c90-bdd2-c75852f9f1cf" class=""><del>Tento příkaz není úplně ideální, protože my potřebujeme pouze</del> <del><em>mipsel</em></del> <del>balíky,</del> <del><em>mips</em></del> <del>jsou nám k ničemu. To jak odstranit/nestahovat všechny</del> <del><em>mips</em></del> <del>balíky nechám na vás, sám jsem to vyřešil poněkud nepěkně.</del></p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="c0b7d295-b3e7-42cb-8b2e-1d8d3da38b3a" class="">Kompilujem a stahujem..</h2>
+        <h2 id="c0b7" class="">Kompilujem a stahujem.. <a class="heading-anchor" href="#c0b7" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="6b8b54fa-368e-4843-8f2c-fd0ee1cf163c" class="">Jelikož tohle píšu zároveň s ukázkovou kompilací abych si ověřil že jsem na nic nezapomněl, následuje teď část kdy budu asi tak hodinu (real 45m33.908s) čekat než se systém zkompiluje. Co při tom budete dělat vy je na vás, já se jdu kouknout jestli není něco v televizi.. Nic nedávali, tak jsem si udelal aspoň večeři - dva přírodní řízky ;).</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="5e232d7b-2e35-4082-a828-7faf6d61455f" class="">Dokompilováno a dostahováno</h2>
+        <h2 id="5e23" class="">Dokompilováno a dostahováno <a class="heading-anchor" href="#5e23" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="4106e3de-e77e-48ac-ad55-0ec690de6295" class="">Jakmile se vše zkompiluje <del>a wget dostahuje repozitáře</del>, přijde na řadu nahrávání image do routeru a rozbalení <em>usbrootu</em> na flashdisk.</p>
@@ -410,7 +410,7 @@ packages/ složka s balíky, v podstatě jí nepořebujete, protože již máte 
         <p id="e8e09a18-3ea7-4c35-bc95-4c9a65085293" class="">Pokud vás zajímá jak má vypadat funkční výstup nahrávání, najdete ho zde: <a href="http://openpaste.org/en/24768/">http://openpaste.org/en/24768/</a>.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="ff8dfce3-1222-4bd5-8a1b-faaf285500ae" class="">Co dál?</h2>
+        <h2 id="ff8d" class="">Co dál? <a class="heading-anchor" href="#ff8d" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="44dfbaa0-380b-4b56-9c66-fd051fa27992" class="">Dál je dobré přečíst si stránku na OpenWRT wiki: <a href="http://wiki.openwrt.org/toh/edimax/br-6104kp">http://wiki.openwrt.org/toh/edimax/br-6104kp</a> a začít konfigurovat.</p>
@@ -493,7 +493,7 @@ config interface lan
 #   option netmask  255.255.255.0</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="f878b10f-6c2b-4df3-b2e0-7d92dc88ff97" class=""><del>Rozbitý wget/opkg</del></h2>
+        <h2 id="f878" class=""><del>Rozbitý wget/opkg</del> <a class="heading-anchor" href="#f878" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="538c9393-a2fd-41bb-80d0-a100ef8a12ca" class=""><del>Pokud se pokusím nainstalovat daný balík z repozitářů na internetu, vypadá to asi takhle;</del></p>
@@ -531,7 +531,7 @@ wget is /usr/bin/wget</code></pre>
         Problémy se týkají pouze <strong>Kamikaze</strong>, v <strong>Backfire</strong> je vše v pořádku</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h2 id="1d45cef9-2d5d-46a7-924a-a7ae5a47c707" class="">Závěr</h2>
+        <h2 id="1d45" class="">Závěr <a class="heading-anchor" href="#1d45" aria-label="Link to this heading">🔗</a></h2>
       </div>
       <div style="display:contents" dir="auto">
         <p id="467e53a7-ad9c-4fa1-92f8-39f4b9f4f26f" class="">OpenWRT je skvělý systém<del>, jehož jedinou nevýhodou jsou problémy s</del> <del><strong>opkg</strong></del>. Oproti Squidge na něm jede python, čímž si zajistil že ho budu používat namísto něho.</p>

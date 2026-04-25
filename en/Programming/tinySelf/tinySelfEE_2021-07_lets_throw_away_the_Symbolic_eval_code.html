@@ -322,7 +322,7 @@
         <p id="d56680f9-1718-435e-bcbe-fbfc52cb8a20" class="">I vaguely remember that I've implemented most of the <code>SymbolicObject</code>, so that the slot lookup and parent lookup worked.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="3ea77705-22d2-4250-8fd4-f7e09732062a" class="">Let's work on it</h1>
+        <h1 id="3ea7" class="">Let's work on it <a class="heading-anchor" href="#3ea7" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="0f26ae4b-6c28-4c24-a555-91d8b5103aa4" class="">Ok. So, what is missing. From what I understand now, the evaluation should be just a matter of calling <code>.evaluate()</code> on the root of the output from <code>SymbolicCompiler</code>. Lets try that.</p>
@@ -374,7 +374,7 @@
         <p id="a5d0881a-a5cc-4587-944b-71d35f515e01" class="">Unsurprisingly, it's empty. Ok.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="529bd2df-420c-4777-be0d-893d48305228" class="">Symbolic evaluation</h1>
+        <h1 id="529b" class="">Symbolic evaluation <a class="heading-anchor" href="#529b" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="035eca50-92f6-4c30-a2c6-86a7701d776d" class="">Hmm, how should it work. I can see, that the <code>SymbolicObject</code> has this implementation of the <code>.evaluate()</code> method:</p>
@@ -506,7 +506,7 @@ SymbolicFrame(
 )</code></pre>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="d1ea5c42-b848-44cb-8824-1778ecc17880" class="">Revelation</h1>
+        <h1 id="d1ea" class="">Revelation <a class="heading-anchor" href="#d1ea" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <p id="07dc6d5d-cce8-4735-a648-5112e5c3d2a3" class="">Now I look at the result and think why I even need stack in the symbolic evaluation. Did I just used it for symbolic evaluation because I had it in tinySelf? When crunching bytecodes, it makes perfect sense, but in the symbolic evaluation, I think I can work without it.</p>
@@ -527,7 +527,7 @@ SymbolicFrame(
         <p id="05b57c46-ee67-4432-b92f-7f2058736b4e" class="">And I did that. I've commited everything, created new tag <code>symbolic_execution</code> and then went to delete files.</p>
       </div>
       <div style="display:contents" dir="auto">
-        <h1 id="4722b823-4b13-4e59-b883-7bd8668105eb" class="">TODO</h1>
+        <h1 id="4722" class="">TODO <a class="heading-anchor" href="#4722" aria-label="Link to this heading">🔗</a></h1>
       </div>
       <div style="display:contents" dir="auto">
         <ul id="07e63351-f25e-4e2c-a699-82f22f8223c1" class="to-do-list">
